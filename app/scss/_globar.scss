@@ -1,0 +1,46 @@
+@for $i from 1 through 100 {
+	.mt-#{$i} {
+		margin-top: $i px
+	}
+	.mb-#{$i} {
+		margin-bottom: $i px
+	}
+	.ml-#{$i} {
+		margin-left: $i px
+	}
+	.mr-#{$i} {
+		margin-right: $i px
+	}
+	//패딩
+	.pt-#{$i} {
+		padding-top: $i px
+	}
+	.pb-#{$i} {
+		padding-bottom: $i px
+	}
+	.pl-#{$i} {
+		padding-left: $i px
+	}
+	.pr-#{$i} {
+		padding-right: $i px
+	}
+}
+
+@for $i from 1 through 6 {
+	section#section#{$i} {
+		position: relative;
+		height: 100%;
+	}
+}
+.wrap{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	/*overflow: hidden;*/
+}
+#bg-cover {
+	@include backcover('/public/images/background/bg1.png');
+	position: absolute;
+	height: 100%;
+	z-index: -1;
+}
