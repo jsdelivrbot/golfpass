@@ -2,251 +2,120 @@
 <html lang="en">
 
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="description" content="">
-	<meta name="author" content="">
-	<link rel="icon" href="">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="">
 
-	<title>Starter Template for Bootstrap</title>
+    <title>골프패스</title>
 
-	<!-- Bootstrap core CSS -->
-	<link rel="stylesheet" href="/public/dist/bootstrap/bootstrap.min.css">
-	<link rel="stylesheet" href="/public/css/style.css">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="/public/dist/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <link rel="stylesheet" href="/public/css/main.css">
+    <link rel="stylesheet" href="/public/css/eric-meyer-reset.min.css">
+
+    <link rel="stylesheet" href="/public/css/xeicon.min.css">
+    <link rel="stylesheet" href="/public/dist/Nwagon/Nwagon.css" type="text/css">
 </head>
 
 
 <body>
-	<section class="container-fluid" id="bg-cover">
-	</section>
-	<div class="wrap">
-		<!--NOTE SECTION 1 -->
-		<section class="container-fluid" role='main' id="section1">
-			<div class="container">
-				<!--NOTE top-nav -->
-				<nav class="row align-items-center">
-					<div class="col">
-						<!--NOTE 로고와 폼-->
-						<div class="d-flex  align-items-center">
-							<!--NOTE 로고-->
-							<a href="#" id='logo'><img src="/public/images/logo.png" alt="LOGO"></a>
-							<!--NOTE searchform-->
-							<form action="" id='searchform'>
-								<div class="input-group">
-									<span class="input-group-btn">
-        <button class="btn btn-secondary" type="button">Go!</button>
-      </span>
-									<input type="text" class="form-control" placeholder="관심있는 나라나 도시를 검색해보세요!" aria-label="Search for...">
-								</div>
 
-							</form>
+    <!--NOTE header-->
+    <header id="header">
+        <nav id="header-nav">
+            <ul class='d-flex justify-content-between align-items-center'>
+                <li>
+                    <ul class='d-flex align-items-center'>
+                        <li id="logo" class='split-li'>
+                            <a href="#">
+                                <img src="/public/img/icon/logo.png" alt="">
+                            </a>
+                        </li>
+                        <li class='splice'></li>
+                        <li id='nav-search' class='d-flex align-items-center'>
+                            <i class="xi-search"></i>
+                            <input type="text" id="search" placeholder="관심있는 나라나 골프장을 검색해보세요!">
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class='d-flex align-items-center'>
+                        <li>
+                            <a href="#">
+                                <img src="public/img/icon/noimage.png" alt="">
+                            </a>
+                        </li>
+                        <li class='splice'></li>
+                        <li id='nav-meun' class='d-flex align-items-center'>
+                            <a href="#" class='d-flex align-items-center'>
+                                <i class="xi-bars"></i>
+                                <span>메뉴</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <article id="header-article">
+            <div id='header-article-box' class="d-flex">
+                <div id="slide-img">
+                    <img src="/public/img/background/hero-image.jpg" alt="">
+                </div>
+                <div id="detail">
+                    <p id="regine" class='mb-15'>
+                        아랍에미레이트, 아부 다비
+                    </p>
+                    <h1 id="title" class='mb-10'>사디야트 해변골프 클럽
+                   </h1>
+                    <p id="title-en" class="mb-20">
+                        Saadiyat Beach Golf Club
+                    </p>
+                    <div id="content">
+                        <p id='sub-title'>소개</p>
+                        <p>사디야트 해변 골프 클럽의 광활한 부지는 편안하면서도 와이드한 느낌을 전해주며, 샷밸류가 살아있는 전략적인 레이아웃으로 9홀 단위로 그 특징들이 차별화되어 있습니다. 기존 자연림과 깍아지듯한 암벽과 광활한 암반에 펼쳐지는 연못이 타 골프장과 차별성을 더해 주고 소나무림에 둘러싸인 코스는 마치 자연속에 그대로 안착된 듯한 홀로 조성하였습니다.</p>
+                    </div>
+                </div>
+                <div id="chart" class='ml-auto'>
 
-						</div>
-					</div>
-					<div class="col align-items-center">
-						<!--NOTE 프로필 사진과 메뉴 -->
-						<ul class='d-flex align-items-center justify-content-end'>
-							<li><img src="./public/images/profile1.png" alt=""></li>
-							<li>메뉴</li>
-						</ul>
-					</div>
-				</nav>
-				<!--NOTE SECTION1 content-->
-				<div class="d-flex flex-column">
-					<h1 class="title">
-						사마다 골프장
-					</h1>
-					<p class="score">
-						<img src="" alt="">
-					</p>
-				</div>
-			</div>
-		</section>
+                </div>
+            </div>
+            <div id="slide-img-list" class='d-flex align-items-center'>
+                <span><i class="xi-angle-left-min"></i></span>
+                <ul class='d-flex'>
+                    <li>
+                        <img src="public/img/background/hero-image.jpg" alt="">
+                    </li>
+                    <li>
+                        <img src="public/img/background/hero-image.jpg" alt="">
+                    </li>
+                    <li>
+                        <img src="public/img/background/hero-image.jpg" alt="">
+                    </li>
+                    <li>
+                        <img src="public/img/background/hero-image.jpg" alt="">
+                    </li>
+                    <li>
+                        <img src="public/img/background/hero-image.jpg" alt="">
+                    </li>
+                </ul>
+                 <span><i class="xi-angle-right-min"></i></span>
+            </div>
+        </article>
 
-		<!--NOTE SECTION 2 나라별 골프장-->
-		<section id="section2" class="container-fluid">
-			<div class="container">
-				<div class="row">
-					<!--NOTE 각 세션 타이틀-->
-					<h1 class="caption">
-						나라별 골프장
-					</h1>
-				</div>
-				<article class="row">
-					<!--NOTE 사진-->
-					<div class="col-2 card">
-						<h1 class="contry">
-							러시아
-						</h1>
-						<p class="city">모스크바</p>
-					</div>
-					<div class="col-2 card">
-						<h1 class="contry">
-							미국
-						</h1>
-						<p class="city">위싱턴 DC</p>
-					</div>
-					<div class="col-2 card">
-						<h1 class="contry">
-							일본
-						</h1>
-						<p class="city">도쿄</p>
-					</div>
-					<div class="col-2 card">
-						<h1 class="contry">
-							중국
-						</h1>
-						<p class="city">베이징</p>
-					</div>
-					<div class="col-2 card">
-						<h1 class="contry">영국
-						</h1>
-						<p class="city">런던</p>
-					</div>
-					<div class="w-100"></div>
-					<div class="col-2 card">
-						<h1 class="contry">프랑스
-						</h1>
-						<p class="city">파리</p>
-					</div>
-				</article>
-			</div>
-
-		</section>
-		<!--NOTE SECTION 3 골프패널이 추천하는 골프장-->
-		<section id="section3" class="container-fluid">
-			<div class="row">
-				<!--NOTE 각 세션 타이틀-->
-				<h1 class="caption">
-					골프패널이 추천하는 골프장
-				</h1>
-			</div>
-			<div class="row">
-				<div class="col-3">
-					<img src="" alt="">
-					<p class="title">앙시나 골프텔</p>
-					<p class="score"><img src="" alt=""><span>(리뷰 173개)</span></p>
-					<p class="content">
-						사디야트 해변 골프클럽의 광활한 부지는 편안하면서도 와이드한 느낌을 전해주며, 샷밸류가 살아있는 전략적인 레이아웃으로 9홀 단위로 그 특징들이 차별화되어 있습니다. 기존
-					</p>
-					<p class="price">
-						31.9000원
-					</p>
-					<div class="row">
-						<p>추천한 패널</p>
-					</div>
-					<div class="row">
-						<div class="col-1">
-							<img src="" alt="이미지1">
-						</div>
-						<div class="col-1">
-							<img src="" alt="이미지2">
-						</div>
-						<div class="col-1">
-							<img src="" alt="이미지3">
-						</div>
-					</div>
-				</div>
-
-
-			</div>
-		</section>
-		<!--NOTE SECTION 4 테마별 골프장 -->
-		<section id="section4" class="container-fluid">
-			<div class="row">
-				<!--NOTE 각 세션 타이틀-->
-				<h1 class="caption">
-					테마별 골프장
-				</h1>
-			</div>
-			<div class="row">
-				<div class="col">
-					<!--TODO 큰이미지 하나-->
-					<h1 class="name">힐데스하임CC</h1>
-					<p class="content">언노문 호텔 추석 연휴 패키지</p>
-				</div>
-				<div class="col">
-					<div class="row">
-						<!--TODO 작은 이미지 4개-->
-						<div class="col">
-							<h1 class="name">야챗 클럽</h1>
-							<p class="content">동인시장 도시락 카페</p>
-						</div>
-						<div class="col">
-							<h1 class="name">베스트 아카데미</h1>
-							<p class="content">조식이 예술</p>
-						</div>
-						<div class="w-100"></div>
-						<div class="col">
-							<h1 class="name">크리키 골프장 </h1>
-							<p class="content">세계 문화 예술 도시</p>
-						</div>
-						<div class="col">
-							<h1 class="name">언노운 클럽 </h1>
-							<p class="content">전통 있는 코스</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		<!--NOTE SECTION 5 -->
-		<section id="section5" class="container-fluid">
-			<div class="row">
-				<!--NOTE 각 세션 타이틀-->
-				<h1 class="caption">
-				</h1>
-			</div>
-		</section>
-
-		<footer class="container-fluid">
-			<div class="container">
-				<div class="row">
-					<div id="about_us">
-						<ul>
-							<li>회사소개</li>
-							<li>이용약관</li>
-							<li>개인 정보 취급 방침</li>
-						</ul>
-					</div>
-					<div id="office">
-						<ul>
-							<li>
-								<strong>TEL</strong> 1500-1500
-							</li>
-						</ul>
-					</div>
-					<div id="contact_us">
-						<ul>
-							<li><strong>상호</strong>PLAY SEVEN</li>
-							<li><strong>대표</strong>홍길동</li>
-							<li><strong>사업자 등록번호</strong>000-00-00000</li>
-							<li><strong>통신판매업신고번호</strong>2017-서울강서-0000호</li>
-							<li><strong>개인정보관리책임자</strong>홍길동</li>
-						</ul>
-					</div>
-					<div id="newsletter">
-						<ul>
-							<li><input type="text" placeholder="E-mail을 입력해주세요"></li>
-							<li><strong>골프패스</strong>에서 제공하는 유용한 소식</li>
-						</ul>
-					</div>
-				</div>
-				<div class="row">
-					<p>
-						2017 GOLFPASS. All Rights Reserved.
-					</p>
-				</div>
-			</div>
-		</footer>
-	</div>
-
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-	<script src="./public/dist/bootstrap/bootstrap.min.js"></script>
+    </header>
 
 
 
 
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="./public/dist/bootstrap/bootstrap.min.js"></script>
+    <script src="/public/dist/Nwagon/Nwagon.js"></script>
+    <script src="/public/js/custom.js"></script>
+     <script src="/public/js/chart.js"></script>
 </body>
 
 </html>
