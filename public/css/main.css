@@ -2503,7 +2503,7 @@ header {
       header #header-article #detail #title {
         font-family: 'TmonMonsori';
         font-size: 4rem;
-        max-width: 430px; }
+        max-width: 420px; }
       header #header-article #detail #content {
         font-size: 14px;
         line-height: 1.5;
@@ -2515,16 +2515,28 @@ header {
       width: 22%;
       height: 400px; }
     header #header-article #slide-img-list {
-      padding: 40px 60px;
       width: 100%;
       max-width: 456px;
       position: relative; }
       header #header-article #slide-img-list li {
+        width: 20%;
         cursor: pointer; }
         header #header-article #slide-img-list li:not(:last-child) {
           margin-right: 5px; }
       header #header-article #slide-img-list img {
-        min-width: 85px;
-        width: 20%; }
+        width: 100%; }
+  header #book-box {
+    position: absolute;
+    width: 22.8%;
+    right: 0;
+    bottom: 0; }
+    header #book-box #personnel {
+      background-color: #79b754; }
+      header #book-box #personnel #count {
+        font-size: 2rem;
+        display: inline-block;
+        position: relative;
+        right: 0;
+        bottom: 0; }
 
 /*# sourceMappingURL=main.css.map */
