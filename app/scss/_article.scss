@@ -1,0 +1,105 @@
+#main-article {
+    position: relative;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: bold;
+    padding: 0;
+    width: 100%;
+    box-sizing: border-box;
+    section {
+        padding-left: 80px;
+        color: #4d4d4d;
+        position: relative;
+        .title-box {
+            padding: 30px 0;
+            &:after {
+                top: 0;
+                content: '';
+                display: inline-block;
+                position: absolute;
+                width: 50px;
+                height: 100%;
+                border-top: 1px solid #d9d9d9;
+                border-bottom: 1px solid #d9d9d9;
+            }
+            span {
+                color: #efb42a;
+                font-size: 1.5rem;
+            }
+            h1 {
+                font-family: 'Noto Sans', sans-serif;
+                color: #4d4d4d;
+                font-size: 0.8rem;
+                font-weight: bold;
+            }
+            position: absolute;
+        }
+        .list-content {
+            margin-left: 10%;
+           // width: 100%;
+            ul {
+                width: 80%;
+                li {
+                    color: #4d4d4d;
+                    padding-top: 10px;
+                    width: 25%;
+                    min-width: 180px;
+                    height: 100px;
+                    span {
+                        font-size: 0.8rem;
+                        color: #bbbcbd;
+                    }
+                    p {
+                        font-size: 1.2rem;
+                    }
+                }
+            }
+        }
+        #section-5-list-content {
+            margin-left: 10%;
+           // width: 100%;
+            ul {
+                width: 80%;
+                li {
+                    p {
+                        font-size: 0.8rem;
+                        padding-top: 12px;
+                        color: #aeaeaf;
+                        &:hover {
+                            color: #4d4d4d;
+                        }
+                        &:hover:before {
+                            content: '';
+                        }
+                        &:before {
+                            content: '*';
+                            font-size: 0.3rem;
+                            margin-right: 1px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    #section-map {
+        margin-top: 95px;
+        width: 100%;
+        padding-left: 0;
+        height: 400px;
+        background-color: #4d4d4d;
+    }
+    #section-review {
+        position: relative;
+        width: 100%;
+        margin-top: 95px;
+        height: 400px;
+        .review-warning-text {
+            width: 100%;
+            >div {
+                box-sizing: border-box;
+                padding: 20px 80px;
+                border: 1px solid #e6e6e6;
+                width: 20%;
+            }
+        }
+    }
+}

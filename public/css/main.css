@@ -2075,4 +2075,85 @@ header {
     header #book-box #price p {
       font-size: 2.3rem; }
 
+#main-article {
+  position: relative;
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: bold;
+  padding: 0;
+  width: 100%;
+  box-sizing: border-box; }
+  #main-article section {
+    padding-left: 80px;
+    color: #4d4d4d;
+    position: relative; }
+    #main-article section .title-box {
+      padding: 30px 0;
+      position: absolute; }
+      #main-article section .title-box:after {
+        top: 0;
+        content: '';
+        display: inline-block;
+        position: absolute;
+        width: 50px;
+        height: 100%;
+        border-top: 1px solid #d9d9d9;
+        border-bottom: 1px solid #d9d9d9; }
+      #main-article section .title-box span {
+        color: #efb42a;
+        font-size: 1.5rem; }
+      #main-article section .title-box h1 {
+        font-family: 'Noto Sans', sans-serif;
+        color: #4d4d4d;
+        font-size: 0.8rem;
+        font-weight: bold; }
+    #main-article section .list-content {
+      margin-left: 10%; }
+      #main-article section .list-content ul {
+        width: 80%; }
+        #main-article section .list-content ul li {
+          color: #4d4d4d;
+          padding-top: 10px;
+          width: 25%;
+          min-width: 180px;
+          height: 100px; }
+          #main-article section .list-content ul li span {
+            font-size: 0.8rem;
+            color: #bbbcbd; }
+          #main-article section .list-content ul li p {
+            font-size: 1.2rem; }
+    #main-article section #section-5-list-content {
+      margin-left: 10%; }
+      #main-article section #section-5-list-content ul {
+        width: 80%; }
+        #main-article section #section-5-list-content ul li p {
+          font-size: 0.8rem;
+          padding-top: 12px;
+          color: #aeaeaf; }
+          #main-article section #section-5-list-content ul li p:hover {
+            color: #4d4d4d; }
+          #main-article section #section-5-list-content ul li p:hover:before {
+            content: ''; }
+          #main-article section #section-5-list-content ul li p:before {
+            content: '*';
+            font-size: 0.3rem;
+            margin-right: 1px; }
+  #main-article #section-map {
+    margin-top: 95px;
+    width: 100%;
+    padding-left: 0;
+    height: 400px;
+    background-color: #4d4d4d; }
+  #main-article #section-review {
+    position: relative;
+    width: 100%;
+    margin-top: 95px;
+    height: 400px; }
+    #main-article #section-review .review-warning-text {
+      width: 100%; }
+      #main-article #section-review .review-warning-text > div {
+        box-sizing: border-box;
+        padding: 20px 80px;
+        border: 1px solid #e6e6e6;
+        width: 20%; }
+
 /*# sourceMappingURL=main.css.map */

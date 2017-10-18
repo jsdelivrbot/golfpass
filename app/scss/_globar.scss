@@ -1,29 +1,29 @@
 @charset "UTF-8";
 @for $i from 1 through 80 {
 	.mt-#{$i} {
-        margin-top: #{$i}px 
+        margin-top: #{$i}px;
 	}
 	.mb-#{$i} {
-		margin-bottom: #{$i}px
+		margin-bottom: #{$i}px;
 	}
 	.ml-#{$i} {
-		margin-left:#{$i}px 
+		margin-left:#{$i}px;
 	}
 	.mr-#{$i} {
-		margin-right: #{$i}px 
+		margin-right: #{$i}px;
 	}
 	//패딩
 	.pt-#{$i} {
-		padding-top: #{$i}px
+		padding-top: #{$i}px;
 	}
 	.pb-#{$i} {
-		padding-bottom: #{$i}px
+		padding-bottom: #{$i}px;
 	}
 	.pl-#{$i} {
-		padding-left: #{$i}px 
+		padding-left: #{$i}px;
 	}
 	.pr-#{$i} {
-		padding-right: #{$i}px
+		padding-right: #{$i}px;
 	}
 }
 
