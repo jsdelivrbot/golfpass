@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@for $i from 1 through 100 {
+@for $i from 1 through 50 {
 	.mt-#{$i} {
         margin-top: #{$i}px 
 	}
@@ -24,13 +24,6 @@
 	}
 	.pr-#{$i} {
 		padding-right: #{$i}px
-	}
-}
-
-@for $i from 1 through 6 {
-	section#section#{$i} {
-		position: relative;
-		height: 100%;
 	}
 }
 

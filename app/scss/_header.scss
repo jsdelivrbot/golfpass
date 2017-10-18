@@ -1,170 +1,193 @@
 @charset "UTF-8";
 header {
-	color: white;
-	z-index: 1; //overflow-x: hidden;
-	position: relative;
-	height: 80%;
-	width: 100%;
-	@include backcover('../img/background/hero-image.jpg');
-	&::after {
-		content: '';
-		z-index: -1;
-		top: 0;
-		right: 0;
-		position: absolute;
-		height: 100%;
-		background-color: rgba(32, 32, 32, 0.8);
-		width: 100%;
-	} //NOTE header nav
-	#header-nav {
-		padding: 50px;
-		.splice {
-			content: '';
-			height: 15px;
-			margin: 0 20px;
-			border-right: 2px solid white;
-		}
-		* {
-			color: white;
-			text-decoration: none;
-			font-family: 'Noto Sans', sans-serif;
-		}
-		#nav-search {
-			i {
-				margin-right: 6px;
-			}
-			input {
-				font-size: 14px;
-				min-width: 400px;
-				background-color: inherit !important;
-				border: 0;
-				&:focus {
-					outline: 0;
-				}
-			}
-		}
-		#nav-meun {
-			i {
-				margin-right: 10px;
-			}
-			font-size: 14px;
-		}
-	} //NOTE header-article
-	#header-article {
-		position: relative;
-		width: 100%;
-		height: 100%;
-		min-height: 512px;
-		#header-article-box {
-			width: 100%;
-			height: 100%;
-			position: relative;
-		}
-		#slide-img {
-			position: relative;
-			width: 40%;
-			max-height: 380px;
-			height: 100%;
-			img {
-				position: relative;
-				width: 100%;
-				height: 100%;
-				max-height: 380px;
-			}
-		}
-		#detail {
-			box-sizing: border-box;
-			padding: 0 35px;
-			width: 30%;
-			#regine {
-				font-family: 'Noto Sans', sans-serif;
-				font-size: 1rem;
-			}
-			#title {
-				font-family: 'TmonMonsori';
-				font-size: 4rem;
-				max-width: 420px;
-			}
-			#content {
-				font-size: 14px;
-				line-height: 1.5;
-				font-family: 'Noto Sans', sans-serif;
-				max-width: 400px;
-				#sub-title {
-					color: $sub-title-color;
-				}
-			}
-		}
-		#chart {
-			width: 22%;
-			height: 400px;
-		}
-		#slide-img-list {
-			width: 100%;
-			max-width: 456px;
-			position: relative;
-			li {
-				width: 20%;
-				cursor: pointer;
-				&:not(:last-child) {
-					margin-right: 5px;
-				}
-			}
-			img {
-				width: 100%;
-			}
-		}
-	} //NOTE 예약박스
-	#book-box {
-		position: absolute;
-		width: 22.8%;
-		right: 5px;
-		bottom: 3%;
-		#personnel {
-			padding: 10px;
-			background-color: $background-color1;
-			#count-box {
-				font-size: 2rem;
-				display: inline-block;
-				position: relative;
-				left: 70%;
-				bottom: 0;
-				#count-icon {
-					position: relative;
-					span {
-						position: relative;
-						font-size: 1.3rem;
-						&:first-child {
-							left: 0px;
-						}
-						&:last-child {
-							left: -30px;
-						}
-					}
-				}
-				#clock-icon {
-					bottom: 7px;
-				}
-			}
-		}
-		#dateBox {
-			padding: 20px;
-			background-color: black;
-			.form-group {
-				background-color: white;
-				color: black;
-				width: 45%;
-				input {
-					box-sizing: border-box;
-					padding: 5px;
-					width: 80%;
-					border: 0;
-					height: 30px;
-					&:focus {
-						outline: 0;
-					}
-				}
-			}
-		}
-	}
+    color: white;
+    z-index: 1; //overflow-x: hidden;
+    position: relative;
+    height: 80%;
+    width: 100%;
+    @include backcover('../img/background/hero-image.jpg');
+    &::after {
+        content: '';
+        z-index: -1;
+        top: 0;
+        right: 0;
+        position: absolute;
+        height: 100%;
+        background-color: rgba(32, 32, 32, 0.8);
+        width: 100%;
+    } //NOTE header nav
+    #header-nav {
+        padding: 50px;
+        .splice {
+            content: '';
+            height: 15px;
+            margin: 0 20px;
+            border-right: 2px solid white;
+        }
+        * {
+            color: white;
+            text-decoration: none;
+            font-family: 'Noto Sans', sans-serif;
+        }
+        #nav-search {
+            i {
+                margin-right: 6px;
+            }
+            input {
+                font-size: 14px;
+                min-width: 400px;
+                background-color: inherit !important;
+                border: 0;
+                &:focus {
+                    outline: 0;
+                }
+            }
+        }
+        #nav-meun {
+            i {
+                margin-right: 10px;
+            }
+            font-size: 14px;
+        }
+    } //NOTE header-article
+    #header-article {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        min-height: 512px;
+        #header-article-box {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        #slide-img {
+            position: relative;
+            width: 40%;
+            max-height: 380px;
+            height: 100%;
+            img {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                max-height: 380px;
+            }
+        }
+        #detail {
+            box-sizing: border-box;
+            padding: 0 35px;
+            width: 30%;
+            #regine {
+                font-family: 'Noto Sans', sans-serif;
+                font-size: 1rem;
+            }
+            #title {
+                font-family: 'TmonMonsori';
+                font-size: 4rem;
+                max-width: 420px;
+            }
+            #content {
+                font-size: 14px;
+                line-height: 1.5;
+                font-family: 'Noto Sans', sans-serif;
+                max-width: 400px;
+                #sub-title {
+                    color: $sub-title-color;
+                }
+            }
+        }
+        #chart {
+            width: 22%;
+            height: 400px;
+        }
+        #slide-img-list {
+            width: 100%;
+            max-width: 456px;
+            position: relative;
+            li {
+                width: 20%;
+                cursor: pointer;
+                &:not(: last-child) {
+                    margin-right: 5px;
+                }
+            }
+            img {
+                width: 100%;
+            }
+        }
+    } //NOTE 예약박스
+    #book-box {
+        border: 1px solid #e6e6e6;
+        position: absolute;
+        width: 22.8%;
+        bottom: -52%;
+        right: 0;
+        #personnel {
+            background-color: $background-color1;
+            padding: 10px;
+            h1 {
+                display: block;
+            }
+            #count {
+                font-size: 2rem;
+            }
+            #icon-box {
+                position: relative;
+                min-width: 15px;
+                span {
+                    font-size: 1.4rem;
+                    position: absolute;
+                    &:nth-child(1) {
+                        top: 2px;
+                    }
+                    &:nth-child(2) {
+                        bottom: -4px;
+                    }
+                    i {
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+        #dateBox {
+            padding: 20px;
+            background-color: black;
+            .form-group {
+                background-color: white;
+                color: black;
+                width: 45%;
+                input {
+                    box-sizing: border-box;
+                    padding: 5px;
+                    width: 80%;
+                    border: 0;
+                    height: 30px;
+                    &:focus {
+                        outline: 0;
+                    }
+                }
+            }
+        }
+        #info {
+            background-color: #fff;
+            padding: 20px;
+            color: #5e5e5e;
+            font-family: 'Noto Sans', sans-serif;
+            font-size: 1em;
+            li {
+                margin-bottom: 10px;
+                box-sizing: border-box;
+                i {
+                    color: $sub-title-color;
+                }
+            }
+        }
+        #price {
+            h3 {
+                color: $sub-title-color;
+            }
+            p {
+                font-size: 2.3rem;
+            }
+        }
+    }
 } //header
