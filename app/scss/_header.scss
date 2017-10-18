@@ -3,7 +3,6 @@ header {
     color: white;
     z-index: 1; //overflow-x: hidden;
     position: relative;
-    height: 80%;
     width: 100%;
     @include backcover('../img/background/hero-image.jpg');
     &::after {
@@ -54,7 +53,7 @@ header {
         position: relative;
         width: 100%;
         height: 100%;
-        min-height: 512px;
+        //min-height: 512px;
         #header-article-box {
             width: 100%;
             height: 100%;
@@ -63,7 +62,7 @@ header {
         #slide-img {
             position: relative;
             width: 40%;
-            max-height: 380px;
+            //max-height: 380px;
             height: 100%;
             >img {
                 position: relative;
@@ -73,8 +72,7 @@ header {
             }
             #slide-img-list {
                 padding: 20px;
-                width: 100%;
-                max-width: 456px;
+                width: 80%;
                 position: relative;
                 li {
                     width: 20%;
@@ -82,9 +80,9 @@ header {
                     &:not(:last-child) {
                         margin-right: 5px;
                     }
-                }
-                img {
-                    width: 100%;
+                    img {
+                        width: 100%;
+                    }
                 }
             }
         }
@@ -117,10 +115,11 @@ header {
         }
     } //NOTE 예약박스
     #book-box {
+        font-family: 'Noto Sans', sans-serif;
         border: 1px solid #e6e6e6;
         position: absolute;
         width: 22.8%;
-        bottom: -52%;
+        bottom: -56%;
         right: 0;
         #personnel {
             background-color: $background-color1;
