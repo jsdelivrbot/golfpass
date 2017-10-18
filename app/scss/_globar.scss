@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@for $i from 1 through 50 {
+@for $i from 1 through 80 {
 	.mt-#{$i} {
         margin-top: #{$i}px 
 	}
