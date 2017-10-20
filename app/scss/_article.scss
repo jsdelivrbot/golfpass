@@ -112,7 +112,7 @@
         #review-box {
             font-size: 0.8rem;
             box-sizing: border-box;
-            padding:0 80px;
+            padding: 0 80px;
             position: relative;
             width: 100%;
             .review {
@@ -159,6 +159,32 @@
                             }
                         }
                     }
+                }
+            }
+        }
+        #all {
+            margin: 60px auto 0 auto;
+            position: relative;
+            width: 25%;
+            border-top: 1px solid #ebebeb;
+            #circle {
+                cursor: pointer;
+                margin-top: 40px;
+                min-width: 100px;
+                min-height: 100px;
+                border: 1px solid #ebebeb;
+                border-radius: 50%;
+                &:before {
+                    position: absolute;
+                    content: '';
+                    display: block;
+                    height: 40px;
+                    top: 0;
+                    border-right: 1px solid #ebebeb;
+                }
+                span {
+                    color: #99a0a4;
+                    font-size: 0.8rem;
                 }
             }
         }

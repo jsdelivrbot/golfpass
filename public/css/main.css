@@ -2200,5 +2200,60 @@ header {
               margin: 0 20px;
               flex-grow: 1;
               border-bottom: 1px solid #bbbfc1; }
+    #main-article #section-review #all {
+      margin: 60px auto 0 auto;
+      position: relative;
+      width: 25%;
+      border-top: 1px solid #ebebeb; }
+      #main-article #section-review #all #circle {
+        cursor: pointer;
+        margin-top: 40px;
+        min-width: 100px;
+        min-height: 100px;
+        border: 1px solid #ebebeb;
+        border-radius: 50%; }
+        #main-article #section-review #all #circle:before {
+          position: absolute;
+          content: '';
+          display: block;
+          height: 40px;
+          top: 0;
+          border-right: 1px solid #ebebeb; }
+        #main-article #section-review #all #circle span {
+          color: #99a0a4;
+          font-size: 0.8rem; }
+
+#main-footer {
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  background-color: #f0f0f0;
+  padding: 50px; }
+  #main-footer ul {
+    margin-right: 60px; }
+    #main-footer ul .title {
+      padding: 10px 0;
+      height: 50px;
+      color: #ababab;
+      font-size: bold;
+      font-size: 1rem; }
+    #main-footer ul li {
+      display: flex;
+      height: 30px;
+      color: #b5b5b5;
+      font-size: 0.7rem; }
+      #main-footer ul li a {
+        text-decoration: none;
+        color: inherit; }
+      #main-footer ul li span {
+        color: #ababab;
+        font-weight: bolder;
+        margin-right: 10px; }
+  #main-footer > p {
+    font-size: 0.8rem;
+    color: #b5b5b5; }
+  #main-footer strong {
+    color: #ababab;
+    font-weight: bolder; }
 
 /*# sourceMappingURL=main.css.map */
