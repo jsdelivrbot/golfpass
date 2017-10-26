@@ -46,19 +46,23 @@ class Product extends Base_Controller {
         $this->load->model("hotel_option_model");
         $data['hotel_options'] = $this->hotel_option_model->gets_options($data['hotel']->id,'option');
         
+
+        //review
+
         //user
         $this->load->model("base/users_model");
         $data['user'] = $this->users_model->get($this->user->id, array("userName,name,phone"));
         //review with pagination
         $this->load->model('product_reviews_model');
-        $data['reviews'] = $this->product_reviews_model->gets_with_ajax_pgi(array(
-            'product_id'=>$id,
-            'target' =>'#nid_postList',
-            'base_url'=> site_url(shop_review_uri."/ajax_pgi_data")
-        ));
+        
+        $data['reviews'] = $this->product_reviews_model->gets(array('r.product_id'=>$id));
+        // $data['reviews'] = $this->product_reviews_model->gets_with_ajax_pgi(array(
+        //     'product_id'=>$id,
+        //     'target' =>'#nid_postList',
+        //     'base_url'=> site_url(shop_review_uri."/ajax_pgi_data")
+        // ));
         
         //view
-         $data['product_id'] =$id;
 
 
         //  $review_view_dir =  view_review_dir."/ajax_gets";

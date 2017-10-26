@@ -176,7 +176,8 @@ class Product_reviews_Model extends Public_Model{
     }
     public function gets($where_obj =null,$select_arr =false,$limit=null)
     {
-        $this->db->select("r.id, r.title, r.desc, r.created ,if(r.user_id = 0, r.guest_name, u.name) 'user_name', if(r.user_id = 0, '손님', u.userName) 'userName'");
+        $this->db->order_by("id","desc");
+        $this->db->select("r.*,r.id, r.title, r.desc, r.created , (score_1+score_2+score_3+score_4+score_5+score_6+score_7+score_8)/8 'avg_score' ,if(r.user_id = 0, r.guest_name, u.name) 'user_name', if(r.user_id = 0, '손님', u.userName) 'userName'");
         $this->db->from('product_reviews as r');
         $this->db->join("users AS u","r.user_id = u.id","LEFT");
         $rows = parent::gets($where_obj,$select_arr,$limit);
