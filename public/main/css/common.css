@@ -1,0 +1,125 @@
+@charset "UTF-8";
+/* font */
+@import url("font.css");
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  color: #fff;
+  font-family: "Noto Sans KR", sans-serif; }
+
+div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, form, fieldset, p, button {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+ol, ul, li {
+  list-style: none; }
+
+img {
+  border: 0;
+  vertical-align: middle; }
+
+input, select, textarea {
+  font-size: 14px;
+  color: #fff;
+  border: 0;
+  background-color: inherit; }
+
+input[type=checkbox] {
+  width: 15px;
+  height: 15px; }
+
+input::placeholder {
+  color: #fff; }
+
+button {
+  cursor: pointer;
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 14px;
+  background-color: inherit; }
+  button:focus {
+    outline: none !important; }
+
+a:link, a:visited {
+  text-decoration: none; }
+a:hover, a:active {
+  color: #e23030;
+  text-decoration: none; }
+a:focus {
+  outline: none !important; }
+
+.blind {
+  position: absolute;
+  top: -9999px;
+  left: -9999px; }
+
+.pointer {
+  cursor: pointer; }
+
+/* clear */
+.clf {
+  *zoom: 1; }
+  .clf:after {
+    content: " ";
+    display: block;
+    clear: both;
+    font-size: 0;
+    line-height: 0;
+    visibility: hidden; }
+
+/* position */
+.posAb {
+  position: absolute; }
+
+.posRe {
+  position: relative; }
+
+/* 폼 */
+.form_group input[type=text], .form_group input[type=password] {
+  height: 28px;
+  padding: 0 12px;
+  line-height: 1.5;
+  border: 1px solid #b2b2b2;
+  border-radius: 2px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+  -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s; }
+
+/* 버튼 */
+button.btn {
+  padding: 11px 22px; }
+  button.btn.type01 {
+    border: 2px solid #fff;
+    color: #fff; }
+
+/* box type */
+/* table type */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0; }
+  table th {
+    height: 49px;
+    color: #fff;
+    font-size: 18px; }
+    table th:first-child {
+      border-radius: 3px 0 0 3px; }
+    table th:last-child {
+      border-radius: 0 3px 3px 0; }
+  table tr {
+    border-bottom: 1px solid #fff; }
+    table tr:last-child {
+      border-bottom: 0; }
+  table td {
+    height: 49px;
+    font-size: 18px;
+    color: #fff; }
+    table td.first {
+      text-align: center; }
+    table td.last {
+      font-weight: 100; }

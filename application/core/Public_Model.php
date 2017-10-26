@@ -1,0 +1,167 @@
+<?php defined('BASEPATH') OR exit('no direct script access allrowed');
+
+
+class Public_Model extends CI_Model{
+    public $table;
+    function __construct($table=null){
+        parent:: __construct();
+        $this->table = $table;
+    }
+    public function add($set_obj =false){
+        if($set_obj !== false && $set_obj !== null){
+            $this->set_by_obj($set_obj);
+        }
+        $this->db->set('created','NOW()',false);
+        $this->db->insert($this->table);
+        $id =$this->db->insert_id();
+        return $id;
+    }
+    public function update($where_obj,$set_obj =null,$escape = true)
+    {
+        if($set_obj !== null)
+        {
+            $this->set_by_obj($set_obj,$escape);
+        }
+        $this->where_by_obj($where_obj);
+
+        $this->db->update($this->table);
+    }
+
+    
+    public function get($where_obj,$select_arr =false){
+        $this->where_by_obj($where_obj);
+        if($select_arr !== false)
+            $this->select_by_arr($select_arr);
+    
+        if(strpos($this->db->get_compiled_select(null,false), 'FROM') > -1)
+        {
+            $row =$this->db->get()->row();
+        }   
+        else
+        {
+            $row =$this->db->get($this->table)->row();
+        }
+      
+        return $row;
+    }
+    public function gets($where_obj =null,$select_arr =false,$limit=null)
+    {
+
+        if(!$where_obj !== null)
+            $this->where_by_obj($where_obj);
+        if($select_arr !== false && $select_arr !== null)
+            $this->select_by_arr($select_arr);
+        if($limit !== null)
+            $this->db->limit($limit[1],$limit[0]);
+            
+        if(strpos($this->db->get_compiled_select(null,false), 'FROM') > -1)
+        {
+            $rows =$this->db->get()->result();
+        }   
+        else
+        {
+            $rows =$this->db->get($this->table)->result();
+        }
+        
+       
+        return $rows;
+    }
+    public function delete($where_obj){
+        $this->where_by_obj($where_obj);
+        $this->db->delete($this->table);
+        return $where_obj;
+    }
+    public function _get_max_id($table,$column_name){
+        $row =$this->db->query("SELECT MAX($column_name) 'max_id' FROM $table")->row();
+        return ($row != null) ? ($row->max_id +1) : 1;
+    }
+
+    public function hits_plus($id){
+		$this->db->query("UPDATE `{$this->table}` SET hits = hits+1 WHERE id = '$id'");
+    }
+    
+    public function set_by_obj($set_obj,$escape=true){
+        if($set_obj !== null && $set_obj !== false)
+        {
+            foreach($set_obj as $key=>$val)
+            {
+                if($val !== false && $val !== null)
+                    $this->db->set($key, $val,$escape);
+            }
+        }
+        
+    }
+    public function select_by_arr($select_arr =false){
+        if($select_arr !== false && $select_arr !==null && is_array($select_arr)){
+            $select_str = '';
+            foreach($select_arr as $val){
+                $select_str .= "$val,";
+            }
+            $select_str = substr($select_str,0,-1);
+            $this->db->select($select_str);
+        }
+        return;
+
+    }
+    public function where_by_obj($where_obj){
+        if($where_obj === null || $where_obj === false)
+        {
+            return;
+        }
+        if(is_array( $where_obj )){
+            foreach($where_obj as $key=>$val){
+                if($val === false || $val === null)
+                    $val ='';
+                $this->db->where($key, $val);
+            }
+        }else{
+            $this->db->where('id',$where_obj);
+        }
+    }
+    
+    function get_count($where_obj=null, $count_name){
+
+        if($where_obj ===null)
+        {
+            $this->db->select("sum($count_name) '$count_name'");
+        }else
+        {
+            $this->where_by_obj($where_obj);
+            $this->db->select($count_name);
+        }
+        
+        $count= $this->db->get($this->table)->row()->$count_name;
+        return $count;
+    }
+    function count_plus($where_obj,$count_name = 'count'){
+        $this->where_by_obj($where_obj);
+
+        $this->db->set($count_name,"{$count_name}+1",false);
+        $this->db->update($this->table);
+    }
+    
+    function count_minus($where_obj,$count_name = 'count'){
+        $this->where_by_obj($where_obj);
+
+        $this->db->set($count_name,"{$count_name}-1",false);
+        $this->db->update($this->table);
+    }
+
+    function like_or_by_split($fields,$val)
+    {
+        if(isset($fields) && $fields !== null && $fields !== '')
+        {
+            $fields = urldecode($fields);
+            $arr_field =explode(",",$fields);
+            foreach($arr_field as $field)
+            {
+                $this->db->or_like($field, $val);       
+            }
+      }
+      return;
+   
+    }
+}
+
+
+
