@@ -16,11 +16,13 @@ class Mypage extends Base_Controller {
             return; 
         }
 
-        $data = array();
-        $this->_template(array(
-            'content_view'=>'index',
-            'sidebar_view' =>'mypage/template/sidebar'
-        ),$data);
+        // $this->_template('index');
+        $this->_view('index');
+        // $data = array();
+        // $this->_template(array(
+        //     'content_view'=>'index',
+        //     'sidebar_view' =>'mypage/template/sidebar'
+        // ),$data);
     }
     public function review_gets()
     {

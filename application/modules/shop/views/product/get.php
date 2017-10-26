@@ -23,7 +23,7 @@
 				<li class='col-6'>
 					<ul class='d-flex align-items-center'>
 						<li id="logo">
-							<a href="#">
+							<a href="<?=site_url('')?>">
                                 <img class='d-none d-sm-block' src="/public/sangmin/img/icon/logo.png" alt="">
                                 <img class='d-none d-block d-sm-none' src="/public/sangmin/img/icon/logo_mobile.png" alt="">
                             </a>
@@ -135,7 +135,7 @@
 					</ul>
 					<div id='price' class="mt-20 mb-20">
 						<h3 class='mb-3'>가격</h3>
-						<p>15,000,000원</p>
+						<p>15,000,000원(db적용미완료)</p>
 					</div>
 				</div>
 			</div>

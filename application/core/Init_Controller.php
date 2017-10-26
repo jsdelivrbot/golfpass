@@ -867,10 +867,10 @@ class Init_Controller extends MX_Controller{
             
             //sample product_caregories
             $name = "샘플 상품분류";
-            $cate_id =$this->product_categories_model->add(array('price'=>'2000','name'=>'샘플상품1'));
+            $cate_id =$this->product_categories_model->add();
             
             //sample product
-            $product_id =$this->products_model->add();
+            $product_id =$this->products_model->add(array('price'=>'2000','name'=>'샘플상품1'));
             //카테고리에 추가
             $this->ref_cate_product_model->add(array('cate_id'=>$cate_id,'product_id'=>$product_id));
 
