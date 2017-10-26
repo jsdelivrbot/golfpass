@@ -1930,7 +1930,7 @@ body {
 .pr-80 {
   padding-right: 80px; }
 
-header {
+#detail-header {
   color: white;
   padding: 0 !important;
   z-index: 1;
@@ -1941,149 +1941,149 @@ header {
   background-width: 100%;
   background-height: auto;
   background-position: center center; }
-  header #header-nav {
+  #detail-header #header-nav {
     padding: 30px 15px; }
     @media (min-width: 992px) {
-      header #header-nav {
+      #detail-header #header-nav {
         padding: 50px; } }
-    header #header-nav .splice {
+    #detail-header #header-nav .splice {
       content: '';
       height: 15px;
       margin: 0 20px;
       border-right: 2px solid white; }
-    header #header-nav * {
+    #detail-header #header-nav * {
       color: white;
       text-decoration: none;
       font-family: 'Noto Sans', sans-serif; }
-    header #header-nav #nav-search i {
+    #detail-header #header-nav #nav-search i {
       margin-right: 6px; }
-    header #header-nav #nav-search input {
+    #detail-header #header-nav #nav-search input {
       font-size: 14px;
       min-width: 380px;
       background-color: inherit !important;
       border: 0; }
-      header #header-nav #nav-search input:focus {
+      #detail-header #header-nav #nav-search input:focus {
         outline: 0; }
-    header #header-nav #nav-meun {
+    #detail-header #header-nav #nav-meun {
       font-size: 14px; }
-      header #header-nav #nav-meun i {
+      #detail-header #header-nav #nav-meun i {
         margin-right: 10px; }
-      header #header-nav #nav-meun span {
+      #detail-header #header-nav #nav-meun span {
         min-width: 30px; }
-  header article {
+  #detail-header article {
     padding: 15px;
     	/*    #chart {
             width: 22%;
             height: 400px;
         }*/ }
-    header article #slide-box #slide-img {
+    #detail-header article #slide-box #slide-img {
       width: 100%; }
-      header article #slide-box #slide-img img {
+      #detail-header article #slide-box #slide-img img {
         width: inherit; }
-    header article #slide-box #slide-list ul {
+    #detail-header article #slide-box #slide-list ul {
       width: 80%; }
-      header article #slide-box #slide-list ul li {
+      #detail-header article #slide-box #slide-list ul li {
         width: 30%;
         margin: 5px;
         position: relative; }
-        header article #slide-box #slide-list ul li img {
+        #detail-header article #slide-box #slide-list ul li img {
           width: 100%; }
-    header article #detail {
+    #detail-header article #detail {
       position: relative;
       box-sizing: border-box;
       margin-top: 25px;
       line-height: 1.2; }
       @media (min-width: 768px) {
-        header article #detail {
+        #detail-header article #detail {
           margin-top: 0px;
           padding-left: 10px;
           margin-bottom: 10%; } }
-      header article #detail #regine {
+      #detail-header article #detail #regine {
         font-family: 'Noto Sans', sans-serif;
         font-size: 1rem; }
-      header article #detail #title {
+      #detail-header article #detail #title {
         margin-top: 12px;
         margin-right: 50px;
         font-family: 'TmonMonsori';
         font-size: 3rem; }
         @media (min-width: 992px) {
-          header article #detail #title {
+          #detail-header article #detail #title {
             padding: 10px; } }
-      header article #detail #content {
+      #detail-header article #detail #content {
         margin-top: 30px;
         font-size: 14px;
         line-height: 1.6;
         font-family: 'Noto Sans', sans-serif; }
-        header article #detail #content #sub-title {
+        #detail-header article #detail #content #sub-title {
           color: #fdd931; }
-      header article #detail #score {
+      #detail-header article #detail #score {
         position: absolute;
         right: 3%;
         top: 10%; }
-        header article #detail #score i {
+        #detail-header article #detail #score i {
           color: #fcbf3f; }
         @media (min-width: 768px) {
-          header article #detail #score {
+          #detail-header article #detail #score {
             top: 0; } }
-  header #book-box {
+  #detail-header #book-box {
     font-family: 'Noto Sans', sans-serif;
     border: 1px solid #e6e6e6;
     position: relative; }
     @media (min-width: 768px) {
-      header #book-box {
+      #detail-header #book-box {
         position: absolute;
         right: 0;
         top: 88%; } }
-    header #book-box #personnel {
+    #detail-header #book-box #personnel {
       background-color: #79b754;
       padding: 10px; }
-      header #book-box #personnel h1 {
+      #detail-header #book-box #personnel h1 {
         display: block; }
-      header #book-box #personnel #count {
+      #detail-header #book-box #personnel #count {
         font-size: 2rem; }
-      header #book-box #personnel #icon-box {
+      #detail-header #book-box #personnel #icon-box {
         position: relative;
         min-width: 15px; }
-        header #book-box #personnel #icon-box span {
+        #detail-header #book-box #personnel #icon-box span {
           font-size: 1.4rem;
           position: absolute; }
-          header #book-box #personnel #icon-box span:nth-child(1) {
+          #detail-header #book-box #personnel #icon-box span:nth-child(1) {
             top: 2px; }
-          header #book-box #personnel #icon-box span:nth-child(2) {
+          #detail-header #book-box #personnel #icon-box span:nth-child(2) {
             bottom: -4px; }
-          header #book-box #personnel #icon-box span i {
+          #detail-header #book-box #personnel #icon-box span i {
             cursor: pointer; }
-    header #book-box #dateBox {
+    #detail-header #book-box #dateBox {
       padding: 20px;
       background-color: black; }
-      header #book-box #dateBox .form-group {
+      #detail-header #book-box #dateBox .form-group {
         background-color: white;
         color: black;
         width: 45%; }
-        header #book-box #dateBox .form-group input {
+        #detail-header #book-box #dateBox .form-group input {
           box-sizing: border-box;
           padding: 5px;
           width: 80%;
           border: 0;
           height: 30px; }
-          header #book-box #dateBox .form-group input:focus {
+          #detail-header #book-box #dateBox .form-group input:focus {
             outline: 0; }
-    header #book-box #info {
+    #detail-header #book-box #info {
       background-color: #fff;
       padding: 20px;
       color: #5e5e5e;
       font-family: 'Noto Sans', sans-serif;
       font-size: 1em; }
-      header #book-box #info li {
+      #detail-header #book-box #info li {
         margin-bottom: 10px;
         box-sizing: border-box; }
-        header #book-box #info li i {
+        #detail-header #book-box #info li i {
           color: #fdd931; }
-    header #book-box #price h3 {
+    #detail-header #book-box #price h3 {
       color: #fdd931; }
-    header #book-box #price p {
+    #detail-header #book-box #price p {
       font-size: 2.3rem; }
-  header::after {
+  #detail-header::after {
     content: '';
     z-index: -1;
     top: 0;
@@ -2093,22 +2093,22 @@ header {
     background-color: rgba(32, 32, 32, 0.8);
     width: 100%; }
 
-#main-article {
+#detail-article {
   position: relative;
   font-family: 'Noto Sans', sans-serif;
   font-weight: bold;
   box-sizing: border-box; }
-  #main-article section {
+  #detail-article section {
     margin-top: 80px;
     color: #4d4d4d;
     position: relative; }
     @media (min-width: 768px) {
-      #main-article section {
+      #detail-article section {
         padding-left: 40px; } }
-    #main-article section .title-box {
+    #detail-article section .title-box {
       padding: 30px 0;
       position: absolute; }
-      #main-article section .title-box:after {
+      #detail-article section .title-box:after {
         top: 0;
         content: '';
         display: inline-block;
@@ -2117,46 +2117,46 @@ header {
         height: 100%;
         border-top: 1px solid #d9d9d9;
         border-bottom: 1px solid #d9d9d9; }
-      #main-article section .title-box span {
+      #detail-article section .title-box span {
         color: #efb42a;
         font-size: 1.5rem; }
-      #main-article section .title-box h1 {
+      #detail-article section .title-box h1 {
         font-family: 'Noto Sans', sans-serif;
         color: #4d4d4d;
         font-size: 0.8rem;
         font-weight: bold; }
-    #main-article section .list-content {
+    #detail-article section .list-content {
       margin-left: 10%; }
-      #main-article section .list-content ul {
+      #detail-article section .list-content ul {
         padding-left: 30px; }
-        #main-article section .list-content ul li {
+        #detail-article section .list-content ul li {
           color: #4d4d4d;
           padding-top: 10px;
           height: 100px;
           width: 33%; }
           @media (min-width: 960px) {
-            #main-article section .list-content ul li {
+            #detail-article section .list-content ul li {
               width: 25%; } }
-          #main-article section .list-content ul li span {
+          #detail-article section .list-content ul li span {
             font-size: 0.8rem;
             color: #bbbcbd; }
-          #main-article section .list-content ul li p {
+          #detail-article section .list-content ul li p {
             font-size: 1.2rem; }
-    #main-article section #section-5-list-content {
+    #detail-article section #section-5-list-content {
       margin-left: 10%; }
-      #main-article section #section-5-list-content ul li p {
+      #detail-article section #section-5-list-content ul li p {
         font-size: 0.8rem;
         padding-top: 12px;
         color: #aeaeaf; }
-        #main-article section #section-5-list-content ul li p:hover {
+        #detail-article section #section-5-list-content ul li p:hover {
           color: #4d4d4d; }
-        #main-article section #section-5-list-content ul li p:hover:before {
+        #detail-article section #section-5-list-content ul li p:hover:before {
           content: ''; }
-        #main-article section #section-5-list-content ul li p:before {
+        #detail-article section #section-5-list-content ul li p:before {
           content: '*';
           font-size: 0.3rem;
           margin-right: 1px; }
-  #main-article #section-map {
+  #detail-article #section-map {
     margin-top: 95px;
     width: 100%;
     padding-left: 0;
