@@ -58,20 +58,17 @@
 		<article class="row no-gutters">
 			<div id='slide-box' class="col-12 col-md-6 col-xl-5">
 				<figure id='slide-img'>
-					<img src="/public/sangmin/img/background/hero-image.jpg" alt="">
+					<img src="<?=$product_photos[0]->name?>" alt="">
 				</figure>
 				<div id="slide-list" class='d-flex align-items-center justify-content-center'>
 					<span><i class="xi-angle-left-min"></i></span>
 					<ul class='d-flex align-items-center justify-content-center'>
+						<?php for($i = 0 ;$i < count($product_photos);$i++){?>
 						<li>
-							<img src="/public/sangmin/img/background/hero-image.jpg" alt="">
+							<img src="<?=$product_photos[$i]->name?>" alt="">
 						</li>
-						<li>
-							<img src="/public/sangmin/img/background/hero-image.jpg" alt="">
-						</li>
-						<li>
-							<img src="/public/sangmin/img/background/hero-image.jpg" alt="">
-						</li>
+						<?php }?>
+						
 					</ul>
 					<span><i class="xi-angle-right-min"></i></span>
 				</div>
@@ -82,16 +79,16 @@
 					<span>5.2</span>
 				</div>
 				<p id="regine">
-					아랍에미레이트, 아부 다비
+				<?=$product->region?>
 				</p>
-				<h1 id="title">사디야트 해변골프 클럽
+				<h1 id="title"><?=$product->name?>
 				</h1>
 				<p id="title-en">
-					Saadiyat Beach Golf Club
+				<?=$product->eng_name?>
 				</p>
 				<div id="content">
 					<p id='sub-title'>소개</p>
-					<p>사디야트 해변 골프 클럽의 광활한 부지는 편안하면서도 와이드한 느낌을 전해주며, 샷밸류가 살아있는 전략적인 레이아웃으로 9홀 단위로 그 특징들이 차별화되어 있습니다. 기존 자연림과 깍아지듯한 암벽과 광활한 암반에 펼쳐지는 연못이 타 골프장과 차별성을 더해 주고 소나무림에 둘러싸인 코스는 마치 자연속에 그대로 안착된 듯한 홀로 조성하였습니다.</p>
+					<p><?=$product->desc?></p>
 				</div>
 			</div>
 			<section id="chart" class='col-xl-3 d-none d-xl-block'>
@@ -129,22 +126,12 @@
 				</div>
 				<div id="info" class="pt-20">
 					<ul>
+
+					<?php for($i=0;$i<count($product_sub_desc);$i++){?>
 						<li class='d-flex align-items-center'><span class="mr-2 align-self-baseline"><i class='xi-radiobox-checked'></i></span>
-							<p>GPS가있는 골프 카트 공유</p>
+							<p><?=$product_sub_desc[$i]->name?></p>
 						</li>
-						<li class='d-flex align-items-center'>
-							<span class="mr-2 align-self-baseline"><i class='xi-radiobox-checked'></i></span>
-							<p>콜드 타월</p>
-						</li>
-						<li class='d-flex align-items-center'><span class="mr-2 align-self-baseline"><i class='xi-radiobox-checked'></i></span>
-							<p>놀이 전에 연습 시설을 충분히 사용하십시오.</p>
-						</li>
-						<li class='d-flex align-items-center'><span class="mr-2 align-self-baseline"><i class='xi-radiobox-checked'></i></span>
-							<p>현재 18 홀은 보장되지 않습니다.</p>
-						</li>
-						<li class='d-flex align-items-center'><span class="mr-2 align-self-baseline"><i class='xi-radiobox-checked'></i></span>
-							<p>참고 : 위 요금으로 더 이상 할인이나 프로모션을 수행 할 수 없습니다.</p>
-						</li>
+					<?php }?>
 					</ul>
 					<div id='price' class="mt-20 mb-20">
 						<h3 class='mb-3'>가격</h3>
@@ -163,23 +150,23 @@
 			<div class="list-content">
 				<ul class="d-flex flex-wrap">
 					<li class='d-flex flex-column'><span>홀수</span>
-						<p class='mt-2'>18</p>
+						<p class='mt-2'><?=$product->hole_count?></p>
 					</li>
 					<li class='d-flex flex-column'><span>코스타입</span>
-						<p class='mt-2'>리조트</p>
+						<p class='mt-2'><?=$product->course_type?></p>
 					</li>
 					<li class='d-flex flex-column'><span>파</span>
-						<p class='mt-2'>72</p>
+						<p class='mt-2'><?=$product->pa?></p>
 					</li>
 					<li class='d-flex flex-column'><span>길이</span>
-						<p class='mt-2'>6773yds</p>
+						<p class='mt-2'><?=$product->distance?></p>
 					</li>
 
 					<li class='d-flex flex-column'><span>잔디타입</span>
-						<p class='mt-2'>버뮤다</p>
+						<p class='mt-2'><?=$product->grass_type?></p>
 					</li>
 					<li class='d-flex flex-column'><span>개장일</span>
-						<p class='mt-2'>2010년</p>
+						<p class='mt-2'><?=$product->open_day?></p>
 					</li>
 				</ul>
 			</div>
@@ -192,35 +179,35 @@
 			<div class="list-content">
 				<ul class="d-flex flex-wrap">
 					<li class='d-flex flex-column'><span>업체명</span>
-						<p class='mt-2'>힐사이드 골프텔</p>
+						<p class='mt-2'><?=$hotel->name?></p>
 					</li>
 					<li class='d-flex flex-column'><span>객실수</span>
-						<p class='mt-2'>100개</p>
+						<p class='mt-2'><?=$hotel->room_count?></p>
 					</li>
 					<li class='d-flex flex-column'><span>객실타입</span>
-						<p class='mt-2'>스탠다드룸(2인실)</p>
+						<p class='mt-2'><?=$hotel->room_type?></p>
 					</li>
 					<li class='d-flex flex-column'><span>침실</span>
-						<p class='mt-2'>1</p>
+						<p class='mt-2'><?=$hotel->bedroom?></p>
 					</li>
 
 					<li class='d-flex flex-column'><span>화장실</span>
-						<p class='mt-2'>1</p>
+						<p class='mt-2'><?=$hotel->bathroom?></p>
 					</li>
 					<li class='d-flex flex-column'><span>최대 인원</span>
-						<p class='mt-2'>2인</p>
+						<p class='mt-2'><?=$hotel->maxium_number_of_people?></p>
 					</li>
 					<li class='d-flex flex-column'><span>침대</span>
-						<p class='mt-2'>트윈 or 더블</p>
+						<p class='mt-2'><?=$hotel->bed?></p>
 					</li>
 					<li class='d-flex flex-column'><span>체크 인/체크 아웃</span>
-						<p class='mt-2'>14:00 / 11:00</p>
+						<p class='mt-2'><?=$hotel->check_in_out?></p>
 					</li>
 				</ul>
 			</div>
 		</section>
 
-		<?php if(count($product_option) !== 0) {?>
+		<?php if(count($product_options) !== 0) {?>
 		<section class="col-12" id="article-section-3">
 			<div class='d-flex flex-column title-box'>
 				<span>03</span>
@@ -228,9 +215,9 @@
 			</div>
 			<div class="list-content">
 				<ul class="d-flex flex-wrap">
-					<?php for($i=0 ; $i < count($product_option); $i++ ){?>
+					<?php for($i=0 ; $i < count($product_options); $i++ ){?>
 					<li class='d-flex flex-column'>
-						<p><?=$product_option[$i]->name?></p>
+						<p><?=$product_options[$i]->name?></p>
 					</li>
 					<?php }?>
 				</ul>
@@ -238,91 +225,24 @@
 		</section>
 			<?php }?>
 	
+		<?php if(count($hotel_options) !== 0) {?>
 		<section class="col-12" id="article-section-4">
 			<div class='d-flex flex-column title-box'>
-				<span>03</span>
-				<h1 class="mt-13">골프장 시설</h1>
+				<span>04</span>
+				<h1 class="mt-13">숙박 시설</h1>
 			</div>
 			<div class="list-content">
 				<ul class="d-flex flex-wrap">
+				<?php for($i=0 ; $i < count($hotel_options); $i++ ){?>
 					<li class='d-flex flex-column'>
-						<p>한국인 스태프</p>
+						<p><?=$hotel_options[$i]->name?></p>
 					</li>
-					<li class='d-flex flex-column'>
-						<p>와이파이(로비)</p>
-					</li>
-					<li class='d-flex flex-column'>
-						<p>와이파이(룸)</p>
-					</li>
-					<li class='d-flex flex-column'>
-						<p>공항 셔틀 버스</p>
-					</li>
-					<li class='d-flex flex-column'>
-						<p>수영장</p>
-					</li>
-					<li class='d-flex flex-column'>
-						<p>피트니스 센터</p>
-					</li>
-					<li class='d-flex flex-column'>
-						<p>사우나</p>
-					</li>
-					<li class='d-flex flex-column'>
-						<p>마사지 샵</p>
-					</li>
-					<li class='d-flex flex-column'>
-						<p>커피숍</p>
-					</li>
-					<li class='d-flex flex-column'>
-						<p>레스토랑</p>
-					</li>
-					<li class='d-flex flex-column'>
-						<p>바</p>
-					</li>
-					<li class='d-flex flex-column'>
-						<p>룸 서비스</p>
-					</li>
-					<li class='d-flex flex-column'>
-						<p>+24시간 룸 서비스</p>
-					</li>
-					<li class='d-flex flex-column'>
-						<p>24시간 체크인</p>
-					</li>
-					<li class='d-flex flex-column'>
-						<p>레이트 체크 아웃</p>
-					</li>
-					<li class='d-flex flex-column'>
-						<p>금고</p>
-					</li>
-					<li class='d-flex flex-column'>
-						<p>헤어 드라이기</p>
-					</li>
-					<li class='d-flex flex-column'>
-						<p>비데</p>
-					</li>
-					<li class='d-flex flex-column'>
-						<p>생수</p>
-					</li>
-					<li class='d-flex flex-column'>
-						<p>노래방</p>
-					</li>
-					<li class='d-flex flex-column'>
-						<p>편의점</p>
-					</li>
-					<li class='d-flex flex-column'>
-						<p>택시대기</p>
-					</li>
-					<li class='d-flex flex-column'>
-						<p>환전</p>
-					</li>
-					<li class='d-flex flex-column'>
-						<p>냉난방</p>
-					</li>
-					<li class='d-flex flex-column'>
-						<p>흡연가능</p>
-					</li>
+					<?php }?>
+					
 				</ul>
 			</div>
 		</section>
+		<?php }?>
 		<section class="col-12" id="article-section-5">
 			<div class='d-flex flex-column title-box'>
 				<span>05</span>

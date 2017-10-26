@@ -19,7 +19,15 @@ class P_hotel_model extends Board_Model{
             });
             return $rows;
     }
-
+    function get_by_product_id($product_id)
+    {
+        $this->db->select(" r.*, h.*, r.id 'id'");
+        $this->db->from('p_ref_hotel as r');
+        $this->db->join("$this->table h","r.hotel_id = h.id","LEFT");
+        $this->db->where("product_id",$product_id);
+        $row =$this->db->get()->row();
+        return $row;
+    }
     function gets_by_product_id($product_id)
     {
         $this->db->select(" r.*, h.*, r.id 'id'");
