@@ -1,0 +1,41 @@
+//NOTE header nav
+#header-nav {
+	padding: 30px 15px;
+	@media (min-width: 992px) {
+		padding: 50px;
+	}
+	.splice {
+		content: '';
+		height: 15px;
+		margin: 0 20px;
+		border-right: 2px solid white;
+	}
+	* {
+		color: white;
+		text-decoration: none;
+		font-family: 'Noto Sans', sans-serif;
+	}
+	#nav-search {
+		i {
+			margin-right: 6px;
+		}
+		input {
+			font-size: 14px;
+			min-width: 380px;
+			background-color: inherit !important;
+			border: 0;
+			&:focus {
+				outline: 0;
+			}
+		}
+	}
+	#nav-meun {
+		i {
+			margin-right: 10px;
+		}
+		font-size: 14px;
+		span{
+			min-width: 30px;
+		}
+	}
+}
