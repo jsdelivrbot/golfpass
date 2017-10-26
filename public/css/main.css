@@ -2099,10 +2099,12 @@ header {
   font-weight: bold;
   box-sizing: border-box; }
   #main-article section {
-    padding-left: 40px;
     margin-top: 80px;
     color: #4d4d4d;
     position: relative; }
+    @media (min-width: 768px) {
+      #main-article section {
+        padding-left: 40px; } }
     #main-article section .title-box {
       padding: 30px 0;
       position: absolute; }

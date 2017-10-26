@@ -4,7 +4,9 @@
 	font-weight: bold;
 	box-sizing: border-box;
 	section {
-		padding-left: 40px;
+		@media (min-width: 768px) {
+			padding-left: 40px;
+		}
 		margin-top: 80px;
 		color: #4d4d4d;
 		position: relative;
@@ -85,6 +87,7 @@
 		height: 400px;
 		background-color: #4d4d4d;
 	}
-	
+
 }
+
 @import 'article/review';
