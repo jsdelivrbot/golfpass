@@ -15,8 +15,9 @@ class Main extends Base_Controller
     {
       
         
-        $this->_template('sample_index');
-        // $this->_view('index');
+        // $this->_template('sample_index');
+        $this->_view('main/golfpass/index');
+        // $this->_view('main/golfpass/fullmenu');
     }
 
 }

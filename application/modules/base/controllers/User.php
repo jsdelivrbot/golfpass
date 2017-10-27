@@ -19,16 +19,21 @@ class User extends Base_Controller
            $this->template->base($data);
     }
      
+    function register_agree_1()
+    {
+        $this->_template('user/golfpass/register_agree_1',array(),'golfpass');
+    }
    function _login_view($data = array())
    {
-        $view =array('login');
-        if($this->input->get('guest_order')){//비회원주문
-            $data['order_id'] = $this->input->get('order_id');
-            $data['order_count'] = $this->input->get('order_count');
-            array_push($view,"shop/order/guest_order_button");
-        }
+        // $view =array('login');
+        // if($this->input->get('guest_order')){//비회원주문
+        //     $data['order_id'] = $this->input->get('order_id');
+        //     $data['order_count'] = $this->input->get('order_count');
+        //     array_push($view,"shop/order/guest_order_button");
+        // }
        
-        $this->_template($view,$data);
+        // $this->_template($view,$data);
+        $this->_template('user/golfpass/login',$data,'golfpass');
    }
     function login()
     {
@@ -88,7 +93,7 @@ class User extends Base_Controller
         if ($this->fv->run()=== false) {
             $user = (object)array();
             $data = array("mode" =>"add","user"=>$user);
-            $this->_template("addUpdate",$data);
+            $this->_view("user/golfpass/addUpdate",$data);
 
             if($this->session->userdata('email_auth') !== null)
                 $this->session->set_flashdata('email_auth',true);
@@ -97,7 +102,7 @@ class User extends Base_Controller
             $data = array("mode" =>"add","user"=>$user);
 
             echo "<script>alert('이메일 인증이 완료되지 않았습니다.')</script>";
-            $this->_template("addUpdate",$data);
+            $this->_view("user/golfpass/addUpdate",$data);
         } else {
             $this->_dbSet_addUpdate();
 

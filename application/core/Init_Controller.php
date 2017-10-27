@@ -659,8 +659,7 @@ class Init_Controller extends MX_Controller{
               `kind` varchar(50) NOT NULL DEFAULT 'cartlist',
               `created` datetime NOT NULL DEFAULT NOW(),
               PRIMARY KEY (`id`),
-              KEY `idx_product_user_id_kind` (`product_id`,`user_id`,`kind`),
-              UNIQUE KEY `idx_product_user_id`(`product_id`,`user_id`)
+              UNIQUE KEY `idx_product_user_id_kind` (`product_id`,`user_id`,`kind`)
               ) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
                   
               if($result) echo("success create $tb_name ");

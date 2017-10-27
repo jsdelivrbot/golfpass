@@ -84,13 +84,15 @@
                 <a href="<?=site_url('')?>">홈</a>
             <?php if (!is_login()) {?>
                 <a href="<?=site_url(user_uri."/login?return_url=".rawurlencode(my_current_url()))?>">로그인</a>
-                <a href="<?=site_url(user_uri."/add")?>">회원가입</a>
+                <a href="<?=site_url(user_uri."/register_agree_1")?>">회원가입</a>
             <?php }else{?>
                 <a href="<?=site_url(user_uri."/logout?return_url=".rawurlencode(my_current_url()))?>">로그아웃</a>
                 <a href="<?=site_url(user_uri."/check_pssword_forUpdate")?>">내정보 수정</a>
+            
                
                 
             <?php }?>
+            <a href="<?=site_url(shop_wishlist_uri."/gets")?>">위시리스트</a>
             <?php load_view($menu_top_view)?>
             <!-- <a href="<?=site_url(shop_mypage_uri."/index")?>">마이페이지</a> -->
             <!-- <a href="<?=site_url(shop_mypage_uri."/cartlist_gets")?>">장바구니</a> -->
@@ -118,7 +120,6 @@
              <!-- 사이드바 -->
             <article id="article">
             <?php load_view($content_view)?>
-        
 
         <article id="article">
         </main>

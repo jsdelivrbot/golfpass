@@ -16,6 +16,11 @@
     <input type="hidden" name="order_count">
 </form>
 
+<form id="add_wishlist" onsubmit="ajax_submit(this);return false;" action="<?=site_url(shop_wishlist_uri."/ajax_add/{$product->id}")?>">
+    <input type="submit" value="위시리스트에 추가">
+    <input type="hidden" name="order_count">
+</form>
+
 <?php if(!is_login()){?>
 <a href="<?=site_url(user_uri."/login?return_url=".rawurlencode(my_current_url()))?>">로그인</a>
 <?php }?>
@@ -29,12 +34,16 @@
 $(document).ready(function(){
     var $form_driect_buy =$("#direct_buy > input[name=order_count]");
     var $form_add_cartlist  = $("#add_cartlist > input[name=order_count]");
+    var $form_add_wishlist  = $("#add_wishlist > input[name=order_count]");
 
     $form_add_cartlist.val($form_driect_buy.val());
     
     $form_driect_buy.on('input',function(e){
         $form_add_cartlist.val($form_driect_buy.val());
+        $form_add_wishlist.val($form_driect_buy.val());
     });
+
+
     
 });
 
