@@ -69,7 +69,10 @@ class User extends Base_Controller
             } else if (password_verify($password, $hash)) {  //로그인 성공
                
                 $this->session->set_userdata(array('is_login'=>'true','user_id'=>$user->id,'userName'=>$userName,'auth'=> $user->auth));
-                redirect_return_url("/");
+                if($user->auth === admin_auth)
+                    redirect(admin_home_uri."");    
+                else
+                    redirect_return_url("/");
             }
         }
     }
