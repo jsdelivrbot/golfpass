@@ -56,6 +56,8 @@ class Product extends Base_Controller {
         $this->load->model('product_reviews_model');
         $data['reviews'] = $this->product_reviews_model->gets(array('r.product_id'=>$id));
 
+        //number
+        $data['number'] =1 ;
         //reviews with pagination
         // $this->load->model('product_reviews_model');
         // $data['reviews'] = $this->product_reviews_model->gets_with_ajax_pgi(array(

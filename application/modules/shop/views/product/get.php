@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -58,7 +59,9 @@
 		<article class="row no-gutters">
 			<div id='slide-box' class="col-12 col-md-6 col-xl-5">
 				<figure id='slide-img'>
+					<?php if(isset($product_photos[0]->name)){?>
 					<img src="<?=$product_photos[0]->name?>" alt="">
+					<?php }?>
 				</figure>
 				<div id="slide-list" class='d-flex align-items-center justify-content-center'>
 					<span><i class="xi-angle-left-min"></i></span>
@@ -144,7 +147,7 @@
 	<article class='row no-gutters flex-column' id='detail-article'>
 		<section class="col-md-7 col-lg-8 col-xl-9" id="article-section-1">
 			<div class='d-flex flex-column title-box'>
-				<span>01</span>
+				<span>0<?=$number++?></span>
 				<h1 class="mt-13">골프장</h1>
 			</div>
 			<div class="list-content">
@@ -171,9 +174,10 @@
 				</ul>
 			</div>
 		</section>
+		<?php if(isset($hotel)){?>
 		<section class="col-md-7 col-lg-8 col-xl-9" id="article-section-2">
 			<div class='d-flex flex-column title-box'>
-				<span>02</span>
+				<span>0<?=$number++?></span>
 				<h1 class="mt-13">숙박</h1>
 			</div>
 			<div class="list-content">
@@ -206,11 +210,11 @@
 				</ul>
 			</div>
 		</section>
-
+		<?php }?>
 		<?php if(count($product_options) !== 0) {?>
 		<section class="col-12" id="article-section-3">
 			<div class='d-flex flex-column title-box'>
-				<span>03</span>
+				<span>0<?=$number++?></span>
 				<h1 class="mt-13">골프장 시설</h1>
 			</div>
 			<div class="list-content">
@@ -224,8 +228,8 @@
 			</div>
 		</section>
 			<?php }?>
-	
-		<?php if(count($hotel_options) !== 0) {?>
+		
+		<?php if(isset($hotel_options)) {?>
 		<section class="col-12" id="article-section-4">
 			<div class='d-flex flex-column title-box'>
 				<span>04</span>
@@ -245,7 +249,7 @@
 		<?php }?>
 		<section class="col-12" id="article-section-5">
 			<div class='d-flex flex-column title-box'>
-				<span>05</span>
+				<span>0<?=$number++?></span>
 				<h1 class="mt-13">취소/환불</h1>
 			</div>
 			<div id="section-5-list-content">
