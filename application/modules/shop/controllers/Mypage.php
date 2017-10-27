@@ -15,9 +15,8 @@ class Mypage extends Base_Controller {
             my_redirect(user_uri."/login?return_url=".rawurlencode(my_current_url()),false);
             return; 
         }
-
         // $this->_template('index');
-        $this->_view('index');
+        $this->_template('index',array(),'golfpass');
         // $data = array();
         // $this->_template(array(
         //     'content_view'=>'index',

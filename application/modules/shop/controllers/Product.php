@@ -53,22 +53,23 @@ class Product extends Base_Controller {
         //user
         $this->load->model("base/users_model");
         $data['user'] = $this->users_model->get($this->user->id, array("userName,name,phone"));
-        //review with pagination
+
+        //reviews
         $this->load->model('product_reviews_model');
-        
         $data['reviews'] = $this->product_reviews_model->gets(array('r.product_id'=>$id));
-        $data['reviews'] = $this->product_reviews_model->gets_with_ajax_pgi(array(
-            'product_id'=>$id,
-            'target' =>'#nid_postList',
-            'base_url'=> site_url(shop_review_uri."/ajax_pgi_data")
-        ));
-        
-        // view
 
+        // //reviews with pagination
+        // $this->load->model('product_reviews_model');
+        // $data['reviews'] = $this->product_reviews_model->gets_with_ajax_pgi(array(
+        //     'product_id'=>$id,
+        //     'target' =>'#nid_postList',
+        //     'base_url'=> site_url(shop_review_uri."/ajax_pgi_data")
+        // ));
 
-         $review_view_dir =  view_review_dir."/ajax_gets";
-         $this->_template(array('sample_get',$review_view_dir),$data);
-        //  $this->_view('get',$data);
+        //  $review_view_dir =  view_review_dir."/ajax_gets";
+        //  $this->_template(array('sample_get',$review_view_dir),$data);
+
+         $this->_view('get',$data);
         
 		 
     }

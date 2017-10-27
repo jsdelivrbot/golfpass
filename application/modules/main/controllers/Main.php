@@ -13,11 +13,11 @@ class Main extends Base_Controller
     }
     function index()
     {
-      
+        $this->load->model("shop/products_model");
+        $data['product_main'] = $this->products_model->get();
         
-        // $this->_template('sample_index');
-        $this->_view('main/golfpass/index');
-        // $this->_view('main/golfpass/fullmenu');
+        // $this->_template('index');
+        $this->_view('main/golfpass/index',$data);
     }
 
 }

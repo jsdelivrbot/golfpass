@@ -28,8 +28,9 @@ class Public_Model extends CI_Model{
     }
 
     
-    public function get($where_obj,$select_arr =false){
-        $this->where_by_obj($where_obj);
+    public function get($where_obj=null,$select_arr =false){
+        if($where_obj !== null)
+            $this->where_by_obj($where_obj);
         if($select_arr !== false)
             $this->select_by_arr($select_arr);
     

@@ -64,8 +64,8 @@ a.btn{
 
 	<section class="contents_1" id="paracon1">
 		<div class="con1">
-			<p class="main_tit">사디야트 해변 골프 클럽</p>
-			<p>아랍에미레이트, 아부다비 - 18홀 / 6,933야드</p>
+			<p class="main_tit"><?=$product_main->name?></p>
+			<p>아랍에미레이트, 아부다비 - <?=$product_main->hole_count?>홀 / <?=$product_main->distance?>야드</p>
 			<div class="review">
 				<ul class="rev_star clf">
 					<li class="fill"></li>
@@ -77,10 +77,10 @@ a.btn{
 				<span>(리뷰 173개)</span>
 			</div>
 			<p class="c1_txt">
-				사디야트 해변 골프 클럽의 광활한 부지는 편안하면서도 와이드한 느낌을 전해주며, 샷밸류가 살아있는 전략적인 레이아웃으로 9홀 단위로 그 특징들이 차별화되어 있습니다. 기존 자연림과 깍아지듯한 암벽과 광활한 암반에 펼쳐지는 연못이 타 골프장과 차별성을 더해 주고 소나무림에 둘러싸인 코스는 마치 자연속에 그대로 안착된 듯한 홀로 조성하였습니다.
+			<?=$product_main->desc?>
 			</p>
 
-			 <button class="btn type01">보러가기</button>
+			 <a href="<?=site_url(shop_product_uri."/get/{$product_main->id}")?>"><button class="btn type01">보러가기</button></a>
 		</div>
 
 		<div class="scrollDown">
@@ -439,9 +439,16 @@ a.btn{
   <div class="menu-sliders"></div>
   <div class="menu">
     <ul>
+	
       <li>
         <a href="<?=site_url('')?>">골프패스</a>
 	  </li>
+	  <?php if(is_admin()){?>
+      <li>
+        <a href="<?=site_url(admin_home_uri.'')?>">관리자 페이지</a>
+	  </li>
+	  <?php }?>
+
 	  <?php if(!is_login()){?>
       <li>
         <a href="<?=site_url(user_uri.'/login')?>">로그인</a>
