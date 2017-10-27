@@ -1,0 +1,1 @@
+<a href="<?=site_url(shop_order_uri."/index/$order_id?guest_order=true&order_count=$order_count")?>">비회원으로 주문</a>

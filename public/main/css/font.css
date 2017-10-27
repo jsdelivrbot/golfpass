@@ -1,0 +1,9 @@
+@font-face{
+font-family: "TmonMonsori";
+src: url('font/TmonMonsori.otf')format('truetype');
+src: url('font/TmonMonsori.ttf') format('truetype');
+}
+@font-face{
+font-family: "TmonTium";
+src: url('font/TmonTium.ttf')format('truetype');
+}
