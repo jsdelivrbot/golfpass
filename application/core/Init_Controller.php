@@ -656,10 +656,10 @@ class Init_Controller extends MX_Controller{
               `product_id` INT NOT NULL,
               `user_id` INT NOT NULL,
               `count` INT NOT NULL DEFAULT 1,
+              `kind` varchar(50) NOT NULL DEFAULT 'cartlist',
               `created` datetime NOT NULL DEFAULT NOW(),
               PRIMARY KEY (`id`),
-              KEY `idx_product_id` (`product_id`),
-              KEY `idx_user_id` (`user_id`),
+              KEY `idx_product_user_id_kind` (`product_id`,`user_id`,`kind`),
               UNIQUE KEY `idx_product_user_id`(`product_id`,`user_id`)
               ) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
                   
@@ -669,7 +669,6 @@ class Init_Controller extends MX_Controller{
               echo "already table $tb_name exists";
           }
           echo "<br>";
- 
     }
     
 	 function _index()

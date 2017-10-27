@@ -30,14 +30,14 @@ class Order extends Base_Controller {
                 if($tmp_cartlist = $this->session->userdata('cartlist')){ //장바구니 비었나확인
                     foreach($tmp_cartlist as $key=>$value){
                         $row =$this->db->select("id 'p_id', name 'p_name', price 'p_price', {$value} 'p_count', (price * {$value}) 'p_total_price'")
-                        ->from("$products")
+                        ->from("products")
                         ->where('id',$key)->get()->result();
                         $cartlist =array_merge($cartlist,$row);
                     }
                 }
             }else if (is_login()){//회원
                 $this->load->model("product_cartlist_model");
-                $cartlist =$this->product_cartlist_model->gets();
+                $cartlist =$this->product_cartlist_model->gets($this->user->id,'cartlist');
             }
             
         }
@@ -230,6 +230,7 @@ class Order extends Base_Controller {
             $this->session->sess_destroy();
         }else{
             $this->db->where("user_id",$this->user->id);
+            $this->db->where("kind",'cartlist');
             $this->db->delete("product_cartlist");
         }//
 

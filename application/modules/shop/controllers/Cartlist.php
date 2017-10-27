@@ -28,7 +28,7 @@ class Cartlist extends Base_Controller {
           
         }else{//회원 장바구니
             $this->load->model("product_cartlist_model");
-            $cartlist =$this->product_cartlist_model->gets();
+            $cartlist =$this->product_cartlist_model->gets($this->user->id,'cartlist');
           
         }
         return $cartlist;
@@ -63,7 +63,7 @@ class Cartlist extends Base_Controller {
             return;
         }else { //회원일떄
             $user_id = $this->user->id;
-        $this->db->query("INSERT INTO {$this->table} (product_id,user_id,count,created) VALUES ($id,$user_id,{$order_count},NOW()) ON DUPLICATE KEY UPDATE count = count+{$order_count}");
+            $this->db->query("INSERT INTO {$this->table} (product_id,user_id,count,kind,created) VALUES ($id,$user_id,{$order_count},'cartlist',NOW()) ON DUPLICATE KEY UPDATE count = count+{$order_count}");
        
             $data = array(
                 "confirm_redirect" => array("url"=>site_url(shop_cartlist_uri."/gets"),"msg"=>"장바구니에 추가하였습니다. 확인하시겠습니까?")
@@ -82,9 +82,7 @@ class Cartlist extends Base_Controller {
             echo json_encode($data);
             return;
         }else{
-            $this->db->where('product_id',$id);
-            $this->db->where('user_id',$this->user->id);
-            $this->db->delete($this->table);
+            $this->product_cartlist_model->delete($id,$this->user->id,'cartlist');
             $data = array("reload" => true );
             echo json_encode($data);
             return;
@@ -108,12 +106,9 @@ class Cartlist extends Base_Controller {
             $count = $this->input->post('product_count');
             $user_id = $this->user->id;
             if($count === '0'){
-                $this->db->where('product_id',$id)->where('user_id',$user_id)
-                ->delete($this->table);
+                $this->product_cartlist_model->delete($id,$user_id,'cartlist');
             }else{
-                $this->db->where('product_id',$id)->where('user_id',$user_id)
-                ->set('count',$count)
-                ->update($this->table);
+                $this->product_cartlist_model->update($count,$id,$user_id,'cartlist');
             }
             $data =array("reload"=>true);
             echo json_encode($data);
