@@ -28,7 +28,7 @@ class Board_contents_Model extends Board_Model{
         $this->db->from("$this->table as c");
         if($field !== null)//검색 true
         {
-            $this->like_or_by_split($field,$this->input->get('value'));
+            $this->_like_or_by_split($field,$this->input->get('value'));
         }
         $this->db->where('c.is_display','1');
         $this->db->where('c.user_id',$ci->user->id);
@@ -45,12 +45,12 @@ class Board_contents_Model extends Board_Model{
         //select from board_$id's contents
         $field = $this->input->get('field');
         if($field)
-          $this->like_or_by_split($field,$this->input->get('value'));
+          $this->_like_or_by_split($field,$this->input->get('value'));
         $this->db->order_by('id','desc');
         $this->db->limit($per_page,$offset);
         $this->db->where('c.user_id',$ci->user->id);
         $this->db->where('c.is_display','1');
-        $rows=$this->_gets();
+        $rows=$this->gets();
         return $rows;
     }
     function gets_with_pgi($config)
@@ -73,20 +73,20 @@ class Board_contents_Model extends Board_Model{
                 $this->db->limit($per_page,$offset);
                 $this->db->where('c.board_id',$board_id);
                 $this->db->where('c.is_display','1');
-                $rows = $this->_gets();
+                $rows = $this->gets();
                 return $rows;
             }
             ,
             function() use ($board_id){
                 $this->load->model("base/boards_model");
-                $total_rows =$this->boards_model->get_count(array('id'=>$board_id),'contents_count');
+                $total_rows =$this->boards_model->_get_count(array('id'=>$board_id),'contents_count');
                 return $total_rows;
             });
             return $rows;
     }
  
    
-    function _gets()
+    function gets()
     {
         $this->db->select("c.id, c.title, c.desc, c.created ,if(c.user_id = 0, c.guest_name, u.name) 'user_name', if(c.user_id = 0, '손님', u.userName) 'userName'");
         $this->db->from("$this->table AS c");
@@ -97,27 +97,27 @@ class Board_contents_Model extends Board_Model{
     }
     function add($set_obj =false){
         $board_id = $set_obj['board_id'];
-        $id = parent::add($set_obj);
+        $id = parent::_add($set_obj);
 
-        $is_display=parent::get($id,array('is_display'))->is_display;
+        $is_display=parent::_get($id,array('is_display'))->is_display;
 
         if($is_display === '1'){
             $this->load->model("base/boards_model");
-            $this->boards_model->count_plus(array('id'=>$board_id),'contents_count');
+            $this->boards_model->_count_plus(array('id'=>$board_id),'contents_count');
         }
         return $id;
     }
   
     function delete($where,$board_id =false)
     {
-        $row =parent::get($where,array('is_display','board_id'));
+        $row =parent::_get($where,array('is_display','board_id'));
         $is_display=$row->is_display;
         $board_id = $row->board_id;
-        $where =parent::delete($where);
+        $where =parent::_delete($where);
         
         if($is_display === '1'){
             $this->load->model("base/boards_model");
-            $this->boards_model->count_minus(array('id'=>$board_id),'contents_count');
+            $this->boards_model->_count_minus(array('id'=>$board_id),'contents_count');
         }
     }
  

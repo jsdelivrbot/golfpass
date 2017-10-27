@@ -62,7 +62,7 @@ class Menu extends Admin_Controller {
              
         }else{
             $this->_dbSet_addUpdate();
-            $this->menus_model->add();
+            $this->menus_model->_add();
             my_redirect(admin_menu_uri."/gets");
         }
     }
@@ -85,14 +85,14 @@ class Menu extends Admin_Controller {
              
         }else{
             $this->_dbSet_addUpdate();
-            $this->menus_model->update($id);
+            $this->menus_model->_update($id);
             
             my_redirect(admin_menu_uri."/gets");
         }
     }
 
     public function _dbSet_addUpdate(){
-        $this->menus_model->set_by_obj(array(
+        $this->menus_model->_set_by_obj(array(
           'position'=>$this->position,
           'parent_id'=>$this->input->post('parent_id'),
           'name'=>$this->input->post('name'),

@@ -6,20 +6,20 @@ class Board_replys_Model extends Public_Model{
     }
    
     function add($set_obj = false){
-        $review_id=parent::add($set_obj);
+        $review_id=parent::_add($set_obj);
         
         $content_id = $set_obj['content_id'];
 
         $this->load->model('base/board_contents_model');
-        $this->board_contents_model->count_plus(array('id'=>$content_id),'replys_count');
+        $this->board_contents_model->_count_plus(array('id'=>$content_id),'replys_count');
     }
 
     function delete($where_obj){
-        $content_id =parent::get($where_obj,array("content_id"))->content_id;
-        parent::delete($where_obj);
+        $content_id =parent::_get($where_obj,array("content_id"))->content_id;
+        parent::_delete($where_obj);
 
         $this->load->model('base/board_contents_model');
-        $this->board_contents_model->count_minus(array('id'=>$content_id),'replys_count');
+        $this->board_contents_model->_count_minus(array('id'=>$content_id),'replys_count');
     }
 
     public function _recursive($parent,$deep,$content_id,$board_id){

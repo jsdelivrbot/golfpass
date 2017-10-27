@@ -81,7 +81,7 @@ class Hotel extends Admin_Controller {
             $this->_template("addUpdate",$data);
         }else{
             $this->_dbSet_addUpdate();
-            $insert_id=$this->p_hotel_model->add();
+            $insert_id=$this->p_hotel_model->_add();
             alert('추가완료');
             my_redirect(admin_hotel_uri."/update/$insert_id");
         }

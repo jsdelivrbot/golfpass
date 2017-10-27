@@ -88,7 +88,7 @@ class Review extends Base_Controller {
 
             // setting_model is_product_review_display 확인 후 is_display세팅 // default값 수정으로 변경예정
             $this->load->model('admin/setting_model');
-            $is_display=$this->setting_model->get(1,array('is_product_review_display'))->is_product_review_display;
+            $is_display=$this->setting_model->_get(1,array('is_product_review_display'))->is_product_review_display;
             if($is_display === '0'){
                 $this->db->set('is_display',$is_display);
             }
@@ -110,7 +110,7 @@ class Review extends Base_Controller {
    
     }
     public function _dbSet_addUpdate(){
-        $this->product_reviews_model->set_by_obj(array(
+        $this->product_reviews_model->_set_by_obj(array(
           "title"=> $this->input->post('title'),
            "desc"=> $this->input->post('desc')
         ));

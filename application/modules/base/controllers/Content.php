@@ -201,7 +201,7 @@ class Content extends Base_Controller {
              
         }else{
             $this->_dbSet_addUpdate();
-            $this->board_contents_model->update($id);
+            $this->board_contents_model->_update($id);
             
             my_redirect(content_uri."/get/$id");
         }
@@ -236,7 +236,7 @@ class Content extends Base_Controller {
     }
 
     public function _dbSet_addUpdate(){
-        $this->board_contents_model->set_by_obj(array(
+        $this->board_contents_model->_set_by_obj(array(
           "title"=> $this->input->post('title'),
            "desc"=> $this->input->post('desc')
         ));

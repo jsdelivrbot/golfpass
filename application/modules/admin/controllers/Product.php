@@ -86,7 +86,7 @@ class Product extends Admin_Controller {
     }
     // public function gets()
     // {
-    //     $products = $this->products_model->gets();
+    //     $products = $this->products_model->_gets();
 
     //     $data = array('products' => $products);
     //      
@@ -151,7 +151,7 @@ class Product extends Admin_Controller {
     public function add(){
 
         // $this->load->model('product_categories_model');
-        // $categories =$this->product_categories_model->gets();
+        // $categories =$this->product_categories_model->_gets();
 
         $this->_set_rules();
 
@@ -170,7 +170,7 @@ class Product extends Admin_Controller {
              
         }else{
             $this->_dbSet_addUpdate();
-            $inert_id=$this->products_model->add();
+            $inert_id=$this->products_model->_add();
             my_redirect(admin_product_uri."/update/$inert_id");
         }
     }
@@ -184,7 +184,7 @@ class Product extends Admin_Controller {
             $data['categories'] = $this->product_categories_model->gets_by_recursive_tree(); 
             $data['product_categories'] = $this->product_categories_model->gets_by_product_id($id);
             $data['p_ref_hotel'] = $this->p_hotel_model->gets_by_product_id($id);
-            $data['hotels'] = $this->p_hotel_model->gets();
+            $data['hotels'] = $this->p_hotel_model->_gets();
             $data['options'] = $this->db->query("SELECT * FROM product_option WHERE product_id = $id AND kind = 'option'")->result();
             $data['descs'] = $this->db->query("SELECT * FROM product_option WHERE product_id = $id AND kind = 'desc' ORDER BY sort ASC")->result();
             $data['photos'] = $this->db->query("SELECT * FROM product_option WHERE product_id = $id AND kind = 'photo' ORDER BY sort ASC")->result();
@@ -206,7 +206,7 @@ class Product extends Admin_Controller {
     }
 
     // public function _dbSet_addUpdate(){
-    //     $this->products_model->set_by_obj(array(
+    //     $this->products_model->_set_by_obj(array(
     //         "name"=>$this->input->post('name'),
     //         "desc"=>$this->input->post('desc'),
     //         "price"=>$this->input->post('price')

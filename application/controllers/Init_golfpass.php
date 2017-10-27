@@ -12,11 +12,19 @@ class Init_golfpass extends Init_Controller {
         parent::index();
         $this->p_ref_hotel();
         $this->p_hotel();
-    
         $this->hotel_option();
 
+        $this->load->model('base/menus_model');
+        $this->load->model('shop/product_categories_model');
+        $this->load->model('shop/products_model');
+        $this->load->model('base/boards_model');
+        $this->load->model('shop/product_reviews_model');
+        $this->load->model('shop/ref_cate_product_model');
+
+
+
     }
-   
+
     
     function hotel_option()
     {

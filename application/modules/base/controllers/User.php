@@ -56,7 +56,7 @@ class User extends Base_Controller
              $userName = $this->input->post('userName');
              $password = $this->input->post('password');
 
-             $user = $this->users_model->get(array("userName"=>$userName));
+             $user = $this->users_model->_get(array("userName"=>$userName));
              
             if (!isset($user)) {  //아이디 존재하지않음
                 alert("아이디가 존재하지 않습니다.");

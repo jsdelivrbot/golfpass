@@ -14,10 +14,11 @@ class Main extends Base_Controller
     function index()
     {
         $this->load->model("shop/products_model");
-        $data['product_main'] = $this->products_model->get();
+        $data['product_main'] = $this->products_model->_get();
         
-        // $this->_template('index');
-        $this->_view('main/golfpass/index',$data);
+        $data['nation_list'] = $this->products_model->get_by_category_id_recursive_tree();
+        $this->_template('index');
+        // $this->_view('main/golfpass',$data);
     }
 
 }

@@ -58,7 +58,7 @@ class Init_Controller extends MX_Controller{
                  
              if($result){
                  $this->load->model('admin/setting_model');
-                 $this->setting_model->add();
+                 $this->setting_model->_add();
                  echo("success create $tb_name ");
              }else{
                  echo("failed create $tb_name");
@@ -765,11 +765,11 @@ class Init_Controller extends MX_Controller{
         //muenus_top
         $table_menus = 'menus';
         $name = '상단메뉴';
-        $row =$this->menus_model->get(array('name'=>$name));
+        $row =$this->menus_model->_get(array('name'=>$name));
 
         if($row === null){
 
-            $menu_top_parent_id= $this->menus_model->add(array(
+            $menu_top_parent_id= $this->menus_model->_add(array(
                 'parent_id'=>'0',
                 'name'=>$name,
             ));
@@ -777,7 +777,7 @@ class Init_Controller extends MX_Controller{
             $name = "장바구니";
             $uri = shop_cartlist_uri."/gets";
             
-            $parent_id= $this->menus_model->add(array(
+            $parent_id= $this->menus_model->_add(array(
                 'parent_id'=>$menu_top_parent_id,
                 'name'=>$name,
                 'uri'=>$uri
@@ -787,7 +787,7 @@ class Init_Controller extends MX_Controller{
             $name = "마이페이지";
             $uri = shop_mypage_uri."/index";
             
-            $parent_id= $this->menus_model->add(array(
+            $parent_id= $this->menus_model->_add(array(
                 'parent_id'=>$menu_top_parent_id,
                 'name'=>$name,
                 'uri'=>$uri,
@@ -798,7 +798,7 @@ class Init_Controller extends MX_Controller{
             //장바구니
             $name = "장바구니";
             $uri = shop_cartlist_uri."/gets";
-            $this->menus_model->add(array(
+            $this->menus_model->_add(array(
                 'parent_id'=>$parent_id,
                 'name'=>$name,
                 'uri'=>$uri,
@@ -808,7 +808,7 @@ class Init_Controller extends MX_Controller{
             //주문관리
             $name = "주문관리";
             $uri = shop_order_uri."/gets";
-            $this->menus_model->add(array(
+            $this->menus_model->_add(array(
                 'parent_id'=>$parent_id,
                 'name'=>$name,
                 'uri'=>$uri,
@@ -819,7 +819,7 @@ class Init_Controller extends MX_Controller{
             //후기관리 메뉴
             $name = "내가쓴 후기";
             $uri = shop_review_uri."/gets";
-            $this->menus_model->add(array(
+            $this->menus_model->_add(array(
                 'parent_id'=>$parent_id,
                 'name'=>$name,
                 'uri'=>$uri,
@@ -829,7 +829,7 @@ class Init_Controller extends MX_Controller{
             // //상품문의 게시판
             // $name ='상품문의';
             // $skin="product_qna";
-            // $board_id= $this->boards_model->add(array(
+            // $board_id= $this->boards_model->_add(array(
             //     "name"=>$name,
             //     "skin"=>$skin,
             //     "is_linked_with_product" =>"1",
@@ -841,7 +841,7 @@ class Init_Controller extends MX_Controller{
             //  //상품문의 메뉴
             //  $name = "상품문의";
             //  $uri = content_uri."/gets?board_id={$board_id}&is_user=true";
-            //  $this->menus_model->add(array(
+            //  $this->menus_model->_add(array(
             //      'parent_id'=>$parent_id,
             //      'name'=>$name,
             //      'uri'=>$uri,
@@ -851,12 +851,12 @@ class Init_Controller extends MX_Controller{
             //1:1문의 게시판
             $name ='1:1문의';
             $skin="contact";
-            $board_id= $this->boards_model->add(array("name"=>$name,"skin"=>$skin));
+            $board_id= $this->boards_model->_add(array("name"=>$name,"skin"=>$skin));
           
             //1:1문의 메뉴
             $name = "1:1문의";
             $uri = content_uri."/gets?board_id=$board_id&is_user=true";
-            $this->menus_model->add(array(
+            $this->menus_model->_add(array(
                 'parent_id'=>$parent_id,
                 'name'=>$name,
                 'uri'=>$uri,
@@ -865,17 +865,17 @@ class Init_Controller extends MX_Controller{
             
             //sample product_caregories
             $name = "샘플 상품분류";
-            $cate_id =$this->product_categories_model->add();
+            $cate_id =$this->product_categories_model->_add();
             
             //sample product
-            $product_id =$this->products_model->add(array('price'=>'2000','name'=>'샘플상품1'));
+            $product_id =$this->products_model->_add(array('price'=>'2000','name'=>'샘플상품1'));
             //카테고리에 추가
-            $this->ref_cate_product_model->add(array('cate_id'=>$cate_id,'product_id'=>$product_id));
+            $this->ref_cate_product_model->_add(array('cate_id'=>$cate_id,'product_id'=>$product_id));
 
             //sample product2
-             $product_id = $this->products_model->add(array('price'=>'2000','name'=>'샘플상품2'));
+             $product_id = $this->products_model->_add(array('price'=>'2000','name'=>'샘플상품2'));
             //카테고리에 추가
-            $this->ref_cate_product_model->add(array('cate_id'=>$cate_id,'product_id'=>$product_id));
+            $this->ref_cate_product_model->_add(array('cate_id'=>$cate_id,'product_id'=>$product_id));
 
 
             echo "succeed row '$name' from $table_menus ";
@@ -902,24 +902,24 @@ class Init_Controller extends MX_Controller{
         //menus_main
         $table_menus = 'menus';
         $name = '메인메뉴';
-        $row = $this->menus_model->get(array('name'=>$name));
+        $row = $this->menus_model->_get(array('name'=>$name));
 
         if($row === null){
 
             //메인메뉴
-            $main_menu_parent_id= $this->menus_model->add(array(
+            $main_menu_parent_id= $this->menus_model->_add(array(
                 'parent_id'=>'0',
                 'name'=>$name
             ));
 
             //샘플페이지
-            $page_id = $this->pages_model->add();
+            $page_id = $this->pages_model->_add();
 
             
             //샘플메인메뉴
             $uri = page_uri."/get/$page_id";
             $name = "샘플메뉴1";
-            $parent_id= $this->menus_model->add(array(
+            $parent_id= $this->menus_model->_add(array(
                 'parent_id'=>$main_menu_parent_id,
                 'name'=>$name,
                 'uri'=>$uri
@@ -928,7 +928,7 @@ class Init_Controller extends MX_Controller{
             //샘플서브메뉴(페이지)
             $name = '샘플서브메뉴1';
             $uri = page_uri."/get/$page_id";
-            $this->menus_model->add(array(
+            $this->menus_model->_add(array(
                 'parent_id'=>$parent_id,
                 'name'=>$name,
                 'uri'=>$uri
@@ -937,7 +937,7 @@ class Init_Controller extends MX_Controller{
             //샘플페이지2
             $title = "샘플 제목2";
             $desc = "샘플 내용입니다2.";
-            $page_id = $this->pages_model->add(array(
+            $page_id = $this->pages_model->_add(array(
                 'title'=>$title,
                 'desc'=>$desc
             ));
@@ -946,19 +946,19 @@ class Init_Controller extends MX_Controller{
             //샘플서브메뉴(페이지)
             $name = '샘플서브메뉴2';
             $uri = page_uri."/get/$page_id";
-            $this->menus_model->add(array(
+            $this->menus_model->_add(array(
                 'parent_id'=>$parent_id,
                 'name'=>$name,
                 'uri'=>$uri
             ));
 
             //샘플게시판
-            $board_id=$this->boards_model->add(array('auth_w_content'=>'0','auth_w_review'=>'0'));
+            $board_id=$this->boards_model->_add(array('auth_w_content'=>'0','auth_w_review'=>'0'));
 
             //샘플메인메뉴2
             $name = '샘플메뉴2(게시판)';
             $uri = content_uri."/gets?board_id=$board_id";
-            $parent_id=$this->menus_model->add(array(
+            $parent_id=$this->menus_model->_add(array(
                 'parent_id'=>$main_menu_parent_id,
                 'name'=>$name,
                 'uri'=>$uri
@@ -967,19 +967,19 @@ class Init_Controller extends MX_Controller{
              //샘플서브메뉴1
              $name = '샘플서브메뉴1';
              $uri = content_uri."/gets?board_id=$board_id";
-             $this->menus_model->add(array(
+             $this->menus_model->_add(array(
                  'parent_id'=>$parent_id,
                  'name'=>$name,
                  'uri'=>$uri
              ));
 
             //샘플게시판2
-            $board_id=$this->boards_model->add(array('name'=>'샘플게시판2','auth_w_content'=>'0','auth_w_review'=>'0'));
+            $board_id=$this->boards_model->_add(array('name'=>'샘플게시판2','auth_w_content'=>'0','auth_w_review'=>'0'));
 
             //샘플서브메뉴2
             $name = '샘플서브메뉴2';
             $uri = content_uri."/gets?board_id=$board_id";
-            $this->menus_model->add(array(
+            $this->menus_model->_add(array(
                 'parent_id'=>$parent_id,
                 'name'=>$name,
                 'uri'=>$uri

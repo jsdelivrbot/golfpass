@@ -7,32 +7,32 @@ class Public_Model extends CI_Model{
         parent:: __construct();
         $this->table = $table;
     }
-    public function add($set_obj =false){
+    public function _add($set_obj =false){
         if($set_obj !== false && $set_obj !== null){
-            $this->set_by_obj($set_obj);
+            $this->_set_by_obj($set_obj);
         }
         $this->db->set('created','NOW()',false);
         $this->db->insert($this->table);
         $id =$this->db->insert_id();
         return $id;
     }
-    public function update($where_obj,$set_obj =null,$escape = true)
+    public function _update($where_obj,$set_obj =null,$escape = true)
     {
         if($set_obj !== null)
         {
-            $this->set_by_obj($set_obj,$escape);
+            $this->_set_by_obj($set_obj,$escape);
         }
-        $this->where_by_obj($where_obj);
+        $this->_where_by_obj($where_obj);
 
         $this->db->update($this->table);
     }
 
     
-    public function get($where_obj=null,$select_arr =false){
+    public function _get($where_obj=null,$select_arr =false){
         if($where_obj !== null)
-            $this->where_by_obj($where_obj);
+            $this->_where_by_obj($where_obj);
         if($select_arr !== false)
-            $this->select_by_arr($select_arr);
+            $this->_select_by_arr($select_arr);
     
         if(strpos($this->db->get_compiled_select(null,false), 'FROM') > -1)
         {
@@ -45,13 +45,13 @@ class Public_Model extends CI_Model{
       
         return $row;
     }
-    public function gets($where_obj =null,$select_arr =false,$limit=null)
+    public function _gets($where_obj =null,$select_arr =false,$limit=null)
     {
 
         if(!$where_obj !== null)
-            $this->where_by_obj($where_obj);
+            $this->_where_by_obj($where_obj);
         if($select_arr !== false && $select_arr !== null)
-            $this->select_by_arr($select_arr);
+            $this->_select_by_arr($select_arr);
         if($limit !== null)
             $this->db->limit($limit[1],$limit[0]);
             
@@ -67,8 +67,8 @@ class Public_Model extends CI_Model{
        
         return $rows;
     }
-    public function delete($where_obj){
-        $this->where_by_obj($where_obj);
+    public function _delete($where_obj){
+        $this->_where_by_obj($where_obj);
         $this->db->delete($this->table);
         return $where_obj;
     }
@@ -77,11 +77,11 @@ class Public_Model extends CI_Model{
         return ($row != null) ? ($row->max_id +1) : 1;
     }
 
-    public function hits_plus($id){
+    public function _hits_plus($id){
 		$this->db->query("UPDATE `{$this->table}` SET hits = hits+1 WHERE id = '$id'");
     }
     
-    public function set_by_obj($set_obj,$escape=true){
+    public function _set_by_obj($set_obj,$escape=true){
         if($set_obj !== null && $set_obj !== false)
         {
             foreach($set_obj as $key=>$val)
@@ -92,7 +92,7 @@ class Public_Model extends CI_Model{
         }
         
     }
-    public function select_by_arr($select_arr =false){
+    public function _select_by_arr($select_arr =false){
         if($select_arr !== false && $select_arr !==null && is_array($select_arr)){
             $select_str = '';
             foreach($select_arr as $val){
@@ -104,7 +104,7 @@ class Public_Model extends CI_Model{
         return;
 
     }
-    public function where_by_obj($where_obj){
+    public function _where_by_obj($where_obj){
         if($where_obj === null || $where_obj === false)
         {
             return;
@@ -120,35 +120,35 @@ class Public_Model extends CI_Model{
         }
     }
     
-    function get_count($where_obj=null, $count_name){
+    function _get_count($where_obj=null, $count_name){
 
         if($where_obj ===null)
         {
             $this->db->select("sum($count_name) '$count_name'");
         }else
         {
-            $this->where_by_obj($where_obj);
+            $this->_where_by_obj($where_obj);
             $this->db->select($count_name);
         }
         
         $count= $this->db->get($this->table)->row()->$count_name;
         return $count;
     }
-    function count_plus($where_obj,$count_name = 'count'){
-        $this->where_by_obj($where_obj);
+    function _count_plus($where_obj,$count_name = 'count'){
+        $this->_where_by_obj($where_obj);
 
         $this->db->set($count_name,"{$count_name}+1",false);
         $this->db->update($this->table);
     }
     
-    function count_minus($where_obj,$count_name = 'count'){
-        $this->where_by_obj($where_obj);
+    function _count_minus($where_obj,$count_name = 'count'){
+        $this->_where_by_obj($where_obj);
 
         $this->db->set($count_name,"{$count_name}-1",false);
         $this->db->update($this->table);
     }
 
-    function like_or_by_split($fields,$val)
+    function _like_or_by_split($fields,$val)
     {
         if(isset($fields) && $fields !== null && $fields !== '')
         {

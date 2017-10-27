@@ -42,7 +42,7 @@ class Ref_cate_product extends Admin_Controller {
     }
     public function delete($id)
     {
-        $this->ref_cate_product_model->delete($id);
+        $this->ref_cate_product_model->_delete($id);
         my_redirect($_SERVER['HTTP_REFERER']);
     }
 

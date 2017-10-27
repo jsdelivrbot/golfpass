@@ -28,7 +28,7 @@ class Cartlist extends Base_Controller {
           
         }else{//회원 장바구니
             $this->load->model("product_cartlist_model");
-            $cartlist =$this->product_cartlist_model->gets($this->user->id,'cartlist');
+            $cartlist =$this->product_cartlist_model->_gets($this->user->id,'cartlist');
           
         }
         return $cartlist;

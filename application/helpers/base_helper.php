@@ -53,9 +53,9 @@ if(!function_exists('get_menu_view_data')){
         }
 
         //메뉴 스킨 데이터
-        $menu_skin = count($menus) !==0 ? $ci->menus_model->get(array('name'=>'메인메뉴'))->skin : 'basic';
-        $menu_top_skin = count($menus_top) !==0 ? $ci->menus_model->get(array('name'=>'상단메뉴'))->skin :'basic';
-        $sub_menu_skin =  count($sub_menus) !==0 ?$ci->menus_model->get(array('id'=>$ci->input->get($querystr_name)))->skin : 'basic';
+        $menu_skin = count($menus) !==0 ? $ci->menus_model->_get(array('name'=>'메인메뉴'))->skin : 'basic';
+        $menu_top_skin = count($menus_top) !==0 ? $ci->menus_model->_get(array('name'=>'상단메뉴'))->skin :'basic';
+        $sub_menu_skin =  count($sub_menus) !==0 ?$ci->menus_model->_get(array('id'=>$ci->input->get($querystr_name)))->skin : 'basic';
         $menu_skin = $menu_skin ?? 'basic';
         $menu_top_skin = $menu_top_skin ?? 'basic';
         $sub_menu_skin = $sub_menu_skin ?? 'basic';

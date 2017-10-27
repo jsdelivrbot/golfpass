@@ -14,7 +14,7 @@ class P_hotel_model extends Board_Model{
             function($offset,$per_page){
                 $this->db->order_by('id','desc');
                 $this->db->limit($per_page,$offset);
-                $rows = parent::gets();
+                $rows = parent::_gets();
                 return $rows;
             });
             return $rows;

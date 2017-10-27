@@ -15,8 +15,8 @@ class Boards_Model extends Public_Model{
 
     function add($set_obj =false)
     {
-        $insert_id=parent::add($set_obj);
-        $board  = $this->get($insert_id,array('id,is_linked_with_product'));
+        $insert_id=parent::_add($set_obj);
+        $board  = $this->_get($insert_id,array('id,is_linked_with_product'));
 
         if($board->is_linked_with_product === '1')
         {
@@ -27,19 +27,19 @@ class Boards_Model extends Public_Model{
     }
     function delete($where_obj)
     {
-        $board=$this->get($where_obj,array('id','is_linked_with_product'));
+        $board=$this->_get($where_obj,array('id','is_linked_with_product'));
         if($board->is_linked_with_product === '1')
         {
             $field_name = "{$board->id}_count";
             $this->db->query("ALTER TABLE `products` DROP `$field_name`;");
         }
-        parent::delete($where_obj);
+        parent::_delete($where_obj);
         return $where_obj;
     }
     function update($where_obj,$set_obj =null,$escape = true)
     {
-        parent::update($where_obj,$set_obj,$escape);
-        $board=$this->get($where_obj,array('id','is_linked_with_product'));
+        parent::_update($where_obj,$set_obj,$escape);
+        $board=$this->_get($where_obj,array('id','is_linked_with_product'));
         $field_name = "{$board->id}_count";
 
         $fields_arr=$this->db->list_fields('products');

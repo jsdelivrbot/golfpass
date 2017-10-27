@@ -31,7 +31,7 @@ class Public_Controller extends MX_Controller{
 
         if($this->session->userdata("is_login")){
             $this->load->model("base/users_model");
-            $this->user =$this->users_model->get($this->session->userdata("user_id"),array('id','auth','userName'));
+            $this->user =$this->users_model->_get($this->session->userdata("user_id"),array('id','auth','userName'));
         }else{
             $this->user = (object)array("id"=>"0","auth"=>"0");
         }
@@ -53,7 +53,7 @@ class Public_Controller extends MX_Controller{
     
 
     public function _get($id){
-        $row= $this->{$this->model}->get($id);
+        $row= $this->{$this->model}->_get($id);
         $data = array("row"=>$row);
         $this->_template('get',$data);
     }
@@ -62,7 +62,7 @@ class Public_Controller extends MX_Controller{
     {
         $this->_set_rules();
         if(!$this->fv->run()){
-            $row=$this->{$this->model}->get($id);
+            $row=$this->{$this->model}->_get($id);
             $data["mode"] = "update/$id";
             $data["row"] = $row;
             $this->_template('addUpdate',$data);
@@ -70,7 +70,7 @@ class Public_Controller extends MX_Controller{
         }
         else{
             $this->_dbset_addUpdate();
-            $this->{$this->model}->update($id);
+            $this->{$this->model}->_update($id);
             return true;
         }      
     }
@@ -89,7 +89,7 @@ class Public_Controller extends MX_Controller{
         {
             $arr[$key]  =$this->input->post($key);            
         }
-        $this->{$this->model}->set_by_obj($arr);
+        $this->{$this->model}->_set_by_obj($arr);
     }
     public function _add()
     {
@@ -102,14 +102,14 @@ class Public_Controller extends MX_Controller{
         }
         else{
             $this->_dbset_addUpdate();
-            $this->{$this->model}->add();
+            $this->{$this->model}->_add();
             return true;
         }           
     }
     
     public function _ajax_delete($id){
         header("content-type:application/json");
-        $this->{$this->model}->delete($id);
+        $this->{$this->model}->_delete($id);
 
         $data = array("reload"=>true);
         echo json_encode($data);

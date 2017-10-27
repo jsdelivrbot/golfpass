@@ -12,7 +12,7 @@ class Template extends MX_Controller
     function base($data = array())
     {
         $this->load->model("shop/product_categories_model");
-        $categories =$this->product_categories_model->gets();
+        $categories =$this->product_categories_model->_gets();
         $data['categories'] = $categories;
 
         $data +=get_menu_view_data();
@@ -22,7 +22,7 @@ class Template extends MX_Controller
     function golfpass($data = array())
     {
         $this->load->model("shop/product_categories_model");
-        $categories =$this->product_categories_model->gets();
+        $categories =$this->product_categories_model->_gets();
         $data['categories'] = $categories;
 
         $data +=get_menu_view_data();

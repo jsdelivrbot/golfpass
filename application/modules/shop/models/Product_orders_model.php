@@ -10,7 +10,7 @@ class Product_orders_Model extends Public_Model{
         $this->db->select("o.*, u.userName, o.user_name");
         $this->db->from("$this->table as o");
         $this->db->join("users as u", "o.user_id = u.id","LEFT");
-        $order =  parent::get($where);
+        $order =  parent::_get($where);
         
         $this->load->helper("enum");
         if($order !== null)

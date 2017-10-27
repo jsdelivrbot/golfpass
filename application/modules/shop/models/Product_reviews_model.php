@@ -14,7 +14,7 @@ class Product_reviews_Model extends Public_Model{
         
 
         $this->load->model('shop/products_model');
-        $row_nums =$this->products_model->get($product_id,array("reviews_count"))->reviews_count;
+        $row_nums =$this->products_model->_get($product_id,array("reviews_count"))->reviews_count;
         $per_page = 2;
         
         $config_pgi['id'] = $product_id;
@@ -54,7 +54,7 @@ class Product_reviews_Model extends Public_Model{
     
         if($field !== null)//검색 true
         {
-            $this->like_or_by_split($field,$this->input->get('value'));
+            $this->_like_or_by_split($field,$this->input->get('value'));
             $this->db->join("users as u","r.user_id = u.id","LEFT");
         }
         $this->db->select('count(*) as rows_num');
@@ -74,7 +74,7 @@ class Product_reviews_Model extends Public_Model{
         //select from board_$id's contents
         $field = $this->input->get('field');
         if($field)
-            $this->like_or_by_split($field,$this->input->get('value'));
+            $this->_like_or_by_split($field,$this->input->get('value'));
         $this->db->order_by('id','desc');
         $this->db->limit($per_page,$offset);
         $this->db->where('r.user_id',$ci->user->id);
@@ -103,7 +103,7 @@ class Product_reviews_Model extends Public_Model{
         else
         {
             $this->load->model("shop/products_model");
-            $total_rows =$this->products_model->get_count(null,'reviews_count');
+            $total_rows =$this->products_model->_get_count(null,'reviews_count');
             $no_display_rows = $this->db->query("SELECT count(*)'rows_num' FROM $this->table WHERE is_display = '0'")->row()->rows_num;
             $total_rows  = (int)$total_rows  + (int)$no_display_rows;
             $total_rows =(string)$total_rows;
@@ -152,7 +152,7 @@ class Product_reviews_Model extends Public_Model{
         else
         {
             $this->load->model("shop/products_model");
-            $total_rows =$this->products_model->get_count(array('id'=>$product_id),'reviews_count');
+            $total_rows =$this->products_model->_get_count(array('id'=>$product_id),'reviews_count');
         }
         //get pagination
         $pgiData =$this->pagination->get(array(
@@ -180,33 +180,33 @@ class Product_reviews_Model extends Public_Model{
         $this->db->select("r.*,r.id, r.title, r.desc, r.created , (score_1+score_2+score_3+score_4+score_5+score_6+score_7+score_8)/8 'avg_score' ,if(r.user_id = 0, r.guest_name, u.name) 'user_name', if(r.user_id = 0, '손님', u.userName) 'userName'");
         $this->db->from('product_reviews as r');
         $this->db->join("users AS u","r.user_id = u.id","LEFT");
-        $rows = parent::gets($where_obj,$select_arr,$limit);
+        $rows = parent::_gets($where_obj,$select_arr,$limit);
 
         return $rows;
     }
     function add($set_obj =false){
         $product_id = $set_obj['product_id'];
-        $id = parent::add($set_obj);
+        $id = parent::_add($set_obj);
 
-        $is_display=parent::get($id,array('is_display'))->is_display;
+        $is_display=parent::_get($id,array('is_display'))->is_display;
 
         if($is_display === '1'){
             $this->load->model("shop/products_model");
-            $this->products_model->count_plus(array('id'=>$product_id),'reviews_count');
+            $this->products_model->_count_plus(array('id'=>$product_id),'reviews_count');
         }
         return $id;
     }
   
     function delete($where,$product_id =false)
     {
-        $row =parent::get($where,array('is_display','product_id'));
+        $row =parent::_get($where,array('is_display','product_id'));
         $is_display=$row->is_display;
         $product_id = $row->product_id;
-        $where =parent::delete($where);
+        $where =parent::_delete($where);
         
         if($is_display === '1'){
             $this->load->model("shop/products_model");
-            $this->products_model->count_minus(array('id'=>$product_id),'reviews_count');
+            $this->products_model->_count_minus(array('id'=>$product_id),'reviews_count');
         }
     }
 
@@ -214,18 +214,18 @@ class Product_reviews_Model extends Public_Model{
     
     function update_admin($where_obj,$set_obj =null,$escape = true)
     {
-        parent::update($where_obj,$set_obj,$escape);
-        $row =parent::get($where_obj,array('is_display','product_id'));
+        parent::_update($where_obj,$set_obj,$escape);
+        $row =parent::_get($where_obj,array('is_display','product_id'));
         $is_display = $row->is_display;
         $product_id = $row->product_id;
         if($is_display === '1')
         {
             $this->load->model("shop/products_model");
-            $this->products_model->count_plus(array('id'=>$product_id),'reviews_count');
+            $this->products_model->_count_plus(array('id'=>$product_id),'reviews_count');
         }else if($is_display === '0')
         {
             $this->load->model("shop/products_model");
-            $this->products_model->count_minus(array('id'=>$product_id),'reviews_count');
+            $this->products_model->_count_minus(array('id'=>$product_id),'reviews_count');
         }
     }
 }

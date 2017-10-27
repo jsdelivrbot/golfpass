@@ -31,7 +31,7 @@ class Review extends Admin_Controller {
         if($this->fv->run() === false)
         {
             $this->load->model("product_reviews_model");
-            $content =$this->product_reviews_model->get($id,array('title','desc','is_display'));
+            $content =$this->product_reviews_model->_get($id,array('title','desc','is_display'));
             $data =array("content"=>$content,"mode"=>"update/$id");
              
              $this->_template("addUpdate",$data);
@@ -39,7 +39,7 @@ class Review extends Admin_Controller {
         }else
         {
             $this->load->model('product_reviews_model');
-            $this->product_reviews_model->set_by_obj(array(
+            $this->product_reviews_model->_set_by_obj(array(
                 "title"=>$this->input->post('title'),
                 "desc"=>$this->input->post('desc'),
                 "is_display"=>$this->input->post('is_display')

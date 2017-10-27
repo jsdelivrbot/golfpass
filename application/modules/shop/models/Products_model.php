@@ -51,7 +51,7 @@ class Products_Model extends Public_Model{
    
     function delete($id)
     {
-        parent::delete($id);
+        parent::_delete($id);
         $this->load->model("shop/ref_cate_product_model");
         $this->ref_cate_product_model->delete(array('product_id'=>$id));
     }

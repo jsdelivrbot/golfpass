@@ -42,7 +42,7 @@ class Board extends Admin_Controller {
             $this->_template("addUpdate",$data);
         }else{
             $this->_dbSet_addUpdate();
-            $this->boards_model->add();
+            $this->boards_model->_add();
             
             my_redirect(admin_board_uri."/gets");
         }
@@ -71,7 +71,7 @@ class Board extends Admin_Controller {
         else
             $is_linked_with_product = '1';
 
-        $this->boards_model->set_by_obj(array(
+        $this->boards_model->_set_by_obj(array(
             "name"=>$this->input->post('name'),
             "skin"=>$this->input->post('skin'),
             "auth_r_board"=>$this->input->post('auth_r_board'),

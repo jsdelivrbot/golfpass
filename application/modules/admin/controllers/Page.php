@@ -43,7 +43,7 @@ class Page extends Admin_Controller {
         $this->fv->set_rules("desc","내용","required");
     }
     function _dbset_addUpdate(){
-        $this->pages_model->set_by_obj(array(
+        $this->pages_model->_set_by_obj(array(
           'title'=>$this->input->post("title"),
           'desc'=>$this->input->post("desc")
         ));

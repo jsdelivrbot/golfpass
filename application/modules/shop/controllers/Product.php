@@ -23,13 +23,13 @@ class Product extends Base_Controller {
     
     
 	public function get($id =1){
-        $this->products_model->hits_plus($id);
+        $this->products_model->_hits_plus($id);
         $this->load->library('Ajax_pagination');
 
         // $data['hotel'] = $this->db->select("*")
         // ->from("")
         //product
-        $data['product'] = $this->products_model->get($id);
+        $data['product'] = $this->products_model->_get($id);
         
         //product_option
         $this->load->model("product_option_model");
@@ -52,24 +52,24 @@ class Product extends Base_Controller {
 
         //user
         $this->load->model("base/users_model");
-        $data['user'] = $this->users_model->get($this->user->id, array("userName,name,phone"));
+        $data['user'] = $this->users_model->_get($this->user->id, array("userName,name,phone"));
 
         //reviews
         $this->load->model('product_reviews_model');
         $data['reviews'] = $this->product_reviews_model->gets(array('r.product_id'=>$id));
 
-        // //reviews with pagination
-        // $this->load->model('product_reviews_model');
-        // $data['reviews'] = $this->product_reviews_model->gets_with_ajax_pgi(array(
-        //     'product_id'=>$id,
-        //     'target' =>'#nid_postList',
-        //     'base_url'=> site_url(shop_review_uri."/ajax_pgi_data")
-        // ));
+        //reviews with pagination
+        $this->load->model('product_reviews_model');
+        $data['reviews'] = $this->product_reviews_model->gets_with_ajax_pgi(array(
+            'product_id'=>$id,
+            'target' =>'#nid_postList',
+            'base_url'=> site_url(shop_review_uri."/ajax_pgi_data")
+        ));
 
-        //  $review_view_dir =  view_review_dir."/ajax_gets";
-        //  $this->_template(array('sample_get',$review_view_dir),$data);
+         $review_view_dir =  view_review_dir."/ajax_gets";
+         $this->_template(array('sample_get',$review_view_dir),$data);
 
-         $this->_view('get',$data);
+        //  $this->_view('get',$data);
         
 		 
     }
