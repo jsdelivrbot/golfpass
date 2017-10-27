@@ -16,6 +16,8 @@
 	<script src="/public/jobdance/js/jquery.bxslider.min.js" type="text/javascript"></script>
 	<script src="/public/jobdance/js/swiper.min.js" type="text/javascript"></script>
 	<script src="/public/jobdance/js/front-ui.js" type="text/javascript"></script>
+	
+	
 </head>
 <body>
 	<a href=""></a>
@@ -54,7 +56,7 @@
 			
 			<div class="join-pop">
 				<div class="join-close">
-					<a href="javascript:joinClose();">팝업 닫기</a>
+					<a id="popup_close" href="javascript:joinClose();">팝업 닫기</a>
 				</div>
 				<div class="join-con">
 					<div class="join-top">이용 약관과 개인 정보 보호 정책에 모두 동의합니다.<span><input type="checkbox" id="checkAll" class="checkK" /><label for="checkAll">동의</label></span></div>
@@ -197,8 +199,14 @@
 		
 	
 	</div>
-	
+
+<script>
+$('#popup_close').click(function(){
+
+})
+</script>	
 </body>
+
 </html>
 
 </body>

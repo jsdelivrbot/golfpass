@@ -452,6 +452,11 @@ a.btn{
 	  <?php if(!is_login()){?>
       <li>
         <a href="<?=site_url(user_uri.'/login')?>">로그인</a>
+        
+	  </li>
+      <li>
+      <a href="<?=site_url(user_uri.'/register_agree_1')?>">회원가입</a>
+        
 	  </li>
 	  <?php }?>
 	  <?php if(is_login()){?>

@@ -16,6 +16,10 @@
 	<script src="/public/jobdance/js/jquery.bxslider.min.js" type="text/javascript"></script>
 	<script src="/public/jobdance/js/swiper.min.js" type="text/javascript"></script>
 	<script src="/public/jobdance/js/front-ui.js" type="text/javascript"></script>
+
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+
+
 </head>
 <body>
 
@@ -71,31 +75,121 @@
 					</div>
 					
 					<div class="join-right">
-						<div class="join-ar">
-							<div class="idpw">
-								<p class="bt"><input type="text" placeholder="아이디 (4자 이상 15자 이하)" maxlength="15"><span>아이디</span></p>
-								<p class="bb"><input type="password" placeholder="비밀번호 (8자 이상, 12자 이하)" maxlength="12"><span>비밀번호</span></p>
-								<p class="bb"><input type="password" placeholder="비밀번호 확인"><span>비밀번호 확인</span></p>
-							</div>
+					<form class="ui form">
+						<div class="field">
+						<label>아이디</label>
+						<input type="text" name="first-name" placeholder="아이디">
+						</div>
+						<div class="field">
+						<label>비밀번호</label>
+						<input type="text" name="last-name" placeholder="비밀번호">
+						</div>
+						<div class="field">
+						<label>이름</label>
+						<input type="text" name="last-name" placeholder="이름">
+						</div>
+						<div class="field">
+						<label>생년월일</label>
+						<input type="text" name="last-name" placeholder="생년월일비밀번호">
+						</div>
+						<div class="field">
+						<label>휴대폰 번호</label>
+						<input type="text" name="last-name" placeholder="휴대폰 번호">
+						</div>
+						<div class="field">
+						<label>이메일</label>
+						<input type="text" name="last-name" placeholder="이메일">
+						</div>
+						<div class="field">
+						<label>주소</label>
+						<input type="text" name="last-name" placeholder="주소">
 						</div>
 						
-						<div class="join-ar mt20">
-							<div class="idpw">
-								<p class="bt"><input type="text" placeholder="이름"><span>이름</span></p>
-								<p class="bb"><input type="text" placeholder="닉네임"><span>닉네임</span></p>
-								<p class="bb"><input type="tel" placeholder="핸드폰"><span>핸드폰</span></p>
-								<p class="bb error"><input type="email" placeholder="E-mail"><span>E-mail</span></p>
-							</div>
+						<div class="field">
+						<label>구력</label>
+							<select>
+								<option value="">30년이상</option>
+								<option value="1">20~30년 미만</option>
+								<option value="0">15~20년 미만</option>
+								<option value="0">10~15년 미만</option>
+								<option value="0">5~10년 미만</option>
+								<option value="0">1~5년 미만</option>
+							</select>
 						</div>
-						
-						<div class="join-check">
-							<input type="checkbox" id="sm" checked/><label for="sm">SMS 수신을 동의합니다.</label>
-							<span><input type="checkbox" id="smail" checked/><label for="smail">E-mail 수신을 동의합니다.</label></span>
+						<div class="field">
+						<label>평균스코어</label>
+							<select>
+								<option value="">프로</option>
+								<option value="1">싱글</option>
+								<option value="0">~90</option>
+								<option value="0">91~100</option>
+								<option value="0">100~120</option>
+								<option value="0">비기너</option>
+							</select>
 						</div>
-						
-						<div class="join-call">
-							<a href="<?=site_url(user_uri.'/add')?>">확인</a>
+						<div class="field">
+						<label>해외골프 시 선호하는 국가</label>
+							<select>
+								<option value="">일본</option>
+								<option value="1">태국</option>
+								<option value="0">필리핀</option>
+								<option value="0">중국</option>
+								<option value="0">말레이시아</option>
+								<option value="0">미국</option>
+								<option value="0">유럽</option>
+								<option value="0">사이판/괌</option>
+								<option value="0">기타</option>
+							</select>
 						</div>
+						<div class="field">
+						<label>해외골프 시 자주가는 국가</label>
+							<select>
+								<option value="">일본</option>
+								<option value="1">태국</option>
+								<option value="0">필리핀</option>
+								<option value="0">중국</option>
+								<option value="0">말레이시아</option>
+								<option value="0">미국</option>
+								<option value="0">유럽</option>
+								<option value="0">사이판/괌</option>
+								<option value="0">기타</option>
+							</select>
+						</div>
+						<div class="field">
+						<label>해외골프 시 향후가고 싶은 국가</label>
+							<select>
+								<option value="">일본</option>
+								<option value="1">태국</option>
+								<option value="0">필리핀</option>
+								<option value="0">중국</option>
+								<option value="0">말레이시아</option>
+								<option value="0">미국</option>
+								<option value="0">유럽</option>
+								<option value="0">사이판/괌</option>
+								<option value="0">기타</option>
+							</select>
+						</div>
+						<div class="field">
+						<label>연간 해외골프 여행 빈도</label>
+							<select>
+								<option value="">1회</option>
+								<option value="1">2~3회</option>
+								<option value="1">3~5회</option>
+								<option value="1">5회</option>
+							
+							</select>
+						</div>
+						<div class="field">
+						<label>해외 골프장 회외권 소지여부</label>
+							<select>
+								<option value="">있다</option>
+								<option value="1">없다</option>
+							</select>
+						</div>
+						<button class="ui olive button" type="submit">회원가입</button>
+				  </form>
+
+				  
 					</div>
 				</div>
 				

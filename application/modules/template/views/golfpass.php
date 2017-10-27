@@ -2,12 +2,15 @@
 
 <head>
 
+<!-- 시맨틱 -->
     <!-- <link rel="stylesheet" type="text/css" href="semantic/semantic.min.css"> -->
     <link rel="stylesheet" type="text/css" href="/public/lib/semantic/semantic.css">
+
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
         crossorigin="anonymous"></script>
     <script src="/public/lib/semantic/semantic.min.js"></script>
+    <!-- 시맨틱 -->
     <!-- Standard Meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
