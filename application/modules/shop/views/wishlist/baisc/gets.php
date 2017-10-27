@@ -1,10 +1,3 @@
-sample wishlist page
-
-<style>
-    li{
-        display:inline;
-    }
-</style>
 <?php for($i=0 ; $i < count($wishlist) ; $i++){?>
 
 

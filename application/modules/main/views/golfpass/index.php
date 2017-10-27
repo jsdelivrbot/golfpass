@@ -463,6 +463,9 @@ a.btn{
         <a href="<?=site_url(shop_mypage_uri.'')?>">마이페이지      </a>
       </li>
       <li>
+        <a href="<?=site_url(shop_wishlist_uri.'/gets')?>">위시리스트      </a>
+      </li>
+      <li>
         <a href="<?=site_url(shop_contact_uri.'')?>">고객센터</a>
       </li>
     </ul>

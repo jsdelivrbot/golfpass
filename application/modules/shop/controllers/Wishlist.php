@@ -6,7 +6,7 @@ class Wishlist extends Base_Controller {
     function __construct(){
         parent::__construct(array(
             'table'=>'product_cartlist',
-            'view_dir'=>"wishlist"
+            'view_dir'=>"wishlist/golfpass"
         ));
     }
     
@@ -20,7 +20,7 @@ class Wishlist extends Base_Controller {
         else
         {
             $data['wishlist'] =$this->product_cartlist_model->gets($this->user->id,'wishlist');
-            $this->_template('gets',$data);
+            $this->_template('gets',$data,'golfpass');
         }
         
     }
