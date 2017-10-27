@@ -8,6 +8,19 @@ class Category extends Admin_Controller {
             'view_dir'=>'admin/category'
         ));
     }
+
+    function upload_photo()
+    {
+        $this->load->module("common");
+        $this->common->upload_photo('admin',function($imgDir){
+            $this->db->where("id",$this->input->post('category_id'));
+            $this->db->set("photo",$imgDir);
+            $this->db->update("product_categories");
+            my_redirect($_SERVER['HTTP_REFERER']);
+        });
+        
+    }
+
     public function _recursive_tree($parent){
         $data['id'] = $id = $parent->id;
         $data['parent_id'] =$parent->parent_id;
@@ -22,20 +35,20 @@ class Category extends Admin_Controller {
             }
         }
         return (object)$data;
-        
     }
     public function gets(){
-        $this->load->database();
         
         //select from categories
-        $categories=array();
-        $categories_tmp = $this->db->query("SELECT * FROM $this->table WHERE parent_id= '0'")->result();
-        for($i=0; $i< count($categories_tmp); $i++){
-            array_push($categories,$this->_recursive_tree($categories_tmp[$i]));
-        }
-        //view
-        $data = array('categories'=>$categories);
-         
+        // $categories=array();
+        // $categories_tmp = $this->db->query("SELECT * FROM $this->table WHERE parent_id= '0'")->result();
+        // for($i=0; $i< count($categories_tmp); $i++){
+        //     array_push($categories,$this->_recursive_tree($categories_tmp[$i]));
+        // }
+        // //view
+        // $data = array('categories'=>$categories);
+        $this->load->model("categories_model");
+      
+         $data['categories']  =  $this->categories_model->gets_by_recursive();
          $this->_template("gets",$data);
          
     }
@@ -51,8 +64,9 @@ class Category extends Admin_Controller {
              
         }else{
             $this->_dbSet_addUpdate();
-            $this->product_categories_model->_add();
-            my_redirect(admin_product_category_uri.'/gets');
+            $insert_id=$this->product_categories_model->_add();
+            // my_redirect($_SERVER['HTTP_REFERER']);
+            my_redirect(admin_product_category_uri."/update/$insert_id");
         }
     }
 
@@ -61,16 +75,16 @@ class Category extends Admin_Controller {
 
         if(!$this->fv->run()){
             $category =$this->db->query("SELECT * FROM $this->table WHERE id = $id")->row();
-            $data = array('mode'=>"update/$id",'category'=>$category);
-             
-             $this->_template("addUpdate",$data);
+            $data['mode'] = "update/$id" ;
+            $data['category'] = $category;
+            $this->_template("addUpdate",$data);
              
         }else{
             
             $this->_dbSet_addUpdate();
             $this->product_categories_model->_update($id);
-            
-            my_redirect(admin_product_category_uri.'/gets');
+            my_redirect($_SERVER['HTTP_REFERER']);
+            // my_redirect(admin_product_category_uri.'/gets');
         }
     }
     

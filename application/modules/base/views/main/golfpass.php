@@ -113,12 +113,10 @@ a.btn{
 		<div class="con2 desktop">
 			<p class="sub_tit">나라별 골프장</p>
 			<ul class="course_list clf">
-				<li><img src="/public/main/images/pc_golf_course_1.jpg" alt="러시아"></li>
-				<li><img src="/public/main/images/pc_golf_course_2.jpg" alt="미국"></li>
-				<li><img src="/public/main/images/pc_golf_course_3.jpg" alt="일본"></li>
-				<li><img src="/public/main/images/pc_golf_course_4.jpg" alt="중국"></li>
-				<li><img src="/public/main/images/pc_golf_course_5.jpg" alt="영국"></li>
-				<li><img src="/public/main/images/pc_golf_course_6.jpg" alt="프랑스"></li>
+				<?php for($i=0;$i < count($nation_list)	;$i++){?>
+					<li><a href="<?=site_url(shop_product_uri."/gets/{$nation_list[$i]->id}")?>"><img src="<?=$nation_list[$i]->photo?>" alt="<?=$nation_list[$i]->name?>"></a></li>	
+				<?php }?>
+			
 			</ul>
 		</div>
 	</section>
@@ -127,7 +125,24 @@ a.btn{
 		<div class="con3 desktop">
 			<p class="sub_tit">골프패스 패널이 추천하는 골프장</p>
 			<ul class="course_list clf">
+			<?php for($i=0;$i<count("products_panel"); $i++){?>
 				<li>
+					<div class="bn_box">
+						<span class="price"><?=$products_panel[$i]->weekday_price?>원</span>
+						<div class="info_box">
+							<div class="sbj">
+								골프장과 숙박 시설이 함께 있는 상품입니다.
+							</div>
+							<p class="tit">
+								<span><?=$products_panel[$i]->name?></span><br />
+								<?=$products_panel[$i]->eng_name?>
+							</p>
+							<span class="mark">4.7</span>
+						</div>
+					</div>
+				</li>
+			<?php }?>
+				<!-- <li>
 					<div class="bn_box">
 						<span class="price">319,000원</span>
 						<div class="info_box">
@@ -171,7 +186,7 @@ a.btn{
 							<span class="mark">4.7</span>
 						</div>
 					</div>
-				</li>
+				</li> -->
 			</ul>
 		</div>
 	</section>
@@ -188,31 +203,14 @@ a.btn{
 		<div class="con4 desktop">
 			<p class="sub_tit">테마별 골프장</p>
 			<ul class="course_list clf">
-				<li><img src="/public/main/images/theme_img1.jpg" alt="">
+			<?php for($i=0;$i < count($thema_list)	;$i++){?>
+				<li><a href="<?=site_url(shop_product_uri."/gets/{$thema_list[$i]->id}")?>"><img src="<?=$thema_list[$i]->photo?>" alt="">
 						<p class="cont">
-							<span>이달의 인기코스</span><br />트렌디한 코스를 경험하고 싶다면
+							<span><?=$thema_list[$i]->name?></span><br />트렌디한 코스를 경험하고 싶다면
 						</p>
+						</a>
 				</li>
-				<li><img src="/public/main/images/theme_img2.jpg" alt="">
-						<p class="cont">
-							<span>골프 + 숙박 패키지</span><br />원클릭으로 여행 플랜 완성!
-						</p>
-				</li>
-				<li><img src="/public/main/images/theme_img3.jpg" alt="">
-						<p class="cont">
-							<span>2인 플레이</span><br />2인 플레이에 딱 맞느 ㄴ코스
-						</p>
-				</li>
-				<li><img src="/public/main/images/theme_img4.jpg" alt="">
-						<p class="cont">
-							<span>시설이 고저스한</span><br />여행은 잠자리가 편해야지
-						</p>
-				</li>
-				<li><img src="/public/main/images/theme_img5.jpg" alt="">
-						<p class="cont">
-							<span>토너먼트 개최 코스</span><br />평론가에게 인정받은
-						</p>
-				</li>
+			<?php }?>
 			</ul>
 		</div>
 	</section>

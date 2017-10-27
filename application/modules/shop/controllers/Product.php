@@ -15,8 +15,6 @@ class Product extends Base_Controller {
          $products =$this->products_model->get_by_category_id_recursive_tree($id);        
         
         $data = array("products"=>$products);
-         
-         
          $this->_template("gets",$data);
          
     }
@@ -59,17 +57,17 @@ class Product extends Base_Controller {
         $data['reviews'] = $this->product_reviews_model->gets(array('r.product_id'=>$id));
 
         //reviews with pagination
-        $this->load->model('product_reviews_model');
-        $data['reviews'] = $this->product_reviews_model->gets_with_ajax_pgi(array(
-            'product_id'=>$id,
-            'target' =>'#nid_postList',
-            'base_url'=> site_url(shop_review_uri."/ajax_pgi_data")
-        ));
+        // $this->load->model('product_reviews_model');
+        // $data['reviews'] = $this->product_reviews_model->gets_with_ajax_pgi(array(
+        //     'product_id'=>$id,
+        //     'target' =>'#nid_postList',
+        //     'base_url'=> site_url(shop_review_uri."/ajax_pgi_data")
+        // ));
 
-         $review_view_dir =  view_review_dir."/ajax_gets";
-         $this->_template(array('sample_get',$review_view_dir),$data);
+        //  $review_view_dir =  view_review_dir."/ajax_gets";
+        //  $this->_template(array('sample_get',$review_view_dir),$data);
 
-        //  $this->_view('get',$data);
+         $this->_view('get',$data);
         
 		 
     }

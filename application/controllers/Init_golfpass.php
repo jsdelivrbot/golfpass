@@ -21,8 +21,31 @@ class Init_golfpass extends Init_Controller {
         $this->load->model('shop/product_reviews_model');
         $this->load->model('shop/ref_cate_product_model');
 
+        
+        $this->shop();
+        
+
+    }
+    function shop()
+    {
+        $menu_id =$this->product_categories_model->_add(array('name'=>'나라별'));
+        $this->product_categories_model->_add(array('name'=>'러시아','parent_id'=>$menu_id,'photo'=>'/public/main/images/pc_golf_course_1.jpg'));
+        $this->product_categories_model->_add(array('name'=>'미국','parent_id'=>$menu_id,'photo'=>'/public/main/images/pc_golf_course_2.jpg'));
+        $this->product_categories_model->_add(array('name'=>'일본','parent_id'=>$menu_id,'photo'=>'/public/main/images/pc_golf_course_3.jpg'));
+        $this->product_categories_model->_add(array('name'=>'중국','parent_id'=>$menu_id,'photo'=>'/public/main/images/pc_golf_course_4.jpg'));
+        $this->product_categories_model->_add(array('name'=>'영국','parent_id'=>$menu_id,'photo'=>'/public/main/images/pc_golf_course_5.jpg'));
+        $this->product_categories_model->_add(array('name'=>'프랑스','parent_id'=>$menu_id,'photo'=>'/public/main/images/pc_golf_course_6.jpg'));
 
 
+        $menu_id =$this->product_categories_model->_add(array('name'=>'테마별'));
+        $this->product_categories_model->_add(array('name'=>'이달의 인기코스','parent_id'=>$menu_id,'photo'=>'/public/main/images/theme_img1.jpg'));
+        $this->product_categories_model->_add(array('name'=>'골프 + 숙박 패키지','parent_id'=>$menu_id,'photo'=>'/public/main/images/theme_img2.jpg'));
+        $this->product_categories_model->_add(array('name'=>'2인 플레이','parent_id'=>$menu_id,'photo'=>'/public/main/images/theme_img3.jpg'));
+        $this->product_categories_model->_add(array('name'=>'시설이 고저스한','parent_id'=>$menu_id,'photo'=>'/public/main/images/theme_img4.jpg'));
+        $this->product_categories_model->_add(array('name'=>'토너먼트 개최 코스','parent_id'=>$menu_id,'photo'=>'/public/main/images/theme_img5.jpg'));
+     
+        $menu_id =$this->product_categories_model->_add(array('name'=>'골프패스 패널 추천'));
+        
     }
 
     

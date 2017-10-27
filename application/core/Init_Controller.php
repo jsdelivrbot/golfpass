@@ -357,7 +357,8 @@ class Init_Controller extends MX_Controller{
                $result = $this->db->query("CREATE TABLE `$tb_name`(
                `id` INT UNSIGNED NULL AUTO_INCREMENT, 
                `parent_id` INT UNSIGNED NOT NULL DEFAULT '0', 
-               `name` varchar(10) NOT NULL DEFAULT '샘플상품분류', 
+               `name` varchar(50) NOT NULL DEFAULT '샘플상품분류', 
+               `photo` varchar(50), 
                `created` datetime NOT NULL DEFAULT NOW(),
                KEY `idx_parent_id` (`parent_id`),
                PRIMARY KEY (`id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8;");

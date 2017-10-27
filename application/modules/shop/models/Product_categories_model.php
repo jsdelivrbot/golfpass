@@ -5,7 +5,6 @@ class Product_categories_Model extends Public_Model{
         parent:: __construct('product_categories');
     }
   
-   
     function gets_by_product_id($product_id)
     {
         $this->db->select(" r.*, c.*, r.id 'id'");
