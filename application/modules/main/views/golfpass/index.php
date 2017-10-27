@@ -34,7 +34,7 @@ a.btn{
 	<div class="info">
 			<ul clf>
 				<span id=menubar> 
-					<a class="btn" href="#"> 
+					<a class="btn" onclick="return false;"href="#"> 
 						<li style="display:inline-block"><img src="/public/main/images/ico_menu.png" alt="menu"></li>
 						<li style="display:inline-block">메뉴</li>
 					</a>
@@ -441,7 +441,17 @@ a.btn{
     <ul>
       <li>
         <a href="<?=site_url('')?>">골프패스</a>
-      </li>
+	  </li>
+	  <?php if(!is_login()){?>
+      <li>
+        <a href="<?=site_url(user_uri.'/login')?>">로그인</a>
+	  </li>
+	  <?php }?>
+	  <?php if(is_login()){?>
+      <li>
+        <a href="<?=site_url(user_uri.'/logout')?>">로그아웃</a>
+	  </li>
+	  <?php }?>
       <li>
         <a href="<?=site_url(shop_mypage_uri.'')?>">마이페이지      </a>
       </li>
