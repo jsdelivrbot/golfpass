@@ -6,8 +6,23 @@ class Board_Model extends Public_Model{
         parent:: __construct($table);
     }
 
+    ////use this samle function
+    // function gets_with_pgi($pgi_style)
+    // {
+    //     return parent::_gets_with_pgi(
+    //         $pgi_style,
+    //         function()
+    //         {   
+                
+    //         },
+    //         function($offset,$per_page) 
+    //         {
+             
+    //         }
+    //     );
+    // }
 
-    function _gets_with_pgi($pgi_style,$get_num_rows_func , $get_rows_func,$is_count_field = false)
+    function _gets_with_pgi($pgi_style,$get_num_rows_func , $get_rows_func,$is_count_field = null,$config =array())
     {
         if($get_num_rows_func === null)
             $get_num_rows_func = function()
@@ -23,20 +38,20 @@ class Board_Model extends Public_Model{
             $this->_like_or_by_split($field,$this->input->get('value'));
             $total_rows = $get_num_rows_func();
         }
-        else if($is_count_field === false)
+        else if($is_count_field === null)
         {
             $total_rows = $get_num_rows_func();
         }
-        else if($is_count_field !== false)
+        else if($is_count_field !== null)
         {
             $total_rows =$is_count_field();
         }
-
-        //get pagination
-        $pgiData =$this->pagination->get(array(
+        $config +=array(
             'total_rows'=>$total_rows,
-            'style_pgi'=>$pgi_style
-        ));
+            'style_pgi'=>$pgi_style,
+        );
+        //get pagination
+        $pgiData =$this->pagination->get($config);
         $offset = $pgiData['offset'];
         $per_page = $pgiData['per_page'];
         

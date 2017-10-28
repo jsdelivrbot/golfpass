@@ -33,9 +33,8 @@ class Ref_cate_product extends Admin_Controller {
             my_redirect($_SERVER['HTTP_REFERER']);
         }else
         {
-            $cate_id = $this->input->post('cate_id');
-            $product_id = $this->input->post('product_id');
-            $this->ref_cate_product_model->add_ref($cate_id,$product_id);
+            $this->_dbset_addUpdate();
+            $this->ref_cate_product_model->_add();
             my_redirect($_SERVER['HTTP_REFERER']);
         }
         
@@ -44,6 +43,19 @@ class Ref_cate_product extends Admin_Controller {
     {
         $this->ref_cate_product_model->_delete($id);
         my_redirect($_SERVER['HTTP_REFERER']);
+    }
+    
+    public function ajax_update($id)
+    {
+        header("content-type:application/json");
+     
+        $this->_dbset_addUpdate();
+        $this->ref_cate_product_model->_update($id);
+        
+        $data['alert'] ="수정완료";
+        $data['reload'] =true;
+        echo json_encode($data);
+        return;
     }
 
 }

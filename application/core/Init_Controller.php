@@ -382,6 +382,7 @@ class Init_Controller extends MX_Controller{
             `id` INT UNSIGNED NULL AUTO_INCREMENT, 
             `cate_id` INT UNSIGNED NOT NULL, 
             `product_id` INT UNSIGNED NOT NULL,
+            `sort` INT NOT NULL DEFAULT '0',
             `created` datetime NOT NULL DEFAULT NOW(),
             UNIQUE KEY `idx_cate_id_product_id` (`cate_id`,`product_id`),
             PRIMARY KEY (`id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8;");

@@ -6,10 +6,8 @@ class MY_Pagination extends CI_Pagination {
                 parent::__construct($config);
         }
 
-        function getConfig($total_rows,$per_page,$num_link){
-            $config['total_rows'] =  $total_rows;
-            $config['per_page'] = $per_page;
-            $config['num_links'] = $num_link;
+        function getConfig(){
+          
        
             $config['use_page_numbers'] = false;
             $config['page_query_string'] = TRUE;
@@ -18,12 +16,11 @@ class MY_Pagination extends CI_Pagination {
             $ci = & get_instance();
             $uriCount= $ci->uri->total_segments();
             $config['base_url'] = 'http://'.$_SERVER['HTTP_HOST']."/index.php";
-            for($i=1 ; $i<= $uriCount-1; $i++){
+            for($i=1 ; $i<= $uriCount; $i++){
                 $segment =$ci->uri->segment($i);
-                if($segment != "get")
                     $config['base_url']  .="/$segment";
             }
-            $config['base_url']  .="/gets";
+           
     
             $config['first_url'] =  $config['base_url']."?offset=0";
             
@@ -39,7 +36,7 @@ class MY_Pagination extends CI_Pagination {
 
             return $config;
         }
-        function style_1(){
+        function style_1($config){
             $config [ 'full_tag_open'] = '<div class="mem_paging">';
             $config [ 'full_tag_close'] = '</div>';
             
@@ -61,16 +58,44 @@ class MY_Pagination extends CI_Pagination {
             $config [ 'num_tag_close'] = '</span>'; 
             return $config;
         }
+        function style_hotel($config){
+
+            $config [ 'full_tag_open'] = '<ol id="hotel-results-pagination" class="hotel-results-pagination">';
+            $config [ 'full_tag_close'] = '</ol>';
+            
+            $config['first_link'] = "";
+            $config [ 'first_tag_open'] = '<li id="hotel-results-pagination-next">';
+            $config [ 'first_tag_close'] = '</li>';
+    
+            $config [ 'last_link'] = "";
+            // $config [ 'last_link'] =false;
+            $config [ 'last_tag_open'] = '<li id="hotel-results-pagination-next">';
+            $config [ 'last_tag_close'] = '</li>';
+    
+            $config [ 'prev_link'] = false;
+            $config [ 'next_link'] = false;
+    
+            $config [ 'cur_tag_open'] = '<li class="selected"><a href="#">';
+            $config [ 'cur_tag_close'] = '</a></li>';
+            $config [ 'num_tag_open'] = '<li class="">';
+            $config [ 'num_tag_close'] = '</li>'; 
+            return $config;
+        }
 
         // public function get($total_rows,$style,$per_page=10,$num_link=5){
-        public function get($config){
-            $total_rows = isset($config['total_rows']) ? $config['total_rows'] : null;
-            $style_pgi = isset($config['style_pgi']) ? $config['style_pgi'] : 'style_1';
-            $per_page = isset($config['per_page']) ? $config['per_page'] : 3;
-            $num_link = isset($config['num_link']) ? $config['num_link'] : 5;
-            
-            $config =$this->getConfig($total_rows,$per_page,$num_link);
-            $config += $this->$style_pgi();
+        public function get($in_config){
+            $config['total_rows'] = isset($in_config['total_rows']) ? $in_config['total_rows'] : null;
+            $config['per_page'] = 5;
+            $config['num_links'] = 3;
+
+            $style_pgi = isset($in_config['style_pgi']) ? $in_config['style_pgi'] : 'style_1';
+            $config +=$this->getConfig();
+            $config = $this->$style_pgi($config);
+
+           if(isset($in_config['per_page']) && $in_config['per_page'] !== null)
+                $config['per_page'] =$in_config['per_page'];
+           if(isset($in_config['num_links']) && $in_config['num_links'] !== null)
+                $config['num_links'] =$in_config['num_links'];
             $this->initialize($config);
 
             $offset = isset($_GET['offset']) ? $_GET['offset']: 0;

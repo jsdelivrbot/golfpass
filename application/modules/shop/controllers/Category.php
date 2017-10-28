@@ -16,8 +16,8 @@ class Category extends Base_Controller {
 
     function gets_by_name($name)
     {
-        $menu_id =  $this->product_categories_model->_get(array("name"=>"나라별"),array("id"))->id;
-        $data['categories'] =  $this->product_categories_model->_gets(array("parent_id"=>$menu_id));
+      
+        $data['categories'] = $this->product_categories_model->gets_with_pgi(array("name"=>urldecode($name)),'style_hotel');
         $this->_view('gets',$data);
     }
 }

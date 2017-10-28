@@ -100,16 +100,8 @@
                         </ul>
                     </div>
                 </div>
-
-                <ol id="hotel-results-pagination" class="hotel-results-pagination">
-                    <li class="selected"><a href="/hotel-search?page=1" rel="next">1</a></li>
-                    <li class=""><a href="/hotel-search?page=2" rel="next">2</a></li>
-                    <li class=""><a href="/hotel-search?page=3" rel="next">3</a></li>
-                    <li class=""><a href="/hotel-search?page=4" rel="next">4</a></li>
-                    <li class="hellip">&hellip;</li>
-                    <li><a href="/hotel-search?page=110" rel="next">110</a></li>
-                    <li id="hotel-results-pagination-next"><a href="/hotel-search?page=2" rel="next"></a></li>
-                </ol>
+                <?php echo $this->pagination->create_links(); ?>                                
+             
             </main>
         </div>
         <script src='jquery-2.2.4.min.js' defer></script>

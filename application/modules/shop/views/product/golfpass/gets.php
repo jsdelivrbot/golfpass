@@ -341,7 +341,8 @@
                                     </li>
                                     <?php }?>
                                 </ol>
-                                <ol id="hotel-results-pagination" class="hotel-results-pagination">
+                                <?php echo $this->pagination->create_links(); ?>        
+                                <!-- <ol id="hotel-results-pagination" class="hotel-results-pagination">
                                     <li class="selected"><a href="/hotel-search?page=1" rel="next">1</a></li>
                                     <li class=""><a href="/hotel-search?page=2" rel="next">2</a></li>
                                     <li class=""><a href="/hotel-search?page=3" rel="next">3</a></li>
@@ -349,7 +350,7 @@
                                     <li class="hellip">&hellip;</li>
                                     <li><a href="/hotel-search?page=110" rel="next">110</a></li>
                                     <li id="hotel-results-pagination-next"><a href="/hotel-search?page=2" rel="next"></a></li>
-                                </ol>
+                                </ol> -->
                             </div>
                         </section>
                     </div>

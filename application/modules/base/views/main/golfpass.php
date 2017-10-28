@@ -437,16 +437,19 @@ a.btn{
   <div class="menu-sliders"></div>
   <div class="menu">
     <ul>
-	
-      <li>
-        <a href="<?=site_url('')?>">골프패스</a>
-	  </li>
-	  <?php if(is_admin()){?>
+	<?php if(is_admin()){?>
       <li>
         <a href="<?=site_url(admin_home_uri.'')?>">관리자 페이지</a>
 	  </li>
 	  <?php }?>
-
+      <li>
+        <a href="<?=site_url('')?>">골프패스</a>
+	  </li>
+	
+	  <li>
+      <a href="<?=site_url(shop_category_uri.'/gets_by_name/나라별')?>">나라별 골프장</a>
+        
+	  </li>
 	  <?php if(!is_login()){?>
       <li>
         <a href="<?=site_url(user_uri.'/login')?>">로그인</a>
@@ -458,10 +461,7 @@ a.btn{
 	  </li>
 	  <?php }?>
 	  <?php if(is_login()){?>
-	<li>
-      <a href="<?=site_url(shop_category_uri.'/gets_by_name/나라별')?>">나라별 골프장</a>
-        
-	  </li>
+	
       <li>
         <a href="<?=site_url(user_uri.'/logout')?>">로그아웃</a>
 	  </li>

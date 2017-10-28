@@ -1,10 +1,31 @@
 <?php defined('BASEPATH') OR exit('no direct script access allrowed');
 
-class Products_Model extends Public_Model{
+class Products_Model extends Board_Model{
     function __construct(){
         parent:: __construct('products');
     }
  
+    function get_by_category_id_recursive_with_pgi($cate_id,$pgi_style)
+    {
+
+        $products=$this->get_by_category_id_recursive_tree($cate_id);
+        $num_rows = count($products);
+        return parent::_gets_with_pgi(
+            $pgi_style,
+            function() use($num_rows)
+            {   
+                return $num_rows;
+            },
+            function($offset,$per_page) use($products)
+            {
+                return array_slice($products,$offset,$per_page);
+            },
+            null,
+            array("per_page"=>3)
+        );
+    }
+
+
     function _recursive_tree($cate)
     {
         //product_option 사진들
@@ -17,6 +38,7 @@ class Products_Model extends Public_Model{
         $this->db->join("products as p", "p.id = r.product_id","LEFT");
         $this->db->join("product_categories as c", "c.id = r.cate_id","LEFT");
         $this->db->where("r.cate_id",$cate->id);
+        $this->db->order_by("r.sort",'asc');
         $data = $this->db->get()->result();
         
         $this->db->select("id");

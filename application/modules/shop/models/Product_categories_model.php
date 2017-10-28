@@ -1,10 +1,30 @@
 <?php defined('BASEPATH') OR exit('no direct script access allrowed');
 
-class Product_categories_Model extends Public_Model{
+class Product_categories_Model extends Board_Model{
     function __construct(){
         parent:: __construct('product_categories');
     }
-  
+    function gets_with_pgi($where_obj,$pgi_style)
+    {
+        $menu_id =  $this->product_categories_model->_get($where_obj,array("id"))->id;
+        return parent::_gets_with_pgi(
+            $pgi_style,
+            function() use ($where_obj,$menu_id)
+            {   
+                
+                $this->db->where("parent_id",$menu_id);
+                $num_rows = $this->db->count_all_results('product_categories');
+                return $num_rows;
+            },
+            function($offset,$per_page) use($menu_id)
+            {
+                $this->db->limit($per_page,$offset);
+                return $categories=  $this->product_categories_model->_gets(array("parent_id"=>$menu_id));        
+            },
+            null,
+            array("per_page"=>6)
+        );
+    }
     function gets_by_product_id($product_id)
     {
         $this->db->select(" r.*, c.*, r.id 'id'");

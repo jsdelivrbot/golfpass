@@ -30,12 +30,13 @@ class Init_golfpass extends Init_Controller {
     {
         //카테고리추가
         $menu_id =$this->product_categories_model->_add(array('name'=>'나라별','desc'=>'나라별','can_alert'=>'0'));
-        $this->product_categories_model->_add(array('name'=>'러시아','desc'=>'럭셔리 러시아','parent_id'=>$menu_id,'photo'=>'/public/etc/main/images/pc_golf_course_1.jpg'));
+        $rusia_id =$this->product_categories_model->_add(array('name'=>'러시아','desc'=>'럭셔리 러시아','parent_id'=>$menu_id,'photo'=>'/public/etc/main/images/pc_golf_course_1.jpg'));
         $this->product_categories_model->_add(array('name'=>'미국','desc'=>'럭셔리 미국','parent_id'=>$menu_id,'photo'=>'/public/etc/main/images/pc_golf_course_2.jpg'));
         $this->product_categories_model->_add(array('name'=>'일본','desc'=>'럭셔리 일본','parent_id'=>$menu_id,'photo'=>'/public/etc/main/images/pc_golf_course_3.jpg'));
         $this->product_categories_model->_add(array('name'=>'중국','desc'=>'럭셔리 중국','parent_id'=>$menu_id,'photo'=>'/public/etc/main/images/pc_golf_course_4.jpg'));
         $this->product_categories_model->_add(array('name'=>'영국','desc'=>'럭셔리 영국','parent_id'=>$menu_id,'photo'=>'/public/etc/main/images/pc_golf_course_5.jpg'));
         $this->product_categories_model->_add(array('name'=>'프랑스','desc'=>'럭셔리 프랑스','parent_id'=>$menu_id,'photo'=>'/public/etc/main/images/pc_golf_course_6.jpg'));
+        
 
         $menu_id =$this->product_categories_model->_add(array('name'=>'테마별','desc'=>'테마별','can_alert'=>'0'));
         $this->product_categories_model->_add(array('name'=>'이달의 인기코스','desc'=>'인기 많음','parent_id'=>$menu_id,'photo'=>'/public/etc/main/images/theme_img1.jpg'));
@@ -47,7 +48,17 @@ class Init_golfpass extends Init_Controller {
         $menu_id =$this->product_categories_model->_add(array('name'=>'골프패스 패널 추천','desc'=>'패널 추천','can_alert'=>'0'));
 
         //상품추가
-        $this->products_model->_add(array("name"=>"샘플상품","eng_name"=>"product_name","desc"=>"샘플내용"));
+        $product_id =$this->products_model->_add(array("name"=>"샘플상품","eng_name"=>"product_name","desc"=>"샘플내용"));
+        $this->ref_cate_product_model->_add(array("product_id"=>$product_id,'cate_id'=>$rusia_id));
+
+        $product_id =$this->products_model->_add(array("name"=>"샘플상품2","eng_name"=>"product_name","desc"=>"샘플내용"));
+        $this->ref_cate_product_model->_add(array("product_id"=>$product_id,'cate_id'=>$rusia_id));
+        $product_id =$this->products_model->_add(array("name"=>"샘플상품3","eng_name"=>"product_name","desc"=>"샘플내용"));
+        $this->ref_cate_product_model->_add(array("product_id"=>$product_id,'cate_id'=>$rusia_id));
+        $product_id =$this->products_model->_add(array("name"=>"샘플상품4","eng_name"=>"product_name","desc"=>"샘플내용"));
+        $this->ref_cate_product_model->_add(array("product_id"=>$product_id,'cate_id'=>$rusia_id));
+        $product_id =$this->products_model->_add(array("name"=>"샘플상품5","eng_name"=>"product_name","desc"=>"샘플내용"));
+        $this->ref_cate_product_model->_add(array("product_id"=>$product_id,'cate_id'=>$rusia_id));
     }
 
     

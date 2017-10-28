@@ -37,6 +37,7 @@ for($i=0 ; $i<count($categories) ; $i++){?>
 <?php }
 ?>
 </select>
+순서<input type="text" name="sort" value="0">
 <input type="hidden" name="product_id" value="<?=$product->id?>">
 <br>
 <input type="submit" value="분류 추가">
@@ -45,7 +46,10 @@ for($i=0 ; $i<count($categories) ; $i++){?>
     <?php for($i=0 ; $i < count($product_categories); $i++){?>
         <div style="display:block">
         <li><?=$product_categories[$i]->name?></li>
-        
+        <form onsubmit="ajax_submit(this); return false;" method="post"action="<?=site_url(admin_ref_cate_product_uri."/ajax_update/{$product_categories[$i]->id}")?>" style="display:inline-blcok">
+            <input style ="width:50px;"type="text" name="sort"  value="<?=set_value_data($product_categories[$i],'sort')?>" style="display:inline-blcok">   
+            <input type="submit" value="순서 수정"> 
+        </form>
         <a onclick="confirm_redirect('<?=site_url(admin_ref_cate_product_uri."/delete/{$product_categories[$i]->id}")?>','정말 삭제하시겠습니까')" href="#">삭제</a>
     </div>
     <?php }?>

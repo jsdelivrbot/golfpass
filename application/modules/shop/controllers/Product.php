@@ -12,7 +12,8 @@ class Product extends Base_Controller {
 
 	public function gets($id =1){
         
-        $products =$this->products_model->get_by_category_id_recursive_tree($id);        
+        // $products =$this->products_model->get_by_category_id_recursive_tree($id);        
+        $products =$this->products_model->get_by_category_id_recursive_with_pgi($id,'style_hotel');        
       
         for($i=0 ;$i <count($products); $i++)
         {
