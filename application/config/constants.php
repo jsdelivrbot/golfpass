@@ -47,6 +47,7 @@ define("shop_order_uri","/shop/order");
 define("shop_mypage_uri","/shop/mypage");
 define("shop_review_uri","/shop/review");
 define("shop_reply_uri","/shop/reply");
+define("shop_category_uri","/shop/category");
 
 // define("shop_product_uri","/product");
 // define("shop_cartlist_uri","/cartlist");

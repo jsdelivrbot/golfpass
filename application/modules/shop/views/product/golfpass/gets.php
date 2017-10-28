@@ -333,7 +333,7 @@
                                             </div>
                                             <div class="hotelcard-bttns S-4_4 M-12_12 L-12_12 XL-12_12 XXL-12_12">
                                                 <div class="hotelcard-bttns-wrapper hotelcard-quickview S-4_4 M-6_12 L-6_12 XL-6_12 XXL-6_12">
-                                                    <a class="hotelcard-bttns-rates" href="https://www.mrandmrssmith.com/luxury-hotels/la-posta-vecchia" data-slug="la-posta-vecchia">View hotel</a>
+                                                    <a class="hotelcard-bttns-rates" href="<?=site_url(shop_product_uri."/get/{$products[$i]->id}")?>" data-slug="la-posta-vecchia">상품 보기</a>
                                                 </div>
                                                 <div class="hotelcard-bookandrates open"></div>
                                             </div>

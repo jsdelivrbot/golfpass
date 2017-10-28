@@ -458,6 +458,10 @@ a.btn{
 	  </li>
 	  <?php }?>
 	  <?php if(is_login()){?>
+	<li>
+      <a href="<?=site_url(shop_category_uri.'/gets_by_name/나라별')?>">나라별 골프장</a>
+        
+	  </li>
       <li>
         <a href="<?=site_url(user_uri.'/logout')?>">로그아웃</a>
 	  </li>

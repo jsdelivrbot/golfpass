@@ -109,12 +109,12 @@ class Category extends Admin_Controller {
         $this->fv->set_rules('name','카테고리 이름','required');
     }
 
-    public function _dbSet_addUpdate(){
-        $this->product_categories_model->_set_by_obj(array(
-            "parent_id"=>$this->input->post('parent_id'),
-            "name"=>$this->input->post('name')
-        ));
-    }
+    // public function _dbSet_addUpdate(){
+    //     $this->product_categories_model->_set_by_obj(array(
+    //         "parent_id"=>$this->input->post('parent_id'),
+    //         "name"=>$this->input->post('name')
+    //     ));
+    // }
 
     public function delete($id){
         $this->db->where('id', $id);

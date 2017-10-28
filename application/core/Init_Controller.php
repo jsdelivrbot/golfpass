@@ -358,7 +358,9 @@ class Init_Controller extends MX_Controller{
                `id` INT UNSIGNED NULL AUTO_INCREMENT, 
                `parent_id` INT UNSIGNED NOT NULL DEFAULT '0', 
                `name` varchar(50) NOT NULL DEFAULT '샘플상품분류', 
+               `desc` varchar(255) NOT NULL DEFAULT '분류 설명', 
                `photo` varchar(50), 
+               `can_alert` varchar(10) NOT NULL DEFAULT '1', 
                `created` datetime NOT NULL DEFAULT NOW(),
                KEY `idx_parent_id` (`parent_id`),
                PRIMARY KEY (`id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
