@@ -195,7 +195,7 @@ class Product extends Admin_Controller {
         }else{
             
             $this->_dbSet_addUpdate();
-            $this->products_model->update($id);
+            $this->products_model->_update($id);
             alert('수정 되었습니다.');
             my_redirect(admin_product_uri."/update/$id");
         }
@@ -214,7 +214,7 @@ class Product extends Admin_Controller {
     // }
 
     public function delete($id){
-        $this->products_model->delete($id);
+        $this->products_model->_delete($id);
         my_redirect(admin_product_uri.'/gets');
     }
     

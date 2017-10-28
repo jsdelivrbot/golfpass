@@ -5,17 +5,29 @@ class Product extends Base_Controller {
 	function __construct(){
         parent::__construct(array(
             'table'=>'products',
-            'view_dir'=>"product"
+            'view_dir'=>"product/golfpass"
         ));
 	}
 	
 
 	public function gets($id =1){
         
-         $products =$this->products_model->get_by_category_id_recursive_tree($id);        
+        $products =$this->products_model->get_by_category_id_recursive_tree($id);        
+      
+        for($i=0 ;$i <count($products); $i++)
+        {
+            $photos = $products[$i]->photos;
+            if(strpos($photos,',') > -1)
+                $products[$i]->photos =  explode(",",$photos);
+            else if($photos !== null)
+                $products[$i]->photos =  array($photos);
+            else
+                $products[$i]->photos = array();
+        }
+        $data['products'] =$products;
         
-        $data = array("products"=>$products);
-         $this->_template("gets",$data);
+        // $this->_view("gets",$data);
+        $this->_template("gets",$data,'golfpass');
          
     }
     

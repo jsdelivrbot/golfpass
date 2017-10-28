@@ -1,16 +1,16 @@
 	
 	<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
-	<link rel="stylesheet" type="text/css" href="/public/jobdance/css/jquery.bxslider.css" media="all">
-	<link rel="stylesheet" type="text/css" href="/public/jobdance/css/swiper.min.css" media="all">
-	<link rel="stylesheet" type="text/css" href="/public/jobdance/css/front-base.css" media="all">
-	<link rel="stylesheet" type="text/css" href="/public/jobdance/css/front-style.css" media="all">
-	<link rel="stylesheet" type="text/css" href="/public/jobdance/css/front-media.css" media="all">
-	<link rel="shortcut icon" href="/public/jobdance/images/favicon.ico">
-	<script src="/public/jobdance/js/jquery-1.11.3.min.js" type="text/javascript"></script>
-	<script src="/public/jobdance/js/pace.js" type="text/javascript"></script>
-	<script src="/public/jobdance/js/jquery.bxslider.min.js" type="text/javascript"></script>
-	<script src="/public/jobdance/js/swiper.min.js" type="text/javascript"></script>
-	<script src="/public/jobdance/js/front-ui.js" type="text/javascript"></script>
+	<link rel="stylesheet" type="text/css" href="/public/etc/jobdance/css/jquery.bxslider.css" media="all">
+	<link rel="stylesheet" type="text/css" href="/public/etc/jobdance/css/swiper.min.css" media="all">
+	<link rel="stylesheet" type="text/css" href="/public/etc/jobdance/css/front-base.css" media="all">
+	<link rel="stylesheet" type="text/css" href="/public/etc/jobdance/css/front-style.css" media="all">
+	<link rel="stylesheet" type="text/css" href="/public/etc/jobdance/css/front-media.css" media="all">
+	<link rel="shortcut icon" href="/public/etc/jobdance/images/favicon.ico">
+	<script src="/public/etc/jobdance/js/jquery-1.11.3.min.js" type="text/javascript"></script>
+	<script src="/public/etc/jobdance/js/pace.js" type="text/javascript"></script>
+	<script src="/public/etc/jobdance/js/jquery.bxslider.min.js" type="text/javascript"></script>
+	<script src="/public/etc/jobdance/js/swiper.min.js" type="text/javascript"></script>
+	<script src="/public/etc/jobdance/js/front-ui.js" type="text/javascript"></script>
 
 	<div class="wrap">
 		
@@ -60,7 +60,7 @@
 						<a href="#">비밀번호 찾기</a>&nbsp;&nbsp;|&nbsp;&nbsp;
 						<a class="green" href="<?=site_url(user_uri."/register_agree_1")?>">회원가입</a>
 					</div>
-					<div class="or-co"><span></span><img src="/public/jobdance/images/or-co.png" alt=""></div>
+					<div class="or-co"><span></span><img src="/public/etc/jobdance/images/or-co.png" alt=""></div>
 				</div>
 				
 				<div class="j-tit btnot">

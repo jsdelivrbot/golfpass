@@ -7,12 +7,12 @@
 	<meta http-equiv="Content-Style-Type" content="text/css">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>골프패스</title>
-	<link rel="stylesheet" type="text/css" href="/public/main/css/common.css" />
-	<link rel="stylesheet" type="text/css" href="/public/main/css/style.css" />
-	<script type="text/javascript" src="/public/main/js/jquery-1.10.2.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="/public/etc/main/css/common.css" />
+	<link rel="stylesheet" type="text/css" href="/public/etc/main/css/style.css" />
+	<script type="text/javascript" src="/public/etc/main/js/jquery-1.10.2.min.js"></script>
 	<script src="http://design.olivet.co.kr/layouts/ollive/_lib/jquery.tools.min.js"></script>
 	<script type="text/javascript" src="http://design.olivet.co.kr/layouts/ollive/_cdn/jquery.easing.1.3.js"></script>
-	<script type="text/javascript" src="/public/main/js/common.js"></script>
+	<script type="text/javascript" src="/public/etc/main/js/common.js"></script>
 
 	<!-- fullmenu -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
@@ -35,7 +35,7 @@ a.btn{
 			<ul clf>
 				<span id=menubar> 
 					<a class="btn" onclick="return false;"href="#"> 
-						<li style="display:inline-block"><img src="/public/main/images/ico_menu.png" alt="menu"></li>
+						<li style="display:inline-block"><img src="/public/etc/main/images/ico_menu.png" alt="menu"></li>
 						<li style="display:inline-block">메뉴</li>
 					</a>
 				</span>
@@ -51,12 +51,12 @@ a.btn{
 <header>
 		<h1 class="logo"><a href="#none"><span><!-- logo --></span></a></h1>
 
-		<a style="position:fixed; top:42px; right: 130px;" href="#none"><img src="/public/main/images/ico_my.png" alt=""></a>
+		<a style="position:fixed; top:42px; right: 130px;" href="#none"><img src="/public/etc/main/images/ico_my.png" alt=""></a>
 
 		<div class="search">
 			<ul class="clf">
-				<li><img src="/public/main/images/line_1.png" alt=""></li>
-				<li><img src="/public/main/images/ico_search.png" alt="search"></li>
+				<li><img src="/public/etc/main/images/line_1.png" alt=""></li>
+				<li><img src="/public/etc/main/images/ico_search.png" alt="search"></li>
 				<li><input type="text" name="" value="" placeholder="관심있는 나라나 골프장을 검색해보세요!"></li>
 			</ul>
 		</div>
@@ -105,9 +105,9 @@ a.btn{
 		<div class="con2 mobile">
 			<p class="sub_tit">나라별 골프장</p>
 			<ul class="course_list clf">
-				<li><img src="/public/main/images/golf_course_1.jpg" alt="러시아"></li>
-				<li><img src="/public/main/images/golf_course_1.jpg" alt="러시아"></li>
-				<li><img src="/public/main/images/golf_course_1.jpg" alt="러시아"></li>
+				<li><img src="/public/etc/main/images/golf_course_1.jpg" alt="러시아"></li>
+				<li><img src="/public/etc/main/images/golf_course_1.jpg" alt="러시아"></li>
+				<li><img src="/public/etc/main/images/golf_course_1.jpg" alt="러시아"></li>
 			</ul>
 		</div>
 		<div class="con2 desktop">
@@ -195,9 +195,9 @@ a.btn{
 		<div class="con4 mobile">
 			<p class="sub_tit">테마별 골프장</p>
 			<ul class="course_list">
-				<li><img src="/public/main/images/golf_theme_1.jpg" alt="러시아"></li>
-				<li><img src="/public/main/images/golf_theme_1.jpg" alt="러시아"></li>
-				<li><img src="/public/main/images/golf_theme_1.jpg" alt="러시아"></li>
+				<li><img src="/public/etc/main/images/golf_theme_1.jpg" alt="러시아"></li>
+				<li><img src="/public/etc/main/images/golf_theme_1.jpg" alt="러시아"></li>
+				<li><img src="/public/etc/main/images/golf_theme_1.jpg" alt="러시아"></li>
 			</ul>
 		</div>
 		<div class="con4 desktop">
@@ -229,9 +229,9 @@ a.btn{
 			<div class="inner_box clf">
 				<div class="list_top">
 					<ul>
-						<li><img src="/public/main/images/golf_club_1.png" alt="힐데스하임 CC"></li>
-						<li><img src="/public/main/images/golf_club_2.png" alt="마요네즈 클럽"></li>
-						<li><img src="/public/main/images/golf_club_3.png" alt="야챗 클럽"></li>
+						<li><img src="/public/etc/main/images/golf_club_1.png" alt="힐데스하임 CC"></li>
+						<li><img src="/public/etc/main/images/golf_club_2.png" alt="마요네즈 클럽"></li>
+						<li><img src="/public/etc/main/images/golf_club_3.png" alt="야챗 클럽"></li>
 					</ul>
 				</div>
 				<div class="list_default">
@@ -291,7 +291,7 @@ a.btn{
 			<ul class="panel_list">
 				<li>
 					<dl class="inner">
-						<dt><img src="/public/main/images/sample_img1.png" alt=""></dt>
+						<dt><img src="/public/etc/main/images/sample_img1.png" alt=""></dt>
 						<dd>
 							김지윤
 							<span class="post_num">150개</span>
@@ -305,7 +305,7 @@ a.btn{
 				</li>
 				<li>
 					<dl class="inner">
-						<dt><img src="/public/main/images/sample_img1.png" alt=""></dt>
+						<dt><img src="/public/etc/main/images/sample_img1.png" alt=""></dt>
 						<dd>
 							김지윤
 							<span class="post_num">150개</span>
@@ -319,7 +319,7 @@ a.btn{
 				</li>
 				<li>
 					<dl class="inner">
-						<dt><img src="/public/main/images/sample_img1.png" alt=""></dt>
+						<dt><img src="/public/etc/main/images/sample_img1.png" alt=""></dt>
 						<dd>
 							김지윤
 							<span class="post_num">150개</span>
@@ -333,7 +333,7 @@ a.btn{
 				</li>
 				<li>
 					<dl class="inner">
-						<dt><img src="/public/main/images/sample_img1.png" alt=""></dt>
+						<dt><img src="/public/etc/main/images/sample_img1.png" alt=""></dt>
 						<dd>
 							김지윤
 							<span class="post_num">150개</span>
@@ -347,7 +347,7 @@ a.btn{
 				</li>
 				<li>
 					<dl class="inner">
-						<dt><img src="/public/main/images/sample_img1.png" alt=""></dt>
+						<dt><img src="/public/etc/main/images/sample_img1.png" alt=""></dt>
 						<dd>
 							김지윤
 							<span class="post_num">150개</span>
@@ -361,7 +361,7 @@ a.btn{
 				</li>
 				<li>
 					<dl class="inner">
-						<dt><img src="/public/main/images/sample_img1.png" alt=""></dt>
+						<dt><img src="/public/etc/main/images/sample_img1.png" alt=""></dt>
 						<dd>
 							김지윤
 							<span class="post_num">150개</span>
@@ -390,11 +390,11 @@ a.btn{
 		<div class="con8 desktop clf">
 			<p class="sub_tit clf">PARTNERS</p>
 			<ul class="partner clf">
-				<li><img src="/public/main/images/partner_google.png" alt="google"></li>
-				<li><img src="/public/main/images/partner_facebook.png" alt="facebook"></li>
-				<li><img src="/public/main/images/partner_instar.png" alt="instargram"></li>
-				<li><img src="/public/main/images/partner_naver.png" alt="naver"></li>
-				<li><img src="/public/main/images/partner_daum.png" alt="daum"></li>
+				<li><img src="/public/etc/main/images/partner_google.png" alt="google"></li>
+				<li><img src="/public/etc/main/images/partner_facebook.png" alt="facebook"></li>
+				<li><img src="/public/etc/main/images/partner_instar.png" alt="instargram"></li>
+				<li><img src="/public/etc/main/images/partner_naver.png" alt="naver"></li>
+				<li><img src="/public/etc/main/images/partner_daum.png" alt="daum"></li>
 			</ul>
 			<ul class="sub_menu">
 				<li>ABOUT US

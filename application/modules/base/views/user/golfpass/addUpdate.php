@@ -5,17 +5,17 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 	<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
-	<link rel="stylesheet" type="text/css" href="/public/jobdance/css/jquery.bxslider.css" media="all">
-	<link rel="stylesheet" type="text/css" href="/public/jobdance/css/swiper.min.css" media="all">
-	<link rel="stylesheet" type="text/css" href="/public/jobdance/css/front-base.css" media="all">
-	<link rel="stylesheet" type="text/css" href="/public/jobdance/css/front-style.css" media="all">
-	<link rel="stylesheet" type="text/css" href="/public/jobdance/css/front-media.css" media="all">
-	<link rel="shortcut icon" href="/public/jobdance/images/favicon.ico">
-	<script src="/public/jobdance/js/jquery-1.11.3.min.js" type="text/javascript"></script>
-	<script src="/public/jobdance/js/pace.js" type="text/javascript"></script>
-	<script src="/public/jobdance/js/jquery.bxslider.min.js" type="text/javascript"></script>
-	<script src="/public/jobdance/js/swiper.min.js" type="text/javascript"></script>
-	<script src="/public/jobdance/js/front-ui.js" type="text/javascript"></script>
+	<link rel="stylesheet" type="text/css" href="/public/etc/jobdance/css/jquery.bxslider.css" media="all">
+	<link rel="stylesheet" type="text/css" href="/public/etc/jobdance/css/swiper.min.css" media="all">
+	<link rel="stylesheet" type="text/css" href="/public/etc/jobdance/css/front-base.css" media="all">
+	<link rel="stylesheet" type="text/css" href="/public/etc/jobdance/css/front-style.css" media="all">
+	<link rel="stylesheet" type="text/css" href="/public/etc/jobdance/css/front-media.css" media="all">
+	<link rel="shortcut icon" href="/public/etc/jobdance/images/favicon.ico">
+	<script src="/public/etc/jobdance/js/jquery-1.11.3.min.js" type="text/javascript"></script>
+	<script src="/public/etc/jobdance/js/pace.js" type="text/javascript"></script>
+	<script src="/public/etc/jobdance/js/jquery.bxslider.min.js" type="text/javascript"></script>
+	<script src="/public/etc/jobdance/js/swiper.min.js" type="text/javascript"></script>
+	<script src="/public/etc/jobdance/js/front-ui.js" type="text/javascript"></script>
 
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
 
@@ -62,12 +62,12 @@
 					<div class="join-picture">
 						<a href="#" class="file-btn">
 							<input type="file" class="nfile" onchange="javascript:document.getElementById('custom-file').value=this.files[0].name">
-							<p class="img"><img src="/public/jobdance/images/picture-icon.jpg" alt=""></p>
+							<p class="img"><img src="/public/etc/jobdance/images/picture-icon.jpg" alt=""></p>
 							<p class="tit">이미지를 등록하세요!</p>
 							<p class="tail">사진을 등록하지 않아도 가입은 가능하지만 <br>채용 담당자의 시선이 먼저 향하는 곳은 바로 사진입니다. <br>깔끔하고 정돈된 느낌의 사진을 <br>정사각형으로 편집하여 첨부하세요.</p>
 							<div class="upload">
 								<span class="upload-block">
-									<span class="icon"><img src="/public/jobdance/images/upload-icon.jpg" alt=""></span>
+									<span class="icon"><img src="/public/etc/jobdance/images/upload-icon.jpg" alt=""></span>
 									<input type="text" id="custom-file" readonly class="custom-file txt" placeholder="이미지 파일 등록">
 								</span>
 							</div>

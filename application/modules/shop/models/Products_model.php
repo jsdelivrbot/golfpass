@@ -7,11 +7,16 @@ class Products_Model extends Public_Model{
  
     function _recursive_tree($cate)
     {
-        $this->db->select("p.*, (SELECT avg(pr.score_1) FROM product_reviews AS pr WHERE pr.product_id = r.id) as 'avg_score_1'");
+        //product_option 사진들
+        $sub_query = "SELECT group_concat(o.name) FROM `product_option` AS `o` WHERE o.product_id= r.product_id AND o.kind = 'photo'";
+        //product_reviews score_1 평균점수
+        $sub_query2 = "SELECT avg(pr.score_1) FROM product_reviews AS pr WHERE pr.product_id = r.product_id";
+        //쿼리
+        $this->db->select("p.*, ($sub_query) as photos, ($sub_query2) as avg_score_1");
         $this->db->from("ref_cate_product as r");
         $this->db->join("products as p", "p.id = r.product_id","LEFT");
         $this->db->join("product_categories as c", "c.id = r.cate_id","LEFT");
-        $this->db->where('r.cate_id',$cate->id);
+        $this->db->where("r.cate_id",$cate->id);
         $data = $this->db->get()->result();
         
         $this->db->select("id");

@@ -5,17 +5,17 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 	<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
-	<link rel="stylesheet" type="text/css" href="/public/jobdance/css/jquery.bxslider.css" media="all">
-	<link rel="stylesheet" type="text/css" href="/public/jobdance/css/swiper.min.css" media="all">
-	<link rel="stylesheet" type="text/css" href="/public/jobdance/css/front-base.css" media="all">
-	<link rel="stylesheet" type="text/css" href="/public/jobdance/css/front-style.css" media="all">
-	<link rel="stylesheet" type="text/css" href="/public/jobdance/css/front-media.css" media="all">
-	<link rel="shortcut icon" href="/public/jobdance/images/favicon.ico">
-	<script src="/public/jobdance/js/jquery-1.11.3.min.js" type="text/javascript"></script>
-	<script src="/public/jobdance/js/pace.js" type="text/javascript"></script>
-	<script src="/public/jobdance/js/jquery.bxslider.min.js" type="text/javascript"></script>
-	<script src="/public/jobdance/js/swiper.min.js" type="text/javascript"></script>
-	<script src="/public/jobdance/js/front-ui.js" type="text/javascript"></script>
+	<link rel="stylesheet" type="text/css" href="/public/etc/jobdance/css/jquery.bxslider.css" media="all">
+	<link rel="stylesheet" type="text/css" href="/public/etc/jobdance/css/swiper.min.css" media="all">
+	<link rel="stylesheet" type="text/css" href="/public/etc/jobdance/css/front-base.css" media="all">
+	<link rel="stylesheet" type="text/css" href="/public/etc/jobdance/css/front-style.css" media="all">
+	<link rel="stylesheet" type="text/css" href="/public/etc/jobdance/css/front-media.css" media="all">
+	<link rel="shortcut icon" href="/public/etc/jobdance/images/favicon.ico">
+	<script src="/public/etc/jobdance/js/jquery-1.11.3.min.js" type="text/javascript"></script>
+	<script src="/public/etc/jobdance/js/pace.js" type="text/javascript"></script>
+	<script src="/public/etc/jobdance/js/jquery.bxslider.min.js" type="text/javascript"></script>
+	<script src="/public/etc/jobdance/js/swiper.min.js" type="text/javascript"></script>
+	<script src="/public/etc/jobdance/js/front-ui.js" type="text/javascript"></script>
 	
 	
 </head>
@@ -128,7 +128,7 @@
 							<div>
 								<a href="#">
 									<div class="poi">
-										<div class="img"><span><img src="/public/jobdance/images/j-icon01.png" alt=""></span></div>
+										<div class="img"><span><img src="/public/etc/jobdance/images/j-icon01.png" alt=""></span></div>
 										<div class="name">단체 회원</div>
 										<div class="txt">
 											뛰어난 인재를 찾으려 하는 <br class="one">사업자나 사업채 직원이 속합니다. <br>채용 정보를 등록하고 <br class="one">인재 정보를 조회할 수 있습니다.
@@ -142,7 +142,7 @@
 							<div>
 								<a href="<?=site_url(user_uri.'/add')?>">
 									<div class="poi">
-										<div class="img"><span><img src="/public/jobdance/images/j-icon02.png" alt=""></span></div>
+										<div class="img"><span><img src="/public/etc/jobdance/images/j-icon02.png" alt=""></span></div>
 										<div class="name">개인 회원</div>
 										<div class="txt">
 											일자리를 구하려 하는 <br class="one">취업 준비생 본인이 속합니다. <br>이력서를 작성해 인재 정보를 등록하고 <br class="one">채용 정보를 조회할 수 있습니다.
@@ -168,7 +168,7 @@
 							<div>
 								<a href="<?=site_url(user_uri.'/add')?>">
 									<div class="poi">
-										<div class="img"><span><img src="/public/jobdance/images/j-icon03.png" alt=""></span></div>
+										<div class="img"><span><img src="/public/etc/jobdance/images/j-icon03.png" alt=""></span></div>
 										<div class="name">골프코스 디자인 기업 회원</div>
 										<div class="txt">
 											공연을 전문적으로 하는 <br class="one">공연팀 리더나 공연팀 소속원이 속합니다. <br>공연팀 정보를 등록할 수 있습니다.

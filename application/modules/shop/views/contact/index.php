@@ -37,6 +37,7 @@
               
                 <script src="semantic/components/form.js"></script>
                 <script src="semantic/components/transition.js"></script> -->
+                 <!-- Site Properties -->
 
     <link rel="stylesheet" type="text/css" href="/public/lib/responsive-tables/responsive-tables.css">
     <script src="/public/lib/responsive-tables/responsive-tables.js"></script>
