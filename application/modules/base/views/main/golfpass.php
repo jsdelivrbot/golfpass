@@ -125,7 +125,7 @@ a.btn{
 		<div class="con3 desktop">
 			<p class="sub_tit">골프패스 패널이 추천하는 골프장</p>
 			<ul class="course_list clf">
-			<?php for($i=0;$i<count("products_panel"); $i++){?>
+			<?php for($i=0;$i<count($products_panel); $i++){?>
 				<li>
 					<div class="bn_box">
 						<span class="price"><?=$products_panel[$i]->weekday_price?>원</span>
@@ -450,6 +450,11 @@ a.btn{
       <a href="<?=site_url(shop_category_uri.'/gets_by_name/나라별')?>">나라별 골프장</a>
         
 	  </li>
+	  <li>
+      <a href="<?=site_url(shop_celebrity_uri.'/gets')?>">패널소개</a>
+        
+	  </li>
+
 	  <?php if(!is_login()){?>
       <li>
         <a href="<?=site_url(user_uri.'/login')?>">로그인</a>

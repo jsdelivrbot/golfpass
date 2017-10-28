@@ -40,7 +40,7 @@ class Template extends MX_Controller
             (object)array('id'=>'general','name'=>'일반','uri'=> site_url(admin_user_uri."/gets")),
             (object)array('id'=>'board','name'=>'게시판','uri'=> site_url(admin_board_uri."/gets")),
             (object)array('id'=>'product','name'=>'상품','uri'=> site_url(admin_setting_product_uri."/get_product")),
-            (object)array('id'=>'order','name'=>'주문','uri'=> site_url(admin_order_uri."/gets"))
+            (object)array('id'=>'order','name'=>'주문','uri'=> site_url(admin_order_uri."/gets")),
               
         );
         $sub_menus = array(
@@ -51,7 +51,9 @@ class Template extends MX_Controller
             'general' => array(
                 (object)array('name'=>'메뉴관리','uri'=> site_url(admin_menu_uri.'/gets?menu_id=general')),
                 (object)array('name'=>'페이지관리','uri'=> site_url(admin_page_uri.'/gets?menu_id=general')),
-                (object)array('name'=>'회원관리','uri'=> site_url(admin_user_uri.'/gets?menu_id=general')),
+                (object)array('name'=>'회원관리','uri'=> site_url(admin_user_uri.'/gets/general?menu_id=general')),
+                (object)array('name'=>'패널관리','uri'=> site_url(admin_user_uri.'/gets/penel?menu_id=general')),
+                (object)array('name'=>'기업회원관리','uri'=> site_url(admin_user_uri.'/gets/corporate?menu_id=general')),
                 (object)array('name'=>'쪽지관리','uri'=>  site_url(admin_message_uri.'/gets?menu_id=general'))
             ),
             'board' => array(

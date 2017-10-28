@@ -45,10 +45,57 @@
 
 
 <body>
-<header id="sub-header">
-
-</header>
-    
+	<header id="sub-header" class="container-fluid">
+		<!--NOTE mobile nav-->
+		<nav id='sm-nav' class="row no-gutters justify-content align-items-stretch d-sm-none">
+			<div id="logo" class='col-3 justify-content-center d-flex align-self-center align-items-center'>
+				<img src="public/sangmin/img/icon/logo_mobile.png" class="d-md-none" alt="">
+			</div>
+			<div id='nav-icon-box' class="offset-2 col-5 d-flex align-items-stretch justify-content-end">
+				<div id="search" class="d-flex align-items-center">
+					<span><i class="xi xi-search"></i></span>
+				</div>
+				<div id="login" class="d-flex align-items-center">
+					<span><i class="xi xi-lock"></i></span>
+				</div>
+				<div id="join" class="d-flex align-items-center">
+					<span><i class="xi xi-user-plus"></i></span>
+				</div>
+			</div>
+			<div id="toggle" class="col-2 ml-auto">
+				<span><i class="xi xi-bars"></i></span>
+			</div>
+		</nav>
+		<!--NOTE desktop,tablet nav-->
+		<nav id='md-nav' class="row no-gutters justify-content align-items-stretch d-none d-sm-flex">
+			<div id="logo" class='col-6 d-flex align-items-center'>
+				<figure class="d-flex align-items-center d-lg-none">
+					<img src="public/sangmin/img/icon/logo_mobile.png" class="" alt="">
+				</figure>
+				<figure class="align-items-center d-none d-lg-flex">
+					<img src="public/sangmin/img/icon/logo.png" class="" alt="">
+				</figure>
+				<div id="search" class="d-flex align-items-center">
+					<span><i class="xi xi-search"></i></span>
+					<input type="text" placeholder="관심있는 나라나 골프장을 검색해보세요!">
+				</div>
+			</div>
+			<div id='nav-icon-box' class="col-5 col-lg-4 d-flex justify-content-end">
+				<div id="login" class="d-flex align-items-center">
+					<span><i class="xi xi-lock"></i></span>
+					<p>로그인</p>
+				</div>
+				<div id="join" class="d-flex align-items-center">
+					<span><i class="xi xi-user-plus"></i></span>
+					<p>회원가입</p>
+				</div>
+			</div>
+			<div id="toggle" class="col-1 col-lg-2 ml-auto">
+				<span><i class="xi xi-bars"></i></span>
+				<p class="d-none d-lg-block">메뉴</p>
+			</div>
+		</nav>
+	</header>
 
     <div class="ui gird container">
     <div class="sixteen wide column">

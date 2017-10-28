@@ -10,12 +10,13 @@ class User extends Admin_Controller {
         ));
     }
     
-    public function gets(){
+    public function gets($kind ='general'){
         $this->load->database();
         
         //get totoal_rows
         $field = $this->input->post('field');
         if($field) $this->db->like($field, $this->input->post('value'));
+        $this->db->where("kind",$kind);
         $total_rows= $this->db->count_all_results($this->table);
 
         //get pagination
@@ -29,13 +30,79 @@ class User extends Admin_Controller {
         
         //select from users
         $field = $this->input->post('field');
+        $this->db->where("kind",$kind);
         if($field) $this->db->like($field, $this->input->post('value'));
         $this->db->order_by('id','desc');
         $users = $this->db->get($this->table, $per_page, $offset)->result();
 
         //view
-        $data = array('users'=>$users);
+        $data['users'] =$users;
+        $data['kind'] =$kind;
         $this->_template("gets",$data);
     }
+
+    function add($kind)
+    {
+        
+        $this->fv->set_rules('name','이름','required');
+        if ($this->fv->run()=== false) {
+            $data['user'] = (object)array();
+            $data['mode']="add/$kind";
+            $data['kind'] =$kind;
+            $this->_template("addUpdate",$data);
+
+        } else {
+            $kind = $this->input->post('kind');
+            $this->_dbSet_addUpdate();
+            $this->db->set('kind',$kind);
+            $this->db->insert('users');
+            my_redirect(admin_user_uri."/gets/{$kind}");
+        }
+
+    }
+    function update($id,$kind)
+    {
+        $this->fv->set_rules('name','이름','required');
+        if ($this->fv->run()=== false) {
+            $data['kind'] =$kind;
+            $data['user'] = $this->users_model->_get(array("id"=>$id));
+            $data['mode']="update/$id/$kind";
+            $this->_template("addUpdate",$data);
+
+        } else {
+            $kind = $this->input->post('kind');
+            $this->_dbSet_addUpdate();
+            $this->db->set('kind',$kind);
+            $this->db->where('id',$id);
+            $this->db->update('users');
+            alert("수정완료");
+            my_redirect($_SERVER['HTTP_REFERER']);
+        }
+    }
+    function delete($id,$kind)
+    {
+        $this->users_model->_delete($id);
+        my_redirect(admin_user_uri."/gets/{$kind}");
+    }
+    function _dbSet_addUpdate(){
+        $birth = my_date_format($this->input->post('year'), $this->input->post('month'), $this->input->post('day'));
+        $userName= $this->input->post('userName');
+        if($userName === ''){
+            $userName=null;
+        }
+        
+        $this->db->set('userName',$userName);
+        $this->db->set('postal_number', $this->input->post('postal_number'));
+        $this->db->set('email', $this->input->post('email'));
+        $this->db->set('address', $this->input->post('address'));
+        $this->db->set('address_more', $this->input->post('address_more'));
+        $this->db->set('name', $this->input->post('name'));
+        $this->db->set('sex', $this->input->post('sex'));
+        $this->db->set('birth', $birth);
+        $this->db->set('phone', $this->input->post('phone'));
+        $this->db->set('profilePhoto',$this->input->post('profilePhoto'));
+        
+    }
+
 
 }

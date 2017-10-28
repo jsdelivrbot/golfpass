@@ -91,12 +91,13 @@ class Public_Controller extends MX_Controller{
         }
         $this->{$this->model}->_set_by_obj($arr);
     }
-    public function _add()
+    public function _add($data,$set_rules=true)
     {
-        $this->_set_rules();
+        if($set_rules===true)
+            $this->_set_rules();
         if(!$this->fv->run()){
-            $row =(object)array();
-            $data = array("mode"=>"add","row"=>$row);
+            $data['mode'] = 'add';
+            $data['row'] =(object)array();
             $this->_template('addUpdate',$data);
             return false;
         }

@@ -9,7 +9,7 @@ class Init_Controller extends MX_Controller{
     }
 
     public function reset(){
-        $this->db->query("DROP TABLE `boards`, `board_contents`, `board_replys`, `ci_sessions`, `menus`, `messages`, `pages`, `products`, `product_cartlist`, `product_categories`, `product_celebrity_reviews`, `product_orders`, `product_reviews`, `product_review_replys`, `p_order_products`, `ref_cate_product`, `setting`, `users`;");
+        
         redirect('/init');
     }
 
@@ -33,7 +33,6 @@ class Init_Controller extends MX_Controller{
         $this->ref_cate_product();
         $this->product_orders();
         $this->p_order_products();
-        $this->product_celebrity_reviews();
         $this->messages();
         $this->menus();
         $this->boards();
@@ -125,17 +124,18 @@ class Init_Controller extends MX_Controller{
              $result = $this->db->query("CREATE TABLE `$tb_name`(
              `id` INT UNSIGNED NULL AUTO_INCREMENT, 
              `auth` INT NOT NULL DEFAULT '1',
-             `postal_number` INT UNSIGNED NOT NULL, 
-             `address` varchar(255) NOT NULL, 
-             `address_more` varchar(255) NOT NULL,
-             `userName` varchar(10) NOT NULL, 
-             `password` varchar(255) NOT NULL, 
-             `name` varchar(10) NOT NULL,
-             `sex` varchar(5) NOT NULL,
-             `birth` varchar(30) NOT NULL,
-             `phone` varchar(20) NOT NULL,
-             `email` varchar(40) NOT NULL,
-             `profilePhoto` varchar(255) NOT NULL,
+             `kind` varchar(50) NOT NULL DEFAULT 'general',
+             `postal_number` INT UNSIGNED, 
+             `address` varchar(255) ,
+             `address_more` varchar(255),
+             `userName` varchar(10), 
+             `password` varchar(255), 
+             `name` varchar(10),
+             `sex` varchar(5),
+             `birth` varchar(30),
+             `phone` varchar(20),
+             `email` varchar(40),
+             `profilePhoto` varchar(255),
              `created` datetime NOT NULL DEFAULT NOW(),
              PRIMARY KEY (`id`),
              UNIQUE KEY `idx_userName`(`userName`)
@@ -455,34 +455,7 @@ class Init_Controller extends MX_Controller{
          echo "<br>";
 
     }
-    function product_celebrity_reviews()
-    {
-        //product_celebrity_reviews 테이블 만들기
-        $tb_name = 'product_celebrity_reviews';
-        if(!$this->db->table_exists($tb_name)){
-            $result = $this->db->query("CREATE TABLE `$tb_name`(
-            `id` INT UNSIGNED NULL AUTO_INCREMENT, 
-            `product_id` INT UNSIGNED NOT NULL, 
-            `celebrity_name` INT UNSIGNED NOT NULL, 
-            `desc` varchar(255) NOT NULL, 
-            `picture` varchar(255) NOT NULL, 
-            `score_1` INT UNSIGNED NOT NULL, 
-            `score_2` INT UNSIGNED NOT NULL, 
-            `score_3` INT UNSIGNED NOT NULL, 
-            `score_4` INT UNSIGNED NOT NULL, 
-            `score_5` INT UNSIGNED NOT NULL, 
-            `created` datetime NOT NULL DEFAULT NOW(),
-            PRIMARY KEY (`id`),
-            KEY `idx_product_id` (`product_id`)
-             ) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
-            if($result) echo("success create $tb_name ");
-            else echo("failed create $tb_name");
-        }else{
-            echo "already table $tb_name exists";
-        }
-        echo "<br>";
-
-    }
+ 
     function messages()
     {
          //messages 테이블 만들기
