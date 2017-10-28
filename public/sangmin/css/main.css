@@ -2316,6 +2316,7 @@ body {
 
 #sub-article {
   margin-top: 100px;
+  width: 100%;
   font-family: 'Noto Sans', sans-serif; }
   #sub-article #panel-title {
     font-size: 1.6rem; }
@@ -2336,53 +2337,86 @@ body {
         width: 15%;
         margin-bottom: 8px;
         border-top: 3px solid black; }
-  #sub-article section#panel-box {
-    padding: 20px 50px 60px;
-    padding-bottom: 80px;
-    border-bottom: 2px solid #e1e4e6; }
-    #sub-article section#panel-box .panel {
-      margin-bottom: 40px; }
-      #sub-article section#panel-box .panel .panel-content {
-        margin-top: 20px; }
-        #sub-article section#panel-box .panel .panel-content p {
-          margin-bottom: 10px; }
-          #sub-article section#panel-box .panel .panel-content p span {
+  #sub-article section#panel-section {
+    position: relative;
+    padding: 80px 0; }
+    #sub-article section#panel-section article#panel-box {
+      position: static;
+      max-width: 960px;
+      margin: 0 auto; }
+      #sub-article section#panel-section article#panel-box::after {
+        position: absolute;
+        content: '';
+        display: block;
+        width: 100%;
+        left: 0;
+        bottom: 0;
+        padding: 30px;
+        border-bottom: 2px solid #e1e4e6; }
+      #sub-article section#panel-section article#panel-box .panel {
+        margin-bottom: 40px; }
+        @media (min-width: 992px) {
+          #sub-article section#panel-section article#panel-box .panel {
+            max-width: 20%; } }
+        #sub-article section#panel-section article#panel-box .panel .panel-content {
+          width: 140px;
+          overflow: hidden;
+          margin-top: 20px; }
+          #sub-article section#panel-section article#panel-box .panel .panel-content p {
+            margin-bottom: 10px; }
+          #sub-article section#panel-section article#panel-box .panel .panel-content .intro {
             font-size: 0.8rem;
-            color: #c5c5c5; }
-  #sub-article #panel-pagination li {
+            color: #c5c5c5;
+            white-space: normal;
+            line-height: 2;
+            text-align: left;
+            word-wrap: break-word;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical; }
+  #sub-article .pagination a {
     margin: 10px;
-    font-weight: bold; }
-    #sub-article #panel-pagination li a {
-      font-size: 0.8rem;
-      color: #c5c5c5;
-      text-decoration: none; }
-      #sub-article #panel-pagination li a:hover {
-        color: black; }
-  #sub-article #panel-pagination li.current a {
+    font-weight: bold;
+    font-size: 0.8rem;
+    color: #c5c5c5;
+    text-decoration: none; }
+    #sub-article .pagination a:hover {
+      color: black; }
+  #sub-article .pagination li.current a {
     color: black; }
-  #sub-article section#content-box {
-    margin-top: 30px; }
-    #sub-article section#content-box .content {
+  #sub-article section#content-boxs {
+    margin: 0 auto 60px;
+    margin-top: 30px;
+    max-width: 960px; }
+    #sub-article section#content-boxs .content-box {
       box-sizing: border-box;
       line-height: 2;
-      padding: 45px;
-      position: relative; }
-      #sub-article section#content-box .content:not(:first-child)::before {
-        content: ' ';
-        display: block;
-        width: 98%;
-        padding-bottom: 45px;
-        border-top: 2px solid #e1e4e6;
-        margin: 0 auto; }
-      #sub-article section#content-box .content > * {
+      position: relative;
+      padding: 45px 0; }
+      #sub-article section#content-boxs .content-box:not(:first-child) {
+        border-top: 2px solid #e1e4e6; }
+      #sub-article section#content-boxs .content-box > * {
         margin: 13px 0; }
-      #sub-article section#content-box .content h1 {
+      #sub-article section#content-boxs .content-box h1 {
         font-weight: bold;
         font-size: 2rem;
         font-family: 'Noto Sans', sans-serif; }
-      #sub-article section#content-box .content p {
+      #sub-article section#content-boxs .content-box p {
         font-size: 1rem; }
-      #sub-article section#content-box .content .date {
+      #sub-article section#content-boxs .content-box .content {
+        overflow: hidden; }
+        #sub-article section#content-boxs .content-box .content p {
+          white-space: normal;
+          line-height: 2;
+          text-align: left;
+          word-wrap: break-word;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical; }
+          @media (min-width: 992px) {
+            #sub-article section#content-boxs .content-box .content p {
+              display: block; } }
+      #sub-article section#content-boxs .content-box .date {
         font-size: 1rem;
         color: #8b9194; }
 
