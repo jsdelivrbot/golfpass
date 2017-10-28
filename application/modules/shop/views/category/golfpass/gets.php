@@ -5,10 +5,10 @@
         <link rel="preload" href="/public/etc/hotel/bundles/familysystem/fonts/proximanova-semibold-webfont.woff2" as="font" type="font/woff2" crossorigin>
         <link rel="preload" href="/public/etc/hotel/bundles/familysystem/fonts/proximanova-light-webfont.woff2" as="font" type="font/woff2" crossorigin>
         <link rel="preload" href="/public/etc/hotel/bundles/familysystem/fonts/proximanova-lightit-webfont.woff2" as="font" type="font/woff2" crossorigin>
-        <link rel="stylesheet" type="text/css" href="/public/etc/hotel/css/SystemBundle/Resources/public/scss/common-69f2b59199.css" />
+        <link rel="stylesheet" type="text/css" href="/public/etc/hotel/css/css2.css" />
         <link rel="dns-prefetch" href="https://cdn.polyfill.io">
         <link rel="dns-prefetch" href="https://code.jquery.com">
-        <link rel="stylesheet" type="text/css" href="/public/etc/hotel/css/CollectionBundle/Resources/public/scss/honeymoons-36975c249a.css" />
+        <link rel="stylesheet" type="text/css" href="/public/etc/hotel/css/collectionbundle/resources/public/scss/honeymoons-36975c249a.css" />
         <link rel="shortcut icon" href="https://www.mrandmrssmith.com/v6b09cfdb4e5/images/5e1e6b8.png"/>
 
         <noscript>
