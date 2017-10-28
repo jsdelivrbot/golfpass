@@ -81,6 +81,29 @@ class MY_Pagination extends CI_Pagination {
             $config [ 'num_tag_close'] = '</li>'; 
             return $config;
         }
+        function style_golfpass($config){
+
+            $config [ 'full_tag_open'] = '<ol id="hotel-results-pagination" class="hotel-results-pagination">';
+            $config [ 'full_tag_close'] = '</ol>';
+            
+            $config['first_link'] = "";
+            $config [ 'first_tag_open'] = '<li id="hotel-results-pagination-next">';
+            $config [ 'first_tag_close'] = '</li>';
+    
+            $config [ 'last_link'] = "";
+            // $config [ 'last_link'] =false;
+            $config [ 'last_tag_open'] = '<li id="hotel-results-pagination-next">';
+            $config [ 'last_tag_close'] = '</li>';
+    
+            $config [ 'prev_link'] = false;
+            $config [ 'next_link'] = false;
+    
+            $config [ 'cur_tag_open'] = '<li class="selected"><a href="#">';
+            $config [ 'cur_tag_close'] = '</a></li>';
+            $config [ 'num_tag_open'] = '<li class="">';
+            $config [ 'num_tag_close'] = '</li>'; 
+            return $config;
+        }
 
         // public function get($total_rows,$style,$per_page=10,$num_link=5){
         public function get($in_config){

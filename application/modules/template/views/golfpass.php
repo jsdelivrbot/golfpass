@@ -97,15 +97,8 @@
 		</nav>
 	</header>
 
-    <div class="ui gird container">
-    <div class="sixteen wide column">
-        header
-    </div>
 
-    <div class="sixteen wide column">
         <?php load_view($content_view)?>
-    </div>
-</div>
 
     
     <footer id='main-footer' class='d-flex flex-wrap'>

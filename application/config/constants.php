@@ -49,6 +49,7 @@ define("shop_review_uri","/shop/review");
 define("shop_reply_uri","/shop/reply");
 define("shop_category_uri","/shop/category");
 define("shop_celebrity_uri","/shop/celebrity");
+define("shop_user_uri","/shop/user");
 
 // define("shop_product_uri","/product");
 // define("shop_cartlist_uri","/cartlist");

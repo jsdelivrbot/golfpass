@@ -17,7 +17,8 @@ class Category extends Base_Controller {
     function gets_by_name($name)
     {
       
-        $data['categories'] = $this->product_categories_model->gets_with_pgi(array("name"=>urldecode($name)),'style_hotel');
-        $this->_view('gets',$data);
+        $data['categories_nation'] = $this->product_categories_model->gets_with_pgi(array("name"=>urldecode($name)),'style_hotel');
+        $this->_template('gets',$data,"golfpass");
+        // $this->_view('gets',$data);
     }
 }
