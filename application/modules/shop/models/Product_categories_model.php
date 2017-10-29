@@ -22,7 +22,7 @@ class Product_categories_Model extends Board_Model{
                 return $categories=  $this->product_categories_model->_gets(array("parent_id"=>$menu_id));        
             },
             null,
-            array("per_page"=>6)
+            array("per_page"=>8)
         );
     }
     function gets_by_product_id($product_id)

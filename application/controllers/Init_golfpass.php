@@ -11,6 +11,7 @@ class Init_golfpass extends Init_Controller {
         $this->load->model('base/boards_model');
         $this->load->model('shop/product_reviews_model');
         $this->load->model('shop/ref_cate_product_model');
+        $this->load->model('shop/p_hotel_model');
    
     }
     function index()
@@ -25,6 +26,7 @@ class Init_golfpass extends Init_Controller {
         // $this->board_add();
 
     }
+
     function board_add()
     {
         $this->boards_model->_add(array("name"=>"패널 게시판",'skin'=>'panel','auth_r_board'=>'0','auth_r_content'=>'0','auth_w_content'=>'999','auth_w_review'=>'999'));
@@ -32,17 +34,66 @@ class Init_golfpass extends Init_Controller {
     function cate_product_add()
     {
         ////카테고리추가
-        //나라별
-        $menu_id =$this->product_categories_model->_add(array('name'=>'나라별','desc'=>'나라별','can_alert'=>'0'));
-        $rusia_id =$this->product_categories_model->_add(array('name'=>'러시아','desc'=>'럭셔리 러시아','parent_id'=>$menu_id,'photo'=>'/public/etc/main/images/pc_golf_course_1.jpg','can_add'=>'0'));
-        $this->product_categories_model->_add(array('name'=>'미국','desc'=>'럭셔리 미국','parent_id'=>$menu_id,'photo'=>'/public/etc/main/images/pc_golf_course_2.jpg','can_add'=>'0'));
-        $this->product_categories_model->_add(array('name'=>'일본','desc'=>'럭셔리 일본','parent_id'=>$menu_id,'photo'=>'/public/etc/main/images/pc_golf_course_3.jpg','can_add'=>'0'));
-        $this->product_categories_model->_add(array('name'=>'중국','desc'=>'럭셔리 중국','parent_id'=>$menu_id,'photo'=>'/public/etc/main/images/pc_golf_course_4.jpg','can_add'=>'0'));
-        $this->product_categories_model->_add(array('name'=>'영국','desc'=>'럭셔리 영국','parent_id'=>$menu_id,'photo'=>'/public/etc/main/images/pc_golf_course_5.jpg','can_add'=>'0'));
-        $this->product_categories_model->_add(array('name'=>'프랑스','desc'=>'럭셔리 프랑스','parent_id'=>$menu_id,'photo'=>'/public/etc/main/images/pc_golf_course_6.jpg','can_add'=>'0'));
+        //나라 도시별
+        $parent_nation_id =$this->product_categories_model->_add(array('name'=>'나라별','desc'=>'나라별','can_alert'=>'0','can_add'=>'1'));
+
+        //중국
+        $china_id=$this->product_categories_model->_add(array('name'=>'중국','desc'=>'중국','parent_id'=>$parent_nation_id,'photo'=>'/public/etc/main/images/pc_golf_course_4.jpg','can_add'=>'1'));
+            $city_id=$this->product_categories_model->_add(array('name'=>'위해','desc'=>'','parent_id'=>$china_id,'photo'=>'','can_add'=>'0'));
+                $product_id =$this->products_model->_add(array("name"=>"웨이하이포인트 C.C","eng_name"=>"product_name","desc"=>"샘플내용",'hole_count'=>'18'));
+                $this->ref_cate_product_model->_add(array("product_id"=>$product_id,'cate_id'=>$city_id));
+                $hotel_id=$this->p_hotel_model->_add(array("name"=>"웨이하이포인트 리조트"));
+                $this->db->set("product_id",$product_id)->set("hotel_id",$hotel_id)->insert("p_ref_hotel");
+            $city_id=$this->product_categories_model->_add(array('name'=>'연태','desc'=>'','parent_id'=>$china_id,'photo'=>'','can_add'=>'0'));
+            $city_id=$this->product_categories_model->_add(array('name'=>'백두산','desc'=>'','parent_id'=>$china_id,'photo'=>'','can_add'=>'0'));
+            $city_id=$this->product_categories_model->_add(array('name'=>'청도','desc'=>'','parent_id'=>$china_id,'photo'=>'','can_add'=>'0'));
+            $city_id=$this->product_categories_model->_add(array('name'=>'천진','desc'=>'','parent_id'=>$china_id,'photo'=>'','can_add'=>'0'));
+            $city_id=$this->product_categories_model->_add(array('name'=>'대련','desc'=>'','parent_id'=>$china_id,'photo'=>'','can_add'=>'0'));
+
+        //태국
+        $thailand_id=$this->product_categories_model->_add(array('name'=>'태국','desc'=>'태국','parent_id'=>$parent_nation_id,'photo'=>'/public/etc/main/images/pc_golf_course_4.jpg','can_add'=>'1'));
+       $city_id=$this->product_categories_model->_add(array('name'=>'방콕','desc'=>'','parent_id'=>$thailand_id,'photo'=>'','can_add'=>'0'));
+       $city_id=$this->product_categories_model->_add(array('name'=>'파타야','desc'=>'','parent_id'=>$thailand_id,'photo'=>'','can_add'=>'0'));
+       $city_id=$this->product_categories_model->_add(array('name'=>'카오야이','desc'=>'','parent_id'=>$thailand_id,'photo'=>'','can_add'=>'0'));
+       $city_id=$this->product_categories_model->_add(array('name'=>'칸차나부리','desc'=>'','parent_id'=>$thailand_id,'photo'=>'','can_add'=>'0'));
+       $city_id=$this->product_categories_model->_add(array('name'=>'치앙마이','desc'=>'','parent_id'=>$thailand_id,'photo'=>'','can_add'=>'0'));
+
+        //필리핀
+        $philippines_id=$this->product_categories_model->_add(array('name'=>'필리핀','desc'=>'필리핀','parent_id'=>$parent_nation_id,'photo'=>'/public/etc/main/images/pc_golf_course_4.jpg','can_add'=>'1'));
+        $city_id=$this->product_categories_model->_add(array('name'=>'마닐라','desc'=>'','parent_id'=>$philippines_id,'photo'=>'','can_add'=>'0'));
+        $city_id=$this->product_categories_model->_add(array('name'=>'클락','desc'=>'','parent_id'=>$philippines_id,'photo'=>'','can_add'=>'0'));
+        $city_id=$this->product_categories_model->_add(array('name'=>'세부','desc'=>'','parent_id'=>$philippines_id,'photo'=>'','can_add'=>'0'));
+
+        //사이판
+        $saipan_id=$this->product_categories_model->_add(array('name'=>'사이판','desc'=>'사이판','parent_id'=>$parent_nation_id,'photo'=>'/public/etc/main/images/pc_golf_course_4.jpg','can_add'=>'1'));
+        $city_id=$this->product_categories_model->_add(array('name'=>'사이판','desc'=>'','parent_id'=>$saipan_id,'photo'=>'','can_add'=>'0'));
+        
+        //괌
+        $guam_id=$this->product_categories_model->_add(array('name'=>'괌','desc'=>'괌','parent_id'=>$parent_nation_id,'photo'=>'/public/etc/main/images/pc_golf_course_4.jpg','can_add'=>'1'));
+        $city_id= $this->product_categories_model->_add(array('name'=>'괌','desc'=>'','parent_id'=>$guam_id,'photo'=>'','can_add'=>'0'));
+
+        //라오스
+        $raos_id=$this->product_categories_model->_add(array('name'=>'라오스','desc'=>'라오스','parent_id'=>$parent_nation_id,'photo'=>'/public/etc/main/images/pc_golf_course_4.jpg','can_add'=>'1'));
+        $city_id=$this->product_categories_model->_add(array('name'=>'라오스','desc'=>'','parent_id'=>$raos_id,'photo'=>'','can_add'=>'0'));
+     
+        //일본
+        $nation_id =$this->product_categories_model->_add(array('name'=>'일본','desc'=>'일본','parent_id'=>$parent_nation_id,'photo'=>'/public/etc/main/images/pc_golf_course_4.jpg','can_add'=>'1'));
+       $city_id=$this->product_categories_model->_add(array('name'=>'후쿠오카','desc'=>'','parent_id'=>$nation_id,'photo'=>'','can_add'=>'0'));
+       $city_id=$this->product_categories_model->_add(array('name'=>'나가사키','desc'=>'','parent_id'=>$nation_id,'photo'=>'','can_add'=>'0'));
+       $city_id=$this->product_categories_model->_add(array('name'=>'오이타','desc'=>'','parent_id'=>$nation_id,'photo'=>'','can_add'=>'0'));
+       $city_id=$this->product_categories_model->_add(array('name'=>'쿠마모토','desc'=>'','parent_id'=>$nation_id,'photo'=>'','can_add'=>'0'));
+       $city_id=$this->product_categories_model->_add(array('name'=>'미야자키','desc'=>'','parent_id'=>$nation_id,'photo'=>'','can_add'=>'0'));
+       $city_id=$this->product_categories_model->_add(array('name'=>'가고시마','desc'=>'','parent_id'=>$nation_id,'photo'=>'','can_add'=>'0'));
+       $city_id=$this->product_categories_model->_add(array('name'=>'북해도','desc'=>'','parent_id'=>$nation_id,'photo'=>'','can_add'=>'0'));
+       $city_id=$this->product_categories_model->_add(array('name'=>'치바','desc'=>'','parent_id'=>$nation_id,'photo'=>'','can_add'=>'0'));
+       $city_id=$this->product_categories_model->_add(array('name'=>'와카야마','desc'=>'','parent_id'=>$nation_id,'photo'=>'','can_add'=>'0'));
+       $city_id=$this->product_categories_model->_add(array('name'=>'시즈오카','desc'=>'','parent_id'=>$nation_id,'photo'=>'','can_add'=>'0'));
+       $city_id=$this->product_categories_model->_add(array('name'=>'히로시마','desc'=>'','parent_id'=>$nation_id,'photo'=>'','can_add'=>'0'));
+       
+        
         
         //테마별
-        $menu_id =$this->product_categories_model->_add(array('name'=>'테마별','desc'=>'테마별','can_alert'=>'0'));
+        $menu_id =$this->product_categories_model->_add(array('name'=>'테마별','desc'=>'테마별','can_alert'=>'0','can_add'=>'1'));
         $this->product_categories_model->_add(array('name'=>'이달의 인기코스','desc'=>'인기 많음','parent_id'=>$menu_id,'photo'=>'/public/etc/main/images/theme_img1.jpg','can_add'=>'0'));
         $this->product_categories_model->_add(array('name'=>'골프 + 숙박 패키지','desc'=>'골프+숙박','parent_id'=>$menu_id,'photo'=>'/public/etc/main/images/theme_img2.jpg','can_add'=>'0'));
         $this->product_categories_model->_add(array('name'=>'2인 플레이','desc'=>'2인','parent_id'=>$menu_id,'photo'=>'/public/etc/main/images/theme_img3.jpg','can_add'=>'0'));
@@ -54,23 +105,53 @@ class Init_golfpass extends Init_Controller {
 
         ////상품추가
         // 패널 상품추가
-        $product_id =$this->products_model->_add(array("name"=>"샘플상품","eng_name"=>"product_name","desc"=>"샘플내용"));
-        $this->ref_cate_product_model->_add(array("product_id"=>$product_id,'cate_id'=>$panel_id));
+        // $product_id =$this->products_model->_add(array("name"=>"샘플상품","eng_name"=>"product_name","desc"=>"샘플내용"));
+        // $this->ref_cate_product_model->_add(array("product_id"=>$product_id,'cate_id'=>$panel_id));
 
-        //러시아 상품추가
-        $product_id =$this->products_model->_add(array("name"=>"샘플상품","eng_name"=>"product_name","desc"=>"샘플내용"));
-        $this->ref_cate_product_model->_add(array("product_id"=>$product_id,'cate_id'=>$rusia_id));
+        // //러시아 상품추가
+        // $product_id =$this->products_model->_add(array("name"=>"샘플상품","eng_name"=>"product_name","desc"=>"샘플내용"));
+        // $this->ref_cate_product_model->_add(array("product_id"=>$product_id,'cate_id'=>$rusia_id));
 
-        $product_id =$this->products_model->_add(array("name"=>"샘플상품2","eng_name"=>"product_name","desc"=>"샘플내용"));
-        $this->ref_cate_product_model->_add(array("product_id"=>$product_id,'cate_id'=>$rusia_id));
-        $product_id =$this->products_model->_add(array("name"=>"샘플상품3","eng_name"=>"product_name","desc"=>"샘플내용"));
-        $this->ref_cate_product_model->_add(array("product_id"=>$product_id,'cate_id'=>$rusia_id));
-        $product_id =$this->products_model->_add(array("name"=>"샘플상품4","eng_name"=>"product_name","desc"=>"샘플내용"));
-        $this->ref_cate_product_model->_add(array("product_id"=>$product_id,'cate_id'=>$rusia_id));
-        $product_id =$this->products_model->_add(array("name"=>"샘플상품5","eng_name"=>"product_name","desc"=>"샘플내용"));
-        $this->ref_cate_product_model->_add(array("product_id"=>$product_id,'cate_id'=>$rusia_id));
+        // $product_id =$this->products_model->_add(array("name"=>"샘플상품2","eng_name"=>"product_name","desc"=>"샘플내용"));
+        // $this->ref_cate_product_model->_add(array("product_id"=>$product_id,'cate_id'=>$rusia_id));
+        // $product_id =$this->products_model->_add(array("name"=>"샘플상품3","eng_name"=>"product_name","desc"=>"샘플내용"));
+        // $this->ref_cate_product_model->_add(array("product_id"=>$product_id,'cate_id'=>$rusia_id));
+        // $product_id =$this->products_model->_add(array("name"=>"샘플상품4","eng_name"=>"product_name","desc"=>"샘플내용"));
+        // $this->ref_cate_product_model->_add(array("product_id"=>$product_id,'cate_id'=>$rusia_id));
+        // $product_id =$this->products_model->_add(array("name"=>"샘플상품5","eng_name"=>"product_name","desc"=>"샘플내용"));
+        // $this->ref_cate_product_model->_add(array("product_id"=>$product_id,'cate_id'=>$rusia_id));
     }
-
+    function product_categories()
+    {
+           //product_categories 테이블 만들기
+           $tb_name = 'product_categories';
+           if(!$this->db->table_exists($tb_name)){
+           
+               $result = $this->db->query("CREATE TABLE `$tb_name`(
+               `id` INT UNSIGNED NULL AUTO_INCREMENT, 
+               `parent_id` INT UNSIGNED NOT NULL DEFAULT '0', 
+               `name` varchar(50) NOT NULL DEFAULT '샘플상품분류', 
+               `desc` varchar(255) NOT NULL DEFAULT '분류 설명', 
+               `sort` varchar(20) NOT NULL DEFAULT '0', 
+               `photo` varchar(255), 
+               `photo2` varchar(255), 
+               `photo3` varchar(255), 
+               `photo4` varchar(255), 
+               `photo5` varchar(255), 
+               `photo6` varchar(255), 
+               `can_alert` varchar(10) NOT NULL DEFAULT '1', 
+               `can_add` varchar(10) NOT NULL DEFAULT '0', 
+               `created` datetime NOT NULL DEFAULT NOW(),
+               KEY `idx_parent_id` (`parent_id`),
+               PRIMARY KEY (`id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
+                   
+               if($result) echo("success create $tb_name ");
+               else echo("failed create $tb_name");
+           }else{
+               echo "already table $tb_name exists";
+           }
+           echo "<br>";
+    }
     function panels()
     {
         //panels 테이블 만들기

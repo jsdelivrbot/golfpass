@@ -12,9 +12,9 @@ class Category extends Admin_Controller {
     function upload_photo()
     {
         $this->load->module("base/common");
-        $this->common->upload_photo('admin',function($imgDir){
+        $this->common->upload_photo('admin','photo',function($imgDir){
             $this->db->where("id",$this->input->post('category_id'));
-            $this->db->set("photo",$imgDir);
+            $this->db->set($this->input->post("field_name"),$imgDir);
             $this->db->update("product_categories");
             my_redirect($_SERVER['HTTP_REFERER']);
         });

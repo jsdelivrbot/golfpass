@@ -114,7 +114,7 @@ a.btn{
 			<p class="sub_tit">나라별 골프장</p>
 			<ul class="course_list clf">
 				<?php for($i=0;$i < count($nation_list)	;$i++){?>
-					<li><a href="<?=site_url(shop_product_uri."/gets/{$nation_list[$i]->id}")?>"><img src="<?=$nation_list[$i]->photo?>" alt="<?=$nation_list[$i]->name?>"></a></li>	
+					<li><a href="<?=site_url(shop_category_uri."/gets/{$nation_list[$i]->id}")?>"><img src="<?=$nation_list[$i]->photo?>" alt="<?=$nation_list[$i]->name?>"></a></li>	
 				<?php }?>
 			
 			</ul>

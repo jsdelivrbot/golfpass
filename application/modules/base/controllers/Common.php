@@ -36,10 +36,10 @@ class Common extends Public_Controller {
         echo "<script type='text/javascript'>window.parent.CKEDITOR.tools.callFunction('{$CKEditorFuncNum}', {$url}, {$msg} )</script>";         
     }
 
-    function upload_photo($who,$uploadfunc)
+    function upload_photo($who,$name,$uploadfunc)
     {
         $imgDir = "";
-        if (isset($_FILES['photo'])) {
+        if (isset($_FILES[$name])) {
             $config['upload_path'] = "./public/uploads/$who/images";
             $config['allowed_types'] = 'gif|jpg|png';
             $config['max_size'] = '500000'; //500KB
@@ -47,7 +47,7 @@ class Common extends Public_Controller {
             $config['max_height']  = '7680';
             $this->load->library('upload', $config);
 
-            if (!$this->upload->do_upload('photo')) {
+            if (!$this->upload->do_upload($name)) {
 
                 alert($this->upload->display_errors(false,false));
                 my_redirect($_SERVER['HTTP_REFERER']);

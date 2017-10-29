@@ -229,10 +229,10 @@
 		</section>
 			<?php }?>
 		
-		<?php if(isset($hotel_options)) {?>
+		<?php if(isset($hotel_options) &&  count($hotel_options) !== 0) {?>
 		<section class="col-12" id="article-section-4">
 			<div class='d-flex flex-column title-box'>
-				<span>04</span>
+				<span>0<?=$number++?></span>
 				<h1 class="mt-13">숙박 시설</h1>
 			</div>
 			<div class="list-content">
