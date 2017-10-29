@@ -32,7 +32,8 @@ class Main extends Base_Controller
         $data['products_panel'] = $this->products_model->get_by_category_id_recursive_tree($menu_id);
 
         // $this->_template('index');
-        $this->_view('main/golfpass',$data);
+        $this->_view('main/golfpass',$data);;
+
     }
 
 }
