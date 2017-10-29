@@ -27,7 +27,7 @@ class Product_categories_Model extends Board_Model{
     }
     function gets_by_product_id($product_id)
     {
-        $this->db->select(" r.*, c.*, r.id 'id'");
+        $this->db->select(" r.*, c.*, r.id 'id',r.sort");
         $this->db->from('ref_cate_product as r');
         $this->db->join("$this->table c","r.cate_id = c.id","LEFT");
         $this->db->where("product_id",$product_id);
