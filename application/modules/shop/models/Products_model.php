@@ -10,7 +10,7 @@ class Products_Model extends Board_Model{
 
         $products=$this->gets_by_category_id_recursive_tree($cate_id);
         $num_rows = count($products);
-        return parent::_gets_with_pgi(
+        return parent::_gets_with_pgi_func(
             $pgi_style,
             function() use($num_rows)
             {   

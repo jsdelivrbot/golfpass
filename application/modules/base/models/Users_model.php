@@ -9,7 +9,7 @@ class Users_Model extends Board_Model{
     function gets_with_pgi($where_obj,$pgi_style)
     {
         
-        return parent::_gets_with_pgi(
+        return parent::_gets_with_pgi_func(
             $pgi_style,
             function() use($where_obj)
             {   

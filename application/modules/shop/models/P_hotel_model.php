@@ -8,7 +8,7 @@ class P_hotel_model extends Board_Model{
     {
       
         $pgi_style = 'style_1';
-        $rows=$this->_gets_with_pgi(
+        $rows=$this->_gets_with_pgi_func(
             $pgi_style,
             null,
             function($offset,$per_page){

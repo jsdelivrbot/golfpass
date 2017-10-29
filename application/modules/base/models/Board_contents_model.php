@@ -57,7 +57,7 @@ class Board_contents_Model extends Board_Model{
     {
         $board_id =  isset($config['board_id']) ?  $config['board_id'] : null;
         $pgi_style =  isset($config['pgi_style']) ?  $config['pgi_style'] : 'style_1';
-        $rows=$this->_gets_with_pgi(
+        $rows=$this->_gets_with_pgi_func(
             $pgi_style,
             function() use ($board_id){
                 $this->db->select("count(*) as rows_num");

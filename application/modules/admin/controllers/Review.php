@@ -23,11 +23,33 @@ class Review extends Admin_Controller {
          
 
     }
-    
+    // function add($kind,$user_id)
+    // {
+    //     $this->_set_rules();
+    //     if($this->fv->run() === false)
+    //     {
+    //         $data['mode'] = "add/$kind";
+    //         $data['content'] =(object)array('is_display'=>'1');
+    //         $this->_template("addUpdate",$data);
+             
+    //     }else
+    //     {
+    //         $this->load->model('product_reviews_model');
+    //         $this->product_reviews_model->_set_by_obj(array(
+    //             "title"=>$this->input->post('title'),
+    //             "desc"=>$this->input->post('desc'),
+    //             $product_id = $this->input->post('product_id'),
+    //             $user_id = $user_id,
+    //             "is_display"=>$this->input->post('is_display')
+    //         ));
+    //         $this->product_reviews_model->_add();
+    //         // my_redirect(admin_user_uri."/   gets/$kind");
+    //     }
+
+    // }
     public function update($id)
     {
-        $this->fv->set_rules('title',"제목","required");
-        $this->fv->set_rules('desc',"내용","required");
+        $this->_set_rules();
         if($this->fv->run() === false)
         {
             $this->load->model("product_reviews_model");
@@ -51,6 +73,11 @@ class Review extends Admin_Controller {
 
     public function ajax_delete($id){
         parent::_ajax_delete($id);
+    }
+    function _set_rules()
+    {
+        $this->fv->set_rules('title',"제목","required");
+        $this->fv->set_rules('desc',"내용","required");
     }
    
 }

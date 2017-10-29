@@ -13,10 +13,9 @@ class User extends Base_Controller {
     {
 
         $pgi_style ="style_golfpass";
-        $data['penels'] = $this->users_model->gets_with_pgi(array("u.kind"=>$kind),$pgi_style);
-        
-        var_dump($data['penels']);
-        // $this->_template("shop/user/penel/gets",$data,'golfpass');
+        // $data['panels'] = $this->users_model->gets_with_pgi(array("u.kind"=>$kind),$pgi_style);
+        // var_dump($data['panels']);
+        // $this->_template("shop/user/panel/gets",$data,'golfpass');
     }
 
 

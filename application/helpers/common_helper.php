@@ -133,6 +133,10 @@ if(!function_exists('my_set_selected')){
         {
             return "selected";
         }
+        else if(is_string($obj) && $obj === $value)
+        {
+            return "selected";
+        }
         else if( $obj === null){
             return '';
         }
@@ -142,6 +146,7 @@ if(!function_exists('my_set_selected')){
         else if(!isset($_POST[$name]) && property_exists($obj,$name) && $value === $obj->$name){
             return "selected";
         }
+      
 
     }
 }

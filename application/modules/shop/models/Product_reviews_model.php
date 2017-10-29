@@ -11,7 +11,6 @@ class Product_reviews_Model extends Public_Model{
         $target = $config['target'];
         $base_url = $config['base_url'];
         $offset = isset($config['offset'])? $config['offset'] : 0;
-        
 
         $this->load->model('shop/products_model');
         $row_nums =$this->products_model->_get($product_id,array("reviews_count"))->reviews_count;

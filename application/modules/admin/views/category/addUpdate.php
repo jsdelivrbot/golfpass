@@ -22,6 +22,8 @@
 <br>
 <br>
 
+<!-- 카테고리 상품 시작 -->
+<?php if(strpos($mode, "update") >-1 ){?>
 상품 추가하기
 <form method="post"action="<?=my_site_url(admin_ref_cate_product_uri."/add")?>">
 순서<input type="text" name="sort">
@@ -48,4 +50,6 @@
     <?php }?>
 
 </ul>
+<?php }?>
+<!-- 카테고리 상품 끝 -->
 <a href="<?=my_site_url(admin_product_category_uri."/gets")?>">목록으로</a>

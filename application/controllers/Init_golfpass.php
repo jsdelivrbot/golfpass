@@ -19,14 +19,17 @@ class Init_golfpass extends Init_Controller {
         $this->p_ref_hotel();
         $this->p_hotel();
         $this->hotel_option();
-
-
-        
-        $this->shop();
-        
+        $this->panels();
+        $this->panel_contents();
+        $this->cate_product_add();
+        // $this->board_add();
 
     }
-    function shop()
+    function board_add()
+    {
+        $this->boards_model->_add(array("name"=>"패널 게시판",'skin'=>'panel','auth_r_board'=>'0','auth_r_content'=>'0','auth_w_content'=>'999','auth_w_review'=>'999'));
+    }
+    function cate_product_add()
     {
         ////카테고리추가
         //나라별
@@ -47,12 +50,12 @@ class Init_golfpass extends Init_Controller {
         $this->product_categories_model->_add(array('name'=>'토너먼트 개최 코스','desc'=>'토너먼트','parent_id'=>$menu_id,'photo'=>'/public/etc/main/images/theme_img5.jpg','can_add'=>'0'));
      
         //패널 추천
-        $penel_id =$this->product_categories_model->_add(array('name'=>'골프패스 패널 추천','desc'=>'패널 추천','can_alert'=>'0','can_add'=>'0'));
+        $panel_id =$this->product_categories_model->_add(array('name'=>'골프패스 패널 추천','desc'=>'패널 추천','can_alert'=>'0','can_add'=>'0'));
 
         ////상품추가
         // 패널 상품추가
         $product_id =$this->products_model->_add(array("name"=>"샘플상품","eng_name"=>"product_name","desc"=>"샘플내용"));
-        $this->ref_cate_product_model->_add(array("product_id"=>$product_id,'cate_id'=>$penel_id));
+        $this->ref_cate_product_model->_add(array("product_id"=>$product_id,'cate_id'=>$panel_id));
 
         //러시아 상품추가
         $product_id =$this->products_model->_add(array("name"=>"샘플상품","eng_name"=>"product_name","desc"=>"샘플내용"));
@@ -68,7 +71,66 @@ class Init_golfpass extends Init_Controller {
         $this->ref_cate_product_model->_add(array("product_id"=>$product_id,'cate_id'=>$rusia_id));
     }
 
-    
+    function panels()
+    {
+        //panels 테이블 만들기
+        $tb_name = 'panels';
+        if(!$this->db->table_exists($tb_name)){
+            $result = $this->db->query("CREATE TABLE `$tb_name`(
+            `id` INT UNSIGNED NULL AUTO_INCREMENT, 
+            `auth` INT NOT NULL DEFAULT '1',
+            `address` varchar(255) ,
+            `name` varchar(10),
+            `sex` varchar(5),
+            `birth` varchar(30),
+            `email` varchar(40),
+            `profilePhoto` varchar(255),
+            `created` datetime NOT NULL DEFAULT NOW(),
+            PRIMARY KEY (`id`)
+             ) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
+
+            if($result) echo("success create $tb_name ");
+            else echo("failed create $tb_name");
+        }else{
+            echo "already table $tb_name exists";
+        }
+        echo "<br>";
+    }
+    function panel_contents()
+    {
+           //panel_contents 테이블 만들기
+           $tb_name = "panel_contents";
+           if(!$this->db->table_exists($tb_name)){
+               $result = $this->db->query("CREATE TABLE `$tb_name`(
+               `id` INT UNSIGNED NULL AUTO_INCREMENT, 
+               `panel_id` INT UNSIGNED NOT NULL, 
+               `title` varchar(30) NOT NULL, 
+               `desc` text NOT NULL,
+               `is_secret` varchar(10) NOT NULL DEFAULT '0',
+               `is_display` varchar(10) NOT NULL DEFAULT '1',
+               `score_1` int NOT NULL DEFAULT '0', 
+               `score_2` int NOT NULL DEFAULT '0', 
+               `score_3` int NOT NULL DEFAULT '0', 
+               `score_4` int NOT NULL DEFAULT '0', 
+               `score_5` int NOT NULL DEFAULT '0', 
+               `score_6` int NOT NULL DEFAULT '0', 
+               `score_7` int NOT NULL DEFAULT '0', 
+               `score_8` int NOT NULL DEFAULT '0', 
+               `score_9` int NOT NULL DEFAULT '0', 
+               `score_10` int NOT NULL DEFAULT '0', 
+               `hits` int UNSIGNED NOT NULL, 
+               `created` datetime NOT NULL DEFAULT NOW(),
+               PRIMARY KEY (`id`),
+               KEY `idx_product_id` (`panel_id`,`is_display`)
+               ) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
+                   
+               if($result) echo("success create $tb_name ");
+               else echo("failed create $tb_name");
+           }else{
+               echo "already table $tb_name exists";
+           }
+           echo "<br>";
+    }
     function hotel_option()
     {
          //hotel_option 테이블 만들기

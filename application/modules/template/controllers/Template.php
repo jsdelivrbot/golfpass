@@ -38,6 +38,7 @@ class Template extends MX_Controller
         $main_menus= array(
             (object)array('id'=>'home','name'=>'홈','uri'=>  site_url(admin_home_uri."/index")),
             (object)array('id'=>'general','name'=>'일반','uri'=> site_url(admin_user_uri."/gets")),
+            (object)array('id'=>'user','name'=>'회원','uri'=> site_url(admin_user_uri."/gets")),
             (object)array('id'=>'board','name'=>'게시판','uri'=> site_url(admin_board_uri."/gets")),
             (object)array('id'=>'product','name'=>'상품','uri'=> site_url(admin_setting_product_uri."/get_product")),
             (object)array('id'=>'order','name'=>'주문','uri'=> site_url(admin_order_uri."/gets")),
@@ -51,20 +52,23 @@ class Template extends MX_Controller
             'general' => array(
                 (object)array('name'=>'메뉴관리','uri'=> site_url(admin_menu_uri.'/gets?menu_id=general')),
                 (object)array('name'=>'페이지관리','uri'=> site_url(admin_page_uri.'/gets?menu_id=general')),
-                (object)array('name'=>'회원관리','uri'=> site_url(admin_user_uri.'/gets/general?menu_id=general')),
-                (object)array('name'=>'패널관리','uri'=> site_url(admin_user_uri.'/gets/penel?menu_id=general')),
-                (object)array('name'=>'기업회원관리','uri'=> site_url(admin_user_uri.'/gets/corporate?menu_id=general')),
                 (object)array('name'=>'쪽지관리','uri'=>  site_url(admin_message_uri.'/gets?menu_id=general'))
             ),
+            'user' => array(
+                (object)array('name'=>'회원관리','uri'=> site_url(admin_user_uri.'/gets/general?menu_id=user')),
+                (object)array('name'=>'기업회원관리','uri'=> site_url(admin_user_uri.'/gets/corporate?menu_id=user')),
+                (object)array('name'=>'패널관리','uri'=> site_url(golfpass_panel_admin_uri.'/gets?menu_id=user'))
+            ),
             'board' => array(
-                (object)array('name'=>'게시판 목록','uri'=>  site_url(admin_board_uri."/gets?menu_id=board")),
+                (object)array('name'=>'게시판관리','uri'=>  site_url(admin_board_uri."/gets?menu_id=board")),
+                (object)array('name'=>'게시물관리','uri'=>  site_url(admin_content_uri."/gets?menu_id=board")),
                 (object)array('name'=>'댓글관리','uri'=>  site_url(admin_board_reply_uri."/gets?menu_id=board"))
             ),
             'product' => array(
                 (object)array('name'=>'기본설정','uri'=> site_url(admin_setting_product_uri.'/get_product?menu_id=product')),
                 (object)array('name'=>'분류관리','uri'=>  site_url(admin_product_category_uri.'/gets?menu_id=product')),
                 (object)array('name'=>'상품관리','uri'=> site_url(admin_product_uri.'/gets?menu_id=product')),
-                (object)array('name'=>'후기관리','uri'=>  site_url(admin__review_uri.'/gets?menu_id=product'))
+                (object)array('name'=>'후기관리','uri'=>  site_url(admin_review_uri.'/gets?menu_id=product'))
             ),
             'order' => array(
                 (object)array('name'=>'주문 목록','uri'=> site_url(admin_order_uri.'/gets?menu_id=order')),

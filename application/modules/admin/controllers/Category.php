@@ -11,7 +11,7 @@ class Category extends Admin_Controller {
 
     function upload_photo()
     {
-        $this->load->module("common");
+        $this->load->module("base/common");
         $this->common->upload_photo('admin',function($imgDir){
             $this->db->where("id",$this->input->post('category_id'));
             $this->db->set("photo",$imgDir);

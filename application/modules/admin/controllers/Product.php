@@ -18,7 +18,7 @@ class Product extends Admin_Controller {
     }
     function upload_photo()
     {
-        $this->load->module("common");
+        $this->load->module("base/common");
         $this->common->upload_photo('admin',function($imgDir){
             $this->db->set("product_id",$this->input->post('product_id'));
             $this->db->set("sort",$this->input->post('sort'));

@@ -51,29 +51,44 @@ class User extends Admin_Controller {
             $data['kind'] =$kind;
             $this->_template("addUpdate",$data);
 
-        } else {
+        } else{
             $kind = $this->input->post('kind');
             $this->_dbSet_addUpdate();
             $this->db->set('kind',$kind);
             $this->db->insert('users');
+            $insert_id =$this->db->insert_id();
+            if($kind ==='panel')
+            {
+                my_redirect(admin_user_uri."/update/{$insert_id}/{$kind}");    
+                return ;
+            }
+
             my_redirect(admin_user_uri."/gets/{$kind}");
         }
 
     }
-    function update($id,$kind)
+    function update($user_id,$kind)
     {
         $this->fv->set_rules('name','이름','required');
         if ($this->fv->run()=== false) {
             $data['kind'] =$kind;
-            $data['user'] = $this->users_model->_get(array("id"=>$id));
-            $data['mode']="update/$id/$kind";
+            $data['user'] = $this->users_model->_get(array("id"=>$user_id));
+            $data['mode']="update/$user_id/$kind";
+            
+            if($kind ==='panel'){
+                $this->load->model("base/boards_model");
+                $board_panel_id = $this->boards_model->_get(array("name"=>"패널 게시판"),array("id"))->id;
+                $data['board_id'] = $board_panel_id; //패널 글쓰기 게시판 id
+            }
+            $this->load->model("base/board_contents_model");
+            $data['user_contents'] = $this->board_contents_model->_gets(array("user_id"=>$user_id));
             $this->_template("addUpdate",$data);
 
         } else {
             $kind = $this->input->post('kind');
             $this->_dbSet_addUpdate();
             $this->db->set('kind',$kind);
-            $this->db->where('id',$id);
+            $this->db->where('id',$user_id);
             $this->db->update('users');
             alert("수정완료");
             my_redirect($_SERVER['HTTP_REFERER']);

@@ -7,7 +7,7 @@ class Product_categories_Model extends Board_Model{
     function gets_with_pgi($where_obj,$pgi_style)
     {
         $menu_id =  $this->product_categories_model->_get($where_obj,array("id"))->id;
-        return parent::_gets_with_pgi(
+        return parent::_gets_with_pgi_func(
             $pgi_style,
             function() use ($where_obj,$menu_id)
             {   

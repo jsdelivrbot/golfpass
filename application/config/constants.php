@@ -13,18 +13,19 @@ define("view_review_dir","review");
 //controller uri
 // define("auth_uri","/auth");
 
-define("common_uri","/common");
+
 
 define("admin_uri","/admin");
 define("admin_home_uri","/admin/home");
 define("admin_board_uri","/admin/board");
+define("admin_content_uri","/admin/content");
 define("admin_board_reply_uri","/admin/reply");
 define("admin_menu_uri","/admin/menu");
 define("admin_message_uri","/admin/message");
 define("admin_user_uri","/admin/user");
 define("admin_product_category_uri","/admin/category");
 define("admin_product_uri","/admin/product");
-define("admin__review_uri","/admin/review");
+define("admin_review_uri","/admin/review");
 define("admin_order_uri","/admin/order");
 define("admin_product_review_uri","/admin/review");
 define("admin_page_uri","/admin/page");
@@ -33,6 +34,7 @@ define("admin_ref_cate_product_uri","/admin/ref_cate_product");
 
 define("admin_hotel_uri","/admin/hotel");
 
+define("common_uri","/base/common");
 define("user_uri","/base/user");
 define("page_uri","/base/page");
 define("content_uri","/base/content");
@@ -50,6 +52,11 @@ define("shop_reply_uri","/shop/reply");
 define("shop_category_uri","/shop/category");
 define("shop_celebrity_uri","/shop/celebrity");
 define("shop_user_uri","/shop/user");
+
+//golfpass
+define("golfpass_panel_uri","/golfpass/panel");
+define("golfpass_panel_admin_uri","/golfpass/panel_admin");
+define("golfpass_panel_contents_admin_uri","/golfpass/panel_contents_admin");
 
 // define("shop_product_uri","/product");
 // define("shop_cartlist_uri","/cartlist");

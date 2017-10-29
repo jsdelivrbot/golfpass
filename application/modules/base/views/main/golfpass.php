@@ -451,7 +451,7 @@ a.btn{
         
 	  </li>
 	  <li>
-      <a href="<?=site_url(shop_user_uri.'/gets/penel')?>">패널소개</a>
+      <a href="<?=site_url(golfpass_panel_uri.'/gets')?>">패널소개</a>
         
 	  </li>
 
