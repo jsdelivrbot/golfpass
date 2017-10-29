@@ -361,6 +361,7 @@ class Init_Controller extends MX_Controller{
                `desc` varchar(255) NOT NULL DEFAULT '분류 설명', 
                `photo` varchar(50), 
                `can_alert` varchar(10) NOT NULL DEFAULT '1', 
+               `can_add` varchar(10) NOT NULL DEFAULT '1', 
                `created` datetime NOT NULL DEFAULT NOW(),
                KEY `idx_parent_id` (`parent_id`),
                PRIMARY KEY (`id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8;");

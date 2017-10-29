@@ -17,7 +17,7 @@ class Ref_cate_product extends Admin_Controller {
     {
         
         $this->fv->set_rules('cate_id','카테고리',array('required',
-            array('이미 등록 되어있는 카테고리입니다.',function($str){
+            array('이미 등록 되어있습니다.',function($str){
                 $this->db->where('cate_id',$this->input->post('cate_id'));
                 $this->db->where('product_id',$this->input->post('product_id'));
                 $row =$this->db->get("$this->table")->row();

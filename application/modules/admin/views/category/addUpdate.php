@@ -23,13 +23,28 @@
 <br>
 
 상품 추가하기
+<form method="post"action="<?=my_site_url(admin_ref_cate_product_uri."/add")?>">
+순서<input type="text" name="sort">
+<input type="hidden" name="cate_id" value="<?=$category->id?>">
+<?php for($i=0; $i < count($products) ; $i++){
+    if($i%5 === 0) echo "<br>"    ;
+    ?>
+<input type='radio' name='product_id' value='<?=$products[$i]->id?>' /><?=$products[$i]->name?></label>
+<?php }?>
+<input type="submit" value="보내기">
+</form>
 
-
+<br>
 추가된 상품 리스트
 <ul>
-    <?php for($i=0; $i<count($products) ; $i++){?>
-        <li><a href="<?=my_site_url(admin_product_uri."/update/{$products[$i]->id}")?>"><?=$products[$i]->name?></a></li>
-        <a onclick="confirm_redirect('<?=my_site_url(admin_ref_cate_product_uri."/delete/{$products[$i]->ref_id}")?>','정말 삭제하시겠습니까? 복구 할 방법이 없습니다.')" href="#">삭제</a>
+    <?php for($i=0; $i<count($products_in_cate) ; $i++){?>
+        <li><a href="<?=my_site_url(admin_product_uri."/update/{$products_in_cate[$i]->id}")?>"><?=$products_in_cate[$i]->name?></a></li>
+        <form onsubmit="ajax_submit(this); return false;" method="post"action="<?=site_url(admin_ref_cate_product_uri."/ajax_update/{$products_in_cate[$i]->ref_id}")?>" style="display:inline-blcok">
+        <input style ="width:50px;"type="text" name="sort"  value="<?=set_value_data($products_in_cate[$i],'sort')?>" style="display:inline-blcok">   
+        <input type="submit" value="순서 수정"> 
+    </form>
+        
+        <a onclick="confirm_redirect('<?=my_site_url(admin_ref_cate_product_uri."/delete/{$products_in_cate[$i]->ref_id}")?>','정말 삭제하시겠습니까? 복구 할 방법이 없습니다.')" href="#">삭제</a>
     <?php }?>
 
 </ul>

@@ -31,23 +31,23 @@ class Init_golfpass extends Init_Controller {
         ////카테고리추가
         //나라별
         $menu_id =$this->product_categories_model->_add(array('name'=>'나라별','desc'=>'나라별','can_alert'=>'0'));
-        $rusia_id =$this->product_categories_model->_add(array('name'=>'러시아','desc'=>'럭셔리 러시아','parent_id'=>$menu_id,'photo'=>'/public/etc/main/images/pc_golf_course_1.jpg'));
-        $this->product_categories_model->_add(array('name'=>'미국','desc'=>'럭셔리 미국','parent_id'=>$menu_id,'photo'=>'/public/etc/main/images/pc_golf_course_2.jpg'));
-        $this->product_categories_model->_add(array('name'=>'일본','desc'=>'럭셔리 일본','parent_id'=>$menu_id,'photo'=>'/public/etc/main/images/pc_golf_course_3.jpg'));
-        $this->product_categories_model->_add(array('name'=>'중국','desc'=>'럭셔리 중국','parent_id'=>$menu_id,'photo'=>'/public/etc/main/images/pc_golf_course_4.jpg'));
-        $this->product_categories_model->_add(array('name'=>'영국','desc'=>'럭셔리 영국','parent_id'=>$menu_id,'photo'=>'/public/etc/main/images/pc_golf_course_5.jpg'));
-        $this->product_categories_model->_add(array('name'=>'프랑스','desc'=>'럭셔리 프랑스','parent_id'=>$menu_id,'photo'=>'/public/etc/main/images/pc_golf_course_6.jpg'));
+        $rusia_id =$this->product_categories_model->_add(array('name'=>'러시아','desc'=>'럭셔리 러시아','parent_id'=>$menu_id,'photo'=>'/public/etc/main/images/pc_golf_course_1.jpg','can_add'=>'0'));
+        $this->product_categories_model->_add(array('name'=>'미국','desc'=>'럭셔리 미국','parent_id'=>$menu_id,'photo'=>'/public/etc/main/images/pc_golf_course_2.jpg','can_add'=>'0'));
+        $this->product_categories_model->_add(array('name'=>'일본','desc'=>'럭셔리 일본','parent_id'=>$menu_id,'photo'=>'/public/etc/main/images/pc_golf_course_3.jpg','can_add'=>'0'));
+        $this->product_categories_model->_add(array('name'=>'중국','desc'=>'럭셔리 중국','parent_id'=>$menu_id,'photo'=>'/public/etc/main/images/pc_golf_course_4.jpg','can_add'=>'0'));
+        $this->product_categories_model->_add(array('name'=>'영국','desc'=>'럭셔리 영국','parent_id'=>$menu_id,'photo'=>'/public/etc/main/images/pc_golf_course_5.jpg','can_add'=>'0'));
+        $this->product_categories_model->_add(array('name'=>'프랑스','desc'=>'럭셔리 프랑스','parent_id'=>$menu_id,'photo'=>'/public/etc/main/images/pc_golf_course_6.jpg','can_add'=>'0'));
         
         //테마별
         $menu_id =$this->product_categories_model->_add(array('name'=>'테마별','desc'=>'테마별','can_alert'=>'0'));
-        $this->product_categories_model->_add(array('name'=>'이달의 인기코스','desc'=>'인기 많음','parent_id'=>$menu_id,'photo'=>'/public/etc/main/images/theme_img1.jpg'));
-        $this->product_categories_model->_add(array('name'=>'골프 + 숙박 패키지','desc'=>'골프+숙박','parent_id'=>$menu_id,'photo'=>'/public/etc/main/images/theme_img2.jpg'));
-        $this->product_categories_model->_add(array('name'=>'2인 플레이','desc'=>'2인','parent_id'=>$menu_id,'photo'=>'/public/etc/main/images/theme_img3.jpg'));
-        $this->product_categories_model->_add(array('name'=>'시설이 고저스한','desc'=>'시설 좋음','parent_id'=>$menu_id,'photo'=>'/public/etc/main/images/theme_img4.jpg'));
-        $this->product_categories_model->_add(array('name'=>'토너먼트 개최 코스','desc'=>'토너먼트','parent_id'=>$menu_id,'photo'=>'/public/etc/main/images/theme_img5.jpg'));
+        $this->product_categories_model->_add(array('name'=>'이달의 인기코스','desc'=>'인기 많음','parent_id'=>$menu_id,'photo'=>'/public/etc/main/images/theme_img1.jpg','can_add'=>'0'));
+        $this->product_categories_model->_add(array('name'=>'골프 + 숙박 패키지','desc'=>'골프+숙박','parent_id'=>$menu_id,'photo'=>'/public/etc/main/images/theme_img2.jpg','can_add'=>'0'));
+        $this->product_categories_model->_add(array('name'=>'2인 플레이','desc'=>'2인','parent_id'=>$menu_id,'photo'=>'/public/etc/main/images/theme_img3.jpg','can_add'=>'0'));
+        $this->product_categories_model->_add(array('name'=>'시설이 고저스한','desc'=>'시설 좋음','parent_id'=>$menu_id,'photo'=>'/public/etc/main/images/theme_img4.jpg','can_add'=>'0'));
+        $this->product_categories_model->_add(array('name'=>'토너먼트 개최 코스','desc'=>'토너먼트','parent_id'=>$menu_id,'photo'=>'/public/etc/main/images/theme_img5.jpg','can_add'=>'0'));
      
         //패널 추천
-        $penel_id =$this->product_categories_model->_add(array('name'=>'골프패스 패널 추천','desc'=>'패널 추천','can_alert'=>'0'));
+        $penel_id =$this->product_categories_model->_add(array('name'=>'골프패스 패널 추천','desc'=>'패널 추천','can_alert'=>'0','can_add'=>'0'));
 
         ////상품추가
         // 패널 상품추가

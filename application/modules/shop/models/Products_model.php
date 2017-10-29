@@ -49,7 +49,7 @@ class Products_Model extends Board_Model{
         //product_reviews score_1 평균점수
         $sub_query2 = "SELECT avg(pr.score_1) FROM product_reviews AS pr WHERE pr.product_id = r.product_id";
 
-        $this->db->select("p.*,r.id as ref_id ,($sub_query) as photos, ($sub_query2) as avg_score_1");
+        $this->db->select("p.*,r.id as ref_id,r.sort ,($sub_query) as photos, ($sub_query2) as avg_score_1");
         $this->db->from("ref_cate_product as r");
         $this->db->join("products as p", "p.id = r.product_id","LEFT");
         $this->db->join("product_categories as c", "c.id = r.cate_id","LEFT");

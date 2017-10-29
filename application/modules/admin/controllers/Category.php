@@ -77,7 +77,8 @@ class Category extends Admin_Controller {
             $data['mode'] = "update/$id" ;
             $data['category'] = $this->db->query("SELECT * FROM $this->table WHERE id = $id")->row();
             $this->load->model("shop/products_model");
-            $data['products'] = $this->products_model->gets_by_category_id($id);
+            $data['products_in_cate'] = $this->products_model->gets_by_category_id($id);
+            $data['products'] =$this->products_model->_gets();
             $this->_template("addUpdate",$data);
              
         }else{

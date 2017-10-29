@@ -12,7 +12,9 @@
 <li> <?=$categories[$i]->id?></li>
 <li> <?=$categories[$i]->name?></li>
 <li> <?=$categories[$i]->desc?></li>
+<?php if($categories[$i]->can_add === '1'){?>
 <li><a href="<?=my_site_url(admin_product_category_uri."/add/{$categories[$i]->id}")?>">추가</a> </li>
+<?php }?>
 <?php if($categories[$i]->can_alert === '1'){?>
 <li><a href="<?=my_site_url(admin_product_category_uri."/update/{$categories[$i]->id}")?>">수정</a> </li>
 <li><a  onclick="confirm_redirect('<?=my_site_url(admin_product_category_uri."/delete/{$categories[$i]->id}")?>','정말 삭제하시겠습니까? 복구 할 방법이 없습니다.')"   href="#">삭제</a> </li>
