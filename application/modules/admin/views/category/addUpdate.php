@@ -21,4 +21,16 @@
 <!-- 이미지 업로드폼 끝 -->
 <br>
 <br>
+
+상품 추가하기
+
+
+추가된 상품 리스트
+<ul>
+    <?php for($i=0; $i<count($products) ; $i++){?>
+        <li><a href="<?=my_site_url(admin_product_uri."/update/{$products[$i]->id}")?>"><?=$products[$i]->name?></a></li>
+        <a onclick="confirm_redirect('<?=my_site_url(admin_ref_cate_product_uri."/delete/{$products[$i]->ref_id}")?>','정말 삭제하시겠습니까? 복구 할 방법이 없습니다.')" href="#">삭제</a>
+    <?php }?>
+
+</ul>
 <a href="<?=my_site_url(admin_product_category_uri."/gets")?>">목록으로</a>

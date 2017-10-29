@@ -8,7 +8,7 @@ class Products_Model extends Board_Model{
     function get_by_category_id_recursive_with_pgi($cate_id,$pgi_style)
     {
 
-        $products=$this->get_by_category_id_recursive_tree($cate_id);
+        $products=$this->gets_by_category_id_recursive_tree($cate_id);
         $num_rows = count($products);
         return parent::_gets_with_pgi(
             $pgi_style,
@@ -28,18 +28,7 @@ class Products_Model extends Board_Model{
 
     function _recursive_tree($cate)
     {
-        //product_option 사진들
-        $sub_query = "SELECT group_concat(o.name) FROM `product_option` AS `o` WHERE o.product_id= r.product_id AND o.kind = 'photo'";
-        //product_reviews score_1 평균점수
-        $sub_query2 = "SELECT avg(pr.score_1) FROM product_reviews AS pr WHERE pr.product_id = r.product_id";
-        //쿼리
-        $this->db->select("p.*, ($sub_query) as photos, ($sub_query2) as avg_score_1");
-        $this->db->from("ref_cate_product as r");
-        $this->db->join("products as p", "p.id = r.product_id","LEFT");
-        $this->db->join("product_categories as c", "c.id = r.cate_id","LEFT");
-        $this->db->where("r.cate_id",$cate->id);
-        $this->db->order_by("r.sort",'asc');
-        $data = $this->db->get()->result();
+        $data = $this->gets_by_category_id($cate->id);
         
         $this->db->select("id");
         $this->db->from("product_categories");
@@ -53,8 +42,23 @@ class Products_Model extends Board_Model{
         return $data;
     }
 
+    function gets_by_category_id($cate_id)
+    {
+        //product_option 사진들
+        $sub_query = "SELECT group_concat(o.name) FROM `product_option` AS `o` WHERE o.product_id= r.product_id AND o.kind = 'photo'";
+        //product_reviews score_1 평균점수
+        $sub_query2 = "SELECT avg(pr.score_1) FROM product_reviews AS pr WHERE pr.product_id = r.product_id";
 
-    function get_by_category_id_recursive_tree($cate_id=null)
+        $this->db->select("p.*,r.id as ref_id ,($sub_query) as photos, ($sub_query2) as avg_score_1");
+        $this->db->from("ref_cate_product as r");
+        $this->db->join("products as p", "p.id = r.product_id","LEFT");
+        $this->db->join("product_categories as c", "c.id = r.cate_id","LEFT");
+        $this->db->where("r.cate_id",$cate_id);
+        $this->db->order_by("r.sort",'asc');
+        return $this->db->get()->result();
+
+    }
+    function gets_by_category_id_recursive_tree($cate_id=null)
     {
         $this->db->select("id");
         $this->db->from("product_categories");

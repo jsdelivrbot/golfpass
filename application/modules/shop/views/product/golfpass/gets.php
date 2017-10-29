@@ -258,7 +258,7 @@
                                                             <p class="hotelcard-title-destination">
                                                                 <span class="location" data-tags="Rome">Rome</span>, <span class="country" data-tags="Italy">Italy</span>
                                                             </p>
-                                                            <a href="https://www.mrandmrssmith.com/luxury-hotels/la-posta-vecchia"><h2 class="hotelcard-title-hotelname"><?=$products[$i]->name?></h2></a>
+                                                            <a href="<?=site_url(shop_product_uri."/get/{$products[$i]->id}")?>"><h2 class="hotelcard-title-hotelname"><?=$products[$i]->name?></h2></a>
                                                         </div>
                                                         <div class="hotelcard-details-pricing">
                                                             <p class="clearfix">

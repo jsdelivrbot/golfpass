@@ -29,11 +29,11 @@ class Main extends Base_Controller
         
         //골프 패스 패널이 추천한 상품 리스트
         $menu_id=$this->product_categories_model->_get(array('name'=>'골프패스 패널 추천'),array('id'))->id;
-        $data['products_panel'] = $this->products_model->get_by_category_id_recursive_tree($menu_id);
+        $data['products_panel'] = $this->products_model->gets_by_category_id_recursive_tree($menu_id);
 
         // $this->_template('index');
-        $this->_view('main/golfpass',$data);;
-
+        $this->_view('main/golfpass',$data);
+        
     }
 
 }
