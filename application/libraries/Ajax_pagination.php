@@ -204,7 +204,7 @@ class Ajax_pagination{
         $output = $this->full_tag_open.$output.$this->full_tag_close;
         ?>
         <script>
-        function getData(page,url,id){  
+        function <?=$this->link_func?>(page,url,id){  
             $.ajax({
                 method: "POST",
                 url: url+page,
