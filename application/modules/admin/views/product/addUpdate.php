@@ -65,13 +65,13 @@ for($i=0 ; $i<count($categories) ; $i++){?>
     <BR>
 <form action="<?=site_url(admin_hotel_uri."/ref_product_add")?>" method="post">
 호텔목록
-<select name="hotel_id" id="">
 <?php
-for($i=0 ; $i<count($hotels) ; $i++){?>
-    <option value="<?=$hotels[$i]->id?>"><?=$hotels[$i]->name?></option>
+for($i=0 ; $i<count($hotels) ; $i++){
+    if($i%5 === 0) echo "<br>"    ;?>
+<input type='radio' name='hotel_id' value='<?=$hotels[$i]->id?>' /><?=$hotels[$i]->name?></label>
+
 <?php }
 ?>
-</select>
 <input type="hidden" name="product_id" value="<?=$product->id?>">
 <br>
 <input type="submit" value="호텔 추가">

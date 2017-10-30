@@ -42,7 +42,7 @@ class Hotel extends Admin_Controller {
     function ref_product_add()
     {
         $this->fv->set_rules('hotel_id','호텔',array('required',
-            array('이미 등록 되어있는 호텔입니다.',function($str){
+            array('이미 등록 되어 있습니다.',function($str){
                 $this->db->where('hotel_id',$this->input->post('hotel_id'));
                 $this->db->where('product_id',$this->input->post('product_id'));
                 $row =$this->db->get("p_ref_hotel")->row();
@@ -70,7 +70,10 @@ class Hotel extends Admin_Controller {
 
         $this->_template('gets',$data);
     }
-
+    function _set_rules()
+    {
+        $this->fv->set_rules('name','이름','required');
+    }
     function add()
     {
         $this->_set_rules();
@@ -91,14 +94,33 @@ class Hotel extends Admin_Controller {
     function update($id)
     {
         $data['options'] = $this->db->query("SELECT * FROM hotel_option WHERE hotel_id = $id AND kind = 'option'")->result();
+        $data['products'] =$this->db->get("products")->result();
+
+
+        $this->db->select("*, p.id 'p_id' , r.id 'id'");
+        $this->db->from("p_ref_hotel as r");
+        $this->db->join("products as p","r.product_id = p.id","LEFT");
+        $this->db->where("r.hotel_id",$id);
+        $data['ref_products'] =$this->db->get()->result();
+        
+        // $data['ref_products'] = $this->db->where("hotel_id",$id)->get("p_ref_hotel")->result();
+
         if(parent::_update($id,$data)===true)
         {
             alert("수정완료");
             my_redirect(admin_hotel_uri."/update/$id");
         }
     }
-    public function ajax_delete($id){
-        parent::_ajax_delete($id);
+    function ajax_delete($id){
+        header("content-type:application/json");
+        $this->p_hotel_model->_delete($id);
+        //관련 ref 상품 삭제
+        $this->db->where("hotel_id",$id)
+        ->delete("p_ref_hotel");
+        $data['reload'] = true;
+        echo json_encode($data);
+        return;
+        
     }
 
     

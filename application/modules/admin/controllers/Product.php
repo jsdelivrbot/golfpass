@@ -214,7 +214,8 @@ class Product extends Admin_Controller {
     // }
 
     public function delete($id){
-        $this->products_model->_delete($id);
+        $this->load->model("admin/products_model");
+        $this->products_model->delete($id);
         my_redirect(admin_product_uri.'/gets');
     }
     

@@ -84,6 +84,10 @@ class Products_Model extends Board_Model{
     {
         parent::_delete($id);
         $this->load->model("shop/ref_cate_product_model");
-        $this->ref_cate_product_model->delete(array('product_id'=>$id));
+        //ref 카테 삭제
+        $this->ref_cate_product_model->_delete(array('product_id'=>$id));
+        //ref 호텔 삭제
+        $this->db->where("product_id",$id)
+        ->delete("p_ref_hotel");
     }
 }

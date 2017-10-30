@@ -133,8 +133,9 @@ class Category extends Admin_Controller {
 
 
     public function delete($id){
-        $this->db->where('id', $id);
-        $this->db->delete($this->table);
+        $this->load->model("admin/categories_model");
+        $this->categories_model->delete($id);
+        
         my_redirect(admin_product_category_uri.'/gets');
     }
     

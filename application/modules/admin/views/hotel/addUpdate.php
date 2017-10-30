@@ -23,8 +23,9 @@
 <br>
 
 
-<!-- 호텔옵션 시작 -->
+
 <?php if(strpos($mode, "update") >-1 ){?>
+<!-- 호텔옵션 시작 -->
 <form   action="<?=my_site_url(admin_hotel_uri."/options_reset")?>" method ="post">
 <input type="checkbox" name="option[]" value="한국스태프" <?=my_set_checked_arr($options,'name','한국스태프')?>> 한국스태프
 <input type="checkbox" name="option[]" value="와이파이(로비)" <?=my_set_checked_arr($options,'name','와이파이(로비)')?>>와이파이(로비)
@@ -55,8 +56,39 @@
   <input type="hidden" name="hotel_id" value="<?=$row->id?>">
   <input type="submit" value="호텔옵션 추가">
 </form>
-<?php }?>
 <!-- 호텔옵션 끝-->
+
+<!-- 호텔 ref 상품 시작 -->
+상품 추가하기
+<form method="post"action="<?=my_site_url(admin_hotel_uri."/ref_product_add")?>">
+<input type="hidden" name="hotel_id" value="<?=$row->id?>">
+<?php for($i=0; $i < count($products) ; $i++){
+    if($i%5 === 0) echo "<br>"    ;
+    ?>
+<input type='radio' name='product_id' value='<?=$products[$i]->id?>' /><?=$products[$i]->name?></label>
+<?php }?>
+<input type="submit" value="보내기">
+</form>
+
+<br>
+이 호텔과 연결된 상품 리스트
+<ul>
+    <?php for($i=0; $i<count($ref_products) ; $i++){?>
+    
+        <li><a href="<?=my_site_url(admin_product_uri."/update/{$ref_products[$i]->product_id}")?>"><?=$ref_products[$i]->name?></a></li>
+        <li><a onclick="confirm_redirect('<?=my_site_url(admin_hotel_uri."/ref_product_delete/{$ref_products[$i]->id}")?>','정말 삭제하시겠습니까? 복구 할 방법이 없습니다.')" href="#">삭제</a></li>
+        <br>
+    <?php }?>
+
+</ul>
+
+<!-- 호텔 ref 상품 끝 -->
+
+<?php }?>
+
+
+
+
 
 <br>
 <a href="<?=my_site_url(admin_hotel_uri."/gets")?>">목록으로</a>

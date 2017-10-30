@@ -49,5 +49,24 @@ class Categories_Model extends Public_Model
         return $rows;
     }
 
+    function _recursive_delete($id)
+    {
+        $this->db->where('id', $id);
+        $this->db->delete($this->table);
+        
+        $this->load->model("shop/ref_cate_product_model");
+        $this->ref_cate_product_model->_delete(array('cate_id'=>$id));
 
+        $childs =$this->_gets(array("parent_id"=>$id),array("id"));
+        for($i = 0 ;$i<count($childs); $i++)
+        {
+            $this->_recursive_delete($childs[$i]->id);
+        }
+    }
+    function delete($id)
+    {
+        $this->_recursive_delete($id);
+        
+
+    }
 }
