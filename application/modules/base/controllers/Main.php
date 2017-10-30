@@ -15,8 +15,10 @@ class Main extends Base_Controller
     {
         //메인 상품
         $this->load->model("shop/products_model");
-        
-        $data['product_main'] = $this->products_model->_get();
+        $this->load->model("admin/setting_model");
+        $product_setting =$this->setting_model->_get(1);
+
+        $data['product_main'] = $this->products_model->_get($product_setting->representative_product);
         
         //나라 분류 리스트
         $this->load->model("shop/product_categories_model");

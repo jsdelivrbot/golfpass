@@ -51,6 +51,7 @@ class Init_Controller extends MX_Controller{
              $result = $this->db->query("CREATE TABLE `$tb_name`(
              `id` INT UNSIGNED NULL AUTO_INCREMENT, 
              `is_product_review_display` varchar(10) NOT NULL DEFAULT '0',
+             `representative_product` INT UNSIGNED DEFAULT '1',
              `created` datetime NOT NULL DEFAULT NOW(),
              PRIMARY KEY (`id`)
               ) ENGINE=InnoDB DEFAULT CHARSET=utf8;");

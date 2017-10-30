@@ -27,7 +27,9 @@ class Categories_Model extends Public_Model
             $tmp_data->deep = (string)$deep;
             array_push($data ,$tmp_data);
 
-            $childs = $this->db->query("SELECT * FROM $this->table WHERE parent_id= '{$parent[$i]->id}'")->result();
+            // $childs = $this->db->query("SELECT * FROM $this->table WHERE parent_id= '{$parent[$i]->id}'")->result();
+            $childs =$this->db->select("*")->from("$this->table")->where('parent_id',$parent[$i]->id)->order_by("sort","asc")
+            ->get()->result();
             
             if(count($childs) !==0){
                 $data = array_merge($data,$this->_recursive($childs,$deep+1)) ;
@@ -39,9 +41,9 @@ class Categories_Model extends Public_Model
 
     function gets_by_recursive()
     {
-      
-        
-        $rows =$this->db->query("SELECT * FROM $this->table WHERE parent_id= '0'")->result();   
+            // $rows =$this->db->query("SELECT * FROM $this->table WHERE parent_id= '0'")->result();   
+        $rows =$this->db->select("*")->from("$this->table")->where('parent_id','0')->order_by("sort","asc")
+        ->get()->result();
 
         $rows =$this->_recursive($rows,0);
         return $rows;

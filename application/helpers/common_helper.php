@@ -97,7 +97,6 @@ if(!function_exists('my_set_value')){
 if(!function_exists('my_set_checked')){
     function my_set_checked($obj, $name,$value){
         $value = (string)$value;
-        
         if(isset($_POST[$name]) && $_POST[$name]  === $value){
             return "checked";
         }else if(!isset($_POST[$name]) && !property_exists($obj,$name) ){

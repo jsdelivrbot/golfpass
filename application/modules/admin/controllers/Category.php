@@ -118,6 +118,20 @@ class Category extends Admin_Controller {
     //     ));
     // }
 
+    public function ajax_update($id)
+    {
+        header("content-type:application/json");
+     
+        $this->_dbset_addUpdate();
+        $this->product_categories_model->_update($id);
+        
+        // $data['alert'] ="수정완료";
+        $data['reload'] =true;
+        echo json_encode($data);
+        return;
+    }
+
+
     public function delete($id){
         $this->db->where('id', $id);
         $this->db->delete($this->table);
