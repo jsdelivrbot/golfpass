@@ -12,9 +12,15 @@
 	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
 	<link rel="stylesheet" href="public/sangmin/css/main.css">
 	<link rel="stylesheet" href="public/sangmin/css/eric-meyer-reset.min.css">
+	<style>
+		::-webkit-scrollbar {
+			display: none;
+		}
+
+	</style>
 </head>
 
-<body data-spy="scroll" data-target="#scroll-link" data-offset="0">
+<body>
 	<header id="header" class="container-fluid">
 		<!--NOTE mobile nav-->
 		<nav id='sm-nav' class="row no-gutters justify-content align-items-stretch d-sm-none panel-nav">
@@ -66,12 +72,13 @@
 			</div>
 		</nav>
 	</header>
-	<section id="scroll-link" class="d-flex flex-column justify-content-center align-items-center">
 
-	</section>
 
-	<section id="section1" class="main-section">
-		<article class="carousel" class="carousel" data-ride="carousel" data-interval="4000">
+	<section id="section1" class="main-section scroll-smooth">
+		<article class="carousel" data-ride="carousel" data-interval="4000" id='section1-slide'>
+			<ol class="carousel-indicators d-flex flex-column align-items-center">
+
+			</ol>
 			<div class="carousel-inner">
 				<div class="carousel-item active">
 					<div class="content-box d-flex flex-column align-items-start justify-content-center justify-content-lg-end">
@@ -132,22 +139,13 @@
 
 		</section>
 	</section>
-	<section id="section2" class="main-section" style="background-color: orange;">
-
+	<section id="section2" class="main-section scroll-smooth" style="background-color: orange;">
+		test
 	</section>
 	<section id="section3" class="main-section" style="background-color: red;">
 
 	</section>
-	<section id="section4" class="main-section" style="background-color: white;">
-
-	</section>
-	<section id="section5" class="main-section" style="background-color: black;">
-
-	</section>
-	<section id="section6" class="main-section" style="background-color: purple;">
-
-	</section>
-	<footer id='main-footer' class='d-flex flex-wrap main-section'>
+	<footer id='main-footer' class='d-flex flex-wrap'>
 		<ul>
 			<li class="title">ABOUT US</li>
 			<li><a href="#">회사 소개</a></li>
@@ -195,71 +193,64 @@
 	<script src="public/sangmin/js/custom.js"></script>
 	<script>
 		$(document).ready(function() {
-			$('body').css('overflowY', 'hidden');
 			var section1_bg_list = ['public/sangmin/img/background/bg1.jpg', 'public/sangmin/img/background/bg2.jpg', 'public/sangmin/img/background/bg3.jpg'];
 			$('.carousel-item').css('background-image', function(idx) {
 				return 'url(' + section1_bg_list[idx] + ')';
 			});
-
-			var idx = 0;
-			var scrollLinks = document.getElementById('scroll-link');
-			for (var i = 0; i < $('.main-section').length; i++) {
-				if (i == ($('.main-section').length - 1)) {
-					$('<a data-idx=' + i + ' class="list-group-item" href="#main-footer"></a>').appendTo('#scroll-link');
-					continue;
+			for (var i = 0; i < $('.carousel-item').length; i++) {
+				if (i == 0) {
+					$('<li></li>').attr('data-target', '#section1-slide').attr('data-slide-to', i).addClass('active').appendTo('.carousel-indicators');
+				} else {
+					$('<li></li>').attr('data-target', '#section1-slide').attr('data-slide-to', i).appendTo('.carousel-indicators');
 				}
-				$('<a data-idx=' + i + ' class="list-group-item" href="#section' + (i + 1) + '"></a>').appendTo('#scroll-link');
 			}
-			$("#scroll-link a").on('click', function(event) {
-				if (this.hash !== "") {
-					event.preventDefault();
-					idx = $(this).attr('data-idx');
-					var hash = this.hash;
-					$('html, body').animate({
-						scrollTop: $(hash).offset().top
-					}, 900, function() {
-						window.location.hash = hash;
-					});
-				} // End if
-
-			});
-
-			$(".main-section").each(function() {
-				// 개별적으로 Wheel 이벤트 적용
-				$(this).on("mousewheel DOMMouseScroll", function(e) {
-
-					e.preventDefault();
-					var delta = 0;
-					if (!event) event = window.event;
-					if (event.wheelDelta) {
-						delta = event.wheelDelta / 120;
-						if (window.opera) delta = -delta;
-					} else if (event.detail) delta = -event.detail / 3;
-					var moveTop = null;
-					// 마우스휠을 위에서 아래로
-					if (delta < 0) {
-						if ($(this).next() != undefined) {
-							moveTop = $(this).next().offset().top;
-						}
-						// 마우스휠을 아래에서 위로
-					} else {
-						if ($(document).scrollTop() == 0 || $(document).scrollTop() < $('#section1').height()) {
-							return
-						}
-						if ($(this).prev() != undefined) {
-							moveTop = $(this).prev().offset().top;
-						}
+			$('#section1').on("mousewheel DOMMouseScroll", function(e) {
+				e.preventDefault();
+				var delta = 0;
+				if (!event) event = window.event;
+				if (event.wheelDelta) {
+					delta = event.wheelDelta / 120;
+					if (window.opera) delta = -delta;
+				} else if (event.detail) delta = -event.detail / 3;
+				var moveTop = null;
+				// 마우스휠을 위에서 아래로
+				if (delta < 0) {
+					if ($(this).next().hasClass('scroll-smooth')) {
+						moveTop = $(this).next().offset().top;
 					}
-					// 화면 이동
 					$("html,body").stop().animate({
 						scrollTop: moveTop + 'px'
 					}, {
 						duration: 900,
 						complete: function() {}
 					});
-				});
+				}
 			});
-			$(scrollLinks.children[0]).stop().trigger('click');
+			$('#section2').on("mousewheel DOMMouseScroll", function(e) {
+				var delta = 0;
+				if (!event) event = window.event;
+				if (event.wheelDelta) {
+					delta = event.wheelDelta / 120;
+					if (window.opera) delta = -delta;
+				} else if (event.detail) delta = -event.detail / 3;
+				var moveTop = null;
+				// 마우스휠을 위에서 아래로
+				if (delta >= 0) {
+					if ($(document).scrollTop() == 0 || $(document).scrollTop() > $('#section1').height()) {
+						return
+					}
+					if ($(this).prev() && $(document).scrollTop() < $('#section2').offset().top) {
+						e.preventDefault();
+						moveTop = $(this).prev().offset().top;
+						$("html,body").stop().animate({
+							scrollTop: moveTop + 'px'
+						}, {
+							duration: 900,
+							complete: function() {}
+						});
+					}
+				}
+			});
 		})
 
 	</script>

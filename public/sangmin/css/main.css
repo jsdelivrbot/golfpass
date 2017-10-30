@@ -1934,6 +1934,24 @@ body {
   width: 100%;
   height: 100%;
   position: relative; }
+  #section1 .carousel .carousel-indicators {
+    margin: 0 !important;
+    position: absolute;
+    height: 30%;
+    bottom: 40% !important;
+    left: 95% !important;
+    z-index: 9999; }
+    #section1 .carousel .carousel-indicators li {
+      border-radius: 50%;
+      width: 12px;
+      height: 12px;
+      padding: 0;
+      margin: 10px 0;
+      background-color: #5f7a90; }
+    #section1 .carousel .carousel-indicators li.active {
+      background-color: transparent;
+      padding: 10px;
+      border: 2px solid white; }
   #section1 .carousel .carousel-inner {
     height: 100%;
     width: 100%;
@@ -1997,25 +2015,6 @@ body > .main-section {
   width: 100%;
   height: 100%;
   position: relative; }
-
-#scroll-link {
-  position: fixed;
-  width: 20px;
-  height: 40%;
-  right: 20px;
-  top: 30%;
-  z-index: 9999; }
-  #scroll-link .list-group-item {
-    border-radius: 50%;
-    width: 12px;
-    height: 12px;
-    padding: 0;
-    margin: 10px 0;
-    background-color: #5f7a90; }
-  #scroll-link .list-group-item.active {
-    background-color: transparent;
-    padding: 10px;
-    border: 2px solid white; }
 
 #detail-header {
   color: white;
