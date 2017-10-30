@@ -1,0 +1,83 @@
+#section1 {
+
+	.carousel {
+		width: 100%;
+		height: 100%;
+		position: relative;
+		.carousel-inner {
+			height: 100%;
+			width: 100%;
+			.carousel-item {
+				position: relative;
+				width: 100%;
+				height: 100%;
+				padding: 30px;
+				background-size: cover;
+				background-position: center;
+				@media (min-width: 992px) {
+					padding: 80px;
+				}
+				.content-box {
+					position: relative;
+					width: 100%;
+					height: 100%;
+					color: white;
+					.title {
+						h1 {
+							font-family: 'TmonMonsori';
+							font-size: 4rem;
+							margin-bottom: 20px;
+						}
+						p {
+							margin-bottom: 20px;
+						}
+					}
+					.content {
+						p {
+							max-width: 500px;
+							margin-bottom: 20px;
+						}
+					}
+					.btn-box {
+						button {
+							padding: 10px;
+							border: 1px solid white;
+							background-color: transparent;
+							color: white;
+						}
+					}
+				}
+			}
+			/*		.carousel-item:nth-child(1) {
+				background-image: url('/public/sangmin/img/background/bg1.jpg');
+			}
+			.carousel-item:nth-child(2) {
+				background-image: url('/public/sangmin/img/background/bg2.jpg');
+			}
+			.carousel-itemdiv:nth-child(3) {
+				background-image: url('/public/sangmin/img/background/bg3.jpg');
+			}*/
+		}
+	}
+	#scroll-alert {
+		position: absolute;
+		bottom: 5%;
+		text-align: center;
+		width: 50%;
+		left: 25%;
+		color: white;
+		> * {
+			margin-bottom: 10px;
+		}
+	}
+	#sns-box {
+		position: absolute;
+		bottom: 7%;
+		width: 15%;
+		left: 84%;
+		max-width: 200px;
+		min-width: 100px;
+		color: white;
+	}
+
+}
