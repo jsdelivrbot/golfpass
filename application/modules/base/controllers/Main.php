@@ -23,10 +23,12 @@ class Main extends Base_Controller
         //나라 분류 리스트
         $this->load->model("shop/product_categories_model");
         $menu_id=$this->product_categories_model->_get(array('name'=>'나라별'),array('id'))->id;
+        $this->db->order_by("sort","asc");
         $data['nation_list'] = $this->product_categories_model->_gets(array('parent_id'=>$menu_id));
 
         //테마별 분류 리스트
         $menu_id=$this->product_categories_model->_get(array('name'=>'테마별'),array('id'))->id;
+        $this->db->order_by("sort","asc");
         $data['thema_list'] = $this->product_categories_model->_gets(array('parent_id'=>$menu_id));
         
         //골프 패스 패널이 추천한 상품 리스트

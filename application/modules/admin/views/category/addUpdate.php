@@ -38,7 +38,7 @@
 <?php for($i=0; $i < count($products) ; $i++){
     if($i%5 === 0) echo "<br>"    ;
     ?>
-<input type='radio' name='product_id' value='<?=$products[$i]->id?>' /><?=$products[$i]->name?></label>
+<input type='radio' name='product_id' value='<?=$products[$i]->id?>' /><a href="<?=my_site_url(admin_product_uri."/update/{$products[$i]->id}")?>"><?=$products[$i]->name?></a></label>
 <?php }?>
 <input type="submit" value="보내기">
 </form>

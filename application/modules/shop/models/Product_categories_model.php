@@ -19,6 +19,7 @@ class Product_categories_Model extends Board_Model{
             function($offset,$per_page) use($menu_id)
             {
                 $this->db->limit($per_page,$offset);
+                $this->db->order_by("sort","asc");
                 return $categories=  $this->product_categories_model->_gets(array("parent_id"=>$menu_id));        
             },
             null,
@@ -27,7 +28,7 @@ class Product_categories_Model extends Board_Model{
     }
     function gets_by_product_id($product_id)
     {
-        $this->db->select(" r.*, c.*, r.id 'id',r.sort");
+        $this->db->select(" r.*, c.*, r.id 'id',r.sort,c.id 'cate_id'");
         $this->db->from('ref_cate_product as r');
         $this->db->join("$this->table c","r.cate_id = c.id","LEFT");
         $this->db->where("product_id",$product_id);

@@ -33,7 +33,7 @@
 분류목록<select name="cate_id" id="">
 <?php
 for($i=0 ; $i<count($categories) ; $i++){?>
-    <option value="<?=$categories[$i]->id?>"><?=string_for("&nbsp&nbsp&nbsp",$categories[$i]->deep)?><?=$categories[$i]->name?></option>
+    <option value="<?=$categories[$i]->id?>"><?=string_for("&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp",$categories[$i]->deep)?><?=$categories[$i]->name?></option>
 <?php }
 ?>
 </select>
@@ -45,7 +45,7 @@ for($i=0 ; $i<count($categories) ; $i++){?>
 <ul>
     <?php for($i=0 ; $i < count($product_categories); $i++){?>
         <div style="display:block">
-        <li><?=$product_categories[$i]->name?></li>
+        <li><a href="<?=my_site_url(admin_product_category_uri."/update/{$product_categories[$i]->cate_id}")?>"><?=$product_categories[$i]->name?></a></li>
         <form onsubmit="ajax_submit(this); return false;" method="post"action="<?=site_url(admin_ref_cate_product_uri."/ajax_update/{$product_categories[$i]->id}")?>" style="display:inline-blcok">
             <input style ="width:50px;"type="text" name="sort"  value="<?=set_value_data($product_categories[$i],'sort')?>" style="display:inline-blcok">   
             <input type="submit" value="순서 수정"> 
@@ -68,7 +68,7 @@ for($i=0 ; $i<count($categories) ; $i++){?>
 <?php
 for($i=0 ; $i<count($hotels) ; $i++){
     if($i%5 === 0) echo "<br>"    ;?>
-<input type='radio' name='hotel_id' value='<?=$hotels[$i]->id?>' /><?=$hotels[$i]->name?></label>
+<input type='radio' name='hotel_id' value='<?=$hotels[$i]->id?>' /><a href="<?=my_site_url(admin_hotel_uri."/update/{$hotels[$i]->id}")?>"><?=$hotels[$i]->name?></a></label>
 
 <?php }
 ?>
@@ -78,14 +78,16 @@ for($i=0 ; $i<count($hotels) ; $i++){
 </form>
 <!-- 호텔 추가 끝 -->
 
+<!-- ref 호텔목록 -->
 <ul>
     <?php for($i=0 ; $i < count($p_ref_hotel); $i++){?>
         <div style="display:block">
-        <li ><?=$p_ref_hotel[$i]->name?></li>
+        <li ><a href="<?=my_site_url(admin_hotel_uri."/update/{$p_ref_hotel[$i]->hotel_id}")?>"><?=$p_ref_hotel[$i]->name?></a></li>
         <a onclick="confirm_redirect('<?=site_url(admin_hotel_uri."/ref_product_delete/{$p_ref_hotel[$i]->id}")?>','정말 삭제하시겠습니까')" href="#">삭제</a>
     </div>
     <?php }?>
 </ul>
+<!-- ref 호텔목록 -->
 <?php }?>
 
 
