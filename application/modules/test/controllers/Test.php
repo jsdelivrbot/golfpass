@@ -132,9 +132,9 @@ class Test extends Public_Controller
 
 
             $solar = (object)array();
-            $solar->solarYear = date('Y', $date);
-            $solar->solarMonth =date('n', $date);
-           $solar->solarDay =date('j', $date);
+            $solar->solarYear = (int)date('Y', $date);
+            $solar->solarMonth =(int)date('n', $date);
+           $solar->solarDay =(int)date('j', $date);
             $lunar = Date::SolarToLunar($solar);
             echo ($lunar);
             echo "<br>";
