@@ -108,7 +108,7 @@
                 <div id="searchResultsBar">
                 <input type="hidden" value="SGD" id="pageCurrency">
                     <div id="section">
-                        <section class="row">
+                        <section class="list_row">
                             <h1 class="generic-content page-title">Luxury &amp; boutique hotels</h1>
                             <div class="M-12_12 L-12_12 XL-12_12 XXL-12_12">
                                 <div class="content-block-inner" id="search-suggestedtags"></div>
