@@ -49,7 +49,7 @@
 		<!--NOTE mobile nav-->
 		<nav id='sm-nav' class="row no-gutters justify-content align-items-stretch d-sm-none">
 			<div id="logo" class='col-3 justify-content-center d-flex align-self-center align-items-center'>
-				<img src="public/sangmin/img/icon/logo_mobile.png" class="d-md-none" alt="">
+				<img src="/public/sangmin/img/icon/logo_mobile.png" class="d-md-none" alt="">
 			</div>
 			<div id='nav-icon-box' class="offset-2 col-5 d-flex align-items-stretch justify-content-end">
 				<div id="search" class="d-flex align-items-center">
