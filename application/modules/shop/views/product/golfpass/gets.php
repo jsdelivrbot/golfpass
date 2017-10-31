@@ -109,7 +109,7 @@
                 <input type="hidden" value="SGD" id="pageCurrency">
                     <div id="section">
                         <section class="list_row">
-                            <h1 class="generic-content page-title">Luxury &amp; boutique hotels</h1>
+                            <h1 class="generic-content page-title">중국 위해</h1>
                             <div class="M-12_12 L-12_12 XL-12_12 XXL-12_12">
                                 <div class="content-block-inner" id="search-suggestedtags"></div>
                             </div>
@@ -257,7 +257,7 @@
                                                     <div class="hotelcard-title">
                                                         <div class="hotelcard-title-container">
                                                             <p class="hotelcard-title-destination">
-                                                                <span class="location" data-tags="Rome">Rome</span>, <span class="country" data-tags="Italy">Italy</span>
+                                                                <span class="location" data-tags="Rome">Weihaipoint CC</span>
                                                             </p>
                                                             <a href="<?=site_url(shop_product_uri."/get/{$products[$i]->id}")?>"><h2 class="hotelcard-title-hotelname"><?=$products[$i]->name?></h2></a>
                                                         </div>
@@ -265,15 +265,12 @@
                                                             <p class="clearfix">
                                                                 <span class="hotelcard-details-pricing-frontlabel"></span>
                                                                 <span>
-                                                                    <span class="hotelcard-details-pricing-label">Rates per night from</span>
+                                                                    <span class="hotelcard-details-pricing-label">1인 1박 기준</span>
                                                                 </span>
-                                                                <span class="hotelcard-details-pricing-ratetax">&nbsp;(<span class="tax">ex</span> tax)</span>
                                                                 <span class="hotelcard-details-pricing-rate">
-                                                                    <span class="currency-to-convert price currency-show-ex" data-rate-inc="11000" data-rate-ex="10000" data-rate-currency="EUR">SG$15,993.22</span>
-                                                                    <span data-mfp-src="#modal-averageprice-la-posta-vecchia" class="mock-link tc-modal"></span>
+                                                                    <span class="currency-to-convert price currency-show-ex" data-rate-inc="11000" data-rate-ex="10000" data-rate-currency="EUR">150000원</span>
                                                                 </span>
                                                             </p>
-                                                            <span data-mfp-src="#info-modal-info-5638" class="rates-guarantee mock-link tc-modal">Best-price guarantee</span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -311,13 +308,13 @@
                                                 </article>
                                             </header>
                                             <div class="hotelcard-maintext M-6_12 L-6_12 XL-6_12 XXL-6_12">
-                                                <h3>Style&nbsp;</h3>
-                                                <p class="hotelcard-maintext-style">Billionaire’s basecamp</p>
-                                                <h3>Setting&nbsp;</h3>
-                                                <p class="hotelcard-maintext-setting">Surveying the Tyrrhenian Sea</p>
-                                                <h3 class="hotelcard-maintext-smithextralabel">Smith Extra&nbsp;</h3>
+                                                <h3>위치&nbsp;</h3>
+                                                <p class="hotelcard-maintext-style">중국 위해</p>
+                                                <h3>형태&nbsp;</h3>
+                                                <p class="hotelcard-maintext-setting">골프장+호텔</p>
+                                                <h3 class="hotelcard-maintext-smithextralabel">소개&nbsp;</h3>
                                                 <div class="hotelcard-smithextracntnt">
-                                                    A £50 credit to spend at the hotel’s impressive restaurant with most stays; exclusive use stays will&hellip;
+                                                    사디야트 해변 골프 클럽의 광활한 부지는 편안하면서도 와이드한 느낌을 전해주며, 샷밸류가 살아있는 전략적인 레이아웃으로 9홀 단위로&hellip;
                                                     <a href="#modal-smith-extra-5638" class="more-smith-extra mock-link tc-modal" data-hotelname="la-posta-vecchia">&#x203a; More</a> 
                                                     <article aria-hidden="true" id="modal-smith-extra-5638" class="mfp-hide white-popup-block">
                                                         <span class="mfp-close modal-dismiss"></span>
