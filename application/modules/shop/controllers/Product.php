@@ -8,7 +8,10 @@ class Product extends Base_Controller {
             'view_dir'=>"product/golfpass"
         ));
 	}
-	
+    function date()
+    {
+        
+    }
 
 	public function gets($id =1){
         
