@@ -12298,10 +12298,6 @@ button:focus {
     outline: none
 }
 
-main.global {
-    background-color: #F9F9F9
-}
-
 @media only screen and (min-width: 0em) and (max-width: 47.9375em) {
     main.global {
         -moz-transition: padding-top 500ms;
