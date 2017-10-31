@@ -9,6 +9,7 @@ class Public_Controller extends MX_Controller{
     public $model;
     function __construct($args=null){
         parent::__construct();
+        date_default_timezone_set('Asia/Seoul');
         self::$instance || self::$instance =& $this;
 
         $this->view_dir =$args['view_dir'] ?? null;
