@@ -95,6 +95,7 @@
                                             <h3>
                                             <?=$categories2[$i]->name?>
                                             </h3>
+                                            <p><?=$categories2[$i]->desc?></p>
                                         </div>
                                     </div>
                                 </a>
