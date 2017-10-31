@@ -142,11 +142,11 @@ textarea {
     padding: 0
 }
 
-.row {
+.category_row {
     max-width: none
 }
 
-.row .row {
+.category_row .row {
     margin: 0
 }
 

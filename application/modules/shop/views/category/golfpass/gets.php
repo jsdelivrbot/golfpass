@@ -9,7 +9,6 @@
         <link rel="dns-prefetch" href="https://cdn.polyfill.io">
         <link rel="dns-prefetch" href="https://code.jquery.com">
         <link rel="stylesheet" type="text/css" href="/public/etc/hotel/css/collectionbundle/resources/public/scss/honeymoons-36975c249a.css" />
-        <link rel="shortcut icon" href="https://www.mrandmrssmith.com/v6b09cfdb4e5/images/5e1e6b8.png"/>
 
         <noscript>
             <style type="text/css">
@@ -78,7 +77,7 @@
         <div id="main-section">
             <main role="main" class="global">
                 <div id="honeymoon-hub">
-                    <div class="row">
+                    <div class="category_row">
                         <ul id="honeymoon-hub-blocks" class="generic-content imageboxes-list">
                             <?php for($i=0; $i<count($categories2); $i++){?>
                             <li class="S-4_4 M-12_12 L-6_12 XL-6_12 XXL-6_12">
