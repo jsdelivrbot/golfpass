@@ -399,7 +399,7 @@ html{}
 .join-ro{padding:10px; background:#e9ebee; border:1px solid #c5c6c9; color:#6b6c6e; font-size:13px; height:48px; overflow-y:auto; line-height:18px; margin-top:5px}
 .join-bottom{position:relative}
 .join-bottom .join-choice{position:relative; overflow:hidden}
-.join-bottom .join-choice a{float:left; width:50%; padding:20px 0; color:#fff; font-weight:bold; font-size:14px; background:#3891ac; text-align:center; box-sizing:border-box}
+.join-bottom .join-choice a{float:left; width:100%; padding:20px 0; color:#fff; font-weight:bold; font-size:14px; background:#3891ac; text-align:center; box-sizing:border-box}
 .join-bottom .join-choice a:nth-child(2){border-left:1px solid #fff}
 
 .checkK{display: none;}
