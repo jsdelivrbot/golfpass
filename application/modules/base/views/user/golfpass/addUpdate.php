@@ -12,7 +12,6 @@
 	<link rel="stylesheet" type="text/css" href="/public/etc/jobdance/css/front-media.css" media="all">
 	<link rel="shortcut icon" href="/public/etc/jobdance/images/favicon.ico">
 	<script src="/public/etc/jobdance/js/jquery-1.11.3.min.js" type="text/javascript"></script>
-	<script src="/public/etc/jobdance/js/pace.js" type="text/javascript"></script>
 	<script src="/public/etc/jobdance/js/jquery.bxslider.min.js" type="text/javascript"></script>
 	<script src="/public/etc/jobdance/js/swiper.min.js" type="text/javascript"></script>
 	<script src="/public/etc/jobdance/js/front-ui.js" type="text/javascript"></script>
@@ -64,7 +63,7 @@
 							<input type="file" class="nfile" onchange="javascript:document.getElementById('custom-file').value=this.files[0].name">
 							<p class="img"><img src="/public/etc/jobdance/images/picture-icon.jpg" alt=""></p>
 							<p class="tit">이미지를 등록하세요!</p>
-							<p class="tail">사진을 등록하지 않아도 가입은 가능하지만 <br>채용 담당자의 시선이 먼저 향하는 곳은 바로 사진입니다. <br>깔끔하고 정돈된 느낌의 사진을 <br>정사각형으로 편집하여 첨부하세요.</p>
+							<p class="tail">사진을 등록하지 않아도 가입은 가능하지만 <br>타인의 시선이 먼저 향하는 곳은 바로 사진입니다. <br>깔끔하고 정돈된 느낌의 사진을 <br>정사각형으로 편집하여 첨부하세요.</p>
 							<div class="upload">
 								<span class="upload-block">
 									<span class="icon"><img src="/public/etc/jobdance/images/upload-icon.jpg" alt=""></span>
@@ -203,8 +202,5 @@
 	
 	</div>
 	
-</body>
-</html>
-
 </body>
 </html>
