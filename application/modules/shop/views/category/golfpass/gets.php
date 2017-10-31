@@ -8,8 +8,8 @@
         <!-- <link rel="stylesheet" type="text/css" href="/public/etc/hotel/css/css2.css" /> -->
         <link rel="dns-prefetch" href="https://cdn.polyfill.io">
         <link rel="dns-prefetch" href="https://code.jquery.com">
-        <link rel="stylesheet" type="text/css" href="/public/etc/hotel/css/collectionbundle/resources/public/scss/honeymoons-36975c249a.css" />
-        <link rel="stylesheet" type="text/css" href="/public/etc/hotel/css/SystemBundle/resources/public/scss/common-69f2b59199.css" />
+        <link rel="stylesheet" type="text/css" href="/public/etc/hotel/css/collectionbundle/css.css" />
+        <link rel="stylesheet" type="text/css" href="/public/etc/hotel/css/SystemBundle/css.css" />
 
         <noscript>
             <style type="text/css">
@@ -62,7 +62,7 @@
             });
         </script>
         <!-- Maxymiser script start -->
-        <script type="text/javascript" src="/public/etc/hotel/api/eu/mrandmrssmith.com/f8410e/mmapi.js"></script>
+        <script type="text/javascript" src="/public/etc/hotel/api/eu/mmapi.js"></script>
         <!-- Maxymiser script end -->
         <!-- Google Tag Manager -->
         <noscript>
