@@ -10487,7 +10487,7 @@ body:not(.touchscreen) #list-menu.default > li > a:hover {
     color: #FFF;
     text-align: center;
     letter-spacing: 0.14em;
-    font-size: 1rem;
+    font-size: 1.5rem;
     text-transform: uppercase;
     line-height: 1.5rem
 }
