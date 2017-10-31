@@ -12,7 +12,6 @@
 	<link rel="stylesheet" type="text/css" href="/public/etc/jobdance/css/front-media.css" media="all">
 	<link rel="shortcut icon" href="/public/etc/jobdance/images/favicon.ico">
 	<script src="/public/etc/jobdance/js/jquery-1.11.3.min.js" type="text/javascript"></script>
-	<script src="/public/etc/jobdance/js/pace.js" type="text/javascript"></script>
 	<script src="/public/etc/jobdance/js/jquery.bxslider.min.js" type="text/javascript"></script>
 	<script src="/public/etc/jobdance/js/swiper.min.js" type="text/javascript"></script>
 	<script src="/public/etc/jobdance/js/front-ui.js" type="text/javascript"></script>
@@ -180,7 +179,4 @@ $('#popup_close').click(function(){
 </script>	
 </body>
 
-</html>
-
-</body>
 </html>
