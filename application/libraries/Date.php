@@ -13,8 +13,89 @@ class Solar
     public $solarMonth;
     public $solarYear;
 }
-class LunarSolarConverter
+class Date
 {
+    private function get_current_solar_date($holiday,$range)
+    {
+        $range = (int)$range;
+
+        $holiday =substr($holiday,1,strlen($holiday)-1);
+        $arr = array();
+        $current_year = (int)date("Y");
+        for($i = $current_year - $range; $i <= $current_year+ $range; $i++)
+        {
+            $tmp_holiday = "{$i}-{$holiday}";
+            $tmp_holiday  =$this->LunarToSolar($tmp_holiday);
+            array_push($arr,$tmp_holiday);
+
+        }
+        
+        return $arr;
+    }
+    function number_of_days($from, $to) {
+        $workingDays = [1, 2, 3, 4, 5]; # date format = N (1 = Monday, ...)
+        $weekendDays = [6,7]; # date format = N (1 = Monday, ...)
+        $input_holidays =['*-01-01','L01-01'];
+        // $input_holidays =['L01-01'];
+        $holidayDays =array();
+
+        foreach($input_holidays as $holiday)
+        {
+            if(strpos($holiday,"L") > -1)
+            {
+                $arr =$this->get_current_solar_date($holiday,4);
+                var_dump($arr);
+                array_merge($holidayDays,$arr);
+                // $solar =$this->LunarToSolar('2018-01-01');
+            }
+            else
+            {
+                array_push($holidayDays,$holiday);
+            }
+            
+        }
+
+        
+        // var_dump($solar);
+        $holidayDays = ['*-12-03']; # variable and fixed holidays
+        // $holidayDays = ['*-12-25', '*-01-01', '2013-12-23']; # variable and fixed holidays
+    
+        $from = new DateTime($from);
+        $to = new DateTime($to);
+        $to->modify('+1 day');
+        $interval = new DateInterval('P1D');
+        $periods = new DatePeriod($from, $interval, $to);
+    
+         $num_workingdays = 0;
+        $num_holidays =0;
+        $num_weekenddays=0;
+        foreach ($periods as $period) {
+            //날짜 카운팅(공휴일, 주말 제외)
+            if (in_array($period->format('N'), $workingDays) && !in_array($period->format('*-m-d'), $holidayDays) && !in_array($period->format('Y-m-d'), $holidayDays))
+            {
+               $num_workingdays++;
+            }
+            //주말카운팅 (공휴일제외)
+            if (in_array($period->format('N'), $weekendDays) && !in_array($period->format('*-m-d'), $holidayDays) && !in_array($period->format('Y-m-d'), $holidayDays))
+            {
+               $num_weekenddays++;
+            }
+            //공휴일 카운팅
+            if (in_array($period->format('*-m-d'), $holidayDays)||in_array($period->format('*-m-d'), $holidayDays))
+            {
+                $num_holidays++;
+            }
+        }
+        //전체일수
+        $num_days = $num_workingdays + $num_holidays +$num_weekenddays;
+        return (object)array('num_holidays'=>$num_holidays,'num_workingdays'=>$num_workingdays,'num_weekenddays'=>$num_weekenddays,'num_days'=>$num_days);
+    }
+
+
+    static  function is_leap_year($year) {
+        return ((($year % 4) == 0) && ((($year % 100) != 0) || (($year % 400) == 0)));
+    }
+
     /*
      * |----4位闰月|-------------13位1为30天，0为29天|
      * */
@@ -69,6 +150,7 @@ class LunarSolarConverter
     public static function SolarToInt($y, $m, $d)
     {
         $m = ($m + 9) % 12;
+        // $y = intval($y - $m / 10);
         $y = intval($y) - intval($m / 10);
         return intval(365 * $y + intval($y / 4) - intval($y / 100) + intval($y / 400) + intval(($m * 306 + 5) / 10) + ($d - 1));
     }
@@ -98,13 +180,13 @@ class LunarSolarConverter
         $day = $date->format("j");
 
         $lunar = new Lunar();
-        $lunar->isleap = is_leap_year($year);
+        $lunar->isleap = Date::is_leap_year($year);
         $lunar->lunarDay = (int)$day;
         $lunar->lunarMonth = (int)$month;
         $lunar->lunarYear = (int)$year;
 
-        $days = LunarSolarConverter::$lunar_month_days[$lunar->lunarYear - LunarSolarConverter::$lunar_month_days[0]];
-        $leap = LunarSolarConverter::GetBitInt($days, 4, 13);
+        $days = Date::$lunar_month_days[$lunar->lunarYear - Date::$lunar_month_days[0]];
+        $leap = Date::GetBitInt($days, 4, 13);
         $offset = 0;
         $loopend = $leap;
         if (!$lunar->isleap) {
@@ -115,36 +197,36 @@ class LunarSolarConverter
             }
         }
         for ($i = 0; $i < $loopend; $i++) {
-            $offset += LunarSolarConverter::GetBitInt($days, 1, 12 - $i) == 1 ? 30 : 29;
+            $offset += Date::GetBitInt($days, 1, 12 - $i) == 1 ? 30 : 29;
         }
         $offset += $lunar->lunarDay;
-        $solar11 = LunarSolarConverter::$solar_1_1[$lunar->lunarYear - LunarSolarConverter::$solar_1_1[0]];
-        $y = LunarSolarConverter::GetBitInt($solar11, 12, 9);
-        $m = LunarSolarConverter::GetBitInt($solar11, 4, 5);
-        $d = LunarSolarConverter::GetBitInt($solar11, 5, 0);
-        $solar =LunarSolarConverter::SolarFromInt(LunarSolarConverter::SolarToInt($y, $m, $d) + $offset - 1);
+        $solar11 = Date::$solar_1_1[$lunar->lunarYear - Date::$solar_1_1[0]];
+        $y = Date::GetBitInt($solar11, 12, 9);
+        $m = Date::GetBitInt($solar11, 4, 5);
+        $d = Date::GetBitInt($solar11, 5, 0);
+        $solar =Date::SolarFromInt(Date::SolarToInt($y, $m, $d) + $offset - 1);
         return "{$solar->solarYear}-{$solar->solarMonth}-{$solar->solarDay}";
     }
     public static function SolarToLunar($solar)
     {
         $lunar = new Lunar();
-        $index = $solar->solarYear - LunarSolarConverter::$solar_1_1[0];
+        $index = $solar->solarYear - Date::$solar_1_1[0];
         $data = ($solar->solarYear << 9) | ($solar->solarMonth << 5) | ($solar->solarDay);
-        if (LunarSolarConverter::$solar_1_1[$index] > $data) {
+        if (Date::$solar_1_1[$index] > $data) {
             $index--;
         }
-        $solar11 = LunarSolarConverter::$solar_1_1[$index];
-        $y = LunarSolarConverter::GetBitInt($solar11, 12, 9);
-        $m = LunarSolarConverter::GetBitInt($solar11, 4, 5);
-        $d = LunarSolarConverter::GetBitInt($solar11, 5, 0);
-        $offset = LunarSolarConverter::SolarToInt($solar->solarYear, $solar->solarMonth, $solar->solarDay) - LunarSolarConverter::SolarToInt($y, $m, $d);
-        $days = LunarSolarConverter::$lunar_month_days[$index];
-        $leap = LunarSolarConverter::GetBitInt($days, 4, 13);
-        $lunarY = $index + LunarSolarConverter::$solar_1_1[0];
+        $solar11 = Date::$solar_1_1[$index];
+        $y = Date::GetBitInt($solar11, 12, 9);
+        $m = Date::GetBitInt($solar11, 4, 5);
+        $d = Date::GetBitInt($solar11, 5, 0);
+        $offset = Date::SolarToInt($solar->solarYear, $solar->solarMonth, $solar->solarDay) - Date::SolarToInt($y, $m, $d);
+        $days = Date::$lunar_month_days[$index];
+        $leap = Date::GetBitInt($days, 4, 13);
+        $lunarY = $index + Date::$solar_1_1[0];
         $lunarM = 1;
         $offset += 1;
         for ($i = 0; $i < 13; $i++) {
-            $dm = LunarSolarConverter::GetBitInt($days, 1, 12 - $i) == 1 ? 30 : 29;
+            $dm = Date::GetBitInt($days, 1, 12 - $i) == 1 ? 30 : 29;
             if ($offset > $dm) {
                 $lunarM++;
                 $offset -= $dm;
@@ -163,6 +245,11 @@ class LunarSolarConverter
             }
         }
         $lunar->lunarDay = $lunarD;
-        return $lunar;
+        // return $lunar;
+        if($lunar->isleap === false)
+            $lunar->isleap = "false";
+        else 
+            $lunar->isleap ="true";
+        return "{$lunar->lunarYear}-{$lunar->lunarMonth}-{$lunar->lunarDay}-{$lunar->isleap}";
     }
 }

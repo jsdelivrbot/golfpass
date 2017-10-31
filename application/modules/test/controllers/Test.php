@@ -19,6 +19,12 @@ class Test extends Public_Controller
         // echo "-1 월:".date("Y-m-d H:i:s",strtotime ("-6 months"));
         // echo "<br>";
         // echo "+1 일:".date("Y-m-d H:i:s",strtotime ("-31 days"));
+        // echo "+1 일:".date("Y-m-d",strtotime ("+1 days"));
+        $date = "2017-10-31";
+        $date = strtotime($date);
+        $date = strtotime("+1 day", $date);
+        echo date('Y-m-d', $date);
+        // echo "+1 일:".date("2017-5-1",strtotime ("+1 days"));
         // echo "<br>";
         // echo "+1 년".date("Y-m-d H:i:s",strtotime ("+1 years"));
         // echo "<br>";
@@ -81,13 +87,14 @@ class Test extends Public_Controller
     
     function index()
     {
-        $this->load->helper("date");
-        
+        // $this->load->helper("date");
+        $this->load->library("date");
         $startDate = '2017-11-30'; // 오늘 날짜입니다.
         $targetDate = '2017-12-14'; // 타겟 날짜를 지정합니다.
          echo "<br>";
         echo "<br>";
-        $obj_num_days =number_of_days($startDate, $targetDate);
+        $obj_num_days =$this->date->number_of_days($startDate, $targetDate);
+        // $obj_num_days =number_of_days($startDate, $targetDate);
         echo "워킹데이: ".$num_working_days=$obj_num_days->num_workingdays;
         echo "<br>";
         echo "주말: ".$num_weekend_days=$obj_num_days->num_weekenddays;
@@ -96,18 +103,55 @@ class Test extends Public_Controller
         echo "<br>";
         echo "합: ".$obj_num_days->num_days;
         echo "<br>";
+        echo "<br>";
+        $current_year = (int)date("Y");
+   var_dump($current_year);     
+   var_dump((string)$current_year);     
 
-        // var_dump($num_working_days);
-        // var_dump($num_weekend_days);
-        
 
-        $this->load->library("lunarsolarconverter");
-     
-        echo "<br>";
-        echo "<br>";
-        $solar =$this->lunarsolarconverter->LunarToSolar('2018-01-01');
-        var_dump($solar);
-        echo "<br>";
+   echo "<br>";
+   echo "<br>";
+   $date = "2017-01-01";
+   $in_date = strtotime($date);
+   
+   $sw=0;
+        for($i= 0 ;$i<= 365 ;$i++)
+        {
+            $date = strtotime("+{$i} day", $in_date);
+            
+
+            $month = date('n', $date);
+            if($sw !== $month)
+            {
+                $sw = $month;
+                echo "<br><br> <b>{$month}월</b><br>";
+            }
+            
+            echo date('Y-m-d', $date);
+            echo "<br>";
+
+
+            $solar = (object)array();
+            $solar->solarYear = date('Y', $date);
+            $solar->solarMonth =date('n', $date);
+           $solar->solarDay =date('j', $date);
+            $lunar = Date::SolarToLunar($solar);
+            echo ($lunar);
+            echo "<br>";
+            echo "<br>";
+        }
+     $solar = (object)array();
+     $solar->solarYear = 2016;
+     $solar->solarMonth = 4;
+     $solar->solarDay = 6;
+     $lunar = Date::SolarToLunar($solar);
+
+    //  var_dump($lunar);
+        // echo "<br>";
+        // echo "<br>";
+        // $solar =$this->date->LunarToSolar('2018-01-01');
+        // var_dump($solar);
+        // echo "<br>";
 
 
       
