@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Init_golfpass extends Init_Controller {
+class Init extends Init_Controller {
 
     function __construct(){
         parent::__construct();
@@ -121,6 +121,29 @@ class Init_golfpass extends Init_Controller {
         // $product_id =$this->products_model->_add(array("name"=>"샘플상품5","eng_name"=>"product_name","desc"=>"샘플내용"));
         // $this->ref_cate_product_model->_add(array("product_id"=>$product_id,'cate_id'=>$rusia_id));
     }
+
+    function p_daily_price()
+    {
+         //product_categories 테이블 만들기
+         $tb_name = 'product_categories';
+         if(!$this->db->table_exists($tb_name)){
+         
+             $result = $this->db->query("CREATE TABLE `$tb_name`(
+             `id` INT UNSIGNED NULL AUTO_INCREMENT, 
+             `product_id` INT UNSIGNED NOT NULL,
+             `date` varchar(255) NOT NULL,
+             `created` datetime NOT NULL DEFAULT NOW(),
+             UNIQUE KEY (`parent_id`,`date`),
+             PRIMARY KEY (`id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
+                 
+             if($result) echo("success create $tb_name ");
+             else echo("failed create $tb_name");
+         }else{
+             echo "already table $tb_name exists";
+         }
+         echo "<br>";
+    }
+
     function product_categories()
     {
            //product_categories 테이블 만들기
@@ -247,7 +270,7 @@ class Init_golfpass extends Init_Controller {
         
             $result = $this->db->query("CREATE TABLE `$tb_name`(
             `id` INT UNSIGNED NULL AUTO_INCREMENT, 
-            -- `category_id` int UNSIGNED NOT NULL,
+            `same_price_every_year` VARCHAR(10) NOT NULL DEFAULT '0',
             `reviews_count` int UNSIGNED NOT NULL DEFAULT '0',
             `name` varchar(30) NOT NULL DEFAULT '샘플상품',
             `eng_name` varchar(255) DEFAULT 'sample product', 

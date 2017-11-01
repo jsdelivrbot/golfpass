@@ -64,18 +64,26 @@
 
  일
  <br>
- 연락처<input placeholder="연락처" type="text" name="phone" value="<?=set_value_data($user,'phone')?>"/>
- <?=form_error('phone',false,false)?>
- <br/>
+
  
  <?php if($mode === 'add'){?>
  이메일<input placeholder="이메일" type="text" name="email" value="<?=set_value_data($user,'email')?>"/>
  <input type="hidden" name="email_auth"/>
- <a href ="javascript:email_auth_popup()">이메일 인증</a>
+ <a href ="javascript:auth_popup('<?=site_url(user_uri."/email_auth")?>','email')">이메일 인증</a>
  <?=form_error('email',false,false)?>
+ <?php }?>
+ <?php if($mode === 'add'){?>
+
+ <br>
+ 연락처<input placeholder="연락처" type="text" name="phone" value="<?=set_value_data($user,'phone')?>"/>
+ <!-- <input type="hidden" name="email_auth"/> -->
+ <a href ="javascript:auth_popup('<?=site_url(user_uri."/phone_auth")?>','phone')">휴대폰 인증</a>
+ <?=form_error('phone',false,false)?>
  <?php }?>
  <br/>
 
+ 
+ <br/>
  
  <br/>
  
@@ -87,12 +95,12 @@
 </iframe> -->
 <!-- 시작 이메일 인증 팝업 스크립트-->
 <script text="text/javascript">
-function email_auth_popup(){
+function auth_popup(url,name){
     var option = "width=400,height=500";
-    var email = document.querySelector("input[name=email]");
+    var input = document.querySelector("input[name="+name+"]");
 
-    console.log(email.value);
-    window.open("<?=site_url(user_uri."/email_auth")?>?email="+email.value,'email_auth',option);
+    // console.log(input.value);
+    window.open(url+"?"+name+"="+input.value,name+'_auth',option);
    
 }
 </script>

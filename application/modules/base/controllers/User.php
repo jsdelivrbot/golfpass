@@ -98,7 +98,8 @@ class User extends Base_Controller
         if ($this->fv->run()=== false) {
             $user = (object)array();
             $data = array("mode" =>"add","user"=>$user);
-            $this->_template("user/golfpass/addUpdate",$data,'golfpass');
+            // $this->_template("user/golfpass/addUpdate",$data,'golfpass');
+            $this->_template("addUpdate",$data);
 
             if($this->session->userdata('email_auth') !== null)
                 $this->session->set_flashdata('email_auth',true);
@@ -107,7 +108,8 @@ class User extends Base_Controller
             $data = array("mode" =>"add","user"=>$user);
 
             echo "<script>alert('이메일 인증이 완료되지 않았습니다.')</script>";
-            $this->_template("user/golfpass/addUpdate",$data,'golfpass');
+            // $this->_template("user/golfpass/addUpdate",$data,'golfpass');
+            $this->_template("addUpdate",$data);
         } else {
             $this->_dbSet_addUpdate();
 
@@ -197,6 +199,7 @@ class User extends Base_Controller
     }
     function email_auth()
     {
+        //인증후 이메일 바꿔서 도용 방지
         $email = $this->session->userdata('email');
         if($email === null)
             $email = $this->input->get('email');
@@ -213,9 +216,10 @@ class User extends Base_Controller
                 $expried_sec = 300;
                 $expried_min = 300/5;
                 $this->session->set_tempdata(array(
-                    "auth_key"=>$auth_key,
-                    'email'=> $this->input->get('email')    
+                    "auth_key"=>$auth_key
+                    
                 ), null, $expried_sec);
+                $this->session->set_userdata( array( 'email'=> $this->input->get('email') ));
 
                 $fromEmail= $this->config->item('email');
                 $to =$this->input->get('email');
@@ -230,6 +234,64 @@ class User extends Base_Controller
                       echo "<script>alert('이메일 인증 완료');window.close();</script>";
                 } else { //인증실패
                     $this->_view('email_auth',array("msg"=>"인증실패. 인증키를 확인해주세요.",'email'=>$email));
+                }
+            }
+        }
+    }
+    function phone_auth()
+    {
+        // $phone = $this->session->userdata("phone");
+        // if($phone === null)
+        $phone = $this->input->get('phone');
+        $this->fv->set_data(array("phone"=>$phone)); //팝업창에 에러 띄우기 위해 세팅
+        $this->fv->set_rules("phone", "휴대폰", 'required|numeric|is_unique[users.phone]', array('is_unique' => '%s는 이미 존재합니다.'));
+        // $this->fv->set_rules("phone", "휴대폰", 'required');
+        if ($this->fv->run() === false) 
+        { //이메일 유효성 검사
+            echo "<script>alert('".form_error("phone", false, false)."');window.close();</script>";
+        } 
+        else //GET 이메일 전송 , 세션 키
+        {
+            if ($this->input->post('auth_key') === null) 
+            {
+                $this->_view('phone_auth',array("msg"=>"해당 휴대폰으로 인증키를 보냈습니다. 확인해주세요.",'phone'=>$phone));
+                $auth_key= rand(0, 9999);
+                $expried_sec = 300;
+                $expried_min = 300/5;
+                $this->session->set_tempdata(array(
+                    "auth_key"=>$auth_key
+                    
+                ), null, $expried_sec);
+                //인증후 번호만 바꿔서 도용 방지
+                // $this->session->set_userdata( array( 'phone'=> $this->input->get('phone') ));
+                $this->session->set_flashdata( 'phone',$this->input->get('phone'));
+                $to =$this->input->get('phone');
+                $content = "이메일 인증 키입니다. $auth_key / {$expried_min}분 안에 입력해주세요.";
+                
+               //폰에 번호보내기 
+            }
+            else //POST
+            { 
+                if($this->session->userdata("phone") === null)
+                {
+                    echo "<script>alert('인증 중에 페이지 이동을 하지말아주세요.');window.close();</script>";
+                    // $data['phone'] =$phone;
+                    // $data['msg'] = "인증실패. 처음부터 다시시도해주세요.";
+                    // $this->_view('phone_auth',$data);
+                }
+                else if ($this->input->post('auth_key')== $this->session->userdata('auth_key'))
+                { //인증성공
+                    // $this->session->set_tempdata(array("email_auth"=>true), null, 300);
+                    $this->session->set_flashdata( 'phone',$this->session->userdata("phone"));
+                    $this->session->set_flashdata("phone_auth",true);
+                      echo "<script>alert('휴대폰 인증 완료');window.close();</script>";
+                }
+                else
+                { //인증실패
+                    $this->session->set_flashdata( 'phone',$this->session->userdata("phone"));
+                    $data['phone'] =$phone;
+                    $data['msg'] = "인증실패, 인증키를 확인해주세요.";
+                    $this->_view('phone_auth',$data);
                 }
             }
         }
