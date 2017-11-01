@@ -13,6 +13,15 @@ class User extends Base_Controller
         ));
         // $this->load->model('users_model');
     }
+  
+    function sample2()
+    {
+            
+            $this->load->library("sms_cafe24");
+            $this->sms_cafe24->send("1","1","1124124녕하세요");
+                        
+    }
+
     function index()
     {
            $data["content_view"] = "user/login";
@@ -101,8 +110,11 @@ class User extends Base_Controller
             // $this->_template("user/golfpass/addUpdate",$data,'golfpass');
             $this->_template("addUpdate",$data);
 
-            if($this->session->userdata('email_auth') !== null)
+            if($this->session->userdata('email_auth') !== null && $this->session->userdata('email') !== null){
+                $this->session->set_flashdata( 'email',$this->session->userdata("email"));
                 $this->session->set_flashdata('email_auth',true);
+            }
+                
         }else if($this->session->userdata('email_auth') === null){
             $user = (object)array();
             $data = array("mode" =>"add","user"=>$user);
@@ -199,17 +211,14 @@ class User extends Base_Controller
     }
     function email_auth()
     {
-        //인증후 이메일 바꿔서 도용 방지
-        $email = $this->session->userdata('email');
-        if($email === null)
-            $email = $this->input->get('email');
-
+        $email = $this->input->get('email');
         $this->fv->set_data(array("email"=>$email));
         $this->fv->set_rules("email", $email, 'required|valid_email|is_unique[users.email]', array('is_unique' => '%s는 이미 존재합니다.'));
         if ($this->fv->run() === false) { //이메일 유효성 검사
             echo "<script>alert('".form_error("email", false, false)."');window.close();</script>";
         } else { //GET 이메일 전송 , 세션 키
-            if ($this->input->get('email') !== null) {
+            if ($this->input->post('auth_key') === null) 
+            {
                 $this->_view('email_auth',array("msg"=>"해당 이메일로 인증키를 보냈습니다. 확인해주세요.",'email'=>$email));
                 $auth_key= rand(0, 9999);
                 // $this->session->set_userdata(array("auth_key"=> $auth_key,"email"=>$this->input->get('email')));
@@ -219,7 +228,7 @@ class User extends Base_Controller
                     "auth_key"=>$auth_key
                     
                 ), null, $expried_sec);
-                $this->session->set_userdata( array( 'email'=> $this->input->get('email') ));
+                $this->session->set_flashdata( 'email',$this->session->userdata("email"));
 
                 $fromEmail= $this->config->item('email');
                 $to =$this->input->get('email');
@@ -227,12 +236,21 @@ class User extends Base_Controller
                 
                 $this->load->library('email');
                 $this->email->send_email($fromEmail, $to, $content);
-            } else { //POST
-                if ($this->input->post('auth_key')== $this->session->userdata('auth_key')) { //인증성공
+            }
+            else 
+            { //POST
+                if($this->session->userdata("email") === null)
+                {
+                    echo "<script>alert('인증 중에 페이지 이동을 하지말아주세요.');window.close();</script>";
+                }
+                else if ($this->input->post('auth_key')== $this->session->userdata('auth_key')) 
+                { //인증성공
                     // $this->session->set_tempdata(array("email_auth"=>true), null, 300);
                     $this->session->set_flashdata("email_auth",true);
+                    $this->session->set_flashdata( 'email',$this->session->userdata("email"));
                       echo "<script>alert('이메일 인증 완료');window.close();</script>";
                 } else { //인증실패
+                    $this->session->set_flashdata( 'email',$this->session->userdata("email"));
                     $this->_view('email_auth',array("msg"=>"인증실패. 인증키를 확인해주세요.",'email'=>$email));
                 }
             }
