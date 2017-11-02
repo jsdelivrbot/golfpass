@@ -21,8 +21,12 @@ class Init extends Init_Controller {
         $this->p_hotel();
         $this->hotel_option();
         $this->panels();
-        $this->panel_contents();
-        $this->cate_product_add();
+       
+        if( $this->panel_contents()===true)
+        {
+            $this->cate_product_add();
+        }
+        $this->p_daily_price();
         // $this->board_add();
 
     }
@@ -125,15 +129,19 @@ class Init extends Init_Controller {
     function p_daily_price()
     {
          //product_categories 테이블 만들기
-         $tb_name = 'product_categories';
+         $tb_name = 'p_daily_price';
          if(!$this->db->table_exists($tb_name)){
          
              $result = $this->db->query("CREATE TABLE `$tb_name`(
              `id` INT UNSIGNED NULL AUTO_INCREMENT, 
              `product_id` INT UNSIGNED NOT NULL,
              `date` varchar(255) NOT NULL,
+             `num_people` varchar(50) NOT NULL DEFAULT '1',
+             `period` varchar(50) NOT NULL DEFAULT '1',
+             `price` varchar(50) NOT NULL,
+             `remarks` varchar(255) DEFAULT '',
              `created` datetime NOT NULL DEFAULT NOW(),
-             UNIQUE KEY (`parent_id`,`date`),
+             UNIQUE KEY (`product_id`,`date`,`num_people`,`period`),
              PRIMARY KEY (`id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
                  
              if($result) echo("success create $tb_name ");
@@ -230,10 +238,16 @@ class Init extends Init_Controller {
                    
                if($result) echo("success create $tb_name ");
                else echo("failed create $tb_name");
-           }else{
-               echo "already table $tb_name exists";
+               echo "<br>";
+               return true;
            }
-           echo "<br>";
+           else
+           {
+               echo "already table $tb_name exists";
+               echo "<br>";
+               return false;
+           }
+           
     }
     function hotel_option()
     {
@@ -319,10 +333,14 @@ class Init extends Init_Controller {
                 
             if($result) echo("success create $tb_name ");
             else echo("failed create $tb_name");
+            echo "<br>";
+            return true;
         }else{
             echo "already table $tb_name exists";
+            echo "<br>";
+            return false;
         }
-        echo "<br>";
+        
     }
     function p_hotel()
     {

@@ -182,5 +182,13 @@ for($i=0 ; $i<count($hotels) ; $i++){
     <?php }?>
 </ul>
 
+
+<!-- 날짜별 가격 설정가기 -->
+<a href="<?=my_site_url(golfpass_p_daily_price_admin_uri."/add/{$product->id}")?>">날자별 가격</a>
+
+<!-- 날짜별 가격 설정가기 -->
 <?php }?>
+
+
+
 <a href="<?=my_site_url(admin_product_uri."/gets")?>">목록으로</a>

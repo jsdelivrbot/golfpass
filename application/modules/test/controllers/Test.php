@@ -23,6 +23,7 @@ class Test extends Public_Controller
         $date = "2017-10-31";
         $date = strtotime($date);
         $date = strtotime("+1 day", $date);
+        var_dump($date);
         echo date('Y-m-d', $date);
         // echo "+1 일:".date("2017-5-1",strtotime ("+1 days"));
         // echo "<br>";
@@ -84,7 +85,7 @@ class Test extends Public_Controller
         // // var_dump($num_weekend_days);
         
     }
-    
+  
     function index()
     {
         // $this->load->helper("date");
