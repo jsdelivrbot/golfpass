@@ -28,40 +28,51 @@
 시작날자: <input type="text" name="start_date" id="datepicker1" value="<?=set_value('start_date')?>">
 끝시작: <input type="text" name="end_date" id="datepicker2" value="<?=set_value('end_date')?>">
     <bR>
-가격(1인,1박2일)<input type="text" name="price" value="2000">
+가격<input type="text" name="price" value="2000">
     <bR>
-배율<input type="text" name="times" value="1">
+    <input type="checkbox" name="period_times_sw" value="1">
+<input type="text" name="period_times" value="1">
+배율<input type="text" name="period_times" value="1">
+배율<input type="text" name="period_times" value="1">
+배율<input type="text" name="period_times" value="1">
+배율<input type="text" name="period_times" value="1">
     <bR>
     <!-- <input type="checkbox" name="period[]" checked value="1">1일<br> -->
-    <input type="checkbox" name="period[]" checked value="2">1박2일<br>
-    <input type="checkbox" name="period[]" checked value="3">2박3일<br>
-    <input type="checkbox" name="period[]" checked value="4">3박4일<br>
-    <input type="checkbox" name="period[]" checked value="5">4박5일<br>
+    <input type="checkbox" name="period[]" checked value="2">1박2일
+    <input type="checkbox" name="period[]" checked value="3">2박3일
+    <input type="checkbox" name="period[]" checked value="4">3박4일
+    <input type="checkbox" name="period[]" checked value="5">4박5일
 
     <bR>
-    <input type="checkbox" name="day[]" checked value="1">월<br>
-    <input type="checkbox" name="day[]" checked value="2">화<br>
-    <input type="checkbox" name="day[]" checked value="3">수<br>
-    <input type="checkbox" name="day[]" checked value="4">목<br>
-    <input type="checkbox" name="day[]" checked value="5">금<br>
-    <input type="checkbox" name="day[]" checked value="6">토<br>
-    <input type="checkbox" name="day[]" checked value="7">일<br>
+    <bR>
+    <input type="checkbox" name="day[]" checked value="1">월
+    <input type="checkbox" name="day[]" checked value="2">화
+    <input type="checkbox" name="day[]" checked value="3">수
+    <input type="checkbox" name="day[]" checked value="4">목
+    <input type="checkbox" name="day[]" checked value="5">금
+    <input type="checkbox" name="day[]" checked value="6">토
+    <input type="checkbox" name="day[]" checked value="7">일
 <br>
-    <input type="checkbox" name="num_people[]" value="1">1인<br>
-    <input type="checkbox" name="num_people[]" value="2">2인<br>
-    <input type="checkbox" name="num_people[]" value="4">4인<br>
-    <input type="checkbox" name="num_people[]" value="5">5인<br>
-    <input type="checkbox" name="num_people[]" value="6">6인<br>
-    <input type="checkbox" name="num_people[]" value="7">7인<br>
-    <input type="checkbox" name="num_people[]" value="8">8인<br>
-    <input type="checkbox" name="num_people[]" value="9">9인<br>
-    <input type="checkbox" name="num_people[]" value="10">10인<br>
-    <input type="checkbox" name="num_people[]" value="11">11인<br>
-
+<br>
+<!-- <input type="checkbox" name="num_people_sw_times" value="1">배율 -->
+    <input type="checkbox" name="num_people[]" value="1">1인
+    <input type="checkbox" name="num_people[]" value="2">2인
+    <input type="checkbox" name="num_people[]" value="3">3인
+    <input type="checkbox" name="num_people[]" value="4">4인
+    <input type="checkbox" name="num_people[]" value="5">5인
+    <input type="checkbox" name="num_people[]" value="6">6인
+    <input type="checkbox" name="num_people[]" value="7">7인
+    <input type="checkbox" name="num_people[]" value="8">8인
+    <input type="checkbox" name="num_people[]" value="9">9인
+    <input type="checkbox" name="num_people[]" value="10">10인
+    <input type="checkbox" name="num_people[]" value="11">11인
+    <br>
+<br>
 
     <input type="submit" value="Submit">
   </form>
-
+  ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+  <br>
 <form method ="post" action="<?=my_site_url(golfpass_p_daily_price_admin_uri."/add/{$product->id}")?>">
     <select name="period" id="">
         <option value="2" <?=set_select('period',2)?>>1박2일</option>

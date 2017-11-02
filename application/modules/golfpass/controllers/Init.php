@@ -21,8 +21,11 @@ class Init extends Init_Controller {
         $this->p_hotel();
         $this->hotel_option();
         $this->panels();
-        $this->panel_contents();
-        $this->cate_product_add();
+       
+        if( $this->panel_contents()===true)
+        {
+            $this->cate_product_add();
+        }
         $this->p_daily_price();
         // $this->board_add();
 
@@ -235,10 +238,16 @@ class Init extends Init_Controller {
                    
                if($result) echo("success create $tb_name ");
                else echo("failed create $tb_name");
-           }else{
-               echo "already table $tb_name exists";
+               echo "<br>";
+               return true;
            }
-           echo "<br>";
+           else
+           {
+               echo "already table $tb_name exists";
+               echo "<br>";
+               return false;
+           }
+           
     }
     function hotel_option()
     {
@@ -324,10 +333,14 @@ class Init extends Init_Controller {
                 
             if($result) echo("success create $tb_name ");
             else echo("failed create $tb_name");
+            echo "<br>";
+            return true;
         }else{
             echo "already table $tb_name exists";
+            echo "<br>";
+            return false;
         }
-        echo "<br>";
+        
     }
     function p_hotel()
     {

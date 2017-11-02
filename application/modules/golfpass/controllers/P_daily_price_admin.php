@@ -69,7 +69,25 @@ class P_daily_price_admin extends Admin_Controller
             $times = $this->input->post("times");
             $price = $this->input->post("price");
          
-            $price =(int)$price/2;
+            // $sw_times_num_people = $this->input->post("sw_times_num_people");
+            $period_times_sw = $this->input->post("period_times_sw");
+            if(in_array('2',$arr_period)===true)
+            {
+                $cal_price = function($period) use($price)
+                {
+                    $price =(int)$price/2;
+                    return (string)((int)$price * (int)$period);
+                };
+            }
+            else
+            {
+                $cal_price = function() use($price)
+                {
+                    return $price;
+                };
+            }
+            
+            $this->db->db_debug = FALSE; 
             foreach($arr_period as $period)
             {
                 foreach ($arr_num_people as $num_people) {
@@ -77,14 +95,29 @@ class P_daily_price_admin extends Admin_Controller
                     do {
                         $date = strtotime("+{$n} day", strtotime($start_date));
                         $date = date("Y-m-d", $date);
-                        $this->p_daily_price_model->_add(array(
+                        $result=$this->p_daily_price_model->_add(array(
                             'product_id'=>$product_id,
                             'date'=>$date,
                             'num_people'=>$num_people,
                             'period'=>$period,
-                            'price'=> (string)((int)$price * (int)$period)
+                            'price'=> $cal_price($period)
                         ));
+
+                        if($result === 0)
+                        {
+                            $this->p_daily_price_model->_update(
+                                array(
+                                    'product_id'=>$product_id,
+                                    'date'=>$date,
+                                    'num_people'=>$num_people,
+                                    'period'=>$period,
+                                ),
+                                array(
+                                    'price'=> $cal_price($period)
+                                ));
+                        }
                         $n++;
+                       
                     } while ($date !== $end_date);
                 }
             }
