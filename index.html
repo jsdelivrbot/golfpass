@@ -2,258 +2,389 @@
 <html lang="en">
 
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="description" content="">
-	<meta name="author" content="">
-	<title>골프패스</title>
-	<!-- Bootstrap core CSS -->
-	<link rel="stylesheet" href="public/sangmin/dist/bootstrap/bootstrap.min.css">
-	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
-	<link rel="stylesheet" href="public/sangmin/css/main.css">
-	<link rel="stylesheet" href="public/sangmin/css/eric-meyer-reset.min.css">
-	<style>
-		::-webkit-scrollbar {
-			display: none;
-		}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>골프패스</title>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="public/sangmin/dist/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <link rel="stylesheet" href="public/sangmin/css/eric-meyer-reset.min.css">
+    <link rel="stylesheet" href="public/sangmin/css/main.css">
 
-	</style>
+    <style>
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        #bg-div {
+            color: white;
+            z-index: -9999; //overflow-x: hidden;
+            position: fixed !important;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+
+        }
+
+        #bg-div::after {
+            content: '';
+            z-index: -9999;
+            top: 0;
+            right: 0;
+            position: absolute;
+            height: 100%;
+            background-color: rgba(32, 32, 32, 0.5);
+            width: 100%;
+        }
+
+    </style>
 </head>
 
 <body>
-	<header id="header" class="container-fluid">
-		<!--NOTE mobile nav-->
-		<nav id='sm-nav' class="row no-gutters justify-content align-items-stretch d-sm-none panel-nav">
-			<div id="logo" class='col-3 justify-content-center d-flex align-self-center align-items-center'>
-				<img src="public/sangmin/img/icon/logo_mobile.png" class="d-md-none" alt="">
-			</div>
-			<div id='nav-icon-box' class="offset-2 col-5 d-flex align-items-stretch justify-content-end">
-				<div id="search" class="d-flex align-items-center">
-					<span><i class="xi xi-search"></i></span>
-				</div>
-				<div id="login" class="d-flex align-items-center">
-					<span><i class="xi xi-lock"></i></span>
-				</div>
-				<div id="join" class="d-flex align-items-center">
-					<span><i class="xi xi-user-plus"></i></span>
-				</div>
-			</div>
-			<div id="toggle" class="col-2 ml-auto">
-				<span><i class="xi xi-bars"></i></span>
-			</div>
-		</nav>
-		<!--NOTE desktop,tablet nav-->
-		<nav id='md-nav' class="row no-gutters justify-content align-items-stretch d-none d-sm-flex">
-			<div id="logo" class='col-6 d-flex align-items-center'>
-				<figure class="d-flex align-items-center d-lg-none">
-					<img src="public/sangmin/img/icon/logo_mobile.png" class="" alt="">
-				</figure>
-				<figure class="align-items-center d-none d-lg-flex">
-					<img src="public/sangmin/img/icon/logo.png" class="" alt="">
-				</figure>
-				<div id="search" class="d-flex align-items-center">
-					<span><i class="xi xi-search"></i></span>
-					<input type="text" placeholder="관심있는 나라나 골프장을 검색해보세요!">
-				</div>
-			</div>
-			<div id='nav-icon-box' class="col-5 col-lg-4 d-flex justify-content-end">
-				<div id="login" class="d-flex align-items-center">
-					<span><i class="xi xi-lock"></i></span>
-					<p>로그인</p>
-				</div>
-				<div id="join" class="d-flex align-items-center">
-					<span><i class="xi xi-user-plus"></i></span>
-					<p>회원가입</p>
-				</div>
-			</div>
-			<div id="toggle" class="col-1 col-lg-2 ml-auto">
-				<span><i class="xi xi-bars"></i></span>
-				<p class="d-none d-lg-block">메뉴</p>
-			</div>
-		</nav>
-	</header>
+    <header id="header" class="container-fluid">
+        <!--NOTE mobile nav-->
+        <nav id='sm-nav' class="row no-gutters justify-content align-items-stretch d-sm-none panel-nav" style="position: fixed;">
+            <div id="logo" class='col-3 justify-content-center d-flex align-self-center align-items-center'>
+                <img src="public/sangmin/img/icon/logo_mobile.png" class="d-md-none" alt="">
+            </div>
+            <div id='nav-icon-box' class="offset-2 col-5 d-flex align-items-stretch justify-content-end">
+                <div id="search" class="d-flex align-items-center">
+                    <span><i class="xi xi-search"></i></span>
+                </div>
+                <div id="login" class="d-flex align-items-center">
+                    <span><i class="xi xi-lock"></i></span>
+                </div>
+                <div id="join" class="d-flex align-items-center">
+                    <span><i class="xi xi-user-plus"></i></span>
+                </div>
+            </div>
+            <div id="toggle" class="col-2 ml-auto">
+                <span><i class="xi xi-bars"></i></span>
+            </div>
+        </nav>
+        <!--NOTE desktop,tablet nav-->
+        <nav id='md-nav' class="row no-gutters justify-content align-items-stretch d-none d-sm-flex">
+            <div id="logo" class='col-6 d-flex align-items-center'>
+                <figure class="d-flex align-items-center d-lg-none">
+                    <img src="public/sangmin/img/icon/logo_mobile.png" class="" alt="">
+                </figure>
+                <figure class="align-items-center d-none d-lg-flex">
+                    <img src="public/sangmin/img/icon/logo.png" class="" alt="">
+                </figure>
+                <div id="search" class="d-flex align-items-center">
+                    <span><i class="xi xi-search"></i></span>
+                    <input type="text" placeholder="관심있는 나라나 골프장을 검색해보세요!">
+                </div>
+            </div>
+            <div id='nav-icon-box' class="col-5 col-lg-4 d-flex justify-content-end">
+                <div id="login" class="d-flex align-items-center">
+                    <span><i class="xi xi-lock"></i></span>
+                    <p>로그인</p>
+                </div>
+                <div id="join" class="d-flex align-items-center">
+                    <span><i class="xi xi-user-plus"></i></span>
+                    <p>회원가입</p>
+                </div>
+            </div>
+            <div id="toggle" class="col-1 col-lg-2 ml-auto">
+                <span><i class="xi xi-bars"></i></span>
+                <p class="d-none d-lg-block">메뉴</p>
+            </div>
+        </nav>
+    </header>
+    <div id="bg-div"></div>
+
+    <section id="section1" class="main-section scroll-smooth">
+        <article class="carousel" data-ride="carousel" data-interval="4000" id='section1-slide'>
+            <ol class="carousel-indicators d-flex flex-column align-items-center">
+
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="content-box d-flex flex-column align-items-start justify-content-center justify-content-lg-end">
+                        <div class='title'>
+                            <h1>샘플상품1</h1>
+                            <p>아랍에미레이트, 아부다비 - 홀 / 야드</p>
+                        </div>
+                        <div class="content">
+                            <p><span><i class="xi xi-star"></i><i class="xi xi-star"></i><i class="xi xi-star"></i><i class="xi xi-star"></i><i class="xi xi-star-o"></i></span>(리뷰 173개 )</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla quis minus illum temporibus fugiat dolorem nostrum aperiam enim, eum architecto sunt. Tempore, esse saepe impedit?</p>
+                        </div>
+                        <div class="btn-box">
+                            <button>보러가기</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="content-box d-flex flex-column align-items-start justify-content-center justify-content-lg-end">
+                        <div class='title'>
+                            <h1>샘플상품2</h1>
+                            <p>아랍에미레이트, 아부다비 - 홀 / 야드</p>
+                        </div>
+                        <div class="content">
+                            <p><span><i class="xi xi-star"></i><i class="xi xi-star"></i><i class="xi xi-star"></i><i class="xi xi-star"></i><i class="xi xi-star-o"></i></span>(리뷰 173개 )</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla quis minus illum temporibus fugiat dolorem nostrum aperiam enim, eum architecto sunt. Tempore, esse saepe impedit?</p>
+                        </div>
+                        <div class="btn-box">
+                            <button>보러가기</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="content-box d-flex flex-column align-items-start justify-content-center justify-content-lg-end">
+                        <div class='title'>
+                            <h1>샘플상품3</h1>
+                            <p>아랍에미레이트, 아부다비 - 홀 / 야드</p>
+                        </div>
+                        <div class="content">
+                            <p><span><i class="xi xi-star"></i><i class="xi xi-star"></i><i class="xi xi-star"></i><i class="xi xi-star"></i><i class="xi xi-star-o"></i></span>(리뷰 173개 )</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla quis minus illum temporibus fugiat dolorem nostrum aperiam enim, eum architecto sunt. Tempore, esse saepe impedit?</p>
+                        </div>
+                        <div class="btn-box">
+                            <button>보러가기</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <section id='scroll-alert' class='d-flex flex-column align-items-center'>
+            <span>스크롤을 내려주세요</span>
+            <i class="xi xi-angle-down"></i>
+        </section>
+        <section id='sns-box' class='d-flex align-items-center justify-content-around'>
+            <span><i class="xi xi-facebook-official"></i></span>
+            <span><i class="xi xi-instagram"></i></span>
+
+            <span><i class="xi xi-naver"></i></span>
+
+        </section>
+    </section>
+    <section id="section2" class="main-section scroll-smooth d-flex align-items-end" style="background-color: transparent;">
+        <article class="w-100">
+            <h4 class="display-4">
+                나라별 골프장
+            </h4>
+            <ul class="w-100 d-flex justify-content-around">
+                <li>
+                    <img src="public/sangmin/img/pc_golf_course_1.jpg" alt="">
+                </li>
+                <li>
+                    <img src="public/sangmin/img/pc_golf_course_2.jpg" alt="">
+                </li>
+                <li>
+                    <img src="public/sangmin/img/pc_golf_course_3.jpg" alt="">
+                </li>
+                <li>
+                    <img src="public/sangmin/img/pc_golf_course_4.jpg" alt="">
+                </li>
+                <li>
+                    <img src="public/sangmin/img/pc_golf_course_5.jpg" alt="">
+                </li>
+                <li>
+                    <img src="public/sangmin/img/pc_golf_course_6.jpg" alt="">
+                </li>
+            </ul>
+        </article>
+    </section>
+    <section id="section3" class="main-section container-fluid d-flex align-items-end" style="background-color: transparent;">
+        <article class="w-100">
+            <h4 class="display-4">
+                테마별 골프장
+            </h4>
+            <div class="row no-gutters">
+                <div class="col-6">
+                    <img src="public/sangmin/img/theme_img1.jpg" alt="" width="100%">
+                </div>
+                <div class="col-6">
+                    <div class="row no-gutters">
+                        <div class="col-6">
+                            <img src="public/sangmin/img/theme_img2.jpg" alt="" width="100%">
+                        </div>
+                        <div class="col-6">
+                            <img src="public/sangmin/img/theme_img3.jpg" alt="" width="100%">
+                        </div>
+                    </div>
+                    <div class="row no-gutters">
+                        <div class="col-6">
+                            <img src="public/sangmin/img/theme_img4.jpg" alt="" width="100%">
+                        </div>
+                        <div class="col-6">
+                            <img src="public/sangmin/img/theme_img5.jpg" alt="" width="100%">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </section>
+    <section id="section4" class="main-section container-fluid d-flex align-items-end" style="background-color: transparent;">
+        <article class="w-100">
+            <h4 class="display-4">
+                골프패스 패널 소개
+            </h4>
+            <div class="row no-gutters">
+                <div class="col-2">
+                    <img src="public/sangmin/img/profile/pic.jpg" alt="">
+                </div>
+                <div class="col-10">
+                    <p>김지윤</p>
+                    <p>아동병원을 운영하고 있는 소아과의사 입니다. 인문학을 좋아하여 책을읽고 글을 써서 나누고 있습니다.</p>
+                </div>
+            </div>
+            <div class="row no-gutters">
+                <div class="col-2">
+                    <img src="public/sangmin/img/profile/pic.jpg" alt="">
+                </div>
+                <div class="col-10">
+                    <p>김지윤</p>
+                    <p>아동병원을 운영하고 있는 소아과의사 입니다. 인문학을 좋아하여 책을읽고 글을 써서 나누고 있습니다.</p>
+                </div>
+            </div>
+            <div class="row no-gutters">
+                <div class="col-2">
+                    <img src="public/sangmin/img/profile/pic.jpg" alt="">
+                </div>
+                <div class="col-10">
+                    <p>김지윤</p>
+                    <p>아동병원을 운영하고 있는 소아과의사 입니다. 인문학을 좋아하여 책을읽고 글을 써서 나누고 있습니다.</p>
+                </div>
+            </div>
+        </article>
+    </section>
+    <section id="section5" class="main-section container-fluid d-flex align-items-center" style="background-color: transparent;">
+        <article class="w-100">
+            <div class="row no-gutters">
+                <div class="col-12" style='height: 500px; background-color: orange'>
+
+                </div>
+            </div>
+        </article>
+    </section>
+    <footer id='main-footer' class='d-flex flex-wrap'>
+        <ul>
+            <li class="title">ABOUT US</li>
+            <li><a href="#">회사 소개</a></li>
+            <li><a href="#">이용약관</a></li>
+            <li><a href="#">개인 정보 취급 방침</a></li>
+        </ul>
+        <ul>
+            <li class="title">OFFICE</li>
+            <li><span>TEL</span>
+                <p>1500-1500</p>
+            </li>
+        </ul>
+        <ul>
+            <li class="title">CONTACT US</li>
+            <li><span>상호</span>
+                <p>PLAY SEVEN</p>
+            </li>
+            <li><span>대표</span>
+                <p>홍길동</p>
+            </li>
+            <li><span>사업자등록번호</span>
+                <p>000-00-00000</p>
+            </li>
+            <li><span>등록판매업신고번호</span>
+                <p>2017-서울강서-0000호</p>
+            </li>
+            <li><span>개인정보관리책임자</span>
+                <p>홍길동</p>
+            </li>
+        </ul>
+        <ul>
+            <li class="title">NEWS LETTER</li>
+            <li class="mb-20"><input type="text" placeholder="E-mail을 입력해주세요"></li>
+            <li><strong>골프패스</strong>
+                <p>에서 제공하는 유용한 소식</p>
+            </li>
+        </ul>
+        <p class='align-self-end mr-auto ml-auto'>© 2017 <strong>GOLFPASS.</strong> All Rights Reserved.</p>
+    </footer>
 
 
-	<section id="section1" class="main-section scroll-smooth">
-		<article class="carousel" data-ride="carousel" data-interval="4000" id='section1-slide'>
-			<ol class="carousel-indicators d-flex flex-column align-items-center">
+    <script src="public/sangmin/js/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="public/sangmin/dist/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="public/sangmin/js/custom.js"></script>
+    <script>
+        $(document).ready(function() {
+            var section1_bg_list = ['public/sangmin/img/background/bg1.jpg', 'public/sangmin/img/background/bg2.jpg', 'public/sangmin/img/background/bg3.jpg'];
+            $('.carousel-item').css('background-image', function(idx) {
+                return 'url(' + section1_bg_list[idx] + ')';
+            });
+            for (var i = 0; i < $('.carousel-item').length; i++) {
+                if (i == 0) {
+                    $('<li></li>').attr('data-target', '#section1-slide').attr('data-slide-to', i).addClass('active').appendTo('.carousel-indicators');
+                } else {
+                    $('<li></li>').attr('data-target', '#section1-slide').attr('data-slide-to', i).appendTo('.carousel-indicators');
+                }
+            }
+            $('#section1').on("mousewheel DOMMouseScroll", function(e) {
+                e.preventDefault();
+                var delta = 0;
+                if (!event) event = window.event;
+                if (event.wheelDelta) {
+                    delta = event.wheelDelta / 120;
+                    if (window.opera) delta = -delta;
+                } else if (event.detail) delta = -event.detail / 3;
+                var moveTop = null;
+                if (delta < 0) {
+                    if ($(this).next().hasClass('scroll-smooth')) {
+                        moveTop = $(this).next().offset().top;
+                    }
+                }
+                  $("html,body").stop().animate({
+                        scrollTop: moveTop + 'px'
+                    }, {
+                        duration: 900,
+                        complete: function() {}
+                    });
+            });
+            $('#section2').on("mousewheel DOMMouseScroll", function(e) {
+                var delta = 0;
+                if (!event) event = window.event;
+                if (event.wheelDelta) {
+                    delta = event.wheelDelta / 120;
+                    if (window.opera) delta = -delta;
+                } else if (event.detail) delta = -event.detail / 3;
+                var moveTop = null;
+                if (delta >= 0) {
+                    if ($(document).scrollTop() == 0 || $(document).scrollTop() > $('#section1').height()) {
+                        return
+                    }
+                    if ($(this).prev() && $(document).scrollTop() < $('#section2').offset().top) {
+                        e.preventDefault();
+                        moveTop = $(this).prev().offset().top;
+                        $("html,body").stop().animate({
+                            scrollTop: moveTop + 'px'
+                        }, {
+                            duration: 900,
+                            complete: function() {}
+                        });
+                    }
+                }
+            });
+            $(window).scroll(function() {
+                if ($(this).scrollTop() >= $('#section2').offset().top) {
+                    $('header').addClass('panel-header');
+                } else {
+                    $('header').removeClass('panel-header');
 
-			</ol>
-			<div class="carousel-inner">
-				<div class="carousel-item active">
-					<div class="content-box d-flex flex-column align-items-start justify-content-center justify-content-lg-end">
-						<div class='title'>
-							<h1>샘플상품1</h1>
-							<p>아랍에미레이트, 아부다비 - 홀 / 야드</p>
-						</div>
-						<div class="content">
-							<p><span><i class="xi xi-star"></i><i class="xi xi-star"></i><i class="xi xi-star"></i><i class="xi xi-star"></i><i class="xi xi-star-o"></i></span>(리뷰 173개 )</p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla quis minus illum temporibus fugiat dolorem nostrum aperiam enim, eum architecto sunt. Tempore, esse saepe impedit?</p>
-						</div>
-						<div class="btn-box">
-							<button>보러가기</button>
-						</div>
-					</div>
-				</div>
-				<div class="carousel-item">
-					<div class="content-box d-flex flex-column align-items-start justify-content-center justify-content-lg-end">
-						<div class='title'>
-							<h1>샘플상품2</h1>
-							<p>아랍에미레이트, 아부다비 - 홀 / 야드</p>
-						</div>
-						<div class="content">
-							<p><span><i class="xi xi-star"></i><i class="xi xi-star"></i><i class="xi xi-star"></i><i class="xi xi-star"></i><i class="xi xi-star-o"></i></span>(리뷰 173개 )</p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla quis minus illum temporibus fugiat dolorem nostrum aperiam enim, eum architecto sunt. Tempore, esse saepe impedit?</p>
-						</div>
-						<div class="btn-box">
-							<button>보러가기</button>
-						</div>
-					</div>
-				</div>
-				<div class="carousel-item">
-					<div class="content-box d-flex flex-column align-items-start justify-content-center justify-content-lg-end">
-						<div class='title'>
-							<h1>샘플상품3</h1>
-							<p>아랍에미레이트, 아부다비 - 홀 / 야드</p>
-						</div>
-						<div class="content">
-							<p><span><i class="xi xi-star"></i><i class="xi xi-star"></i><i class="xi xi-star"></i><i class="xi xi-star"></i><i class="xi xi-star-o"></i></span>(리뷰 173개 )</p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla quis minus illum temporibus fugiat dolorem nostrum aperiam enim, eum architecto sunt. Tempore, esse saepe impedit?</p>
-						</div>
-						<div class="btn-box">
-							<button>보러가기</button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</article>
-		<section id='scroll-alert' class='d-flex flex-column align-items-center'>
-			<span>스크롤을 내려주세요</span>
-			<i class="xi xi-angle-down"></i>
-		</section>
-		<section id='sns-box' class='d-flex align-items-center justify-content-around'>
-			<span><i class="xi xi-facebook-official"></i></span>
-			<span><i class="xi xi-instagram"></i></span>
+                }
+            });
+            $('#bg-div').css('background-image', $(".carousel-item.active").css("background-image"));
+            $('#section1-slide').on('slide.bs.carousel', function() {
+                $('#bg-div').css('background-image', $(this).children().children(".carousel-item.active").next().css("background-image"));
+            })
+        })
 
-			<span><i class="xi xi-naver"></i></span>
-
-		</section>
-	</section>
-	<section id="section2" class="main-section scroll-smooth" style="background-color: orange;">
-		test
-	</section>
-	<section id="section3" class="main-section" style="background-color: red;">
-
-	</section>
-	<footer id='main-footer' class='d-flex flex-wrap'>
-		<ul>
-			<li class="title">ABOUT US</li>
-			<li><a href="#">회사 소개</a></li>
-			<li><a href="#">이용약관</a></li>
-			<li><a href="#">개인 정보 취급 방침</a></li>
-		</ul>
-		<ul>
-			<li class="title">OFFICE</li>
-			<li><span>TEL</span>
-				<p>1500-1500</p>
-			</li>
-		</ul>
-		<ul>
-			<li class="title">CONTACT US</li>
-			<li><span>상호</span>
-				<p>PLAY SEVEN</p>
-			</li>
-			<li><span>대표</span>
-				<p>홍길동</p>
-			</li>
-			<li><span>사업자등록번호</span>
-				<p>000-00-00000</p>
-			</li>
-			<li><span>등록판매업신고번호</span>
-				<p>2017-서울강서-0000호</p>
-			</li>
-			<li><span>개인정보관리책임자</span>
-				<p>홍길동</p>
-			</li>
-		</ul>
-		<ul>
-			<li class="title">NEWS LETTER</li>
-			<li class="mb-20"><input type="text" placeholder="E-mail을 입력해주세요"></li>
-			<li><strong>골프패스</strong>
-				<p>에서 제공하는 유용한 소식</p>
-			</li>
-		</ul>
-		<p class='align-self-end mr-auto ml-auto'>© 2017 <strong>GOLFPASS.</strong> All Rights Reserved.</p>
-	</footer>
-
-
-	<script src="public/sangmin/js/jquery-3.2.1.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-	<script src="public/sangmin/dist/bootstrap/bootstrap.bundle.min.js"></script>
-	<script src="public/sangmin/js/custom.js"></script>
-	<script>
-		$(document).ready(function() {
-			var section1_bg_list = ['public/sangmin/img/background/bg1.jpg', 'public/sangmin/img/background/bg2.jpg', 'public/sangmin/img/background/bg3.jpg'];
-			$('.carousel-item').css('background-image', function(idx) {
-				return 'url(' + section1_bg_list[idx] + ')';
-			});
-			for (var i = 0; i < $('.carousel-item').length; i++) {
-				if (i == 0) {
-					$('<li></li>').attr('data-target', '#section1-slide').attr('data-slide-to', i).addClass('active').appendTo('.carousel-indicators');
-				} else {
-					$('<li></li>').attr('data-target', '#section1-slide').attr('data-slide-to', i).appendTo('.carousel-indicators');
-				}
-			}
-			$('#section1').on("mousewheel DOMMouseScroll", function(e) {
-				e.preventDefault();
-				var delta = 0;
-				if (!event) event = window.event;
-				if (event.wheelDelta) {
-					delta = event.wheelDelta / 120;
-					if (window.opera) delta = -delta;
-				} else if (event.detail) delta = -event.detail / 3;
-				var moveTop = null;
-				// 마우스휠을 위에서 아래로
-				if (delta < 0) {
-					if ($(this).next().hasClass('scroll-smooth')) {
-						moveTop = $(this).next().offset().top;
-					}
-					$("html,body").stop().animate({
-						scrollTop: moveTop + 'px'
-					}, {
-						duration: 900,
-						complete: function() {}
-					});
-				}
-			});
-			$('#section2').on("mousewheel DOMMouseScroll", function(e) {
-				var delta = 0;
-				if (!event) event = window.event;
-				if (event.wheelDelta) {
-					delta = event.wheelDelta / 120;
-					if (window.opera) delta = -delta;
-				} else if (event.detail) delta = -event.detail / 3;
-				var moveTop = null;
-				// 마우스휠을 위에서 아래로
-				if (delta >= 0) {
-					if ($(document).scrollTop() == 0 || $(document).scrollTop() > $('#section1').height()) {
-						return
-					}
-					if ($(this).prev() && $(document).scrollTop() < $('#section2').offset().top) {
-						e.preventDefault();
-						moveTop = $(this).prev().offset().top;
-						$("html,body").stop().animate({
-							scrollTop: moveTop + 'px'
-						}, {
-							duration: 900,
-							complete: function() {}
-						});
-					}
-				}
-			});
-		})
-
-	</script>
+    </script>
 
 </body>
 
