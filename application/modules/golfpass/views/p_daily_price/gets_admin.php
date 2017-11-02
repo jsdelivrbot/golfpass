@@ -30,12 +30,12 @@
     <bR>
 가격<input type="text" name="price" value="2000">
     <bR>
-    <input type="checkbox" name="period_times_sw" value="1">
-<input type="text" name="period_times" value="1">
-배율<input type="text" name="period_times" value="1">
-배율<input type="text" name="period_times" value="1">
-배율<input type="text" name="period_times" value="1">
-배율<input type="text" name="period_times" value="1">
+        <input type="checkbox" name="period_times_sw" value="1" checked>
+        배율<input type="text" name="period_times[]" value="1">
+배율<input type="text" name="period_times[]" value="1">
+배율<input type="text" name="period_times[]" value="1">
+배율<input type="text" name="period_times[]" value="1">
+<!-- 배율<input type="text" name="period_times[]" value="1"> -->
     <bR>
     <!-- <input type="checkbox" name="period[]" checked value="1">1일<br> -->
     <input type="checkbox" name="period[]" checked value="2">1박2일
@@ -54,7 +54,12 @@
     <input type="checkbox" name="day[]" checked value="7">일
 <br>
 <br>
-<!-- <input type="checkbox" name="num_people_sw_times" value="1">배율 -->
+<input type="checkbox" name="num_people_sw_times" value="1">배율
+배율<input type="text" name="num_people_times[]" value="1">
+배율<input type="text" name="num_people_times[]" value="1">
+배율<input type="text" name="num_people_times[]" value="1">
+배율<input type="text" name="num_people_times[]" value="1">
+<br>
     <input type="checkbox" name="num_people[]" value="1">1인
     <input type="checkbox" name="num_people[]" value="2">2인
     <input type="checkbox" name="num_people[]" value="3">3인
@@ -74,15 +79,15 @@
   ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
   <br>
 <form method ="post" action="<?=my_site_url(golfpass_p_daily_price_admin_uri."/add/{$product->id}")?>">
-    <select name="period" id="">
-        <option value="2" <?=set_select('period',2)?>>1박2일</option>
-        <option value="3" <?=set_select('period',3)?>>2박3일</option>
-        <option value="4" <?=set_select('period',4)?>>3박4일</option>
-        <option value="5" <?=set_select('period',5)?>>4박5일</option>
-        <option value="6" <?=set_select('period',6)?>>5박6일</option>
-        <option value="7" <?=set_select('period',7)?>>6박7일</option>
-        <option value="8" <?=set_select('period',8)?>>7박8일</option>
-        <option value="9" <?=set_select('period',9)?>>8박9일</option>
+    <select name="search_period" id="">
+        <option value="2" <?=set_select('search_period',2)?>>1박2일</option>
+        <option value="3" <?=set_select('search_period',3)?>>2박3일</option>
+        <option value="4" <?=set_select('search_period',4)?>>3박4일</option>
+        <option value="5" <?=set_select('search_period',5)?>>4박5일</option>
+        <option value="6" <?=set_select('search_period',6)?>>5박6일</option>
+        <option value="7" <?=set_select('search_period',7)?>>6박7일</option>
+        <option value="8" <?=set_select('search_period',8)?>>7박8일</option>
+        <option value="9" <?=set_select('search_period',9)?>>8박9일</option>
     </select>
     <input type="submit">
 </form>

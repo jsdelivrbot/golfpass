@@ -20,11 +20,11 @@ class Test extends Public_Controller
         // echo "<br>";
         // echo "+1 일:".date("Y-m-d H:i:s",strtotime ("-31 days"));
         // echo "+1 일:".date("Y-m-d",strtotime ("+1 days"));
-        $date = "2017-10-31";
-        $date = strtotime($date);
-        $date = strtotime("+1 day", $date);
-        var_dump($date);
-        echo date('Y-m-d', $date);
+        // $date = "2017-10-31";
+        // $date = strtotime($date);
+        // $date = strtotime("+1 day", $date);
+        // var_dump($date);
+        // echo date('Y-m-d', $date);
         // echo "+1 일:".date("2017-5-1",strtotime ("+1 days"));
         // echo "<br>";
         // echo "+1 년".date("Y-m-d H:i:s",strtotime ("+1 years"));
@@ -84,6 +84,14 @@ class Test extends Public_Controller
         // // var_dump($num_working_days);
         // // var_dump($num_weekend_days);
         
+    }
+    function int()
+    {
+        $i = (int)10;
+        $j = (float)"0.866";
+        var_dump($j);
+        var_dump((string)round(($i * $j)));
+
     }
   
     function index()

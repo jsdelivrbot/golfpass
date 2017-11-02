@@ -30,7 +30,7 @@ class P_daily_price_admin extends Admin_Controller
         
         $this->_set_rules();
         if ($this->fv->run() === false) {
-            $period= $this->input->post("period");
+            $period= $this->input->post("search_period");
             $period = $period ?: 2;
             $data['p_daily_price']  = (object)array();
             $data['mode'] = "add";
@@ -69,53 +69,66 @@ class P_daily_price_admin extends Admin_Controller
             $times = $this->input->post("times");
             $price = $this->input->post("price");
          
-            // $sw_times_num_people = $this->input->post("sw_times_num_people");
             $period_times_sw = $this->input->post("period_times_sw");
-            if(in_array('2',$arr_period)===true)
+            $period_times = $this->input->post("period_times");
+            $num_people_sw_times = $this->input->post("num_people_sw_times");
+            $num_people_times = $this->input->post("num_people_times");
+            // if(in_array('2',$arr_period)===true)
+        
+            if($period_times_sw === '1')
             {
-                $cal_price = function($period) use($price)
+                $cal_price = function($price,$period) use($period_times)
                 {
                     $price =(int)$price/2;
-                    return (string)((int)$price * (int)$period);
+                    $price  =(string)round((int)$price * (float)($period_times[$period-2]) * (int)$period);
+                    // echo "time :{$period_times[$period-2]} price : {$price} <br>";
+                    return $price;
                 };
             }
             else
             {
-                $cal_price = function() use($price)
+                $cal_price = function($price)
+                {
+                    return $price;
+                };
+            }
+            if($num_people_sw_times === '1')
+            {
+                $cal_price_2 = function($price,$num_people) use($num_people_times)
+                {
+                    $price  =(string)round((int)$price * (float)($num_people_times[$num_people-1]) * (int)$num_people);
+                      echo "time :{$num_people_times[$num_people-1]} price : {$price} <br>";
+                    return $price;
+                };
+            }
+            else
+            {
+                $cal_price_2 = function($price)
                 {
                     return $price;
                 };
             }
             
-            $this->db->db_debug = FALSE; 
+            // $this->db->db_debug = FALSE; 
             foreach($arr_period as $period)
             {
+                $tmp_price =$cal_price($price,$period);
                 foreach ($arr_num_people as $num_people) {
+                    $tmp_price =$cal_price_2($tmp_price,$num_people);
                     $n = 0;
                     do {
                         $date = strtotime("+{$n} day", strtotime($start_date));
                         $date = date("Y-m-d", $date);
-                        $result=$this->p_daily_price_model->_add(array(
-                            'product_id'=>$product_id,
-                            'date'=>$date,
-                            'num_people'=>$num_people,
-                            'period'=>$period,
-                            'price'=> $cal_price($period)
-                        ));
-
-                        if($result === 0)
-                        {
-                            $this->p_daily_price_model->_update(
-                                array(
-                                    'product_id'=>$product_id,
-                                    'date'=>$date,
-                                    'num_people'=>$num_people,
-                                    'period'=>$period,
-                                ),
-                                array(
-                                    'price'=> $cal_price($period)
-                                ));
-                        }
+                        $this->db->set("product_id",$product_id);
+                       
+                        $sql=$this->db->insert_string($this->table,array(
+                                'product_id'=>$product_id,
+                                'date'=>$date,
+                                'num_people'=>$num_people,
+                                'period'=>$period,
+                                'price'=> $tmp_price
+                        ))."ON DUPLICATE KEY UPDATE price = $tmp_price";
+                        $this->db->query($sql);
                         $n++;
                        
                     } while ($date !== $end_date);
