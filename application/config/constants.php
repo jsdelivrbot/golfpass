@@ -57,6 +57,7 @@ define("shop_user_uri","/shop/user");
 define("golfpass_panel_uri","/golfpass/panel");
 define("golfpass_panel_admin_uri","/golfpass/panel_admin");
 define("golfpass_panel_contents_admin_uri","/golfpass/panel_contents_admin");
+define("golfpass_p_daily_price_admin_uri","/golfpass/p_daily_price_admin");
 
 // define("shop_product_uri","/product");
 // define("shop_cartlist_uri","/cartlist");
