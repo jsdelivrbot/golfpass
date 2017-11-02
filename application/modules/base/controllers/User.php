@@ -14,13 +14,7 @@ class User extends Base_Controller
         // $this->load->model('users_model');
     }
   
-    function sample2()
-    {
-            
-            $this->load->library("sms_cafe24");
-            $this->sms_cafe24->send("1","1","1124124녕하세요");
-                        
-    }
+  
 
     function index()
     {
@@ -114,23 +108,42 @@ class User extends Base_Controller
                 $this->session->set_flashdata( 'email',$this->session->userdata("email"));
                 $this->session->set_flashdata('email_auth',true);
             }
+            if($this->session->userdata('phone_auth') !== null && $this->session->userdata('phone') !== null){
+                $this->session->set_flashdata( 'phone',$this->session->userdata("phone"));
+                $this->session->set_flashdata('phone_auth',true);
+            }
                 
-        }else if($this->session->userdata('email_auth') === null){
+        }
+        // else if($this->session->userdata('email_auth') === null)
+        // {
+        //     $user = (object)array();
+        //     $data = array("mode" =>"add","user"=>$user);
+
+        //     echo "<script>alert('이메일 인증이 완료되지 않았습니다.')</script>";
+        //     // $this->_template("user/golfpass/addUpdate",$data,'golfpass');
+        //     $this->_template("addUpdate",$data);
+        // }
+        else if($this->session->userdata('phone_auth') === null)
+        {
             $user = (object)array();
             $data = array("mode" =>"add","user"=>$user);
 
-            echo "<script>alert('이메일 인증이 완료되지 않았습니다.')</script>";
+            echo "<script>alert('휴대폰 인증이 완료되지 않았습니다.')</script>";
             // $this->_template("user/golfpass/addUpdate",$data,'golfpass');
             $this->_template("addUpdate",$data);
-        } else {
+        }
+        else
+        {
             $this->_dbSet_addUpdate();
 
             $hash = password_hash($this->input->post('password'), PASSWORD_BCRYPT);
             $userName =$this->input->post('userName');
             $this->db->set('userName', $userName);
             $this->db->set('password', $hash);
-            $this->db->set('email', $_SESSION['email']);
-
+            // $this->db->set('email', $_SESSION['email']);
+            $this->db->set('email', $this->input->post('email'));
+            // // $this->db->set('phone', $this->input->post('phone'));
+            $this->db->set('phone', $_SESSION['phone']);
             $this->db->insert('users');
 
             unset($_SESSION["email_auth"]);
@@ -186,27 +199,27 @@ class User extends Base_Controller
         $this->db->set('name', $this->input->post('name'));
         $this->db->set('sex', $this->input->post('sex'));
         $this->db->set('birth', $birth);
-        $this->db->set('phone', $this->input->post('phone'));
+      
         $this->db->set('profilePhoto',$this->input->post('profilePhoto'));
         
         $this->db->set('created', 'NOW()', false);
     }
 
     function _set_rules(){
-        $this->fv->set_rules('postal_number', '우편번호', 'required',array('required'=>'주소를 검색선택해주세요.'));
-        $this->fv->set_rules('address', '기본주소', 'required');
-        $this->fv->set_rules('address_more', '상세주소', 'required');
-        $this->fv->set_rules('name', '이름', 'required|min_length[1]|max_length[15]');
-        $this->fv->set_rules('name', '이름',array('required','min_length[1]','max_length[15]',
-    array("해당 닉네임으로 지정할수 없습니다.",function($str){
-        if(strpos($str,"운영자") > -1 || strpos($str,"손님") > -1 || strpos($str,"admin") > -1){
-            return false;
-        }
-        return true;
-    })
-));
-        $this->fv->set_rules('sex', '성별', 'required|min_length[1]|max_length[5]',array('required'=>'%s을 선택해주세요'));
-        $this->fv->set_rules('phone', '연락처', 'required|min_length[1]|max_length[20]');
+//         $this->fv->set_rules('postal_number', '우편번호', 'required',array('required'=>'주소를 검색선택해주세요.'));
+//         $this->fv->set_rules('address', '기본주소', 'required');
+//         $this->fv->set_rules('address_more', '상세주소', 'required');
+//         $this->fv->set_rules('name', '이름', 'required|min_length[1]|max_length[15]');
+//         $this->fv->set_rules('name', '이름',array('required','min_length[1]','max_length[15]',
+//     array("해당 닉네임으로 지정할수 없습니다.",function($str){
+//         if(strpos($str,"운영자") > -1 || strpos($str,"손님") > -1 || strpos($str,"admin") > -1){
+//             return false;
+//         }
+//         return true;
+//     })
+// ));
+//         $this->fv->set_rules('sex', '성별', 'required|min_length[1]|max_length[5]',array('required'=>'%s을 선택해주세요'));
+//         $this->fv->set_rules('phone', '연락처', 'required|min_length[1]|max_length[20]');
         
     }
     function email_auth()
@@ -220,7 +233,7 @@ class User extends Base_Controller
             if ($this->input->post('auth_key') === null) 
             {
                 $this->_view('email_auth',array("msg"=>"해당 이메일로 인증키를 보냈습니다. 확인해주세요.",'email'=>$email));
-                $auth_key= rand(0, 9999);
+                $auth_key= rand(1000, 9999);
                 // $this->session->set_userdata(array("auth_key"=> $auth_key,"email"=>$this->input->get('email')));
                 $expried_sec = 300;
                 $expried_min = 300/5;
@@ -273,7 +286,7 @@ class User extends Base_Controller
             if ($this->input->post('auth_key') === null) 
             {
                 $this->_view('phone_auth',array("msg"=>"해당 휴대폰으로 인증키를 보냈습니다. 확인해주세요.",'phone'=>$phone));
-                $auth_key= rand(0, 9999);
+                $auth_key= rand(1000, 9999);
                 $expried_sec = 300;
                 $expried_min = 300/5;
                 $this->session->set_tempdata(array(
@@ -287,6 +300,11 @@ class User extends Base_Controller
                 $content = "이메일 인증 키입니다. $auth_key / {$expried_min}분 안에 입력해주세요.";
                 
                //폰에 번호보내기 
+               $this->load->library("sms_cafe24");
+               
+               $this->sms_cafe24->secure = "1856aaacd1dee9bdb79b60c1c8746f38";
+               $this->sms_cafe24->user_id = "santutu6";
+               $this->sms_cafe24->send("010-5100-8825",$to,"[{$auth_key}] 골프패스 인증번호입니다.");
             }
             else //POST
             { 
