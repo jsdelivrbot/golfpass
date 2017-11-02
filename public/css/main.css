@@ -1939,7 +1939,7 @@ body {
     position: absolute;
     height: 30%;
     bottom: 40% !important;
-    left: 95% !important;
+    left: 90% !important;
     z-index: 9999; }
     #section1 .carousel .carousel-indicators li {
       border-radius: 50%;
@@ -1954,21 +1954,12 @@ body {
       border: 2px solid white; }
   #section1 .carousel .carousel-inner {
     height: 100%;
-    width: 100%;
-    /*		.carousel-item:nth-child(1) {
-    	background-image: url('/public/sangmin/img/background/bg1.jpg');
-    }
-    .carousel-item:nth-child(2) {
-    	background-image: url('/public/sangmin/img/background/bg2.jpg');
-    }
-    .carousel-itemdiv:nth-child(3) {
-    	background-image: url('/public/sangmin/img/background/bg3.jpg');
-    }*/ }
+    width: 100%; }
     #section1 .carousel .carousel-inner .carousel-item {
       position: relative;
       width: 100%;
       height: 100%;
-      padding: 30px;
+      padding: 15px;
       background-size: cover;
       background-position: center; }
       @media (min-width: 992px) {
@@ -1981,7 +1972,7 @@ body {
         color: white; }
         #section1 .carousel .carousel-inner .carousel-item .content-box .title h1 {
           font-family: 'TmonMonsori';
-          font-size: 4rem;
+          font-size: 3rem;
           margin-bottom: 20px; }
         #section1 .carousel .carousel-inner .carousel-item .content-box .title p {
           margin-bottom: 20px; }
@@ -2008,7 +1999,6 @@ body {
   width: 15%;
   left: 84%;
   max-width: 200px;
-  min-width: 100px;
   color: white; }
 
 body > .main-section {
@@ -2018,22 +2008,39 @@ body > .main-section {
 
 #bg-div {
   color: white;
-  z-index: 1;
+  z-index: -9999;
   position: fixed !important;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url("../img/background/hero-image.jpg"); }
+  background-image: url("../img/background/hero-image.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; }
   #bg-div::after {
     content: '';
-    z-index: -1;
+    z-index: -9999;
     top: 0;
     right: 0;
     position: absolute;
     height: 100%;
-    background-color: rgba(32, 32, 32, 0.8);
+    background-color: rgba(32, 32, 32, 0.5);
     width: 100%; }
+
+.main-section-title {
+  color: white;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  position: relative; }
+  .main-section-title::before {
+    content: '';
+    width: 25px;
+    top: 0;
+    margin-bottom: 20px;
+    position: absolute;
+    border-top: 4px solid white; }
 
 #detail-header {
   color: white;

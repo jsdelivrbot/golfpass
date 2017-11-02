@@ -11,39 +11,12 @@
     <link rel="stylesheet" href="public/sangmin/dist/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
     <link rel="stylesheet" href="public/sangmin/css/eric-meyer-reset.min.css">
-    <link rel="stylesheet" href="public/sangmin/css/main.css">
+    <link rel="stylesheet" href="public/css/main.css">
 
     <style>
         ::-webkit-scrollbar {
             display: none;
         }
-
-        #bg-div {
-            color: white;
-            z-index: -9999; //overflow-x: hidden;
-            position: fixed !important;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-
-            background-position: center;
-            background-size: cover;
-            background-repeat: no-repeat;
-
-        }
-
-        #bg-div::after {
-            content: '';
-            z-index: -9999;
-            top: 0;
-            right: 0;
-            position: absolute;
-            height: 100%;
-            background-color: rgba(32, 32, 32, 0.5);
-            width: 100%;
-        }
-
     </style>
 </head>
 
@@ -72,10 +45,10 @@
         <!--NOTE desktop,tablet nav-->
         <nav id='md-nav' class="row no-gutters justify-content align-items-stretch d-none d-sm-flex">
             <div id="logo" class='col-6 d-flex align-items-center'>
-                <figure class="d-flex align-items-center d-lg-none">
+                <figure class="mb-0 d-flex align-items-center d-lg-none">
                     <img src="public/sangmin/img/icon/logo_mobile.png" class="" alt="">
                 </figure>
-                <figure class="align-items-center d-none d-lg-flex">
+                <figure class="mb-0 align-items-center d-none d-lg-flex">
                     <img src="public/sangmin/img/icon/logo.png" class="" alt="">
                 </figure>
                 <div id="search" class="d-flex align-items-center">
@@ -86,11 +59,11 @@
             <div id='nav-icon-box' class="col-5 col-lg-4 d-flex justify-content-end">
                 <div id="login" class="d-flex align-items-center">
                     <span><i class="xi xi-lock"></i></span>
-                    <p>로그인</p>
+                    <p class="mb-0">로그인</p>
                 </div>
                 <div id="join" class="d-flex align-items-center">
                     <span><i class="xi xi-user-plus"></i></span>
-                    <p>회원가입</p>
+                    <p class="mb-0">회원가입</p>
                 </div>
             </div>
             <div id="toggle" class="col-1 col-lg-2 ml-auto">
@@ -166,104 +139,435 @@
 
         </section>
     </section>
-    <section id="section2" class="main-section scroll-smooth d-flex align-items-end" style="background-color: transparent;">
-        <article class="w-100">
-            <h4 class="display-4">
-                나라별 골프장
-            </h4>
-            <ul class="w-100 d-flex justify-content-around">
-                <li>
-                    <img src="public/sangmin/img/pc_golf_course_1.jpg" alt="">
-                </li>
-                <li>
-                    <img src="public/sangmin/img/pc_golf_course_2.jpg" alt="">
-                </li>
-                <li>
-                    <img src="public/sangmin/img/pc_golf_course_3.jpg" alt="">
-                </li>
-                <li>
-                    <img src="public/sangmin/img/pc_golf_course_4.jpg" alt="">
-                </li>
-                <li>
-                    <img src="public/sangmin/img/pc_golf_course_5.jpg" alt="">
-                </li>
-                <li>
-                    <img src="public/sangmin/img/pc_golf_course_6.jpg" alt="">
-                </li>
-            </ul>
-        </article>
-    </section>
-    <section id="section3" class="main-section container-fluid d-flex align-items-end" style="background-color: transparent;">
-        <article class="w-100">
-            <h4 class="display-4">
-                테마별 골프장
-            </h4>
-            <div class="row no-gutters">
-                <div class="col-6">
-                    <img src="public/sangmin/img/theme_img1.jpg" alt="" width="100%">
-                </div>
-                <div class="col-6">
-                    <div class="row no-gutters">
-                        <div class="col-6">
-                            <img src="public/sangmin/img/theme_img2.jpg" alt="" width="100%">
-                        </div>
-                        <div class="col-6">
-                            <img src="public/sangmin/img/theme_img3.jpg" alt="" width="100%">
-                        </div>
-                    </div>
-                    <div class="row no-gutters">
-                        <div class="col-6">
-                            <img src="public/sangmin/img/theme_img4.jpg" alt="" width="100%">
-                        </div>
-                        <div class="col-6">
-                            <img src="public/sangmin/img/theme_img5.jpg" alt="" width="100%">
-                        </div>
-                    </div>
-                </div>
+    <section id="section2" class="main-section scroll-smooth container-fluid d-flex align-items-center" style="background-color: transparent;">
+        <article class="w-100 p-xl-4">
+            <div class="row no-gutters main-section-title mb-5">
+                <h4>나라별 골프장</h4>
             </div>
-        </article>
-    </section>
-    <section id="section4" class="main-section container-fluid d-flex align-items-end" style="background-color: transparent;">
-        <article class="w-100">
-            <h4 class="display-4">
-                골프패스 패널 소개
-            </h4>
-            <div class="row no-gutters">
-                <div class="col-2">
-                    <img src="public/sangmin/img/profile/pic.jpg" alt="">
+            <div class="row flex-column d-md-none ">
+                <div class="col-12 d-flex justify-content-center mb-2">
+                    <img src="public/sangmin/img/golf_course_1.jpg" alt="">
                 </div>
-                <div class="col-10">
-                    <p>김지윤</p>
-                    <p>아동병원을 운영하고 있는 소아과의사 입니다. 인문학을 좋아하여 책을읽고 글을 써서 나누고 있습니다.</p>
-                </div>
-            </div>
-            <div class="row no-gutters">
-                <div class="col-2">
-                    <img src="public/sangmin/img/profile/pic.jpg" alt="">
-                </div>
-                <div class="col-10">
-                    <p>김지윤</p>
-                    <p>아동병원을 운영하고 있는 소아과의사 입니다. 인문학을 좋아하여 책을읽고 글을 써서 나누고 있습니다.</p>
-                </div>
-            </div>
-            <div class="row no-gutters">
-                <div class="col-2">
-                    <img src="public/sangmin/img/profile/pic.jpg" alt="">
-                </div>
-                <div class="col-10">
-                    <p>김지윤</p>
-                    <p>아동병원을 운영하고 있는 소아과의사 입니다. 인문학을 좋아하여 책을읽고 글을 써서 나누고 있습니다.</p>
-                </div>
-            </div>
-        </article>
-    </section>
-    <section id="section5" class="main-section container-fluid d-flex align-items-center" style="background-color: transparent;">
-        <article class="w-100">
-            <div class="row no-gutters">
-                <div class="col-12" style='height: 500px; background-color: orange'>
+                <div class="col-12 d-flex justify-content-center mb-2">
+                    <img src="public/sangmin/img/golf_course_1.jpg" alt="">
 
                 </div>
+                <div class="col-12 d-flex justify-content-center mb-2">
+                    <img src="public/sangmin/img/golf_course_1.jpg" alt="">
+
+                </div>
+                <div class="col-12 d-flex justify-content-center mb-2">
+                    <img src="public/sangmin/img/golf_course_1.jpg" alt="">
+                </div>
             </div>
+            <div class="row d-none d-md-flex">
+                <div class="col-2">
+                    <img src="public/sangmin/img/pc_golf_course_1.jpg" alt="" width="100%" style="max-width: 219px;">
+                </div>
+                <div class="col-2">
+                    <img src="public/sangmin/img/pc_golf_course_2.jpg" alt="" width="100%" style="max-width: 219px;">
+                </div>
+                <div class="col-2">
+                    <img src="public/sangmin/img/pc_golf_course_3.jpg" alt="" width="100%" style="max-width: 219px;">
+                </div>
+                <div class="col-2">
+                    <img src="public/sangmin/img/pc_golf_course_4.jpg" alt="" width="100%" style="max-width: 219px;">
+                </div>
+                <div class="col-2">
+                    <img src="public/sangmin/img/pc_golf_course_5.jpg" alt="" width="100%" style="max-width: 219px;">
+                </div>
+                <div class="col-2">
+                    <img src="public/sangmin/img/pc_golf_course_6.jpg" alt="" width="100%" style="max-width: 219px;">
+                </div>
+            </div>
+        </article>
+    </section>
+    <section id="section3" class="mb-5 container-fluid align-items-center d-none d-lg-flex" style="background-color: transparent;">
+        <article class="w-100 p-xl-4">
+            <div class="row no-gutters main-section-title mb-5">
+                <h4>골프패스 패널이 추천하는 골프장</h4>
+            </div>
+            <div class="row d-none d-md-flex">
+                <div class="col-3">
+                    <figure>
+                        <div class="position-relative">
+                            <img class='rounded-top' src="public/sangmin/img/background/bg1.jpg" alt="" width="100%">
+                            <span class="position-absolute text-light" style="bottom: 20px; left: 20px; font-size: 1.5rem;">319,000원</span>
+                        </div>
+                        <div class="d-flex align-items-end p-1 text-light rounded-top" style="background-color:#06adef;">
+                            <i class="xi-marker-check"></i>
+                            <p style="font-size: 0.8rem;" class=" mb-0 "> 골프장과 숙박 시설이 함께 있는 상품입니다.</p>
+                        </div>
+                        <figcaption class="rounded-bottom d-flex align-items-center justify-content-between p-3 bg-light">
+                            <div>
+                                <h3 style="color:#4d4d4d;font-size: 1.3rem; font-weight: bold;">앙시나 골프텔</h3>
+                                <p class="mb-0" style="color:#808080;">Angsana golftel</p>
+                            </div>
+                            <div class="d-flex flex-column align-items-center">
+                                <span style="font-size: 2rem; color:#fcbf3f;"><i class="xi-star"></i></span>
+                                <span>4.7</span>
+                            </div>
+                        </figcaption>
+                    </figure>
+                </div>
+                <div class="col-3">
+                    <figure>
+                        <div class="position-relative">
+                            <img class='rounded-top' src="public/sangmin/img/background/bg1.jpg" alt="" width="100%">
+                            <span class="position-absolute text-light" style="bottom: 20px; left: 20px; font-size: 1.5rem;">319,000원</span>
+                        </div>
+                        <div class="d-flex align-items-end p-1 text-light rounded-top" style="background-color:#06adef;">
+                            <i class="xi-marker-check"></i>
+                            <p style="font-size: 0.8rem;" class=" mb-0 "> 골프장과 숙박 시설이 함께 있는 상품입니다.</p>
+                        </div>
+                        <figcaption class="rounded-bottom d-flex align-items-center justify-content-between p-3 bg-light">
+                            <div>
+                                <h3 style="color:#4d4d4d;font-size: 1.3rem; font-weight: bold;">앙시나 골프텔</h3>
+                                <p class="mb-0" style="color:#808080;">Angsana golftel</p>
+                            </div>
+                            <div class="d-flex flex-column align-items-center">
+                                <span style="font-size: 2rem; color:#fcbf3f;"><i class="xi-star"></i></span>
+                                <span>4.7</span>
+                            </div>
+                        </figcaption>
+                    </figure>
+                </div>
+                <div class="col-3">
+                    <figure>
+                        <div class="position-relative">
+                            <img class='rounded-top' src="public/sangmin/img/background/bg1.jpg" alt="" width="100%">
+                            <span class="position-absolute text-light" style="bottom: 20px; left: 20px; font-size: 1.5rem;">319,000원</span>
+                        </div>
+                        <div class="d-flex align-items-end p-1 text-light rounded-top" style="background-color:#06adef;">
+                            <i class="xi-marker-check"></i>
+                            <p style="font-size: 0.8rem;" class=" mb-0 "> 골프장과 숙박 시설이 함께 있는 상품입니다.</p>
+                        </div>
+                        <figcaption class="rounded-bottom d-flex align-items-center justify-content-between p-3 bg-light">
+                            <div>
+                                <h3 style="color:#4d4d4d;font-size: 1.3rem; font-weight: bold;">앙시나 골프텔</h3>
+                                <p class="mb-0" style="color:#808080;">Angsana golftel</p>
+                            </div>
+                            <div class="d-flex flex-column align-items-center">
+                                <span style="font-size: 2rem; color:#fcbf3f;"><i class="xi-star"></i></span>
+                                <span>4.7</span>
+                            </div>
+                        </figcaption>
+                    </figure>
+                </div>
+                <div class="col-3">
+                    <figure>
+                        <div class="position-relative">
+                            <img class='rounded-top' src="public/sangmin/img/background/bg1.jpg" alt="" width="100%">
+                            <span class="position-absolute text-light" style="bottom: 20px; left: 20px; font-size: 1.5rem;">319,000원</span>
+                        </div>
+                        <div class="d-flex align-items-end p-1 text-light rounded-top" style="background-color:#06adef;">
+                            <i class="xi-marker-check"></i>
+                            <p style="font-size: 0.8rem;" class=" mb-0 ">골프장과 숙박 시설이 함께 있는 상품입니다.</p>
+                        </div>
+                        <figcaption class="rounded-bottom d-flex align-items-center justify-content-between p-3 bg-light">
+                            <div>
+                                <h3 style="color:#4d4d4d;font-size: 1.3rem; font-weight: bold;">앙시나 골프텔</h3>
+                                <p class="mb-0" style="color:#808080;">Angsana golftel</p>
+                            </div>
+                            <div class="d-flex flex-column align-items-center">
+                                <span style="font-size: 2rem; color:#fcbf3f;"><i class="xi-star"></i></span>
+                                <span>4.7</span>
+                            </div>
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+        </article>
+    </section>
+    <section id="section4" class="mb-5 container-fluid d-flex align-items-center" style="background-color: transparent;">
+        <article class="w-100 p-xl-4">
+            <div class="row no-gutters main-section-title mb-5">
+                <h4>테마별 골프장</h4>
+            </div>
+            <div class="row flex-column d-md-none ">
+                <div class="col-12 d-flex justify-content-center mb-2">
+                    <img src="public/sangmin/img/golf_theme_1.jpg" alt="">
+                </div>
+                <div class="col-12 d-flex justify-content-center mb-2">
+                    <img src="public/sangmin/img/golf_theme_1.jpg" alt="">
+                </div>
+                <div class="col-12 d-flex justify-content-center mb-2">
+                    <img src="public/sangmin/img/golf_theme_1.jpg" alt="">
+                </div>
+                <div class="col-12 d-flex justify-content-center mb-2">
+                    <img src="public/sangmin/img/golf_theme_1.jpg" alt="">
+                </div>
+            </div>
+            <div class="row no-gutters d-none d-md-flex">
+                <div class="col-6 position-relative ">
+                    <img src="public/sangmin/img/theme_img1.jpg" alt="" width="100%">
+                    <div class='position-absolute text-light' style="left: 3%; bottom: 5%;">
+                        <h3>이달의 인기 코스</h3>
+                        <p>
+                            트렌디한 코스를 경험하고 싶다면
+                        </p>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="row no-gutters">
+                        <div class="col-6 position-relative">
+                            <img src="public/sangmin/img/theme_img2.jpg" alt="" width="100%">
+                            <div class='position-absolute text-light' style="left: 3%; bottom: 5%;">
+                                <h3>골프+숙박 패키지</h3>
+                                <p>
+                                    원클릭으로 여행 플랜 완성!
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-6 position-relative">
+                            <img src="public/sangmin/img/theme_img3.jpg" alt="" width="100%">
+                            <div class='position-absolute text-light' style="left: 3%; bottom: 5%;">
+                                <h3>2인 플레이</h3>
+                                <p>
+                                    2인 플레이에 딱 맞는 코스
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-6 position-relative">
+                            <img src="public/sangmin/img/theme_img4.jpg" alt="" width="100%">
+                            <div class='position-absolute text-light' style="left: 3%; bottom: 5%;">
+                                <h3>시설이 고저스한</h3>
+                                <p>
+                                    여행은 잠자리가 편해야지
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-6 position-relative">
+                            <img src="public/sangmin/img/theme_img5.jpg" alt="" width="100%">
+                            <div class='position-absolute text-light' style="left: 3%; bottom: 5%;">
+                                <h3>토너먼트 개최 코스</h3>
+                                <p>
+                                    평론가에게 인정받은
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </section>
+    <section id="section5" class="mb-5 d-none d-md-block container-fluid d-flex align-items-center" style="background-color: transparent;">
+        <article class="w-100 p-xl-4">
+            <div class="row no-gutters main-section-title mb-5">
+                <h4>순위별 골프장</h4>
+            </div>
+            <div class="d-flex mb-5">
+                <button class="btn btn-outline-light mr-3 btn-sm" style="border-radius: 40px">#평점이 높은 코스</button>
+                <button class="btn btn-outline-light mr-3 btn-sm" style="border-radius: 40px">#전략성이 요구되는 코스</button>
+                <button class="btn btn-outline-light mr-3 btn-sm" style="border-radius: 40px">#식사가 맛있는 코스</button>
+                <button class="btn btn-outline-light mr-3 btn-sm" style="border-radius: 40px">#가성비 좋은 코스</button>
+                <button class="btn btn-outline-light mr-3 btn-sm" style="border-radius: 40px">#시설이 화려한 코스</button>
+            </div>
+            <div class="row">
+                <div class="col-12 col-lg-6">
+                    <div class="d-flex align-items-center rounded p-4 mb-3" style="height: 150px; background-image: url(public/sangmin/img/background/bg1.jpg)">
+                        <div class='d-flex align-items-center justify-content-center bg-light rounded-circle' style="width: 40px; height: 40px; font-size: 1.5rem;"><span style="opacity: 0.4">1</span></div>
+                        <div class="d-flex flex-column ml-4 text-light">
+                            <h1 style='font-size: 1.8rem;'>힐데스 하임 CC</h1>
+                            <span style='font-size: .9rem;'>언노운 호텔 추석 연휴 패키지</span>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center rounded p-4 mb-3" style="height: 150px; background-image: url(public/sangmin/img/background/bg1.jpg)">
+                        <div class='d-flex align-items-center justify-content-center bg-light rounded-circle' style="width: 40px; height: 40px; font-size: 1.5rem;"><span style="opacity: 0.4">1</span></div>
+                        <div class="d-flex flex-column ml-4 text-light">
+                            <h1 style='font-size: 1.8rem;'>힐데스 하임 CC</h1>
+                            <span style='font-size: .9rem;'>언노운 호텔 추석 연휴 패키지</span>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center rounded p-4 mb-3" style="height: 150px; background-image: url(public/sangmin/img/background/bg1.jpg)">
+                        <div class='d-flex align-items-center justify-content-center bg-light rounded-circle' style="width: 40px; height: 40px; font-size: 1.5rem;"><span style="opacity: 0.4">1</span></div>
+                        <div class="d-flex flex-column ml-4 text-light">
+                            <h1 style='font-size: 1.8rem;'>힐데스 하임 CC</h1>
+                            <span style='font-size: .9rem;'>언노운 호텔 추석 연휴 패키지</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <ul class="list-unstyled">
+                        <li class='p-3 text-light' style="border-bottom: 1px solid #818589;">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <p class='mb-0' style="font-size: 1.1rem;font-weight: bold"><span class='mr-3 ml-2'>4</span> 힐데스 하임 CC</p>
+                                </div>
+                                <div style='color:#999d9f '>
+                                    <span>베트남,호치민</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class='p-3 text-light' style="border-bottom: 1px solid #818589;">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <p class='mb-0' style="font-size: 1.1rem;font-weight: bold"><span class='mr-3 ml-2'>4</span> 힐데스 하임 CC</p>
+                                </div>
+                                <div style='color:#999d9f '>
+                                    <span>베트남,호치민</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class='p-3 text-light' style="border-bottom: 1px solid #818589;">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <p class='mb-0' style="font-size: 1.1rem;font-weight: bold"><span class='mr-3 ml-2'>4</span> 힐데스 하임 CC</p>
+                                </div>
+                                <div style='color:#999d9f '>
+                                    <span>베트남,호치민</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class='p-3 text-light' style="border-bottom: 1px solid #818589;">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <p class='mb-0' style="font-size: 1.1rem;font-weight: bold"><span class='mr-3 ml-2'>4</span> 힐데스 하임 CC</p>
+                                </div>
+                                <div style='color:#999d9f '>
+                                    <span>베트남,호치민</span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </article>
+    </section>
+    <section id="section6" class="mb-5 container-fluid align-items-center d-none d-md-flex" style="background-color: transparent;">
+        <article class="w-100 p-xl-4">
+            <div class="row no-gutters main-section-title">
+                <h4>골프패스 패널 소개</h4>
+            </div>
+            <div class="row no-gutters justify-content-start">
+                <div class="col-12 col-xl-6 mb-4">
+                    <div class="d-flex justify-content-lg-center">
+                        <div class="col-2 mr-xl-1 p-0 d-flex justify-content-start justify-content-xl-center">
+                            <img src="public/sangmin/img/profile/pic.jpg" class="rounded" alt="" height="110px">
+                        </div>
+                        <div class="col-10 col-xl-10 bg-light rounded d-flex flex-column justify-content-center align-middle position-relative">
+                            <div class="position-absolute bg-light" style=" -ms-transform: rotate(45deg); /* IE 9 */
+    -webkit-transform: rotate(45deg); /* Safari */
+    transform: rotate(45deg); width: 40px;height: 40px;left: 0%; z-index: -1;">
+                            </div>
+                            <h4 class="mb-1" style="font-size: 1.1rem; font-weight: bold; color:#545454;">김지윤</h4>
+                            <p class="mb-0" style='max-width: 400px; font-size: 0.9rem; color:#a5a5a5;'>아동병원을 운영하고 있는 소아과의사입니다. 인문학을 좋아하여 책을 읽고 글을 써서 나누고 </p>
+                            <div class="position-absolute" style="top: 20%; right: 5%;">
+                                <span style="color:#959595; font-size: 0.75rem;">
+                                <i class="xi-pen"></i> 273개
+                            </span></div>
+                        </div>
+                    </div>
+                </div><div class="col-12 col-xl-6 mb-4">
+                    <div class="d-flex justify-content-lg-center">
+                        <div class="col-2 mr-xl-1 p-0 d-flex justify-content-start justify-content-xl-center">
+                            <img src="public/sangmin/img/profile/pic.jpg" class="rounded" alt="" height="110px">
+                        </div>
+                        <div class="col-10 col-xl-10 bg-light rounded d-flex flex-column justify-content-center align-middle position-relative">
+                            <div class="position-absolute bg-light" style=" -ms-transform: rotate(45deg); /* IE 9 */
+    -webkit-transform: rotate(45deg); /* Safari */
+    transform: rotate(45deg); width: 40px;height: 40px;left: 0%; z-index: -1;">
+                            </div>
+                            <h4 class="mb-1" style="font-size: 1.1rem; font-weight: bold; color:#545454;">김지윤</h4>
+                            <p class="mb-0" style='max-width: 400px; font-size: 0.9rem; color:#a5a5a5;'>아동병원을 운영하고 있는 소아과의사입니다. 인문학을 좋아하여 책을 읽고 글을 써서 나누고 </p>
+                            <div class="position-absolute" style="top: 20%; right: 5%;">
+                                <span style="color:#959595; font-size: 0.75rem;">
+                                <i class="xi-pen"></i> 273개
+                            </span></div>
+                        </div>
+                    </div>
+                </div><div class="col-12 col-xl-6 mb-4">
+                    <div class="d-flex justify-content-lg-center">
+                        <div class="col-2 mr-xl-1 p-0 d-flex justify-content-start justify-content-xl-center">
+                            <img src="public/sangmin/img/profile/pic.jpg" class="rounded" alt="" height="110px">
+                        </div>
+                        <div class="col-10 col-xl-10 bg-light rounded d-flex flex-column justify-content-center align-middle position-relative">
+                            <div class="position-absolute bg-light" style=" -ms-transform: rotate(45deg); /* IE 9 */
+    -webkit-transform: rotate(45deg); /* Safari */
+    transform: rotate(45deg); width: 40px;height: 40px;left: 0%; z-index: -1;">
+                            </div>
+                            <h4 class="mb-1" style="font-size: 1.1rem; font-weight: bold; color:#545454;">김지윤</h4>
+                            <p class="mb-0" style='max-width: 400px; font-size: 0.9rem; color:#a5a5a5;'>아동병원을 운영하고 있는 소아과의사입니다. 인문학을 좋아하여 책을 읽고 글을 써서 나누고 </p>
+                            <div class="position-absolute" style="top: 20%; right: 5%;">
+                                <span style="color:#959595; font-size: 0.75rem;">
+                                <i class="xi-pen"></i> 273개
+                            </span></div>
+                        </div>
+                    </div>
+                </div><div class="col-12 col-xl-6 mb-4">
+                    <div class="d-flex justify-content-lg-center">
+                        <div class="col-2 mr-xl-1 p-0 d-flex justify-content-start justify-content-xl-center">
+                            <img src="public/sangmin/img/profile/pic.jpg" class="rounded" alt="" height="110px">
+                        </div>
+                        <div class="col-10 col-xl-10 bg-light rounded d-flex flex-column justify-content-center align-middle position-relative">
+                            <div class="position-absolute bg-light" style=" -ms-transform: rotate(45deg); /* IE 9 */
+    -webkit-transform: rotate(45deg); /* Safari */
+    transform: rotate(45deg); width: 40px;height: 40px;left: 0%; z-index: -1;">
+                            </div>
+                            <h4 class="mb-1" style="font-size: 1.1rem; font-weight: bold; color:#545454;">김지윤</h4>
+                            <p class="mb-0" style='max-width: 400px; font-size: 0.9rem; color:#a5a5a5;'>아동병원을 운영하고 있는 소아과의사입니다. 인문학을 좋아하여 책을 읽고 글을 써서 나누고 </p>
+                            <div class="position-absolute" style="top: 20%; right: 5%;">
+                                <span style="color:#959595; font-size: 0.75rem;">
+                                <i class="xi-pen"></i> 273개
+                            </span></div>
+                        </div>
+                    </div>
+                </div><div class="col-12 col-xl-6 mb-4">
+                    <div class="d-flex justify-content-lg-center">
+                        <div class="col-2 mr-xl-1 p-0 d-flex justify-content-start justify-content-xl-center">
+                            <img src="public/sangmin/img/profile/pic.jpg" class="rounded" alt="" height="110px">
+                        </div>
+                        <div class="col-10 col-xl-10 bg-light rounded d-flex flex-column justify-content-center align-middle position-relative">
+                            <div class="position-absolute bg-light" style=" -ms-transform: rotate(45deg); /* IE 9 */
+    -webkit-transform: rotate(45deg); /* Safari */
+    transform: rotate(45deg); width: 40px;height: 40px;left: 0%; z-index: -1;">
+                            </div>
+                            <h4 class="mb-1" style="font-size: 1.1rem; font-weight: bold; color:#545454;">김지윤</h4>
+                            <p class="mb-0" style='max-width: 400px; font-size: 0.9rem; color:#a5a5a5;'>아동병원을 운영하고 있는 소아과의사입니다. 인문학을 좋아하여 책을 읽고 글을 써서 나누고 </p>
+                            <div class="position-absolute" style="top: 20%; right: 5%;">
+                                <span style="color:#959595; font-size: 0.75rem;">
+                                <i class="xi-pen"></i> 273개
+                            </span></div>
+                        </div>
+                    </div>
+                </div><div class="col-12 col-xl-6 mb-4">
+                    <div class="d-flex justify-content-lg-center">
+                        <div class="col-2 mr-xl-1 p-0 d-flex justify-content-start justify-content-xl-center">
+                            <img src="public/sangmin/img/profile/pic.jpg" class="rounded" alt="" height="110px">
+                        </div>
+                        <div class="col-10 col-xl-10 bg-light rounded d-flex flex-column justify-content-center align-middle position-relative">
+                            <div class="position-absolute bg-light" style=" -ms-transform: rotate(45deg); /* IE 9 */
+    -webkit-transform: rotate(45deg); /* Safari */
+    transform: rotate(45deg); width: 40px;height: 40px;left: 0%; z-index: -1;">
+                            </div>
+                            <h4 class="mb-1" style="font-size: 1.1rem; font-weight: bold; color:#545454;">김지윤</h4>
+                            <p class="mb-0" style='max-width: 400px; font-size: 0.9rem; color:#a5a5a5;'>아동병원을 운영하고 있는 소아과의사입니다. 인문학을 좋아하여 책을 읽고 글을 써서 나누고 </p>
+                            <div class="position-absolute" style="top: 20%; right: 5%;">
+                                <span style="color:#959595; font-size: 0.75rem;">
+                                <i class="xi-pen"></i> 273개
+                            </span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center align-items-center">
+                <a href="#" class="d-flex justify-content-center align-items-center" style="text-decoration: none;">
+                    <p class="mb-0 text-light mr-3">
+                        전체 패널 보러가기
+                    </p>
+                    <span style='width: 30px;height: 30px' class="rounded-circle bg-light d-flex align-items-center justify-content-center"><i class="xi xi-angle-right text-dark"></i></span>
+                </a>
+            </div>
+        </article>
+    </section>
+ <section id="section7" class="mb-5 container-fluid align-items-center d-none d-lg-flex" style="background-color: transparent;">
+        <article class="w-100 p-xl-4">
+           <div class="row" style=" background-color: orchid; height: 600px;" >
+               
+               
+           </div>
+           
+          
         </article>
     </section>
     <footer id='main-footer' class='d-flex flex-wrap'>
@@ -339,12 +643,12 @@
                         moveTop = $(this).next().offset().top;
                     }
                 }
-                  $("html,body").stop().animate({
-                        scrollTop: moveTop + 'px'
-                    }, {
-                        duration: 900,
-                        complete: function() {}
-                    });
+                $("html,body").stop().animate({
+                    scrollTop: moveTop + 'px'
+                }, {
+                    duration: 900,
+                    complete: function() {}
+                });
             });
             $('#section2').on("mousewheel DOMMouseScroll", function(e) {
                 var delta = 0;
@@ -379,11 +683,11 @@
                 }
             });
             $('#bg-div').css('background-image', $(".carousel-item.active").css("background-image"));
-            $('#section1-slide').on('slide.bs.carousel', function() {
-                $('#bg-div').css('background-image', $(this).children().children(".carousel-item.active").next().css("background-image"));
+            $('#section1-slide').on('slid.bs.carousel', function() {
+                $('#bg-div').css('background-image', $(this).children().children(".carousel-item.active").css("background-image"));
+
             })
         })
-
     </script>
 
 </body>
