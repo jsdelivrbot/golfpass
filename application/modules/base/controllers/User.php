@@ -95,7 +95,8 @@ class User extends Base_Controller
         $this->fv->set_rules('userName', '아이디', 'required|is_unique[users.userName]|min_length[2]|max_length[10]', array('is_unique'=>"$userName 는(은) 이미 존재합니다"));
         $this->fv->set_rules('password', '암호', 'required|matches[re_password]|min_length[4]|max_length[20]', array('matches'=>'비밀번호가 일치 하지 않습니다.'));
         $this->fv->set_rules('re_password', '암호확인', 'required|min_length[4]|max_length[20]');
-        $this->fv->set_rules('email', '이메일', 'required|valid_email|is_unique[users.email]|min_length[1]|max_length[30]', array('is_unique'=>'%s이 이미 존재합니다'));
+        $this->fv->set_rules('phone', '연락처', 'required|min_length[1]|max_length[20]');
+        // $this->fv->set_rules('email', '이메일', 'required|valid_email|is_unique[users.email]|min_length[1]|max_length[30]', array('is_unique'=>'%s이 이미 존재합니다'));
         $this->_set_rules();
        
         if ($this->fv->run()=== false) {
@@ -201,26 +202,27 @@ class User extends Base_Controller
         $this->db->set('birth', $birth);
       
         $this->db->set('profilePhoto',$this->input->post('profilePhoto'));
+        $this->db->set('email',$this->input->post('email'));
         
         $this->db->set('created', 'NOW()', false);
     }
 
     function _set_rules(){
-//         $this->fv->set_rules('postal_number', '우편번호', 'required',array('required'=>'주소를 검색선택해주세요.'));
-//         $this->fv->set_rules('address', '기본주소', 'required');
-//         $this->fv->set_rules('address_more', '상세주소', 'required');
-//         $this->fv->set_rules('name', '이름', 'required|min_length[1]|max_length[15]');
-//         $this->fv->set_rules('name', '이름',array('required','min_length[1]','max_length[15]',
-//     array("해당 닉네임으로 지정할수 없습니다.",function($str){
-//         if(strpos($str,"운영자") > -1 || strpos($str,"손님") > -1 || strpos($str,"admin") > -1){
-//             return false;
-//         }
-//         return true;
-//     })
-// ));
-//         $this->fv->set_rules('sex', '성별', 'required|min_length[1]|max_length[5]',array('required'=>'%s을 선택해주세요'));
-//         $this->fv->set_rules('phone', '연락처', 'required|min_length[1]|max_length[20]');
-        
+        $this->fv->set_rules('postal_number', '우편번호', 'required',array('required'=>'주소를 검색선택해주세요.'));
+        $this->fv->set_rules('address', '기본주소', 'required');
+        $this->fv->set_rules('address_more', '상세주소', 'required');
+        $this->fv->set_rules('name', '이름', 'required|min_length[1]|max_length[15]');
+        $this->fv->set_rules('name', '이름',array('required','min_length[1]','max_length[15]',
+    array("해당 닉네임으로 지정할수 없습니다.",function($str){
+        if(strpos($str,"운영자") > -1 || strpos($str,"손님") > -1 || strpos($str,"admin") > -1){
+            return false;
+        }
+        return true;
+    })
+));
+        $this->fv->set_rules('sex', '성별', 'required|min_length[1]|max_length[5]',array('required'=>'%s을 선택해주세요'));
+     
+        // $this->fv->set_rules('phone', '연락처', 'required|min_length[1]|max_length[20]');
     }
     function email_auth()
     {
