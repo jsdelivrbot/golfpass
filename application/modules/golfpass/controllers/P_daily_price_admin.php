@@ -50,6 +50,12 @@ class P_daily_price_admin extends Admin_Controller
             $this->db->where("d_p.product_id",$product_id);
             $maxium_num_peple = $this->db->get()->row()->maxium_num_peple;
             $data['maxium_num_peple'] = $maxium_num_peple;
+            
+            $data['num_period'] = 5;
+
+            $data['year'] = $year;
+
+            $data['start_plus'] = 1;
 
             $data["product"] = $this->db->where('id',$product_id)->get("products")->row();
 

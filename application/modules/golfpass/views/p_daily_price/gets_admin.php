@@ -95,70 +95,148 @@
 <style>
   table {
     width: 100%;
-    border: 1px solid #444444;
+    /* border: 1px solid #444444; */
     border-collapse: collapse;
   }
   th, td {
     border: 1px solid #444444;
     padding: 10px;
   }
+  .green{
+      background-color:rgba(0,200,0,0.5);
+  }
 </style>
+
+
+
+1월
 <table>
 <tr>
-<td>
-    1
-</td>
-<td class="col" colspan=2>
-    2
-</td>
-<td class="col" colspan=2>
-    3
-</td>
+<td>1월</td>
+<td>2월</td>
+<td>3월</td>
+<td>4월</td>
+<td>5월</td>
+<td>6월</td>
+<td>7월</td>
+<td>8월</td>
+<td>9월</td>
+<td>10월</td>
+<td>11월</td>
+<td>12월</td>
 </tr>
-<tr class="dataset">
-    <td class="row" rowspan=4>1
+</table>
 
-    </td>
-    <td class="row" rowspan=4>2
 
-    </td>
-    <td  class="colspan" style="width:50px;">
-    2.5
+<table>
 
-    </td>
+<thead>
+<tr >
+    <th>
+        날자
+    </th>
+    <?php for($i=1 ; $i <= (int)$maxium_num_peple; $i++){?>
+    <th class="col" colspan=2>
+        <?=$i?>인
+    </th>
+<?php }?>
+</tr>
+</thead>
+<tbody>
 
-    <td class="row" rowspan=4>3</td>
+<?php 
+$tmp_month = "01";
+for($z= 0 ; $z < 366 ; $z++){
+// $date = date("${year}-01-01",strtotime ("+{$z} days"));    
+$date = strtotime("+{$z} day",strtotime("$year-01-01"));
+$date = date('Y-m-d', $date);
 
-    <td  class="colspan" style="width:50px;">
-    3.5
 
-    </td>
+if($tmp_month !== date('m', strtotime($date)))
+{
+    $tmp_month = date('m', strtotime($date));
+    ?>
+    </tbody>
+    </table>
+    <br>
+    <br>
+    <br>
+   <b><?=$tmp_month?>월</b>
+        
+    <table>
 
+    <thead>
+    <tr >
+        <th>
+            날자
+        </th>
+        <?php for($i=1 ; $i <= (int)$maxium_num_peple; $i++){?>
+        <th class="col" colspan=2>
+            <?=$i?>인
+        </th>
+    <?php }?>
+    </tr>
+    </thead>
+    <tbody>
+
+<?php
+}
+
+?>
+
+    <tr class="dataset">
+        <!-- 날짜 -->
+        <td class="row" rowspan=<?=$num_period?>><?=$date?></td> 
+        <!-- 날짜 -->
+
+        <!-- 명당 가격 시작 -->
+        <?php for($i=1 ; $i <= (int)$maxium_num_peple; $i++){?>
+        <!--1일 or 2일 가격 -->
+        <td  class="row <?=isset($price[$date][$i][1+$start_plus])?( $price[$date][$i][1+$start_plus] !=="0" ? "green" : "red") : "red"?>" rowspan=<?=$num_period?>><?=(0+$start_plus)."박".(1+$start_plus)."일"?><br><?=$price[$date][$i][1+$start_plus] ?? 0?></td>
+        <!--1일 or 2일 가격-->
+            <?php if($num_period !== 0){?>
+            <!-- 2일or 3일 가격 -->
+            <td  class="colspan <?=isset($price[$date][$i][2+$start_plus])?( $price[$date][$i][2+$start_plus] !=="0" ? "green" : "red") : "red"?>" style="width:50px;"><?=(1+$start_plus)."박".(2+$start_plus)."일"?><br><?=$price[$date][$i][2+$start_plus] ?? 0?></td>
+            <!-- 2일or 3일 가격 -->
+            <?php }?>
+        <?php }?>
+         <!-- 명당가격 끝 -->
+    </tr>
+
+    <!-- 기간별/명당 가격 -->
+    <?php for($i=1 ; $i < (int)$num_period; $i++){?>
+        <tr class="rowspan">
+        <?php for($j=1 ; $j <= (int)$maxium_num_peple; $j++){?>
+            <td class="<?=isset($price[$date][$j][$i+2+$start_plus])?( $price[$date][$j][$i+2+$start_plus] !=="0" ? "green" : "red") : "red"?>"><?=($i+1+$start_plus)."박".($i+2+$start_plus)."일"?><br><?=$price[$date][$j][$i+2+$start_plus] ?? 0?></td>
+            <?php }?>
+        </tr>
+    <?php }?>
+    <!-- 기간별/명당 가격 -->
+   
     
-
-</tr>
-
-<tr class="rowspan">
-    <td>2.6</td>
-    <td></td>
-</tr>
-<tr class="rowspan">
-    <td>2.7</td>
-    <td></td>
-</tr>
-<tr class="rowspan">
-    <td>2.7</td>
-    <td></td>
-</tr>
-
-<tr class="dataset">
-    <td class="row" >1</td>
-    <td class="row" >2</td>
-    <td class="colspan" >2.5</td>
-    <td class="row" >3</td>
-    <td class="colspan" style="width:50px;">
-    3.5
-    </td>
-</tr>
+<?php }?>
+</tbody>
 
 </table>
+
+<!-- 
+<script>    
+var tds = document.getElementsByTagName("td");
+
+
+for(var i = 0 ; i < tds.length ; i++)
+{
+    var text = tds[i].innerText
+    var startIdx =text.indexOf("일")
+    text=text.replace("\n","");
+    text=text.replace("<br>","");
+    text=text.replace("\r\n","");
+    text =text.substring(startIdx+1,text.length);
+
+    if(text === "0")
+    {
+        tds[i].style.color = "red";
+    }
+}
+
+</script> -->

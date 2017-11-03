@@ -25,7 +25,7 @@ class Test extends Public_Controller
         // $date = strtotime("+1 day", $date);
         // var_dump($date);
         // echo date('Y-m-d', $date);
-        // echo "+1 일:".date("2017-5-1",strtotime ("+1 days"));
+        echo "+1 일:".date("2017-05-01",strtotime ("+2 days"));
         // echo "<br>";
         // echo "+1 년".date("Y-m-d H:i:s",strtotime ("+1 years"));
         // echo "<br>";

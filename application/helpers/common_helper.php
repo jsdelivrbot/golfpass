@@ -213,3 +213,13 @@ if(!function_exists('get_time')){
         return ((float)$usec + (float)$sec);
     }
 }
+if(!function_exists('check_isset_zero')){
+    function check_isset_zero($data) {
+        if(isset($data) && $data !== 0)
+        {
+            return true;
+        }
+        return false;
+    }
+}
+
