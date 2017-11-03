@@ -107,15 +107,29 @@
   }
 </style>
 
-<?php for($m =1 ; $m<=12 ; $m++){
-$num_days = cal_days_in_month (CAL_GREGORIAN, $m,$year);  
-?>
-<br>
-<br>
-<br>
 
-<?="{$m}월"?>
+
+1월
 <table>
+<tr>
+<td>1월</td>
+<td>2월</td>
+<td>3월</td>
+<td>4월</td>
+<td>5월</td>
+<td>6월</td>
+<td>7월</td>
+<td>8월</td>
+<td>9월</td>
+<td>10월</td>
+<td>11월</td>
+<td>12월</td>
+</tr>
+</table>
+
+
+<table>
+
 <thead>
 <tr >
     <th>
@@ -128,13 +142,49 @@ $num_days = cal_days_in_month (CAL_GREGORIAN, $m,$year);
 <?php }?>
 </tr>
 </thead>
-
 <tbody>
 
-<?php for($d =1 ; $d <= $num_days ; $d++){
-$date = date("Y-m-d",strtotime("{$year}-{$m}-{$d}"));
+<?php 
+$tmp_month = "01";
+for($z= 0 ; $z < 366 ; $z++){
+// $date = date("${year}-01-01",strtotime ("+{$z} days"));    
+$date = strtotime("+{$z} day",strtotime("$year-01-01"));
+$date = date('Y-m-d', $date);
+
+
+if($tmp_month !== date('m', strtotime($date)))
+{
+    $tmp_month = date('m', strtotime($date));
+    ?>
+    </tbody>
+    </table>
+    <br>
+    <br>
+    <br>
+   <b><?=$tmp_month?>월</b>
+        
+    <table>
+
+    <thead>
+    <tr >
+        <th>
+            날자
+        </th>
+        <?php for($i=1 ; $i <= (int)$maxium_num_peple; $i++){?>
+        <th class="col" colspan=2>
+            <?=$i?>인
+        </th>
+    <?php }?>
+    </tr>
+    </thead>
+    <tbody>
+
+<?php
+}
+
 ?>
-<tr class="dataset">
+
+    <tr class="dataset">
         <!-- 날짜 -->
         <td class="row" rowspan=<?=$num_period?>><?=$date?></td> 
         <!-- 날짜 -->
@@ -161,8 +211,32 @@ $date = date("Y-m-d",strtotime("{$year}-{$m}-{$d}"));
             <?php }?>
         </tr>
     <?php }?>
-       <!-- 기간별/명당 가격 -->
+    <!-- 기간별/명당 가격 -->
+   
+    
 <?php }?>
 </tbody>
+
 </table>
-<?php }?>
+
+<!-- 
+<script>    
+var tds = document.getElementsByTagName("td");
+
+
+for(var i = 0 ; i < tds.length ; i++)
+{
+    var text = tds[i].innerText
+    var startIdx =text.indexOf("일")
+    text=text.replace("\n","");
+    text=text.replace("<br>","");
+    text=text.replace("\r\n","");
+    text =text.substring(startIdx+1,text.length);
+
+    if(text === "0")
+    {
+        tds[i].style.color = "red";
+    }
+}
+
+</script> -->
