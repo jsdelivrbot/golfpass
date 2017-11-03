@@ -30,34 +30,60 @@ class P_daily_price_admin extends Admin_Controller
         
         $this->_set_rules();
         if ($this->fv->run() === false) {
-            $period= $this->input->post("search_period");
-            $period = $period ?: 2;
-            $data['p_daily_price']  = (object)array();
-            $data['mode'] = "add";
-            $data["product"] = $this->db->where('id',$product_id)->get("products")->row();
-            
+
+            $year = $this->input->post("year");
+            if($year === null)
+                $year = date("Y");
+
+            $this->db->like("date",$year);
+            $rows =$this->p_daily_price_model->gets(array('product_id'=>$product_id));
+
+            foreach($rows as $row)
+            {
+                $price[$row->date][$row->num_people][$row->period] = $row->price; 
+            }
+            // var_dump($price);
+            $data['price'] = $price;
+
             $this->db->select("max(num_people) as maxium_num_peple");
             $this->db->from("$this->table as d_p");
             $this->db->where("d_p.product_id",$product_id);
             $maxium_num_peple = $this->db->get()->row()->maxium_num_peple;
             $data['maxium_num_peple'] = $maxium_num_peple;
 
-            $sub_query = "";
-            for($i= 1 ; $i <= (int)$maxium_num_peple ; $i++)
-            {
-                $sub_query .= "(SELECT s_d_p.price FROM {$this->table} as s_d_p WHERE s_d_p.date = d_p.date AND s_d_p.product_id = '$product_id' AND s_d_p.period = '$period' AND s_d_p.num_people = '$i' ) as num_people_{$i} ,";
-            }
-            $sub_query =substr($sub_query,0,-1);
+            $data["product"] = $this->db->where('id',$product_id)->get("products")->row();
 
-            $this->db->select("*,$sub_query");
-            $this->db->from("$this->table as d_p");
-            $this->db->where("d_p.product_id",$product_id);
-            $this->db->where("d_p.period",$period);
-            $this->db->group_by("d_p.date");
-            $data["daily_price"] = $this->db->get()->result_array();
 
-            // $this->_template("gets_admin",$data);
             $this->_view("gets_admin", $data);
+           
+            // $period= $this->input->post("search_period");
+            // $period = $period ?: 2;
+            // $data['p_daily_price']  = (object)array();
+            // $data['mode'] = "add";
+            // $data["product"] = $this->db->where('id',$product_id)->get("products")->row();
+            
+            // $this->db->select("max(num_people) as maxium_num_peple");
+            // $this->db->from("$this->table as d_p");
+            // $this->db->where("d_p.product_id",$product_id);
+            // $maxium_num_peple = $this->db->get()->row()->maxium_num_peple;
+            // $data['maxium_num_peple'] = $maxium_num_peple;
+
+            // $sub_query = "";
+            // for($i= 1 ; $i <= (int)$maxium_num_peple ; $i++)
+            // {
+            //     $sub_query .= "(SELECT s_d_p.price FROM {$this->table} as s_d_p WHERE s_d_p.date = d_p.date AND s_d_p.product_id = '$product_id' AND s_d_p.period = '$period' AND s_d_p.num_people = '$i' ) as num_people_{$i} ,";
+            // }
+            // $sub_query =substr($sub_query,0,-1);
+
+            // $this->db->select("*,$sub_query");
+            // $this->db->from("$this->table as d_p");
+            // $this->db->where("d_p.product_id",$product_id);
+            // $this->db->where("d_p.period",$period);
+            // $this->db->group_by("d_p.date");
+            // $data["daily_price"] = $this->db->get()->result_array();
+
+            // // $this->_template("gets_admin",$data);
+            // $this->_view("gets_admin", $data);
             return;
         } else {
             // var_dump($_POST);

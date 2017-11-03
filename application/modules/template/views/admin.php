@@ -592,5 +592,7 @@
 <!-- AdminLTE for demo purposes -->
 <script src="<?=domain_url('/public/lib/AdminLTE/dist/js/demo.js')?>"></script>
 <script src="<?=domain_url('/public/js/common.js')?>"></script>
+<!-- chart.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
 </body>
 </html>

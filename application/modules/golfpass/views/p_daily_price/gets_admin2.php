@@ -91,74 +91,29 @@
     </select>
     <input type="submit">
 </form>
-
-<style>
-  table {
-    width: 100%;
-    border: 1px solid #444444;
-    border-collapse: collapse;
-  }
-  th, td {
-    border: 1px solid #444444;
-    padding: 10px;
-  }
-</style>
 <table>
 <tr>
 <td>
-    1
+날자
 </td>
-<td class="col" colspan=2>
-    2
+<?php for ($i= 1; $i <= (int)$maxium_num_peple; $i++) {?>
+<td>
+<?=$i?>명
 </td>
-<td class="col" colspan=2>
-    3
+<?php }?>
+</tr>
+<?php for ($i= 0; $i < count($daily_price); $i++) {?>
+
+<tr>
+<td>
+<?=$daily_price[$i]['date']?>
 </td>
+
+<?php for ($j= 1; $j <= (int)$maxium_num_peple; $j++) {?>
+<td>
+<?=$daily_price[$i]["num_people_{$j}"]?>
+</td>
+<?php }?>
 </tr>
-<tr class="dataset">
-    <td class="row" rowspan=4>1
-
-    </td>
-    <td class="row" rowspan=4>2
-
-    </td>
-    <td  class="colspan" style="width:50px;">
-    2.5
-
-    </td>
-
-    <td class="row" rowspan=4>3</td>
-
-    <td  class="colspan" style="width:50px;">
-    3.5
-
-    </td>
-
-    
-
-</tr>
-
-<tr class="rowspan">
-    <td>2.6</td>
-    <td></td>
-</tr>
-<tr class="rowspan">
-    <td>2.7</td>
-    <td></td>
-</tr>
-<tr class="rowspan">
-    <td>2.7</td>
-    <td></td>
-</tr>
-
-<tr class="dataset">
-    <td class="row" >1</td>
-    <td class="row" >2</td>
-    <td class="colspan" >2.5</td>
-    <td class="row" >3</td>
-    <td class="colspan" style="width:50px;">
-    3.5
-    </td>
-</tr>
-
+<?php }?>
 </table>

@@ -85,6 +85,11 @@ class Test extends Public_Controller
         // // var_dump($num_weekend_days);
         
     }
+    function admin()
+    {
+        // $this->_template("test/admin",array(),"admin");
+        $this->_view("test/admin");
+    }
     function int()
     {
         $i = (int)10;
