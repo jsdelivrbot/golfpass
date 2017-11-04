@@ -31,20 +31,18 @@
     <bR>
 가격<input type="text" name="price" value="2000">
     <bR>
-        <input type="checkbox" name="period_times_sw" value="1" checked>
-        배율<input type="text" name="period_times[]" value="1">
-배율<input type="text" name="period_times[]" value="1">
-배율<input type="text" name="period_times[]" value="1">
-배율<input type="text" name="period_times[]" value="1">
-<!-- 배율<input type="text" name="period_times[]" value="1"> -->
     <bR>
-    <!-- <input type="checkbox" name="period[]" checked value="1">1일<br> -->
-    <input  type="checkbox" name="period[]" checked value="2">1박2일
-    <input type="checkbox" name="period[]" checked value="3">2박3일
-    <input type="checkbox" name="period[]" checked value="4">3박4일
-    <input type="checkbox" name="period[]" checked value="5">4박5일
-    <input type="checkbox" name="period[]" checked value="6">5박6일
-    <input type="checkbox" name="period[]" checked value="7">6박7일
+    배율
+        <input type="checkbox" name="period_times_sw" value="1" checked>
+        <br>
+        <?php for($i=1;$i <= ((int)$num_period) +1 ; $i++ ){
+            ?>
+        <input  type="checkbox" name="period[]" checked value="<?=$i+1?>"><?="{$i}박".($i+1)."일"?>
+        <input type="text" name="period_times[]" value="1">
+        <?php }?>
+
+
+    <bR>
 
     <bR>
     <bR>
@@ -58,22 +56,17 @@
 <br>
 <br>
 <input type="checkbox" name="num_people_sw_times" value="1">배율
-배율<input type="text" name="num_people_times[]" value="1">
-배율<input type="text" name="num_people_times[]" value="1">
-배율<input type="text" name="num_people_times[]" value="1">
-배율<input type="text" name="num_people_times[]" value="1">
-<br>
-    <input type="checkbox" name="num_people[]" value="1">1인
-    <input type="checkbox" name="num_people[]" value="2">2인
-    <input type="checkbox" name="num_people[]" value="3">3인
-    <input type="checkbox" name="num_people[]" value="4">4인
-    <input type="checkbox" name="num_people[]" value="5">5인
-    <input type="checkbox" name="num_people[]" value="6">6인
-    <input type="checkbox" name="num_people[]" value="7">7인
-    <input type="checkbox" name="num_people[]" value="8">8인
-    <input type="checkbox" name="num_people[]" value="9">9인
-    <input type="checkbox" name="num_people[]" value="10">10인
-    <input type="checkbox" name="num_people[]" value="11">11인
+
+<?php for($i=1;$i <= ((int)$maxium_num_peple) ; $i++ ){
+            if($i%10 === 1) echo "<br>";
+            ?>
+            
+        <input type="checkbox" name="num_people[]" value="<?=$i?>"><?="{$i}인"?>
+        <input type="text" name="num_people_times[]" value="1" style="width:50px;">
+        <?php }?>
+
+
+
     <br>
 <br>
 
@@ -82,7 +75,7 @@
   
   <table>
   <tr>
-  <td>1</td>
+  <td id="btn_month_1">1</td>
   <td>1</td>
   <td>1</td>
   <td>1</td>
@@ -111,21 +104,19 @@
 
 <style>
   table {
-    width: 100%;
+    width: 10000px;
     /* border: 1px solid #444444; */
     border-collapse: collapse;
   }
   th, td {
     border: 1px solid #444444;
     padding: 10px;
+    width:300px;
   }
   .green{
       background-color:rgba(0,200,0,0.5);
   }
-  .p2017-01-01-1-2
-  {
-      color : red;
-  }
+
 </style>
 
 <?php for ($m =1; $m<=12; $m++) {
@@ -163,11 +154,11 @@
         <!-- 명당 가격 시작 -->
         <?php for ($i=1; $i <= (int)$maxium_num_peple; $i++) {?>
         <!--1일 or 2일 가격 -->
-        <td  class="row <?="p{$date}-{$i}-".(1+$start_plus)?> <?=isset($price[$date][$i][1+$start_plus])?( $price[$date][$i][1+$start_plus] !=="0" ? "green" : "red") : "red"?>" rowspan=<?=$num_period?>><?=(0+$start_plus)."박".(1+$start_plus)."일"?><br><?=$price[$date][$i][1+$start_plus] ?? 0?></td>
+        <td  class="pdate row <?="p{$date}-{$i}-".(1+$start_plus)?> <?=isset($price[$date][$i][1+$start_plus])?( $price[$date][$i][1+$start_plus] !=="0" ? "green" : "red") : "red"?>" rowspan=<?=$num_period?>><?=(0+$start_plus)."박".(1+$start_plus)."일"?><br><?=$price[$date][$i][1+$start_plus] ?? 0?></td>
         <!--1일 or 2일 가격-->
             <?php if ($num_period !== 0) {?>
             <!-- 2일or 3일 가격 -->
-            <td  class="colspan <?="p{$date}-{$i}-".(2+$start_plus)?> <?=isset($price[$date][$i][2+$start_plus])?( $price[$date][$i][2+$start_plus] !=="0" ? "green" : "red") : "red"?>" style="width:50px;"><?=(1+$start_plus)."박".(2+$start_plus)."일"?><br><?=$price[$date][$i][2+$start_plus] ?? 0?></td>
+            <td  class="pdate colspan <?="p{$date}-{$i}-".(2+$start_plus)?> <?=isset($price[$date][$i][2+$start_plus])?( $price[$date][$i][2+$start_plus] !=="0" ? "green" : "red") : "red"?>" style="width:50px;"><?=(1+$start_plus)."박".(2+$start_plus)."일"?><br><?=$price[$date][$i][2+$start_plus] ?? 0?></td>
             <!-- 2일or 3일 가격 -->
             <?php }?>
         <?php }?>
@@ -178,7 +169,7 @@
     <?php for ($i=1; $i < (int)$num_period; $i++) {?>
         <tr class="rowspan">
         <?php for ($j=1; $j <= (int)$maxium_num_peple; $j++) {?>
-            <td class="<?="p{$date}-{$j}-".($i+2+$start_plus)?> <?=isset($price[$date][$j][$i+2+$start_plus])?( $price[$date][$j][$i+2+$start_plus] !=="0" ? "green" : "red") : "red"?>"><?=($i+1+$start_plus)."박".($i+2+$start_plus)."일"?><br><?=$price[$date][$j][$i+2+$start_plus] ?? 0?></td>
+            <td class="pdate <?="p{$date}-{$j}-".($i+2+$start_plus)?> <?=isset($price[$date][$j][$i+2+$start_plus])?( $price[$date][$j][$i+2+$start_plus] !=="0" ? "green" : "red") : "red"?>"><?=($i+1+$start_plus)."박".($i+2+$start_plus)."일"?><br><?=$price[$date][$j][$i+2+$start_plus] ?? 0?></td>
             <?php }?>
         </tr>
     <?php }?>
@@ -191,7 +182,15 @@
 
 <script>
 $("input").change(function(){
-$("td").css("background-color","white");
+    // var td =document.getElementsByTagName("td");
+
+    var td =document.getElementsByClassName("pdate");
+    for(var i =0 ; i<td.length ; i++)
+    {
+        td[i].style.backgroundColor = "white";
+    }
+
+// $(".pdate").css("background-color","white");
 $(".green").css("background-color","rgba(0,200,0,0.5)");
 
  var start_date=$("input[name=start_date]").val();

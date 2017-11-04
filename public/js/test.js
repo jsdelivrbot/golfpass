@@ -1,0 +1,1 @@
+document.getElementsByTagName("td").style.backgroundColor = "white";

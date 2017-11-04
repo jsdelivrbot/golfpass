@@ -10,6 +10,7 @@ class P_daily_price_admin extends Admin_Controller
             'table'=>'p_daily_price',
             'view_dir'=>'p_daily_price'
         ));
+        
     }
     function get($id)
     {
@@ -38,20 +39,24 @@ class P_daily_price_admin extends Admin_Controller
             $this->db->like("date",$year);
             $rows =$this->p_daily_price_model->gets(array('product_id'=>$product_id));
 
-            foreach($rows as $row)
-            {
-                $price[$row->date][$row->num_people][$row->period] = $row->price; 
+            if(count($rows) !== 0){
+                foreach($rows as $row)
+                {
+                    $price[$row->date][$row->num_people][$row->period] = $row->price; 
+                }
+                // var_dump($price);
+                $data['price'] = $price;
             }
-            // var_dump($price);
-            $data['price'] = $price;
 
             $this->db->select("max(num_people) as maxium_num_peple");
             $this->db->from("$this->table as d_p");
             $this->db->where("d_p.product_id",$product_id);
             $maxium_num_peple = $this->db->get()->row()->maxium_num_peple;
-            $data['maxium_num_peple'] = $maxium_num_peple;
+            // $data['maxium_num_peple'] = $maxium_num_peple;
+            $data['maxium_num_peple'] = 45;
+            // $data['maxium_num_peple'] = 10;
             
-            $data['num_period'] = 5;
+            $data['num_period'] = 3;
 
             $data['year'] = $year;
 
@@ -92,6 +97,8 @@ class P_daily_price_admin extends Admin_Controller
             // $this->_view("gets_admin", $data);
             return;
         } else {
+            // set_time_limit(2400);
+            set_time_limit(0);
             // var_dump($_POST);
             $arr_days =$this->input->post("day");
             $arr_num_people = $this->input->post("num_people");
