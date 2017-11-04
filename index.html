@@ -17,7 +17,6 @@
         ::-webkit-scrollbar {
             display: none;
         }
-
     </style>
 </head>
 
@@ -160,29 +159,36 @@
                     <img src="public/sangmin/img/golf_course_1.jpg" alt="">
                 </div>
             </div>
-            <div class="row d-none d-md-flex position-relative pt-5">
+            <div class="row flex-nowrap d-none d-md-flex position-relative pt-5">
                 <div class="position-absolute d-flex align-items-center" style="right: 5%; top:-10%;">
-                    <span class="mr-2 d-flex justify-content-center align-items-center bg-light rounded-circle" style="width: 30px; height: 30px;"><i class="xi-angle-left-min" style="font-weight: bold;font-size: 1.2rem;"></i></span>
-                    <span class="d-flex justify-content-center align-items-center bg-light rounded-circle" style="width: 30px; height: 30px;"><i class="xi-angle-right-min" style="font-weight: bold; font-size: 1.2rem;"></i></span>
+                    <span class="slide-prev mr-2 d-flex justify-content-center align-items-center bg-light rounded-circle" style="width: 30px; height: 30px;"><i class="xi-angle-left-min" style="font-weight: bold;font-size: 1.2rem;"></i></span>
+                    <span class="slide-next d-flex justify-content-center align-items-center bg-light rounded-circle" style="width: 30px; height: 30px;"><i class="xi-angle-right-min" style="font-weight: bold; font-size: 1.2rem;"></i></span>
                 </div>
-                <div class="col-2">
-                    <img src="public/sangmin/img/pc_golf_course_1.jpg" alt="" width="100%" style="max-width: 219px;">
+                <div class="row no-gutters slide-list position-relative d-flex flex-nowrap pt-1">
+                    <div class="d-flex justify-content-center" style='width: 220px; height: 450px;'>
+                        <img src="public/sangmin/img/pc_golf_course_1.jpg" alt="" width="90%">
+                    </div>
+                    <div class="d-flex justify-content-center" style='width: 220px; height: 450px;'>
+                        <img src="public/sangmin/img/pc_golf_course_2.jpg" alt="" width="90%">
+                    </div>
+                    <div class="d-flex justify-content-center" style='width: 220px; height: 450px;'>
+                        <img src="public/sangmin/img/pc_golf_course_3.jpg" alt="" width="90%">
+                    </div>
+                    <div class="d-flex justify-content-center" style='width: 220px; height: 450px;'>
+                        <img src="public/sangmin/img/pc_golf_course_4.jpg" alt="" width="90%">
+                    </div>
+                     <div class="d-flex justify-content-center" style='width: 220px; height: 450px;'>
+                        <img src="public/sangmin/img/pc_golf_course_5.jpg" alt="" width="90%">
+                    </div>
+                   <div class="d-flex justify-content-center" style='width: 220px; height: 450px;'>
+                        <img src="public/sangmin/img/pc_golf_course_6.jpg" alt="" width="90%">
+                    </div>
+                    <div class="d-flex justify-content-center" style='width: 220px; height: 450px;'>
+                        <img src="public/sangmin/img/pc_golf_course_1.jpg" alt="" width="90%">
+                    </div>
+
                 </div>
-                <div class="col-2">
-                    <img src="public/sangmin/img/pc_golf_course_2.jpg" alt="" width="100%" style="max-width: 219px;">
-                </div>
-                <div class="col-2">
-                    <img src="public/sangmin/img/pc_golf_course_3.jpg" alt="" width="100%" style="max-width: 219px;">
-                </div>
-                <div class="col-2">
-                    <img src="public/sangmin/img/pc_golf_course_4.jpg" alt="" width="100%" style="max-width: 219px;">
-                </div>
-                <div class="col-2">
-                    <img src="public/sangmin/img/pc_golf_course_5.jpg" alt="" width="100%" style="max-width: 219px;">
-                </div>
-                <div class="col-2">
-                    <img src="public/sangmin/img/pc_golf_course_6.jpg" alt="" width="100%" style="max-width: 219px;">
-                </div>
+
             </div>
         </article>
     </section>
@@ -695,9 +701,42 @@
             $('#section1-slide').on('slid.bs.carousel', function() {
                 $('#bg-div').css('background-image', $(this).children().children(".carousel-item.active").css("background-image"));
 
-            })
-        })
+            });
+            $('slide-list').css({
+               /* 'overflow': 'hidden',*/
+                'position': 'relative'
+            });
+            var max = (($('.slide-list').children().length * 220) - parseInt($('body').css('width'))) / 220;
+            $(window).resize(function() {
+               max = (($('.slide-list').children().length * 220) - parseInt($('body').css('width'))) / 220;
 
+            })
+
+
+            var slideIndex = 0;
+
+            $('.slide-prev').click(function() {
+                if (0 >= slideIndex) {
+                    return;
+                }
+                slideIndex--;
+                console.log(slideIndex);
+                $('.slide-list').stop().animate({
+                    right: '-=' + $('.slide-list').children().width() * 2
+                }, 500);
+            })
+            $('.slide-next').click(function() {
+                if (slideIndex > max) {
+                    return;
+                }
+                slideIndex++;
+                console.log(slideIndex);
+                $('.slide-list').stop().animate({
+                    right: '+=' + $('.slide-list').children().width() * 2
+                }, 500);
+            })
+
+        })
     </script>
 
 </body>
