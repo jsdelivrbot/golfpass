@@ -37,7 +37,7 @@ class Ajax_pagination{
     var $cur_tag_close   = '</b>';
     var $num_tag_open    = '<div class="num">&nbsp;';
     var $num_tag_close   = '</div>';
-    
+
     var $next_tag_open   = '&nbsp;<div class="next">';
     var $next_tag_close  = '</div>';
     var $prev_tag_open   = '&nbsp;';
@@ -104,6 +104,7 @@ class Ajax_pagination{
         // Is there only one page? Hm... nothing more to do here then.
         if ($num_pages == 1){
             // $info = 'Showing : ' . $this->total_rows;
+            $info = "";
             return $info;
         }
 
