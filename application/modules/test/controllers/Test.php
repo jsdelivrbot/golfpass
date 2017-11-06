@@ -25,7 +25,7 @@ class Test extends Public_Controller
         // $date = strtotime("+1 day", $date);
         // var_dump($date);
         // echo date('Y-m-d', $date);
-        echo "+1 일:".date("2017-05-01",strtotime ("+2 days"));
+        // echo "+1 일:".date("2017-05-01",strtotime ("+2 days"));
         // echo "<br>";
         // echo "+1 년".date("Y-m-d H:i:s",strtotime ("+1 years"));
         // echo "<br>";
@@ -85,10 +85,23 @@ class Test extends Public_Controller
         // // var_dump($num_weekend_days);
         
     }
+    function test2()
+    {
+        $this->_view("test/test");
+    }
     function admin()
     {
         // $this->_template("test/admin",array(),"admin");
         $this->_view("test/admin");
+    }
+    function cal()
+    {
+        $m = 2;
+        $year =2016;
+        echo date('t', mktime(0, 0, 0, $m, 1, $year)); 
+
+        $num_days = cal_days_in_month(CAL_GREGORIAN, $m, $year);
+        echo $num_days;
     }
     function int()
     {

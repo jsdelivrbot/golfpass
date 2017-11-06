@@ -2,6 +2,13 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="//code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
 
+<!-- 아일론 슬라이더 -->
+<script src="<?=domain_url("/public/lib/ion.rangeSlider/js/ion-rangeSlider/ion.rangeSlider.min.js")?>"></script>
+<link rel="stylesheet" href="<?=domain_url("/public/lib/ion.rangeSlider/css/ion.rangeSlider.css")?>" />
+<link rel="stylesheet" href="<?=domain_url("/public/lib/ion.rangeSlider/css/normalize.css")?>" />
+<link rel="stylesheet" href="<?=domain_url("/public/lib/ion.rangeSlider/css/ion.rangeSlider.skinHTML5.css")?>" />
+<!-- 아일론 슬라이더 -->
+
 <script>
     $.datepicker.setDefaults({
         dateFormat: 'yy-mm-dd',
@@ -31,7 +38,6 @@
     <bR>
 가격<input type="text" name="price" value="2000">
     <bR>
-    <bR>
     배율
         <input type="checkbox" name="period_times_sw" value="1" checked>
         <br>
@@ -43,20 +49,21 @@
 
 
     <bR>
-
-    <bR>
-    <bR>
     <input type="checkbox" name="day[]" checked value="1">월
     <input type="checkbox" name="day[]" checked value="2">화
     <input type="checkbox" name="day[]" checked value="3">수
     <input type="checkbox" name="day[]" checked value="4">목
     <input type="checkbox" name="day[]" checked value="5">금
     <input type="checkbox" name="day[]" checked value="6">토
-    <input type="checkbox" name="day[]" checked value="7">일
+    <input type="checkbox" name="day[]" checked value="0">일
 <br>
-<br>
-<input type="checkbox" name="num_people_sw_times" value="1">배율
+<input type="checkbox" name="num_people_sw_times" value="1" checked>배율
 
+<div style="width: 400px;">
+<input type="text" id="slider_num_people" value="" />
+</div>
+
+<input id="" type="button" value="모두선택">
 <?php for($i=1;$i <= ((int)$maxium_num_peple) ; $i++ ){
             if($i%10 === 1) echo "<br>";
             ?>
@@ -69,15 +76,14 @@
 
     <br>
 <br>
-
     <input type="submit" value="Submit">
   </form>
   
   <table>
   <tr>
   <td id="btn_month_1">1</td>
-  <td>1</td>
-  <td>1</td>
+  <td>2</td>
+  <td>3</td>
   <td>1</td>
   <td>1</td>
   <td>1</td>
@@ -118,9 +124,10 @@
   }
 
 </style>
-
+<div style ="margin-top:600px;"></div>
 <?php for ($m =1; $m<=12; $m++) {
-    $num_days = cal_days_in_month (CAL_GREGORIAN, $m, $year);
+    // $num_days = cal_days_in_month(CAL_GREGORIAN, $m, $year);
+    $num_days = date('t', mktime(0, 0, 0, $m, 1, $year)); 
 ?>
 <br>
 <br>
@@ -145,10 +152,12 @@
 
 <?php for ($d =1; $d <= $num_days; $d++) {
     $date = date("Y-m-d", strtotime("{$year}-{$m}-{$d}"));
+    $week = array("일", "월", "화", "수", "목", "금", "토");
+    $day = $week[date("w", strtotime("{$year}-{$m}-{$d}"))];
 ?>
 <tr class="dataset">
         <!-- 날짜 -->
-        <td class="row" rowspan=<?=$num_period?>><?=$date?></td> 
+        <td class="row" rowspan=<?=$num_period?>><?=$date?><?="({$day})"?></td> 
         <!-- 날짜 -->
 
         <!-- 명당 가격 시작 -->
@@ -181,73 +190,100 @@
 
 
 <script>
-$("input").change(function(){
-    // var td =document.getElementsByTagName("td");
+$("#slider_num_people").ionRangeSlider({
+    type: "double",
+    grid: true,
+    min: 0,
+    max: 45,
+    from: 1,
+    to: 45
+});
 
-    var td =document.getElementsByClassName("pdate");
-    for(var i =0 ; i<td.length ; i++)
-    {
-        td[i].style.backgroundColor = "white";
-    }
-
-// $(".pdate").css("background-color","white");
-$(".green").css("background-color","rgba(0,200,0,0.5)");
-
- var start_date=$("input[name=start_date]").val();
- var end_date=$("input[name=end_date]").val();
- var tmp_arr_period=$("input[name='period[]']:checked");
- var arr_period = [];
- for(var i = 0 ; i < tmp_arr_period.length ; i++)
- {
-    arr_period.push( tmp_arr_period[i].value);
- }
-
- var tmp_arr_day=$("input[name='day[]']:checked");
- var arr_day = [];
- for(var i = 0 ; i < tmp_arr_day.length ; i++)
- {
-    arr_day.push( tmp_arr_day[i].value);
- }
-
- var tmp_arr_num_people=$("input[name='num_people[]']:checked");
- var arr_num_people = [];
- for(var i = 0 ; i < tmp_arr_num_people.length ; i++)
- {
-    arr_num_people.push( tmp_arr_num_people[i].value);
- }
-
-var end_year = end_date.substr(0,4);
-var end_month = String(parseInt(end_date.substr(5,2))-1);
-var end_date = new Date(end_year,end_month,end_date.substr(8,2));
-
-var start_year = start_date.substr(0,4);
-var start_month = String(parseInt(start_date.substr(5,2))-1);
-var day = start_date.substr(8,2);
-
-var date = new Date(start_year,start_month,day);
-
-
-if(date <= end_date&& parseInt(start_year) >= <?=$year?>-1 && parseInt(start_year) <= <?=$year?>+1  )
+$("input[value='모두선택']").click(function()
 {
-    if(parseInt(end_year) >= <?=$year?>-1 && parseInt(end_year) <= <?=$year?>+1)
-    {   
-        while(date <= end_date)
-        {
-            for(var key1 in arr_num_people)
-            {
-                for(var key2 in arr_period)
-                {
-                    var className = `p${get_date_string(date)}-${arr_num_people[key1]}-${arr_period[key2]}`;
-                    $(`.${className}`).css("background-color","RGBA(0,0,255,0.3)");
-                }
-            }
-            
-            date.setDate(date.getDate()+1);
-        }
+    var $num_people =$("input[name='num_people[]']");
+    $num_people.prop('checked',false);
+
+    var $slider = $("#slider_num_people");
+     var $num_people =$("input[name='num_people[]'][value=1]");
+     var arr_start_end = $slider.val().split(";");
+     var start = parseInt(arr_start_end[0]);
+     var end = parseInt(arr_start_end[1]);
+    for(var i=start ; i<=end; i++ )
+    {
+        $(`input[name='num_people[]'][value=${i}]`).prop('checked',true);
     }
-}
-// console.log(get_date_string(date));
-// console.log(get_date_string(end_date));
+    // if($num_people.prop('checked') === false)
+    //     $num_people.prop('checked',true);
+    // else
+
+});
+
+$("input").change(function(){
+//     // var td =document.getElementsByTagName("td");
+
+//     var td =document.getElementsByClassName("pdate");
+//     for(var i =0 ; i<td.length ; i++)
+//     {
+//         td[i].style.backgroundColor = "white";
+//     }
+
+// // $(".pdate").css("background-color","white");
+// $(".green").css("background-color","rgba(0,200,0,0.5)");
+
+//  var start_date=$("input[name=start_date]").val();
+//  var end_date=$("input[name=end_date]").val();
+//  var tmp_arr_period=$("input[name='period[]']:checked");
+//  var arr_period = [];
+//  for(var i = 0 ; i < tmp_arr_period.length ; i++)
+//  {
+//     arr_period.push( tmp_arr_period[i].value);
+//  }
+
+//  var tmp_arr_day=$("input[name='day[]']:checked");
+//  var arr_day = [];
+//  for(var i = 0 ; i < tmp_arr_day.length ; i++)
+//  {
+//     arr_day.push( tmp_arr_day[i].value);
+//  }
+
+//  var tmp_arr_num_people=$("input[name='num_people[]']:checked");
+//  var arr_num_people = [];
+//  for(var i = 0 ; i < tmp_arr_num_people.length ; i++)
+//  {
+//     arr_num_people.push( tmp_arr_num_people[i].value);
+//  }
+
+// var end_year = end_date.substr(0,4);
+// var end_month = String(parseInt(end_date.substr(5,2))-1);
+// var end_date = new Date(end_year,end_month,end_date.substr(8,2));
+
+// var start_year = start_date.substr(0,4);
+// var start_month = String(parseInt(start_date.substr(5,2))-1);
+// var day = start_date.substr(8,2);
+
+// var date = new Date(start_year,start_month,day);
+
+
+// if(date <= end_date&& parseInt(start_year) >= <?=$year?>-1 && parseInt(start_year) <= <?=$year?>+1  )
+// {
+//     if(parseInt(end_year) >= <?=$year?>-1 && parseInt(end_year) <= <?=$year?>+1)
+//     {   
+//         while(date <= end_date)
+//         {
+//             for(var key1 in arr_num_people)
+//             {
+//                 for(var key2 in arr_period)
+//                 {
+//                     var className = `p${get_date_string(date)}-${arr_num_people[key1]}-${arr_period[key2]}`;
+//                     $(`.${className}`).css("background-color","RGBA(0,0,255,0.3)");
+//                 }
+//             }
+            
+//             date.setDate(date.getDate()+1);
+//         }
+//     }
+// }
 
 
 });

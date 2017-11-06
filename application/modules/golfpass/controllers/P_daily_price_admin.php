@@ -136,7 +136,7 @@ class P_daily_price_admin extends Admin_Controller
                 $cal_price_2 = function($price,$num_people) use($num_people_times)
                 {
                     $price  =(string)round((int)$price * (float)($num_people_times[$num_people-1]) * (int)$num_people);
-                      echo "time :{$num_people_times[$num_people-1]} price : {$price} <br>";
+                      echo "{$num_people}time :{$num_people_times[$num_people-1]} price : {$price} <br>";
                     return $price;
                 };
             }
@@ -153,21 +153,26 @@ class P_daily_price_admin extends Admin_Controller
             {
                 $tmp_price =$cal_price($price,$period);
                 foreach ($arr_num_people as $num_people) {
-                    $tmp_price =$cal_price_2($tmp_price,$num_people);
+                    $insert_price =$cal_price_2($tmp_price,$num_people);
                     $n = 0;
                     do {
                         $date = strtotime("+{$n} day", strtotime($start_date));
                         $date = date("Y-m-d", $date);
-                        $this->db->set("product_id",$product_id);
-                       
-                        $sql=$this->db->insert_string($this->table,array(
-                                'product_id'=>$product_id,
-                                'date'=>$date,
-                                'num_people'=>$num_people,
-                                'period'=>$period,
-                                'price'=> $tmp_price
-                        ))."ON DUPLICATE KEY UPDATE price = $tmp_price";
-                        $this->db->query($sql);
+                   
+                        if(in_array(date('w',strtotime($date)),$arr_days))     //요일검사
+                        {
+                            $this->db->set("product_id",$product_id);
+                            $sql=$this->db->insert_string($this->table,array(
+                                    'product_id'=>$product_id,
+                                    'date'=>$date,
+                                    'num_people'=>$num_people,
+                                    'period'=>$period,
+                                    'price'=> $insert_price
+                            ))."ON DUPLICATE KEY UPDATE price = $insert_price";
+                            $this->db->query($sql);
+                        }
+                      
+                        
                         $n++;
                        
                     } while ($date !== $end_date);
