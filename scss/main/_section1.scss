@@ -1,23 +1,21 @@
 #section1 {
-
 	.carousel {
 		width: 100%;
 		height: 100%;
-		position: relative;
 		.carousel-indicators {
 			margin: 0 !important;
 			position: absolute;
 			height: 30%;
 			bottom: 40% !important;
 			left: 90%!important;
-			z-index: 9999;
 			li {
 				border-radius: 50%;
 				width: 12px;
 				height: 12px;
 				padding: 0;
 				margin: 10px 0;
-				background-color: #5f7a90;
+				background-color: #fff;
+				opacity:0.2;
 			}
 			li.active {
 				background-color: transparent;
@@ -30,42 +28,51 @@
 			height: 100%;
 			width: 100%;
 			.carousel-item {
-				position: relative;
 				width: 100%;
 				height: 100%;
 				padding: 15px;
 				background-size: cover;
 				background-position: center;
-				@media (min-width: 992px) {
-					padding: 80px;
+				img{
+					left: 0px;
+					top:0;
 				}
 				.content-box {
 					position: relative;
 					width: 100%;
 					height: 100%;
+					padding: 80px;
 					color: white;
 					.title {
 						h1 {
 							font-family: 'TmonMonsori';
-							font-size: 3rem;
+							font-size: 60px;
 							margin-bottom: 20px;
 						}
 						p {
+							font-size: 16px;
+							font-family: "notokr-regular";
 							margin-bottom: 20px;
 						}
 					}
 					.content {
 						p {
 							max-width: 500px;
+							font-size: 14px;
+							font-family: "notokr-light";
 							margin-bottom: 20px;
 						}
 					}
 					.btn-box {
+						border: 1px solid white;
+						width: 140px;
+						height: 40px;
 						button {
-							padding: 10px;
-							border: 1px solid white;
 							background-color: transparent;
 							color: white;
+							border: 0;
+							width: 100%;
+							height: 100%;
 						}
 					}
 				}
@@ -80,6 +87,8 @@
 		left: 25%;
 		color: white;
 		> * {
+			font-size: 14px;
+			font-family: "notokr-regular";
 			margin-bottom: 10px;
 		}
 	}
@@ -90,6 +99,9 @@
 		left: 84%;
 		max-width: 200px;
 		color: white;
+		i{
+			font-size: 18px;
+		}
 	}
 
 }

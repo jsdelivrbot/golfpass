@@ -1,0 +1,33 @@
+#section6 {
+  font-family: notokr-medium;
+  .trans-box {
+    -ms-transform: rotate(45deg); /* IE 9 */
+    -webkit-transform: rotate(45deg); /* Safari */
+    transform: rotate(45deg);
+    width: 40px;
+    height: 40px;
+    left: 0;
+    z-index: -1;
+  }
+  .review-box {
+    top: 20%;
+    right: 5%;
+    span {
+      color: #959595;
+      font-size: 0.75rem;
+    }
+  }
+  .panel-item {
+    h4 {
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #545454
+    }
+    p {
+      font-family: notokr-regular;
+      max-width: 400px;
+      font-size: 0.9rem;
+      color: #a5a5a5;
+    }
+  }
+}

@@ -1,0 +1,27 @@
+#section2 {
+  .position-absolute {
+    right: 10%;
+    top: 0;
+    span {
+      cursor: pointer;
+      i {
+        font-size: 2rem;
+      }
+    }
+
+  }
+  .slide-list{
+    font-family: "notokr-regular", sans-serif;
+    color: #FFF;
+    >div{
+      margin-left: 15px;
+      >div{
+        width: 84%;
+        left:8%;
+        top: 78%;
+        height: 15%;
+        border-bottom: 2px solid white;
+      }
+    }
+  }
+}

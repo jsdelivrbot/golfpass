@@ -1,0 +1,45 @@
+#section5 {
+  font-family: notokr-medium;
+  .category {
+    button {
+      font-family: notokr-medium;
+      font-weight: 500;
+      font-size: 14px;
+      margin: 8px 15px 8px 15px;
+    }
+  }
+  .contents {
+    > div {
+      border-radius: 10px;
+      .rounded-circle {
+        span {
+          font-family: notokr-medium;
+          font-size: 20px;
+        }
+        width: 40px;
+        height: 40px;
+      }
+      h1 {
+        font-family: notokr-regular;
+        font-size: 30px;
+      }
+      p {
+        font-family: notokr-light;
+        font-size: 14px;
+      }
+    }
+
+  }
+  .list-after-four {
+    font-family: notokr-medium;
+    border-bottom: 1px solid #818589;
+    p {
+      font-size: 1.1rem;
+      color: #fff;
+      span{color: inherit;}
+    }
+    span{
+      color:#999d9f;
+    }
+  }
+}

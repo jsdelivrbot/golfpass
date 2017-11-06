@@ -1,46 +1,53 @@
-@charset "UTF-8";
-footer {
+#main-footer {
     box-sizing: border-box;
     position: relative;
     bottom: 0;
     width: 100%;
-    background-color: #f0f0f0;
-    padding: 50px 0px 50px 50px;
+    background-color: transparent;
+    padding: 50px 0px 110px 50px;
+    color: white;
+   font-family: notokr-medium;
     ul {
-        margin-right: 60px;
+
+        color: inherit;
         .title {
             padding: 10px 0;
+            margin-bottom: 20px;
             height: 50px;
-            color: #ababab;
             font-size: bold;
             font-size: 1.1rem;
+            color: inherit;
         }
         li {
             display: flex;
+            color: inherit;
             height: 30px;
-            color: #b5b5b5;
             font-size: 0.9rem;
             a {
-                text-decoration: none;
                 color: inherit;
+                text-decoration: none;
             }
             span {
-                color: #ababab;
+                color: inherit;
                 font-weight: bolder;
                 margin-right: 10px;
             }
-            >input {
+            > input {
+                color: inherit;
                 padding: 15px;
                 width: 100%;
             }
         }
     }
-    >p {
+    > p {
         font-size: 0.8rem;
-        color: #b5b5b5;
+        color: inherit;
     }
     strong {
-        color: #ababab;
+        color: inherit;
         font-weight: bolder;
+    }
+    figure{
+        padding: 40px 20px;
     }
 }
