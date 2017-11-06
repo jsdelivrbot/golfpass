@@ -9,7 +9,7 @@ class Panel extends Base_Controller {
             'table'=>'panels',
             'view_dir'=>'panel'
         ));
-        $this->per_page = 2;
+        $this->per_page = 1;
     }
     function get($id)
     {
@@ -44,7 +44,6 @@ class Panel extends Base_Controller {
         $config['base_url']    =site_url(golfpass_panel_uri.'/ajax_pgi_panels');
         $config['total_rows']  =$num_rows;
         $config['per_page']    = $this->per_page;
-        $config['link_func']    = "get_data_1";
         $this->ajax_pgi_1->initialize($config);
         $data['panels'] = $this->db->limit($this->per_page,0)->get("panels")->result();
 
@@ -53,15 +52,11 @@ class Panel extends Base_Controller {
         $config['base_url']    =site_url(golfpass_panel_uri.'/ajax_pgi_contents');
         $config['total_rows']  =$num_rows;
         $config['per_page']    = $this->per_page;
-        $config['link_func']    = "get_data_2";
         $this->ajax_pgi_2->initialize($config);
         
         $this->load->model("panel_contents_model");
         $this->db->limit($this->per_page,0);
         $data['panel_contents'] =$this->panel_contents_model->gets();
-        // $data['panel_contents'] = $this->db->limit($this->per_page,0)->get("panel_contents")->result();
-
-        // var_dump($data['panels']);
         // $this->_template("gets",$data,'golfpass');
         $this->_view("gets",$data);
 
@@ -78,7 +73,6 @@ class Panel extends Base_Controller {
         $config['base_url']    =site_url(golfpass_panel_uri.'/ajax_pgi_panels');
         $config['total_rows']  =$num_rows;
         $config['per_page']    = $this->per_page;
-        $config['link_func']    = "get_data_1";
         $this->ajax_pgi_1->initialize($config);
         $data['panels'] = $this->db->limit($this->per_page,$offset)->get("panels")->result();
 
@@ -88,22 +82,27 @@ class Panel extends Base_Controller {
     {
         $this->load->library(array("Ajax_pagination"=>"ajax_pgi_2"));
         $offset = $this->input->post('page');
+        $panel_id = $this->input->post('id');
         if(!$offset)
             $offset= 0;
+        
+        if($panel_id !== '0' && $panel_id !== null)
+            $this->db->where("panel_id",$panel_id);
         $num_rows = $this->db->count_all_results("panel_contents");
+
+        $config['id'] = $panel_id;
         $config['target']      = '.ajax_taget_content_list';
         $config['base_url']    =site_url(golfpass_panel_uri.'/ajax_pgi_contents');
         $config['total_rows']  =$num_rows;
         $config['per_page']    = $this->per_page;
-        $config['link_func']    = "get_data_2";
         $this->ajax_pgi_2->initialize($config);
 
         $this->load->model("panel_contents_model");
+        if($panel_id !== '0' && $panel_id !== null)
+            $this->db->where("panel_id",$panel_id);
         $this->db->limit($this->per_page,$offset);
         $data['panel_contents'] =$this->panel_contents_model->gets();
       
-        // $data['panel_contents'] = $this->db->limit($this->per_page,$offset)->get("panel_contents")->result();
-
         $this->_view("ajax_pgi_contents",$data);
     }
 

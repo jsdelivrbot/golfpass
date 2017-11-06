@@ -61,6 +61,8 @@ class Panel_admin extends Admin_Controller {
     function delete($id)
     {
         $this->panels_model->_delete($id);
+        $this->load->model("panel_contents_model");
+        $this->panel_contents_model->_delete(array("panel_id"=>$id));
         my_redirect(golfpass_panel_admin_uri."/gets");
         // my_redirect($_SERVER['HTTP_REFERER']);
     }

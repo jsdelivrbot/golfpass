@@ -12,32 +12,39 @@
  */
 class Ajax_pagination{
 
-    var $id = 1;
+    var $id = 0;
 
     var $base_url        = '';
     var $total_rows      = '';
     var $per_page        = 10;
     var $num_links       =  2;
     var $cur_page        =  0;
-    var $first_link      = 'First';
-    var $next_link       = '&#187;';
-    var $prev_link       = '&#171;';
-    var $last_link       = 'Last';
+    var $first_link      = '처음';
+    var $next_link       = '다음';
+    var $prev_link       = "이전";
+    var $last_link       = '끝';
     var $uri_segment     = 3;
+
+
     var $full_tag_open   = '<div class="pagination">';
     var $full_tag_close  = '</div>';
-    var $first_tag_open  = '';
-    var $first_tag_close = '&nbsp;';
+    var $first_tag_open  = '<div class="first">';
+    var $first_tag_close = '</div>&nbsp;';
     var $last_tag_open   = '&nbsp;';
     var $last_tag_close  = '';
+
     var $cur_tag_open    = '&nbsp;<b>';
     var $cur_tag_close   = '</b>';
-    var $next_tag_open   = '&nbsp;';
-    var $next_tag_close  = '&nbsp;';
+    var $num_tag_open    = '<div class="num">&nbsp;';
+    var $num_tag_close   = '</div>';
+    
+    var $next_tag_open   = '&nbsp;<div class="next">';
+    var $next_tag_close  = '</div>';
     var $prev_tag_open   = '&nbsp;';
     var $prev_tag_close  = '';
-    var $num_tag_open    = '&nbsp;';
-    var $num_tag_close   = '';
+
+    
+
     var $target          = '';
     var $anchor_class    = '';
     var $show_count      = true;
@@ -96,7 +103,7 @@ class Ajax_pagination{
 
         // Is there only one page? Hm... nothing more to do here then.
         if ($num_pages == 1){
-            $info = 'Showing : ' . $this->total_rows;
+            // $info = 'Showing : ' . $this->total_rows;
             return $info;
         }
 
@@ -141,15 +148,16 @@ class Ajax_pagination{
         // SHOWING LINKS
         if ($this->show_count){
             $curr_offset = $CI->uri->segment($this->uri_segment);
-            $info = 'Showing ' . ( $curr_offset + 1 ) . ' to ' ;
+            // $info = 'Showing ' . ( $curr_offset + 1 ) . ' to ' ;
+            $info = '';
 
-            if( ( $curr_offset + $this->per_page ) < ( $this->total_rows -1 ) )
-            $info .= $curr_offset + $this->per_page;
-            else
-            $info .= $this->total_rows;
+            // if( ( $curr_offset + $this->per_page ) < ( $this->total_rows -1 ) )
+            // $info .= $curr_offset + $this->per_page;
+            // else
+            // $info .= $this->total_rows;
 
-            $info .= ' of ' . $this->total_rows . ' | ';
-            $output .= $info;
+            // $info .= ' of ' . $this->total_rows . ' | ';
+            // $output .= $info;
         }
 
         // Render the "First" link
@@ -204,7 +212,9 @@ class Ajax_pagination{
         $output = $this->full_tag_open.$output.$this->full_tag_close;
         ?>
         <script>
-        function <?=$this->link_func?>(page,url,id){  
+        //getData 함수가 존재하지 않는다면 함수선언
+        if (typeof getData !== 'function') { 
+            function getData(target,page,url,id){  
             $.ajax({
                 method: "POST",
                 url: url+page,
@@ -214,10 +224,12 @@ class Ajax_pagination{
                 },
                 success: function(data){
                     $('<?php echo $this->loading; ?>').hide();
-                    $('<?php echo $this->target; ?>').html(data);
+                    $(target).html(data);
                 }
             });
         }
+        }
+      
         </script>
         <?php
         return $output;
@@ -226,6 +238,6 @@ class Ajax_pagination{
     function getAJAXlink($count, $text) {
         $pageCount = $count?$count:0;
         // return '<a href="javascript:void(0);"' . $this->anchor_class . ' onclick="'.$this->link_func.'('.$pageCount.')">'. $text .'</a>';
-        return "<a href='javascript:void(0);'  {$this->anchor_class}   onclick=\"{$this->link_func}({$pageCount},'{$this->base_url}',$this->id)\"> $text </a>";
+        return "<a href='javascript:void(0);'  {$this->anchor_class}   onclick=\"{$this->link_func}('{$this->target}',{$pageCount},'{$this->base_url}',$this->id)\"> $text </a>";
     }
 }
