@@ -191,12 +191,13 @@ class Init extends Init_Controller {
             $result = $this->db->query("CREATE TABLE `$tb_name`(
             `id` INT UNSIGNED NULL AUTO_INCREMENT, 
             `auth` INT NOT NULL DEFAULT '1',
+            `intro` varchar(255),
             `address` varchar(255) ,
             `name` varchar(10),
             `sex` varchar(5),
             `birth` varchar(30),
             `email` varchar(40),
-            `profilePhoto` varchar(255),
+            `photo` varchar(255),
             `created` datetime NOT NULL DEFAULT NOW(),
             PRIMARY KEY (`id`)
              ) ENGINE=InnoDB DEFAULT CHARSET=utf8;");

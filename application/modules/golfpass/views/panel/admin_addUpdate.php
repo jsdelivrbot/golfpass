@@ -1,15 +1,24 @@
 
 <!-- 프로필 사진 시작-->
-<!-- <iframe id="profilePhoto_upload" src="/index.php/auth/profilePhoto_upload" width="300px" height="200px">
-</iframe>    -->
+<iframe id="photo_upload" src="<?=site_url(common_uri."/upload_photo")?>" width="300px" height="200px">
+</iframe>   
 <!-- 프로필 사진 끝 -->
 
 <form action ="<?=my_site_url(golfpass_panel_admin_uri."/{$mode}")?>"method="POST" >
 
+<!-- <input type='hidden' name='profilePhoto' "/> <br/> -->
+<input type='hidden' name='photo' value="<?=set_value_data($panel,'photo')?>" /> <br/>
+
+
 이름<input placeholder="이름" type="text" name="name" value="<?=set_value_data($panel,'name')?>"/> <?=form_error('name',false,false)?>
+
 <br>
- 
+소개
+<br>
+  <textarea name="intro" id="" cols="30" rows="10"><?=set_value_data($panel,'intro')?></textarea>
  <br/>
+
+ <br>
  성별 
  <input type="radio" name="sex" value="남" <?=my_set_checked($panel,'sex','남')?>>남
  <input type="radio" name="sex" value="여" <?=my_set_checked($panel,'sex','여')?>>여

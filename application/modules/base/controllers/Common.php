@@ -4,7 +4,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Common extends Public_Controller {
 
     function __construct(){
-        parent::__construct();
+        parent::__construct(array(
+            "view_dir"=>"common"
+        ));
     }
     
     function upload_receive_from_ck(){
@@ -35,8 +37,30 @@ class Common extends Public_Controller {
         }
         echo "<script type='text/javascript'>window.parent.CKEDITOR.tools.callFunction('{$CKEditorFuncNum}', {$url}, {$msg} )</script>";         
     }
+    function upload_photo()
+    {
+        // echo "1";
+        $this->_upload_photo('admin','photo',function($imgDir){
+            //   리사이즈
+              $config['image_library'] = 'gd2';
+              $config['source_image'] = ".{$imgDir}";
+              $config['maintain_ratio'] = true;
+              $config['width']   = 225;
+              $config['height']   = 255;
 
-    function upload_photo($who,$name,$uploadfunc)
+            $this->load->library('image_lib', $config);
+            $this->image_lib->resize();
+        },
+        function(){
+            echo ($this->upload->display_errors());
+        },
+        function($imgDir){
+            $this->_view("upload_photo", array("photo"=>$imgDir));
+        });
+
+     
+    }
+    function _upload_photo($who,$name,$uploadfunc,$failFunc =null,$endFunc =null)
     {
         $imgDir = "";
         if (isset($_FILES[$name])) {
@@ -46,30 +70,30 @@ class Common extends Public_Controller {
             $config['max_width']  = '10240';
             $config['max_height']  = '7680';
             $this->load->library('upload', $config);
-
+            
             if (!$this->upload->do_upload($name)) {
-
-                alert($this->upload->display_errors(false,false));
-                my_redirect($_SERVER['HTTP_REFERER']);
-                return;
-                // echo ($this->upload->display_errors());
+               //업로드 실패 함수
+                if($failFunc === null)
+                {
+                    alert($this->upload->display_errors(false,false));
+                    my_redirect($_SERVER['HTTP_REFERER']);
+                    return;
+                }
+                else
+                {
+                    $failFunc();
+                }          
+                
             } else {
+                //업로드 성공 함수
                 $fileName= $this->upload->data()['file_name'];
                 $imgDir= "/public/uploads/$who/images/$fileName";
-                //리사이즈
-                // $config['image_library'] = 'gd2';
-                // $config['source_image'] = "./public/uploads/$who/images/$fileName";
-                // $config['maintain_ratio'] = true;
-                // $config['width']   = 80;
-                // $config['height']   = 80;
-
-                // $this->load->library('image_lib', $config);
                 $uploadfunc($imgDir);
-                // $this->image_lib->resize();
-              
-                return;
             }
         }
-
+        // 마무리함수
+        if($endFunc !== null)
+            $endFunc($imgDir);
+        return ;
     }
 }
