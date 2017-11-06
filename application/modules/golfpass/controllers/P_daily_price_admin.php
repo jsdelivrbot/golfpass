@@ -12,6 +12,7 @@ class P_daily_price_admin extends Admin_Controller
         ));
         
     }
+
     function get($id)
     {
         $data['p_daily_price'] = $this->{$this->model}->_get($id);
