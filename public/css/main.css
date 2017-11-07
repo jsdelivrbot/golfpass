@@ -2227,30 +2227,23 @@ body.menu-open .plus-btn .r2 {
   #section2 .mobile-content p {
     font-family: notokr-light;
     font-style: 14px; }
-#section2 .position-absolute {
-  right: 10%;
-  top: 0; }
-  #section2 .position-absolute span {
-    cursor: pointer; }
-    #section2 .position-absolute span i {
-      font-size: 2rem; }
-#section2 .slide-list {
+#section2 .content {
   font-family: "notokr-regular", sans-serif;
-  color: #FFF; }
-  #section2 .slide-list > div {
-    margin-left: 15px; }
-    #section2 .slide-list > div > div {
-      width: 84%;
-      left: 8%;
-      top: 78%;
-      height: 15%;
-      border-bottom: 2px solid white; }
-      #section2 .slide-list > div > div h3 {
-        font-family: notokr-regular;
-        font-size: 30px; }
-      #section2 .slide-list > div > div p {
-        font-family: notokr-light;
-        font-style: 14px; }
+  color: #FFF;
+  width: 84%;
+  left: 8%;
+  top: 66%;
+  height: 30%;
+  border-bottom: 2px solid white; }
+  #section2 .content h3 {
+    font-family: notokr-regular;
+    font-size: 30px; }
+  #section2 .content p {
+    font-family: notokr-light;
+    font-size: 14px; }
+#section2 #jssor_1 .slide-item {
+  width: 220px !important;
+  height: 440px; }
 
 #section3 .item:nth-child(n+5) {
   display: none !important; }
@@ -2265,7 +2258,7 @@ body.menu-open .plus-btn .r2 {
   font-family: "notokr-regular"; }
   @media (min-width: 992px) {
     #section3 .item figure {
-      width: 320px; } }
+      min-width: 320px; } }
   #section3 .item figure .content {
     background-color: #06adef; }
     #section3 .item figure .content p, #section3 .item figure .content i {
