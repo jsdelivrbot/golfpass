@@ -68,8 +68,6 @@
 			margin-left: 30px;
 			padding: 80px;
 		  }
-
-
 		  color: white;
 		  .title {
 			h1 {
@@ -127,7 +125,7 @@
   }
   #scroll-alert {
 	position: absolute;
-	bottom: 2%;
+	bottom: 0%;
 	// Medium devices (tablets, 768px and up) md
 	@media (min-width: 768px) { bottom: 5%;  }
 	text-align: center;

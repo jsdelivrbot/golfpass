@@ -6,14 +6,13 @@
 	bottom:15px;
 	color: white;
 	border-bottom: 4px solid white;
-	h1{
-	  font-size: 2rem;
-	  margin-bottom: 0;
+	h3{
+	  font-family: notokr-regular;
+	  font-size: 30px;
 	}
 	p{
-	  font-family: notokr-regular;
-	  font-size: 1.2rem;
-	  margin-bottom: 5;
+	  font-family: notokr-light;
+	  font-style: 14px;
 	}
   }
   .position-absolute {
@@ -38,6 +37,14 @@
         top: 78%;
         height: 15%;
         border-bottom: 2px solid white;
+		h3{
+		  font-family: notokr-regular;
+		  font-size: 30px;
+		}
+		p{
+		  font-family: notokr-light;
+		  font-style: 14px;
+		}
       }
     }
   }

@@ -17,7 +17,13 @@
       font-size: 0.75rem;
     }
   }
-  .panel-item {
+  .panel-item{
+	img{
+	  margin-right: 20px;
+	}
+  }
+  .panel-content {
+	padding: 15px;
     h4 {
       font-size: 1.1rem;
       font-weight: bold;

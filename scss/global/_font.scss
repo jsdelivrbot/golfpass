@@ -33,3 +33,17 @@
     url('/public/sangmin/fonts/noto/notokr-regular.woff') format('woff2'),
     url('/public/sangmin/fonts/noto/notokr-regular.ttf') format('truetype');
 }
+@font-face {
+  font-family: 'notokr-thin';
+  src:url('/public/sangmin/fonts/noto/notokr-thin.eot'),
+  url('/public/sangmin/fonts/noto/notokr-thin.woff') format('woff'),
+  url('/public/sangmin/fonts/noto/notokr-thin.woff') format('woff2'),
+  url('/public/sangmin/fonts/noto/notokr-thin.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'notokr-demilight';
+  src:url('/public/sangmin/fonts/noto/notokr-demilight.eot'),
+  url('/public/sangmin/fonts/noto/notokr-demilight.woff') format('woff'),
+  url('/public/sangmin/fonts/noto/notokr-demilight.woff') format('woff2'),
+  url('/public/sangmin/fonts/noto/notokr-demilight.ttf') format('truetype');
+}

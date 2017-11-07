@@ -1,12 +1,17 @@
 #section5 {
   font-family: notokr-medium;
   .category {
+	padding: 10px 15px 10px 15px;
     button {
-      font-family: notokr-medium;
+      font-family: notokr-demilight;
       font-weight: 500;
       font-size: 14px;
       margin: 8px 15px 8px 15px;
+	  border-radius: 45px;
     }
+	button.active{
+	  box-shadow: 0 0 0 0;
+	}
   }
   .contents {
     > div {
