@@ -2354,6 +2354,7 @@ body.menu-open .plus-btn .r2 {
     color: #a5a5a5; }
 
 #main-footer {
+  z-index: 9999;
   box-sizing: border-box;
   position: relative;
   bottom: 0;
