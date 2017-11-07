@@ -2401,15 +2401,8 @@ body > .main-section {
   height: 100%;
   position: relative; }
 
-@media (max-width: 575px) {
-  body > section {
-    min-height: 300px; } }
-@media (min-width: 576px) and (max-width: 767px) {
-  body > section {
-    min-height: 700px; } }
-@media (min-width: 768px) {
-  body > section {
-    min-height: 800px; } }
+body > section {
+  min-height: 500px; }
 
 #bg-div {
   color: white;
