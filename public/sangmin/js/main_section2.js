@@ -5,8 +5,8 @@ jQuery(document).ready(function ($) {
 		$SlideDuration: 5000,
 		$SlideEasing: $Jease$.$Linear,
 		$PauseOnHover: 4,
-		$SlideWidth: 220,
-		$Cols: 7,
+		$SlideWidth: 240,
+		$Cols: 8,
 		$Align: 0
 	};
 	var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
@@ -27,7 +27,7 @@ jQuery(document).ready(function ($) {
 
 	ScaleSlider();
 	$(window).bind("load", ScaleSlider);
-/*	$(window).bind("resize", ScaleSlider);
-	$(window).bind("orientationchange", ScaleSlider);*/
+	/*$(window).bind("resize", ScaleSlider);*/
+	$(window).bind("orientationchange", ScaleSlider);
 	/*#endregion responsive code end*/
 });
