@@ -93,8 +93,8 @@
 		  }
 		  .btn-box {
 			border: 2px solid white;
-			width: 140px;
-			height: 40px;
+			min-width: 140px;
+			min-height: 40px;
 			button {
 			  background-color: transparent;
 			  color: white;

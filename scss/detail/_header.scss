@@ -6,7 +6,7 @@
 	padding: 0 !important;
 	z-index: 1; //overflow-x: hidden;
 	position: relative;
-	@include backcover('../img/background/hero-image.jpg');
+	@include backcover('../sangmin/img/background/hero-image.jpg');
 	&::after {
 		content: '';
 		z-index: -1;

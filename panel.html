@@ -10,8 +10,7 @@
 	<!-- Bootstrap core CSS -->
 	<link rel="stylesheet" href="public/sangmin/dist/bootstrap/bootstrap.min.css">
 	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
-	<link rel="stylesheet" href="public/sangmin/css/main.css">
-	<link rel="stylesheet" href="public/sangmin/css/eric-meyer-reset.min.css">
+	<link rel="stylesheet" href="public/css/main.css">
 	<link rel="stylesheet" href="public/sangmin/dist/Nwagon/Nwagon.css" type="text/css">
 </head>
 
@@ -40,12 +39,12 @@
 		<!--NOTE desktop,tablet nav-->
 		<nav id='md-nav' class="row no-gutters justify-content align-items-stretch d-none d-sm-flex">
 			<div id="logo" class='col-6 d-flex align-items-center'>
-				<figure class="d-flex align-items-center d-lg-none">
+				<div class="d-flex align-items-center d-lg-none mr-2">
 					<img src="public/sangmin/img/icon/logo_mobile.png" class="" alt="">
-				</figure>
-				<figure class="align-items-center d-none d-lg-flex">
+				</div>
+				<div class="align-items-center d-none d-lg-flex mr-2">
 					<img src="public/sangmin/img/icon/logo.png" class="" alt="">
-				</figure>
+				</div>
 				<div id="search" class="d-flex align-items-center">
 					<span><i class="xi xi-search"></i></span>
 					<input type="text" placeholder="관심있는 나라나 골프장을 검색해보세요!">
@@ -54,16 +53,16 @@
 			<div id='nav-icon-box' class="col-5 col-lg-4 d-flex justify-content-end">
 				<div id="login" class="d-flex align-items-center">
 					<span><i class="xi xi-lock"></i></span>
-					<p>로그인</p>
+					<p class="mb-0">로그인</p>
 				</div>
 				<div id="join" class="d-flex align-items-center">
 					<span><i class="xi xi-user-plus"></i></span>
-					<p>회원가입</p>
+					<p class="mb-0">회원가입</p>
 				</div>
 			</div>
 			<div id="toggle" class="col-1 col-lg-2 ml-auto">
 				<span><i class="xi xi-bars"></i></span>
-				<p class="d-none d-lg-block">메뉴</p>
+				<p class="mb-0 d-none d-lg-block">메뉴</p>
 			</div>
 		</nav>
 	</header>
@@ -142,7 +141,7 @@
 			</article>
 			<div class="col-12 d-flex justify-content-center align-items-center pagination">
 				<div class="prev"><a href="#"><i class="xi xi-angle-left-min"></i></a></div>
-				<ul class="d-flex list-unstyled justify-content-center">
+				<ul class="d-flex list-unstyled justify-content-center mb-0">
 					<li class="current"><a href="#">01</a></li>
 					<li><a href="#">02</a></li>
 					<li><a href="#">03</a></li>
@@ -289,7 +288,7 @@
 			</div>
 			<div class="col-12 d-flex justify-content-center align-items-center pagination">
 				<div class="prev"><a href="#"><i class="xi xi-angle-left-min"></i></a></div>
-				<ul class="d-flex list-unstyled justify-content-center">
+				<ul class="d-flex list-unstyled justify-content-center mb-0">
 					<li class="current"><a href="#">01</a></li>
 					<li><a href="#">02</a></li>
 					<li><a href="#">03</a></li>
@@ -299,7 +298,7 @@
 			</div>
 		</section>
 	</article>
-	<footer id='main-footer' class='d-flex flex-wrap'>
+	<footer class='d-flex flex-wrap'>
 		<ul>
 			<li class="title">ABOUT US</li>
 			<li><a href="#">회사 소개</a></li>
@@ -347,7 +346,6 @@
 	<script src="public/sangmin/dist/bootstrap/bootstrap.bundle.min.js"></script>
 	<script src="public/sangmin/dist/Nwagon/Nwagon.js"></script>
 	<script src="public/sangmin/js/custom.js"></script>
-	<script src="public/sangmin/js/chart.js"></script>
 </body>
 
 </html>

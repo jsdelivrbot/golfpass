@@ -2158,8 +2158,8 @@ body.menu-open .plus-btn .r2 {
           margin-bottom: 20px; }
         #section1 .carousel .carousel-inner .carousel-item .content-box .btn-box {
           border: 2px solid white;
-          width: 140px;
-          height: 40px; }
+          min-width: 140px;
+          min-height: 40px; }
           #section1 .carousel .carousel-inner .carousel-item .content-box .btn-box button {
             background-color: transparent;
             color: white;
@@ -2360,9 +2360,12 @@ body.menu-open .plus-btn .r2 {
   bottom: 0;
   width: 100%;
   background-color: transparent;
-  padding: 50px 0px 110px 50px;
+  padding: 10px;
   color: white;
   font-family: notokr-medium; }
+  @media (min-width: 992px) {
+    #main-footer {
+      padding: 50px 0px 110px 50px; } }
   #main-footer ul {
     color: inherit; }
     #main-footer ul .title {
@@ -2446,7 +2449,7 @@ body > section {
   padding: 0 !important;
   z-index: 1;
   position: relative;
-  background-image: url("../img/background/hero-image.jpg");
+  background-image: url("../sangmin/img/background/hero-image.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-width: 100%;
@@ -2946,29 +2949,27 @@ footer {
   width: 100%;
   background-color: #f0f0f0;
   padding: 50px 0px 50px 50px; }
-  footer ul {
-    margin-right: 60px; }
-    footer ul .title {
-      padding: 10px 0;
-      height: 50px;
+  footer ul .title {
+    padding: 10px 0;
+    height: 50px;
+    color: #ababab;
+    font-size: bold;
+    font-size: 1.1rem; }
+  footer ul li {
+    display: flex;
+    height: 30px;
+    color: #b5b5b5;
+    font-size: 0.9rem; }
+    footer ul li a {
+      text-decoration: none;
+      color: inherit; }
+    footer ul li span {
       color: #ababab;
-      font-size: bold;
-      font-size: 1.1rem; }
-    footer ul li {
-      display: flex;
-      height: 30px;
-      color: #b5b5b5;
-      font-size: 0.9rem; }
-      footer ul li a {
-        text-decoration: none;
-        color: inherit; }
-      footer ul li span {
-        color: #ababab;
-        font-weight: bolder;
-        margin-right: 10px; }
-      footer ul li > input {
-        padding: 15px;
-        width: 100%; }
+      font-weight: bolder;
+      margin-right: 10px; }
+    footer ul li > input {
+      padding: 15px;
+      width: 100%; }
   footer > p {
     font-size: 0.8rem;
     color: #b5b5b5; }
