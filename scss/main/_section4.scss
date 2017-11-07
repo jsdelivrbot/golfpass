@@ -1,4 +1,21 @@
 #section4 {
+  .mobile-content{
+	font-family: notokr-medium;
+	left: 6% !important;
+	width: 88% !important;
+	bottom:15px !important;
+	color: white;
+	border-bottom: 4px solid white;
+	h1{
+	  font-size: 2rem;
+	  margin-bottom: 0;
+	}
+	p{
+	  font-family: notokr-regular;
+	  font-size: 1.2rem;
+	  margin-bottom: 5;
+	}
+  }
   .position-absolute {
     left: 3%;
     bottom: 5%;
