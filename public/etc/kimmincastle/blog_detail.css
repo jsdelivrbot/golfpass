@@ -2046,7 +2046,33 @@ body {
     }
 }
 
+@media only screen and (max-width: 480px) {
+    .comments-container {
+        width: 380px;
+    }
 
+    .comments-list .comment-box {
+        width: 290px;
+    }
+
+    .reply-list .comment-box {
+        width: 220px;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .comments-container {
+        width: 280px;
+    }
+
+    .comments-list .comment-box {
+        width: 190px;
+    }
+
+    .reply-list .comment-box {
+        width: 120px;
+    }
+}
 
 /* write */
 
