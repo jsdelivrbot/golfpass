@@ -2112,9 +2112,24 @@ body.menu-open .plus-btn .r2 {
       background-position: center; }
       #section1 .carousel .carousel-inner .carousel-item img {
         height: 100%;
-        left: -75%;
-        top: 0; }
-        @media (min-width: 768px) {
+        top: 0;
+        left: -150%; }
+        @media (min-width: 300px) and (max-width: 400px) {
+          #section1 .carousel .carousel-inner .carousel-item img {
+            left: -180%; } }
+        @media (min-width: 401px) and (max-width: 480px) {
+          #section1 .carousel .carousel-inner .carousel-item img {
+            left: -140%; } }
+        @media (min-width: 481px) and (max-width: 575px) {
+          #section1 .carousel .carousel-inner .carousel-item img {
+            left: -100%; } }
+        @media (min-width: 576px) and (max-width: 767px) {
+          #section1 .carousel .carousel-inner .carousel-item img {
+            left: -80%; } }
+        @media (min-width: 768px) and (max-width: 991px) {
+          #section1 .carousel .carousel-inner .carousel-item img {
+            left: -50%; } }
+        @media (min-width: 992px) {
           #section1 .carousel .carousel-inner .carousel-item img {
             width: 100%;
             left: 0; } }
