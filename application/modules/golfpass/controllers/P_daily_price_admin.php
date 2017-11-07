@@ -38,7 +38,7 @@ class P_daily_price_admin extends Admin_Controller
                 $year = date("Y");
 
             $this->db->like("date",$year);
-            $rows =$this->p_daily_price_model->gets(array('product_id'=>$product_id));
+            $rows =$this->p_daily_price_model->_gets(array('product_id'=>$product_id));
 
             if(count($rows) !== 0){
                 foreach($rows as $row)
