@@ -4,7 +4,21 @@ body > .main-section {
     position: relative;
 
 }
+body >section{
+  // Extra small devices (portrait phones, less than 576px) xs
+  @media (max-width: 575px) {
+	min-height: 640px;
+  }
 
+  // Small devices (landscape phones, 576px and up) sm
+  @media (min-width: 576px) and (max-width: 767px) {
+	min-height: 700px;
+  }
+
+  // Medium devices (tablets, 768px and up) md
+  @media (min-width: 768px) { min-height: 800px; }
+
+}
 #bg-div {
     color: white;
     z-index: -9999; //overflow-x: hidden;
