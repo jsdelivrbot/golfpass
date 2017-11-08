@@ -36,6 +36,7 @@ class Publishing extends Public_Controller
     }
     function regist()
     {
+        // $this->_view("regist");
         $this->_template("regist",array(),"golfpass");
     }
     function forgot_id()
