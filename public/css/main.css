@@ -2484,9 +2484,12 @@ body.menu-open .plus-btn .r2 {
         font-weight: bolder;
         margin-right: 10px; }
       #main-footer ul li > input {
-        color: inherit;
-        padding: 15px;
-        width: 100%; }
+        font-family: notokr-light;
+        font-size: 12px;
+        color: #b2b2b2;
+        padding: 5px;
+        height: 40;
+        width: 240px; }
   #main-footer > p {
     font-size: 0.8rem;
     color: inherit; }
