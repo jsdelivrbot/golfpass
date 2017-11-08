@@ -85,6 +85,10 @@ class Test extends Public_Controller
         // // var_dump($num_weekend_days);
         
     }
+    function semantic()
+    {
+        $this->_view("test/semantic");
+    }
     function test2()
     {
         $this->_view("test/test");
