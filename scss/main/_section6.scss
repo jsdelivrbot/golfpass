@@ -1,6 +1,8 @@
+@charset "utf-8";
 #section6 {
   font-family: notokr-medium;
   .trans-box {
+	/*말꼬리..*/
     -ms-transform: rotate(45deg); /* IE 9 */
     -webkit-transform: rotate(45deg); /* Safari */
     transform: rotate(45deg);
@@ -10,6 +12,7 @@
     z-index: -1;
   }
   .review-box {
+	/*연필 리뷰 컨테이너*/
     top: 20%;
     right: 5%;
     span {
@@ -19,7 +22,7 @@
   }
   .panel-item{
 	img{
-	  margin-right: 20px;
+	  margin:0 20px;
 	}
   }
   .panel-content {

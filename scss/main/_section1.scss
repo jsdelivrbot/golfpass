@@ -95,23 +95,26 @@
     }
   }
   #time-border {
-    //왼쪽 타임 보더
-    position: absolute;
-    height: 70%;
-    left: 2.5%;
-    top: 15%;
-    opacity: 0.4;
-    border: 2px solid #3d4842;
-    box-sizing: border-box;
-    &::before {
-      content: '';
-      left: -2px;
-      top: -2px;
-      display: inline-block;
-      position: absolute;
-      height: 60%;
-      border: 2px solid white;
-    }
+	position: absolute;
+	height: 70%;
+	//왼쪽 타임 보더
+	left: 2.5%;
+	top: 15%;
+	#bar{
+	  position: absolute;
+	  height: 100%;
+	  opacity: 0.5;
+	  border: 2px solid white;
+	  box-sizing: border-box;
+	}
+	#current{
+	  position: absolute;
+	  height: 60%;
+	  left: -1px;
+	  border: 3px solid white;
+	  box-sizing: border-box;
+	}
+
   }
   #scroll-alert {
     //스크롤 내려주세요
