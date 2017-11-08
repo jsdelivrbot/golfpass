@@ -2646,64 +2646,6 @@ body > section {
         @media (min-width: 768px) {
           #detail-header article #detail #score {
             top: 0; } }
-  #detail-header #book-box {
-    font-family: 'Noto Sans', sans-serif;
-    border: 1px solid #e6e6e6;
-    position: relative; }
-    @media (min-width: 768px) {
-      #detail-header #book-box {
-        position: absolute;
-        right: 0;
-        top: 88%; } }
-    #detail-header #book-box #personnel {
-      background-color: #79b754;
-      padding: 10px; }
-      #detail-header #book-box #personnel h1 {
-        display: block; }
-      #detail-header #book-box #personnel #count {
-        font-size: 2rem; }
-      #detail-header #book-box #personnel #icon-box {
-        position: relative;
-        min-width: 15px; }
-        #detail-header #book-box #personnel #icon-box span {
-          font-size: 1.4rem;
-          position: absolute; }
-          #detail-header #book-box #personnel #icon-box span:nth-child(1) {
-            top: 2px; }
-          #detail-header #book-box #personnel #icon-box span:nth-child(2) {
-            bottom: -4px; }
-          #detail-header #book-box #personnel #icon-box span i {
-            cursor: pointer; }
-    #detail-header #book-box #dateBox {
-      padding: 20px;
-      background-color: black; }
-      #detail-header #book-box #dateBox .form-group {
-        background-color: white;
-        color: black;
-        width: 45%; }
-        #detail-header #book-box #dateBox .form-group input {
-          box-sizing: border-box;
-          padding: 5px;
-          width: 80%;
-          border: 0;
-          height: 30px; }
-          #detail-header #book-box #dateBox .form-group input:focus {
-            outline: 0; }
-    #detail-header #book-box #info {
-      background-color: #fff;
-      padding: 20px;
-      color: #5e5e5e;
-      font-family: 'Noto Sans', sans-serif;
-      font-size: 1em; }
-      #detail-header #book-box #info li {
-        margin-bottom: 10px;
-        box-sizing: border-box; }
-        #detail-header #book-box #info li i {
-          color: #fdd931; }
-    #detail-header #book-box #price h3 {
-      color: #fdd931; }
-    #detail-header #book-box #price p {
-      font-size: 2.3rem; }
   #detail-header::after {
     content: '';
     z-index: -1;
@@ -2719,6 +2661,9 @@ body > section {
   font-family: 'Noto Sans', sans-serif;
   font-weight: bold;
   box-sizing: border-box; }
+  @media (min-width: 1199px) {
+    #detail-article {
+      width: 70%; } }
   #detail-article section {
     margin-top: 80px;
     color: #4d4d4d;
@@ -2784,85 +2729,71 @@ body > section {
     height: 400px;
     background-color: #4d4d4d; }
 
-#section-review {
+#book-box-wrap {
+  font-family: 'Noto Sans', sans-serif;
+  border: 1px solid #e6e6e6;
   position: relative;
-  width: 100%;
-  margin-top: 95px; }
-  #section-review .review-warning-text {
-    width: 100%;
-    position: relative; }
-    #section-review .review-warning-text > div {
-      box-sizing: padding-box;
-      padding: 0 4%;
-      border: 1px solid #e6e6e6; }
-      #section-review .review-warning-text > div span {
-        font-size: 1.3rem;
-        color: #efb42a; }
-      #section-review .review-warning-text > div p {
-        font-size: 0.8rem;
-        text-align: center; }
-  #section-review #review-box {
-    font-size: 0.8rem;
-    box-sizing: border-box;
-    position: relative;
-    width: 100%;
-    margin-top: 70px; }
-    #section-review #review-box .review {
+  color: #fff; }
+  @media (min-width: 992px) {
+    #book-box-wrap {
+      position: absolute;
+      z-index: 9999;
+      width: 35%;
+      right: 0; } }
+  @media (min-width: 1199px) {
+    #book-box-wrap {
+      width: 30%; } }
+  #book-box-wrap #book-box {
+    width: 100%; }
+    #book-box-wrap #book-box #personnel {
+      background-color: #79b754;
+      padding: 10px; }
+      #book-box-wrap #book-box #personnel h1 {
+        display: block; }
+      #book-box-wrap #book-box #personnel #count {
+        font-size: 2rem; }
+      #book-box-wrap #book-box #personnel #icon-box {
+        position: relative;
+        min-width: 15px; }
+        #book-box-wrap #book-box #personnel #icon-box span {
+          font-size: 1.4rem;
+          position: absolute; }
+          #book-box-wrap #book-box #personnel #icon-box span:nth-child(1) {
+            top: 2px; }
+          #book-box-wrap #book-box #personnel #icon-box span:nth-child(2) {
+            bottom: -4px; }
+          #book-box-wrap #book-box #personnel #icon-box span i {
+            cursor: pointer; }
+    #book-box-wrap #book-box #dateBox {
       padding: 20px;
-      background-color: #fcfcfc;
-      border: 1px solid #e6e6e6;
-      color: #bbbfc1;
-      border-radius: 8px;
-      width: 95%;
-      margin: 10px auto; }
-      #section-review #review-box .review .profile p {
-        font-size: 0.7rem;
-        color: #c3c9ce; }
-        #section-review #review-box .review .profile p span {
-          color: #32a8ef; }
-      #section-review #review-box .review .content,
-      #section-review #review-box .review .score,
-      #section-review #review-box .review .date {
-        padding-left: 10%; }
-      #section-review #review-box .review .content {
-        color: #868e93;
-        line-height: 1.5; }
-      #section-review #review-box .review .score > p {
-        margin-right: 10%;
-        font-size: 4rem;
-        font-weight: 100;
-        color: #1ba545; }
-      #section-review #review-box .review .score ul {
-        width: 60%; }
-        #section-review #review-box .review .score ul li {
-          height: 35px; }
-          #section-review #review-box .review .score ul li .line {
-            box-sizing: border-box;
-            margin: 0 20px;
-            flex-grow: 1;
-            border-bottom: 1px solid #bbbfc1; }
-  #section-review #all {
-    margin: 60px auto 80px auto;
-    position: relative;
-    width: 25%;
-    border-top: 1px solid #ebebeb; }
-    #section-review #all #circle {
-      cursor: pointer;
-      margin-top: 40px;
-      min-width: 100px;
-      min-height: 100px;
-      border: 1px solid #ebebeb;
-      border-radius: 50%; }
-      #section-review #all #circle:before {
-        position: absolute;
-        content: '';
-        display: block;
-        height: 40px;
-        top: 0;
-        border-right: 1px solid #ebebeb; }
-      #section-review #all #circle span {
-        color: #99a0a4;
-        font-size: 0.8rem; }
+      background-color: black; }
+      #book-box-wrap #book-box #dateBox .form-group {
+        background-color: white;
+        color: black;
+        width: 45%; }
+        #book-box-wrap #book-box #dateBox .form-group input {
+          box-sizing: border-box;
+          padding: 5px;
+          width: 80%;
+          border: 0;
+          height: 30px; }
+          #book-box-wrap #book-box #dateBox .form-group input:focus {
+            outline: 0; }
+    #book-box-wrap #book-box #info {
+      background-color: #fff;
+      padding: 20px;
+      color: #5e5e5e;
+      font-family: 'Noto Sans', sans-serif;
+      font-size: 1em; }
+      #book-box-wrap #book-box #info li {
+        margin-bottom: 10px;
+        box-sizing: border-box; }
+        #book-box-wrap #book-box #info li i {
+          color: #fdd931; }
+    #book-box-wrap #book-box #price h3 {
+      color: #fdd931; }
+    #book-box-wrap #book-box #price p {
+      font-size: 2.3rem; }
 
 #panel-article {
   margin-top: 100px;
