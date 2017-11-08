@@ -1,7 +1,7 @@
 
 <!-- 프로필 사진 시작-->
-<!-- <iframe id="profilePhoto_upload" src="/index.php/auth/profilePhoto_upload" width="300px" height="200px">
-</iframe>    -->
+<iframe id="profilePhoto_upload" src="/index.php/auth/profilePhoto_upload" width="300px" height="200px">
+</iframe>   
 <!-- 프로필 사진 끝 -->
 
 <form action ="<?=my_site_url(user_uri."/{$mode}")?>"method="POST" >

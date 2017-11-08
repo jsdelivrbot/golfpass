@@ -137,7 +137,8 @@ class User extends Base_Controller
 
             echo "<script>alert('휴대폰 인증이 완료되지 않았습니다.')</script>";
             // $this->_template("user/golfpass/addUpdate",$data,'golfpass');
-            $this->_template("addUpdate",$data);
+            // $this->_template("addUpdate",$data);
+            $this->_template("user/golfpass/addUpdate",$data,'golfpass');
         }
         else
         {
@@ -151,10 +152,14 @@ class User extends Base_Controller
             $this->db->set('email', $this->input->post('email'));
             // // $this->db->set('phone', $this->input->post('phone'));
             $this->db->set('phone', $_SESSION['phone']);
+
+            
             $this->db->insert('users');
 
             unset($_SESSION["email_auth"]);
             unset($_SESSION["email"]);
+            unset($_SESSION["phone"]);
+            unset($_SESSION["phone_auth"]);
 
             $insert_id = $this->db->insert_id();
             $this->session->set_userdata(array('is_login'=>'true','user_id'=>$insert_id,'userName'=>$userName,'auth'=>'1'));
@@ -195,28 +200,33 @@ class User extends Base_Controller
 
             msg_redirect("수정완료", "/");
         }
-
     }
     function _dbSet_addUpdate(){
-        $birth = my_date_format($this->input->post('year'), $this->input->post('month'), $this->input->post('day'));
+        // $birth = my_date_format($this->input->post('year'), $this->input->post('month'), $this->input->post('day'));
+        // $this->db->set('birth', $birth);
+        $this->db->set('birth', $this->input->post("birth"));
 
         $this->db->set('postal_number', $this->input->post('postal_number'));
         $this->db->set('address', $this->input->post('address'));
         $this->db->set('address_more', $this->input->post('address_more'));
         $this->db->set('name', $this->input->post('name'));
-        $this->db->set('sex', $this->input->post('sex'));
-        $this->db->set('birth', $birth);
-      
+        // $this->db->set('sex', $this->input->post('sex'));
+        
         $this->db->set('profilePhoto',$this->input->post('profilePhoto'));
         $this->db->set('email',$this->input->post('email'));
+        $this->db->set('option_1',$this->input->post('option_1'));
+        $this->db->set('option_2',$this->input->post('option_2'));
+        $this->db->set('option_3',$this->input->post('option_3'));
+        $this->db->set('option_4',$this->input->post('option_4'));
+        $this->db->set('option_5',$this->input->post('option_5'));
         
         $this->db->set('created', 'NOW()', false);
     }
 
     function _set_rules(){
-        $this->fv->set_rules('postal_number', '우편번호', 'required',array('required'=>'주소를 검색선택해주세요.'));
-        $this->fv->set_rules('address', '기본주소', 'required');
-        $this->fv->set_rules('address_more', '상세주소', 'required');
+        // $this->fv->set_rules('postal_number', '우편번호', 'required',array('required'=>'주소를 검색선택해주세요.'));
+        // $this->fv->set_rules('address', '기본주소', 'required');
+        // $this->fv->set_rules('address_more', '상세주소', 'required');
         $this->fv->set_rules('name', '이름', 'required|min_length[1]|max_length[15]');
         $this->fv->set_rules('name', '이름',array('required','min_length[1]','max_length[15]',
     array("해당 닉네임으로 지정할수 없습니다.",function($str){
@@ -226,9 +236,9 @@ class User extends Base_Controller
         return true;
     })
 ));
-        $this->fv->set_rules('sex', '성별', 'required|min_length[1]|max_length[5]',array('required'=>'%s을 선택해주세요'));
+        // $this->fv->set_rules('sex', '성별', 'required|min_length[1]|max_length[5]',array('required'=>'%s을 선택해주세요'));
      
-        // $this->fv->set_rules('phone', '연락처', 'required|min_length[1]|max_length[20]');
+        $this->fv->set_rules('phone', '연락처', 'required|min_length[1]|max_length[20]');
     }
     function email_auth()
     {

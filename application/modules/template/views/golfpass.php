@@ -124,6 +124,7 @@
 	<script src="/public/tmp/sangmin/dist/bootstrap/bootstrap.bundle.min.js"></script>
 	<script src="/public/tmp/sangmin/dist/Nwagon/Nwagon.js"></script>
 	<!-- <script src="/public/tmp/sangmin/js/custom.js"></script> -->
+	<script src="<?=domain_url('/public/js/common.js')?>"></script>
 </body>
 
 </html>

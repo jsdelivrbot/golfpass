@@ -126,32 +126,51 @@ class Init_Controller extends MX_Controller{
              `id` INT UNSIGNED NULL AUTO_INCREMENT, 
              `auth` INT NOT NULL DEFAULT '1',
              `kind` varchar(50) NOT NULL DEFAULT 'general',
-             `postal_number` INT UNSIGNED, 
-             `address` varchar(255) ,
-             `address_more` varchar(255),
+             `profilePhoto` varchar(255),
              `userName` varchar(10), 
              `password` varchar(255), 
              `name` varchar(10),
-             `sex` varchar(5),
+             `sex` varchar(10),
              `birth` varchar(30),
              `phone` varchar(20),
              `email` varchar(40),
-             `profilePhoto` varchar(255),
+             `address` varchar(255) ,
+             `postal_number` INT UNSIGNED, 
+             `address_more` varchar(255),
+             `option_1` varchar(255),
+             `option_2` varchar(255),
+             `option_3` varchar(255),
+             `option_4` varchar(255),
+             `option_5` varchar(255),
              `created` datetime NOT NULL DEFAULT NOW(),
+             UNIQUE KEY (`userName`),
+             UNIQUE KEY (`phone`),
              PRIMARY KEY (`id`),
              UNIQUE KEY `idx_userName`(`userName`)
               ) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
-             
-             $this->db->query("ALTER TABLE `$tb_name` ADD UNIQUE KEY `userName` (`userName`), ADD KEY `email` (`email`);");
                  
              //관리자 추가
              $password =password_hash("admin",PASSWORD_BCRYPT);
-             $this->db->query("INSERT INTO `$tb_name` (`id`, `auth`, `userName`, `password`, `name`,`sex`, `phone`, `email`, `created`) 
-             VALUES (NULL, '-1', 'admin', '$password', '최고관리자','남' ,'010-6626-2252', 'admin@admin.com', NOW());");
+             $this->db->set("auth","-1");
+             $this->db->set("userName","admin");
+             $this->db->set("password",$password);
+             $this->db->set("name","최고관리자");
+             $this->db->set("sex","");
+             $this->db->set("email","");
+             $this->db->insert("users");
+            //  $this->db->query("INSERT INTO `$tb_name` (`id`, `auth`, `userName`, `password`, `name`,`sex`, `phone`, `email`, `created`) 
+            //  VALUES (NULL, '-1', 'admin', '$password', '최고관리자','남' ,'010-6626-2252', 'admin@admin.com', NOW());");
              
              $password =password_hash("test",PASSWORD_BCRYPT);
-             $this->db->query("INSERT INTO `$tb_name` (`id`, `auth`, `userName`, `password`, `name`,`sex`, `phone`, `email`, `created`) 
-             VALUES (NULL, '1', 'test', '$password', '테스트','남' ,'010-6626-2252', 'test@admin.com', NOW());");
+             $this->db->set("auth","-1");
+             $this->db->set("userName","test");
+             $this->db->set("password",$password);
+             $this->db->set("name","테스터");
+             $this->db->set("sex","");
+             $this->db->set("email","");
+             $this->db->insert("users");
+            //  $this->db->query("INSERT INTO `$tb_name` (`id`, `auth`, `userName`, `password`, `name`,`sex`, `phone`, `email`, `created`) 
+            //  VALUES (NULL, '1', 'test', '$password', '테스트','남' ,'010-6626-2252', 'test@admin.com', NOW());");
  
              if($result) echo("success create $tb_name ");
              else echo("failed create $tb_name");
