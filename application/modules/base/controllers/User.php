@@ -21,7 +21,13 @@ class User extends Base_Controller
            $data["content_view"] = "user/login";
            $this->template->base($data);
     }
-     
+    function find_pw(){
+        $this->_template("user/golfpass/find_pw",array(),'golfpass');
+    }
+    function find_id()
+    {
+        $this->_template("user/golfpass/find_id",array(),'golfpass');
+    }
     function register_agree_1()
     {
         // $this->_template('user/golfpass/register_agree_1',array(),'golfpass');

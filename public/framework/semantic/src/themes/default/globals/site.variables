@@ -448,6 +448,7 @@
      Brand Colors
 --------------------*/
 
+@kakaoColor : #fbdd00;
 @naverColor : #1dc800;
 @facebookColor   : #3B5998;
 @twitterColor    : #55ACEE;
@@ -765,6 +766,7 @@
 @negativeColorHover   : saturate(darken(@negativeColor, 5), 10, relative);
 
 /*---  Brand   ---*/
+@kakaoHoverColor   : saturate(darken(@kakaoColor, 5), 10, relative);
 @naverHoverColor   : saturate(darken(@naverColor, 5), 10, relative);
 @facebookHoverColor   : saturate(darken(@facebookColor, 5), 10, relative);
 @twitterHoverColor    : saturate(darken(@twitterColor, 5), 10, relative);
@@ -884,6 +886,7 @@
 
 /*---  Brand   ---*/
 
+@kakaoDownColor   : darken(@kakaoColor, 10);
 @naverDownColor   : darken(@naverColor, 10);
 @facebookDownColor   : darken(@facebookColor, 10);
 @twitterDownColor    : darken(@twitterColor, 10);

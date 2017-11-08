@@ -28,7 +28,9 @@ class Maker extends Public_Controller
         (object)array("name"=>"메인","url"=>site_url(""),"view_dir"=>"base / views / main / golfpass.php"),
         (object)array("name"=>"로그인","url"=>site_url(user_uri."/login"),"view_dir"=>"base / views / user / golfpass/ login.php"),
         (object)array("name"=>"약관계약","url"=>site_url(user_uri."/register_agree_1"),"view_dir"=>"base / views / user / golfpass / register_agree_1.php"),
-        (object)array("name"=>"회원가입","url"=>site_url(user_uri."/add"),"view_dir"=>"base / views / user / golfpass/  addUpdate.php")
+        (object)array("name"=>"회원가입","url"=>site_url(user_uri."/add"),"view_dir"=>"base / views / user / golfpass/  addUpdate.php"),
+        (object)array("name"=>"아이디 찾기","url"=>site_url(user_uri."/find_id"),"view_dir"=>"base / views / user / golfpass/  find_id.php"),
+        (object)array("name"=>"비밀번호 찾기","url"=>site_url(user_uri."/find_pw"),"view_dir"=>"base / views / user / golfpass/  find_pw.php")
      );
      $data['shop']=array(
         (object)array("name"=>"상품","url"=>site_url(shop_product_uri."/get/1"),"view_dir"=>"shop / views / product / golfpass / get.php"),
