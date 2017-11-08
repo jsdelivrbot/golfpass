@@ -102,8 +102,8 @@ class User extends Base_Controller
         if ($this->fv->run()=== false) {
             $user = (object)array();
             $data = array("mode" =>"add","user"=>$user);
-            // $this->_template("user/golfpass/addUpdate",$data,'golfpass');
-            $this->_template("addUpdate",$data);
+            $this->_template("user/golfpass/addUpdate",$data,'golfpass');
+            // $this->_template("addUpdate",$data);
 
             if($this->session->userdata('email_auth') !== null && $this->session->userdata('email') !== null){
                 $this->session->set_flashdata( 'email',$this->session->userdata("email"));
