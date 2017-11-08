@@ -26,7 +26,10 @@ class Publishing extends Public_Controller
        }
     //    var_dump($methods);
     }
-
+    function test()
+    {
+        $this->_view("test");
+    }
     function contact()
     {
         $this->_template("contact",array(),"golfpass");
@@ -53,6 +56,11 @@ class Publishing extends Public_Controller
     }
     function login()
     {
-        $this->_template("login",array(),"golfpass");
+        // $this->_template("login",array(),"golfpass");
+        $this->_view("login");
+    }
+    function forgot_pw()
+    {
+        $this->_template("forgot_pw",array(),"golfpass");
     }
 }
