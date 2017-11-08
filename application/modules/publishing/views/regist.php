@@ -119,7 +119,7 @@
             <div class="ui fluid multiple search selection dropdown">
                 <input name="tags" type="hidden">
                 <i class="dropdown icon"></i>
-                <div class="default text">해외 골프 시 향후 가보고 싶은 국가 (복수 선택 가능)</div>
+                <div class="default text">해외 골프 시 향후 가고 싶은 국가 (복수 선택 가능)</div>
                 <div class="menu">
                     <div class="item" data-value="일본">일본</div>
                     <div class="item" data-value="태국">태국</div>
