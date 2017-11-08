@@ -1,84 +1,62 @@
-	
-	<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
-	<link rel="stylesheet" type="text/css" href="/public/etc/jobdance/css/jquery.bxslider.css" media="all">
-	<link rel="stylesheet" type="text/css" href="/public/etc/jobdance/css/swiper.min.css" media="all">
-	<link rel="stylesheet" type="text/css" href="/public/etc/jobdance/css/front-base.css" media="all">
-	<link rel="stylesheet" type="text/css" href="/public/etc/jobdance/css/front-style.css" media="all">
-	<link rel="stylesheet" type="text/css" href="/public/etc/jobdance/css/front-media.css" media="all">
-	<link rel="shortcut icon" href="/public/etc/jobdance/images/favicon.ico">
-	<script src="/public/etc/jobdance/js/jquery-1.11.3.min.js" type="text/javascript"></script>
-	<script src="/public/etc/jobdance/js/pace.js" type="text/javascript"></script>
-	<script src="/public/etc/jobdance/js/jquery.bxslider.min.js" type="text/javascript"></script>
-	<script src="/public/etc/jobdance/js/swiper.min.js" type="text/javascript"></script>
-	<script src="/public/etc/jobdance/js/front-ui.js" type="text/javascript"></script>
+<!-- Standard Meta -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
 
-	<div class="wrap">
-		
+<link rel="stylesheet/less" type="text/css" href="/public/framework/semantic/src/semantic.less">
+<!-- <link rel="stylesheet/less" type="text/css" href="/public/framework/src/semantic.less"> -->
+<!-- <link rel="stylesheet" type="text/css" href="/public/framework/semantic/out/semantic.css"> -->
 
-		
-		<!-- main content -->
-		<div class="sub-content">
-
-			<div class="login-wrap">
-
-				<div class="login-form">
-					<!-- <p class="tit">아이디</p>
-					<p class="input">
-						<input type="text">
-					</p>
-					<p class="tit mt15">비밀번호</p>
-					<p class="input">
-						<input type="password">
-					</p>
-					<p class="login-u">
-						<input type="checkbox" id="login" /><label for="login">로그인 상태 유지하기</label>
-					</p> -->
-					<form class="ui form" action="<?=my_site_url(user_uri."/login?return_url=".rawurlencode($return_url))?>" method="post">
-					<div class="field">
-						<label>아이디</label>
-						<input type="text"name="userName" value="<?=set_value('userName')?>" placeholder="First Name">
-					</div>
-					<div class="field">
-						<label>비밀번호</label>
-						<input  type="password" name="password" placeholder="Last Name">
-					</div>
-					<div class="field">
-						<div class="ui">
-						<input type="checkbox" tabindex="0" class="hidden">
-						<label>로그인 유지</label>
-						</div>
-					</div>
-					<button class="fluid ui button olive" type="submit">로그인</button>
-					</form>
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/semantic.min.css"> -->
+<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/semantic.min.js"></script>
 
 
-					<!-- <p class="login-btn">
-						<a href="#">로그인</a>
-					</p> -->
-					<div class="login-util">
-						<a href="#">아이디 찾기</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-						<a href="#">비밀번호 찾기</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-						<a class="green" href="<?=site_url(user_uri."/register_agree_1")?>">회원가입</a>
-					</div>
-					<div class="or-co"><span></span><img src="/public/etc/jobdance/images/or-co.png" alt=""></div>
-				</div>
-				
-				<div class="j-tit btnot">
-					<p>개인 회원은 가입 없이<br>SNS 계정을 통해 이용할 수 있습니다.</p>
-				</div>
-				
-				<ul class="j-social btnot">
-					<li><a href="#" class="google">구글 로그인</a></li>
-					<li><a href="#" class="naver">네이버 로그인</a></li>
-					<li><a href="#" class="facebook">페이스북 로그인</a></li>
-					<li><a href="#" class="kakao">카카오 로그인</a></li>
-				</ul>
-			</div>	
-	
-			
-		<!-- //main content -->
-		
-	
-	</div>
-	
+<script src="/public/framework/semantic/src/less.min.js"></script>
+<div style="margin-top:180px;"></div>
+<style>
+    .column {
+        max-width: 450px;
+    }
+</style>
+
+
+<div class="ui middle aligned center aligned grid">
+    <div class="column">
+        <form action="<?=my_site_url(user_uri."/login?return_url=".rawurlencode($return_url))?>" method="post" class="ui large form" style="max-width: 90%; margin: 0 auto;">
+            <div class="ui header">골프패스 로그인</div>
+            <div class="field">
+                <div class="ui left icon input">
+                    <i class="user icon"></i>
+                    <input type="text" name="userName" placeholder="아이디">
+                </div>
+            </div>
+            <div class="field">
+                <div class="ui left icon input">
+                    <i class="lock icon"></i>
+                    <input type="password" name="password" placeholder="비밀번호">
+                </div>
+            </div>
+            <input type="submit" class="ui fluid positive basic button" value="로그인"></input>
+
+
+            <div class="ui error message"></div>
+
+
+            <div class="ui horizontal divider">
+                Or
+            </div>
+            <a href="" class="ui fluid large google plus button" style="margin-bottom:10px;"><i class="google plus icon"></i>구글로 로그인</a>
+            <a class="ui naver fluid large submit button" style="margin-bottom:10px;">네이버로 로그인</a>
+            <a class="ui facebook fluid large submit button" style="margin-bottom:10px;"><i class="facebook icon"></i>페이스북으로 로그인</a>
+            <a class="ui kakao fluid large submit button"><i class="kakao icon"></i>카카오로 로그인</a>
+
+            <div class="ui divider"></div>
+            <div class="">
+                <a href="">아이디 찾기</a> | <a href="">비밀번호 찾기</a> | <a href="<?=site_url(user_uri."/register_agree_1")?>">회원가입</a>
+            </div>
+        </form>
+    </div>
+
 </div>
+
+<div style="margin-bottom:100px;"></div>
