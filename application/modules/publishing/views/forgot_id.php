@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <div style="margin-top:180px;"></div>
-<div class="container" style="margin-bottom: 100px;">
+<div class="container" style="margin-bottom: 150px;">
     <div class="row">
         <div class="col-md-4 col-md-offset-4" style="margin: 0 auto;">
             <div class="panel panel-default">
