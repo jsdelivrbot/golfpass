@@ -14,7 +14,22 @@ class Publishing extends Public_Controller
 
     function index()
     {
-        $this->_template("mypage",array(),"golfpass");
+       $tmp_methods =get_class_methods("Publishing");
+       $methods = array();
+       foreach($tmp_methods as $method)
+       {
+        if( $method[0]!== "_")
+            {
+                $url = site_url("/publishing/{$method}");
+                echo "<a href='{$url}'>{$method}</a><br>   ";
+            }
+       }
+    //    var_dump($methods);
+    }
+
+    function contact()
+    {
+        $this->_template("contact",array(),"golfpass");
     }
     function regist()
     {
@@ -35,5 +50,9 @@ class Publishing extends Public_Controller
     function order_complete()
     {
         $this->_template("order_complete",array(),"golfpass");
+    }
+    function login()
+    {
+        $this->_template("login",array(),"golfpass");
     }
 }

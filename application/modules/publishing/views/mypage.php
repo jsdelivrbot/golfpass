@@ -5,7 +5,7 @@
 <div style="margin-top:120px;"></div>
 
 
-<div class="ui grid container" style="margin-top:100px;">
+<div class="ui grid container">
     <div class="sixteen wide column">
         <div class="ui text menu">
             <div class="header item">
