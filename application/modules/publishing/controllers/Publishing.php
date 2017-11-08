@@ -56,8 +56,8 @@ class Publishing extends Public_Controller
     }
     function login()
     {
-        // $this->_template("login",array(),"golfpass");
-        $this->_view("login");
+        $this->_template("login",array(),"golfpass");
+        // $this->_view("login");
     }
     function forgot_pw()
     {
