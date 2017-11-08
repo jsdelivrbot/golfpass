@@ -3,7 +3,10 @@
 	font-family: 'Noto Sans', sans-serif;
 	font-weight: bold;
 	box-sizing: border-box;
-	section {
+  @media (min-width: 1199px){
+	width: 70%;
+  }
+  section {
 		@media (min-width: 768px) {
 			padding-left: 40px;
 		}
@@ -90,4 +93,3 @@
 
 }
 
-@import 'article/review';
