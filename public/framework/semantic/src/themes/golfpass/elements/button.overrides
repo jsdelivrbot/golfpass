@@ -1,0 +1,19 @@
+.ui.button{
+       color: rgb(255, 255, 255);
+    cursor: pointer;
+    display: block;
+    height: 60px;
+    text-decoration: none solid rgb(255, 255, 255);
+    text-size-adjust: 100%;
+    text-transform: uppercase;
+    width: 120px;
+    column-rule-color: rgb(255, 255, 255);
+    perspective-origin: 60px 30px;
+    transform-origin: 60px 30px;
+    caret-color: rgb(255, 255, 255);
+    background: rgb(235, 53, 68) none repeat scroll 0% 0% / auto padding-box border-box;
+    border: 0px none rgb(255, 255, 255);
+    font: normal normal 400 normal 18px / normal square, Tahoma, "Malgun Gothic", Dotum, sans-serif;
+    margin: 5px;
+    outline: rgb(255, 255, 255) none 0px;
+}

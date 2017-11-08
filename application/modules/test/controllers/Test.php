@@ -9,7 +9,48 @@ class Test extends Public_Controller
     {
         parent::__construct();
         
-        // $daily = array('일','월','화','수','목','금','토');
+     
+        
+    }
+    function semantic()
+    {
+        // $this->_view("test/semantic");
+        $this->_template("test/semantic",array(),"tmp");
+    }
+
+
+
+
+    
+    function test2()
+    {
+        $this->_view("test/test");
+    }
+    function admin()
+    {
+        // $this->_template("test/admin",array(),"admin");
+        $this->_view("test/admin");
+    }
+    function cal()
+    {
+        $m = 2;
+        $year =2016;
+        echo date('t', mktime(0, 0, 0, $m, 1, $year)); 
+
+        $num_days = cal_days_in_month(CAL_GREGORIAN, $m, $year);
+        echo $num_days;
+    }
+    function int()
+    {
+        $i = (int)10;
+        $j = (float)"0.866";
+        var_dump($j);
+        var_dump((string)round(($i * $j)));
+
+    }
+    function date_test()
+    {
+           // $daily = array('일','월','화','수','목','금','토');
 
 
         // echo "현재:".date("Y-m-d H:i:s W");
@@ -83,39 +124,7 @@ class Test extends Public_Controller
         // echo "합: ".$obj_num_days->num_days;
         // // var_dump($num_working_days);
         // // var_dump($num_weekend_days);
-        
     }
-    function semantic()
-    {
-        $this->_view("test/semantic");
-    }
-    function test2()
-    {
-        $this->_view("test/test");
-    }
-    function admin()
-    {
-        // $this->_template("test/admin",array(),"admin");
-        $this->_view("test/admin");
-    }
-    function cal()
-    {
-        $m = 2;
-        $year =2016;
-        echo date('t', mktime(0, 0, 0, $m, 1, $year)); 
-
-        $num_days = cal_days_in_month(CAL_GREGORIAN, $m, $year);
-        echo $num_days;
-    }
-    function int()
-    {
-        $i = (int)10;
-        $j = (float)"0.866";
-        var_dump($j);
-        var_dump((string)round(($i * $j)));
-
-    }
-  
     function index()
     {
         // $this->load->helper("date");
