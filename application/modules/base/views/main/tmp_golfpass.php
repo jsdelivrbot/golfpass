@@ -289,11 +289,12 @@ a.btn{
 		<div class="con6 desktop">
 			<p class="sub_tit">골프패스 패널 소개</p>
 			<ul class="panel_list">
+			<?php for($i=0 ; $i < count($panels); $i++){?>
 				<li>
 					<dl class="inner">
 						<dt><img src="/public/etc/main/images/sample_img1.png" alt=""></dt>
 						<dd>
-							김지윤
+							<?=$panels[$i]->name?>
 							<span class="post_num">150개</span>
 							<p>
 								아동병원을 운영하고 있는 소아과의사입니다.<br>
@@ -303,76 +304,8 @@ a.btn{
 						</dd>
 					</dl>
 				</li>
-				<li>
-					<dl class="inner">
-						<dt><img src="/public/etc/main/images/sample_img1.png" alt=""></dt>
-						<dd>
-							김지윤
-							<span class="post_num">150개</span>
-							<p>
-								아동병원을 운영하고 있는 소아과의사입니다.<br>
-								인문학을 좋아하여 책을 읽고 글을 써서 나누고
-							</p>
-							<span class="arrow"><!-- 블릿 --></span>
-						</dd>
-					</dl>
-				</li>
-				<li>
-					<dl class="inner">
-						<dt><img src="/public/etc/main/images/sample_img1.png" alt=""></dt>
-						<dd>
-							김지윤
-							<span class="post_num">150개</span>
-							<p>
-								아동병원을 운영하고 있는 소아과의사입니다.<br>
-								인문학을 좋아하여 책을 읽고 글을 써서 나누고
-							</p>
-							<span class="arrow"><!-- 블릿 --></span>
-						</dd>
-					</dl>
-				</li>
-				<li>
-					<dl class="inner">
-						<dt><img src="/public/etc/main/images/sample_img1.png" alt=""></dt>
-						<dd>
-							김지윤
-							<span class="post_num">150개</span>
-							<p>
-								아동병원을 운영하고 있는 소아과의사입니다.<br>
-								인문학을 좋아하여 책을 읽고 글을 써서 나누고
-							</p>
-							<span class="arrow"><!-- 블릿 --></span>
-						</dd>
-					</dl>
-				</li>
-				<li>
-					<dl class="inner">
-						<dt><img src="/public/etc/main/images/sample_img1.png" alt=""></dt>
-						<dd>
-							김지윤
-							<span class="post_num">150개</span>
-							<p>
-								아동병원을 운영하고 있는 소아과의사입니다.<br>
-								인문학을 좋아하여 책을 읽고 글을 써서 나누고
-							</p>
-							<span class="arrow"><!-- 블릿 --></span>
-						</dd>
-					</dl>
-				</li>
-				<li>
-					<dl class="inner">
-						<dt><img src="/public/etc/main/images/sample_img1.png" alt=""></dt>
-						<dd>
-							김지윤
-							<span class="post_num">150개</span>
-							<p>
-								아동병원을 운영하고 있는 소아과의사입니다.<br>
-								인문학을 좋아하여 책을 읽고 글을 써서 나누고
-							</p>
-							<span class="arrow"><!-- 블릿 --></span>
-						</dd>
-					</dl>
-				</li>
+			<?php }?>
+				
 			</ul>
 			<p class="btn_more_view"><span>전체 순위표 보러가기</span></p>
 		</div>

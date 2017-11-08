@@ -29,17 +29,48 @@
 	<div class="menu-sliders"></div>
 	<div class="menu">
 		<ul class="list-unstyled">
+		<?php if(is_admin()){?>
 			<li>
-				<a>Home</a>
+			  <a href="<?=site_url(admin_home_uri.'')?>">관리자 페이지</a>
+			</li>
+			<?php }?>
+			<li>
+			  <a href="<?=site_url('')?>">골프패스</a>
+			</li>
+		  
+			<li>
+			<a href="<?=site_url(shop_category_uri.'/gets_by_name/나라별')?>">나라별 골프장</a>
+			  
 			</li>
 			<li>
-				<a>About </a>
+			<a href="<?=site_url(golfpass_panel_uri.'/gets')?>">패널소개</a>
+			  
+			</li>
+	  
+			<?php if(!is_login()){?>
+			<li>
+			  <a href="<?=site_url(user_uri.'/login')?>">로그인</a>
+			  
 			</li>
 			<li>
-				<a>Work</a>
+			<a href="<?=site_url(user_uri.'/register_agree_1')?>">회원가입</a>
+			  
+			</li>
+			<?php }?>
+			<?php if(is_login()){?>
+		  
+			<li>
+			  <a href="<?=site_url(user_uri.'/logout')?>">로그아웃</a>
+			</li>
+			<?php }?>
+			<li>
+			  <a href="<?=site_url(shop_mypage_uri.'')?>">마이페이지      </a>
 			</li>
 			<li>
-				<a>Contact</a>
+			  <a href="<?=site_url(shop_wishlist_uri.'/gets')?>">위시리스트      </a>
+			</li>
+			<li>
+			  <a href="<?=site_url(shop_contact_uri.'')?>">고객센터</a>
 			</li>
 		</ul>
 	</div>
@@ -105,7 +136,7 @@
 		</ol>
 		<div class="carousel-inner">
 			<div class="carousel-item active">
-				<img src="/public/sangmin/img/background/bg1.jpg" alt="" class="position-absolute d-block">
+				<img src="<?=$product_main_photos[0]->name?? ""?>" alt="" class="position-absolute d-block">
 				<div class="content-box d-flex flex-column align-items-start justify-content-center justify-content-lg-end">
 					<div class='title'>
 						<h1><?=$product_main->name?></h1>
@@ -117,25 +148,27 @@
 						</p>
 						<p><?=$product_main->desc?></p>
 					</div>
+					<a href="<?=site_url(shop_product_uri."/get/{$product_main->id}")?>">
 					<div class="btn-box d-flex align-items-center justify-content-center">
-					<a href="<?=site_url(shop_product_uri."/get/{$product_main->id}")?>"><button>보러가기
-						</button></a>
+					<button>보러가기
+						</button>
 					</div>
+					</a>
 				</div>
 			</div>
+			<?php for($i=1; $i<= count($product_main_photos)-1 ; $i++){?>
 			<div class="carousel-item">
-				<img src="/public/sangmin/img/background/bg2.jpg" alt="" class="position-absolute d-block">
+				<img src="<?=$product_main_photos[$i]->name?>" alt="" class="position-absolute d-block">
 				<div class="content-box d-flex flex-column align-items-start justify-content-center justify-content-lg-end">
 					<div class='title'>
-						<h1>웨이하이 CC</h1>
-						<p>아랍에미레이트, 아부다비 - 18홀 / 5,170야드</p>
+					<h1><?=$product_main->name?></h1>
+					<p>아랍에미레이트, 아부다비 - <?=$product_main->hole_count?>홀 / <?=$product_main->distance?>야드</p>
 					</div>
 					<div class="content">
 						<p><span><i class="xi xi-star"></i><i class="xi xi-star"></i><i class="xi xi-star"></i><i
 								class="xi xi-star"></i><i class="xi xi-star-o"></i></span>(리뷰 51개)
 						</p>
-						<p>청정삼림과 맑은 공기, 시야 가득히 펼쳐지는 태백산맥의 능선과 천혜의 자연환경을 배경으로 조성된 골프장으로서 고원 산악골프 코스가 빚어내는 상쾌한 드라이버 샷과 함께
-							하는 라운딩은 이제껏 국내에서는 구경 할 수 없었던 색다른 묘미를 제공합니다.</p>
+						<p><?=$product_main->desc?></p>
 					</div>
 					<div class="btn-box d-flex align-items-center justify-content-center">
 						<button>보러가기
@@ -143,26 +176,8 @@
 					</div>
 				</div>
 			</div>
-			<div class="carousel-item">
-				<img src="/public/sangmin/img/background/bg3.jpg" alt="" class="position-absolute d-block">
-				<div class="content-box d-flex flex-column align-items-start justify-content-center justify-content-lg-end">
-					<div class='title'>
-						<h1>웨이하이 CC</h1>
-						<p>아랍에미레이트, 아부다비 - 18홀 / 5,170야드</p>
-					</div>
-					<div class="content">
-						<p><span><i class="xi xi-star"></i><i class="xi xi-star"></i><i class="xi xi-star"></i><i
-								class="xi xi-star"></i><i class="xi xi-star-o"></i></span>(리뷰 51개)
-						</p>
-						<p>청정삼림과 맑은 공기, 시야 가득히 펼쳐지는 태백산맥의 능선과 천혜의 자연환경을 배경으로 조성된 골프장으로서 고원 산악골프 코스가 빚어내는 상쾌한 드라이버 샷과 함께
-							하는 라운딩은 이제껏 국내에서는 구경 할 수 없었던 색다른 묘미를 제공합니다.</p>
-					</div>
-					<div class="btn-box d-flex align-items-center justify-content-center">
-						<button>보러가기
-						</button>
-					</div>
-				</div>
-			</div>
+			<?php }?>
+			
 		</div>
 	</article>
 	<section id="time-border">
@@ -189,7 +204,7 @@
 		<!--NOTE 나라별 모바일 구간 -->
 		<div class="row no-gutters flex-column d-md-none">
 			<div class="col-12 d-flex justify-content-center mb-2 bg-dark" style="height: 180px;">
-				<!--	<img class="w-100" src="/public/sangmin/img/golf_course_1.jpg" alt="">-->
+					<!-- <img class="w-100" src="/public/sangmin/img/golf_course_1.jpg" alt=""> -->
 				<div class="mobile-content position-absolute d-flex flex-column align-items-center justify-content-end">
 					<h3>러시아</h3>
 					<p>모스크바</p>
@@ -203,153 +218,19 @@
 				<!-- Loading Screen -->
 				<div data-u="slides"
 					 style="cursor:default;position:relative;top:0px;left:0px;width:980px;height:440px;overflow:hidden;">
+					
+					 <?php for($i=0;$i < count($nation_list)	;$i++){?>
+						<a href="<?=site_url(shop_category_uri."/gets/{$nation_list[$i]->id}")?>">
 					<div class="slide-item d-flex">
-						<img src="/public/sangmin/img/KakaoTalk_20171107_104842283.jpg" class="w-100"/>
+						<img src="<?=$nation_list[$i]->photo?>" class="w-100"/>
 						<div class="position-absolute content d-flex flex-column justify-content-center align-items-center">
-							<h3>러시아</h3>
-							<p>모스크바</p>
+							<h3><?=$nation_list[$i]->name?></h3>
+							<p><?=$nation_list[$i]->desc?></p>
 						</div>
 					</div>
-					<div class="slide-item d-flex">
-						<img src="/public/sangmin/img/KakaoTalk_20171107_104842283.jpg" class="w-100"/>
-						<div class="position-absolute content d-flex flex-column justify-content-center align-items-center">
-							<h3>러시아</h3>
-							<p>모스크바</p>
-						</div>
-					</div>
-					<div class="slide-item d-flex">
-						<img src="/public/sangmin/img/KakaoTalk_20171107_104842283.jpg" class="w-100"/>
-						<div class="position-absolute content d-flex flex-column justify-content-center align-items-center">
-							<h3>러시아</h3>
-							<p>모스크바</p>
-						</div>
-					</div>
-					<div class="slide-item d-flex">
-						<img src="/public/sangmin/img/KakaoTalk_20171107_104842283.jpg" class="w-100"/>
-						<div class="position-absolute content d-flex flex-column justify-content-center align-items-center">
-							<h3>러시아</h3>
-							<p>모스크바</p>
-						</div>
-					</div>
-					<div class="slide-item d-flex">
-						<img src="/public/sangmin/img/KakaoTalk_20171107_104842283.jpg" class="w-100"/>
-						<div class="position-absolute content d-flex flex-column justify-content-center align-items-center">
-							<h3>러시아</h3>
-							<p>모스크바</p>
-						</div>
-					</div>
-					<div class="slide-item d-flex">
-						<img src="/public/sangmin/img/KakaoTalk_20171107_104842283.jpg" class="w-100"/>
-						<div class="position-absolute content d-flex flex-column justify-content-center align-items-center">
-							<h3>러시아</h3>
-							<p>모스크바</p>
-						</div>
-					</div>
-					<div class="slide-item d-flex">
-						<img src="/public/sangmin/img/KakaoTalk_20171107_104842283.jpg" class="w-100"/>
-						<div class="position-absolute content d-flex flex-column justify-content-center align-items-center">
-							<h3>러시아</h3>
-							<p>모스크바</p>
-						</div>
-					</div>
-					<div class="slide-item d-flex">
-						<img src="/public/sangmin/img/KakaoTalk_20171107_104842283.jpg" class="w-100"/>
-						<div class="position-absolute content d-flex flex-column justify-content-center align-items-center">
-							<h3>러시아</h3>
-							<p>모스크바</p>
-						</div>
-					</div>
-					<div class="slide-item d-flex">
-						<img src="/public/sangmin/img/KakaoTalk_20171107_104842283.jpg" class="w-100"/>
-						<div class="position-absolute content d-flex flex-column justify-content-center align-items-center">
-							<h3>러시아</h3>
-							<p>모스크바</p>
-						</div>
-					</div>
-					<div class="slide-item d-flex">
-						<img src="/public/sangmin/img/KakaoTalk_20171107_104842283.jpg" class="w-100"/>
-						<div class="position-absolute content d-flex flex-column justify-content-center align-items-center">
-							<h3>러시아</h3>
-							<p>모스크바</p>
-						</div>
-					</div>
-					<div class="slide-item d-flex">
-						<img src="/public/sangmin/img/KakaoTalk_20171107_104842283.jpg" class="w-100"/>
-						<div class="position-absolute content d-flex flex-column justify-content-center align-items-center">
-							<h3>러시아</h3>
-							<p>모스크바</p>
-						</div>
-					</div>
-					<div class="slide-item d-flex">
-						<img src="/public/sangmin/img/KakaoTalk_20171107_104842283.jpg" class="w-100"/>
-						<div class="position-absolute content d-flex flex-column justify-content-center align-items-center">
-							<h3>러시아</h3>
-							<p>모스크바</p>
-						</div>
-					</div>
-					<div class="slide-item d-flex">
-						<img src="/public/sangmin/img/KakaoTalk_20171107_104842283.jpg" class="w-100"/>
-						<div class="position-absolute content d-flex flex-column justify-content-center align-items-center">
-							<h3>러시아</h3>
-							<p>모스크바</p>
-						</div>
-					</div>
-					<div class="slide-item d-flex">
-						<img src="/public/sangmin/img/KakaoTalk_20171107_104842283.jpg" class="w-100"/>
-						<div class="position-absolute content d-flex flex-column justify-content-center align-items-center">
-							<h3>러시아</h3>
-							<p>모스크바</p>
-						</div>
-					</div>
-					<div class="slide-item d-flex">
-						<img src="/public/sangmin/img/KakaoTalk_20171107_104842283.jpg" class="w-100"/>
-						<div class="position-absolute content d-flex flex-column justify-content-center align-items-center">
-							<h3>러시아</h3>
-							<p>모스크바</p>
-						</div>
-					</div>
-					<div class="slide-item d-flex">
-						<img src="/public/sangmin/img/KakaoTalk_20171107_104842283.jpg" class="w-100"/>
-						<div class="position-absolute content d-flex flex-column justify-content-center align-items-center">
-							<h3>러시아</h3>
-							<p>모스크바</p>
-						</div>
-					</div>
-					<div class="slide-item d-flex">
-						<img src="/public/sangmin/img/KakaoTalk_20171107_104842283.jpg" class="w-100"/>
-						<div class="position-absolute content d-flex flex-column justify-content-center align-items-center">
-							<h3>러시아</h3>
-							<p>모스크바</p>
-						</div>
-					</div>
-					<div class="slide-item d-flex">
-						<img src="/public/sangmin/img/KakaoTalk_20171107_104842283.jpg" class="w-100"/>
-						<div class="position-absolute content d-flex flex-column justify-content-center align-items-center">
-							<h3>러시아</h3>
-							<p>모스크바</p>
-						</div>
-					</div>
-					<div class="slide-item d-flex">
-						<img src="/public/sangmin/img/KakaoTalk_20171107_104842283.jpg" class="w-100"/>
-						<div class="position-absolute content d-flex flex-column justify-content-center align-items-center">
-							<h3>러시아</h3>
-							<p>모스크바</p>
-						</div>
-					</div>
-					<div class="slide-item d-flex">
-						<img src="/public/sangmin/img/KakaoTalk_20171107_104842283.jpg" class="w-100"/>
-						<div class="position-absolute content d-flex flex-column justify-content-center align-items-center">
-							<h3>러시아</h3>
-							<p>모스크바</p>
-						</div>
-					</div>
-					<div class="slide-item d-flex">
-						<img src="/public/sangmin/img/KakaoTalk_20171107_104842283.jpg" class="w-100"/>
-						<div class="position-absolute content d-flex flex-column justify-content-center align-items-center">
-							<h3>러시아</h3>
-							<p>모스크바</p>
-						</div>
-					</div>
+					</a>
+					<?php }?>	
+				
 				</div>
 			</div>
 		</div>
@@ -361,7 +242,9 @@
 			<h4>골프패스 패널이 추천하는 골프장</h4>
 		</div>
 		<div class="row position-relative pt-5 items justify-content-around">
+		<?php for($i=0;$i<count($products_panel); $i++){?>
 			<div class="col-12 col-md-6 col-lg-3 mb-3 d-flex justify-content-center item">
+				<a href="<?=site_url(shop_product_uri."/get/{$products_panel[$i]->id}")?>">
 				<figure>
 					<div class="position-relative">
 						<img class='rounded-top ' src="/public/sangmin/img/background/bg1.jpg" alt="" width="100%">
@@ -373,8 +256,8 @@
 					</div>
 					<figcaption class="rounded-bottom d-flex align-items-center justify-content-between p-3 bg-light">
 						<div>
-							<h3>앙시나 골프텔</h3>
-							<p class="mb-0">Angsana golftel</p>
+							<h3><?=$products_panel[$i]->name?></h3>
+							<p class="mb-0"><?=$products_panel[$i]->eng_name?></p>
 						</div>
 						<div class="d-flex flex-column align-items-center">
 							<span><i class="xi-star"></i></span>
@@ -382,73 +265,10 @@
 						</div>
 					</figcaption>
 				</figure>
+			</a>
 			</div>
-			<div class="col-12 col-md-6 col-lg-3  mb-3 d-flex justify-content-center item">
-				<figure>
-					<div class="position-relative">
-						<img class='rounded-top ' src="/public/sangmin/img/background/bg1.jpg" alt="" width="100%">
-						<span class="position-absolute text-light price">319,000원</span>
-					</div>
-					<div class="d-flex align-items-center p-1 text-light rounded-top content">
-						<i class="xi-marker-check ml-1 mr-1"></i>
-						<p class=" mb-0 ">골프장과 숙박 시설이 함께 있는 상품입니다.</p>
-					</div>
-					<figcaption class="rounded-bottom d-flex align-items-center justify-content-between p-3 bg-light">
-						<div>
-							<h3>앙시나 골프텔</h3>
-							<p class="mb-0">Angsana golftel</p>
-						</div>
-						<div class="d-flex flex-column align-items-center">
-							<span><i class="xi-star"></i></span>
-							<span>4.7</span>
-						</div>
-					</figcaption>
-				</figure>
-			</div>
-			<div class="col-12 col-md-6 col-lg-3 mb-3 d-flex justify-content-center item">
-				<figure>
-					<div class="position-relative">
-						<img class='rounded-top ' src="/public/sangmin/img/background/bg1.jpg" alt="" width="100%">
-						<span class="position-absolute text-light price">319,000원</span>
-					</div>
-					<div class="d-flex align-items-center p-1 text-light rounded-top content">
-						<i class="xi-marker-check ml-1 mr-1"></i>
-						<p class=" mb-0 ">골프장과 숙박 시설이 함께 있는 상품입니다.</p>
-					</div>
-					<figcaption class="rounded-bottom d-flex align-items-center justify-content-between p-3 bg-light">
-						<div>
-							<h3>앙시나 골프텔</h3>
-							<p class="mb-0">Angsana golftel</p>
-						</div>
-						<div class="d-flex flex-column align-items-center">
-							<span><i class="xi-star"></i></span>
-							<span>4.7</span>
-						</div>
-					</figcaption>
-				</figure>
-			</div>
-			<div class="col-12 col-md-6 col-lg-3 mb-3 d-flex justify-content-center item">
-				<figure>
-					<div class="position-relative">
-						<img class='rounded-top ' src="/public/sangmin/img/background/bg1.jpg" alt="" width="100%">
-						<span class="position-absolute text-light price">319,000원</span>
-					</div>
-					<div class="d-flex align-items-center p-1 text-light rounded-top content">
-						<i class="xi-marker-check ml-1 mr-1"></i>
-						<p class=" mb-0 ">골프장과 숙박 시설이 함께 있는 상품입니다.</p>
-					</div>
-					<figcaption class="rounded-bottom d-flex align-items-center justify-content-between p-3 bg-light">
-						<div>
-							<h3>앙시나 골프텔</h3>
-							<p class="mb-0">Angsana golftel</p>
-						</div>
-						<div class="d-flex flex-column align-items-center">
-							<span><i class="xi-star"></i></span>
-							<span>4.7</span>
-						</div>
-					</figcaption>
-				</figure>
-			</div>
+		<?php }?>
+			
 		</div>
 		</div>
 
@@ -470,51 +290,66 @@
 		</div>
 		<div class="row no-gutters d-none d-sm-flex">
 			<div class="col-12 col-lg-6 position-relative ">
+				<a href="<?=site_url(shop_product_uri."/gets/{$thema_list[0]->id}")?>">
 				<img src="/public/sangmin/img/theme_img1.jpg" alt="" width="100%">
+			
 				<div class='position-absolute text-light'>
-					<h3>이달의 인기 코스</h3>
+					<h3><?=$thema_list[0]->name?></h3>
 					<p>
-						트렌디한 코스를 경험하고 싶다면
+					<?=$thema_list[0]->desc?>
 					</p>
 				</div>
+				</a>
 			</div>
 			<div class="col-12 col-lg-6">
 				<div class="row no-gutters">
 					<div class="col-6 position-relative">
-						<img src="/public/sangmin/img/theme_img2.jpg" alt="" width="100%">
+						<a href="<?=site_url(shop_product_uri."/gets/{$thema_list[1]->id}")?>">
+						<img src="<?=$thema_list[1]->photo?>" alt="" width="100%">
+						
 						<div class='position-absolute text-light'>
-							<h3>골프+숙박 패키지</h3>
+							<h3><?=$thema_list[1]->name?></h3>
 							<p>
-								원클릭으로 여행 플랜 완성!
+							<?=$thema_list[1]->desc?>
 							</p>
 						</div>
+						</a>
 					</div>
 					<div class="col-6 position-relative">
-						<img src="/public/sangmin/img/theme_img3.jpg" alt="" width="100%">
+					<a href="<?=site_url(shop_product_uri."/gets/{$thema_list[2]->id}")?>">
+						<img src="<?=$thema_list[2]->photo?>" alt="" width="100%">
+					
 						<div class='position-absolute text-light'>
-							<h3>2인 플레이</h3>
+							<h3><?=$thema_list[2]->name?></h3>
 							<p>
-								2인 플레이에 딱 맞는 코스
+							<?=$thema_list[2]->desc?>
 							</p>
 						</div>
+						</a>
 					</div>
 					<div class="col-6 position-relative">
-						<img src="/public/sangmin/img/theme_img4.jpg" alt="" width="100%">
+					<a href="<?=site_url(shop_product_uri."/gets/{$thema_list[3]->id}")?>">
+						<img src="<?=$thema_list[3]->photo?>" alt="" width="100%">
+
 						<div class='position-absolute text-light'>
-							<h3>시설이 고저스한</h3>
+							<h3><?=$thema_list[3]->name?></h3>
 							<p>
-								여행은 잠자리가 편해야지
+							<?=$thema_list[3]->desc?>
 							</p>
 						</div>
+						</a>
 					</div>
 					<div class="col-6 position-relative">
-						<img src="/public/sangmin/img/theme_img5.jpg" alt="" width="100%">
+					<a href="<?=site_url(shop_product_uri."/gets/{$thema_list[4]->id}")?>">
+						<img src="<?=$thema_list[4]->photo?>" alt="" width="100%">
+					
 						<div class='position-absolute text-light'>
-							<h3>토너먼트 개최 코스</h3>
+							<h3><?=$thema_list[4]->name?></h3>
 							<p>
-								평론가에게 인정받은
+							<?=$thema_list[4]->desc?>
 							</p>
 						</div>
+						</a>
 					</div>
 				</div>
 			</div>
@@ -651,166 +486,31 @@
 		</div>
 		<div class="row no-gutters justify-content-start">
 			<!--패널 반복 아래 div.panel-item-->
+			<?php for($i=0 ; $i < count($panels); $i++){?>
+		
 			<div class="col-12 col-lg-6 mb-4 d-flex panel-item">
+		
 				<div class="d-none d-md-block">
-					<img src="/public/sangmin/img/profile/pic.jpg" class="rounded" alt="" height="110px">
+				<a href="<?=site_url(golfpass_panel_uri."/gets/{$panels[$i]->id}")?>">
+					<img src="<?=$panels[$i]->photo?>" class="rounded" alt="" height="110px">
+				</a>
 				</div>
 				<div class="bg-light rounded d-flex flex-column justify-content-center align-middle position-relative panel-content w-100">
+				<a href="<?=site_url(golfpass_panel_uri."/gets/{$panels[$i]->id}")?>">
 					<div class="position-absolute bg-light trans-box d-none d-md-block">
 					</div>
-					<h4 class="mb-1">김지윤</h4>
-					<p class="mb-0" style='max-width: 400px; font-size: 0.9rem; color:#a5a5a5;'>아동병원을 운영하고 있는 소아과의사입니다.
-						인문학을 좋아하여 책을 읽고 글을 써서 나누고 </p>
+					<h4 class="mb-1"><?=$panels[$i]->name?></h4>
+					<p class="mb-0" style='max-width: 400px; font-size: 0.9rem; color:#a5a5a5;'><?=$panels[$i]->intro?> </p>
 					<div class="position-absolute review-box">
                             <span>
                                 <i class="xi-pen"></i> 273개
                             </span></div>
+				</a>
 				</div>
 			</div>
-			<div class="col-12 col-lg-6 mb-4 d-flex panel-item">
-				<div class="d-none d-md-block">
-					<img src="/public/sangmin/img/profile/pic.jpg" class="rounded" alt="" height="110px">
-				</div>
-				<div class="bg-light rounded d-flex flex-column justify-content-center align-middle position-relative panel-content w-100">
-					<div class="position-absolute bg-light trans-box d-none d-md-block">
-					</div>
-					<h4 class="mb-1">김지윤</h4>
-					<p class="mb-0" style='max-width: 400px; font-size: 0.9rem; color:#a5a5a5;'>아동병원을 운영하고 있는 소아과의사입니다.
-						인문학을 좋아하여 책을 읽고 글을 써서 나누고 </p>
-					<div class="position-absolute review-box">
-                            <span>
-                                <i class="xi-pen"></i> 273개
-                            </span></div>
-				</div>
-			</div>
-			<div class="col-12 col-lg-6 mb-4 d-flex panel-item">
-				<div class="d-none d-md-block">
-					<img src="/public/sangmin/img/profile/pic.jpg" class="rounded" alt="" height="110px">
-				</div>
-				<div class="bg-light rounded d-flex flex-column justify-content-center align-middle position-relative panel-content w-100">
-					<div class="position-absolute bg-light trans-box d-none d-md-block">
-					</div>
-					<h4 class="mb-1">김지윤</h4>
-					<p class="mb-0" style='max-width: 400px; font-size: 0.9rem; color:#a5a5a5;'>아동병원을 운영하고 있는 소아과의사입니다.
-						인문학을 좋아하여 책을 읽고 글을 써서 나누고 </p>
-					<div class="position-absolute review-box">
-                            <span>
-                                <i class="xi-pen"></i> 273개
-                            </span></div>
-				</div>
-			</div>
-			<div class="col-12 col-lg-6 mb-4 d-flex panel-item">
-				<div class="d-none d-md-block">
-					<img src="/public/sangmin/img/profile/pic.jpg" class="rounded" alt="" height="110px">
-				</div>
-				<div class="bg-light rounded d-flex flex-column justify-content-center align-middle position-relative panel-content w-100">
-					<div class="position-absolute bg-light trans-box d-none d-md-block">
-					</div>
-					<h4 class="mb-1">김지윤</h4>
-					<p class="mb-0" style='max-width: 400px; font-size: 0.9rem; color:#a5a5a5;'>아동병원을 운영하고 있는 소아과의사입니다.
-						인문학을 좋아하여 책을 읽고 글을 써서 나누고 </p>
-					<div class="position-absolute review-box">
-                            <span>
-                                <i class="xi-pen"></i> 273개
-                            </span></div>
-				</div>
-			</div>
-			<div class="col-12 col-lg-6 mb-4 d-flex panel-item">
-				<div class="d-none d-md-block">
-					<img src="/public/sangmin/img/profile/pic.jpg" class="rounded" alt="" height="110px">
-				</div>
-				<div class="bg-light rounded d-flex flex-column justify-content-center align-middle position-relative panel-content w-100">
-					<div class="position-absolute bg-light trans-box d-none d-md-block">
-					</div>
-					<h4 class="mb-1">김지윤</h4>
-					<p class="mb-0" style='max-width: 400px; font-size: 0.9rem; color:#a5a5a5;'>아동병원을 운영하고 있는 소아과의사입니다.
-						인문학을 좋아하여 책을 읽고 글을 써서 나누고 </p>
-					<div class="position-absolute review-box">
-                            <span>
-                                <i class="xi-pen"></i> 273개
-                            </span></div>
-				</div>
-			</div>
-			<div class="col-12 col-lg-6 mb-4 d-flex panel-item">
-				<div class="d-none d-md-block">
-					<img src="/public/sangmin/img/profile/pic.jpg" class="rounded" alt="" height="110px">
-				</div>
-				<div class="bg-light rounded d-flex flex-column justify-content-center align-middle position-relative panel-content w-100">
-					<div class="position-absolute bg-light trans-box d-none d-md-block">
-					</div>
-					<h4 class="mb-1">김지윤</h4>
-					<p class="mb-0" style='max-width: 400px; font-size: 0.9rem; color:#a5a5a5;'>아동병원을 운영하고 있는 소아과의사입니다.
-						인문학을 좋아하여 책을 읽고 글을 써서 나누고 </p>
-					<div class="position-absolute review-box">
-                            <span>
-                                <i class="xi-pen"></i> 273개
-                            </span></div>
-				</div>
-			</div>
-			<div class="col-12 col-lg-6 mb-4 d-flex panel-item">
-				<div class="d-none d-md-block">
-					<img src="/public/sangmin/img/profile/pic.jpg" class="rounded" alt="" height="110px">
-				</div>
-				<div class="bg-light rounded d-flex flex-column justify-content-center align-middle position-relative panel-content w-100">
-					<div class="position-absolute bg-light trans-box d-none d-md-block">
-					</div>
-					<h4 class="mb-1">김지윤</h4>
-					<p class="mb-0" style='max-width: 400px; font-size: 0.9rem; color:#a5a5a5;'>아동병원을 운영하고 있는 소아과의사입니다.
-						인문학을 좋아하여 책을 읽고 글을 써서 나누고 </p>
-					<div class="position-absolute review-box">
-                            <span>
-                                <i class="xi-pen"></i> 273개
-                            </span></div>
-				</div>
-			</div>
-			<div class="col-12 col-lg-6 mb-4 d-flex panel-item">
-				<div class="d-none d-md-block">
-					<img src="/public/sangmin/img/profile/pic.jpg" class="rounded" alt="" height="110px">
-				</div>
-				<div class="bg-light rounded d-flex flex-column justify-content-center align-middle position-relative panel-content w-100">
-					<div class="position-absolute bg-light trans-box d-none d-md-block">
-					</div>
-					<h4 class="mb-1">김지윤</h4>
-					<p class="mb-0" style='max-width: 400px; font-size: 0.9rem; color:#a5a5a5;'>아동병원을 운영하고 있는 소아과의사입니다.
-						인문학을 좋아하여 책을 읽고 글을 써서 나누고 </p>
-					<div class="position-absolute review-box">
-                            <span>
-                                <i class="xi-pen"></i> 273개
-                            </span></div>
-				</div>
-			</div>
-			<div class="col-12 col-lg-6 mb-4 d-flex panel-item">
-				<div class="d-none d-md-block">
-					<img src="/public/sangmin/img/profile/pic.jpg" class="rounded" alt="" height="110px">
-				</div>
-				<div class="bg-light rounded d-flex flex-column justify-content-center align-middle position-relative panel-content w-100">
-					<div class="position-absolute bg-light trans-box d-none d-md-block">
-					</div>
-					<h4 class="mb-1">김지윤</h4>
-					<p class="mb-0" style='max-width: 400px; font-size: 0.9rem; color:#a5a5a5;'>아동병원을 운영하고 있는 소아과의사입니다.
-						인문학을 좋아하여 책을 읽고 글을 써서 나누고 </p>
-					<div class="position-absolute review-box">
-                            <span>
-                                <i class="xi-pen"></i> 273개
-                            </span></div>
-				</div>
-			</div>
-			<div class="col-12 col-lg-6 mb-4 d-flex panel-item">
-				<div class="d-none d-md-block">
-					<img src="/public/sangmin/img/profile/pic.jpg" class="rounded" alt="" height="110px">
-				</div>
-				<div class="bg-light rounded d-flex flex-column justify-content-center align-middle position-relative panel-content w-100">
-					<div class="position-absolute bg-light trans-box d-none d-md-block">
-					</div>
-					<h4 class="mb-1">김지윤</h4>
-					<p class="mb-0" style='max-width: 400px; font-size: 0.9rem; color:#a5a5a5;'>아동병원을 운영하고 있는 소아과의사입니다.
-						인문학을 좋아하여 책을 읽고 글을 써서 나누고 </p>
-					<div class="position-absolute review-box">
-                            <span>
-                                <i class="xi-pen"></i> 273개
-                            </span></div>
-				</div>
-			</div>
+			
+			<?php }?>
+	
 
 		</div>
 

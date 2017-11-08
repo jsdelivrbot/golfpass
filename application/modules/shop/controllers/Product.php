@@ -29,7 +29,9 @@ class Product extends Base_Controller {
                 $products[$i]->photos = array();
         }
         $data['products'] =$products;
-        
+
+        $this->load->model("product_categories_model");
+        $data['category']= $this->product_categories_model->_get($id);
         // $this->_view("gets",$data);
         $this->_template("gets",$data,'golfpass');
          

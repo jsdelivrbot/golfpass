@@ -103,13 +103,14 @@
             })(window,document,'script','dataLayer', 'GTM-WR4HD5');
         </script>
         <!-- End Google Tag Manager -->
+        <div style="margin-top:60px;"></div>
         <div id="main-section">
             <main role="main" class="global">
                 <div id="searchResultsBar">
                 <input type="hidden" value="SGD" id="pageCurrency">
                     <div id="section">
                         <section class="list_row">
-                            <h1 class="generic-content page-title">중국 위해</h1>
+                            <h1 class="generic-content page-title"><?=$category->name?></h1>
                             <div class="M-12_12 L-12_12 XL-12_12 XXL-12_12">
                                 <div class="content-block-inner" id="search-suggestedtags"></div>
                             </div>
