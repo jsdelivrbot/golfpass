@@ -24,18 +24,23 @@ class Maker extends Public_Controller
        }
 
 
-       $data['rows'] =array(
+       $data['base'] =array(
         (object)array("name"=>"메인","url"=>site_url(""),"view_dir"=>"base / views / main / golfpass.php"),
         (object)array("name"=>"로그인","url"=>site_url(user_uri."/login"),"view_dir"=>"base / views / user / golfpass/ login.php"),
         (object)array("name"=>"약관계약","url"=>site_url(user_uri."/register_agree_1"),"view_dir"=>"base / views / user / golfpass / register_agree_1.php"),
-        (object)array("name"=>"회원가입","url"=>site_url(user_uri."/add"),"view_dir"=>"base / views / user / golfpass/  addUpdate.php"),
+        (object)array("name"=>"회원가입","url"=>site_url(user_uri."/add"),"view_dir"=>"base / views / user / golfpass/  addUpdate.php")
+     );
+     $data['shop']=array(
         (object)array("name"=>"상품디테일","url"=>site_url(shop_product_uri."/get/1"),"view_dir"=>"shop / views / product / golfpass / get.php"),
-        (object)array("name"=>"패널","url"=>site_url(golfpass_panel_uri."/gets"),"view_dir"=>"golfpass / views / panel / gets.php"),
-        (object)array("name"=>"패널 글 디테일","url"=>site_url(golfpass_panel_content_uri."/get/1"),"view_dir"=>"golfpass / views / panel_content / get.php"),
+        (object)array("name"=>"상품카테고리","url"=>site_url(shop_category_uri."/gets/1"),"view_dir"=>"shop / views / category / golfpass / gets.php"),
         (object)array("name"=>"마이페이지","url"=>site_url(shop_mypage_uri."/index"),"view_dir"=>"shop / views / mypage / index.php")
         // (object)array("name"=>"위시리스트","url"=>site_url(shop_wishlist_uri."/index"),"view_dir"=>"shop/views/wishlist/index.php"),
      );
 
+     $data['etc'] =array(
+        (object)array("name"=>"패널","url"=>site_url(golfpass_panel_uri."/gets"),"view_dir"=>"golfpass / views / panel / gets.php"),
+        (object)array("name"=>"패널 글 디테일","url"=>site_url(golfpass_panel_content_uri."/get/1"),"view_dir"=>"golfpass / views / panel_content / get.php"),
+     );
      $this->_view("index",$data);
 
 
