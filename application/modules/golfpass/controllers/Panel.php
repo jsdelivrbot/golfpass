@@ -57,8 +57,8 @@ class Panel extends Base_Controller {
         $this->load->model("panel_contents_model");
         $this->db->limit($this->per_page,0);
         $data['panel_contents'] =$this->panel_contents_model->gets();
-        // $this->_template("gets",$data,'golfpass');
-        $this->_view("gets",$data);
+        $this->_template("gets",$data,'golfpass');
+        // $this->_view("gets",$data);
 
  
     }
