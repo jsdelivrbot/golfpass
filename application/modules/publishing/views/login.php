@@ -12,7 +12,7 @@
 
 
 <script src="/public/framework/semantic/src/less.min.js"></script>
-<div style="margin-top:120px;"></div>
+<div style="margin-top:180px;"></div>
 <style>
     .column {
         max-width: 450px;
@@ -59,4 +59,4 @@
 
 </div>
 
-<div style="margin-bottom:120px;"></div>
+<div style="margin-bottom:100px;"></div>
