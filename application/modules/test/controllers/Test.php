@@ -12,6 +12,14 @@ class Test extends Public_Controller
      
         
     }
+
+    function product($id)
+    {
+        $this->load->model("shop/products_model");
+        $t =$this->products_model->get($id);
+
+        var_dump($t);
+    }
     function semantic()
     {
         // $this->_view("test/semantic");

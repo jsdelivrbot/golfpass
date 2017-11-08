@@ -140,11 +140,20 @@
 				<div class="content-box d-flex flex-column align-items-start justify-content-center justify-content-lg-end">
 					<div class='title'>
 						<h1><?=$product_main->name?></h1>
-						<p>아랍에미레이트, 아부다비 - <?=$product_main->hole_count?>홀 / <?=$product_main->distance?>야드</p>
+						<p><?=$product_main->region?> - <?=$product_main->hole_count?>홀 / <?=$product_main->distance?>야드</p>
 					</div>
 					<div class="content">
-						<p><span><i class="xi xi-star"></i><i class="xi xi-star"></i><i class="xi xi-star"></i><i
-								class="xi xi-star"></i><i class="xi xi-star-o"></i></span>(리뷰 <?=$product_main->reviews_count?>개)
+						<p><span>
+							<?php for($i=0;$i < (int)$product_main->avg_score; $i++){?>
+								<i class="xi xi-star"></i>
+							<?php }?>
+							<?php for($i=0;$i < 5- (int)$product_main->avg_score; $i++){?>
+								<i class="xi xi-star-o"></i>
+							<?php }?>
+							
+						
+							
+							</span>(리뷰 <?=$product_main->reviews_count?>개)
 						</p>
 						<p><?=$product_main->desc?></p>
 					</div>
@@ -165,8 +174,15 @@
 					<p>아랍에미레이트, 아부다비 - <?=$product_main->hole_count?>홀 / <?=$product_main->distance?>야드</p>
 					</div>
 					<div class="content">
-						<p><span><i class="xi xi-star"></i><i class="xi xi-star"></i><i class="xi xi-star"></i><i
-								class="xi xi-star"></i><i class="xi xi-star-o"></i></span>(리뷰 <?=$product_main->reviews_count?>개)
+						<p><span>
+						<?php for($i=0;$i < (int)$product_main->avg_score; $i++){?>
+								<i class="xi xi-star"></i>
+							<?php }?>
+							<?php for($i=0;$i < 5- (int)$product_main->avg_score; $i++){?>
+								<i class="xi xi-star-o"></i>
+							<?php }?>		
+					
+						</span>(리뷰 <?=$product_main->reviews_count?>개)
 						</p>
 						<p><?=$product_main->desc?></p>
 					</div>
@@ -254,7 +270,7 @@
 					</div>
 					<div class="d-flex align-items-center p-1 text-light rounded-top content">
 						<i class="xi-marker-check ml-1 mr-1"></i>
-						<p class=" mb-0 ">골프장과 숙박 시설이 함께 있는 상품입니다.</p>
+						<p class=" mb-0 "><?=$products_panel[$i]->hotel_id !== null ? "골프장과 숙박 시설이 함께 있는 상품입니다." : "골프장만 있는 시설입니다."?></p>
 					</div>
 					<figcaption class="rounded-bottom d-flex align-items-center justify-content-between p-3 bg-light">
 						<div>
@@ -262,8 +278,10 @@
 							<p class="mb-0"><?=$products_panel[$i]->eng_name?></p>
 						</div>
 						<div class="d-flex flex-column align-items-center">
+							<?php if($products_panel[$i]->avg_score !== null){?>
 							<span><i class="xi-star"></i></span>
-							<span>4.7</span>
+							<span><?=(ceil(($products_panel[$i]->avg_score)*10))/10?></span>
+							<?php }?>
 						</div>
 					</figcaption>
 				</figure>

@@ -5,6 +5,14 @@ class Products_Model extends Board_Model{
         parent:: __construct('products');
     }
  
+    function get($id)
+    {
+        $sub_query = "SELECT Ceil((avg(score_1)+avg(score_2)+avg(score_3)+avg(score_4)+avg(score_5)+avg(score_6)+avg(score_7)+avg(score_8))/8) FROM product_reviews as r WHERE r.product_id = p.id";
+        $this->db->select("p.*, ({$sub_query}) as avg_score");
+        $this->db->from("$this->table as p");
+        $this->db->where("p.id",$id);
+        return $this->db->get()->row();
+    }
     function get_by_category_id_recursive_with_pgi($cate_id,$pgi_style)
     {
 
@@ -46,10 +54,12 @@ class Products_Model extends Board_Model{
     {
         //product_option 사진들
         $sub_query = "SELECT group_concat(o.name) FROM `product_option` AS `o` WHERE o.product_id= r.product_id AND o.kind = 'photo'";
-        //product_reviews score_1 평균점수
-        $sub_query2 = "SELECT avg(pr.score_1) FROM product_reviews AS pr WHERE pr.product_id = r.product_id";
+        //product_reviews 총 평균점수
+        $sub_query2 = "SELECT (avg(score_1)+avg(score_2)+avg(score_3)+avg(score_4)+avg(score_5)+avg(score_6)+avg(score_7)+avg(score_8))/8 FROM product_reviews as r WHERE r.product_id = p.id";
+        //호텔 여부
+        $sub_query3 = "SELECT concat(p_ref_h.hotel_id) FROM `p_ref_hotel` as p_ref_h WHERE p_ref_h.product_id = p.id";
 
-        $this->db->select("p.*,r.id as ref_id,r.sort ,($sub_query) as photos, ($sub_query2) as avg_score_1");
+        $this->db->select("p.*,r.id as ref_id,r.sort ,($sub_query) as photos, ($sub_query2) as avg_score, ($sub_query3) as hotel_id");
         $this->db->from("ref_cate_product as r");
         $this->db->join("products as p", "p.id = r.product_id","LEFT");
         $this->db->join("product_categories as c", "c.id = r.cate_id","LEFT");
