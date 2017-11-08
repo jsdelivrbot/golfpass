@@ -14,15 +14,26 @@ class Publishing extends Public_Controller
 
     function index()
     {
-        $this->_template("mypage",array(),"tmp");
+        $this->_template("mypage",array(),"golfpass");
     }
     function regist()
     {
-        $this->_template("regist",array(),"tmp");
+        $this->_template("regist",array(),"golfpass");
     }
     function forgot_id()
     {
-        $this->_template("forgot_id",array(),"tmp");
+        $this->_template("forgot_id",array(),"golfpass");
     }
-
+    function mypage()
+    {
+        $this->_template("mypage",array(),"golfpass");
+    }
+    function wishlist()
+    {
+        $this->_template("wishlist",array(),"golfpass");
+    }
+    function order_complete()
+    {
+        $this->_template("order_complete",array(),"golfpass");
+    }
 }

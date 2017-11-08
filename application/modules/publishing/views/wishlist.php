@@ -1,32 +1,10 @@
 
-
-
-    <!-- Standard Meta -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
- 
-
-    <link rel="stylesheet" type="text/css" href="/public/lib/responsive-tables/responsive-tables.css">
-    <script src="/public/lib/responsive-tables/responsive-tables.js"></script>
-
-    <link rel="stylesheet/less" type="text/css" href="/public/framework/semantic/src/semantic.less">
+<link rel="stylesheet/less" type="text/css" href="/public/framework/semantic/src/semantic.less">
 <script src="/public/framework/semantic/src/less.min.js"></script>
 <div style="margin-top:120px;"></div>
 
-<!-- <style>
-    @media all and (max-width:750px) {
-        .ui.text.menu>.computer.only {
-            display: none;
-        }
-        .computer.only
-        {
-            display :none;
-        }
-    }
-</style> -->
-
-    <div class="ui grid container">
+<a href="<?=site_url('')?>">홈으로</a>
+    <div class="ui grid container" style="margin-top:100px;">
         <div class="sixteen wide column">
             <div class="ui text menu">
                 <div class="header item">
@@ -91,52 +69,89 @@
         </div>
         <div class="sixteen wide column">
             <div class="sixteen wide column">
-                <div class="ui four item stackable tabs menu">
+                <div class="ui five item stackable tabs menu">
 
-                    <a class="active item" data-tab="definition">프로필 관리</a>
+                    <a class="item" data-tab="definition">프로필 관리</a>
 
-
-                    <a class="item" data-tab="examples">주문내역</a>
+                    <a href="<?php site_url(shop_wishlist_uri.'/gets')?>" class="active item" data-tab="settings">위시리스트</a>
+                    <a href="" class="item" data-tab="examples">주문내역</a>
 
 
                     <a class="item" data-tab="usage">1:1문의 내역</a>
 
 
                     <a class="item" data-tab="settings">내가 쓴 리뷰</a>
+               
 
 
                 </div>
             </div>
         </div>
         <div class="sixteen wide column">
-            <h1 class="ui header">최근 주문상품</h1>
+            <h1 class="ui header">위시리스트</h1>
             <table class="ui green table responsive">
                 <thead>
                     <tr>
-                        <th>구매일자</th>
-                        <th>구매상품</th>
-                        <th>결제방법</th>
-                        <th>결제금액</th>
-                        <th>예약상태</th>
-                        <th>적립포인트</th>
+                        <th>번호</th>
+                        <th>상품이름</th>
+                        <th>상품가격</th>
+                        <th>갯수</th>
+                        <th>날자</th>
+                        <th>수정/삭제</th>
+
                     </tr>
                 </thead>
                 <tbody>
+                <?php for($i=0 ; $i < count($wishlist) ; $i++){?>
                     <tr>
-                        <td>10/10/25252526</td>
-                        <td>그라이헨드 골프장</td>
-                        <td>무통장</td>
-                        <td>255000원</td>
-                        <td>대기중</td>
-                        <td>250</td>
+                        <td><?=$i+1?></td>
+                        <td><?=$wishlist[$i]->p_name?></td>
+                        <td><?=$wishlist[$i]->p_price?></td>
+                        <td><?=$wishlist[$i]->p_count?></td>
+                        <td><?=$wishlist[$i]->created?></td>
+                        <td><a href="">수정</a>/ <a href="">삭제</a></td>
                     </tr>
-                    <tr>
-                    </tr>
+                   
+                <?php }?>
+
                 </tbody>
             </table>
 
         </div>
-    
+        
+
+        <!-- <div class="right aligned sixteen wide column ">
+                <?php if(!is_login()){?>
+                    <button class="ui olive button"><a style="color:white" href="<?=my_site_url(shop_order_uri."/index/wishlist?guest_order=true")?>">주문하기</a></button>
+                <?php }else{?>
+                    <button class="ui olive button"><a style="color:white" href="<?=my_site_url(shop_order_uri."/index/wishlist")?>">주문하기</a></button>
+                <?php }?>
+        </div> -->
     </div>
 
+
+    <!-- sample -->
+
+<!-- <?php for($i=0 ; $i < count($wishlist) ; $i++){?>
+
+<ul>
+<li><?=$wishlist[$i]->p_name?></li>
+<li><?=$wishlist[$i]->p_count?>개</li>
+<li>개당<?=$wishlist[$i]->p_price?>원</li>
+<li>합계<?=$wishlist[$i]->p_total_price?>원</li>
+<a href="">주문하기</a>
+<form onsubmit="ajax_submit(this);return false;" action="<?=site_url(shop_wishlist_uri."/ajax_update/{$wishlist[$i]->p_id}")?>">
+수량<input type="text" name="product_count" value="<?=$wishlist[$i]->p_count?>">
+<input type="submit" value="수정하기">
+</form>
+
+
+<form onsubmit="confirm_callback(this,ajax_submit,'삭제하시겠습니까?');return false;" action="<?=site_url(shop_wishlist_uri."/ajax_delete/{$wishlist[$i]->p_id}")?>">
+<input type="submit" value="삭제하기">
+</form>
+
+</ul>
+<?php }?> -->
+
+<!-- sample -->
 
