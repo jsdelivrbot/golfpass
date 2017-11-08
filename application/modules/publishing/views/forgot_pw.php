@@ -7,7 +7,7 @@
                 <div class="panel-body">
                     <div class="text-center">
                         <h3><i class="fa fa-lock fa-4x"></i></h3>
-                        <h2 class="text-center">아이디 찾기</h2>
+                        <h2 class="text-center">비밀번호 찾기</h2>
                         <p>가입 시 작성한 휴대폰 번호를 작성해주세요!</p>
                         <div class="panel-body">
 
