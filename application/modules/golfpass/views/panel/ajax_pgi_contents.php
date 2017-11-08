@@ -4,7 +4,7 @@
             <img src="<?=$panel_contents[$i]->photo?>" class="rounded-circle" alt="" width="60px;">
         </div>
         <div class="col-12 col-md-10">
-            <h1><?=$panel_contents[$i]->title?></h1>
+        <a href="<?=site_url(golfpass_panel_content_uri."/get/{$panel_contents[$i]->id}")?>"><h1><?=$panel_contents[$i]->title?></h1></a>
             <div class="content">
             <?=$panel_contents[$i]->desc?>
             </div>

@@ -13,7 +13,7 @@ class Panel_content extends Base_Controller {
 
     function get($id)
     {
-        $data['content'] = $this->panel_contents_model->_get(array("id"=>$id));
+        $data['content'] = $this->panel_contents_model->_get($id);
        
         $this->_template("get",$data,'golfpass');
     }

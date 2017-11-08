@@ -93,6 +93,29 @@ class Ajax_pagination{
      * @return    string
      */    
     function create_links(){
+        ?>
+        <script>
+        //getData 함수가 존재하지 않는다면 함수선언
+        if (typeof getData !== 'function') { 
+            function getData(target,page,url,id){  
+            $.ajax({
+                method: "POST",
+                url: url+page,
+                data: { page: page, id : id },
+                beforeSend: function(){
+                    $('<?php echo $this->loading; ?>').show();
+                },
+                success: function(data){
+                    $('<?php echo $this->loading; ?>').hide();
+                    $(target).html(data);
+                }
+            });
+        }
+        }
+      
+        </script>
+        <?php
+
         // If our item count or per-page total is zero there is no need to continue.
         if ($this->total_rows == 0 OR $this->per_page == 0){
            return '';
@@ -112,6 +135,7 @@ class Ajax_pagination{
         $CI =& get_instance();    
         if ($CI->uri->segment($this->uri_segment) != 0){
             $this->cur_page = $CI->uri->segment($this->uri_segment);   
+
             // $this->cur_page = end($this->uri->segment_array()); 
             // Prep the current page - no funny business!
             $this->cur_page = (int) $this->cur_page;
@@ -211,28 +235,7 @@ class Ajax_pagination{
 
         // Add the wrapper HTML if exists
         $output = $this->full_tag_open.$output.$this->full_tag_close;
-        ?>
-        <script>
-        //getData 함수가 존재하지 않는다면 함수선언
-        if (typeof getData !== 'function') { 
-            function getData(target,page,url,id){  
-            $.ajax({
-                method: "POST",
-                url: url+page,
-                data: { page: page, id : id },
-                beforeSend: function(){
-                    $('<?php echo $this->loading; ?>').show();
-                },
-                success: function(data){
-                    $('<?php echo $this->loading; ?>').hide();
-                    $(target).html(data);
-                }
-            });
-        }
-        }
-      
-        </script>
-        <?php
+        
         return $output;
     }
 

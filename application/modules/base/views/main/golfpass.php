@@ -144,7 +144,7 @@
 					</div>
 					<div class="content">
 						<p><span><i class="xi xi-star"></i><i class="xi xi-star"></i><i class="xi xi-star"></i><i
-								class="xi xi-star"></i><i class="xi xi-star-o"></i></span>(리뷰 51개)
+								class="xi xi-star"></i><i class="xi xi-star-o"></i></span>(리뷰 <?=$product_main->reviews_count?>개)
 						</p>
 						<p><?=$product_main->desc?></p>
 					</div>
@@ -166,14 +166,16 @@
 					</div>
 					<div class="content">
 						<p><span><i class="xi xi-star"></i><i class="xi xi-star"></i><i class="xi xi-star"></i><i
-								class="xi xi-star"></i><i class="xi xi-star-o"></i></span>(리뷰 51개)
+								class="xi xi-star"></i><i class="xi xi-star-o"></i></span>(리뷰 <?=$product_main->reviews_count?>개)
 						</p>
 						<p><?=$product_main->desc?></p>
 					</div>
+					<a href="<?=site_url(shop_product_uri."/get/{$product_main->id}")?>">
 					<div class="btn-box d-flex align-items-center justify-content-center">
 						<button>보러가기
 						</button>
 					</div>
+					</a>
 				</div>
 			</div>
 			<?php }?>
@@ -491,19 +493,19 @@
 			<div class="col-12 col-lg-6 mb-4 d-flex panel-item">
 		
 				<div class="d-none d-md-block">
-				<a href="<?=site_url(golfpass_panel_uri."/gets/{$panels[$i]->id}")?>">
+				<a href="<?=site_url(golfpass_panel_uri."/gets/{$panels[$i]->id}/0")?>">
 					<img src="<?=$panels[$i]->photo?>" class="rounded" alt="" height="110px">
 				</a>
 				</div>
 				<div class="bg-light rounded d-flex flex-column justify-content-center align-middle position-relative panel-content w-100">
-				<a href="<?=site_url(golfpass_panel_uri."/gets/{$panels[$i]->id}")?>">
+				<a href="<?=site_url(golfpass_panel_uri."/gets/{$panels[$i]->id}/0")?>">
 					<div class="position-absolute bg-light trans-box d-none d-md-block">
 					</div>
 					<h4 class="mb-1"><?=$panels[$i]->name?></h4>
 					<p class="mb-0" style='max-width: 400px; font-size: 0.9rem; color:#a5a5a5;'><?=$panels[$i]->intro?> </p>
 					<div class="position-absolute review-box">
                             <span>
-                                <i class="xi-pen"></i> 273개
+                                <i class="xi-pen"></i> <?=$panels[$i]->num_contents?>개
                             </span></div>
 				</a>
 				</div>
@@ -515,7 +517,7 @@
 		</div>
 
 		<div class="row justify-content-center align-items-center">
-			<a href="#" class="d-flex justify-content-center align-items-center" style='text-decoration: none'>
+			<a href="<?=site_url(golfpass_panel_uri."/gets")?>" class="d-flex justify-content-center align-items-center" style='text-decoration: none'>
 				<p class="mb-0 text-light mr-3">
 					전체 패널 보러가기
 				</p>

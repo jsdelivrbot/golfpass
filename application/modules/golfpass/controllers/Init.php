@@ -182,6 +182,7 @@ class Init extends Init_Controller {
         if(!$this->db->table_exists($tb_name)){
             $result = $this->db->query("CREATE TABLE `$tb_name`(
             `id` INT UNSIGNED NULL AUTO_INCREMENT, 
+            `num_contents` int DEFAULT '0',
             `auth` INT NOT NULL DEFAULT '1',
             `intro` varchar(255),
             `address` varchar(255) ,

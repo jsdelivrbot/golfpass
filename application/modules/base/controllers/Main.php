@@ -16,12 +16,12 @@ class Main extends Base_Controller
         //메인 상품
         $this->load->model("shop/products_model");
         $this->load->model("shop/product_option_model");
+        $this->load->model("shop/product_reviews_model");
         $this->load->model("admin/setting_model");
         $product_setting =$this->setting_model->_get(1);
         $product_main_id = $product_setting->representative_product;
         $data['product_main'] = $this->products_model->_get($product_main_id);
         $data['product_main_photos'] = $this->product_option_model->gets_options($product_main_id,'photo');
-
         //나라 분류 리스트
         $this->load->model("shop/product_categories_model");
         $menu_id=$this->product_categories_model->_get(array('name'=>'나라별'),array('id'))->id;
