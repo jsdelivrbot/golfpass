@@ -270,7 +270,7 @@
 					</div>
 					<div class="d-flex align-items-center p-1 text-light rounded-top content">
 						<i class="xi-marker-check ml-1 mr-1"></i>
-						<p class=" mb-0 "><?=$products_panel[$i]->hotel_id !== null ? "골프장과 숙박 시설이 함께 있는 상품입니다." : "골프장만 있는 시설입니다."?></p>
+						<p class=" mb-0 "><?=$products_panel[$i]->hotel_id !== null ? "골프장과 숙박 시설이 함께 있는 상품입니다." : "골프장만 있는 상품입니다."?></p>
 					</div>
 					<figcaption class="rounded-bottom d-flex align-items-center justify-content-between p-3 bg-light">
 						<div>
