@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url(https://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 @import url(https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css);
 @import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
@@ -2248,18 +2249,19 @@ body.menu-open .plus-btn .r2 {
   position: absolute;
   height: 70%;
   left: 2.5%;
-  top: 15%;
-  opacity: 0.4;
-  border: 2px solid #3d4842;
-  box-sizing: border-box; }
-  #section1 #time-border::before {
-    content: '';
-    left: -2px;
-    top: -2px;
-    display: inline-block;
+  top: 15%; }
+  #section1 #time-border #bar {
+    position: absolute;
+    height: 100%;
+    opacity: 0.5;
+    border: 2px solid white;
+    box-sizing: border-box; }
+  #section1 #time-border #current {
     position: absolute;
     height: 60%;
-    border: 2px solid white; }
+    left: -1px;
+    border: 3px solid white;
+    box-sizing: border-box; }
 #section1 #scroll-alert {
   position: absolute;
   bottom: 0%;
@@ -2320,15 +2322,9 @@ body.menu-open .plus-btn .r2 {
 @media (min-width: 576px) {
   #section3 .item:nth-child(n+5) {
     display: flex !important; } }
-@media (min-width: 992px) {
-  #section3 .item {
-    max-width: 320px; } }
 #section3 .item figure {
   width: 100%;
   font-family: "notokr-regular"; }
-  @media (min-width: 992px) {
-    #section3 .item figure {
-      min-width: 320px; } }
   #section3 .item figure .content {
     background-color: #06adef; }
     #section3 .item figure .content p, #section3 .item figure .content i {
@@ -2390,6 +2386,9 @@ body.menu-open .plus-btn .r2 {
       font-size: 14px;
       margin: 8px 15px 8px 15px;
       border-radius: 45px; }
+      @media (min-width: 768px) {
+        #section5 .category button:first-child {
+          margin-left: 0; } }
     #section5 .category button.active {
       box-shadow: 0 0 0 0; }
   #section5 .contents > div {
@@ -2407,8 +2406,9 @@ body.menu-open .plus-btn .r2 {
       font-family: notokr-light;
       font-size: 14px; }
   #section5 .list-after-four {
-    font-family: notokr-medium;
-    border-bottom: 1px solid #818589; }
+    font-family: notokr-medium; }
+    #section5 .list-after-four:not(:last-child) {
+      border-bottom: 1px solid #818589; }
     #section5 .list-after-four p {
       font-size: 1.1rem;
       color: #fff; }
@@ -2420,6 +2420,7 @@ body.menu-open .plus-btn .r2 {
 #section6 {
   font-family: notokr-medium; }
   #section6 .trans-box {
+    /*말꼬리..*/
     -ms-transform: rotate(45deg);
     /* IE 9 */
     -webkit-transform: rotate(45deg);
@@ -2430,13 +2431,14 @@ body.menu-open .plus-btn .r2 {
     left: 0;
     z-index: -1; }
   #section6 .review-box {
+    /*연필 리뷰 컨테이너*/
     top: 20%;
     right: 5%; }
     #section6 .review-box span {
       color: #959595;
       font-size: 0.75rem; }
   #section6 .panel-item img {
-    margin-right: 20px; }
+    margin: 0 20px; }
   #section6 .panel-content {
     padding: 15px; }
     #section6 .panel-content h4 {
@@ -2450,6 +2452,7 @@ body.menu-open .plus-btn .r2 {
       color: #a5a5a5; }
 
 #main-footer {
+  margin-top: 20px;
   z-index: 9999;
   box-sizing: border-box;
   position: relative;
@@ -2459,6 +2462,13 @@ body.menu-open .plus-btn .r2 {
   padding: 10px;
   color: white;
   font-family: notokr-medium; }
+  #main-footer #partner {
+    padding-left: 40px; }
+    #main-footer #partner h6 {
+      font-size: bold;
+      font-size: 1.1rem; }
+    #main-footer #partner figure {
+      padding: 20px  40px 20px 0; }
   @media (min-width: 992px) {
     #main-footer {
       padding: 50px 0px 110px 50px; } }
@@ -2484,17 +2494,18 @@ body.menu-open .plus-btn .r2 {
         font-weight: bolder;
         margin-right: 10px; }
       #main-footer ul li > input {
-        color: inherit;
-        padding: 15px;
-        width: 100%; }
+        font-family: notokr-light;
+        font-size: 12px;
+        color: #b2b2b2;
+        padding: 5px;
+        height: 40px;
+        width: 240px; }
   #main-footer > p {
     font-size: 0.8rem;
     color: inherit; }
   #main-footer strong {
     color: inherit;
     font-weight: bolder; }
-  #main-footer figure {
-    padding: 40px 20px; }
 
 body > .main-section {
   width: 100%;
