@@ -88,4 +88,8 @@ class Maker extends Public_Controller
     {
         $this->_template("forgot_pw",array(),"golfpass");
     }
+    function review_w()
+    {
+        $this->_template("review_w",array(),"golfpass");
+    }
 }
