@@ -1,8 +1,11 @@
-.panel-header {
+@import 'header';
+
+.black-bg-header {
+	@extend #header;
 	nav {
 		background-color: $panel-nav-bg !important;
 	}
-	#toggle {
+	.toggle {
 		background-color: $panel-nav-toggle-bg !important;
 	}
 }
