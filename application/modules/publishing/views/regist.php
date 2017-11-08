@@ -1,5 +1,5 @@
-<style>
-</style>
+<link rel="stylesheet/less" type="text/css" href="/public/framework/semantic/src/semantic.less">
+<script src="/public/framework/semantic/src/less.min.js"></script>
 <div style="margin-top:120px;"></div>
 
 <div class="ui grid container ui form">
@@ -25,7 +25,7 @@
         </div>
     </div>
 
-    
+
     <div class="row">
         <div class="eight wide column ">
             <select class="ui compact selection dropdown">

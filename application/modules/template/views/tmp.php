@@ -13,8 +13,7 @@
 	<link rel="stylesheet" href="/public/tmp/css/main.css">
 	<link rel="stylesheet" href="/public/tmp/sangmin/dist/Nwagon/Nwagon.css" type="text/css">
 
-	<link rel="stylesheet/less" type="text/css" href="/public/framework/semantic/src/semantic.less">
-<script src="/public/framework/semantic/src/less.min.js"></script>
+
 </head>
 
 <body>
