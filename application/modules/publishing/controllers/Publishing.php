@@ -16,4 +16,10 @@ class Publishing extends Public_Controller
     {
         $this->_template("mypage",array(),"tmp");
     }
+
+    function forgot_id()
+    {
+        $this->_template("forgot_id",array(),"tmp");
+    }
+
 }

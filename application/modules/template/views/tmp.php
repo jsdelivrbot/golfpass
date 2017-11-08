@@ -12,6 +12,9 @@
 	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
 	<link rel="stylesheet" href="/public/css/main.css">
 	<link rel="stylesheet" href="/public/sangmin/dist/Nwagon/Nwagon.css" type="text/css">
+
+	<link rel="stylesheet/less" type="text/css" href="/public/framework/semantic/src/semantic.less">
+<script src="/public/framework/semantic/src/less.min.js"></script>
 </head>
 
 <body>

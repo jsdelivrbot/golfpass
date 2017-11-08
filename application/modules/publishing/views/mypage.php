@@ -1,6 +1,5 @@
 
-<link rel="stylesheet/less" type="text/css" href="/public/framework/semantic/src/semantic.less">
-<script src="/public/framework/semantic/src/less.min.js"></script>
+
 <div class="ui grid container" style="margin-top:100px;">
     <div class="sixteen wide column">
         <div class="ui text menu">
@@ -115,3 +114,6 @@
 </div>
 
 
+
+<div id="BUTTON_1">asdad</div>
+<div class="ui button">test</div>
