@@ -22,7 +22,7 @@
 
 <div class="ui middle aligned center aligned grid">
     <div class="column">
-        <form class="ui large form ">
+        <form class="ui large form" style="max-width: 90%; margin: 0 auto;">
             <div class="ui header">골프패스 로그인</div>
             <div class="field">
                 <div class="ui left icon input">
