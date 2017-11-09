@@ -617,7 +617,7 @@
 			<!--유투브 영상-->
 			<article class="w-100">
 				<div class="row d-flex justify-content-center">
-					<iframe width="90%" height="100%" src="https://www.youtube.com/embed/-2U0Ivkn2Ds" frameborder="0"
+					<iframe width="90%" height="100%" src="https://www.youtube.com/embed/https://www.youtube.com/watch?v=GF4xrSnzNPo" frameborder="0"
 							gesture="media" allowfullscreen style="min-height: 450px;"></iframe>
 				</div>
 			</article>
