@@ -167,7 +167,7 @@
 				<div class="content-box d-flex flex-column align-items-start justify-content-center justify-content-lg-end">
 					<div class='title'>
 						<h1><?=$product_main->name?></h1>
-						<p><?=$product_main->region?> - <?=$product_main->hole_count?>홀 / <?=$product_main->distance?>야드</p>
+						<p><?=$product_main->region?> - <?=$product_main->hole_count?> / <?=$product_main->distance?></p>
 					</div>
 					<div class="content">
 						<p><span>
