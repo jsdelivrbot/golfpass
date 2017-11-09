@@ -30,49 +30,49 @@
 	<div class="menu-sliders"></div>
 	<div class="menu-sliders"></div>
 	<div class="menu">
-		<ul class="list-unstyled">
+	<ul class="list-unstyled">
 		<?php if(is_admin()){?>
 			<li>
-			  <a href="<?=site_url(admin_home_uri.'')?>">관리자 페이지</a>
+			<a style="color:white;" href="<?=site_url(admin_home_uri.'')?>">관리자 페이지</a>
 			</li>
 			<?php }?>
 			<li>
-			  <a href="<?=site_url('')?>">골프패스</a>
+			<a style="color:white;" href="<?=site_url('')?>">골프패스</a>
 			</li>
-		  
+		
 			<li>
-			<a href="<?=site_url(shop_category_uri.'/gets_by_name/나라별')?>">나라별 골프장</a>
-			  
+			<a style="color:white;" href="<?=site_url(shop_category_uri.'/gets_by_name/나라별')?>">나라별 골프장</a>
+			
 			</li>
 			<li>
-			<a href="<?=site_url(golfpass_panel_uri.'/gets')?>">패널소개</a>
-			  
+			<a style="color:white;" href="<?=site_url(golfpass_panel_uri.'/gets')?>">패널소개</a>
+			
 			</li>
-	  
+	
 			<?php if(!is_login()){?>
 			<li>
-			  <a href="<?=site_url(user_uri.'/login')?>">로그인</a>
-			  
+			<a style="color:white;" href="<?=site_url(user_uri.'/login')?>">로그인</a>
+			
 			</li>
 			<li>
-			<a href="<?=site_url(user_uri.'/register_agree_1')?>">회원가입</a>
-			  
+			<a style="color:white;" href="<?=site_url(user_uri.'/register_agree_1')?>">회원가입</a>
+			
 			</li>
 			<?php }?>
 			<?php if(is_login()){?>
-		  
+		
 			<li>
-			  <a href="<?=site_url(user_uri.'/logout')?>">로그아웃</a>
+			<a style="color:white;" href="<?=site_url(user_uri.'/logout')?>">로그아웃</a>
 			</li>
 			<?php }?>
 			<li>
-			  <a href="<?=site_url(shop_mypage_uri.'')?>">마이페이지      </a>
+			<a style="color:white;" href="<?=site_url(shop_mypage_uri.'')?>">마이페이지      </a>
 			</li>
 			<li>
-			  <a href="<?=site_url(shop_wishlist_uri.'/gets')?>">위시리스트      </a>
+			<a style="color:white;" href="<?=site_url(shop_wishlist_uri.'/gets')?>">위시리스트      </a>
 			</li>
 			<li>
-			  <a href="<?=site_url(shop_contact_uri.'')?>">고객센터</a>
+			<a style="color:white;" href="<?=site_url(shop_contact_uri.'')?>">고객센터</a>
 			</li>
 		</ul>
 	</div>
@@ -108,24 +108,28 @@
 			<figure class="mb-0 d-flex align-items-center d-lg-none">
 				<img src="/public/sangmin/img/icon/logo_mobile.png" class="" alt="">
 			</figure>
-			<figure class="mb-0 align-items-center d-none d-lg-flex">
-				<img src="/public/sangmin/img/icon/logo.png" class="" alt="">
-			</figure>
+			<a href="<?=site_url()?>">
+				<figure class="mb-0 align-items-center d-none d-lg-flex">
+					<img src="/public/sangmin/img/icon/logo.png" class="" alt="">
+				</figure>
+			</a>
 			<div id="search" class="d-flex align-items-center">
 				<i class="xi xi-search"></i>
 				<input type="text" placeholder="관심있는 나라나 골프장을 검색해보세요!">
 			</div>
 		</div>
-		<div id='nav-icon-box' class="col  d-flex justify-content-end">
-			<div id="login" class="d-flex align-items-center">
-				<span><i class="xi xi-lock"></i></span>
-				<p class="mb-0"><a style="color:white;" href="<?=site_url(user_uri.'/login')?>">로그인</a></p>
+		<?php if(!is_login()){?>
+			<div id='nav-icon-box' class="col  d-flex justify-content-end">
+				<div id="login" class="d-flex align-items-center">
+					<span><i class="xi xi-lock"></i></span>
+					<p class="mb-0"><a style="color:white;" href="<?=site_url(user_uri.'/login')?>">로그인</a></p>
+				</div>
+				<div id="join" class="d-flex align-items-center">
+					<span><i class="xi xi-user-plus"></i></span>
+					<p class="mb-0"><a style="color:white;"href="<?=site_url(user_uri.'/register_agree_1')?>">회원가입</a></p>
+				</div>
 			</div>
-			<div id="join" class="d-flex align-items-center">
-				<span><i class="xi xi-user-plus"></i></span>
-				<p class="mb-0">회원가입</p>
-			</div>
-		</div>
+			<?php }?>
 		<div class="col ml-auto toggle"
 			 onclick="$('body').toggleClass('menu-open'); $('.carousel-indicators').toggleClass('d-none d-flex');">
 			<span>
