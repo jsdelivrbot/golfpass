@@ -322,17 +322,6 @@
 								 </div>
 								 <?php }?>
 			                 </div>
-											  <!-- 없길래 추가함.. -->
-											 <div class="row justify-content-center align-items-center">
-								 				<a href="<?=site_url(golfpass_panel_uri."/gets")?>" class="d-flex justify-content-center align-items-center" style='text-decoration: none'>
-								 					<p class="mb-0 text-light mr-3">
-								 						패널 추천 더보기
-								 					</p>
-								 					<span style='width: 30px;height: 30px'
-								 							class="rounded-circle bg-light d-flex align-items-center justify-content-center"><i
-								 							class="xi xi-angle-right text-dark"></i></span>
-								 				</a>
-								 			</div>
 			             </article>
 			         </section>
 
@@ -434,15 +423,43 @@
 					<div class="col-12 col-lg-6">
 						<!--1위부터 3위까지 아래 div.content-box-->
 						<div class="col-12 content-box">
-							<a href="#">
+							<a href="http://golfpass.net/index.php/shop/product/get/3">
 								<div class="d-flex align-items-center p-4 mb-3 content"
 								 	style="height: 150px; background-image: url(/public/sangmin/img/background/bg1.jpg)">
 									<div class='d-flex align-items-center justify-content-center bg-light rounded-circle'>
 										<span class="d-flex align-items-center justify-content-center">1</span>
 									</div>
 									<div class="d-flex flex-column ml-4 text-light">
-										<h1>힐데스 하임 CC</h1>
-										<p class="mb-0">언노운 호텔 추석 연휴 패키지</p>
+										<h1>니조 컨트리 클럽</h1>
+										<p class="mb-0">Nijo Country Club</p>
+									</div>
+								</div>
+							</a>
+						</div>
+						<div class="col-12 content-box">
+							<a href="http://golfpass.net/index.php/shop/product/get/4">
+								<div class="d-flex align-items-center p-4 mb-3 content"
+								 	style="height: 150px; background-image: url(/public/sangmin/img/background/bg1.jpg)">
+									<div class='d-flex align-items-center justify-content-center bg-light rounded-circle'>
+										<span class="d-flex align-items-center justify-content-center">2</span>
+									</div>
+									<div class="d-flex flex-column ml-4 text-light">
+										<h1>센트럴 후쿠오카 골프 클럽</h1>
+										<p class="mb-0">Central Fukuoka Golf Club</p>
+									</div>
+								</div>
+							</a>
+						</div>
+						<div class="col-12 content-box">
+							<a href="http://golfpass.net/index.php/shop/product/get/5">
+								<div class="d-flex align-items-center p-4 mb-3 content"
+								 	style="height: 150px; background-image: url(/public/sangmin/img/background/bg1.jpg)">
+									<div class='d-flex align-items-center justify-content-center bg-light rounded-circle'>
+										<span class="d-flex align-items-center justify-content-center">3</span>
+									</div>
+									<div class="d-flex flex-column ml-4 text-light">
+										<h1>카호 골프 클럽</h1>
+										<p class="mb-0">Kaho Golf Club</p>
 									</div>
 								</div>
 							</a>
