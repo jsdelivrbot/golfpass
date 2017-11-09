@@ -10,6 +10,7 @@
 <br>
 
 <?php if(strpos($mode, "update") >-1 ){?>
+    메인사진
 <form  method="POST" action="<?=my_site_url(admin_product_category_uri."/upload_photo")?>" enctype='multipart/form-data'>
     <input type='file' name='photo'/>
     <input type="hidden" name='field_name' value="photo"/>
@@ -17,6 +18,20 @@
     <input type="submit" value="보내기"style="">
 </form>
 <img style="width:200px; height:auto;"  src="<?=$category->photo?>" alt="">
+
+<br>
+
+모바일 메인사진
+<form  method="POST" action="<?=my_site_url(admin_product_category_uri."/upload_photo")?>" enctype='multipart/form-data'>
+    <input type='file' name='photo'/>
+    <input type="hidden" name='field_name' value="photo3"/>
+    <input type="hidden" name='category_id' value="<?=$category->id?>"/>
+    <input type="submit" value="보내기"style="">
+</form>
+<img style="width:200px; height:auto;"  src="<?=$category->photo3?>" alt="">
+
+<br>
+카테고리 사진
 <form  method="POST" action="<?=my_site_url(admin_product_category_uri."/upload_photo")?>" enctype='multipart/form-data'>
     <input type='file' name='photo'/>
     <input type="hidden" name='field_name' value="photo2"/>
@@ -24,6 +39,7 @@
     <input type="submit" value="보내기"style="">
 </form>
 <img style="width:200px; height:auto;"  src="<?=$category->photo2?>" alt="">
+
 <?php }?>
 <!-- 이미지 업로드폼 끝 -->
 <br>
