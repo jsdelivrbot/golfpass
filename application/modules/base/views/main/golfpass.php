@@ -431,7 +431,7 @@
 									</div>
 									<div class="d-flex flex-column ml-4 text-light">
 										<h1>니조 컨트리 클럽</h1>
-										<p class="mb-0">Nijo Country Club</p>
+										<p class="mb-0">Nijo Country Club - 일본, 후쿠오카</p>
 									</div>
 								</div>
 							</a>
@@ -445,7 +445,7 @@
 									</div>
 									<div class="d-flex flex-column ml-4 text-light">
 										<h1>센트럴 후쿠오카 골프 클럽</h1>
-										<p class="mb-0">Central Fukuoka Golf Club</p>
+										<p class="mb-0">Central Fukuoka Golf Club - 일본, 후쿠오카</p>
 									</div>
 								</div>
 							</a>
@@ -459,7 +459,7 @@
 									</div>
 									<div class="d-flex flex-column ml-4 text-light">
 										<h1>카호 골프 클럽</h1>
-										<p class="mb-0">Kaho Golf Club</p>
+										<p class="mb-0">Kaho Golf Club - 일본, 후쿠오카</p>
 									</div>
 								</div>
 							</a>
@@ -473,10 +473,10 @@
 								<a href="http://golfpass.net/index.php/shop/product/get/6">
 									<div class="d-flex justify-content-between align-items-center">
 										<div>
-											<p class='mb-0'><span class='mr-3 ml-2'>4</span> 힐데스 하임 CC</p>
+											<p class='mb-0'><span class='mr-3 ml-2'>4</span> 후쿠오카 페잔트 컨트리 클럽</p>
 										</div>
 										<div>
-											<span>베트남,호치민</span>
+											<span>일본, 후쿠오카</span>
 										</div>
 									</div>
 								</a>
@@ -485,10 +485,10 @@
 								<a href="http://golfpass.net/index.php/shop/product/get/7">
 									<div class="d-flex justify-content-between align-items-center">
 										<div>
-											<p class='mb-0'><span class='mr-3 ml-2'>5</span> 힐데스 하임 CC</p>
+											<p class='mb-0'><span class='mr-3 ml-2'>5</span> 하우스텐보스 컨트리 클럽</p>
 										</div>
 										<div>
-											<span>베트남,호치민</span>
+											<span>일본, 나가시키</span>
 										</div>
 									</div>
 								</a>
@@ -497,10 +497,10 @@
 								<a href="http://golfpass.net/index.php/shop/product/get/8">
 									<div class="d-flex justify-content-between align-items-center">
 										<div>
-											<p class='mb-0'><span class='mr-3 ml-2'>6</span> 힐데스 하임 CC</p>
+											<p class='mb-0'><span class='mr-3 ml-2'>6</span> 나가사키 파크 컨트리 클럽</p>
 										</div>
 										<div>
-											<span>베트남,호치민</span>
+											<span>일본, 나가시키</span>
 										</div>
 									</div>
 								</a>
@@ -509,10 +509,10 @@
 								<a href="http://golfpass.net/index.php/shop/product/get/9">
 									<div class="d-flex justify-content-between align-items-center">
 										<div>
-											<p class='mb-0'><span class='mr-3 ml-2'>7</span> 힐데스 하임 CC</p>
+											<p class='mb-0'><span class='mr-3 ml-2'>7</span> 사세보코쿠사이 컨트리 클럽</p>
 										</div>
 										<div>
-											<span>베트남,호치민</span>
+											<span>일본, 나가시키</span>
 										</div>
 									</div>
 								</a>
@@ -521,10 +521,10 @@
 								<a href="http://golfpass.net/index.php/shop/product/get/10">
 									<div class="d-flex justify-content-between align-items-center">
 										<div>
-											<p class='mb-0'><span class='mr-3 ml-2'>8</span> 힐데스 하임 CC</p>
+											<p class='mb-0'><span class='mr-3 ml-2'>8</span> 아마가세 온센 컨트리 클럽</p>
 										</div>
 										<div>
-											<span>베트남,호치민</span>
+											<span>일본, 오이타</span>
 										</div>
 									</div>
 								</a>
@@ -533,10 +533,10 @@
 								<a href="http://golfpass.net/index.php/shop/product/get/11">
 									<div class="d-flex justify-content-between align-items-center">
 										<div>
-											<p class='mb-0'><span class='mr-3 ml-2'>9</span> 힐데스 하임 CC</p>
+											<p class='mb-0'><span class='mr-3 ml-2'>9</span> 벳부노모리 골프 클럽</p>
 										</div>
 										<div>
-											<span>베트남,호치민</span>
+											<span>일본, 오이타</span>
 										</div>
 									</div>
 								</a>
@@ -545,10 +545,10 @@
 								<a href="http://golfpass.net/index.php/shop/product/get/12">
 									<div class="d-flex justify-content-between align-items-center">
 										<div>
-											<p class='mb-0'><span class='mr-3 ml-2'>10</span> 힐데스 하임 CC</p>
+											<p class='mb-0'><span class='mr-3 ml-2'>10</span> 키쿠치 컨트리 클럽</p>
 										</div>
 										<div>
-											<span>베트남,호치민</span>
+											<span>일본, 쿠마모토</span>
 										</div>
 									</div>
 								</a>
