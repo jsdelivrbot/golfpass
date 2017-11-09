@@ -144,7 +144,7 @@
 
     <?php load_view($content_view)?>
 
-
+<div style="margin-top: 100px;"></div>
     <footer class='d-flex flex-wrap'>
 		<ul>
 			<li class="title">ABOUT US</li>
