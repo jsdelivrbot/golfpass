@@ -481,7 +481,7 @@
 			</div>
 		</section>
 	</section>
-	<footer id='footer' class=' container-fluid'>
+	<footer id='footer' class='container-fluid'>
 		<div id="partner">
 			<div class="row">
 				<div class="w-100">

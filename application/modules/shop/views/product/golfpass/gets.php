@@ -176,13 +176,15 @@
                                                         <?php 
                                                         
                                                         for($j=0 ; $j< count($products[$i]->photos); $j++){?>
+<<<<<<< HEAD
                                                         <a href="<?=site_url(shop_product_uri."/get/{$products[$i]->id}")?>">
+=======
+>>>>>>> a54ce7e3d81f1552db135f2f5a7cc26afe88ef1c
                                                             <img src="<?=$products[$i]->photos[$j]?>"
                                                             alt="Photo of La Posta Vecchia"
                                                             width="467"
                                                             height="311"
                                                             data-smithcode="QUhGdDNlVG9rNzZGZGk5RC9wSkIvVDNYd1RVZFVYckpuRXYxZ3F6N0FvMmRaa1BGVGljRHpNU3hITnlseTF5bk1NYUNUSjl3eS96bXU2NENWaEVFZ1UzTXM3QTlqK0FhSHgrRWNRbi9oMmdialdoYUdhQ2E3VGE0czNqaS9EU3FyajcyWnpxZmVsTXpoaEFOanlCRkVLalljNk9iTFozQk05a1UxN2N4K2ozaVR4NmJ1R09WUjkrc251ZzJoWDd6T3F1WWR4Sjl3a01Yd0d4am5xMUhQYWNoMUo3MWtPdFZZOWI1MEVwYXp4MXBmeGJYN1dzczhUWVQveU1FNFE0Nw==,QUhGdDNlVG9rNzZGZGk5RC9wSkIvVDNYd1RVZFVYckpuRXYxZ3F6N0FvMmRaa1BGVGljRHpNU3hITnlseTF5bk1NYUNUSjl3eS96bXU2NENWaEVFZ1UzTXM3QTlqK0FhSHgrRWNRbi9oMmdialdoYUdhQ2E3VGE0czNqaS9EU3FyajcyWnpxZmVsTXpoaEFOanlCRkVLalljNk9iTFozQk05a1UxN2N4K2ozaVR4NmJ1R09WUjkrc251ZzJoWDd6ekxZN2tVSktjaTNqYk43YmRGQUo1MTUxTWh6ZnF0VVVTU2k0VjJFUzA4ODJPY0F6bisrUUNuZEhhUUJyU2JZbQ==,QUhGdDNlVG9rNzZGZGk5RC9wSkIvVDNYd1RVZFVYckpuRXYxZ3F6N0FvMmRaa1BGVGljRHpNU3hITnlseTF5bk1NYUNUSjl3eS96bXU2NENWaEVFZ1UzTXM3QTlqK0FhSHgrRWNRbi9oMmdialdoYUdhQ2E3VGE0czNqaS9EU3FyajcyWnpxZmVsTXpoaEFOanlCRkVLalljNk9iTFozQk05a1UxN2N4K2ozaVR4NmJ1R09WUjkrc251ZzJoWDd6dFYySnkzR3NlSXRzY2hvT0FYbDkreFlabW90TUtZUmw1QkMvaUc2N3JpVlZXNnh0U1J5RFp6Yk9COXZETUEyRg==,QUhGdDNlVG9rNzZGZGk5RC9wSkIvVDNYd1RVZFVYckpuRXYxZ3F6N0FvMmRaa1BGVGljRHpNU3hITnlseTF5bk1NYUNUSjl3eS96bXU2NENWaEVFZ1UzTXM3QTlqK0FhSHgrRWNRbi9oMmdialdoYUdhQ2E3VGE0czNqaS9EU3FyajcyWnpxZmVsTXpoaEFOanlCRkVLalljNk9iTFozQk05a1UxN2N4K2ozaVR4NmJ1R09WUjkrc251ZzJoWDd6dFYySnkzR3NlSXRzY2hvT0FYbDkreFlabW90TUtZUmw1QkMvaUc2N3JpVlZXNnh0U1J5RFp6Yk9COXZETUEyRg==,QUhGdDNlVG9rNzZGZGk5RC9wSkIvVDNYd1RVZFVYckpuRXYxZ3F6N0FvMmRaa1BGVGljRHpNU3hITnlseTF5bk1NYUNUSjl3eS96bXU2NENWaEVFZ1UzTXM3QTlqK0FhSHgrRWNRbi9oMmdialdoYUdhQ2E3VGE0czNqaS9EU3FyajcyWnpxZmVsTXpoaEFOanlCRkVLalljNk9iTFozQk05a1UxN2N4K2ozaVR4NmJ1R09WUjkrc251ZzJoWDd6dFYySnkzR3NlSXRzY2hvT0FYbDkreFlabW90TUtZUmw1QkMvaUc2N3JpVlZXNnh0U1J5RFp6Yk9COXZETUEyRg==" >
-                                                        </a>
                                                     <?php }?>
                                                     </div>
                                                     <div class="hotelcard-details-utilities">

@@ -39,28 +39,28 @@
 			<li>
 			<a style="color:white;" href="<?=site_url('')?>">골프패스</a>
 			</li>
-		
+
 			<li>
 			<a style="color:white;" href="<?=site_url(shop_category_uri.'/gets_by_name/나라별')?>">나라별 골프장</a>
-			
+
 			</li>
 			<li>
 			<a style="color:white;" href="<?=site_url(golfpass_panel_uri.'/gets')?>">패널소개</a>
-			
+
 			</li>
-	
+
 			<?php if(!is_login()){?>
 			<li>
 			<a style="color:white;" href="<?=site_url(user_uri.'/login')?>">로그인</a>
-			
+
 			</li>
 			<li>
 			<a style="color:white;" href="<?=site_url(user_uri.'/register_agree_1')?>">회원가입</a>
-			
+
 			</li>
 			<?php }?>
 			<?php if(is_login()){?>
-		
+
 			<li>
 			<a style="color:white;" href="<?=site_url(user_uri.'/logout')?>">로그아웃</a>
 			</li>
@@ -145,51 +145,77 @@
     <?php load_view($content_view)?>
 
 <div style="margin-top: 100px;"></div>
-    <footer class='d-flex flex-wrap'>
-		<ul>
-			<li class="title">ABOUT US</li>
-			<li><a href="#">회사 소개</a></li>
-			<li><a href="#">이용약관</a></li>
-			<li><a href="#">개인 정보 취급 방침</a></li>
-		</ul>
-		<ul>
-			<li class="title">OFFICE</li>
-			<li><span>TEL</span>
-				<p>02-6959-5454</p>
-			</li>
-		</ul>
-		<ul>
-			<li class="title">CONTACT US</li>
-			<li><span>상호</span>
-				<p>PLAYSEVEN</p>
-			</li>
-			<li><span>대표</span>
-				<p>황현철</p>
-			</li>
-			<li><span>사업자등록번호</span>
-				<p>280-81-00963</p>
-			</li>
-			<li><span>통신판매업신고</span>
-				<p>2017-서울강서-1545호</p>
-			</li>
-			<li><span>개인정보관리책임자</span>
-				<p>황현철</p>
-			</li>
-		</ul>
-		<ul>
-			<li class="title">NEWS LETTER</li>
-			<li class="mb-20">
-				<input type="text" placeholder="E-mail을 입력해주세요">
-			</li>
-			<li><strong>골프패스</strong>
-				<p>에서 제공하는 유용한 소식</p>
-			</li>
-		</ul>
-		<p class='align-self-end mr-auto ml-auto'>© 2017 <strong>GOLFPASS.</strong> All Rights Reserved.</p>
-    </footer>
-    
 
-    
+		<footer id='footer' class=' container-fluid'>
+			 <div id="partner">
+					 <div class="row">
+							 <div class="w-100">
+									 <h6>PARTNERS</h6>
+							 </div>
+							 <div class="d-flex flex-wrap">
+									 <figure>
+											 <img src="public/sangmin/img/partner/partner_google.png" alt="">
+									 </figure>
+									 <figure>
+											 <img src="public/sangmin/img/partner/partner_facebook.png" alt="">
+									 </figure>
+
+									 <figure>
+											 <img src="public/sangmin/img/partner/partner_instar.png" alt="">
+									 </figure>
+									 <figure>
+											 <img src="public/sangmin/img/partner/partner_naver.png" alt="">
+									 </figure>
+									 <figure>
+											 <img src="public/sangmin/img/partner/partner_daum.png" alt="">
+									 </figure>
+							 </div>
+					 </div>
+
+			 </div>
+			 <div class="row d-flex">
+					 <ul>
+							 <li class="title">ABOUT US</li>
+							 <li><a href="#">회사 소개</a></li>
+							 <li><a href="#">이용약관</a></li>
+							 <li><a href="#">개인 정보 취급 방침</a></li>
+					 </ul>
+					 <ul>
+							 <li class="title">OFFICE</li>
+							 <li><span>TEL</span>
+									 <p>1500-1500</p>
+							 </li>
+					 </ul>
+					 <ul>
+							 <li class="title">CONTACT US</li>
+							 <li><span>상호</span>
+									<p>PLAYSEVEN</p>
+							 </li>
+							 <li><span>대표</span>
+									<p>황현철</p>
+							 </li>
+							 <li><span>사업자등록번호</span>
+									 <p>280-81-00963</p>
+							 </li>
+							 <li><span>등록판매업신고번호</span>
+										<p>2017-서울강서-1545호</p>
+							 </li>
+							 <li><span>개인정보관리책임자</span>
+									 <p>황현철</p>
+							 </li>
+					 </ul>
+					 <ul>
+							 <li class="title">NEWS LETTER</li>
+							 <li class="mb-20"><input type="text" placeholder="E-mail을 입력해주세요"></li>
+							 <li><strong>골프패스</strong>
+									 <p>에서 제공하는 유용한 소식</p>
+							 </li>
+					 </ul>
+					 <p class='align-self-end mr-auto ml-auto'>© 2017 <strong>GOLFPASS.</strong> All Rights Reserved.</p>
+			 </div>
+	 </footer>
+
+
 <script src="/public/tmp/sangmin/js/jquery-3.2.1.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
 	<script src="/public/tmp/sangmin/dist/bootstrap/bootstrap.bundle.min.js"></script>
