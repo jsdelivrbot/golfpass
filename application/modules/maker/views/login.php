@@ -4,14 +4,15 @@
 <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
 
 <link rel="stylesheet/less" type="text/css" href="/public/framework/semantic/src/semantic.less">
-<!-- <link rel="stylesheet/less" type="text/css" href="/public/framework/src/semantic.less"> -->
-<!-- <link rel="stylesheet" type="text/css" href="/public/framework/semantic/out/semantic.css"> -->
+<script src="/public/framework/semantic/src/less.min.js"></script>
+
+
+<link rel="stylesheet" type="text/css" href="/public/framework/semantic/out/semantic.css">
 
 <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/semantic.min.css"> -->
 <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/semantic.min.js"></script>
 
 
-<script src="/public/framework/semantic/src/less.min.js"></script>
 <div style="margin-top:180px;"></div>
 <style>
     .column {
