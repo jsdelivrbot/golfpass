@@ -176,24 +176,12 @@
                                                         <?php 
                                                         
                                                         for($j=0 ; $j< count($products[$i]->photos); $j++){?>
-                                                        <a href="https://www.mrandmrssmith.com/luxury-hotels/la-posta-vecchia">
                                                             <img src="<?=$products[$i]->photos[$j]?>"
                                                             alt="Photo of La Posta Vecchia"
                                                             width="467"
                                                             height="311"
                                                             data-smithcode="QUhGdDNlVG9rNzZGZGk5RC9wSkIvVDNYd1RVZFVYckpuRXYxZ3F6N0FvMmRaa1BGVGljRHpNU3hITnlseTF5bk1NYUNUSjl3eS96bXU2NENWaEVFZ1UzTXM3QTlqK0FhSHgrRWNRbi9oMmdialdoYUdhQ2E3VGE0czNqaS9EU3FyajcyWnpxZmVsTXpoaEFOanlCRkVLalljNk9iTFozQk05a1UxN2N4K2ozaVR4NmJ1R09WUjkrc251ZzJoWDd6T3F1WWR4Sjl3a01Yd0d4am5xMUhQYWNoMUo3MWtPdFZZOWI1MEVwYXp4MXBmeGJYN1dzczhUWVQveU1FNFE0Nw==,QUhGdDNlVG9rNzZGZGk5RC9wSkIvVDNYd1RVZFVYckpuRXYxZ3F6N0FvMmRaa1BGVGljRHpNU3hITnlseTF5bk1NYUNUSjl3eS96bXU2NENWaEVFZ1UzTXM3QTlqK0FhSHgrRWNRbi9oMmdialdoYUdhQ2E3VGE0czNqaS9EU3FyajcyWnpxZmVsTXpoaEFOanlCRkVLalljNk9iTFozQk05a1UxN2N4K2ozaVR4NmJ1R09WUjkrc251ZzJoWDd6ekxZN2tVSktjaTNqYk43YmRGQUo1MTUxTWh6ZnF0VVVTU2k0VjJFUzA4ODJPY0F6bisrUUNuZEhhUUJyU2JZbQ==,QUhGdDNlVG9rNzZGZGk5RC9wSkIvVDNYd1RVZFVYckpuRXYxZ3F6N0FvMmRaa1BGVGljRHpNU3hITnlseTF5bk1NYUNUSjl3eS96bXU2NENWaEVFZ1UzTXM3QTlqK0FhSHgrRWNRbi9oMmdialdoYUdhQ2E3VGE0czNqaS9EU3FyajcyWnpxZmVsTXpoaEFOanlCRkVLalljNk9iTFozQk05a1UxN2N4K2ozaVR4NmJ1R09WUjkrc251ZzJoWDd6dFYySnkzR3NlSXRzY2hvT0FYbDkreFlabW90TUtZUmw1QkMvaUc2N3JpVlZXNnh0U1J5RFp6Yk9COXZETUEyRg==,QUhGdDNlVG9rNzZGZGk5RC9wSkIvVDNYd1RVZFVYckpuRXYxZ3F6N0FvMmRaa1BGVGljRHpNU3hITnlseTF5bk1NYUNUSjl3eS96bXU2NENWaEVFZ1UzTXM3QTlqK0FhSHgrRWNRbi9oMmdialdoYUdhQ2E3VGE0czNqaS9EU3FyajcyWnpxZmVsTXpoaEFOanlCRkVLalljNk9iTFozQk05a1UxN2N4K2ozaVR4NmJ1R09WUjkrc251ZzJoWDd6dFYySnkzR3NlSXRzY2hvT0FYbDkreFlabW90TUtZUmw1QkMvaUc2N3JpVlZXNnh0U1J5RFp6Yk9COXZETUEyRg==,QUhGdDNlVG9rNzZGZGk5RC9wSkIvVDNYd1RVZFVYckpuRXYxZ3F6N0FvMmRaa1BGVGljRHpNU3hITnlseTF5bk1NYUNUSjl3eS96bXU2NENWaEVFZ1UzTXM3QTlqK0FhSHgrRWNRbi9oMmdialdoYUdhQ2E3VGE0czNqaS9EU3FyajcyWnpxZmVsTXpoaEFOanlCRkVLalljNk9iTFozQk05a1UxN2N4K2ozaVR4NmJ1R09WUjkrc251ZzJoWDd6dFYySnkzR3NlSXRzY2hvT0FYbDkreFlabW90TUtZUmw1QkMvaUc2N3JpVlZXNnh0U1J5RFp6Yk9COXZETUEyRg==" >
-                                                        </a>
                                                     <?php }?>
-                                                    </div>
-                                                    <div class="hotelcard-details-utilities">
-                                                        <ul class="hotelcard-details-utilities-list clearfix">
-                                                            <li class="hotelcard-details-utilities-mapsbutton">
-                                                                <a class="hotelcard-details-utilities-mapsicon clickMap" href="#enlarge" data-lat="41.9328" data-long="12.1045" data-id="3083" data-name="La Posta Vecchia" data-prop="hotel"></a>
-                                                            </li>
-                                                            <li class="hotelminicard-details-utilities-wishlistbutton wishlist-btn" data-trigger="wishlist" data-hotel="5638">
-                                                                <p class="header-title-hotelwishlist" data-hotel="5638" data-property="hotel" data-login-url="/login" data-wishlist-url="https://smithcollections.com/wish-list">
-                                                            </li>
-                                                        </ul>
                                                     </div>
                                                 </div>
                                                 <div class="hotelcard-link M-6_12 L-6_12 XL-6_12 XXL-6_12">

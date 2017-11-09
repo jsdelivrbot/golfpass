@@ -289,30 +289,34 @@
 			                 </div>
 			                 <div class="row position-relative pt-5 items justify-content-around">
 												 <!-- 아래 div반복 -->
+												 <?php for($i=0;$i<count($products_panel); $i++){?>
 			                     <div class="col-12 col-md-6 col-lg-3 mb-3 d-flex item">
-														  <a href="#">
+								 <a href="<?=site_url(shop_product_uri."/get/{$products_panel[$i]->id}")?>">
 			                         <figure>
 																	 <div class="position-relative">
-																			 <img class="rounded-top " src="public/sangmin/img/background/bg1.jpg" alt="" width="100%">
+																			 <img class="rounded-top " src="<?=$products_panel[$i]->photos[0]?>" alt="" width="100%">
 																			 <span class="position-absolute text-light price">319,000원</span>
 																	 </div>
 																	 <div class="d-flex align-items-center p-1 text-light rounded-top content">
 																			 <i class="xi-marker-check ml-1 mr-1"></i>
-																			 <p class=" mb-0 ">골프장과 숙박 시설이 함께 있는 상품입니다.</p>
+																			 <p class=" mb-0 "><?=$products_panel[$i]->hotel_id !== null ? "골프장과 숙박 시설이 함께 있는 상품입니다." : "골프장만 있는 상품입니다."?></p>
 																	 </div>
 																	 <figcaption class="rounded-bottom d-flex align-items-center justify-content-between p-3 bg-light">
 																			 <div>
-																					 <h3>앙시나 골프텔</h3>
-																					 <p class="mb-0">Angsana golftel</p>
+																					 <h3><?=$products_panel[$i]->name?></h3>
+																					 <p class="mb-0"><?=$products_panel[$i]->eng_name?></p>
 																			 </div>
 																			 <div class="d-flex flex-column align-items-center">
+																					 <?php if($products_panel[$i]->avg_score !== null){?>
 																					 <span><i class="xi-star"></i></span>
-																					 <span>4.7</span>
+																					 <span><?=(ceil(($products_panel[$i]->avg_score)*10))/10?></span>
+																					 <?php }?>
 																			 </div>
 																	 </figcaption>
 			                         	</figure>
 															  </a>
-			                     </div>
+								 </div>
+								 <?php }?>
 			                 </div>
 											  <!-- 없길래 추가함.. -->
 											 <div class="row justify-content-center align-items-center">
