@@ -140,6 +140,7 @@
 		</div>
 	</nav>
 </header>
+<div style="margin-top: 180px;"></div>
 
     <?php load_view($content_view)?>
 
