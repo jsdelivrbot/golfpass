@@ -6432,7 +6432,6 @@ textarea {
 .hotelcard-maintext > h3.hotelcard-maintext-smithextralabel,
 .villacard-maintext > h3.hotelcard-maintext-smithextralabel {
     font-weight: 400;
-    color: #79b754
 }
 
 .hotelcard-maintext .highlights,
@@ -6511,7 +6510,6 @@ textarea {
 .hotelcard-imgblock,
 .villacard-imgblock {
     background-color: #F2F2F2;
-    border-top: 1px solid #79b754
 }
 
 @media only screen and (min-width: 48em) {
@@ -6687,7 +6685,7 @@ textarea {
 @media only screen and (min-width: 48em) {
     .hotelcard-title,
     .villacard-title {
-        border-top: 1px solid #79b754;
+        border-top: 1px solid #eee;
         height: auto;
         padding: 0 .75rem 10px
     }
