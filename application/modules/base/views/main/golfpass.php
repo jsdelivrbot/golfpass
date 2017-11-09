@@ -650,46 +650,46 @@
 
 			</div>
 
-			<div class="row d-flex">
-				<ul>
-					<li class="title">ABOUT US</li>
-					<li><a href="#">회사 소개</a></li>
-					<li><a href="#">이용약관</a></li>
-					<li><a href="#">개인 정보 취급 방침</a></li>
-				</ul>
-				<ul>
-					<li class="title">OFFICE</li>
-					<li><span>TEL</span>
-						<p>1500-1500</p>
-					</li>
-				</ul>
-				<ul>
-					<li class="title">CONTACT US</li>
-					<li><span>상호</span>
-						<p>PLAY SEVEN</p>
-					</li>
-					<li><span>대표</span>
-						<p>홍길동</p>
-					</li>
-					<li><span>사업자등록번호</span>
-						<p>000-00-00000</p>
-					</li>
-					<li><span>등록판매업신고번호</span>
-						<p>2017-서울강서-0000호</p>
-					</li>
-					<li><span>개인정보관리책임자</span>
-						<p>홍길동</p>
-					</li>
-				</ul>
-				<ul>
-					<li class="title">NEWS LETTER</li>
-					<li class="mb-20"><input type="text" placeholder="E-mail을 입력해주세요"></li>
-					<li><strong>골프패스</strong>
-						<p>에서 제공하는 유용한 소식</p>
-					</li>
-				</ul>
-				<p class='align-self-end mr-auto ml-auto'>© 2017 <strong>GOLFPASS.</strong> All Rights Reserved.</p>
-			</div>
+			 <div class="row d-flex">
+					 <ul>
+							 <li class="title">ABOUT US</li>
+							 <li><a href="#">회사 소개</a></li>
+							 <li><a href="#">이용약관</a></li>
+							 <li><a href="#">개인 정보 취급 방침</a></li>
+					 </ul>
+					 <ul>
+							 <li class="title">OFFICE</li>
+							 <li><span>TEL</span>
+									 <p>02-6959-5454</p>
+							 </li>
+					 </ul>
+					 <ul>
+							 <li class="title">CONTACT US</li>
+							 <li><span>상호</span>
+									<p>PLAYSEVEN</p>
+							 </li>
+							 <li><span>대표</span>
+									<p>황현철</p>
+							 </li>
+							 <li><span>사업자등록번호</span>
+									 <p>280-81-00963</p>
+							 </li>
+							 <li><span>등록판매업신고번호</span>
+										<p>2017-서울강서-1545호</p>
+							 </li>
+							 <li><span>개인정보관리책임자</span>
+									 <p>황현철</p>
+							 </li>
+					 </ul>
+					 <ul>
+							 <li class="title">NEWS LETTER</li>
+							 <li class="mb-20"><input type="text" placeholder="E-mail을 입력해주세요"></li>
+							 <li><strong>골프패스</strong>
+									 <p>에서 제공하는 유용한 소식</p>
+							 </li>
+					 </ul>
+					 <p class='align-self-end mr-auto ml-auto'>© 2017 <strong>GOLFPASS.</strong> All Rights Reserved.</p>
+			 </div>
 
 		</footer>
 
