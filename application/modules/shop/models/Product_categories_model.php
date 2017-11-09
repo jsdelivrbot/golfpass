@@ -4,6 +4,25 @@ class Product_categories_Model extends Board_Model{
     function __construct(){
         parent:: __construct('product_categories');
     }
+    function revert_recursive($id)
+    {
+        
+        $row=$this->_get($id);
+        $data = array($row);
+
+        if($row !== null)
+        {
+            $parent_id =$row->parent_id;
+            $data_2 =$this->revert_recursive($parent_id);
+            if($data_2[0] !== null)
+                $data = array_merge($data,$data_2);
+        }
+        
+        return $data;
+        
+    }
+
+
     function gets_with_pgi($where_obj,$pgi_style)
     {
         $menu_id =  $this->product_categories_model->_get($where_obj,array("id"))->id;

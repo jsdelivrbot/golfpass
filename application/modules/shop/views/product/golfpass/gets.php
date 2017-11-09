@@ -176,7 +176,7 @@
                                                         <?php 
                                                         
                                                         for($j=0 ; $j< count($products[$i]->photos); $j++){?>
-                                                        <a href="https://www.mrandmrssmith.com/luxury-hotels/la-posta-vecchia">
+                                                        <a href="<?=site_url(shop_product_uri."/get/{$products[$i]->id}")?>">
                                                             <img src="<?=$products[$i]->photos[$j]?>"
                                                             alt="Photo of La Posta Vecchia"
                                                             width="467"
@@ -185,12 +185,22 @@
                                                         </a>
                                                     <?php }?>
                                                     </div>
+                                                    <div class="hotelcard-details-utilities">
+                                                        <ul class="hotelcard-details-utilities-list clearfix">
+                                                            <li class="hotelcard-details-utilities-mapsbutton">
+                                                                <a class="hotelcard-details-utilities-mapsicon clickMap" href="#enlarge" data-lat="41.9328" data-long="12.1045" data-id="3083" data-name="La Posta Vecchia" data-prop="hotel"></a>
+                                                            </li>
+                                                            <li class="hotelminicard-details-utilities-wishlistbutton wishlist-btn" data-trigger="wishlist" data-hotel="5638">
+                                                                <p class="header-title-hotelwishlist" data-hotel="5638" data-property="hotel" data-login-url="/login" data-wishlist-url="https://smithcollections.com/wish-list">
+                                                            </li>
+                                                        </ul>
+                                                    </div>
                                                 </div>
                                                 <div class="hotelcard-link M-6_12 L-6_12 XL-6_12 XXL-6_12">
                                                     <div class="hotelcard-title">
                                                         <div class="hotelcard-title-container">
                                                             <p class="hotelcard-title-destination">
-                                                                <span class="location" data-tags="Rome">Weihaipoint CC</span>
+                                                                <span class="location" data-tags="Rome"><?=$products[$i]->eng_name?></span>
                                                             </p>
                                                             <a href="<?=site_url(shop_product_uri."/get/{$products[$i]->id}")?>"><h2 class="hotelcard-title-hotelname"><?=$products[$i]->name?></h2></a>
                                                         </div>
@@ -201,7 +211,7 @@
                                                                     <span class="hotelcard-details-pricing-label">1인 1박 기준</span>
                                                                 </span>
                                                                 <span class="hotelcard-details-pricing-rate">
-                                                                    <span class="currency-to-convert price currency-show-ex" data-rate-inc="11000" data-rate-ex="10000" data-rate-currency="EUR">150000원</span>
+                                                                    <span class="currency-to-convert price currency-show-ex" data-rate-inc="11000" data-rate-ex="10000" data-rate-currency="EUR"><?=$products[$i]->price?></span>
                                                                 </span>
                                                             </p>
                                                         </div>
@@ -242,13 +252,16 @@
                                             </header>
                                             <div class="hotelcard-maintext M-6_12 L-6_12 XL-6_12 XXL-6_12">
                                                 <h3>위치&nbsp;</h3>
-                                                <p class="hotelcard-maintext-style">중국 위해</p>
+                                                <p class="hotelcard-maintext-style">
+                                                    <?php for($j=count($parent_categories)-2; $j >= 0; $j--){?>
+                                                        <?=$parent_categories[$j]->name?>&nbsp
+                                                <?php }?></p>
                                                 <h3>형태&nbsp;</h3>
-                                                <p class="hotelcard-maintext-setting">골프장+호텔</p>
+                                                <p class="hotelcard-maintext-setting"><?=$products[$i]->hotel_id !== null ? "골프장+호텔" : "골프장"?></p>
                                                 <h3 class="hotelcard-maintext-smithextralabel">소개&nbsp;</h3>
                                                 <div class="hotelcard-smithextracntnt">
-                                                    사디야트 해변 골프 클럽의 광활한 부지는 편안하면서도 와이드한 느낌을 전해주며, 샷밸류가 살아있는 전략적인 레이아웃으로 9홀 단위로&hellip;
-                                                    <a href="#modal-smith-extra-5638" class="more-smith-extra mock-link tc-modal" data-hotelname="la-posta-vecchia">&#x203a; More</a> 
+                                                <?=$products[$i]->desc?>
+                                                    <a href="<?=site_url(shop_product_uri."/get/{$products[$i]->id}")?>" class="more-smith-extra mock-link tc-modal" data-hotelname="la-posta-vecchia">&#x203a; More</a> 
                                                     <article aria-hidden="true" id="modal-smith-extra-5638" class="mfp-hide white-popup-block">
                                                         <span class="mfp-close modal-dismiss"></span>
                                                         <header class="smith-ui-popup-title">

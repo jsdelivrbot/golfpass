@@ -6,7 +6,11 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/semantic.min.css">
 <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/semantic.min.js"></script>
 <!-- <script src="/public/framework/semantic/src/less.min.js"></script> -->
-
+<style>
+    .green{
+        color : green;
+    }
+</style>
 <div class="ui header">현재 페이지 컨트롤러 : maker / controllers / Maker.php</div>
 <div class="ui header">현재 페이지 뷰디렉토리 : maker / views / index.php</div>
 <div class="ui header">--------------퍼블리싱 파일목록 maker / views / ???-----------------</div>
@@ -25,8 +29,8 @@
     <li>회원가입 프로필 사진 업로드 버그(업로드안됌)</li>
     <li>메인슬라이드쇼 여러개 상품 할수있게 해야됌.</li>
     <li>상품 디테일 페이지 바탕 해당상품 사진으로.</li>
-    <li>카테고리 페이지와 상품 리스트 페이지에서 최대 개수 10개로 변경</li>
-    <li>상품 리스트 페이지 DB 연동</li>
+    <li class="green">카테고리 페이지와 상품 리스트 페이지에서 최대 개수 10개로 변경(완)</li>
+    <li class="green">상품 리스트 페이지 DB 연동 (완료)</li>
 </ul>
 
 <div class="ui header">---------사이트 맵-----------</div>

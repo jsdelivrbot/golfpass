@@ -12,8 +12,13 @@ class Test extends Public_Controller
      
         
     }
-    function add()
+    function add($id)
     {
+        $this->load->model("shop/product_categories_model");
+        
+                $t= $this->product_categories_model->revert_recursive($id);
+                var_dump($t);
+
     }
     function product($id)
     {

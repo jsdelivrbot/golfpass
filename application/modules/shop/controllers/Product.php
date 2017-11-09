@@ -31,7 +31,10 @@ class Product extends Base_Controller {
         $data['products'] =$products;
 
         $this->load->model("product_categories_model");
+
         $data['category']= $this->product_categories_model->_get($id);
+        $data['parent_categories']= $this->product_categories_model->revert_recursive($id);
+        
         // $this->_view("gets",$data);
         $this->_template("gets",$data,'golfpass');
          

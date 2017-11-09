@@ -4,7 +4,9 @@ class Products_Model extends Board_Model{
     function __construct(){
         parent:: __construct('products');
     }
- 
+
+    
+   
     function get($id)
     {
         $sub_query = "SELECT Ceil((avg(score_1)+avg(score_2)+avg(score_3)+avg(score_4)+avg(score_5)+avg(score_6)+avg(score_7)+avg(score_8))/8) FROM product_reviews as r WHERE r.product_id = p.id";
@@ -29,7 +31,7 @@ class Products_Model extends Board_Model{
                 return array_slice($products,$offset,$per_page);
             },
             null,
-            array("per_page"=>3)
+            array("per_page"=>10)
         );
     }
 
