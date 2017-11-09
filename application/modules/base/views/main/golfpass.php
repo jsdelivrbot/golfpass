@@ -88,12 +88,24 @@
 			<div id="search" class="d-flex align-items-center">
 				<span><i class="xi xi-search"></i></span>
 			</div>
+			<?php if(!is_login()){?>
 			<div id="login" class="d-flex align-items-center">
-				<span><i class="xi xi-lock"></i></span>
+				<a href="<?=site_url(user_uri.'/login')?>" style="color:white;">
+					<span><i class="xi-log-in xi-x"></i></span>
+				</a>
 			</div>
 			<div id="join" class="d-flex align-items-center">
-				<span><i class="xi xi-user-plus"></i></span>
+				<a href="<?=site_url(user_uri.'/register_agree_1')?>" style="color:white;">
+					<span><i class="xi xi-user-plus"></i></span>
+				</a>
 			</div>
+			<?php }else{?>
+				<div id="logout" class="d-flex align-items-center">
+				<a href="<?=site_url(user_uri.'/logout')?>" style="color:white;">
+					<span><i class="xi-log-out xi-x"></i></span>
+				</a>
+			</div>
+			<?php }?>
 		</div>
 		<div class="col-2 ml-auto toggle"
 			 onclick="$('body').toggleClass('menu-open'); $('.carousel-indicators').toggleClass('d-none d-flex');">
@@ -119,7 +131,7 @@
 		<?php if(!is_login()){?>
 		<div id='nav-icon-box' class="col  d-flex justify-content-end">
 			<div id="login" class="d-flex align-items-center">
-				<span><i class="xi xi-lock"></i></span>
+				<span><i class="xi-log-in xi-x"></i></span>
 				<p class="mb-0"><a style="color:white;" href="<?=site_url(user_uri.'/login')?>">로그인</a></p>
 			</div>
 			<div id="join" class="d-flex align-items-center">
@@ -127,12 +139,18 @@
 				<p class="mb-0"><a style="color:white;"href="<?=site_url(user_uri.'/register_agree_1')?>">회원가입</a></p>
 			</div>
 		</div>
+		<?php }else{?>
+			<div id="logout" class="d-flex align-items-center">
+				<span><i class="xi-log-out xi-x"></i></span>
+				<p class="mb-0"><a style="color:white;"href="<?=site_url(user_uri.'/logout')?>">로그아웃</a></p>
+			</div>
 		<?php }?>
 		<div class="col ml-auto toggle"
 			 onclick="$('body').toggleClass('menu-open'); $('.carousel-indicators').toggleClass('d-none d-flex');">
 			<span>
 				<i class="xi xi-bars"></i>
 				<i class=""></i>
+				
 			</span>
 			<p class="d-none d-lg-block">메뉴</p>
 		</div>
@@ -230,17 +248,13 @@
 		</div>
 		<!--NOTE 나라별 모바일 구간 -->
 		<div class="row no-gutters flex-column d-md-none">
-		<?php for($i=0;$i < count($nation_list)	;$i++){?>
-			<a href="<?=site_url(shop_category_uri."/gets/{$nation_list[$i]->id}")?>">
 			<div class="col-12 d-flex justify-content-center mb-2 bg-dark" style="height: 180px;">
-					<img class="w-100" src="<?=$nation_list[$i]->photo?>" alt="">
+					<!-- <img class="w-100" src="/public/sangmin/img/golf_course_1.jpg" alt=""> -->
 				<div class="mobile-content position-absolute d-flex flex-column align-items-center justify-content-end">
-					<h3><?=$nation_list[$i]->name?></h3>
-					<p><?=$nation_list[$i]->desc?></p>
+					<h3>러시아</h3>
+					<p>모스크바</p>
 				</div>
 			</div>
-			</a>
-			<?php }?>	
 		</div>
 		<!--NOTE 나라별 slide 테블릿 ~ 구간 -->
 		<div class="row flex-nowrap d-none d-md-flex position-relative pt-5">
