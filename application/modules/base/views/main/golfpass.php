@@ -470,7 +470,7 @@
 						<ul class="list-unstyled">
 							<!--4위부터 ~ li반복 -->
 							<li class='p-3 text-light list-after-four'>
-								<a href="#">
+								<a href="http://golfpass.net/index.php/shop/product/get/6">
 									<div class="d-flex justify-content-between align-items-center">
 										<div>
 											<p class='mb-0'><span class='mr-3 ml-2'>4</span> 힐데스 하임 CC</p>
@@ -481,7 +481,78 @@
 									</div>
 								</a>
 							</li>
-
+							<li class='p-3 text-light list-after-four'>
+								<a href="http://golfpass.net/index.php/shop/product/get/6">
+									<div class="d-flex justify-content-between align-items-center">
+										<div>
+											<p class='mb-0'><span class='mr-3 ml-2'>5</span> 힐데스 하임 CC</p>
+										</div>
+										<div>
+											<span>베트남,호치민</span>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li class='p-3 text-light list-after-four'>
+								<a href="http://golfpass.net/index.php/shop/product/get/6">
+									<div class="d-flex justify-content-between align-items-center">
+										<div>
+											<p class='mb-0'><span class='mr-3 ml-2'>6</span> 힐데스 하임 CC</p>
+										</div>
+										<div>
+											<span>베트남,호치민</span>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li class='p-3 text-light list-after-four'>
+								<a href="http://golfpass.net/index.php/shop/product/get/7">
+									<div class="d-flex justify-content-between align-items-center">
+										<div>
+											<p class='mb-0'><span class='mr-3 ml-2'>7</span> 힐데스 하임 CC</p>
+										</div>
+										<div>
+											<span>베트남,호치민</span>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li class='p-3 text-light list-after-four'>
+								<a href="http://golfpass.net/index.php/shop/product/get/8">
+									<div class="d-flex justify-content-between align-items-center">
+										<div>
+											<p class='mb-0'><span class='mr-3 ml-2'>8</span> 힐데스 하임 CC</p>
+										</div>
+										<div>
+											<span>베트남,호치민</span>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li class='p-3 text-light list-after-four'>
+								<a href="http://golfpass.net/index.php/shop/product/get/9">
+									<div class="d-flex justify-content-between align-items-center">
+										<div>
+											<p class='mb-0'><span class='mr-3 ml-2'>9</span> 힐데스 하임 CC</p>
+										</div>
+										<div>
+											<span>베트남,호치민</span>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li class='p-3 text-light list-after-four'>
+								<a href="http://golfpass.net/index.php/shop/product/get/10">
+									<div class="d-flex justify-content-between align-items-center">
+										<div>
+											<p class='mb-0'><span class='mr-3 ml-2'>10</span> 힐데스 하임 CC</p>
+										</div>
+										<div>
+											<span>베트남,호치민</span>
+										</div>
+									</div>
+								</a>
+							</li>
 						</ul>
 						<!--전체 순위 보러 가기 -->
 						<div class="row justify-content-center align-items-center">
