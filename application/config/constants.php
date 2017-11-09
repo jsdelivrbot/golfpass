@@ -1,6 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 //customizing
+define("is_semantic_dev",false);
+
 // define("base_uri",$_SERVER['SCRIPT_NAME']);
 define("skin_board_dir",'application/modules/base/views/content');
 

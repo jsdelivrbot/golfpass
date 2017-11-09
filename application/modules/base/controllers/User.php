@@ -22,12 +22,36 @@ class User extends Base_Controller
            $this->template->base($data);
     }
     function find_pw(){
-        $this->_template("user/golfpass/find_pw",array(),'golfpass');
+
+        $this->fv->set_rules("userName","아이디","required");
+        if($this->fv->run() === false)
+        {
+            $this->_template("user/golfpass/find_pw",array(),'golfpass');
+        }
+        else
+        {
+            
+        }
+
+
+        
     }
     function find_id()
     {
-        $this->_template("user/golfpass/find_id",array(),'golfpass');
+        $this->fv->set_rules("phone","폰 번호","required");
+         if($this->fv->run() === false)
+         {
+             $this->_template("user/golfpass/find_id",array(),'golfpass');
+         }
+         else
+        {
+            $user = $this->users_model->_get(array("phone"=>$this->input->post("phone")),array("userName"));
+            $data['userName'] = $user ? $user->userName : "존재하지않음"; 
+
+            $this->_template("user/golfpass/find_id",$data,'golfpass');
+         }
     }
+
     function register_agree_1()
     {
         // $this->_template('user/golfpass/register_agree_1',array(),'golfpass');
@@ -151,8 +175,8 @@ class User extends Base_Controller
             // $this->db->set('email', $_SESSION['email']);
             $this->db->set('email', $this->input->post('email'));
             // // $this->db->set('phone', $this->input->post('phone'));
-            $this->db->set('phone', $_SESSION['phone']);
-
+            $phone = str_replace("-","",$_SESSION['phone']);
+            $this->db->set('phone', $phone);
             
             $this->db->insert('users');
 

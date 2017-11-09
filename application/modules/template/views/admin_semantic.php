@@ -7,7 +7,7 @@
 <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
 
 
-<?php if(ENVIRONMENT !== 'production') {?>
+<?php if(is_semantic_dev) {?>
     <link rel="stylesheet/less" type="text/css" href="/public/framework/semantic/src/semantic.less">
 <script src="/public/framework/semantic/src/less.min.js"></script>
 <?php }else{?>

@@ -11,21 +11,24 @@
                         <p>가입 시 작성한 휴대폰 번호를 작성해주세요!</p>
                         <div class="panel-body">
 
-                            <form id="register-form" role="form" autocomplete="off" class="form" method="post">
+                            <form action="<?=site_url(user_uri."/find_id")?>"id="register-form" role="form" autocomplete="off" class="form" method="post">
 
                                 <div class="form-group">
                                     <div class="input-group">
                                         <span class="input-group-addon">TEL</span>
-                                        <input id="email" name="email" placeholder="휴대폰 번호를 입력해주세요." class="form-control" type="TEL">
+                                        <input id="email" name="phone" placeholder="휴대폰 번호를 입력해주세요." class="form-control" type="TEL">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <input name="recover-submit" class="btn btn-lg btn-primary btn-block" value="확인" type="submit" style="background-color: #79b754; border: 0px;">
                                 </div>
 
-                                <input type="hidden" class="hide" name="token" id="token" value="">
+                                <!-- <input type="hidden" class="hide" name="token" id="token" value=""> -->
                             </form>
-
+                            <?php if(isset($userName)){?>
+                            <h2 class="text-center">아이디</h2>
+                            <p><?=$userName?></p>
+                            <?php }?>
                         </div>
                     </div>
                 </div>

@@ -7,16 +7,16 @@
                 <div class="panel-body">
                     <div class="text-center">
                         <h3><i class="fa fa-lock fa-4x"></i></h3>
-                        <h2 class="text-center">비밀번호 찾기</h2>
-                        <p>가입 시 작성한 휴대폰 번호를 작성해주세요!</p>
+                        <h2 class="text-center">비밀번호 재설정</h2>
+                        <p>가입 시 작성한 아이디를 작성해주세요!</p>
                         <div class="panel-body">
 
-                            <form id="register-form" role="form" autocomplete="off" class="form" method="post">
+                            <form action="<?=site_url(user_uri."/find_pw")?>" id="register-form" role="form" autocomplete="off" class="form" method="post">
 
                                 <div class="form-group">
                                     <div class="input-group">
                                         <span class="input-group-addon">TEL</span>
-                                        <input id="email" name="email" placeholder="휴대폰 번호를 입력해주세요." class="form-control" type="TEL">
+                                        <input id="email" name="userName" placeholder="아이디를 입력해주세요." class="form-control" type="TEL">
                                     </div>
                                 </div>
                                 <div class="form-group">
