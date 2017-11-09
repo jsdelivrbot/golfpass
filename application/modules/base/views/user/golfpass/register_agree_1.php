@@ -27,12 +27,12 @@
                 <div class="ui fluid card">
                     <div class="image">
                     <img src="/public/images/product.jpg">
-                    </div>
+                </div>
                     <div class="content">
-                    <a class="header">개인회원 가입</a>
+                    <a href="<?=site_url(user_uri."/add")?>"class="header">개인회원 가입</a>
                     </div>
                     <div class="meta">
-                    <a>골프장 및 호텔을 예약할 수 있습니다.</a>
+                    <a href="<?=site_url(user_uri."/add")?>" >골프장 및 호텔을 예약할 수 있습니다.</a>
                     </div>
                 </div>
             </div>

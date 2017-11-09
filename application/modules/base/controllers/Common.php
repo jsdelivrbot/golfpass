@@ -12,7 +12,7 @@ class Common extends Public_Controller {
     function upload_receive_from_ck(){
         $config['upload_path'] = './public/uploads/user';
         // git,jpg,png 파일만 업로드를 허용한다.
-        $config['allowed_types'] = 'gif|jpg|png';
+        $config['allowed_types'] = 'gif|jpg|jpeg|png';
         // 허용되는 파일의 최대 사이즈
         $config['max_size'] = '2000';
         // 이미지인 경우 허용되는 최대 폭
@@ -65,7 +65,7 @@ class Common extends Public_Controller {
         $imgDir = "";
         if (isset($_FILES[$name])) {
             $config['upload_path'] = "./public/uploads/$who/images";
-            $config['allowed_types'] = 'gif|jpg|png';
+            $config['allowed_types'] = 'gif|jpg|jpeg|png';
             $config['max_size'] = '500000'; //500KB
             $config['max_width']  = '10240';
             $config['max_height']  = '7680';

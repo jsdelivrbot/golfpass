@@ -425,7 +425,7 @@ class User extends Base_Controller
 
         if (isset($_FILES['profilePhoto'])) {
             $config['upload_path'] = './public/uploads/user/images';
-            $config['allowed_types'] = 'gif|jpg|png';
+            $config['allowed_types'] = 'gif|jpg|jpeg|png';
             $config['max_size'] = '500000'; //500KB
             $config['max_width']  = '10240';
             $config['max_height']  = '7680';
