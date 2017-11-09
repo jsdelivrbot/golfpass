@@ -4171,7 +4171,7 @@ main.global.mobile {
 
 @media only screen and (min-width: 48em) {
     body:not(.touchscreen) #search-autosuggest span:hover {
-        background-color: #740316
+        background-color: #79b754
     }
     body:not(.touchscreen) #search-autosuggest span:hover a {
         color: #FFF
@@ -4191,9 +4191,9 @@ main.global.mobile {
         max-height: none;
         box-sizing: border-box;
         font-size: .875rem;
-        color: #740316;
+        color: #79b754;
         background-color: #FFF;
-        border: 1px solid #740316
+        border: 1px solid #79b754
     }
     #search-autosuggest span:last-child {
         margin: 0
@@ -4631,7 +4631,7 @@ body:not(.touchscreen) #react-s_query:focus + #search-autosuggest {
 @media only screen and (min-width: 0em) and (max-width: 47.9375em) and (min-width: 48em) {
     #s_search {
         color: #fff;
-        background-color: #740316;
+        background-color: #79b754;
         text-transform: uppercase;
         border: none;
         font-size: .625rem;
@@ -4700,7 +4700,7 @@ body:not(.touchscreen) #react-s_query:focus + #search-autosuggest {
     }
     #mob-calendar-trigger::after {
         content: attr(data-checkin);
-        color: #740316;
+        color: #79b754;
         font-size: 0.625rem;
         display: block;
         position: absolute;
@@ -4743,7 +4743,7 @@ body:not(.touchscreen) #react-s_query:focus + #search-autosuggest {
 
 @media only screen and (min-width: 48em) {
     #search-autosuggest:not(.hideEnterTrigger) .enterTrigger {
-        background-color: #740316;
+        background-color: #79b754;
         color: #FFF
     }
 }
@@ -5797,7 +5797,7 @@ h6 {
 
 a,
 .mock-link {
-    color: #740316;
+    color: #79b754;
     text-decoration: none;
     cursor: pointer
 }
@@ -6273,7 +6273,7 @@ textarea {
 
 .excl-offers-card > div > div p .extra-text {
     font-weight: 400;
-    color: #740316
+    color: #79b754
 }
 
 .excl-offers-card > div > div p span {
@@ -6304,7 +6304,7 @@ textarea {
     font-size: 0.6875rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: #740316;
+    color: #79b754;
     margin-bottom: .75rem;
     margin-top: .375rem
 }
@@ -6432,7 +6432,7 @@ textarea {
 .hotelcard-maintext > h3.hotelcard-maintext-smithextralabel,
 .villacard-maintext > h3.hotelcard-maintext-smithextralabel {
     font-weight: 400;
-    color: #740316
+    color: #79b754
 }
 
 .hotelcard-maintext .highlights,
@@ -6454,7 +6454,7 @@ textarea {
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
     content: '';
-    background-color: #740316;
+    background-color: #79b754;
     display: inline-block;
     height: 0.25rem;
     margin-right: .75rem;
@@ -6511,7 +6511,7 @@ textarea {
 .hotelcard-imgblock,
 .villacard-imgblock {
     background-color: #F2F2F2;
-    border-top: 1px solid #740316
+    border-top: 1px solid #79b754
 }
 
 @media only screen and (min-width: 48em) {
@@ -6687,7 +6687,7 @@ textarea {
 @media only screen and (min-width: 48em) {
     .hotelcard-title,
     .villacard-title {
-        border-top: 1px solid #740316;
+        border-top: 1px solid #79b754;
         height: auto;
         padding: 0 .75rem 10px
     }
@@ -6811,7 +6811,7 @@ textarea {
 .villacard-details-pricing > .rates-guarantee {
     font-weight: 600;
     font-size: .75rem;
-    color: #740316;
+    color: #79b754;
     margin-top: .375rem
 }
 
@@ -7556,7 +7556,7 @@ textarea {
 .hotelcard [id|="widget-wishlist"].form .collapse > fieldset > div ul > li,
 .villacard [id|="widget-wishlist"].form .collapse > fieldset > div ul > li {
     display: inline-block;
-    color: #740316;
+    color: #79b754;
     margin-right: .75rem
 }
 
@@ -7569,7 +7569,7 @@ textarea {
 .hotelcard [id|="widget-wishlist"].form .collapse > fieldset > div .field label,
 .villacard [id|="widget-wishlist"].form .collapse > fieldset > div .field:hover,
 .villacard [id|="widget-wishlist"].form .collapse > fieldset > div .field label {
-    color: #740316;
+    color: #79b754;
     cursor: pointer
 }
 
@@ -8097,13 +8097,13 @@ textarea {
 
 .hotelminicard-bttns-highlights {
     position: relative;
-    color: #740316;
+    color: #79b754;
     background-color: #f0f0f0;
     background: -webkit-linear-gradient(top, #fff, #f0f0f0);
     background: -moz-linear-gradient(top, #fff, #f0f0f0);
     background: -o-linear-gradient(top, #fff, #f0f0f0);
     background: linear-gradient(to top, #fff, #f0f0f0);
-    border-top-color: #740316;
+    border-top-color: #79b754;
     border-width: 1px 1px 0 0
 }
 
@@ -8423,7 +8423,7 @@ textarea {
 
 .staffcard-details > ul > li,
 .reviewercard-details > ul > li {
-    color: #740316;
+    color: #79b754;
     display: inline-block;
     font-size: .875rem;
     font-weight: bold
@@ -8839,7 +8839,7 @@ textarea {
     list-style-type: none;
     padding: 0;
     font-size: 0.625rem;
-    color: #740316;
+    color: #79b754;
     text-transform: uppercase;
     letter-spacing: 0.08em;
     font-weight: 600
@@ -9429,7 +9429,7 @@ textarea {
     border-radius: 3rem;
     -moz-border-radius: 3rem;
     -webkit-border-radius: 3rem;
-    background-color: #740316;
+    background-color: #79b754;
     position: fixed;
     bottom: 3rem;
     right: 1.5rem;
@@ -9681,14 +9681,14 @@ body:not(.touchscreen) #list-menu.default > li > a:hover {
 .hotel-results-pagination li.selected > a {
     color: #FFF;
     border: none;
-    background-color: #740316
+    background-color: #79b754
 }
 
 .hotel-results-pagination li > a {
     border-radius: 3rem;
     -moz-border-radius: 3rem;
     -webkit-border-radius: 3rem;
-    color: #740316;
+    color: #79b754;
     background-color: #FFF;
     display: inline-block;
     width: 3rem;
@@ -9709,7 +9709,7 @@ body:not(.touchscreen) #list-menu.default > li > a:hover {
 
 .hotel-results-pagination li > a:hover {
     cursor: pointer;
-    background-color: #740316;
+    background-color: #79b754;
     color: #FFF
 }
 
@@ -9724,7 +9724,7 @@ body:not(.touchscreen) #list-menu.default > li > a:hover {
     width: 1.5rem;
     margin: auto .75rem;
     border: none;
-    color: #740316;
+    color: #79b754;
     background-color: transparent
 }
 
@@ -9763,7 +9763,7 @@ body:not(.touchscreen) #list-menu.default > li > a:hover {
 }
 
 #search-list > li > article.unavailable .hotelcard-bttns-rates {
-    background-color: #740316
+    background-color: #79b754
 }
 
 #search-list > li > article.unavailable .hotelcard-details-pricing-rate {
@@ -11140,7 +11140,7 @@ body:not(.touchscreen) #list-menu.default > li > a:hover {
 }
 
 .listcard-title {
-    background-color: #740316;
+    background-color: #79b754;
     margin: 0;
     padding: 1.0625rem 1.5rem;
     line-height: .875rem;
@@ -11154,7 +11154,7 @@ body:not(.touchscreen) #list-menu.default > li > a:hover {
 
 .listcard-list {
     list-style-position: inside;
-    color: #740316;
+    color: #79b754;
     margin: 0;
     padding: 0;
     background-color: #FFF;
@@ -11215,7 +11215,7 @@ body:not(.touchscreen) #list-menu.default > li > a:hover {
     font-size: 0.9375rem;
     font-weight: 600;
     letter-spacing: 0.04em;
-    color: #740316;
+    color: #79b754;
     text-transform: uppercase
 }
 
@@ -11481,13 +11481,13 @@ body:not(.touchscreen) #list-menu.default > li > a:hover {
 }
 
 .content-tag {
-    color: #740316;
+    color: #79b754;
     background-color: #FFF;
-    border: 1px solid #740316
+    border: 1px solid #79b754
 }
 
 .content-tag.active {
-    color: #740316
+    color: #79b754
 }
 
 @media only screen and (min-width: 0em) and (max-width: 47.9375em) {
@@ -11505,8 +11505,8 @@ body:not(.touchscreen) .content-tag {
 
 body:not(.touchscreen) .content-tag:hover {
     color: #FFF;
-    background-color: #740316;
-    border: 1px solid #740316
+    background-color: #79b754;
+    border: 1px solid #79b754
 }
 
 .imagebox-tag {
@@ -11556,7 +11556,7 @@ body:not(.touchscreen) .imagebox-tag {
 }
 
 body:not(.touchscreen) .imagebox-tag:hover {
-    color: #740316;
+    color: #79b754;
     background-color: #fff
 }
 
@@ -11585,11 +11585,11 @@ body:not(.touchscreen) .imageboxes-list > li:hover .imagebox-tag-more {
 #suggestedBuckets span span {
     margin: .75rem .1875rem 0 .1875rem;
     background-color: #FFF;
-    color: #740316
+    color: #79b754
 }
 
 #suggestedBuckets span span:hover {
-    background-color: #740316
+    background-color: #79b754
 }
 
 #suggestedBuckets span span:hover a {
@@ -11603,8 +11603,8 @@ body:not(.touchscreen) .imageboxes-list > li:hover .imagebox-tag-more {
 
 .search-tag {
     color: #FFF;
-    background-color: #740316;
-    border: 1px solid #740316
+    background-color: #79b754;
+    border: 1px solid #79b754
 }
 
 .search-tag.active {
@@ -12050,7 +12050,7 @@ body:not(.touchscreen) .search-tag:hover {
 
 button {
     color: #fff;
-    background-color: #740316;
+    background-color: #79b754;
     text-transform: uppercase;
     border: none;
     font-size: .625rem;
@@ -12085,7 +12085,7 @@ button:focus {
 
 .button-primary {
     color: #fff;
-    background-color: #740316;
+    background-color: #79b754;
     text-transform: uppercase;
     border: none;
     font-size: .625rem;
@@ -12859,7 +12859,7 @@ button:focus {
     -o-transition: background-color 300ms ease;
     transition: background-color 300ms ease;
     cursor: pointer;
-    color: #740316;
+    color: #79b754;
     font-size: .75rem;
     letter-spacing: 0.14em;
     margin: 0;
@@ -13077,7 +13077,7 @@ button:focus {
     bottom: .75rem;
     left: .75rem;
     padding: .75rem 1rem 0.5rem 1rem;
-    background-color: #740316;
+    background-color: #79b754;
     color: #FFF;
     text-transform: uppercase;
     letter-spacing: 0.1rem;
@@ -13106,7 +13106,7 @@ button:focus {
     border-radius: 2rem;
     -moz-border-radius: 2rem;
     -webkit-border-radius: 2rem;
-    background-color: #740316;
+    background-color: #79b754;
     bottom: 2.75rem;
     height: 1rem;
     left: 7.375rem;
@@ -14426,7 +14426,7 @@ h1.page-title {
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
     content: '';
-    background-color: #740316;
+    background-color: #79b754;
     display: inline-block;
     height: 0.25rem;
     margin-right: .75rem;
@@ -14636,7 +14636,7 @@ h1.page-title {
 }
 
 .logo-page #content-page-content .size-box div.selected {
-    background-color: #740316;
+    background-color: #79b754;
     color: #FFF
 }
 
