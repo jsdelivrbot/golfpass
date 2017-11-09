@@ -6510,6 +6510,7 @@ textarea {
 .hotelcard-imgblock,
 .villacard-imgblock {
     background-color: #F2F2F2;
+    border-top: 1px solid #eee;
 }
 
 @media only screen and (min-width: 48em) {
