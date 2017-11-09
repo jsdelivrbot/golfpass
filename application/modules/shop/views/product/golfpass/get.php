@@ -47,7 +47,7 @@
 			<!--TODO logo-link -->
 					<a href="#">
 			<div id="logo" class='col-3 justify-content-center d-flex align-self-center align-items-center'>
-				<img src="public/sangmin/img/icon/logo_mobile.png" class="d-md-none" alt="">
+				<img src="/public/sangmin/img/icon/logo_mobile.png" class="d-md-none" alt="">
 			</div>
 		</a>
 			<div id='nav-icon-box' class="offset-2 col-5 d-flex align-items-stretch justify-content-end">
@@ -72,10 +72,10 @@
 			<a href="#">
 			<div id="logo" class='col-6 d-flex align-items-center'>
 				<figure class="mb-0 d-flex align-items-center d-lg-none">
-					<img src="public/sangmin/img/icon/logo_mobile.png" class="" alt="">
+					<img src="/public/sangmin/img/icon/logo_mobile.png" class="" alt="">
 				</figure>
 				<figure class="mb-0 align-items-center d-none d-lg-flex">
-					<img src="public/sangmin/img/icon/logo.png" class="" alt="">
+					<img src="/public/sangmin/img/icon/logo.png" class="" alt="">
 				</figure>
 						</a>
 				<div id="search" class="d-flex align-items-center">
@@ -297,7 +297,7 @@
 				<h1 class="mt-13">취소/환불</h1>
 			</div>
 			<div id="section-5-list-content">
-				<ul class="d-flex flex-column">
+					<ul class="d-flex flex-wrap list-unstyled">
 					<li>
 						<p>
 							출발일 7일 전까지 예약 취소시 전액 환불됩니다.
@@ -558,20 +558,31 @@
 	<script src="/public/sangmin/dist/Nwagon/Nwagon.js"></script>
 	<script src="/public/sangmin/js/custom.js"></script>
 	<script src="/public/sangmin/js/chart.js"></script>
-	<script src="public/sangmin/js/jquery.sticky.js"></script>
-<script src="public/sangmin/js/custom/navAction.js"></script>
+	<script src="/public/sangmin/js/jquery.sticky.js"></script>
+<script src="/public/sangmin/js/custom/navAction.js"></script>
 <script>
-	$('#book-box-wrap').css('top', $('#section1').outerHeight() - $('#personnel').outerHeight());
-
-	var bottomSpacing=document.body.scrollHeight-$('#section1').outerHeight()-$('#section2').outerHeight();
-	console.log(bottomSpacing);
+var bottomSpacing=document.body.scrollHeight-$('#section1').outerHeight()-$('#section2').outerHeight();
+if($(window).width()>992){
 	$('#book-box').sticky({topSpacing: 80, wrapperClassName: '#book-box-wrap', bottomSpacing: bottomSpacing});
+	$('#book-box-wrap').css('top', $('#section1').outerHeight() - $('#personnel').outerHeight());
 	$('#book-box').on('sticky-start', function () {
 		$('#header').addClass('black-bg-header')
 	});
 	$('#book-box').on('sticky-end', function () {
 		$('#header').removeClass('black-bg-header')
 	});
+}
+	$(window).resize(function(event){
+		bottomSpacing=document.body.scrollHeight-$('#section1').outerHeight()-$('#section2').outerHeight();
+		if($(window).width()>992){
+		$('#book-box-wrap').css({position:'absolute','top':$('#section1').outerHeight() - $('#personnel').outerHeight()});
+		$('#book-box').sticky({topSpacing: 80, wrapperClassName: '#book-box-wrap', bottomSpacing: bottomSpacing});
+	}else{
+		$('#book-box').unstick(	$('#book-box-wrap').css({position:'relative',top:0}));
+	}
+	});
+
+
 </script>
 </body>
 
