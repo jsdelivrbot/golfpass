@@ -35,7 +35,18 @@ class Main extends Base_Controller
         
         //골프 패스 패널이 추천한 상품 리스트
         $menu_id=$this->product_categories_model->_get(array('name'=>'골프패스 패널 추천'),array('id'))->id;
-        $data['products_panel'] = $this->products_model->gets_by_category_id_recursive_tree($menu_id);
+        $products_panel = $this->products_model->gets_by_category_id_recursive_tree($menu_id);
+        for($i=0 ;$i <count($products_panel); $i++)
+        {
+            $photos = $products_panel[$i]->photos;
+            if(strpos($photos,',') > -1)
+                $products_panel[$i]->photos =  explode(",",$photos);
+            else if($photos !== null)
+                $products_panel[$i]->photos =  array($photos);
+            else
+                $products_panel[$i]->photos = array();
+        }
+        $data['products_panel'] =$products_panel;
 
         //패널
         $this->load->model("golfpass/panels_model");
