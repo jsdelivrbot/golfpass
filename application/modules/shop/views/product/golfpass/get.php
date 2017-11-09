@@ -297,7 +297,7 @@
 				<h1 class="mt-13">취소/환불</h1>
 			</div>
 			<div id="section-5-list-content">
-					<ul class="d-flex flex-wrap list-unstyled">
+					<ul class="d-flex flex-wrap flex-column list-unstyled">
 					<li>
 						<p>
 							출발일 7일 전까지 예약 취소시 전액 환불됩니다.
