@@ -141,10 +141,28 @@
 </div>
 <!-- 약관 동의 모달 -->
 
+<div class="ui mini modal" style="height:200px; margin-top:0px;">
+<!-- <div class="ui mini modal" style="height:200px; margin-top:0px;"> -->
+<div class="header">Header</div>
+<div class="actions"style="clear:both; float:right">
+
+<div id='ok'class="ui green ok inverted button">
+        <i class="checkmark icon"></i>
+        예
+      </div>
+      </div>
+
+      
+</div>
+
 <script>
 $('.ui.checkbox')
   .checkbox()
 ;
+var t =  $('#ok');
+
+
+
 $('.ui.basic.modal').modal({
     closable : false,
     onApprove:function()
@@ -152,7 +170,11 @@ $('.ui.basic.modal').modal({
          var chk1=$("input[name=agree_1]").prop("checked");
          var chk2=$("input[name=agree_2]").prop("checked");
         if(chk1 === false || chk2 === false)
+        {
+            
             return false;
+        }
+ 
     },
     onDeny : function()
     {
