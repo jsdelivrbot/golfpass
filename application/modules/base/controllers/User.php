@@ -28,41 +28,51 @@ class User extends Base_Controller
         {
             $this->_template("user/golfpass/find_pw",array(),'golfpass');
         }
-        else
+        else//input userName 값 존재
         {
-            // if()//--아이디 존재하지 않음
-            // {
-            //     //아이디 입력 view
-            // }
-            // else//--아이디존재
-            // {
-                
-            //     if()//--인증코드 데이터 없을때 
-            //     {
-            //         //인증코드 보내기
-            //         //인증코드 입력 view
-            //     }
-            //     else //--인증코드 데이터 있을떄
-            //     {
-            //         if() //--인증코드 일치할떄
-            //         {
-            //             if()//--패스워드 서로  불일치 or 빈값
-            //             {
-            //                 //패스워드 입력 view
-            //             }
-            //             else //--패스워드 일치
-            //             {
-            //                 //패스워드 변경
-            //             }
+            $userName =$this->input->post("userName");
+            $user =$this->users_model->_get(array("userName"=>$userName));
+
+            if($user === null)//--아이디 존재하지 않음
+            {
+                //아이디 입력 view
+            }
+            else//--아이디존재
+            {
+                $auth_code = $this->input->post("auth_code");
+                if($auth_code === null)//--인증코드 데이터 없을때  //input userName 값 존재
+                {
+                    //인증코드 플래시세션 등록
+                    //인증코드 보내기
+                    //인증코드 입력 view
+                }
+                else //--인증코드 데이터 있을떄 //input userName,auth_code 값 존재
+                {
+                    if($auth_code === $this->session->userdata("auth_code")) //--인증코드 일치할떄 //input userName,auth_code 값 존재
+                    {
+                        $password = $this->input->post("password");
+                        $re_password = $this->input->post("re_password");
+                        if($password === null || $re_password === null)//--패스워드 빈값  //input userName,auth_code 값 존재
+                        {
+                            //패스워드 입력 view
+                        }
+                        else if($password !== $repassword)//-- 패스워드 서로  불일치  //input userName,auth_code,password,re_password 값 존재
+                        {
+
+                        }
+                        else //--패스워드 일치 //input userName,auth_code,password,re_password 값 존재
+                        {
+                            //패스워드 변경
+                        }
                         
-            //         }
-            //         else //--인증코드 불일치
-            //         {
-            //             //인증코드 다시보내기 버튼
-            //             //인증코드 입력 view
-            //         }
-            //     }
-            // }
+                    }
+                    else //--인증코드 불일치
+                    {
+                        //인증코드 다시보내기 버튼
+                        //인증코드 입력 view
+                    }
+                }
+            }
             
 
         }
