@@ -116,64 +116,6 @@
                             </div>
                             <div id="suggestedBuckets"></div>
                             <div data-id="detail" id="hotel-results">
-                                <div id="hotel-results-utilities" class="S-4_4 M-12_12 L-11_12 XL-14_14 XXL-14_14">
-                                    <div id="hotel-results-controls">
-                                        <div id="hotel-controls-sort">
-                                            <form name="s" method="post" action="/listing-updater?property_type=hotel" id="resultUtilities">
-                                                <div>
-                                                    <select id="s_sort_type" name="s[sort_type]">
-                                                        <option value="recommended_">Recommended</option>
-                                                        <option value="price_asc">Price Low</option>
-                                                        <option value="price_desc" selected="selected">Price High</option>
-                                                    </select>
-                                                </div>
-                                                <div>
-                                                    <select id="s_limit" name="s[limit]">
-                                                        <option value="10" selected="selected">10</option>
-                                                        <option value="25">25</option>
-                                                        <option value="50">50</option>
-                                                    </select>
-                                                </div>
-                                                <input type="hidden" id="s_property_type" name="s[property_type]" value="hotel" />
-                                                <div><button type="submit" id="s_sort" name="s[sort]" class="save">Sort</button></div>
-                                                <input type="hidden" id="s__token" name="s[_token]" value="nqvySLUM6eS5bRRdK-Mqe_xf0pBbp875UdDJJ6M0gy0" />
-                                            </form>
-                                        </div>
-                                        <!-- Map/List View -->
-                                        <!-- Map -->
-                                        <div id="hotel-controls-money">
-                                            <form name="global_settings" method="post" action="/global-settings" id="globalSettings">
-                                                <div>
-                                                    <select id="global_settings_currency" name="global_settings[currency]">
-                                                        <option value="GBP">GBP</option>
-                                                        <option value="USD">USD</option>
-                                                        <option value="EUR">EUR</option>
-                                                        <option value="AUD">AUD</option>
-                                                        <option value="CAD">CAD</option>
-                                                        <option value="HKD">HKD</option>
-                                                        <option value="SGD" selected="selected">SGD</option>
-                                                        <option value="SEK">SEK</option>
-                                                        <option value="CHF">CHF</option>
-                                                        <option value="NOK">NOK</option>
-                                                        <option value="NZD">NZD</option>
-                                                        <option value="DKK">DKK</option>
-                                                        <option value="AED">AED</option>
-                                                        <option value="ZAR">ZAR</option>
-                                                    </select>
-                                                </div>
-                                                <div>
-                                                    <select id="global_settings_tax" name="global_settings[tax]" class="taxDrop">
-                                                        <option value="inc">Inc tax</option>
-                                                        <option value="ex" selected="selected">Ex tax</option>
-                                                    </select>
-                                                </div>
-                                                <input type="hidden" id="global_settings_return_url" name="global_settings[return_url]" value="https://www.mrandmrssmith.com/hotel-search" />
-                                                <div><button type="submit" id="global_settings_save" name="global_settings[save]" class="save">Save</button></div>
-                                                <input type="hidden" id="global_settings__token" name="global_settings[_token]" value="6faJC-62fzXhV-11CF0Y4tJ_ZNAsHqS5J8kgf2pBMOQ" />
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
                                 <div>
                                     <article id="enlarge" aria-hidden="true" class="mfp-hide">
                                         <div class="map-area generic-content-textblock L-10_12 XL-10_13 XXL-10_13" id="gmaps"></div>
