@@ -353,7 +353,7 @@
 				<div class="row no-gutters d-none d-sm-flex">
 					<div class="col-12 col-lg-6 position-relative ">
 						<a href="<?=site_url(shop_product_uri."/gets/{$thema_list[0]->id}")?>">
-						<img src="/public/sangmin/img/theme_img1.jpg" alt="" width="100%">
+						<img src="<?=$thema_list[0]->photo?>" alt="" width="100%">
 
 						<div class='position-absolute text-light'>
 							<h3><?=$thema_list[0]->name?></h3>
