@@ -12,9 +12,17 @@
 <img id="img_profilePhoto" src="<?=$profilePhoto?>">
                 
 </div>
+
+
 <form  method="POST" action="<?=my_site_url(user_uri."/profilePhoto_upload")?>" enctype='multipart/form-data'>
-    <input id="fileInput"type='file' name='profilePhoto'/>
-    <input id="fileSubmit"type="submit" style="display:none;">
+<div style="">
+<label for="fileInput" class="ui icon button basic gray" style="padding-bottom:0px; height:100px;margin-bottom:20px;">
+    <i class="upload  icon"></i>
+    프로필 사진 업로드</label>
+<input id="fileInput"  name='profilePhoto' type="file" style="display:none">
+</div>   
+<!-- <input id="fileInput"type='file' name='profilePhoto' /> -->
+    <input  id="fileSubmit"type="submit" style="display:none;">
 </form>
 </div>
 </div>
