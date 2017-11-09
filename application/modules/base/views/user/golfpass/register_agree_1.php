@@ -93,7 +93,7 @@
     같은 중요한 내용을 이용자가 이해할 수 있도록 별도의 연결화면 또는 팝업화면 등을 제공하여 이용자의 확인을 구하여야 합니다.
     </div>
      <div class="ui checkbox" style="float:right">
-      <input type="checkbox" tabindex="0" class="hidden">
+      <input name="agree_1" type="checkbox" tabindex="0" class="hidden">
       <label style="color:white">동의</label>
       </div>
       </div>
@@ -120,7 +120,7 @@
 							같은 중요한 내용을 이용자가 이해할 수 있도록 별도의 연결화면 또는 팝업화면 등을 제공하여 이용자의 확인을 구하여야 합니다.
 						</div>
      <div class="ui checkbox" style="float:right">
-      <input type="checkbox" tabindex="0" class="hidden">
+      <input name="agree_2" type="checkbox" tabindex="0" class="hidden">
       <label style="color:white">동의</label>
       </div>
 
@@ -129,13 +129,13 @@
 
 </div>
   <div class="actions"style="clear:both; float:right">
+      <div class="ui green ok inverted button">
+        <i class="checkmark icon"></i>
+        예
+      </div>
     <div class="ui red basic cancel inverted button">
       <i class="remove icon"></i>
       아니오
-    </div>
-    <div class="ui green ok inverted button">
-      <i class="checkmark icon"></i>
-      예
     </div>
   </div>
 </div>
@@ -145,7 +145,20 @@
 $('.ui.checkbox')
   .checkbox()
 ;
-$('.ui.basic.modal')
+$('.ui.basic.modal').modal({
+    closable : false,
+    onApprove:function()
+    {
+         var chk1=$("input[name=agree_1]").prop("checked");
+         var chk2=$("input[name=agree_2]").prop("checked");
+        if(chk1 === false || chk2 === false)
+            return false;
+    },
+    onDeny : function()
+    {
+        return false;
+    }
+})
   .modal('show');
 
 </script>
