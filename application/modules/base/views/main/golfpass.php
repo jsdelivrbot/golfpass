@@ -108,9 +108,9 @@
 			<figure class="mb-0 d-flex align-items-center d-lg-none">
 				<img src="/public/sangmin/img/icon/logo_mobile.png" class="" alt="">
 			</figure>
-			<figure class="mb-0 align-items-center d-none d-lg-flex">
+			<a href="<?=site_url()?>"><figure class="mb-0 align-items-center d-none d-lg-flex">
 				<img src="/public/sangmin/img/icon/logo.png" class="" alt="">
-			</figure>
+			</figure></a>
 			<div id="search" class="d-flex align-items-center">
 				<i class="xi xi-search"></i>
 				<input type="text" placeholder="관심있는 나라나 골프장을 검색해보세요!">
