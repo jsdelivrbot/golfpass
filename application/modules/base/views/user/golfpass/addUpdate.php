@@ -21,16 +21,20 @@
     }
 </style>
 
-<div style="margin-top:100px;"></div>
+<div style="margin-top:-80px;"></div>
+
+
 <div class="ui middle aligned center aligned grid">
     <div class="column">
         <form  action ="<?=my_site_url(user_uri."/{$mode}")?>" method="POST"  class="ui large form " style="max-width: 90%; margin: 0 auto;">
 			<!-- <div class="ui header">회원가입</div>  -->
-            
+            <div class="field">
             <!-- 프로필 사진 시작-->
             <iframe id="profilePhoto_upload" src="<?=site_url(user_uri."/profilePhoto_upload")?>" frameborder=0 framespacing=0 marginheight=0 marginwidth=0 scrolling=no vspace=0>
             </iframe>   
+            </div>
             <input type='hidden' name='profilePhoto' value="<?=set_value('profilePhoto')?>"/>
+            
             <!-- 프로필 사진 끝 -->
             <div style="margin-top:15px;"></div>
             <div class="field">
@@ -53,11 +57,14 @@
                 <input type="text" name="birth" placeholder="생년월일" value="<?=set_value_data($user,'birth')?>">
             </div>
 
-
-            <div class="field">
-                <input type="text" name="phone" placeholder="휴대폰 번호" value="<?=set_value('phone')?>">
-                <a style="margin-top:10px;" class="ui fluid button" href ="javascript:auth_popup('<?=site_url(user_uri."/phone_auth")?>','phone')">휴대폰 인증</a>
-                
+            <div class="two fields">
+                <div class="field">
+                    <input type="text" name="phone" placeholder="휴대폰 번호" value="<?=set_value('phone')?>">
+                    
+                </div>
+                <div class="field">
+                    <a  style=""class="ui fluid positive basic button" href ="javascript:auth_popup('<?=site_url(user_uri."/phone_auth")?>','phone')">휴대폰 인증</a>
+                </div>
             </div>
             <div class="field">
                 <input type="text" name="email" placeholder="이메일">
