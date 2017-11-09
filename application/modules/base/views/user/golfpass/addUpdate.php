@@ -56,7 +56,7 @@
 
             <div class="field">
                 <input type="text" name="phone" placeholder="휴대폰 번호" value="<?=set_value('phone')?>">
-                <a href ="javascript:auth_popup('<?=site_url(user_uri."/phone_auth")?>','phone')">휴대폰 인증</a>
+                <a style="margin-top:10px;" class="ui fluid button" href ="javascript:auth_popup('<?=site_url(user_uri."/phone_auth")?>','phone')">휴대폰 인증</a>
                 
             </div>
             <div class="field">
