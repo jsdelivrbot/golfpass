@@ -482,7 +482,7 @@
 								</a>
 							</li>
 							<li class='p-3 text-light list-after-four'>
-								<a href="http://golfpass.net/index.php/shop/product/get/6">
+								<a href="http://golfpass.net/index.php/shop/product/get/7">
 									<div class="d-flex justify-content-between align-items-center">
 										<div>
 											<p class='mb-0'><span class='mr-3 ml-2'>5</span> 힐데스 하임 CC</p>
@@ -494,7 +494,7 @@
 								</a>
 							</li>
 							<li class='p-3 text-light list-after-four'>
-								<a href="http://golfpass.net/index.php/shop/product/get/6">
+								<a href="http://golfpass.net/index.php/shop/product/get/8">
 									<div class="d-flex justify-content-between align-items-center">
 										<div>
 											<p class='mb-0'><span class='mr-3 ml-2'>6</span> 힐데스 하임 CC</p>
@@ -506,7 +506,7 @@
 								</a>
 							</li>
 							<li class='p-3 text-light list-after-four'>
-								<a href="http://golfpass.net/index.php/shop/product/get/7">
+								<a href="http://golfpass.net/index.php/shop/product/get/9">
 									<div class="d-flex justify-content-between align-items-center">
 										<div>
 											<p class='mb-0'><span class='mr-3 ml-2'>7</span> 힐데스 하임 CC</p>
@@ -518,7 +518,7 @@
 								</a>
 							</li>
 							<li class='p-3 text-light list-after-four'>
-								<a href="http://golfpass.net/index.php/shop/product/get/8">
+								<a href="http://golfpass.net/index.php/shop/product/get/10">
 									<div class="d-flex justify-content-between align-items-center">
 										<div>
 											<p class='mb-0'><span class='mr-3 ml-2'>8</span> 힐데스 하임 CC</p>
@@ -530,7 +530,7 @@
 								</a>
 							</li>
 							<li class='p-3 text-light list-after-four'>
-								<a href="http://golfpass.net/index.php/shop/product/get/9">
+								<a href="http://golfpass.net/index.php/shop/product/get/11">
 									<div class="d-flex justify-content-between align-items-center">
 										<div>
 											<p class='mb-0'><span class='mr-3 ml-2'>9</span> 힐데스 하임 CC</p>
@@ -542,7 +542,7 @@
 								</a>
 							</li>
 							<li class='p-3 text-light list-after-four'>
-								<a href="http://golfpass.net/index.php/shop/product/get/10">
+								<a href="http://golfpass.net/index.php/shop/product/get/12">
 									<div class="d-flex justify-content-between align-items-center">
 										<div>
 											<p class='mb-0'><span class='mr-3 ml-2'>10</span> 힐데스 하임 CC</p>
