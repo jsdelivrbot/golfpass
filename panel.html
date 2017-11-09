@@ -15,290 +15,351 @@
 </head>
 
 <body>
-	<header id="header" class="black-bg-header container-fluid panel-header">
-		<!--NOTE mobile nav-->
-		<nav id='sm-nav' class="row no-gutters justify-content align-items-stretch d-sm-none panel-nav">
-			<div id="logo" class='col-3 justify-content-center d-flex align-self-center align-items-center'>
-				<img src="public/sangmin/img/icon/logo_mobile.png" class="d-md-none" alt="">
+<div class="menu-container position-fixed">
+	<div class="menu-sliders"></div>
+	<div class="menu-sliders"></div>
+	<div class="menu-sliders"></div>
+	<div class="menu">
+		<ul class="list-unstyled">
+			<li>
+				<a>Home</a>
+			</li>
+			<li>
+				<a>About </a>
+			</li>
+			<li>
+				<a>Work</a>
+			</li>
+			<li>
+				<a>Contact</a>
+			</li>
+		</ul>
+	</div>
+</div>
+
+<header id="header" class="black-bg-header container-fluid">
+	<!--  NOTE mobile -->
+	<nav id='sm-nav' class="row no-gutters justify-content align-items-stretch d-sm-none panel-nav">
+		<div id="logo" class='col-3 justify-content-center d-flex align-self-center align-items-center'>
+			<img src="public/sangmin/img/icon/logo_mobile.png" class="d-md-none" alt="">
+		</div>
+		<div id='nav-icon-box' class="offset-2 col-5 d-flex align-items-stretch justify-content-end">
+			<div id="search" class="d-flex align-items-center">
+				<span><i class="xi xi-search"></i></span>
 			</div>
-			<div id='nav-icon-box' class="offset-2 col-5 d-flex align-items-stretch justify-content-end">
-				<div id="search" class="d-flex align-items-center">
-					<span><i class="xi xi-search"></i></span>
-				</div>
-				<div id="login" class="d-flex align-items-center">
-					<span><i class="xi xi-lock"></i></span>
-				</div>
-				<div id="join" class="d-flex align-items-center">
-					<span><i class="xi xi-user-plus"></i></span>
-				</div>
+			<div id="login" class="d-flex align-items-center">
+				<span><i class="xi xi-lock"></i></span>
 			</div>
-			<div class="col-2 ml-auto toggle">
-				<span><i class="xi xi-bars"></i></span>
-			</div>
-		</nav>
-		<!--NOTE desktop,tablet nav-->
-		<nav id='md-nav' class="row no-gutters justify-content align-items-stretch d-none d-sm-flex">
-			<div id="logo" class='col-6 d-flex align-items-center'>
-				<div class="d-flex align-items-center d-lg-none mr-2">
-					<img src="public/sangmin/img/icon/logo_mobile.png" class="" alt="">
-				</div>
-				<div class="align-items-center d-none d-lg-flex mr-2">
-					<img src="public/sangmin/img/icon/logo.png" class="" alt="">
-				</div>
-				<div id="search" class="d-flex align-items-center">
-					<span><i class="xi xi-search"></i></span>
-					<input type="text" placeholder="관심있는 나라나 골프장을 검색해보세요!">
-				</div>
-			</div>
-			<div id='nav-icon-box' class="col-5 col-lg-4 d-flex justify-content-end">
-				<div id="login" class="d-flex align-items-center">
-					<span><i class="xi xi-lock"></i></span>
-					<p class="mb-0">로그인</p>
-				</div>
-				<div id="join" class="d-flex align-items-center">
-					<span><i class="xi xi-user-plus"></i></span>
-					<p class="mb-0">회원가입</p>
-				</div>
-			</div>
-			<div class="col-1 col-lg-2 ml-auto toggle">
-				<span><i class="xi xi-bars"></i></span>
-				<p class="mb-0 d-none d-lg-block">메뉴</p>
-			</div>
-		</nav>
-	</header>
-	<article id="panel-article" class="container-fluid">
-		<div class="row text-center">
-			<div class="col-12">
-				<h1 id='panel-title' class="text-center">
-					<span>골프패스</span> 패널 소개</h1>
+			<div id="join" class="d-flex align-items-center">
+				<span><i class="xi xi-user-plus"></i></span>
 			</div>
 		</div>
-		<section class="row" id='panel-section'>
-			<article id='panel-box' class="row col-12">
-				<div class="col-6 col-md-3 panel">
-					<div class="d-flex flex-column justify-content-center align-items-center">
-						<img src="public/sangmin/img/profile/pic.jpg" class="rounded-circle" alt="" style="width: 140px;">
-						<div class="panel-content text-center">
-							<p>김민성</p>
-							<p class="intro">시애틀에 사는 디자이너시애틀에 사는 디자이너시애틀에 사는 디자이너시애틀에 사는 디자이너시애틀에 사는 디자이너</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-6 col-md-3 panel">
-					<div class="d-flex flex-column justify-content-center align-items-center">
-						<img src="public/sangmin/img/profile/pic.jpg" class="rounded-circle" alt="" style="width: 140px;">
-						<div class="panel-content text-center">
-							<p>김민성</p>
-							<p class="intro">시애틀에 사는 디자이너시애틀에 사는 디자이너시애틀에 사는 디자이너시애틀에 사는 디자이너시애틀에 사는 디자이너</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-6 col-md-3 panel">
-					<div class="d-flex flex-column justify-content-center align-items-center">
-						<img src="public/sangmin/img/profile/pic.jpg" class="rounded-circle" alt="" style="width: 140px;">
-						<div class="panel-content text-center">
-							<p>김민성</p>
-							<p class="intro">시애틀에 사는 디자이너시애틀에 사는 디자이너시애틀에 사는 디자이너시애틀에 사는 디자이너시애틀에 사는 디자이너</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-6 col-md-3 panel">
-					<div class="d-flex flex-column justify-content-center align-items-center">
-						<img src="public/sangmin/img/profile/pic.jpg" class="rounded-circle" alt="" style="width: 140px;">
-						<div class="panel-content text-center">
-							<p>김민성</p>
-							<p class="intro">시애틀에 사는 디자이너시애틀에 사는 디자이너시애틀에 사는 디자이너시애틀에 사는 디자이너시애틀에 사는 디자이너</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-6 col-md-3 panel">
-					<div class="d-flex flex-column justify-content-center align-items-center">
-						<img src="public/sangmin/img/profile/pic.jpg" class="rounded-circle" alt="" style="width: 140px;">
-						<div class="panel-content text-center">
-							<p>김민성</p>
-							<p class="intro">시애틀에 사는 디자이너시애틀에 사는 디자이너시애틀에 사는 디자이너시애틀에 사는 디자이너시애틀에 사는 디자이너</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-6 col-md-3 panel">
-					<div class="d-flex flex-column justify-content-center align-items-center">
-						<img src="public/sangmin/img/profile/pic.jpg" class="rounded-circle" alt="" style="width: 140px;">
-						<div class="panel-content text-center">
-							<p>김민성</p>
-							<p class="intro">시애틀에 사는 디자이너시애틀에 사는 디자이너시애틀에 사는 디자이너시애틀에 사는 디자이너시애틀에 사는 디자이너</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-6 col-md-3 panel">
-					<div class="d-flex flex-column justify-content-center align-items-center">
-						<img src="public/sangmin/img/profile/pic.jpg" class="rounded-circle" alt="" style="width: 140px;">
-						<div class="panel-content text-center">
-							<p>김민성</p>
-							<p class="intro">시애틀에 사는 디자이너시애틀에 사는 디자이너시애틀에 사는 디자이너시애틀에 사는 디자이너시애틀에 사는 디자이너</p>
-						</div>
-					</div>
-				</div>
-			</article>
-			<div class="col-12 d-flex justify-content-center align-items-center pagination">
-				<div class="prev"><a href="#"><i class="xi xi-angle-left-min"></i></a></div>
-				<ul class="d-flex list-unstyled justify-content-center mb-0">
-					<li class="current"><a href="#">01</a></li>
-					<li><a href="#">02</a></li>
-					<li><a href="#">03</a></li>
-					<li><a href="#">04</a></li>
-				</ul>
-				<div class="next"><a href="#"><i class="xi xi-angle-right-min"></i></a></div>
+		<div class="col-2 ml-auto toggle"
+			 onclick="$('body').toggleClass('menu-open'); $('.carousel-indicators').toggleClass('d-none d-flex');">
+			<span><i class="xi xi-bars"></i></span>
+		</div>
+	</nav>
+	<!--NOTE desktop,tablet nav-->
+	<nav id='md-nav' class="row no-gutters justify-content align-items-stretch d-none d-sm-flex">
+		<div id="logo" class='col-6 d-flex align-items-center'>
+			<figure class="mb-0 d-flex align-items-center d-lg-none">
+				<img src="public/sangmin/img/icon/logo_mobile.png" class="" alt="">
+			</figure>
+			<figure class="mb-0 align-items-center d-none d-lg-flex">
+				<img src="public/sangmin/img/icon/logo.png" class="" alt="">
+			</figure>
+			<div id="search" class="d-flex align-items-center">
+				<i class="xi xi-search"></i>
+				<input type="text" placeholder="관심있는 나라나 골프장을 검색해보세요!">
 			</div>
-		</section>
-		<section id='content-boxs' class="row justify-content-center">
-			<div class="content-box col-12 row">
-				<div class="d-none d-md-block col-md-2 d-md-flex align-items-md-start justify-content-end">
-					<img src="public/sangmin/img/profile/pic.jpg" class="rounded-circle" alt="" width="60px;">
-				</div>
-				<div class="col-12 col-md-10">
-					<h1>파이썬의 개발 “</h1>
-					<div class="content">
-						<p>파이썬 개발에 쓰이는 “환경”(env) 도구들에 관한 간략한 역사와 개념을 정리하고 그 활용 지침을 제안합니다. 오픈 소스 소프트웨어의 릴리스 프로세스를 정하고 자동화하는 데에 도움이 되는 여러 팁을 소개합니다.</p>
+		</div>
+		<div id='nav-icon-box' class="col  d-flex justify-content-end">
+			<div id="login" class="d-flex align-items-center">
+				<span><i class="xi xi-lock"></i></span>
+				<p class="mb-0">로그인</p>
+			</div>
+			<div id="join" class="d-flex align-items-center">
+				<span><i class="xi xi-user-plus"></i></span>
+				<p class="mb-0">회원가입</p>
+			</div>
+		</div>
+		<div class="col ml-auto toggle"
+			 onclick="$('body').toggleClass('menu-open'); $('.carousel-indicators').toggleClass('d-none d-flex');">
+			<span><i class="xi xi-bars"></i></span>
+			<p class="d-none d-lg-block">메뉴</p>
+		</div>
+	</nav>
+</header>
+<article id="panel-article" class="container-fluid">
+	<div class="row text-center">
+		<div class="col-12">
+			<h1 id='panel-title' class="text-center">
+				<span>골프패스</span> 패널 소개</h1>
+		</div>
+	</div>
+	<section class="row" id='panel-section'>
+		<article id='panel-box' class="row col-12">
+			<div class="col-6 col-md-3 panel">
+				<div class="d-flex flex-column justify-content-center align-items-center">
+					<img src="public/sangmin/img/profile/pic.jpg" class="rounded-circle" alt="" style="width: 140px;">
+					<div class="panel-content text-center">
+						<p>김민성</p>
+						<p class="intro">시애틀에 사는 디자이너시애틀에 사는 디자이너시애틀에 사는 디자이너시애틀에 사는 디자이너시애틀에 사는 디자이너</p>
 					</div>
-					<p class="date">
-						2012년 11월 20일<span> | </span>
-						<span class="name">이의성</span>
-					</p>
 				</div>
 			</div>
-			<div class="content-box col-12 row">
-				<div class="d-none d-md-block col-md-2 d-md-flex align-items-md-start justify-content-end">
-					<img src="public/sangmin/img/profile/pic.jpg" class="rounded-circle" alt="" width="60px;">
-				</div>
-				<div class="col-12 col-md-10">
-					<h1>파이썬의 개발 “</h1>
-					<div class="content">
-						<p>파이썬 개발에 쓰이는 “환경”(env) 도구들에 관한 간략한 역사와 개념을 정리하고 그 활용 지침을 제안합니다. 오픈 소스 소프트웨어의 릴리스 프로세스를 정하고 자동화하는 데에 도움이 되는 여러 팁을 소개합니다.</p>
+			<div class="col-6 col-md-3 panel">
+				<div class="d-flex flex-column justify-content-center align-items-center">
+					<img src="public/sangmin/img/profile/pic.jpg" class="rounded-circle" alt="" style="width: 140px;">
+					<div class="panel-content text-center">
+						<p>김민성</p>
+						<p class="intro">시애틀에 사는 디자이너시애틀에 사는 디자이너시애틀에 사는 디자이너시애틀에 사는 디자이너시애틀에 사는 디자이너</p>
 					</div>
-					<p class="date">
-						2012년 11월 20일<span> | </span>
-						<span class="name">이의성</span>
-					</p>
 				</div>
 			</div>
-			<div class="content-box col-12 row">
-				<div class="d-none d-md-block col-md-2 d-md-flex align-items-md-start justify-content-end">
-					<img src="public/sangmin/img/profile/pic.jpg" class="rounded-circle" alt="" width="60px;">
-				</div>
-				<div class="col-12 col-md-10">
-					<h1>파이썬의 개발 “</h1>
-					<div class="content">
-						<p>파이썬 개발에 쓰이는 “환경”(env) 도구들에 관한 간략한 역사와 개념을 정리하고 그 활용 지침을 제안합니다. 오픈 소스 소프트웨어의 릴리스 프로세스를 정하고 자동화하는 데에 도움이 되는 여러 팁을 소개합니다.</p>
+			<div class="col-6 col-md-3 panel">
+				<div class="d-flex flex-column justify-content-center align-items-center">
+					<img src="public/sangmin/img/profile/pic.jpg" class="rounded-circle" alt="" style="width: 140px;">
+					<div class="panel-content text-center">
+						<p>김민성</p>
+						<p class="intro">시애틀에 사는 디자이너시애틀에 사는 디자이너시애틀에 사는 디자이너시애틀에 사는 디자이너시애틀에 사는 디자이너</p>
 					</div>
-					<p class="date">
-						2012년 11월 20일<span> | </span>
-						<span class="name">이의성</span>
-					</p>
 				</div>
 			</div>
-			<div class="content-box col-12 row">
-				<div class="d-none d-md-block col-md-2 d-md-flex align-items-md-start justify-content-end">
-					<img src="public/sangmin/img/profile/pic.jpg" class="rounded-circle" alt="" width="60px;">
-				</div>
-				<div class="col-12 col-md-10">
-					<h1>파이썬의 개발 “</h1>
-					<div class="content">
-						<p>파이썬 개발에 쓰이는 “환경”(env) 도구들에 관한 간략한 역사와 개념을 정리하고 그 활용 지침을 제안합니다. 오픈 소스 소프트웨어의 릴리스 프로세스를 정하고 자동화하는 데에 도움이 되는 여러 팁을 소개합니다.</p>
+			<div class="col-6 col-md-3 panel">
+				<div class="d-flex flex-column justify-content-center align-items-center">
+					<img src="public/sangmin/img/profile/pic.jpg" class="rounded-circle" alt="" style="width: 140px;">
+					<div class="panel-content text-center">
+						<p>김민성</p>
+						<p class="intro">시애틀에 사는 디자이너시애틀에 사는 디자이너시애틀에 사는 디자이너시애틀에 사는 디자이너시애틀에 사는 디자이너</p>
 					</div>
-					<p class="date">
-						2012년 11월 20일<span> | </span>
-						<span class="name">이의성</span>
-					</p>
 				</div>
 			</div>
-			<div class="content-box col-12 row">
-				<div class="d-none d-md-block col-md-2 d-md-flex align-items-md-start justify-content-end">
-					<img src="public/sangmin/img/profile/pic.jpg" class="rounded-circle" alt="" width="60px;">
-				</div>
-				<div class="col-12 col-md-10">
-					<h1>파이썬의 개발 “</h1>
-					<div class="content">
-						<p>파이썬 개발에 쓰이는 “환경”(env) 도구들에 관한 간략한 역사와 개념을 정리하고 그 활용 지침을 제안합니다. 오픈 소스 소프트웨어의 릴리스 프로세스를 정하고 자동화하는 데에 도움이 되는 여러 팁을 소개합니다.</p>
+			<div class="col-6 col-md-3 panel">
+				<div class="d-flex flex-column justify-content-center align-items-center">
+					<img src="public/sangmin/img/profile/pic.jpg" class="rounded-circle" alt="" style="width: 140px;">
+					<div class="panel-content text-center">
+						<p>김민성</p>
+						<p class="intro">시애틀에 사는 디자이너시애틀에 사는 디자이너시애틀에 사는 디자이너시애틀에 사는 디자이너시애틀에 사는 디자이너</p>
 					</div>
-					<p class="date">
-						2012년 11월 20일<span> | </span>
-						<span class="name">이의성</span>
-					</p>
 				</div>
 			</div>
-			<div class="content-box col-12 row">
-				<div class="d-none d-md-block col-md-2 d-md-flex align-items-md-start justify-content-end">
-					<img src="public/sangmin/img/profile/pic.jpg" class="rounded-circle" alt="" width="60px;">
-				</div>
-				<div class="col-12 col-md-10">
-					<h1>파이썬의 개발 “</h1>
-					<div class="content">
-						<p>파이썬 개발에 쓰이는 “환경”(env) 도구들에 관한 간략한 역사와 개념을 정리하고 그 활용 지침을 제안합니다. 오픈 소스 소프트웨어의 릴리스 프로세스를 정하고 자동화하는 데에 도움이 되는 여러 팁을 소개합니다.</p>
+			<div class="col-6 col-md-3 panel">
+				<div class="d-flex flex-column justify-content-center align-items-center">
+					<img src="public/sangmin/img/profile/pic.jpg" class="rounded-circle" alt="" style="width: 140px;">
+					<div class="panel-content text-center">
+						<p>김민성</p>
+						<p class="intro">시애틀에 사는 디자이너시애틀에 사는 디자이너시애틀에 사는 디자이너시애틀에 사는 디자이너시애틀에 사는 디자이너</p>
 					</div>
-					<p class="date">
-						2012년 11월 20일<span> | </span>
-						<span class="name">이의성</span>
-					</p>
 				</div>
 			</div>
-			<div class="content-box col-12 row">
-				<div class="d-none d-md-block col-md-2 d-md-flex align-items-md-start justify-content-end">
-					<img src="public/sangmin/img/profile/pic.jpg" class="rounded-circle" alt="" width="60px;">
-				</div>
-				<div class="col-12 col-md-10">
-					<h1>파이썬의 개발 “</h1>
-					<div class="content">
-						<p>파이썬 개발에 쓰이는 “환경”(env) 도구들에 관한 간략한 역사와 개념을 정리하고 그 활용 지침을 제안합니다. 오픈 소스 소프트웨어의 릴리스 프로세스를 정하고 자동화하는 데에 도움이 되는 여러 팁을 소개합니다.</p>
+			<div class="col-6 col-md-3 panel">
+				<div class="d-flex flex-column justify-content-center align-items-center">
+					<img src="public/sangmin/img/profile/pic.jpg" class="rounded-circle" alt="" style="width: 140px;">
+					<div class="panel-content text-center">
+						<p>김민성</p>
+						<p class="intro">시애틀에 사는 디자이너시애틀에 사는 디자이너시애틀에 사는 디자이너시애틀에 사는 디자이너시애틀에 사는 디자이너</p>
 					</div>
-					<p class="date">
-						2012년 11월 20일<span> | </span>
-						<span class="name">이의성</span>
-					</p>
 				</div>
 			</div>
-			<div class="content-box col-12 row">
-				<div class="d-none d-md-block col-md-2 d-md-flex align-items-md-start justify-content-end">
-					<img src="public/sangmin/img/profile/pic.jpg" class="rounded-circle" alt="" width="60px;">
-				</div>
-				<div class="col-12 col-md-10">
-					<h1>파이썬의 개발 “</h1>
-					<div class="content">
-						<p>파이썬 개발에 쓰이는 “환경”(env) 도구들에 관한 간략한 역사와 개념을 정리하고 그 활용 지침을 제안합니다. 오픈 소스 소프트웨어의 릴리스 프로세스를 정하고 자동화하는 데에 도움이 되는 여러 팁을 소개합니다.</p>
-					</div>
-					<p class="date">
-						2012년 11월 20일<span> | </span>
-						<span class="name">이의성</span>
-					</p>
-				</div>
+		</article>
+		<div class="col-12 d-flex justify-content-center align-items-center pagination">
+			<div class="prev"><a href="#"><i class="xi xi-angle-left-min"></i></a></div>
+			<ul class="d-flex list-unstyled justify-content-center mb-0">
+				<li class="current"><a href="#">01</a></li>
+				<li><a href="#">02</a></li>
+				<li><a href="#">03</a></li>
+				<li><a href="#">04</a></li>
+			</ul>
+			<div class="next"><a href="#"><i class="xi xi-angle-right-min"></i></a></div>
+		</div>
+	</section>
+	<section id='content-boxs' class="row justify-content-center">
+		<div class="content-box col-12 row">
+			<div class="d-none d-md-block col-md-2 d-md-flex align-items-md-start justify-content-end">
+				<img src="public/sangmin/img/profile/pic.jpg" class="rounded-circle" alt="" width="60px;">
 			</div>
-			<div class="content-box col-12 row">
-				<div class="d-none d-md-block col-md-2 d-md-flex align-items-md-start justify-content-end">
-					<img src="public/sangmin/img/profile/pic.jpg" class="rounded-circle" alt="" width="60px;">
+			<div class="col-12 col-md-10">
+				<h1>파이썬의 개발 “</h1>
+				<div class="content">
+					<p>파이썬 개발에 쓰이는 “환경”(env) 도구들에 관한 간략한 역사와 개념을 정리하고 그 활용 지침을 제안합니다. 오픈 소스 소프트웨어의 릴리스 프로세스를 정하고 자동화하는
+						데에 도움이 되는 여러 팁을 소개합니다.</p>
 				</div>
-				<div class="col-12 col-md-10">
-					<h1>파이썬의 개발 “</h1>
-					<div class="content">
-						<p>파이썬 개발에 쓰이는 “환경”(env) 도구들에 관한 간략한 역사와 개념을 정리하고 그 활용 지침을 제안합니다. 오픈 소스 소프트웨어의 릴리스 프로세스를 정하고 자동화하는 데에 도움이 되는 여러 팁을 소개합니다.</p>
-					</div>
-					<p class="date">
-						2012년 11월 20일<span> | </span>
-						<span class="name">이의성</span>
-					</p>
+				<p class="date">
+					2012년 11월 20일<span> | </span>
+					<span class="name">이의성</span>
+				</p>
+			</div>
+		</div>
+		<div class="content-box col-12 row">
+			<div class="d-none d-md-block col-md-2 d-md-flex align-items-md-start justify-content-end">
+				<img src="public/sangmin/img/profile/pic.jpg" class="rounded-circle" alt="" width="60px;">
+			</div>
+			<div class="col-12 col-md-10">
+				<h1>파이썬의 개발 “</h1>
+				<div class="content">
+					<p>파이썬 개발에 쓰이는 “환경”(env) 도구들에 관한 간략한 역사와 개념을 정리하고 그 활용 지침을 제안합니다. 오픈 소스 소프트웨어의 릴리스 프로세스를 정하고 자동화하는
+						데에 도움이 되는 여러 팁을 소개합니다.</p>
 				</div>
+				<p class="date">
+					2012년 11월 20일<span> | </span>
+					<span class="name">이의성</span>
+				</p>
 			</div>
-			<div class="col-12 d-flex justify-content-center align-items-center pagination">
-				<div class="prev"><a href="#"><i class="xi xi-angle-left-min"></i></a></div>
-				<ul class="d-flex list-unstyled justify-content-center mb-0">
-					<li class="current"><a href="#">01</a></li>
-					<li><a href="#">02</a></li>
-					<li><a href="#">03</a></li>
-					<li><a href="#">04</a></li>
-				</ul>
-				<div class="next"><a href="#"><i class="xi xi-angle-right-min"></i></a></div>
+		</div>
+		<div class="content-box col-12 row">
+			<div class="d-none d-md-block col-md-2 d-md-flex align-items-md-start justify-content-end">
+				<img src="public/sangmin/img/profile/pic.jpg" class="rounded-circle" alt="" width="60px;">
 			</div>
-		</section>
-	</article>
-	<footer class='d-flex flex-wrap'>
+			<div class="col-12 col-md-10">
+				<h1>파이썬의 개발 “</h1>
+				<div class="content">
+					<p>파이썬 개발에 쓰이는 “환경”(env) 도구들에 관한 간략한 역사와 개념을 정리하고 그 활용 지침을 제안합니다. 오픈 소스 소프트웨어의 릴리스 프로세스를 정하고 자동화하는
+						데에 도움이 되는 여러 팁을 소개합니다.</p>
+				</div>
+				<p class="date">
+					2012년 11월 20일<span> | </span>
+					<span class="name">이의성</span>
+				</p>
+			</div>
+		</div>
+		<div class="content-box col-12 row">
+			<div class="d-none d-md-block col-md-2 d-md-flex align-items-md-start justify-content-end">
+				<img src="public/sangmin/img/profile/pic.jpg" class="rounded-circle" alt="" width="60px;">
+			</div>
+			<div class="col-12 col-md-10">
+				<h1>파이썬의 개발 “</h1>
+				<div class="content">
+					<p>파이썬 개발에 쓰이는 “환경”(env) 도구들에 관한 간략한 역사와 개념을 정리하고 그 활용 지침을 제안합니다. 오픈 소스 소프트웨어의 릴리스 프로세스를 정하고 자동화하는
+						데에 도움이 되는 여러 팁을 소개합니다.</p>
+				</div>
+				<p class="date">
+					2012년 11월 20일<span> | </span>
+					<span class="name">이의성</span>
+				</p>
+			</div>
+		</div>
+		<div class="content-box col-12 row">
+			<div class="d-none d-md-block col-md-2 d-md-flex align-items-md-start justify-content-end">
+				<img src="public/sangmin/img/profile/pic.jpg" class="rounded-circle" alt="" width="60px;">
+			</div>
+			<div class="col-12 col-md-10">
+				<h1>파이썬의 개발 “</h1>
+				<div class="content">
+					<p>파이썬 개발에 쓰이는 “환경”(env) 도구들에 관한 간략한 역사와 개념을 정리하고 그 활용 지침을 제안합니다. 오픈 소스 소프트웨어의 릴리스 프로세스를 정하고 자동화하는
+						데에 도움이 되는 여러 팁을 소개합니다.</p>
+				</div>
+				<p class="date">
+					2012년 11월 20일<span> | </span>
+					<span class="name">이의성</span>
+				</p>
+			</div>
+		</div>
+		<div class="content-box col-12 row">
+			<div class="d-none d-md-block col-md-2 d-md-flex align-items-md-start justify-content-end">
+				<img src="public/sangmin/img/profile/pic.jpg" class="rounded-circle" alt="" width="60px;">
+			</div>
+			<div class="col-12 col-md-10">
+				<h1>파이썬의 개발 “</h1>
+				<div class="content">
+					<p>파이썬 개발에 쓰이는 “환경”(env) 도구들에 관한 간략한 역사와 개념을 정리하고 그 활용 지침을 제안합니다. 오픈 소스 소프트웨어의 릴리스 프로세스를 정하고 자동화하는
+						데에 도움이 되는 여러 팁을 소개합니다.</p>
+				</div>
+				<p class="date">
+					2012년 11월 20일<span> | </span>
+					<span class="name">이의성</span>
+				</p>
+			</div>
+		</div>
+		<div class="content-box col-12 row">
+			<div class="d-none d-md-block col-md-2 d-md-flex align-items-md-start justify-content-end">
+				<img src="public/sangmin/img/profile/pic.jpg" class="rounded-circle" alt="" width="60px;">
+			</div>
+			<div class="col-12 col-md-10">
+				<h1>파이썬의 개발 “</h1>
+				<div class="content">
+					<p>파이썬 개발에 쓰이는 “환경”(env) 도구들에 관한 간략한 역사와 개념을 정리하고 그 활용 지침을 제안합니다. 오픈 소스 소프트웨어의 릴리스 프로세스를 정하고 자동화하는
+						데에 도움이 되는 여러 팁을 소개합니다.</p>
+				</div>
+				<p class="date">
+					2012년 11월 20일<span> | </span>
+					<span class="name">이의성</span>
+				</p>
+			</div>
+		</div>
+		<div class="content-box col-12 row">
+			<div class="d-none d-md-block col-md-2 d-md-flex align-items-md-start justify-content-end">
+				<img src="public/sangmin/img/profile/pic.jpg" class="rounded-circle" alt="" width="60px;">
+			</div>
+			<div class="col-12 col-md-10">
+				<h1>파이썬의 개발 “</h1>
+				<div class="content">
+					<p>파이썬 개발에 쓰이는 “환경”(env) 도구들에 관한 간략한 역사와 개념을 정리하고 그 활용 지침을 제안합니다. 오픈 소스 소프트웨어의 릴리스 프로세스를 정하고 자동화하는
+						데에 도움이 되는 여러 팁을 소개합니다.</p>
+				</div>
+				<p class="date">
+					2012년 11월 20일<span> | </span>
+					<span class="name">이의성</span>
+				</p>
+			</div>
+		</div>
+		<div class="content-box col-12 row">
+			<div class="d-none d-md-block col-md-2 d-md-flex align-items-md-start justify-content-end">
+				<img src="public/sangmin/img/profile/pic.jpg" class="rounded-circle" alt="" width="60px;">
+			</div>
+			<div class="col-12 col-md-10">
+				<h1>파이썬의 개발 “</h1>
+				<div class="content">
+					<p>파이썬 개발에 쓰이는 “환경”(env) 도구들에 관한 간략한 역사와 개념을 정리하고 그 활용 지침을 제안합니다. 오픈 소스 소프트웨어의 릴리스 프로세스를 정하고 자동화하는
+						데에 도움이 되는 여러 팁을 소개합니다.</p>
+				</div>
+				<p class="date">
+					2012년 11월 20일<span> | </span>
+					<span class="name">이의성</span>
+				</p>
+			</div>
+		</div>
+		<div class="col-12 d-flex justify-content-center align-items-center pagination">
+			<div class="prev"><a href="#"><i class="xi xi-angle-left-min"></i></a></div>
+			<ul class="d-flex list-unstyled justify-content-center mb-0">
+				<li class="current"><a href="#">01</a></li>
+				<li><a href="#">02</a></li>
+				<li><a href="#">03</a></li>
+				<li><a href="#">04</a></li>
+			</ul>
+			<div class="next"><a href="#"><i class="xi xi-angle-right-min"></i></a></div>
+		</div>
+	</section>
+</article>
+<footer id='footer' class=' container-fluid'>
+	<div id="partner">
+		<div class="row">
+			<div class="w-100">
+				<h6>PARTNERS</h6>
+			</div>
+			<div class="d-flex flex-wrap">
+				<figure>
+					<img src="public/sangmin/img/partner/partner_google.png" alt="">
+				</figure>
+				<figure>
+					<img src="public/sangmin/img/partner/partner_facebook.png" alt="">
+				</figure>
+
+				<figure>
+					<img src="public/sangmin/img/partner/partner_instar.png" alt="">
+				</figure>
+				<figure>
+					<img src="public/sangmin/img/partner/partner_naver.png" alt="">
+				</figure>
+				<figure>
+					<img src="public/sangmin/img/partner/partner_daum.png" alt="">
+				</figure>
+			</div>
+		</div>
+
+	</div>
+
+	<div class="row d-flex">
 		<ul>
 			<li class="title">ABOUT US</li>
 			<li><a href="#">회사 소개</a></li>
@@ -331,21 +392,23 @@
 		</ul>
 		<ul>
 			<li class="title">NEWS LETTER</li>
-			<li class="mb-20">
-				<input type="text" placeholder="E-mail을 입력해주세요">
-			</li>
+			<li class="mb-20"><input type="text" placeholder="E-mail을 입력해주세요"></li>
 			<li><strong>골프패스</strong>
 				<p>에서 제공하는 유용한 소식</p>
 			</li>
 		</ul>
 		<p class='align-self-end mr-auto ml-auto'>© 2017 <strong>GOLFPASS.</strong> All Rights Reserved.</p>
-	</footer>
+	</div>
+
+</footer>
 
 <script src="public/sangmin/js/jquery-3.2.1.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-	<script src="public/sangmin/dist/bootstrap/bootstrap.bundle.min.js"></script>
-	<script src="public/sangmin/dist/Nwagon/Nwagon.js"></script>
-	<script src="public/sangmin/js/custom.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+		integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+		crossorigin="anonymous"></script>
+<script src="public/sangmin/dist/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="public/sangmin/dist/Nwagon/Nwagon.js"></script>
+<script src="public/sangmin/js/custom/navAction.js"></script>
 </body>
 
 </html>

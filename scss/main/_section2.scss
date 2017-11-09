@@ -1,42 +1,43 @@
-#section2 {
-  .mobile-content {
-	font-family: notokr-medium;
-	left: 6%;
-	width: 88%;
-	bottom: 15px;
-	color: white;
-	border-bottom: 4px solid white;
-	h3 {
-	  font-family: notokr-regular;
-	  font-size: 30px;
+#main-wrap {
+  #section2 {
+	.mobile-content {
+	  font-family: notokr-medium;
+	  left: 6%;
+	  width: 88%;
+	  bottom: 15px;
+	  color: white;
+	  border-bottom: 4px solid white;
+	  h3 {
+		font-family: notokr-regular;
+		font-size: 30px;
+	  }
+	  p {
+		font-family: notokr-light;
+		font-style: 14px;
+	  }
 	}
-	p {
-	  font-family: notokr-light;
-	  font-style: 14px;
+	.content {
+	  font-family: "notokr-regular", sans-serif;
+	  color: #FFF;
+	  width: 84%;
+	  left: 8%;
+	  top: 66%;
+	  height: 30%;
+	  border-bottom: 2px solid white;
+	  h3 {
+		font-family: notokr-regular;
+		font-size: 30px;
+	  }
+	  p {
+		font-family: notokr-light;
+		font-size: 14px;
+	  }
 	}
-  }
-  .content {
-	font-family: "notokr-regular", sans-serif;
-	color: #FFF;
-	width: 84%;
-	left: 8%;
-	top: 66%;
-	height: 30%;
-	border-bottom: 2px solid white;
-	h3 {
-	  font-family: notokr-regular;
-	  font-size: 30px;
-	}
-	p {
-	  font-family: notokr-light;
-	  font-size: 14px;
-	}
-  }
-  #jssor_1{
-	.slide-item{
-	  width:220px !important;
-	  height: 440px;
+	#jssor_1 {
+	  .slide-item {
+		width: 220px !important;
+		height: 440px;
+	  }
 	}
   }
 }
-
