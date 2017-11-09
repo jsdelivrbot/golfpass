@@ -3,72 +3,138 @@
 
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="viewport"
+		  content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
 	<meta name="description" content="">
 	<meta name="author" content="">
 	<title>골프패스</title>
 	<!-- Bootstrap core CSS -->
-	<link rel="stylesheet" href="/public/tmp/sangmin/dist/bootstrap/bootstrap.min.css">
+	<script src="/public/sangmin/js/prefixfree.min.js"></script>
+	<link rel="stylesheet" href="/public/sangmin/dist/bootstrap/bootstrap.min.css">
 	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
-	<link rel="stylesheet" href="/public/tmp/css/main.css">
-	<link rel="stylesheet" href="/public/tmp/sangmin/dist/Nwagon/Nwagon.css" type="text/css">
+	<link rel="stylesheet" href="/public/css/main.css">
 
-
+	<style>
+		::-webkit-scrollbar {
+			display: none;
+		}
+		a {
+			text-decoration: none;
+		}
+	</style>
 </head>
 
-<body>
+<body class="">
+<div class="menu-container position-fixed">
+	<div class="menu-sliders"></div>
+	<div class="menu-sliders"></div>
+	<div class="menu-sliders"></div>
+	<div class="menu">
+		<ul class="list-unstyled">
+		<?php if(is_admin()){?>
+			<li>
+			  <a href="<?=site_url(admin_home_uri.'')?>">관리자 페이지</a>
+			</li>
+			<?php }?>
+			<li>
+			  <a href="<?=site_url('')?>">골프패스</a>
+			</li>
+		  
+			<li>
+			<a href="<?=site_url(shop_category_uri.'/gets_by_name/나라별')?>">나라별 골프장</a>
+			  
+			</li>
+			<li>
+			<a href="<?=site_url(golfpass_panel_uri.'/gets')?>">패널소개</a>
+			  
+			</li>
+	  
+			<?php if(!is_login()){?>
+			<li>
+			  <a href="<?=site_url(user_uri.'/login')?>">로그인</a>
+			  
+			</li>
+			<li>
+			<a href="<?=site_url(user_uri.'/register_agree_1')?>">회원가입</a>
+			  
+			</li>
+			<?php }?>
+			<?php if(is_login()){?>
+		  
+			<li>
+			  <a href="<?=site_url(user_uri.'/logout')?>">로그아웃</a>
+			</li>
+			<?php }?>
+			<li>
+			  <a href="<?=site_url(shop_mypage_uri.'')?>">마이페이지      </a>
+			</li>
+			<li>
+			  <a href="<?=site_url(shop_wishlist_uri.'/gets')?>">위시리스트      </a>
+			</li>
+			<li>
+			  <a href="<?=site_url(shop_contact_uri.'')?>">고객센터</a>
+			</li>
+		</ul>
+	</div>
+</div>
+
 <header id="header" class="black-bg-header container-fluid panel-header">
-<!--NOTE mobile nav-->
-<nav id='sm-nav' class="row no-gutters justify-content align-items-stretch d-sm-none panel-nav">
-	<div id="logo" class='col-3 justify-content-center d-flex align-self-center align-items-center'>
-		<img src="/public/tmp/sangmin/img/icon/logo_mobile.png" class="d-md-none" alt="">
-	</div>
-	<div id='nav-icon-box' class="offset-2 col-5 d-flex align-items-stretch justify-content-end">
-		<div id="search" class="d-flex align-items-center">
-			<span><i class="xi xi-search"></i></span>
+	<!--  NOTE mobile -->
+	<nav id='sm-nav' class="row no-gutters justify-content align-items-stretch d-sm-none panel-nav">
+		<div id="logo" class='col-3 justify-content-center d-flex align-self-center align-items-center'>
+			<img src="/public/sangmin/img/icon/logo_mobile.png" class="d-md-none" alt="">
 		</div>
-		<div id="login" class="d-flex align-items-center">
-			<span><i class="xi xi-lock"></i></span>
+		<div id='nav-icon-box' class="offset-2 col-5 d-flex align-items-stretch justify-content-end">
+			<div id="search" class="d-flex align-items-center">
+				<span><i class="xi xi-search"></i></span>
+			</div>
+			<div id="login" class="d-flex align-items-center">
+				<span><i class="xi xi-lock"></i></span>
+			</div>
+			<div id="join" class="d-flex align-items-center">
+				<span><i class="xi xi-user-plus"></i></span>
+			</div>
 		</div>
-		<div id="join" class="d-flex align-items-center">
-			<span><i class="xi xi-user-plus"></i></span>
+		<div class="col-2 ml-auto toggle"
+			 onclick="$('body').toggleClass('menu-open'); $('.carousel-indicators').toggleClass('d-none d-flex');">
+			<span>
+				<i class="xi xi-bars"></i>
+			</span>
 		</div>
-	</div>
-	<div class="col-2 ml-auto toggle">
-		<span><i class="xi xi-bars"></i></span>
-	</div>
-</nav>
-<!--NOTE desktop,tablet nav-->
-<nav id='md-nav' class="row no-gutters justify-content align-items-stretch d-none d-sm-flex">
-	<div id="logo" class='col-6 d-flex align-items-center'>
-		<div class="d-flex align-items-center d-lg-none mr-2">
-			<img src="/public/tmp/sangmin/img/icon/logo_mobile.png" class="" alt="">
+	</nav>
+	<!--NOTE desktop,tablet nav-->
+	<nav id='md-nav' class="row no-gutters justify-content align-items-stretch d-none d-sm-flex">
+		<div id="logo" class='col-6 d-flex align-items-center'>
+			<figure class="mb-0 d-flex align-items-center d-lg-none">
+				<img src="/public/sangmin/img/icon/logo_mobile.png" class="" alt="">
+			</figure>
+			<figure class="mb-0 align-items-center d-none d-lg-flex">
+				<img src="/public/sangmin/img/icon/logo.png" class="" alt="">
+			</figure>
+			<div id="search" class="d-flex align-items-center">
+				<i class="xi xi-search"></i>
+				<input type="text" placeholder="관심있는 나라나 골프장을 검색해보세요!">
+			</div>
 		</div>
-		<div class="align-items-center d-none d-lg-flex mr-2">
-			<a href="<?=site_url("")?>">
-			<img src="/public/tmp/sangmin/img/icon/logo.png" class="" alt="">
-			</a>
+		<div id='nav-icon-box' class="col  d-flex justify-content-end">
+			<div id="login" class="d-flex align-items-center">
+				<span><i class="xi xi-lock"></i></span>
+				<p class="mb-0"><a style="color:white;" href="<?=site_url(user_uri.'/login')?>">로그인</a></p>
+			</div>
+			<div id="join" class="d-flex align-items-center">
+				<span><i class="xi xi-user-plus"></i></span>
+				<p class="mb-0">회원가입</p>
+			</div>
 		</div>
-		<div id="search" class="d-flex align-items-center">
-			<span><i class="xi xi-search"></i></span>
-			<input type="text" placeholder="관심있는 나라나 골프장을 검색해보세요!">
+		<div class="col ml-auto toggle"
+			 onclick="$('body').toggleClass('menu-open'); $('.carousel-indicators').toggleClass('d-none d-flex');">
+			<span>
+				<!-- <i class="xi xi-bars"></i> -->
+				<i class=""></i>
+			</span>
+			<p class="d-none d-lg-block">메뉴</p>
 		</div>
-	</div>
-	<div id='nav-icon-box' class="col-5 col-lg-4 d-flex justify-content-end">
-		<div id="login" class="d-flex align-items-center">
-			<span><i class="xi xi-lock"></i></span>
-			<p class="mb-0">로그인</p>
-		</div>
-		<div id="join" class="d-flex align-items-center">
-			<span><i class="xi xi-user-plus"></i></span>
-			<p class="mb-0">회원가입</p>
-		</div>
-	</div>
-	<div class="col-1 col-lg-2 ml-auto toggle">
-		<span><i class="xi xi-bars"></i></span>
-		<p class="mb-0 d-none d-lg-block">메뉴</p>
-	</div>
-</nav>
+	</nav>
 </header>
 
     <?php load_view($content_view)?>

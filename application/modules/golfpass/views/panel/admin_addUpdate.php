@@ -56,14 +56,13 @@
 
 <!-- 유저 글쓰기 시작 -->
 <form onsubmit="ajax_submit(this);return false;"action="<?=my_site_url(golfpass_panel_contents_admin_uri."/ajax_add",true)?>" method="post">
-<input placeholder="제목" type="text" name="title" >
-<textarea placeholder="내용" name="desc" rows="30" cols="80">
-</textarea>
+    <input placeholder="제목" type="text" name="title" >
+    <textarea placeholder="내용" name="desc" rows="30" cols="80">
+    </textarea>
 
-<input type="hidden" value="<?=$panel->id?>"name="panel_id">
-<br>
-<input type="submit" value="보내기">
-
+    <input type="hidden" value="<?=$panel->id?>"name="panel_id">
+    <br>
+    <input type="submit" value="보내기">
 </form>
 
 <!-- ckeditor -->

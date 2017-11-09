@@ -1,10 +1,30 @@
 
 
+
+<div style="margin-top:50px;"></div>
 <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/semantic.min.css">
 <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/semantic.min.js"></script>
 <!-- <script src="/public/framework/semantic/src/less.min.js"></script> -->
 
+<div class="ui header">현재 페이지 컨트롤러 : maker / controllers / Maker.php</div>
+<div class="ui header">현재 페이지 뷰디렉토리 : maker / views / index.php</div>
+<div class="ui header">--------------퍼블리싱 파일목록 maker / views / ???-----------------</div>
+
+<ul class="ui ul">
+    <?php for($i=0 ; $i<count($publishing); $i++){?>
+    <li><?=$publishing[$i]?></li>
+    <?php }?>
+
+</ul>
+<div class="ui header">--------------버그-----------------</div>
+
+<ul class="ui ul">
+    <li>메인페이지 메뉴 아이콘 따로놈</li>
+
+</ul>
+
+<div class="ui header">---------사이트 맵-----------</div>
 <div class="ui header">base</div>
 <table class="ui table ">
 <tr>
