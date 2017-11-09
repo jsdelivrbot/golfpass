@@ -230,13 +230,17 @@
 		</div>
 		<!--NOTE 나라별 모바일 구간 -->
 		<div class="row no-gutters flex-column d-md-none">
+		<?php for($i=0;$i < count($nation_list)	;$i++){?>
+			<a href="<?=site_url(shop_category_uri."/gets/{$nation_list[$i]->id}")?>">
 			<div class="col-12 d-flex justify-content-center mb-2 bg-dark" style="height: 180px;">
-					<!-- <img class="w-100" src="/public/sangmin/img/golf_course_1.jpg" alt=""> -->
+					<img class="w-100" src="<?=$nation_list[$i]->photo?>" alt="">
 				<div class="mobile-content position-absolute d-flex flex-column align-items-center justify-content-end">
-					<h3>러시아</h3>
-					<p>모스크바</p>
+					<h3><?=$nation_list[$i]->name?></h3>
+					<p><?=$nation_list[$i]->desc?></p>
 				</div>
 			</div>
+			</a>
+			<?php }?>	
 		</div>
 		<!--NOTE 나라별 slide 테블릿 ~ 구간 -->
 		<div class="row flex-nowrap d-none d-md-flex position-relative pt-5">
