@@ -97,8 +97,8 @@ class User extends Base_Controller
 
     function register_agree_1()
     {
-        // $this->_template('user/golfpass/register_agree_1',array(),'golfpass');
-        $this->_view('user/golfpass/register_agree_1',array());
+        $this->_template('user/golfpass/register_agree_1',array(),'golfpass');
+        // $this->_view('user/golfpass/register_agree_1',array());
     }
    function _login_view($data = array())
    {
