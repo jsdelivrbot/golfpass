@@ -1,8 +1,11 @@
 #detail-wrap{
-
+width: 100%;
+  height: 100%;
+  position: relative;
 }
 @import "./section1";
 @import "./section2";
 @import "./section3";
+@import "./section_map";
 @import "./header";
 @import "./book";

@@ -31,6 +31,7 @@
 
 <body>
 <div id='detail-wrap'>
+	<!--숨겨진 nav-->
 	<div class="menu-container position-fixed">
 		<div class="menu-sliders"></div>
 		<div class="menu-sliders"></div>
@@ -52,6 +53,7 @@
 			</ul>
 		</div>
 	</div>
+	<!--header>nav-->
 	<header id="header" class="container-fluid">
 		<!--  NOTE mobile -->
 		<nav id='sm-nav' class="row no-gutters justify-content align-items-stretch d-sm-none panel-nav">
@@ -105,7 +107,10 @@
 			</div>
 		</nav>
 	</header>
+
+	<!--상단 슬라이드 + 내용 + chart-->
 	<article class="row no-gutters" id="section1">
+		<div id="shadow"></div>
 		<div id='slide-box' class="col-12 col-md-6 col-xl-5">
 			<figure id='slide-img'>
 				<img src="public/sangmin/img/background/hero-image.jpg" alt="" class="w-100">
@@ -476,7 +481,7 @@
 		</section>
 
 	</article>
-	<section id="section-map"></section>
+	 <section id="section-map" class="position-relative"></section>
 	<section id="section3" class='row no-gutters'>
 		<div class="col-12 review-warning-text d-flex justify-content-center">
 			<div class="d-flex flex-column align-items-center">
@@ -694,12 +699,21 @@
 <script src="public/sangmin/dist/bootstrap/bootstrap.bundle.min.js"></script>
 <script src="public/sangmin/dist/Nwagon/Nwagon.js"></script>
 <script src="public/sangmin/js/chart.js"></script>
-<script src="public/sangmin/js/jquery.sticky.js"></script>
 
+<script src="public/sangmin/js/jquery.sticky.js"></script>
 <script src="public/sangmin/js/custom/navAction.js"></script>
 <script>
+	$('#book-box-wrap').css('top', $('#section1').outerHeight() - $('#personnel').outerHeight());
 
-
+	var bottomSpacing=document.body.scrollHeight-$('#section1').outerHeight()-$('#section2').outerHeight();
+	console.log(bottomSpacing);
+	$('#book-box').sticky({topSpacing: 80, wrapperClassName: '#book-box-wrap', bottomSpacing: bottomSpacing});
+	$('#book-box').on('sticky-start', function () {
+		$('#header').addClass('black-bg-header')
+	});
+	$('#book-box').on('sticky-end', function () {
+		$('#header').removeClass('black-bg-header')
+	});
 </script>
 
 

@@ -1,12 +1,13 @@
 @charset "utf-8";
 #book-box-wrap {
   font-family: 'Noto Sans', sans-serif;
-  border: 1px solid #e6e6e6;
+  right: 0;
   position: relative;
   color: #fff;
+  z-index: 300;
   @media (min-width: 992px) {
+
 	position: absolute;
-	z-index: 9999;
 	width: 35%;
 	right: 0;
   }
@@ -15,11 +16,13 @@
   }
 
   #book-box {
+	border: 1px solid #e6e6e6;
 	width: 100%;
 	#personnel {
 	  //인원 박스
 	  background-color: $background-color1;
 	  padding: 10px;
+	  height: 120px;
 	  h1 {
 		display: block;
 	  }

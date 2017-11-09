@@ -1,11 +1,15 @@
 @import 'header';
 
 .black-bg-header {
-	@extend #header;
-	nav {
-		background-color: $panel-nav-bg !important;
-	}
-	.toggle {
-		background-color: $panel-nav-toggle-bg !important;
-	}
+  @extend #header;
+  z-index: 1000;
+  position: fixed !important;
+  nav {
+	top: 0;
+	position: fixed;
+	background-color: $panel-nav-bg !important;
+  }
+  .toggle {
+	background-color: $panel-nav-toggle-bg !important;
+  }
 }
