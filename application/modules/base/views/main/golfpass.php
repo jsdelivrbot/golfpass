@@ -425,7 +425,7 @@
 						<div class="col-12 content-box">
 							<a href="http://golfpass.net/index.php/shop/product/get/3">
 								<div class="d-flex align-items-center p-4 mb-3 content"
-								 	style="height: 150px; background-image: url(/public/sangmin/img/background/bg1.jpg)">
+								 	style="height: 150px; background-image: url(/image/rank_002.png)">
 									<div class='d-flex align-items-center justify-content-center bg-light rounded-circle'>
 										<span class="d-flex align-items-center justify-content-center">1</span>
 									</div>
@@ -439,7 +439,7 @@
 						<div class="col-12 content-box">
 							<a href="http://golfpass.net/index.php/shop/product/get/4">
 								<div class="d-flex align-items-center p-4 mb-3 content"
-								 	style="height: 150px; background-image: url(/public/sangmin/img/background/bg1.jpg)">
+								 	style="height: 150px; background-image: url(/image/rank_002.png)">
 									<div class='d-flex align-items-center justify-content-center bg-light rounded-circle'>
 										<span class="d-flex align-items-center justify-content-center">2</span>
 									</div>
@@ -453,7 +453,7 @@
 						<div class="col-12 content-box">
 							<a href="http://golfpass.net/index.php/shop/product/get/5">
 								<div class="d-flex align-items-center p-4 mb-3 content"
-								 	style="height: 150px; background-image: url(/public/sangmin/img/background/bg1.jpg)">
+								 	style="height: 150px; background-image: url(/image/rank_002.png)">
 									<div class='d-flex align-items-center justify-content-center bg-light rounded-circle'>
 										<span class="d-flex align-items-center justify-content-center">3</span>
 									</div>
