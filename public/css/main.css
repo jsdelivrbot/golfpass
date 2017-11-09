@@ -2425,30 +2425,29 @@ body.menu-open .plus-btn .r2 {
 #main-wrap #section5 {
   font-family: notokr-medium; }
   #main-wrap #section5 .category {
-    padding: 10px 15px 10px 15px; }
+    padding: 10px 15px; }
     #main-wrap #section5 .category button {
       font-family: notokr-demilight;
       font-weight: 500;
       font-size: 14px;
-      margin: 8px 15px 8px 15px;
+      margin: 8px 15px;
       border-radius: 45px; }
       @media (min-width: 768px) {
         #main-wrap #section5 .category button:first-child {
           margin-left: 0; } }
     #main-wrap #section5 .category button.active {
       box-shadow: 0 0 0 0; }
-  #main-wrap #section5 .contents > div {
+  #main-wrap #section5 .content-box .content {
     border-radius: 10px; }
-    #main-wrap #section5 .contents > div .rounded-circle {
+    #main-wrap #section5 .content-box .content span {
+      font-family: notokr-medium;
+      font-size: 20px;
       width: 40px;
       height: 40px; }
-      #main-wrap #section5 .contents > div .rounded-circle span {
-        font-family: notokr-medium;
-        font-size: 20px; }
-    #main-wrap #section5 .contents > div h1 {
+    #main-wrap #section5 .content-box .content h1 {
       font-family: notokr-regular;
       font-size: 30px; }
-    #main-wrap #section5 .contents > div p {
+    #main-wrap #section5 .content-box .content p {
       font-family: notokr-light;
       font-size: 14px; }
   #main-wrap #section5 .list-after-four {

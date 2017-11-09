@@ -379,98 +379,39 @@
 				</div>
 				<div class="row no-gutters">
 					<div class="col-12 col-lg-6">
-						<!--1위부터 3위까지 아래 div.contents반복-->
-						<div class="col-12 contents">
-							<div class="d-flex align-items-center p-4 mb-3"
-								 style="height: 150px; background-image: url(/public/sangmin/img/background/bg1.jpg)">
-								<div class='d-flex align-items-center justify-content-center bg-light rounded-circle'>
-									<span>1</span>
+						<!--1위부터 3위까지 아래 div.content-box-->
+						<div class="col-12 content-box">
+							<a href="#">
+								<div class="d-flex align-items-center p-4 mb-3 content"
+								 	style="height: 150px; background-image: url(/public/sangmin/img/background/bg1.jpg)">
+									<div class='d-flex align-items-center justify-content-center bg-light rounded-circle'>
+										<span class="d-flex align-items-center justify-content-center">1</span>
+									</div>
+									<div class="d-flex flex-column ml-4 text-light">
+										<h1>힐데스 하임 CC</h1>
+										<p class="mb-0">언노운 호텔 추석 연휴 패키지</p>
+									</div>
 								</div>
-								<div class="d-flex flex-column ml-4 text-light">
-									<h1>힐데스 하임 CC</h1>
-									<p class="mb-0">언노운 호텔 추석 연휴 패키지</p>
-								</div>
-							</div>
+							</a>
 						</div>
-						<div class="col-12 contents">
-							<div class="d-flex align-items-center p-4 mb-3"
-								 style="height: 150px; background-image: url(/public/sangmin/img/background/bg1.jpg)">
-								<div class='d-flex align-items-center justify-content-center bg-light rounded-circle'>
-									<span>1</span>
-								</div>
-								<div class="d-flex flex-column ml-4 text-light">
-									<h1>힐데스 하임 CC</h1>
-									<p class="mb-0">언노운 호텔 추석 연휴 패키지</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-12 contents">
-							<div class="d-flex align-items-center p-4 mb-3"
-								 style="height: 150px; background-image: url(/public/sangmin/img/background/bg1.jpg)">
-								<div class='d-flex align-items-center justify-content-center bg-light rounded-circle'>
-									<span>1</span>
-								</div>
-								<div class="d-flex flex-column ml-4 text-light">
-									<h1>힐데스 하임 CC</h1>
-									<p class="mb-0">언노운 호텔 추석 연휴 패키지</p>
-								</div>
-							</div>
-						</div>
-					</div>
 
+					</div>
 					<div class="col-12 col-lg-6">
 						<ul class="list-unstyled">
 							<!--4위부터 ~ li반복 -->
 							<li class='p-3 text-light list-after-four'>
-								<div class="d-flex justify-content-between align-items-center">
-									<div>
-										<p class='mb-0'><span class='mr-3 ml-2'>4</span> 힐데스 하임 CC</p>
+								<a href="#">
+									<div class="d-flex justify-content-between align-items-center">
+										<div>
+											<p class='mb-0'><span class='mr-3 ml-2'>4</span> 힐데스 하임 CC</p>
+										</div>
+										<div>
+											<span>베트남,호치민</span>
+										</div>
 									</div>
-									<div>
-										<span>베트남,호치민</span>
-									</div>
-								</div>
+								</a>
 							</li>
-							<li class='p-3 text-light list-after-four'>
-								<div class="d-flex justify-content-between align-items-center">
-									<div>
-										<p class='mb-0'><span class='mr-3 ml-2'>4</span> 힐데스 하임 CC</p>
-									</div>
-									<div>
-										<span>베트남,호치민</span>
-									</div>
-								</div>
-							</li>
-							<li class='p-3 text-light list-after-four'>
-								<div class="d-flex justify-content-between align-items-center">
-									<div>
-										<p class='mb-0'><span class='mr-3 ml-2'>4</span> 힐데스 하임 CC</p>
-									</div>
-									<div>
-										<span>베트남,호치민</span>
-									</div>
-								</div>
-							</li>
-							<li class='p-3 text-light list-after-four'>
-								<div class="d-flex justify-content-between align-items-center">
-									<div>
-										<p class='mb-0'><span class='mr-3 ml-2'>4</span> 힐데스 하임 CC</p>
-									</div>
-									<div>
-										<span>베트남,호치민</span>
-									</div>
-								</div>
-							</li>
-							<li class='p-3 text-light list-after-four'>
-								<div class="d-flex justify-content-between align-items-center">
-									<div>
-										<p class='mb-0'><span class='mr-3 ml-2'>4</span> 힐데스 하임 CC</p>
-									</div>
-									<div>
-										<span>베트남,호치민</span>
-									</div>
-								</div>
-							</li>
+
 						</ul>
 						<!--전체 순위 보러 가기 -->
 						<div class="row justify-content-center align-items-center">
@@ -484,7 +425,6 @@
 							</a>
 						</div>
 					</div>
-
 				</div>
 			</article>
 		</section>
@@ -532,8 +472,6 @@
 			</div>
 			</article>
 		</section>
-
-
 		<section id="section7" class="mb-lg-5 container-fluid d-flex">
 			<!--유투브 영상-->
 			<article class="w-100">
