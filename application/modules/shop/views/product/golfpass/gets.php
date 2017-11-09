@@ -176,10 +176,7 @@
                                                         <?php 
                                                         
                                                         for($j=0 ; $j< count($products[$i]->photos); $j++){?>
-<<<<<<< HEAD
                                                         <a href="<?=site_url(shop_product_uri."/get/{$products[$i]->id}")?>">
-=======
->>>>>>> a54ce7e3d81f1552db135f2f5a7cc26afe88ef1c
                                                             <img src="<?=$products[$i]->photos[$j]?>"
                                                             alt="Photo of La Posta Vecchia"
                                                             width="467"
