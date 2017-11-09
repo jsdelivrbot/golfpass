@@ -295,7 +295,7 @@
 			                         <figure>
 																	 <div class="position-relative">
 																			 <img class="rounded-top " src="<?=$products_panel[$i]->photos[0]?>" alt="" width="100%">
-																			 <span class="position-absolute text-light price">319,000원</span>
+																			 <span class="position-absolute text-light price"><?=$products_panel[$i]->price?>원</span>
 																	 </div>
 																	 <div class="d-flex align-items-center p-1 text-light rounded-top content">
 																			 <i class="xi-marker-check ml-1 mr-1"></i>

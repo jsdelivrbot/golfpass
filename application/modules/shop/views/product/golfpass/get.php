@@ -183,7 +183,7 @@
 					</ul>
 					<div id='price' class="mt-20 mb-20">
 						<h3 class='mb-3'>가격</h3>
-						<p>15,000,000원</p>
+						<p><?=$product->price?>원</p>
 					</div>
 				</div>
 			</div>

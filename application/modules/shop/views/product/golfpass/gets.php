@@ -210,7 +210,7 @@
                                                                     <span class="hotelcard-details-pricing-label">1인 1박 기준</span>
                                                                 </span>
                                                                 <span class="hotelcard-details-pricing-rate">
-                                                                    <span class="currency-to-convert price currency-show-ex" data-rate-inc="11000" data-rate-ex="10000" data-rate-currency="EUR"><?=$products[$i]->price?></span>
+                                                                    <span class="currency-to-convert price currency-show-ex" data-rate-inc="11000" data-rate-ex="10000" data-rate-currency="EUR"><?=$products[$i]->price?>원</span>
                                                                 </span>
                                                             </p>
                                                         </div>
