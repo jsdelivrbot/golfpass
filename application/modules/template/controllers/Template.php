@@ -99,7 +99,7 @@ class Template extends MX_Controller
         $data['sub_menus'] =$sub_menus;
         $data['menu_id'] =$menu_id;
         $data['sidebar_view'] = 'template/admin_sidebar/sidebar';
-        $this->load->view("admin",$data);
+        $this->load->view("adminLTE",$data);
     }
    
 }

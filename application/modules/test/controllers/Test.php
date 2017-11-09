@@ -12,7 +12,7 @@ class Test extends Public_Controller
      
         
     }
-
+    
     function product($id)
     {
         $this->load->model("shop/products_model");

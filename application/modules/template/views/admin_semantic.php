@@ -16,11 +16,20 @@
   </head>
   <body>
       <!-- 헤더 -->
-    <div class="ui borderless huge menu">
+    <div class="ui fixed borderless huge menu" >
       <div class="ui container grid">
         <div class="computer only row">
-          <a class="header item">Project Name</a><a class="active item">Home</a><a class="item">About</a><a class="item">Contact</a><a class="ui dropdown item">Dropdown<i class="dropdown icon"></i>
-            <div class="menu">
+            
+          <a class="header item">Project Name</a>
+          <?php for($i=0 ; $i < count($main_menus) ; $i++){?>
+
+            <a href="<?=$main_menus[$i]->uri?>" class="item"><?=$main_menus[$i]->name?></a>
+
+            <?php }?>
+
+          <!-- <a class="active item">Home</a> -->
+          <!-- <a class="ui dropdown item">Dropdown<i class="dropdown icon"></i>
+          <div class="menu">
               <div class="item">
                 Action
               </div>
@@ -41,9 +50,8 @@
                 One more seperated link
               </div>
             </div>
-          </a>
-          <div class="right menu">
-          </div>
+          </a> -->
+          <!-- <div class="right menu"> </div> -->
         </div>
         <div class="tablet mobile only row">
           <a class="header item"> Project Name</a>
@@ -114,101 +122,16 @@
             </h1>
           </div>
           <div class="ui divider"></div>
-          <div class="four column center aligned row">
-            <div class="column">
-              <img class="ui centered small circular image" src="/static/images/templates/semantic-ui/wireframe/square-image.png">
-              <div class="ui hidden divider"></div>
-              <div class="ui large green label">
-                Label
-              </div>
-              <p>
-                Something else
-              </p>
-            </div>
-            <div class="column">
-              <img class="ui centered small circular image" src="/static/images/templates/semantic-ui/wireframe/square-image.png">
-              <div class="ui hidden divider"></div>
-              <div class="ui large blue label">
-                Label
-              </div>
-              <p>
-                Something else
-              </p>
-            </div>
-            <div class="column">
-              <img class="ui centered small circular image" src="/static/images/templates/semantic-ui/wireframe/square-image.png">
-              <div class="ui hidden divider"></div>
-              <div class="ui large pink label">
-                Label
-              </div>
-              <p>
-                Something else
-              </p>
-            </div>
-            <div class="column">
-              <img class="ui centered small circular image" src="/static/images/templates/semantic-ui/wireframe/square-image.png">
-              <div class="ui hidden divider"></div>
-              <div class="ui large red label">
-                Label
-              </div>
-              <p>
-                Something else
-              </p>
-            </div>
-          </div>
-          <div class="ui hidden section divider"></div>
-          <div class="row">
-            <h1 class="ui huge header">
-              Section title
-            </h1>
-          </div>
-          <div class="ui divider"></div>
-          <div class="row">
-            <table class="ui single line striped selectable table">
-              <thead>
-                <tr>
-                  <th>
-                    #
-                  </th>
-                  <th>
-                    Header
-                  </th>
-                  <th>
-                    Header
-                  </th>
-                  <th>
-                    Header
-                  </th>
-                  <th>
-                    Header
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    1,001
-                  </td>
-                  <td>
-                    Lorem
-                  </td>
-                  <td>
-                    ipsum
-                  </td>
-                  <td>
-                    dolor
-                  </td>
-                  <td>
-                    sit
-                  </td>
-                </tr>
-                
-              </tbody>
-            </table>
-          </div>
+        
+          <!-- <div class="row"> -->
+            <?php load_view($content_view)?>
+          <!-- </div> -->
+      
         </div>
       </div>
       <!-- 콘텐츠 -->
+    
+      
     </div>
   </div>
     </div>
@@ -297,7 +220,7 @@
       #content {
         margin-left: 19%;
         width: 81%;
-        margin-top: 3em;
+        margin-top: 6em;
         padding-left: 3em;
         float: left;
       }
