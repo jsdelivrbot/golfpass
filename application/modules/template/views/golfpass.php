@@ -155,25 +155,25 @@
 		<ul>
 			<li class="title">OFFICE</li>
 			<li><span>TEL</span>
-				<p>1500-1500</p>
+				<p>02-6959-5454</p>
 			</li>
 		</ul>
 		<ul>
 			<li class="title">CONTACT US</li>
 			<li><span>상호</span>
-				<p>PLAY SEVEN</p>
+				<p>PLAYSEVEN</p>
 			</li>
 			<li><span>대표</span>
-				<p>홍길동</p>
+				<p>황현철</p>
 			</li>
 			<li><span>사업자등록번호</span>
-				<p>000-00-00000</p>
+				<p>280-81-00963</p>
 			</li>
-			<li><span>등록판매업신고번호</span>
-				<p>2017-서울강서-0000호</p>
+			<li><span>통신판매업신고</span>
+				<p>2017-서울강서-1545호</p>
 			</li>
 			<li><span>개인정보관리책임자</span>
-				<p>홍길동</p>
+				<p>황현철</p>
 			</li>
 		</ul>
 		<ul>
