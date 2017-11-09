@@ -56,21 +56,21 @@
 
 <!-- 유저 글쓰기 시작 -->
 <form onsubmit="ajax_submit(this);return false;"action="<?=my_site_url(golfpass_panel_contents_admin_uri."/ajax_add",true)?>" method="post">
-<input placeholder="제목" type="text" name="title" >
-<textarea placeholder="내용" name="desc" rows="10" cols="80">
-</textarea>
+    <input placeholder="제목" type="text" name="title" >
+    <textarea placeholder="내용" name="desc" rows="30" cols="80">
+    </textarea>
 
-<input type="hidden" value="<?=$panel->id?>"name="panel_id">
-<br>
-<input type="submit" value="보내기">
-
+    <input type="hidden" value="<?=$panel->id?>"name="panel_id">
+    <br>
+    <input type="submit" value="보내기">
 </form>
 
 <!-- ckeditor -->
 <script src="<?=domain_url('/public/lib/ckeditor/ckeditor.js')?>"></script>
 <script>
  CKEDITOR.replace( 'desc',{
-    filebrowserUploadUrl: '/index.php<?=common_uri?>/upload_receive_from_ck'
+    filebrowserUploadUrl: '/index.php<?=common_uri?>/upload_receive_from_ck',
+    height: '900px'
  } );
 
 </script>
@@ -83,20 +83,6 @@
 
 
 
-<!-- <iframe src="test" frameborder="0" id="test2">
-<div id="test">test</div>
-</iframe> -->
-<!-- 시작 이메일 인증 팝업 스크립트-->
-<script text="text/javascript">
-function email_auth_popup(){
-    var option = "width=400,height=500";
-    var email = document.querySelector("input[name=email]");
-
-    console.log(email.value);
-    window.open("<?=site_url(user_uri."/email_auth")?>?email="+email.value,'email_auth',option);
-   
-}
-</script>
 <!-- 끝 이메일 인증 팝업 스크립트-->
 
 <!-- 시작 우편번호 daum api script -->

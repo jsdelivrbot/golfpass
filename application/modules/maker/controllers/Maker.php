@@ -19,10 +19,10 @@ class Maker extends Public_Controller
         if( $method[0]!== "_")
             {
                 $url = site_url("/Maker/{$method}");
-                echo "<a href='{$url}'>{$method}</a><br>   ";
+                array_push($publishing,"<a href='{$url}'>{$method}</a><br>   ");
             }
        }
-
+       $data['publishing'] = $publishing;
 
        $data['base'] =array(
         (object)array("name"=>"템플릿(헤더,푸터)","url"=>"없음","view_dir"=>"templete / views / golfpass.php"),
