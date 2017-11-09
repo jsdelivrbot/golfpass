@@ -116,6 +116,7 @@
 				<input type="text" placeholder="관심있는 나라나 골프장을 검색해보세요!">
 			</div>
 		</div>
+		<?php if(!is_login()){?>
 		<div id='nav-icon-box' class="col  d-flex justify-content-end">
 			<div id="login" class="d-flex align-items-center">
 				<span><i class="xi xi-lock"></i></span>
@@ -126,6 +127,7 @@
 				<p class="mb-0"><a style="color:white;"href="<?=site_url(user_uri.'/register_agree_1')?>">회원가입</a></p>
 			</div>
 		</div>
+		<?php }?>
 		<div class="col ml-auto toggle"
 			 onclick="$('body').toggleClass('menu-open'); $('.carousel-indicators').toggleClass('d-none d-flex');">
 			<span>
