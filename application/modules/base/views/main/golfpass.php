@@ -283,6 +283,51 @@
 					 </article>
 			 </section>
 		<section id="section3" class="pt-49 pt-xl-0 mb-5 container-fluid align-items-start align-items-md-center">
+			             <article class="w-100 p-xl-4">
+			                 <div class="row no-gutters main-section-title">
+			                     <h4>골프패스 패널이 추천하는 골프장</h4>
+			                 </div>
+			                 <div class="row position-relative pt-5 items justify-content-around">
+												 <!-- 아래 div반복 -->
+			                     <div class="col-12 col-md-6 col-lg-3 mb-3 d-flex item">
+														  <a href="#">
+			                         <figure>
+																	 <div class="position-relative">
+																			 <img class="rounded-top " src="public/sangmin/img/background/bg1.jpg" alt="" width="100%">
+																			 <span class="position-absolute text-light price">319,000원</span>
+																	 </div>
+																	 <div class="d-flex align-items-center p-1 text-light rounded-top content">
+																			 <i class="xi-marker-check ml-1 mr-1"></i>
+																			 <p class=" mb-0 ">골프장과 숙박 시설이 함께 있는 상품입니다.</p>
+																	 </div>
+																	 <figcaption class="rounded-bottom d-flex align-items-center justify-content-between p-3 bg-light">
+																			 <div>
+																					 <h3>앙시나 골프텔</h3>
+																					 <p class="mb-0">Angsana golftel</p>
+																			 </div>
+																			 <div class="d-flex flex-column align-items-center">
+																					 <span><i class="xi-star"></i></span>
+																					 <span>4.7</span>
+																			 </div>
+																	 </figcaption>
+			                         	</figure>
+															  </a>
+			                     </div>
+			                 </div>
+											  <!-- 없길래 추가함.. -->
+											 <div class="row justify-content-center align-items-center">
+								 				<a href="<?=site_url(golfpass_panel_uri."/gets")?>" class="d-flex justify-content-center align-items-center" style='text-decoration: none'>
+								 					<p class="mb-0 text-light mr-3">
+								 						패널 추천 더보기
+								 					</p>
+								 					<span style='width: 30px;height: 30px'
+								 							class="rounded-circle bg-light d-flex align-items-center justify-content-center"><i
+								 							class="xi xi-angle-right text-dark"></i></span>
+								 				</a>
+								 			</div>
+			             </article>
+			         </section>
+
 		<section id="section4" class="mb-5 container-fluid d-flex align-items-start align-items-md-center">
 			<article class="w-100 p-xl-4">
 				<div class="row no-gutters main-section-title mb-5">
