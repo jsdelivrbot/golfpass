@@ -183,7 +183,7 @@
 					 <ul>
 							 <li class="title">OFFICE</li>
 							 <li><span>TEL</span>
-									 <p>1500-1500</p>
+									 <p>02-6959-5454</p>
 							 </li>
 					 </ul>
 					 <ul>
