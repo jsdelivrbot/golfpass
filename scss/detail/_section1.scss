@@ -1,93 +1,79 @@
 #detail-wrap {
+	#section1 {
+		color: white;
+		@include backcover('../sangmin/img/background/bg2.jpg');
+		position: relative;
+		padding: 120px 15px 30px;
 
-  #section1{
-	color: white;
-	@include  backcover('../sangmin/img/background/bg2.jpg');
-	position: relative;
-	padding:120px 15px 30px 15px;
-	>*{
-	  z-index: 2;
-	}
-	#slide-box {
-	  #slide-img {
-		width: 100%;
-		img {
-		  width: inherit;
+		> * {
+			z-index: 2;
 		}
-	  }
-	  #slide-list {
-		ul {
-		  width: 80%;
-		  li {
-			width: 30%;
-			margin: 5px;
+
+		#detail {
 			position: relative;
-			img {
-			  width: 100%
+			box-sizing: border-box;
+			margin-top: 25px;
+			line-height: 1.2;
+			@media (min-width: 768px) {
+				//sm
+				margin-top: 0;
+				padding-left: 10px;
+				margin-bottom: 10%;
 			}
-		  }
-		}
-	  }
-	}
-	#detail {
 
-	  position: relative;
-	  box-sizing: border-box;
-	  margin-top: 25px;
-	  line-height: 1.2;
-	  @media (min-width: 768px) {
-		//sm
-		margin-top: 0px;
-		padding-left: 10px;
-		margin-bottom: 10%;
-	  }
+			#regine {
+				font-family: 'Noto Sans', sans-serif;
+				font-size: 1rem;
+			}
 
-	  #regine {
-		font-family: 'Noto Sans', sans-serif;
-		font-size: 1rem;
-	  }
-	  #title {
-		margin-top: 12px;
-		margin-right: 50px;
-		font-family: 'TmonMonsori';
-		font-size: 3rem;
-		@media (min-width: 992px) {
-		  padding: 10px;
+			#title {
+				margin-top: 12px;
+				margin-right: 50px;
+				font-family: 'TmonMonsori';
+				font-size: 3rem;
+				@media (min-width: 992px) {
+					padding: 10px;
+				}
+			}
+
+			#content {
+				margin-top: 30px;
+				font-size: 14px;
+				line-height: 1.6;
+				font-family: 'Noto Sans', sans-serif;
+
+				#sub-title {
+					color: $sub-title-color;
+				}
+			}
+
+			#score {
+				position: absolute;
+				right: 3%;
+				top: 10%;
+
+				i {
+					color: $yello-color;
+				}
+				@media (min-width: 768px) {
+					//sm
+					top: 0;
+				}
+			}
 		}
-	  }
-	  #content {
-		margin-top: 30px;
-		font-size: 14px;
-		line-height: 1.6;
-		font-family: 'Noto Sans', sans-serif;
-		#sub-title {
-		  color: $sub-title-color;
-		}
-	  }
-	  #score {
-		position: absolute;
-		right: 3%;
-		top: 10%;
-		i {
-		  color: $yello-color;
-		}
-		@media (min-width: 768px) {
-		  //sm
-		  top: 0;
-		}
-	  }
-	}
-	/*    #chart {
+		/*    #chart {
         width: 22%;
         height: 400px;
     }*/
-	#shadow{
-	  z-index: 1;
-	  position: absolute;
-	  width: 100%; height: 100%;
-	  left: 0; top: 0;
-	  background-color: rgba(0,0,0, 0.4);
-	  overflow-x: hidden;
+		#shadow {
+			z-index: 1;
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			left: 0;
+			top: 0;
+			background-color: rgba(0,0,0, 0.4);
+			overflow-x: hidden;
+		}
 	}
-  }
 }

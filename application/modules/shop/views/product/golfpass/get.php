@@ -77,7 +77,7 @@
                     </figure>
                     <figure class="mb-0 align-items-center d-none d-lg-flex">
                         <a href="/">
-                            <img src="/public/sangmin/img/icon/logo.png" class="" alt="">    
+                            <img src="/public/sangmin/img/icon/logo.png" class="" alt="">
                         </a>
                     </figure>
                     <div class="search-container d-flex align-items-center position-relative">
@@ -124,24 +124,24 @@
         <article class="row no-gutters" id="section1" style="background-image:url('<?=$product_photos[0]->name ?? ''?>') ; padding: 120px 15px 30px 0;">
             <!--NOTE 화면 어둡게-->
             <div id="shadow" style="background-color: rgba(38, 38, 38, 0.85);"></div>
-            <div id='slide-box' class="col-12 col-md-6 col-xl-5">
-                <figure id='slide-img' style="max-width:574px;">
-                    <?php if(isset($product_photos[0]->name)){?>
-                    <img src="<?=$product_photos[0]->name?>" alt="">
-                    <?php }?>
-                </figure>
-                <div id="slide-list" class='d-flex align-items-center justify-content-center'>
-                    <span><i class="xi-angle-left-min"></i></span>
-                    <ul class='d-flex align-items-center justify-content-center list-unstyled'>
-                        <?php for($i = 0 ;$i < count($product_photos);$i++){?>
-                        <li>
-                            <img src="<?=$product_photos[$i]->name?>" alt="" style="width: auto; height: auto; max-width: 76px;">
-                        </li>
-                        <?php }?>
-                    </ul>
-                    <span><i class="xi-angle-right-min"></i></span>
+            <div id='detail_slide' class="col-12 col-md-6 col-xl-5 ">
+      				<div class="slider-for">
+                <!--NOTE 슬라이드 큰화면-->
+                <?php for($i = 0 ;$i < count($product_photos);$i++){?>
+                <div>
+      						<img src="<?=$product_photos[$i]->name?>" alt="">
+      					</div>
+                <?php }?>
+      				</div>
+      				<div class="slider-nav">
+                <!--NOTE 슬라이드 하단 이미지 네비게이션-->
+                <?php for($i = 0 ;$i < count($product_photos);$i++){?>
+                <div>
+                  <img src="<?=$product_photos[$i]->name?>" alt="">
                 </div>
-            </div>
+                <?php }?>
+      				</div>
+      			</div>
             <div id="detail" class='col-12 col-md-6 col-xl-4' style="padding-left:50px;">
                 <div id="score" class="d-flex flex-column align-items-center d-none d-lg-block d-xl-none">
                     <i class="xi xi-star xi-2x"></i>
@@ -609,6 +609,8 @@
     <script src="/public/sangmin/js/jquery.sticky.js"></script>
     <script src="/public/sangmin/js/custom/navAction.js"></script>
     <script src="/public/sangmin/js/custom/search.js"></script>
+    <script src="/public/sangmin/js/slick.js" type="text/javascript" charset="utf-8"></script>
+    	<script src="/public/sangmin/js/custom/detail_slide.js"></script>
     <script>
         var bottomSpacing = document.body.scrollHeight - $('#section1').outerHeight() - $('#section2').outerHeight();
         if ($(window).width() > 992) {
