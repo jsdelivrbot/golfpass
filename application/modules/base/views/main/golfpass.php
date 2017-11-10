@@ -413,11 +413,15 @@
 					<h4>순위별 골프장</h4>
 				</div>
 				<div class="d-flex mb-5 category flex-wrap">
-					<button class="btn btn-outline-light btn-sm active">#평점이 높은 코스</button>
-					<button class="btn btn-outline-light btn-sm">#전략성이 요구되는 코스</button>
-					<button class="btn btn-outline-light btn-sm">#식사가 맛있는 코스</button>
-					<button class="btn btn-outline-light btn-sm">#가성비 좋은 코스</button>
-					<button class="btn btn-outline-light btn-sm">#시설이 화려한 코스</button>
+					<button data-rankingtype="avg_score" class="btn btn-outline-light btn-sm active">#평점이 높은 코스</button>
+					<button data-rankingtype="score_1" class="btn btn-outline-light btn-sm" >#전략성이 요구되는 코스</button>
+					<button data-rankingtype="score_2" class="btn btn-outline-light btn-sm" >#전략성이 요구되는 코스</button>
+					<button data-rankingtype="score_3" class="btn btn-outline-light btn-sm" >#전략성이 요구되는 코스</button>
+					<button data-rankingtype="score_4" class="btn btn-outline-light btn-sm" >#전략성이 요구되는 코스</button>
+					<button data-rankingtype="score_5" class="btn btn-outline-light btn-sm" >#전략성이 요구되는 코스</button>
+					<button data-rankingtype="score_6" class="btn btn-outline-light btn-sm" >#전략성이 요구되는 코스</button>
+					<button data-rankingtype="score_7" class="btn btn-outline-light btn-sm" >#전략성이 요구되는 코스</button>
+					<button data-rankingtype="score_8" class="btn btn-outline-light btn-sm" >#전략성이 요구되는 코스</button>
 				</div>
 				<div class="row no-gutters">
 					<div class="col-12 col-lg-6">
@@ -712,7 +716,24 @@
 <script src="public/sangmin/js/custom/navAction.js"></script>
 <script src="public/sangmin/js/main_section2.js"></script>
 
+<script>
+$('.btn.btn-outline-light.btn-sm').click(function()
+{
+ var rankingType = $(this).data('rankingtype');
 
+$.ajax({
+	method: "POST",
+	url: "<?=site_url(main_uri.'/ajax_gets_by_ranking')?>",
+	data: { rankingType: rankingType },
+	beforeSend: function(){
+	},
+	success: function(data){
+		$("#section5").html(data);
+	}
+});
+
+});
+</script>
 </body>
 
 </html>

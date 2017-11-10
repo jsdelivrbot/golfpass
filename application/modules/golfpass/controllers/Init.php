@@ -16,7 +16,7 @@ class Init extends Init_Controller {
         $this->load->model('golfpass/panels_model');
         $this->load->model('golfpass/panel_contents_model');
         $this->load->model('shop/product_option_model');
-   
+
     }
     function index()
     {
@@ -27,14 +27,37 @@ class Init extends Init_Controller {
         {
             $this->sample_cate_product_add();
             $this->panel_data_add();
-            // $this->sample_panel_add();
         }
-        //$this->panels();
-        //$this->panel_contents()
         $this->p_daily_price();
+     
 
         
-
+        $sample_product_id =$this->products_model->_add(array("name"=>"222 C.C","eng_name"=>"product_name","desc"=>"샘플내용",'hole_count'=>'18'));
+        $this->product_reviews_model->_add(array(
+            "product_id"=>$sample_product_id,
+            'user_id'=>"2",
+            'score_1' => "2",
+            'score_2' => "4",
+            'score_3' => "1",
+            'score_4' => "1",
+            'score_5' => "1",
+            'score_6' => "1",
+            'score_7' => "1",
+            'score_8' => "1"
+        ));
+        $sample_product_id =$this->products_model->_add(array("name"=>"333 C.C","eng_name"=>"product_name","desc"=>"샘플내용",'hole_count'=>'18'));
+        $this->product_reviews_model->_add(array(
+            "product_id"=>$sample_product_id,
+            'user_id'=>"2",
+            'score_1' => "1",
+            'score_2' => "1",
+            'score_3' => "5",
+            'score_4' => "5",
+            'score_5' => "5",
+            'score_6' => "5",
+            'score_7' => "5",
+            'score_8' => "5"
+        ));
     }
  
     function panel_data_add()
@@ -133,13 +156,7 @@ class Init extends Init_Controller {
 
     
     }
-    function sample_panel_add()
-    {
-            //패널
-          
-            // $panel_id=$this->panels_model->_add(array("name"=>"샘플패널1","intro"=>"패널입니다.","photo"=>"/public/images/panel.jpg"));
-            // $panel_id=$this->panel_contents_model->_add(array("panel_id"=>$panel_id,"title"=>"샘플 제목.","desc"=>"샘플 내용입니다"));
-    }
+    
     function p_daily_price()
     {
          //product_categories 테이블 만들기

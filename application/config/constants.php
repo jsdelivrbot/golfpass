@@ -17,6 +17,8 @@ define("view_review_dir","review");
 
 
 
+
+
 define("admin_uri","/admin");
 define("admin_home_uri","/admin/home");
 define("admin_board_uri","/admin/board");
@@ -36,6 +38,7 @@ define("admin_ref_cate_product_uri","/admin/ref_cate_product");
 
 define("admin_hotel_uri","/admin/hotel");
 
+define("main_uri","/base/main");
 define("common_uri","/base/common");
 define("user_uri","/base/user");
 define("page_uri","/base/page");

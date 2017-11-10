@@ -52,12 +52,13 @@ class Products_Model extends Board_Model{
         return $data;
     }
 
+
     function gets_by_category_id($cate_id)
     {
         //product_option 사진들
         $sub_query = "SELECT group_concat(o.name) FROM `product_option` AS `o` WHERE o.product_id= r.product_id AND o.kind = 'photo'";
         //product_reviews 총 평균점수
-        $sub_query2 = "SELECT (avg(score_1)+avg(score_2)+avg(score_3)+avg(score_4)+avg(score_5)+avg(score_6)+avg(score_7)+avg(score_8))/8 FROM product_reviews as r WHERE r.product_id = p.id";
+        $sub_query2 = "SELECT (avg(score_1)+avg(score_2)+avg(score_3)+avg(score_4)+avg(score_5)+avg(score_6)+avg(score_7)+avg(score_8))/8 FROM product_reviews as r WHERE r.product_id = p.id AND r.is_display = 1 AND r.is_secret = 0";
         //호텔 여부
         $sub_query3 = "SELECT concat(p_ref_h.hotel_id) FROM `p_ref_hotel` as p_ref_h WHERE p_ref_h.product_id = p.id";
 
