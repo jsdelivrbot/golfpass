@@ -158,7 +158,7 @@ class User extends Base_Controller
     function logout()
     {
         $this->session->sess_destroy();
-        redirect_return_url("/");
+        redirect_return_url("");
     }
 
     function add()
