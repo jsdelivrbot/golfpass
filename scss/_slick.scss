@@ -1,5 +1,5 @@
-@charset "UTF-8"; /* Slider */
-
+@charset "UTF-8";
+/* Slider */
 .slick-slider {
 	position: relative;
 	display: block;
@@ -75,17 +75,29 @@
 	@media (min-width: 1200px) {
 		left: 60px;
 	}
-}
 
-.slider-nav .slick-slide {
-	margin: 3px 20px;
+	.slick-slide {
+		margin: 3px 20px;
+
+		img {
+			display: block;
+			width: 76px;
+			height: 56px;
+			&:hover {
+				cursor: pointer;
+			}
+		}
+	}
+}
+/*.slider-nav .slick-slide {
+	/*	margin: 3px 20px;
 
 	img {
 		display: block;
 		width: 76px;
 		height: 56px;
 	}
-}
+}*/
 //end
 
 .slick-slide {

@@ -84,22 +84,9 @@
                         <i class="xi xi-search"></i>
                         <input type="text" placeholder="관심있는 나라나 골프장을 검색해보세요!">
                         <!--NOTE 검색결과 창-->
-                        <div class="search-content-container position-absolute w-100 d-none">
-                            <p>검색결과 <span> / 총 7,790,000개</span></p>
-                            <div>
-                                <!--NOTE 검색결과 내용-->
-                                <ul class="search-items">
-                                   <!-- <li class="search-item d-flex align-items-strech">
-                                        <div class="image d-flex align-items-center justify-content-center">
-                                            <img class="rounded-circle" src="/public/images/product.jpg" alt="검색이미지" width="100%;">
-                                        </div>
-                                        <div class="content">
-                                            <div class="title d-flex align-items-center">앙사나골프텔<span class="pl-2 score-icon d-flex"><i class="xi-star"></i><i class="xi-star-o"></i></span><span class="pl-2 score-text">(종합 점수 4.7점)</span></div>
-                                            <div class="article">ad impedit? Similique quaerat cum ipsum inventore, beatae iste consequatur fuga voluptates itaque quae illo velit delectus accusantiumSimilique quaerat cum ipsum inventore, beatae iste consequatur fuga voluptates itaque quae illo velit delectus accusantiumSimilique quaerat cum ipsum inventore, beatae iste consequatur fuga voluptates itaque quae illo velit delectus accusantium.</div>
-                                        </div>
-                                    </li>-->
-                                </ul>
-                            </div>
+                        <div class="search-content-container position-absolute w-100">
+              
+
                         </div>
                     </div>
                 </div>
