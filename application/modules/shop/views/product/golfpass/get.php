@@ -106,7 +106,7 @@
 		<!--NOTE 화면 어둡게-->
 		<div id="shadow" style="background-color: rgba(38, 38, 38, 0.85);"></div>
 		<div id='slide-box' class="col-12 col-md-6 col-xl-5">
-			<figure id='slide-img'>
+			<figure id='slide-img' style="max-width:574px;">
 				<?php if(isset($product_photos[0]->name)){?>
 				<img src="<?=$product_photos[0]->name?>" alt="">
 				<?php }?>
@@ -116,7 +116,7 @@
 				<ul class='d-flex align-items-center justify-content-center list-unstyled'>
 					<?php for($i = 0 ;$i < count($product_photos);$i++){?>
 					<li>
-						<img src="<?=$product_photos[$i]->name?>" alt="">
+						<img src="<?=$product_photos[$i]->name?>" alt="" style="width: auto; height: auto; max-width: 76px;">
 					</li>
 					<?php }?>
 				</ul>
