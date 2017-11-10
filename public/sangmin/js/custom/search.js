@@ -15,6 +15,16 @@ $(function() {
       score:4.5,
       article:'ㄴㅁㄻㄴㄻㄶㅁㄴㅇㅎㄴㅇㅁㅎㄴㅁㅇㅎㄴㅁㅇㅎㄴㅇㅁㅎㄴㅇㅁㅎㄴㅁㅇㅎㄴㅇㅎㄴㅇㅎㄴㅇㅎㄶㅇ'
     },{
+      title:'앙사나골프텔',
+      imagePath:'/public/images/product.jpg',
+      score:4.5,
+      article:'ㄴㅁㄻㄴㄻㄶㅁㄴㅇㅎㄴㅇㅁㅎㄴㅁㅇㅎㄴㅁㅇㅎㄴㅇㅁㅎㄴㅇㅁㅎㄴㅁㅇㅎㄴㅇㅎㄴㅇㅎㄴㅇㅎㄶㅇ'
+    },{
+      title:'앙사나골프텔',
+      imagePath:'/public/images/product.jpg',
+      score:4.5,
+      article:'ㄴㅁㄻㄴㄻㄶㅁㄴㅇㅎㄴㅇㅁㅎㄴㅁㅇㅎㄴㅁㅇㅎㄴㅇㅁㅎㄴㅇㅁㅎㄴㅁㅇㅎㄴㅇㅎㄴㅇㅎㄴㅇㅎㄶㅇ'
+    },{
       title:'앙사나골프텔2',
       imagePath:'/public/images/product.jpg',
       score:3.2,

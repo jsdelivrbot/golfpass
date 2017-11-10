@@ -2135,7 +2135,9 @@ body.menu-open .plus-btn .r2 {
       #header .search-content-container p span, .black-bg-header .search-content-container p span {
         font-family: 'notokr-regular'; }
     #header .search-content-container .search-items, .black-bg-header .search-content-container .search-items {
-      padding: 10px; }
+      padding: 10px;
+      height: 330px;
+      overflow-y: scroll; }
       #header .search-content-container .search-items .search-item, .black-bg-header .search-content-container .search-items .search-item {
         box-sizing: border-box;
         width: 100%;
@@ -2295,7 +2297,9 @@ body.menu-open .plus-btn .r2 {
       #header .search-content-container p span, .black-bg-header .search-content-container p span {
         font-family: 'notokr-regular'; }
     #header .search-content-container .search-items, .black-bg-header .search-content-container .search-items {
-      padding: 10px; }
+      padding: 10px;
+      height: 330px;
+      overflow-y: scroll; }
       #header .search-content-container .search-items .search-item, .black-bg-header .search-content-container .search-items .search-item {
         box-sizing: border-box;
         width: 100%;

@@ -175,7 +175,8 @@
 		}
 		.search-items {
 			padding: 10px;
-
+			height: 330px;
+			overflow-y: scroll;
 			.search-item {
 				box-sizing: border-box;
 				width: 100%;
