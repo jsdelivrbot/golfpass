@@ -1,5 +1,5 @@
-$(function(){
-	$('#section2').css('padding-top',$("nav").height()*2);
+$(function() {
+	$('#section2').css('padding-top', $("nav").height() * 2);
 	for (var i = 0; i < $('.carousel-item').length; i++) {
 		//슬라이드 갯수만큼 셀렉터 만듬..
 		if (i == 0) {
@@ -8,7 +8,7 @@ $(function(){
 			$('<li></li>').attr('data-target', '#section1-slide').attr('data-slide-to', i).appendTo('.carousel-indicators');
 		}
 	}
-	$('html *').on("mousewheel DOMMouseScroll", function (event) {
+	$('html *').on("mousewheel DOMMouseScroll", function(event) {
 		if ($('body').hasClass('menu-open')) {
 			event.preventDefault();
 			event.stopPropagation();
@@ -16,7 +16,7 @@ $(function(){
 			return false;
 		}
 	});
-	$('#section1').on("mousewheel DOMMouseScroll", function (e) {
+	$('#section1').on("mousewheel DOMMouseScroll", function(e) {
 		var delta = 0;
 		if (!event) event = window.event;
 		if (event.wheelDelta) {
@@ -33,11 +33,10 @@ $(function(){
 			scrollTop: moveTop + 'px'
 		}, {
 			duration: 900,
-			complete: function () {
-			}
+			complete: function() {}
 		});
 	});
-	$('#section2').on("mousewheel DOMMouseScroll", function (e) {
+	$('#section2').on("mousewheel DOMMouseScroll", function(e) {
 		if ($('body').hasClass('menu-open')) {
 			return;
 		}
@@ -59,21 +58,34 @@ $(function(){
 					scrollTop: moveTop + 'px'
 				}, {
 					duration: 900,
-					complete: function () {
-					}
+					complete: function() {}
 				});
 			}
 		}
 	});
-	$(window).scroll(function () {
+	$(window).scroll(function() {
 		if ($(this).scrollTop() >= $('#section2').offset().top) {
 			$('#header').addClass('black-bg-header');
 		} else {
 			$('#header').removeClass('black-bg-header');
 		}
 	});
-	$('#bg-div').css('background-image', "url(" + $(".carousel-item.active").children('img').attr("src") + ")");
-	$('#section1-slide').on('slid.bs.carousel', function () {
-		$('#bg-div').css('background-image', "url(" + $(".carousel-item.active").children('img').attr("src") + ")");
+
+	var interval = 7000; //슬라이드 시간
+	$('#section1-slide').carousel({
+		interval: interval,
+		pause: false,
+		ride: "carousel"
+	}, mainSlideChage())
+	$('#section1-slide').on('slid.bs.carousel', function() {
+		mainSlideChage();
 	});
+
+	function mainSlideChage() {
+		$('#bg-div').css('background-image', "url(" + $(".carousel-item.active").children('img').attr("src") + ")");
+		$('#current').css('height', '0');
+		$('#current').stop().animate({
+			'height': '100%'
+		}, interval - 120);
+	}
 })

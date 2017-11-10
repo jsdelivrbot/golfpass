@@ -85,7 +85,7 @@
                         <input type="text" placeholder="관심있는 나라나 골프장을 검색해보세요!">
                         <!--NOTE 검색결과 창-->
                         <div class="search-content-container position-absolute w-100">
-              
+
 
                         </div>
                     </div>

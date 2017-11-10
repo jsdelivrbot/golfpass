@@ -2474,7 +2474,7 @@ body.menu-open .plus-btn .r2 {
       box-sizing: border-box; }
     #main-wrap #section1 #time-border #current {
       position: absolute;
-      height: 60%;
+      height: 0%;
       border: 2px solid white;
       box-sizing: border-box; }
   #main-wrap #section1 #scroll-alert {

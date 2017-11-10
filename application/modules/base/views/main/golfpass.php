@@ -133,7 +133,7 @@
 										<input type="text" placeholder="관심있는 나라나 골프장을 검색해보세요!">
 										<!--NOTE 검색결과 창-->
 										<div class="search-content-container position-absolute w-100">
-			
+
 										</div>
 								</div>
 				</div>
@@ -167,7 +167,7 @@
 		</header>
 		<div id="bg-div" style=""></div>
 		<section id="section1" class="scroll-smooth">
-			<article class="carousel slide" data-ride="carousel" data-interval="7000" id='section1-slide'>
+			<article class="carousel slide" id='section1-slide'>
 				<ol class=" carousel-indicators d-flex flex-column align-items-center">
 				</ol>
 				<div class="carousel-inner">
@@ -627,7 +627,7 @@
 <script src="/public/sangmin/js/jssor.slider-26.5.0.min.js"></script>
 <script src="public/sangmin/js/custom/main.js"></script>
 <script src="public/sangmin/js/custom/navAction.js"></script>
-<script src="public/sangmin/js/main_section2.js"></script>
+<script src="public/sangmin/js/custom/main_section2.js"></script>
 <script src="public/sangmin/js/custom/search.js"></script>
 <script>
 $('.btn.btn-outline-light.btn-sm').click(function()
