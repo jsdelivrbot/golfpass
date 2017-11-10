@@ -103,7 +103,11 @@ class Main extends Base_Controller
         //패널
         $this->load->model("users_model");
         $this->db->limit(10,0);
-        $data['panels'] = $this->users_model->_gets(array("kind"=>"panel"));
+        $this->db->select("u.*, (SELECT count(*) FROM board_contents as c WHERE u.id = c.user_id AND c.board_id = 1) as num_contents");
+        $this->db->where("kind","panel");
+        $this->db->from("users as u");
+        $data['panels'] = $this->db->get()->result();;
+        // $this->users_model->_gets(array("kind"=>"panel"));
 
         // $this->_template('index');
         $this->_view('main/golfpass',$data);

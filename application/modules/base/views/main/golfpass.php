@@ -504,7 +504,7 @@
 							<p class="mb-0" style='max-width: 400px; font-size: 0.9rem; color:#a5a5a5;'><?=$panels[$i]->intro?> </p>
 							<div class="position-absolute review-box">
 		                            <span>
-		                                <i class="xi-pen"></i> ??개
+		                                <i class="xi-pen"></i> <?=$panels[$i]->num_contents?>개
 		                            </span></div>
 						</a>
 						</div>
