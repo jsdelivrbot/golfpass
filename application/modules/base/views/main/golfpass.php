@@ -413,15 +413,15 @@
 					<h4>순위별 골프장</h4>
 				</div>
 				<div class="d-flex mb-5 category flex-wrap">
-					<button data-rankingtype="avg_score" class="btn btn-outline-light btn-sm active">#평점이 높은 코스</button>
-					<button data-rankingtype="score_1" class="btn btn-outline-light btn-sm" >#전략성이 요구되는 코스</button>
-					<button data-rankingtype="score_2" class="btn btn-outline-light btn-sm" >#전략성이 요구되는 코스</button>
-					<button data-rankingtype="score_3" class="btn btn-outline-light btn-sm" >#전략성이 요구되는 코스</button>
-					<button data-rankingtype="score_4" class="btn btn-outline-light btn-sm" >#전략성이 요구되는 코스</button>
-					<button data-rankingtype="score_5" class="btn btn-outline-light btn-sm" >#전략성이 요구되는 코스</button>
-					<button data-rankingtype="score_6" class="btn btn-outline-light btn-sm" >#전략성이 요구되는 코스</button>
-					<button data-rankingtype="score_7" class="btn btn-outline-light btn-sm" >#전략성이 요구되는 코스</button>
-					<button data-rankingtype="score_8" class="btn btn-outline-light btn-sm" >#전략성이 요구되는 코스</button>
+					<button data-rankingtype="avg_score" class="btn btn-outline-light btn-sm active">#평균</button>
+					<button data-rankingtype="score_1" class="btn btn-outline-light btn-sm" >#score_1</button>
+					<button data-rankingtype="score_2" class="btn btn-outline-light btn-sm" >#score_2</button>
+					<button data-rankingtype="score_3" class="btn btn-outline-light btn-sm" >#score_3</button>
+					<button data-rankingtype="score_4" class="btn btn-outline-light btn-sm" >#score_4</button>
+					<button data-rankingtype="score_5" class="btn btn-outline-light btn-sm" >#score_5</button>
+					<button data-rankingtype="score_6" class="btn btn-outline-light btn-sm" >#score_6</button>
+					<button data-rankingtype="score_7" class="btn btn-outline-light btn-sm" >#score_7</button>
+					<button data-rankingtype="score_8" class="btn btn-outline-light btn-sm" >#score_8</button>
 				</div>
 				<div class="row no-gutters">
 					<div class="col-12 col-lg-6">
