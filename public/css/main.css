@@ -2055,11 +2055,12 @@ body.menu-open .plus-btn .r2 {
         height: 15px;
         border-left: 2px solid white;
         margin: 0 20px; }
-      #header nav#md-nav #logo #search, .black-bg-header nav#md-nav #logo #search {
+      #header nav#md-nav #logo .search-container, .black-bg-header nav#md-nav #logo .search-container {
+        padding: 10px;
         width: 100%; }
-        #header nav#md-nav #logo #search i, .black-bg-header nav#md-nav #logo #search i {
+        #header nav#md-nav #logo .search-container i, .black-bg-header nav#md-nav #logo .search-container i {
           font-size: 1rem; }
-        #header nav#md-nav #logo #search input, .black-bg-header nav#md-nav #logo #search input {
+        #header nav#md-nav #logo .search-container input, .black-bg-header nav#md-nav #logo .search-container input {
           width: 100%;
           background-color: inherit;
           border: 0;
@@ -2067,9 +2068,18 @@ body.menu-open .plus-btn .r2 {
           opacity: 0.4;
           outline: 0;
           color: white;
-          padding-left: 10px; }
-          #header nav#md-nav #logo #search input::placeholder, .black-bg-header nav#md-nav #logo #search input::placeholder {
+          padding-left: 5px; }
+          #header nav#md-nav #logo .search-container input::placeholder, .black-bg-header nav#md-nav #logo .search-container input::placeholder {
             color: white; }
+      #header nav#md-nav #logo .search-container.focus, .black-bg-header nav#md-nav #logo .search-container.focus {
+        background: white; }
+        #header nav#md-nav #logo .search-container.focus i, .black-bg-header nav#md-nav #logo .search-container.focus i,
+        #header nav#md-nav #logo .search-container.focus input,
+        .black-bg-header nav#md-nav #logo .search-container.focus input,
+        #header nav#md-nav #logo .search-container.focus input::placeholder,
+        .black-bg-header nav#md-nav #logo .search-container.focus input::placeholder {
+          font-weight: bold;
+          color: #4b4b4b; }
     #header nav#md-nav #nav-icon-box, .black-bg-header nav#md-nav #nav-icon-box {
       padding-right: 16px; }
       #header nav#md-nav #nav-icon-box div, .black-bg-header nav#md-nav #nav-icon-box div {
@@ -2097,6 +2107,75 @@ body.menu-open .plus-btn .r2 {
         font-size: 1.3rem;
         padding-right: 15px;
         text-align: right; }
+  #header .search-content-container, .black-bg-header .search-content-container {
+    background-color: white;
+    left: 0;
+    width: 70%;
+    max-width: 800px;
+    min-width: 500px;
+    top: 65px;
+    color: #bbbcbd;
+    min-height: 100px;
+    border-radius: 5px; }
+    #header .search-content-container::before, .black-bg-header .search-content-container::before {
+      content: '';
+      min-width: 15px;
+      left: 35px;
+      top: -7.5px;
+      min-height: 15px;
+      transform: rotate(45deg);
+      position: absolute;
+      background-color: white; }
+    #header .search-content-container p, .black-bg-header .search-content-container p {
+      font-family: 'notokr-medium';
+      padding: 20px;
+      margin: 0;
+      color: #bbbcbd;
+      border-bottom: 1px solid #d9d9d9; }
+      #header .search-content-container p span, .black-bg-header .search-content-container p span {
+        font-family: 'notokr-regular'; }
+    #header .search-content-container .search-items, .black-bg-header .search-content-container .search-items {
+      padding: 10px; }
+      #header .search-content-container .search-items .search-item, .black-bg-header .search-content-container .search-items .search-item {
+        box-sizing: border-box;
+        width: 100%;
+        height: 90px;
+        overflow: hidden;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #d9d9d9; }
+        #header .search-content-container .search-items .search-item:not(:first-child), .black-bg-header .search-content-container .search-items .search-item:not(:first-child) {
+          padding-top: 10px; }
+        #header .search-content-container .search-items .search-item .image, .black-bg-header .search-content-container .search-items .search-item .image {
+          width: 15%; }
+          #header .search-content-container .search-items .search-item .image img, .black-bg-header .search-content-container .search-items .search-item .image img {
+            max-width: 50px;
+            max-height: 50px;
+            min-width: 45px;
+            min-height: 45px; }
+        #header .search-content-container .search-items .search-item .content, .black-bg-header .search-content-container .search-items .search-item .content {
+          width: 85%;
+          font-size: 16px; }
+          #header .search-content-container .search-items .search-item .content .title, .black-bg-header .search-content-container .search-items .search-item .content .title {
+            font-family: 'notokr-medium';
+            color: #4b4b4b;
+            font-size: 20px;
+            margin-bottom: 5px; }
+            #header .search-content-container .search-items .search-item .content .title .score-icon i, .black-bg-header .search-content-container .search-items .search-item .content .title .score-icon i {
+              color: #fcbf3f !important; }
+            #header .search-content-container .search-items .search-item .content .title .score-text, .black-bg-header .search-content-container .search-items .search-item .content .title .score-text {
+              font-size: 12px; }
+          #header .search-content-container .search-items .search-item .content .article, .black-bg-header .search-content-container .search-items .search-item .content .article {
+            height: 40px;
+            overflow: hidden;
+            font-size: 14px;
+            color: #4b4b4b;
+            white-space: normal;
+            line-height: 1.5;
+            text-align: left;
+            word-wrap: break-word;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical; }
 
 #header, .black-bg-header {
   position: absolute; }
@@ -2136,11 +2215,12 @@ body.menu-open .plus-btn .r2 {
         height: 15px;
         border-left: 2px solid white;
         margin: 0 20px; }
-      #header nav#md-nav #logo #search, .black-bg-header nav#md-nav #logo #search {
+      #header nav#md-nav #logo .search-container, .black-bg-header nav#md-nav #logo .search-container {
+        padding: 10px;
         width: 100%; }
-        #header nav#md-nav #logo #search i, .black-bg-header nav#md-nav #logo #search i {
+        #header nav#md-nav #logo .search-container i, .black-bg-header nav#md-nav #logo .search-container i {
           font-size: 1rem; }
-        #header nav#md-nav #logo #search input, .black-bg-header nav#md-nav #logo #search input {
+        #header nav#md-nav #logo .search-container input, .black-bg-header nav#md-nav #logo .search-container input {
           width: 100%;
           background-color: inherit;
           border: 0;
@@ -2148,9 +2228,18 @@ body.menu-open .plus-btn .r2 {
           opacity: 0.4;
           outline: 0;
           color: white;
-          padding-left: 10px; }
-          #header nav#md-nav #logo #search input::placeholder, .black-bg-header nav#md-nav #logo #search input::placeholder {
+          padding-left: 5px; }
+          #header nav#md-nav #logo .search-container input::placeholder, .black-bg-header nav#md-nav #logo .search-container input::placeholder {
             color: white; }
+      #header nav#md-nav #logo .search-container.focus, .black-bg-header nav#md-nav #logo .search-container.focus {
+        background: white; }
+        #header nav#md-nav #logo .search-container.focus i, .black-bg-header nav#md-nav #logo .search-container.focus i,
+        #header nav#md-nav #logo .search-container.focus input,
+        .black-bg-header nav#md-nav #logo .search-container.focus input,
+        #header nav#md-nav #logo .search-container.focus input::placeholder,
+        .black-bg-header nav#md-nav #logo .search-container.focus input::placeholder {
+          font-weight: bold;
+          color: #4b4b4b; }
     #header nav#md-nav #nav-icon-box, .black-bg-header nav#md-nav #nav-icon-box {
       padding-right: 16px; }
       #header nav#md-nav #nav-icon-box div, .black-bg-header nav#md-nav #nav-icon-box div {
@@ -2178,6 +2267,75 @@ body.menu-open .plus-btn .r2 {
         font-size: 1.3rem;
         padding-right: 15px;
         text-align: right; }
+  #header .search-content-container, .black-bg-header .search-content-container {
+    background-color: white;
+    left: 0;
+    width: 70%;
+    max-width: 800px;
+    min-width: 500px;
+    top: 65px;
+    color: #bbbcbd;
+    min-height: 100px;
+    border-radius: 5px; }
+    #header .search-content-container::before, .black-bg-header .search-content-container::before {
+      content: '';
+      min-width: 15px;
+      left: 35px;
+      top: -7.5px;
+      min-height: 15px;
+      transform: rotate(45deg);
+      position: absolute;
+      background-color: white; }
+    #header .search-content-container p, .black-bg-header .search-content-container p {
+      font-family: 'notokr-medium';
+      padding: 20px;
+      margin: 0;
+      color: #bbbcbd;
+      border-bottom: 1px solid #d9d9d9; }
+      #header .search-content-container p span, .black-bg-header .search-content-container p span {
+        font-family: 'notokr-regular'; }
+    #header .search-content-container .search-items, .black-bg-header .search-content-container .search-items {
+      padding: 10px; }
+      #header .search-content-container .search-items .search-item, .black-bg-header .search-content-container .search-items .search-item {
+        box-sizing: border-box;
+        width: 100%;
+        height: 90px;
+        overflow: hidden;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #d9d9d9; }
+        #header .search-content-container .search-items .search-item:not(:first-child), .black-bg-header .search-content-container .search-items .search-item:not(:first-child) {
+          padding-top: 10px; }
+        #header .search-content-container .search-items .search-item .image, .black-bg-header .search-content-container .search-items .search-item .image {
+          width: 15%; }
+          #header .search-content-container .search-items .search-item .image img, .black-bg-header .search-content-container .search-items .search-item .image img {
+            max-width: 50px;
+            max-height: 50px;
+            min-width: 45px;
+            min-height: 45px; }
+        #header .search-content-container .search-items .search-item .content, .black-bg-header .search-content-container .search-items .search-item .content {
+          width: 85%;
+          font-size: 16px; }
+          #header .search-content-container .search-items .search-item .content .title, .black-bg-header .search-content-container .search-items .search-item .content .title {
+            font-family: 'notokr-medium';
+            color: #4b4b4b;
+            font-size: 20px;
+            margin-bottom: 5px; }
+            #header .search-content-container .search-items .search-item .content .title .score-icon i, .black-bg-header .search-content-container .search-items .search-item .content .title .score-icon i {
+              color: #fcbf3f !important; }
+            #header .search-content-container .search-items .search-item .content .title .score-text, .black-bg-header .search-content-container .search-items .search-item .content .title .score-text {
+              font-size: 12px; }
+          #header .search-content-container .search-items .search-item .content .article, .black-bg-header .search-content-container .search-items .search-item .content .article {
+            height: 40px;
+            overflow: hidden;
+            font-size: 14px;
+            color: #4b4b4b;
+            white-space: normal;
+            line-height: 1.5;
+            text-align: left;
+            word-wrap: break-word;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical; }
 
 .black-bg-header {
   z-index: 1000;
@@ -2209,7 +2367,7 @@ body.menu-open .plus-btn .r2 {
     right: 0;
     position: absolute;
     height: 100%;
-    background-color: rgba(32, 32, 32, 0.5);
+    background-color: rgba(38, 38, 38, 0.85);
     width: 100%; }
 #main-wrap .main-section-title {
   color: white;
