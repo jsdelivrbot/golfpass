@@ -32,32 +32,32 @@ class Init extends Init_Controller {
      
 
         
-        $sample_product_id =$this->products_model->_add(array("name"=>"222 C.C","eng_name"=>"product_name","desc"=>"샘플내용",'hole_count'=>'18'));
-        $this->product_reviews_model->_add(array(
-            "product_id"=>$sample_product_id,
-            'user_id'=>"2",
-            'score_1' => "2",
-            'score_2' => "4",
-            'score_3' => "1",
-            'score_4' => "1",
-            'score_5' => "1",
-            'score_6' => "1",
-            'score_7' => "1",
-            'score_8' => "1"
-        ));
-        $sample_product_id =$this->products_model->_add(array("name"=>"333 C.C","eng_name"=>"product_name","desc"=>"샘플내용",'hole_count'=>'18'));
-        $this->product_reviews_model->_add(array(
-            "product_id"=>$sample_product_id,
-            'user_id'=>"2",
-            'score_1' => "1",
-            'score_2' => "1",
-            'score_3' => "5",
-            'score_4' => "5",
-            'score_5' => "5",
-            'score_6' => "5",
-            'score_7' => "5",
-            'score_8' => "5"
-        ));
+        // $sample_product_id =$this->products_model->_add(array("name"=>"222 C.C","eng_name"=>"product_name","desc"=>"샘플내용",'hole_count'=>'18'));
+        // $this->product_reviews_model->_add(array(
+        //     "product_id"=>$sample_product_id,
+        //     'user_id'=>"2",
+        //     'score_1' => "2",
+        //     'score_2' => "4",
+        //     'score_3' => "1",
+        //     'score_4' => "1",
+        //     'score_5' => "1",
+        //     'score_6' => "1",
+        //     'score_7' => "1",
+        //     'score_8' => "1"
+        // ));
+        // $sample_product_id =$this->products_model->_add(array("name"=>"333 C.C","eng_name"=>"product_name","desc"=>"샘플내용",'hole_count'=>'18'));
+        // $this->product_reviews_model->_add(array(
+        //     "product_id"=>$sample_product_id,
+        //     'user_id'=>"2",
+        //     'score_1' => "1",
+        //     'score_2' => "1",
+        //     'score_3' => "5",
+        //     'score_4' => "5",
+        //     'score_5' => "5",
+        //     'score_6' => "5",
+        //     'score_7' => "5",
+        //     'score_8' => "5"
+        // ));
     }
  
     function panel_data_add()
