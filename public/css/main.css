@@ -2464,19 +2464,18 @@ body.menu-open .plus-btn .r2 {
   #main-wrap #section1 #time-border {
     position: absolute;
     height: 70%;
-    left: 2.5%;
+    left: 30px;
     top: 15%; }
     #main-wrap #section1 #time-border #bar {
       position: absolute;
       height: 100%;
-      opacity: 0.5;
+      opacity: 0.2;
       border: 2px solid white;
       box-sizing: border-box; }
     #main-wrap #section1 #time-border #current {
       position: absolute;
       height: 60%;
-      left: -1px;
-      border: 3px solid white;
+      border: 2px solid white;
       box-sizing: border-box; }
   #main-wrap #section1 #scroll-alert {
     position: absolute;
