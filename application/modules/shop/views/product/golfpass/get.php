@@ -102,7 +102,7 @@
 		</nav>
 	</header>
 	<!--NOTE 상단 슬라이드 + 내용 + chart-->
-	<article class="row no-gutters" id="section1">
+	<article class="row no-gutters" id="section1" style="background-image:url('<?=$product_photos[0]->name ?? ''?>') ;">
 		<!--NOTE 화면 어둡게-->
 		<div id="shadow"></div>
 		<div id='slide-box' class="col-12 col-md-6 col-xl-5">
@@ -126,7 +126,7 @@
 		<div id="detail" class='col-12 col-md-6 col-xl-4'>
 			<div id="score" class="d-flex flex-column align-items-center d-none d-lg-block d-xl-none">
 				<i class="xi xi-star xi-2x"></i>
-				<span>5.2</span>
+				<span><?=$product->avg_score?></span>
 			</div>
 			<p id="regine">
 			<?=$product->region?>

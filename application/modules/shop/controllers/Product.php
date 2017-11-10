@@ -51,7 +51,7 @@ class Product extends Base_Controller {
         // $data['hotel'] = $this->db->select("*")
         // ->from("")
         //product
-        $data['product'] = $this->products_model->_get($id);
+        $data['product'] = $this->products_model->get($id);
         
         //product_option
         $this->load->model("product_option_model");
