@@ -161,7 +161,7 @@
 				</div>
 			</nav>
 		</header>
-		<div id="bg-div" style=""></div>
+		<div id="bg-div" style="background-color: rgba(38, 38, 38, 0.85);"></div>
 		<section id="section1" class="scroll-smooth">
 			<article class="carousel slide" data-ride="carousel" data-interval="7000" id='section1-slide'>
 				<ol class=" carousel-indicators d-flex flex-column align-items-center">
