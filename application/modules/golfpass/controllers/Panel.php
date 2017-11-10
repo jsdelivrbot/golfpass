@@ -9,9 +9,10 @@ class Panel extends Base_Controller {
             'table'=>'panels',
             'view_dir'=>'panel'
         ));
-        // $this->panel_per_page = 4;
-        $this->panel_per_page = 2;
+        $this->panel_per_page = 4;
+        // $this->panel_per_page = 2;
         $this->content_per_page = 10;
+        // $this->content_per_page = 1;
     }
     function get($id)
     {
@@ -50,7 +51,10 @@ class Panel extends Base_Controller {
         $data['panels'] = $this->db->limit($this->panel_per_page,0)->get("panels")->result();
 
         if($panel_id !== null)
+        {
             $this->db->where("panel_id",$panel_id);
+            $config['id'] = $panel_id;
+        }
         $num_rows = $this->db->count_all_results("panel_contents");
         $config['target']      = '.ajax_taget_content_list';
         $config['base_url']    =site_url(golfpass_panel_uri.'/ajax_pgi_contents');

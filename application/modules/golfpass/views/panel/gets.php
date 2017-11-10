@@ -13,21 +13,23 @@
 								  <?php for($i=0; $i< count($panels);$i++){?>
 									 	<div class="col-6 col-md-3 panel">
 											 	<div class="d-flex flex-column justify-content-center align-items-center">
-													 	<img src="<?=$panels[$i]->photo?>" class="rounded-circle" alt="" style="width: 140px;">
+												 <a href="javascript:void(0);" onclick="getData('.ajax_taget_content_list',0,'<?=site_url(golfpass_panel_uri."/ajax_pgi_contents/")?>',<?=$panels[$i]->id?>)">
+														 <img src="<?=$panels[$i]->photo?>" class="rounded-circle" alt="" style="width: 140px;">
 													 	<div class="panel-content text-center">
 															<p><?=$panels[$i]->name?></p>
 														 <p class="intro"><?=$panels[$i]->intro?></p>
 													 	</div>
+												</a>
 											 	</div>
 									 	</div>
 							 		<?php }?>
 							 </article>
-							 TODO 문법을 몰라서 그냥둠..
+							 <!-- TODO 문법을 몰라서 그냥둠.. -->
 							 <div class="col-12 d-flex justify-content-center align-items-center pagination">
 							 <?php echo $this->ajax_pgi_1->create_links(); ?>
 							 </div>
 
-							 <!-- 페이지네이션 -->
+							 <!-- 페이지네이션 샘플 -->
 							 <!-- <div class="col-12 d-flex justify-content-center align-items-center pagination">
 									 <div class="prev"><a href="#"><i class="xi xi-angle-left-min"></i></a></div>
 									 <ul class="d-flex list-unstyled justify-content-center mb-0">
@@ -38,9 +40,10 @@
 									 </ul>
 									 <div class="next"><a href="#"><i class="xi xi-angle-right-min"></i></a></div>
 							 </div> -->
-							 <!-- 페이지네이션 -->
+							 <!-- 페이지네이션 샘플 -->
 					 </section>
-					 <section id='content-boxs' class="row justify-content-center">
+				
+					 <section id='content-boxs' class="ajax_taget_content_list row justify-content-center">
 						  <?php for($i=0; $i< count($panel_contents);$i++){?>
 							 <div class="content-box col-12 row">
 
@@ -62,20 +65,26 @@
 
 							 </div>
 							<?php }?>
-							 <!-- TODO 문법을 몰라서 그냥둠..
+							 <!-- TODO 문법을 몰라서 그냥둠.. -->
 								<div class="col-12 d-flex justify-content-center align-items-center pagination">
 							    	<?php echo $this->ajax_pgi_2->create_links(); ?>
-								</div>-->
-							 <div class="col-12 d-flex justify-content-center align-items-center pagination">
-									 <div class="prev"><a href="#"><i class="xi xi-angle-left-min"></i></a></div>
+								</div>
+								<!-- 페이지네이션 샘플 -->
+							 <!-- <div class="col-12 d-flex justify-content-center align-items-center pagination">
+									 <div class="prev">
+									 	<a href="#"><i class="xi xi-angle-left-min"></i></a>
+									 </div>
 									 <ul class="d-flex list-unstyled justify-content-center mb-0">
 											 <li class="current"><a href="#">01</a></li>
 											 <li><a href="#">02</a></li>
 											 <li><a href="#">03</a></li>
 											 <li><a href="#">04</a></li>
 									 </ul>
-									 <div class="next"><a href="#"><i class="xi xi-angle-right-min"></i></a></div>
-							 </div>
+									 <div class="next">
+									 <a href="#"><i class="xi xi-angle-right-min"></i></a>
+									 </div>
+							 </div> -->
+							<!-- 페이지네이션 샘플 -->
 					 </section>
 			 </article>
 

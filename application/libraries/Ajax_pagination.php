@@ -19,34 +19,53 @@ class Ajax_pagination{
     var $per_page        = 10;
     var $num_links       =  2;
     var $cur_page        =  0;
-    var $first_link      = '처음';
-    var $next_link       = '다음';
-    var $prev_link       = "이전";
-    var $last_link       = '끝';
+    
+    
     var $uri_segment     = 3;
+    
+    var $first_link      = '';
+    var $last_link       = '';
 
+    //전체감싸기 태그
+    // var $full_tag_open   = '<div class="pagination">';
+    // var $full_tag_close  = '</div>';
+    var $full_tag_open   = '';
+    var $full_tag_close  = '';
 
-    var $full_tag_open   = '<div class="pagination">';
-    var $full_tag_close  = '</div>';
+    //처음으로
     var $first_tag_open  = '<div class="first">';
     var $first_tag_close = '</div>&nbsp;';
+    //끝으로
     var $last_tag_open   = '&nbsp;';
     var $last_tag_close  = '';
 
-    var $cur_tag_open    = '&nbsp;<b>';
-    var $cur_tag_close   = '</b>';
-    var $num_tag_open    = '<div class="num">&nbsp;';
-    var $num_tag_close   = '</div>';
+    //현재 페이지부터 각페이지 전체 감싸기;
+    var $num_link_tag_open = '<ul class="d-flex list-unstyled justify-content-center mb-0">';
+    var $num_link_tag_close ='</ul>';
 
-    var $next_tag_open   = '&nbsp;<div class="next">';
+    //현재 페이지
+    // var $cur_tag_open    = '&nbsp;<b>';
+    // var $cur_tag_close   = '</b>';
+    var $cur_tag_open    = ' <li class="current"><a>';
+    var $cur_tag_close   = '</a></li>';
+
+    //각 페이지
+    var $num_tag_open    = '<li>';
+    var $num_tag_close   = '</li>';
+    var $anchor_class    = '';
+
+    // 다음링크
+    var $next_link       = '<i class="xi xi-angle-right-min"></i>';
+    var $next_tag_open   = '<div class="next">';
     var $next_tag_close  = '</div>';
-    var $prev_tag_open   = '&nbsp;';
-    var $prev_tag_close  = '';
-
     
+    // 이전링크
+    var $prev_link       = '<i class="xi xi-angle-left-min"></i>';
+    var $prev_tag_open   = '<div class="prev">';
+    var $prev_tag_close  = '</div>';
+
 
     var $target          = '';
-    var $anchor_class    = '';
     var $show_count      = true;
     var $link_func       = 'getData';
     var $loading         = '.loading';
@@ -202,19 +221,26 @@ class Ajax_pagination{
         }
 
         // Write the digit links
+        $output .=$this->num_link_tag_open;
         for ($loop = $start -1; $loop <= $end; $loop++){
             $i = ($loop * $this->per_page) - $this->per_page;    
             if ($i >= 0){
+                if(strlen((string)$loop) === 1)
+                {
+                    $tmp_loop = "0{$loop}";
+                }
                 if ($this->cur_page == $loop){
-                    $output .= $this->cur_tag_open.$loop.$this->cur_tag_close; // Current page
+                 
+                    $output .= $this->cur_tag_open.$tmp_loop.$this->cur_tag_close; // Current page
                 }else{
                     $n = ($i == 0) ? '' : $i;
                     $output .= $this->num_tag_open
-                        . $this->getAJAXlink( $n, $loop )
+                        . $this->getAJAXlink( $n, $tmp_loop )
                         . $this->num_tag_close;
                 }
             }
         }
+        $output .=$this->num_link_tag_close;
 
         // Render the "next" link
         if ($this->cur_page < $num_pages){
@@ -240,6 +266,8 @@ class Ajax_pagination{
     }
 
     function getAJAXlink($count, $text) {
+      
+    
         $pageCount = $count?$count:0;
         // return '<a href="javascript:void(0);"' . $this->anchor_class . ' onclick="'.$this->link_func.'('.$pageCount.')">'. $text .'</a>';
         return "<a href='javascript:void(0);'  {$this->anchor_class}   onclick=\"{$this->link_func}('{$this->target}',{$pageCount},'{$this->base_url}',$this->id)\"> $text </a>";
