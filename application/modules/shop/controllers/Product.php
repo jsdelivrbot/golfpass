@@ -39,7 +39,10 @@ class Product extends Base_Controller {
         $this->_template("gets",$data,'golfpass');
          
     }
-    
+    function gets_by_ranking()
+    {
+        $this->_template("gets_by_ranking",array(),'golfpass');
+    }
     
 	public function get($id =1){
         $this->products_model->_hits_plus($id);

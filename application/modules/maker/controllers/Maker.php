@@ -37,6 +37,7 @@ class Maker extends Public_Controller
         (object)array("name"=>"상품","url"=>site_url(shop_product_uri."/get/1"),"view_dir"=>"shop / views / product / golfpass / get.php"),
         (object)array("name"=>"상품목록","url"=>site_url(shop_product_uri."/gets/1"),"view_dir"=>"shop / views / product / golfpass / gets.php"),
         (object)array("name"=>"상품카테고리","url"=>site_url(shop_category_uri."/gets/1"),"view_dir"=>"shop / views / category / golfpass / gets.php"),
+        (object)array("name"=>"상품 전체 순위표","url"=>site_url(shop_category_uri."/gets/1"),"view_dir"=>"shop / views / product / golfpass / gets_by_ranking.php"),
         (object)array("name"=>"마이페이지","url"=>site_url(shop_mypage_uri."/index"),"view_dir"=>"shop / views / mypage / index.php")
         // (object)array("name"=>"위시리스트","url"=>site_url(shop_wishlist_uri."/index"),"view_dir"=>"shop/views/wishlist/index.php"),
      );
