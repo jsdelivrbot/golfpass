@@ -291,7 +291,7 @@
 			</div>
 		</section>
 		<?php }?>
-		<section class="col-12" id="article-section-5">
+		<section class="col-md-7 col-lg-8 col-xl-9" id="article-section-5">
 			<div class='d-flex flex-column title-box'>
 				<span>0<?=$number++?></span>
 				<h1 class="mt-13">취소/환불</h1>
@@ -345,7 +345,7 @@
 	</article>
 	<section id="section-map"></section>
 	<!--TODO 리뷰  데이터 X-->
-	<section id="section3" class='row no-gutters'>
+	<section id="section3" class='row no-gutters' style="width:80%; margin:0 auto; margin-top:100px;">
 		<div class="col-12 review-warning-text d-flex justify-content-center">
 			<div class="d-flex flex-column align-items-center">
 				<span class="mt-20 mb-10">리뷰</span>
