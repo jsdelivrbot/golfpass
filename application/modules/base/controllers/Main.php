@@ -49,9 +49,14 @@ class Main extends Base_Controller
         $data['products_panel'] =$products_panel;
 
         //패널
-        $this->load->model("golfpass/panels_model");
+        // $this->load->model("golfpass/panels_model");
+        // $this->db->limit(10,0);
+        // $data['panels'] = $this->panels_model->_gets();
+
+        
+        $this->load->model("users_model");
         $this->db->limit(10,0);
-        $data['panels'] = $this->panels_model->_gets();
+        $data['panels'] = $this->users_model->_gets(array("kind"=>"panel"));
 
         // $this->_template('index');
         $this->_view('main/golfpass',$data);

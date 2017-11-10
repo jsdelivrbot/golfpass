@@ -86,11 +86,12 @@ class Board_contents_Model extends Board_Model{
     }
  
    
-    function gets()
+    function gets($where_obj)
     {
-        $this->db->select("c.id, c.title, c.desc, c.created ,if(c.user_id = 0, c.guest_name, u.name) 'user_name', if(c.user_id = 0, '손님', u.userName) 'userName'");
+        $this->db->select("u.*,c.id, c.title, c.desc, c.created ,if(c.user_id = 0, c.guest_name, u.name) 'user_name', if(c.user_id = 0, '손님', u.userName) 'userName'");
         $this->db->from("$this->table AS c");
         $this->db->join("users AS u","c.user_id = u.id","LEFT");
+        $this->_where_by_obj($where_obj);
         $rows = $this->db->get()->result();
 
         return $rows;

@@ -66,7 +66,7 @@ class Template extends MX_Controller
             'user' => array(
                 (object)array('name'=>'회원관리','uri'=> site_url(admin_user_uri.'/gets/general?menu_id=user')),
                 (object)array('name'=>'기업회원관리','uri'=> site_url(admin_user_uri.'/gets/corporate?menu_id=user')),
-                (object)array('name'=>'패널관리','uri'=> site_url(golfpass_panel_admin_uri.'/gets?menu_id=user'))
+                (object)array('name'=>'패널관리','uri'=> site_url(admin_user_uri.'/gets/panel?menu_id=user'))
             ),
             'board' => array(
                 (object)array('name'=>'게시판관리','uri'=>  site_url(admin_board_uri."/gets?menu_id=board")),

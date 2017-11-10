@@ -542,6 +542,7 @@ class Init_Controller extends MX_Controller{
              $result = $this->db->query("CREATE TABLE `$tb_name`(
              `id` INT UNSIGNED NULL AUTO_INCREMENT, 
              `name` varchar(30) NOT NULL DEFAULT '샘플게시판',
+             `auth_kind` varchar(50) NOT NULL DEFAULT 'all',
              `contents_count` INT UNSIGNED NOT NULL DEFAULT '0', 
              `is_linked_with_product` varchar(10) NOT NULL DEFAULT '0', 
              `auth_r_board` INT NOT NULL DEFAULT '0', 

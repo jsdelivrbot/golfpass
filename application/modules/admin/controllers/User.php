@@ -90,6 +90,8 @@ class User extends Admin_Controller {
             $this->db->set('kind',$kind);
             $this->db->where('id',$user_id);
             $this->db->update('users');
+
+            // var_dump($kind);
             alert("수정완료");
             my_redirect($_SERVER['HTTP_REFERER']);
         }

@@ -22,15 +22,17 @@ class Init extends Init_Controller {
         parent::index();
         $this->p_ref_hotel();
         $this->p_hotel();
-        $this->hotel_option();
-        $this->panels();
-       
-        if( $this->panel_contents()===true)
+        if($this->hotel_option()===true)
         {
-            $this->sample_data_add();
+            $this->sample_cate_product_add();
+            // $this->sample_panel_add();
+            $this->board_add();
         }
+        //$this->panels();
+        //$this->panel_contents()
         $this->p_daily_price();
-        // $this->board_add();
+
+        
 
     }
  
@@ -38,7 +40,7 @@ class Init extends Init_Controller {
     {
         $this->boards_model->_add(array("name"=>"패널 게시판",'skin'=>'panel','auth_r_board'=>'0','auth_r_content'=>'0','auth_w_content'=>'999','auth_w_review'=>'999'));
     }
-    function sample_data_add()
+    function sample_cate_product_add()
     {
         ////카테고리추가
         //나라 도시별
@@ -113,11 +115,14 @@ class Init extends Init_Controller {
         $panel_id =$this->product_categories_model->_add(array('name'=>'골프패스 패널 추천','desc'=>'패널 추천','can_alert'=>'0','can_add'=>'0'));
         $this->ref_cate_product_model->_add(array("product_id"=>$sample_product_id,'cate_id'=>$panel_id));
 
-        //패널
-        $panel_id=$this->panels_model->_add(array("name"=>"샘플패널1","intro"=>"패널입니다.","photo"=>"/public/images/panel.jpg"));
-        $panel_id=$this->panel_contents_model->_add(array("panel_id"=>$panel_id,"title"=>"샘플 제목.","desc"=>"샘플 내용입니다"));
+    
     }
-
+    function sample_panel_add()
+    {
+            //패널
+            $panel_id=$this->panels_model->_add(array("name"=>"샘플패널1","intro"=>"패널입니다.","photo"=>"/public/images/panel.jpg"));
+            $panel_id=$this->panel_contents_model->_add(array("panel_id"=>$panel_id,"title"=>"샘플 제목.","desc"=>"샘플 내용입니다"));
+    }
     function p_daily_price()
     {
          //product_categories 테이블 만들기
@@ -263,10 +268,14 @@ class Init extends Init_Controller {
                  
              if($result) echo("success create $tb_name ");
              else echo("failed create $tb_name");
+             echo "<br>";
+             return true;
          }else{
              echo "already table $tb_name exists";
+             echo "<br>";
+             return false;
          }
-         echo "<br>";
+        
     }
     //재정의 시작
 

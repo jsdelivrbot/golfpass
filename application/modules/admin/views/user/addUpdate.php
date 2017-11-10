@@ -1,17 +1,25 @@
 
 <!-- 프로필 사진 시작-->
-<!-- <iframe id="profilePhoto_upload" src="/index.php/auth/profilePhoto_upload" width="300px" height="200px">
-</iframe>    -->
+<iframe id="profilePhoto_upload" src="<?=site_url(user_uri."/profilePhoto_upload")?>" width="300px" height="200px">
+</iframe>   
 <!-- 프로필 사진 끝 -->
 
 <form action ="<?=my_site_url(admin_user_uri."/{$mode}")?>"method="POST" >
-<input type='hidden' name='profilePhoto' value="<?=set_value('profilePhoto')?>"/> <br/>
+<input type='hidden' name='profilePhoto' value="<?=set_value_data($user,'profilePhoto')?>"/> <br/>
 
 이름<input placeholder="이름" type="text" name="name" value="<?=set_value_data($user,'name')?>"/> <?=form_error('name',false,false)?>
 <br>
  아이디<input placeholder="아이디" type="text" name="userName" value="<?=set_value_data($user,'userName')?>"/>
  <br/>
 
+ 회원종류
+ <select name="kind" id="">
+ <option value="general" <?=my_set_selected($user,'kind','general')?> >일반</option>
+ <option value="corporate" <?=my_set_selected($user,'kind','corporate')?>>기업회원</option>
+ <option value="panel" <?=my_set_selected($user,'kind','panel')?>>패널</option>
+ </select>
+ <br/>
+ <!-- <input type="hidden" name="kind" value="<?=$kind?>"> -->
 
 주소 <input name="postal_number" value="<?=set_value_data($user,'postal_number')?>" type="hidden" id="sample3_postcode" placeholder="우편번호">
 <input name="address" value="<?=set_value_data($user,'address')?>" type="text" id="sample3_address" class="d_form large" placeholder="주소"> 
@@ -56,7 +64,7 @@
  
  이메일<input placeholder="이메일" type="text" name="email" value="<?=set_value_data($user,'email')?>"/>
  <br/>
-<input type="hidden" name="kind" value="<?=$kind?>">
+
  
  <br/>
  
