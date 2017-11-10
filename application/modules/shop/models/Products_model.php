@@ -51,7 +51,37 @@ class Products_Model extends Board_Model{
 
         return $data;
     }
+    function gets_by_ranking($rankingType)
+    {
+        $query = '';
+        if($rankingType === 'avg_score')
+        {
+            //product_reviews 총 평균점수
+            $sub_query3 = "SELECT (avg(score_1)+avg(score_2)+avg(score_3)+avg(score_4)+avg(score_5)+avg(score_6)+avg(score_7)+avg(score_8))/8 FROM product_reviews as s_r WHERE s_r.product_id = p.id AND s_r.is_display = 1 AND s_r.is_secret = 0";
+            $query .= ",($sub_query3) as avg_score";
+        }
+        else
+        {
+            $sub_query4 = "SELECT avg($rankingType) FROM product_reviews as s_r1 WHERE s_r1.product_id = p.id AND s_r1.is_display = 1 AND s_r1.is_secret = 0";
+            $query .= ",($sub_query4) as $rankingType";
+        }
+        //카테고리 도시 parent_id
+        $sub_query = "SELECT cate.parent_id FROM ref_cate_product as ref_c_p INNER JOIN product_categories as cate ON cate.id = ref_c_p.cate_id WHERE ref_c_p.product_id = p.id ORDER BY ref_c_p.cate_id LIMIT 0,1";
+        $query .= ",($sub_query) as cate_parent_id";
+        
+        //카테고리 도시
+        $sub_query = "SELECT cate.name FROM ref_cate_product as ref_c_p INNER JOIN product_categories as cate ON cate.id = ref_c_p.cate_id WHERE ref_c_p.product_id = p.id ORDER BY ref_c_p.cate_id LIMIT 0,1";
+        $query .= ",($sub_query) as city";
 
+        //카테고리 나라
+        $sub_query = "SELECT parent_cate.name FROM product_categories as parent_cate WHERE parent_cate.id = cate_parent_id LIMIT 0,1";
+        $query .= ",($sub_query) as nation";
+
+        $this->db->select("p.*".$query);
+        $this->db->from("products as p");
+        $this->db->order_by($rankingType,'desc');
+        return $this->db->get()->result();
+    }
 
     function gets_by_category_id($cate_id)
     {
@@ -60,7 +90,7 @@ class Products_Model extends Board_Model{
         //product_reviews 총 평균점수
         $sub_query2 = "SELECT (avg(score_1)+avg(score_2)+avg(score_3)+avg(score_4)+avg(score_5)+avg(score_6)+avg(score_7)+avg(score_8))/8 FROM product_reviews as r WHERE r.product_id = p.id AND r.is_display = 1 AND r.is_secret = 0";
         //호텔 여부
-        $sub_query3 = "SELECT concat(p_ref_h.hotel_id) FROM `p_ref_hotel` as p_ref_h WHERE p_ref_h.product_id = p.id";
+        $sub_query3 = "SELECT p_ref_h.hotel_id FROM `p_ref_hotel` as p_ref_h WHERE p_ref_h.product_id = p.id LIMIT 0,1";
 
         $this->db->select("p.*,r.id as ref_id,r.sort ,($sub_query) as photos, ($sub_query2) as avg_score, ($sub_query3) as hotel_id");
         $this->db->from("ref_cate_product as r");

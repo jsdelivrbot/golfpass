@@ -14,10 +14,9 @@ class Test extends Public_Controller
     }
     function add($id)
     {
-        $this->load->model("shop/product_categories_model");
-        
-                $t= $this->product_categories_model->revert_recursive($id);
-                var_dump($t);
+        $r=$this->db->query("SELECT  (SELECT u.id FROM users as u WHERE u.id = 1 ) as u, (SELECT b.id FROM boards as b WHERE b.id = u) as k FROM products as p WHERE p.id = 1")->result();
+        var_dump($r);
+
 
     }
     function product($id)

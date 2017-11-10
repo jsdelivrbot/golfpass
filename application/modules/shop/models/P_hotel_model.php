@@ -6,7 +6,6 @@ class P_hotel_model extends Board_Model{
     }
     function gets_with_pgi()
     {
-      
         $pgi_style = 'style_1';
         $rows=$this->_gets_with_pgi_func(
             $pgi_style,

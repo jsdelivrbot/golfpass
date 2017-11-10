@@ -68,7 +68,7 @@ if(!function_exists('my_redirect')){
 if(!function_exists('redirect_return_url')){
     function redirect_return_url($url){
         if(!isset($_GET['return_url']) || $_GET['return_url'] === ''){
-            my_redirect("/");
+            my_redirect("");
             exit;
         }else{
             $return_url = $_GET['return_url'];
