@@ -163,7 +163,7 @@
 		</header>
 		<div id="bg-div" style=""></div>
 		<section id="section1" class="scroll-smooth">
-			<article class="carousel slide" data-ride="carousel" data-interval="4000" id='section1-slide'>
+			<article class="carousel slide" data-ride="carousel" data-interval="7000" id='section1-slide'>
 				<ol class=" carousel-indicators d-flex flex-column align-items-center">
 				</ol>
 				<div class="carousel-inner">
