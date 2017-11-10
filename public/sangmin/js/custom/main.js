@@ -83,9 +83,8 @@ $(function() {
 
 	function mainSlideChage() {
 		$('#bg-div').css('background-image', "url(" + $(".carousel-item.active").children('img').attr("src") + ")");
-		$('#current').css('height', '0');
-		$('#current').stop().animate({
+		$('#current').css('height', '0').stop().animate({
 			'height': '100%'
-		}, interval - 120);
+		}, interval);
 	}
 })
