@@ -90,7 +90,7 @@ class Content extends Base_Controller {
     public function add(){
         
         $authLv= $this->board->auth_w_content;
-
+        $authKind = $this->board->auth_kind_w_content;
         //손님이 가능?
         if(!can_guest($authLv)){
             alert("로그인해주세요.");
@@ -104,7 +104,12 @@ class Content extends Base_Controller {
             my_redirect($_SERVER['HTTP_REFERER']);
             return ;
         }
-
+        if( !is_auth_kind($authKind))
+        {
+            alert("{$authKind} 회원만 쓸수있습니다.");
+            my_redirect($_SERVER['HTTP_REFERER'],false);
+            return ;
+        }
         //손님?
         if(is_guest()){ 
             $this->fv->set_rules('guest_name','아이디','required');
@@ -117,7 +122,7 @@ class Content extends Base_Controller {
             $content= (object)array();
             $data = array('mode'=>'add','content'=>$content,'board_id'=>$this->board_id);
 
-            $this->_template("addUpdate",$data);
+            $this->_template("addUpdate",$data,'golfpass');
              
         }else{
             if(!is_guest()){ //회원일떄

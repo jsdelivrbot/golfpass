@@ -10,6 +10,20 @@ if(!function_exists('is_admin')){
          return true;
      }
 }
+if(!function_exists('is_auth_kind')){
+      function is_auth_kind($authKind){
+          if($authKind === 'all')
+          {
+                return true;
+          }
+         $ci = &Public_Controller::$instance;
+        $user_kind=$ci->user->kind;
+        if($authKind !== $user_kind){
+            return false;
+        }
+        return true;
+     }
+}
 if(!function_exists('min_lv')){
       function min_lv($authLv){
          $ci = &Public_Controller::$instance;

@@ -38,7 +38,8 @@ class Init extends Init_Controller {
  
     function board_add()
     {
-        $this->boards_model->_add(array("name"=>"패널 게시판",'skin'=>'panel','auth_r_board'=>'0','auth_r_content'=>'0','auth_w_content'=>'999','auth_w_review'=>'999'));
+        // $this->boards_model->_add(array("name"=>"패널 게시판",'skin'=>'panel','auth_r_board'=>'0','auth_r_content'=>'0','auth_w_content'=>'999','auth_w_review'=>'999'));
+        $this->boards_model->_add(array("name"=>"패널 게시판",'skin'=>'panel','auth_kind_w_content'=>'panel'));
     }
     function sample_cate_product_add()
     {

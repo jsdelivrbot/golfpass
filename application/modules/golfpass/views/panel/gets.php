@@ -1,3 +1,4 @@
+<a href="<?=site_url(content_uri."/add?board_id=1")?>">글쓰기</a>
 <div id="panel-wrap">
 	<article id="panel-article" class="container-fluid">
 					 <div class="row text-center">
@@ -14,7 +15,7 @@
 									 	<div class="col-6 col-md-3 panel">
 											 	<div class="d-flex flex-column justify-content-center align-items-center">
 												 <a href="javascript:void(0);" onclick="getData('.ajax_taget_content_list',0,'<?=site_url(golfpass_panel_uri."/ajax_pgi_contents/")?>',<?=$panels[$i]->id?>)">
-														 <img src="<?=$panels[$i]->photo?>" class="rounded-circle" alt="" style="width: 140px;">
+														 <img src="<?=$panels[$i]->profilePhoto?>" class="rounded-circle" alt="" style="width: 140px;">
 													 	<div class="panel-content text-center">
 															<p><?=$panels[$i]->name?></p>
 														 <p class="intro"><?=$panels[$i]->intro?></p>
@@ -48,7 +49,7 @@
 							 <div class="content-box col-12 row">
 
 									 <div class="d-none d-md-block col-md-2 d-md-flex align-items-md-start justify-content-end">
-											 <img src="<?=$panel_contents[$i]->photo?>" class="rounded-circle" alt="" width="60px;">
+											 <img src="<?=$panel_contents[$i]->profilePhoto?>" class="rounded-circle" alt="" width="60px;">
 									 </div>
 									 <div class="col-12 col-md-10">
 										  <a class="w-100" href="<?=site_url(golfpass_panel_content_uri."/get/{$panel_contents[$i]->id}")?>">

@@ -91,7 +91,6 @@ class User extends Admin_Controller {
             $this->db->where('id',$user_id);
             $this->db->update('users');
 
-            // var_dump($kind);
             alert("수정완료");
             my_redirect($_SERVER['HTTP_REFERER']);
         }
@@ -107,7 +106,14 @@ class User extends Admin_Controller {
         if($userName === ''){
             $userName=null;
         }
+        $phone = $this->input->post('phone');
+       
+        if($phone === '')
+        {
+            $phone =null;
+        }
         
+        $this->db->set('intro',$this->input->post('intro'));
         $this->db->set('userName',$userName);
         $this->db->set('postal_number', $this->input->post('postal_number'));
         $this->db->set('email', $this->input->post('email'));
@@ -116,7 +122,7 @@ class User extends Admin_Controller {
         $this->db->set('name', $this->input->post('name'));
         $this->db->set('sex', $this->input->post('sex'));
         $this->db->set('birth', $birth);
-        $this->db->set('phone', $this->input->post('phone'));
+        $this->db->set('phone', $phone);
         $this->db->set('profilePhoto',$this->input->post('profilePhoto'));
         
     }

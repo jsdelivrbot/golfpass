@@ -580,7 +580,7 @@
 					<div class="col-12 col-lg-6 mb-4 d-flex panel-item">
 						<div class="d-none d-md-block">
 						<a href="<?=site_url(golfpass_panel_uri."/gets/{$panels[$i]->id}/0")?>">
-							<img src="<?=$panels[$i]->photo?>" class="rounded" alt="" height="110px">
+							<img src="<?=$panels[$i]->profilePhoto?>" class="rounded" alt="" height="110px">
 						</a>
 						</div>
 						<div class="bg-light rounded d-flex flex-column justify-content-center align-middle position-relative panel-content w-100">
@@ -591,7 +591,7 @@
 							<p class="mb-0" style='max-width: 400px; font-size: 0.9rem; color:#a5a5a5;'><?=$panels[$i]->intro?> </p>
 							<div class="position-absolute review-box">
 		                            <span>
-		                                <i class="xi-pen"></i> <?=$panels[$i]->num_contents?>개
+		                                <i class="xi-pen"></i> ??개
 		                            </span></div>
 						</a>
 						</div>

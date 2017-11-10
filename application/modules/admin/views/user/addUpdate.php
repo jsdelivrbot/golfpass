@@ -11,6 +11,8 @@
 <br>
  아이디<input placeholder="아이디" type="text" name="userName" value="<?=set_value_data($user,'userName')?>"/>
  <br/>
+ 소개<input placeholder="소개" type="text" name="intro" value="<?=set_value_data($user,'intro')?>"/>
+ <br/>
 
  회원종류
  <select name="kind" id="">
