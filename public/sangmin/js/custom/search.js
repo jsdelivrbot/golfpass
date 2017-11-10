@@ -4,8 +4,9 @@ $(function() {
 	var searchContentContainer = $('.search-content-container'); //검색내용 컨테이너
 
 	function searchInit() {
-		$(searchContentContainer).css('display', 'none');
-		$(searchContentContainer).append(loadingPrint());
+		$(searchContentContainer).fadeOut("fast");
+		$(searchContentContainer).empty().append(loadingPrint());
+		searchInput.val('');
 	}
 	searchInit();
 	searchInput.on('focus', function() {
@@ -27,11 +28,10 @@ $(function() {
 	});
 
 	searchInput.on('blur', function() {
-		//NOTE input에서 focus풀렷을시 안보임 작업시 주석
 		setTimeout(function() {
-			searchInput.val('');
+			searchInit();
 			$(searchContentContainer).fadeOut("fast");
-		}, 100);
+		}, 100, );
 	});
 
 	function printStar(score) {

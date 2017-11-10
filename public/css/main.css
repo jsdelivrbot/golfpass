@@ -2108,6 +2108,7 @@ body.menu-open .plus-btn .r2 {
         padding-right: 15px;
         text-align: right; }
   #header .search-content-container, .black-bg-header .search-content-container {
+    display: none;
     background-color: white;
     left: 0;
     width: 70%;
@@ -2270,6 +2271,7 @@ body.menu-open .plus-btn .r2 {
         padding-right: 15px;
         text-align: right; }
   #header .search-content-container, .black-bg-header .search-content-container {
+    display: none;
     background-color: white;
     left: 0;
     width: 70%;

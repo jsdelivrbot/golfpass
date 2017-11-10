@@ -143,6 +143,7 @@
 	}
 
 	.search-content-container {
+		display: none;
 		background-color: white;
 		left: 0;
 		width: 70%;
@@ -152,6 +153,7 @@
 		color: #bbbcbd;
 		min-height: 100px;
 		border-radius: 5px;
+
 		&::before {
 			content: '';
 			min-width: 15px;
@@ -162,6 +164,7 @@
 			position: absolute;
 			background-color: white;
 		}
+
 		p {
 			font-family: 'notokr-medium';
 			//NOTE <p> 검색결과/총 ~~개
@@ -169,14 +172,17 @@
 			margin: 0;
 			color: #bbbcbd;
 			border-bottom: 1px solid #d9d9d9;
+
 			span {
 				font-family: 'notokr-regular';
 			}
 		}
+
 		.search-items {
 			padding: 10px;
 			height: 330px;
 			overflow-y: scroll;
+
 			.search-item {
 				box-sizing: border-box;
 				width: 100%;
@@ -184,9 +190,11 @@
 				overflow: hidden;
 				padding-bottom: 10px;
 				border-bottom: 1px solid #d9d9d9;
-				&:not(:first-child){
+
+				&:not(:first-child) {
 					padding-top: 10px;
 				}
+
 				.image {
 					width: 15%;
 
@@ -207,11 +215,13 @@
 						color: #4b4b4b;
 						font-size: 20px;
 						margin-bottom: 5px;
+
 						.score-icon {
-							i{
+							i {
 								color: #fcbf3f !important;
 							}
 						}
+
 						.score-text {
 							font-size: 12px;
 						}
