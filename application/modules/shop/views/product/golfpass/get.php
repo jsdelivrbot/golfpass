@@ -104,7 +104,7 @@
 	<!--NOTE 상단 슬라이드 + 내용 + chart-->
 	<article class="row no-gutters" id="section1" style="background-image:url('<?=$product_photos[0]->name ?? ''?>') ;">
 		<!--NOTE 화면 어둡게-->
-		<div id="shadow"></div>
+		<div id="shadow" style="background-color: rgba(38, 38, 38, 0.85);"></div>
 		<div id='slide-box' class="col-12 col-md-6 col-xl-5">
 			<figure id='slide-img'>
 				<?php if(isset($product_photos[0]->name)){?>
