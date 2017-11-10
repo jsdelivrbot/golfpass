@@ -45,6 +45,7 @@ class Maker extends Public_Controller
      $data['etc'] =array(
         (object)array("name"=>"패널목록","url"=>site_url(golfpass_panel_uri."/gets"),"view_dir"=>"golfpass / views / panel / gets.php"),
         (object)array("name"=>"패널 글","url"=>site_url(golfpass_panel_content_uri."/get/1"),"view_dir"=>"golfpass / views / panel_content / get.php"),
+        (object)array("name"=>"패널 글 쓰기","url"=>site_url(content_uri."/add/1?board_id=1"),"view_dir"=>"base / views / content / panel / content / addUpdate.php"),
      );
      $this->_view("index",$data);
 
