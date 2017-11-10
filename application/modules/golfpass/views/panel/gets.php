@@ -8,7 +8,7 @@
 								 </a>
 							 </div>
 					 </div>
-					 <section class="row" id='panel-section'>
+					 <section class="row ajax_taget_panel_list" id='panel-section'>
 							 <article id='panel-box' class="row col-12">
 								  <?php for($i=0; $i< count($panels);$i++){?>
 									 	<div class="col-6 col-md-3 panel">
@@ -22,11 +22,13 @@
 									 	</div>
 							 		<?php }?>
 							 </article>
-							 <!-- TODO 문법을 몰라서 그냥둠..
+							 TODO 문법을 몰라서 그냥둠..
 							 <div class="col-12 d-flex justify-content-center align-items-center pagination">
 							 <?php echo $this->ajax_pgi_1->create_links(); ?>
-							 </div> -->
-							 <div class="col-12 d-flex justify-content-center align-items-center pagination">
+							 </div>
+
+							 <!-- 페이지네이션 -->
+							 <!-- <div class="col-12 d-flex justify-content-center align-items-center pagination">
 									 <div class="prev"><a href="#"><i class="xi xi-angle-left-min"></i></a></div>
 									 <ul class="d-flex list-unstyled justify-content-center mb-0">
 											 <li class="current"><a href="#">01</a></li>
@@ -35,7 +37,8 @@
 											 <li><a href="#">04</a></li>
 									 </ul>
 									 <div class="next"><a href="#"><i class="xi xi-angle-right-min"></i></a></div>
-							 </div>
+							 </div> -->
+							 <!-- 페이지네이션 -->
 					 </section>
 					 <section id='content-boxs' class="row justify-content-center">
 						  <?php for($i=0; $i< count($panel_contents);$i++){?>

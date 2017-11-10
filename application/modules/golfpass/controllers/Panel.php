@@ -9,7 +9,8 @@ class Panel extends Base_Controller {
             'table'=>'panels',
             'view_dir'=>'panel'
         ));
-        $this->panel_per_page = 4;
+        // $this->panel_per_page = 4;
+        $this->panel_per_page = 2;
         $this->content_per_page = 10;
     }
     function get($id)
