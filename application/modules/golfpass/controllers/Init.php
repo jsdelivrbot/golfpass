@@ -9,6 +9,7 @@ class Init extends Init_Controller {
         $this->load->model('shop/product_categories_model');
         $this->load->model('shop/products_model');
         $this->load->model('base/boards_model');
+        $this->load->model('base/board_contents_model');
         $this->load->model('shop/product_reviews_model');
         $this->load->model('shop/ref_cate_product_model');
         $this->load->model('shop/p_hotel_model');
@@ -25,8 +26,8 @@ class Init extends Init_Controller {
         if($this->hotel_option()===true)
         {
             $this->sample_cate_product_add();
+            $this->panel_data_add();
             // $this->sample_panel_add();
-            $this->board_add();
         }
         //$this->panels();
         //$this->panel_contents()
@@ -36,10 +37,24 @@ class Init extends Init_Controller {
 
     }
  
-    function board_add()
+    function panel_data_add()
     {
         // $this->boards_model->_add(array("name"=>"패널 게시판",'skin'=>'panel','auth_r_board'=>'0','auth_r_content'=>'0','auth_w_content'=>'999','auth_w_review'=>'999'));
-        $this->boards_model->_add(array("name"=>"패널 게시판",'skin'=>'panel','auth_kind_w_content'=>'panel'));
+        $board_id =$this->boards_model->_add(array("name"=>"패널 게시판",'skin'=>'panel','auth_kind_w_content'=>'panel'));
+        
+        $password =password_hash("1234",PASSWORD_BCRYPT);
+        $this->db->set("auth","1");
+        $this->db->set("profilePhoto","/public/images/panel.jpg");
+        $this->db->set("userName","test2");
+        $this->db->set("kind","panel");
+        $this->db->set("password",$password);
+        $this->db->set("name","샘플패널1");
+        $this->db->set("sex","");
+        $this->db->set("email","");
+        $this->db->insert("users");
+        $user_id = $this->db->insert_id();
+
+        $this->board_contents_model->_add(array("board_id"=>$board_id,"user_id"=>$user_id,"title"=>"샘플제목","desc"=>"샘플내용입니다."));
     }
     function sample_cate_product_add()
     {
@@ -121,8 +136,9 @@ class Init extends Init_Controller {
     function sample_panel_add()
     {
             //패널
-            $panel_id=$this->panels_model->_add(array("name"=>"샘플패널1","intro"=>"패널입니다.","photo"=>"/public/images/panel.jpg"));
-            $panel_id=$this->panel_contents_model->_add(array("panel_id"=>$panel_id,"title"=>"샘플 제목.","desc"=>"샘플 내용입니다"));
+          
+            // $panel_id=$this->panels_model->_add(array("name"=>"샘플패널1","intro"=>"패널입니다.","photo"=>"/public/images/panel.jpg"));
+            // $panel_id=$this->panel_contents_model->_add(array("panel_id"=>$panel_id,"title"=>"샘플 제목.","desc"=>"샘플 내용입니다"));
     }
     function p_daily_price()
     {

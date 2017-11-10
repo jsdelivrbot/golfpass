@@ -140,8 +140,10 @@ class Content extends Base_Controller {
             $this->_dbSet_addUpdate();
             $insert_id =$this->board_contents_model->add(array('board_id'=>$this->board_id));
 
-
-            my_redirect(content_uri."/get/$insert_id");
+            if($this->user->kind === "panel")
+                my_redirect(golfpass_panel_content_uri."/get/$insert_id");
+            else
+                my_redirect(content_uri."/get/$insert_id");
             return;
         }
    

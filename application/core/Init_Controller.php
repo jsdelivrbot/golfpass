@@ -162,7 +162,7 @@ class Init_Controller extends MX_Controller{
             //  $this->db->query("INSERT INTO `$tb_name` (`id`, `auth`, `userName`, `password`, `name`,`sex`, `phone`, `email`, `created`) 
             //  VALUES (NULL, '-1', 'admin', '$password', '최고관리자','남' ,'010-6626-2252', 'admin@admin.com', NOW());");
              
-             $password =password_hash("test",PASSWORD_BCRYPT);
+             $password =password_hash("1234",PASSWORD_BCRYPT);
              $this->db->set("auth","1");
              $this->db->set("userName","test");
              $this->db->set("password",$password);
@@ -575,7 +575,7 @@ class Init_Controller extends MX_Controller{
              `id` INT UNSIGNED NULL AUTO_INCREMENT, 
              `board_id` int UNSIGNED NOT NULL,
              `user_id` INT UNSIGNED NOT NULL, 
-             `product_id` INT UNSIGNED NOT NULL, 
+             `product_id` INT UNSIGNED, 
              `title` varchar(30) NOT NULL, 
              `desc` TEXT NOT NULL,
              `replys_count` INT UNSIGNED  NOT NULL DEFAULT '0',
@@ -583,7 +583,7 @@ class Init_Controller extends MX_Controller{
              `guest_password` varchar(255) NOT NULL DEFAULT 'NULL',
              `is_secret` varchar(10) NOT NULL DEFAULT '0',
              `is_display` varchar(10) NOT NULL DEFAULT '1',
-             `hits` int UNSIGNED NOT NULL, 
+             `hits` int UNSIGNED NOT NULL DEFAULT '0', 
              `created` datetime NOT NULL DEFAULT NOW(),
              PRIMARY KEY (`id`)
              -- KEY `idx_board_id` (`board_id`),
