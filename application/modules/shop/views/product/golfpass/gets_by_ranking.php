@@ -12,11 +12,11 @@
     <section id="section5" class="mb-5  container-fluid align-items-start align-items-md-center">
         <article class="w-100 p-xl-4" style="width:80% !important; margin: 0 auto;">
             <div class="d-flex mb-5 category flex-wrap">
-                <button class="btn btn-outline-light btn-sm active">#평점이 높은 코스</button>
-                <button class="btn btn-outline-light btn-sm">#전략성이 요구되는 코스</button>
-                <button class="btn btn-outline-light btn-sm">#식사가 맛있는 코스</button>
-                <button class="btn btn-outline-light btn-sm">#가성비 좋은 코스</button>
-                <button class="btn btn-outline-light btn-sm">#시설이 화려한 코스</button>
+                <button class="btn btn-outline-light btn-sm active" style="background-color: #79b754 !important; color:#fff;">#평점이 높은 코스</button>
+                <button class="btn btn-outline-light btn-sm" style="border: 1px solid #333; color:#333;">#전략성이 요구되는 코스</button>
+                <button class="btn btn-outline-light btn-sm" style="border: 1px solid #333; color:#333;">#식사가 맛있는 코스</button>
+                <button class="btn btn-outline-light btn-sm" style="border: 1px solid #333; color:#333;">#가성비 좋은 코스</button>
+                <button class="btn btn-outline-light btn-sm" style="border: 1px solid #333; color:#333;">#시설이 화려한 코스</button>
             </div>
             <div class="row no-gutters">
                 <div class="col-12 col-lg-12">
