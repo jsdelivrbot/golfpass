@@ -17,18 +17,18 @@
 					<div class="col-12 col-lg-6">
 						<!--1위부터 3위까지 아래 div.content-box-->
 						<?php
-						$count = (count($products) > 3) ? 3 : count($products);
+						$count = (count($products_avgScore) > 3) ? 3 : count($products_avgScore);
 						 for($i=0 ; $i < $count; $i++){?>
 						<div class="col-12 content-box">
-							<a href="http://golfpass.net/index.php/shop/product/get/3">
+							<a href="<?=site_url(shop_product_uri."/get/{$products_avgScore[$i]->id}")?>">
 								<div class="d-flex align-items-center p-4 mb-3 content"
 								 	style="height: 150px; background-image: url(/image/rank_001.png)">
 									<div class='d-flex align-items-center justify-content-center bg-light rounded-circle'>
 										<span class="d-flex align-items-center justify-content-center"><?=$i+1?></span>
 									</div>
 									<div class="d-flex flex-column ml-4 text-light">
-										<h1><?=$products[$i]->name?></h1>
-										<p class="mb-0"> <?=$products[$i]->eng_name?> - 일본, 후쿠오카</p>
+										<h1><?=$products_avgScore[$i]->name?></h1>
+										<p class="mb-0"> <?=$products_avgScore[$i]->eng_name?> - <?=$products_avgScore[$i]->nation?>, <?=$products_avgScore[$i]->city?></p>
 									</div>
 								</div>
 							</a>
@@ -40,16 +40,16 @@
 						<ul class="list-unstyled">
 							<!--4위부터 ~ li반복 -->
 							<?php
-							$count = (count($products) > 10) ? 10 : count($products);
+							$count = (count($products_avgScore) > 10) ? 10 : count($products_avgScore);
 						 	for($i=3 ; $i < $count; $i++){?>
 							<li class='p-3 text-light list-after-four'>
-								<a href="http://golfpass.net/index.php/shop/product/get/6">
+								<a href="<?=site_url(shop_product_uri."/get/{$products_avgScore[$i]->id}")?>">
 									<div class="d-flex justify-content-between align-items-center">
 										<div>
-											<p class='mb-0'><span class='mr-3 ml-2'><?=$i?></span><?=$products[$i]->name?></p>
+											<p class='mb-0'><span class='mr-3 ml-2'><?=$i?></span><?=$products_avgScore[$i]->name?></p>
 										</div>
 										<div>
-											<span>일본, 후쿠오카</span>
+											<span><?=$products_avgScore[$i]->nation?>, <?=$products_avgScore[$i]->city?></span>
 										</div>
 									</div>
 								</a>

@@ -426,137 +426,46 @@
 				<div class="row no-gutters">
 					<div class="col-12 col-lg-6">
 						<!--1위부터 3위까지 아래 div.content-box-->
+						<?php
+						$count = (count($products_avgScore) > 3) ? 3 : count($products_avgScore);
+						 for($i=0 ; $i < $count; $i++){?>
 						<div class="col-12 content-box">
-							<a href="http://golfpass.net/index.php/shop/product/get/3">
+							<a href="<?=site_url(shop_product_uri."/get/{$products_avgScore[$i]->id}")?>">
 								<div class="d-flex align-items-center p-4 mb-3 content"
 								 	style="height: 150px; background-image: url(/image/rank_001.png)">
 									<div class='d-flex align-items-center justify-content-center bg-light rounded-circle'>
-										<span class="d-flex align-items-center justify-content-center">1</span>
+										<span class="d-flex align-items-center justify-content-center"><?=$i+1?></span>
 									</div>
 									<div class="d-flex flex-column ml-4 text-light">
-										<h1>니조 컨트리 클럽</h1>
-										<p class="mb-0">Nijo Country Club - 일본, 후쿠오카</p>
+										<h1><?=$products_avgScore[$i]->name?></h1>
+										<p class="mb-0"> <?=$products_avgScore[$i]->eng_name?> - <?=$products_avgScore[$i]->nation?>, <?=$products_avgScore[$i]->city?></p>
 									</div>
 								</div>
 							</a>
 						</div>
-						<div class="col-12 content-box">
-							<a href="http://golfpass.net/index.php/shop/product/get/4">
-								<div class="d-flex align-items-center p-4 mb-3 content"
-								 	style="height: 150px; background-image: url(/image/rank_002.png)">
-									<div class='d-flex align-items-center justify-content-center bg-light rounded-circle'>
-										<span class="d-flex align-items-center justify-content-center">2</span>
-									</div>
-									<div class="d-flex flex-column ml-4 text-light">
-										<h1>센트럴 후쿠오카 골프 클럽</h1>
-										<p class="mb-0">Central Fukuoka Golf Club - 일본, 후쿠오카</p>
-									</div>
-								</div>
-							</a>
-						</div>
-						<div class="col-12 content-box">
-							<a href="http://golfpass.net/index.php/shop/product/get/5">
-								<div class="d-flex align-items-center p-4 mb-3 content"
-								 	style="height: 150px; background-image: url(/image/rank_003.png)">
-									<div class='d-flex align-items-center justify-content-center bg-light rounded-circle'>
-										<span class="d-flex align-items-center justify-content-center">3</span>
-									</div>
-									<div class="d-flex flex-column ml-4 text-light">
-										<h1>카호 골프 클럽</h1>
-										<p class="mb-0">Kaho Golf Club - 일본, 후쿠오카</p>
-									</div>
-								</div>
-							</a>
-						</div>
+						<?php }?>
+					
 
 					</div>
 					<div class="col-12 col-lg-6">
 						<ul class="list-unstyled">
 							<!--4위부터 ~ li반복 -->
+							<?php
+							$count = (count($products_avgScore) > 10) ? 10 : count($products_avgScore);
+						 	for($i=3 ; $i < $count; $i++){?>
 							<li class='p-3 text-light list-after-four'>
-								<a href="http://golfpass.net/index.php/shop/product/get/6">
+								<a href="<?=site_url(shop_product_uri."/get/{$products_avgScore[$i]->id}")?>">
 									<div class="d-flex justify-content-between align-items-center">
 										<div>
-											<p class='mb-0'><span class='mr-3 ml-2'>4</span> 후쿠오카 페잔트 컨트리 클럽</p>
+											<p class='mb-0'><span class='mr-3 ml-2'><?=$i?></span><?=$products_avgScore[$i]->name?></p>
 										</div>
 										<div>
-											<span>일본, 후쿠오카</span>
+											<span><?=$products_avgScore[$i]->nation?>, <?=$products_avgScore[$i]->city?></span>
 										</div>
 									</div>
 								</a>
 							</li>
-							<li class='p-3 text-light list-after-four'>
-								<a href="http://golfpass.net/index.php/shop/product/get/7">
-									<div class="d-flex justify-content-between align-items-center">
-										<div>
-											<p class='mb-0'><span class='mr-3 ml-2'>5</span> 하우스텐보스 컨트리 클럽</p>
-										</div>
-										<div>
-											<span>일본, 나가시키</span>
-										</div>
-									</div>
-								</a>
-							</li>
-							<li class='p-3 text-light list-after-four'>
-								<a href="http://golfpass.net/index.php/shop/product/get/8">
-									<div class="d-flex justify-content-between align-items-center">
-										<div>
-											<p class='mb-0'><span class='mr-3 ml-2'>6</span> 나가사키 파크 컨트리 클럽</p>
-										</div>
-										<div>
-											<span>일본, 나가시키</span>
-										</div>
-									</div>
-								</a>
-							</li>
-							<li class='p-3 text-light list-after-four'>
-								<a href="http://golfpass.net/index.php/shop/product/get/9">
-									<div class="d-flex justify-content-between align-items-center">
-										<div>
-											<p class='mb-0'><span class='mr-3 ml-2'>7</span> 사세보코쿠사이 컨트리 클럽</p>
-										</div>
-										<div>
-											<span>일본, 나가시키</span>
-										</div>
-									</div>
-								</a>
-							</li>
-							<li class='p-3 text-light list-after-four'>
-								<a href="http://golfpass.net/index.php/shop/product/get/10">
-									<div class="d-flex justify-content-between align-items-center">
-										<div>
-											<p class='mb-0'><span class='mr-3 ml-2'>8</span> 아마가세 온센 컨트리 클럽</p>
-										</div>
-										<div>
-											<span>일본, 오이타</span>
-										</div>
-									</div>
-								</a>
-							</li>
-							<li class='p-3 text-light list-after-four'>
-								<a href="http://golfpass.net/index.php/shop/product/get/11">
-									<div class="d-flex justify-content-between align-items-center">
-										<div>
-											<p class='mb-0'><span class='mr-3 ml-2'>9</span> 벳부노모리 골프 클럽</p>
-										</div>
-										<div>
-											<span>일본, 오이타</span>
-										</div>
-									</div>
-								</a>
-							</li>
-							<li class='p-3 text-light list-after-four'>
-								<a href="http://golfpass.net/index.php/shop/product/get/12">
-									<div class="d-flex justify-content-between align-items-center">
-										<div>
-											<p class='mb-0'><span class='mr-3 ml-2'>10</span> 키쿠치 컨트리 클럽</p>
-										</div>
-										<div>
-											<span>일본, 쿠마모토</span>
-										</div>
-									</div>
-								</a>
-							</li>
+							<?php }?>
 						</ul>
 						<!--전체 순위 보러 가기 -->
 						<div class="row justify-content-center align-items-center">
