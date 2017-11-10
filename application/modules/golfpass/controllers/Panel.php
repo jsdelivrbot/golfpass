@@ -58,7 +58,7 @@ class Panel extends Base_Controller {
             $config['id'] = $panel_id;
         }
         $this->db->where("board_id","1");
-        $num_rows = $this->db->count_all_results("boards_contents");
+        $num_rows = $this->db->count_all_results("board_contents");
         $config['target']      = '.ajax_taget_content_list';
         $config['base_url']    =site_url(golfpass_panel_uri.'/ajax_pgi_contents');
         $config['total_rows']  =$num_rows;
@@ -102,7 +102,7 @@ class Panel extends Base_Controller {
         
         if($panel_id !== '0' && $panel_id !== null)
             $this->db->where("user_id",$panel_id);
-        $this->where("board_id","1");
+        $this->db->where("board_id","1");
         $num_rows = $this->db->count_all_results("board_contents");
 
         $config['id'] = $panel_id;
@@ -112,7 +112,7 @@ class Panel extends Base_Controller {
         $config['per_page']    = $this->content_per_page;
         $this->ajax_pgi_2->initialize($config);
 
-        $this->load->model("board_contents_model");
+        $this->load->model("base/board_contents_model");
         if($panel_id !== '0' && $panel_id !== null)
             $this->db->where("c.user_id",$panel_id);
         $this->db->limit($this->content_per_page,$offset);

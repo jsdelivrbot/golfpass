@@ -46,7 +46,7 @@ class Board_contents_Model extends Board_Model{
         $field = $this->input->get('field');
         if($field)
           $this->_like_or_by_split($field,$this->input->get('value'));
-        $this->db->order_by('id','desc');
+        $this->db->order_by('c.id','desc');
         $this->db->limit($per_page,$offset);
         $this->db->where('c.user_id',$ci->user->id);
         $this->db->where('c.is_display','1');
@@ -69,7 +69,7 @@ class Board_contents_Model extends Board_Model{
                 return $total_rows;
             },
             function($offset,$per_page) use($board_id){
-                $this->db->order_by('id','desc');
+                $this->db->order_by('c.id','desc');
                 $this->db->limit($per_page,$offset);
                 $this->db->where('c.board_id',$board_id);
                 $this->db->where('c.is_display','1');
@@ -86,9 +86,9 @@ class Board_contents_Model extends Board_Model{
     }
  
    
-    function gets($where_obj)
+    function gets($where_obj =null)
     {
-        $this->db->select("u.*,c.id, c.title, c.desc, c.created ,if(c.user_id = 0, c.guest_name, u.name) 'user_name', if(c.user_id = 0, '손님', u.userName) 'userName'");
+        $this->db->select("u.*,c.id as id, c.title, c.desc, c.created ,if(c.user_id = 0, c.guest_name, u.name) 'user_name', if(c.user_id = 0, '손님', u.userName) 'userName'");
         $this->db->from("$this->table AS c");
         $this->db->join("users AS u","c.user_id = u.id","LEFT");
         $this->_where_by_obj($where_obj);

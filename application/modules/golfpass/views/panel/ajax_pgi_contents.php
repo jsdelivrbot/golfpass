@@ -2,7 +2,7 @@
     <div class="content-box col-12 row">
 
             <div class="d-none d-md-block col-md-2 d-md-flex align-items-md-start justify-content-end">
-                    <img src="<?=$panel_contents[$i]->photo?>" class="rounded-circle" alt="" width="60px;">
+                    <img src="<?=$panel_contents[$i]->profilePhoto?>" class="rounded-circle" alt="" width="60px;">
             </div>
             <div class="col-12 col-md-10">
                  <a class="w-100" href="<?=site_url(golfpass_panel_content_uri."/get/{$panel_contents[$i]->id}")?>">
