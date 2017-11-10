@@ -149,6 +149,18 @@
                                 </div>
                             </a>
                         </li>
+                        <li class='p-3 text-light list-after-four'>
+                            <a href="http://golfpass.net/index.php/shop/product/get/13">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <p class='mb-0' style="color:#333;"><span class='mr-3 ml-2'>11</span> 아오시마 골프 클럽</p>
+                                    </div>
+                                    <div>
+                                        <span>일본, 미야자키</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
