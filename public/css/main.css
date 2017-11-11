@@ -2689,9 +2689,13 @@ body.menu-open .plus-btn .r2 {
   width: 100%;
   height: 100%;
   position: relative; }
-  #detail-wrap #section1-wrap, #detail-wrap #section2, #detail-wrap #section3, #detail-wrap #section4, #detail-wrap #section5 {
-    max-width: 1440px;
-    margin: 0 auto; }
+  @media (min-width: 1440px) {
+    #detail-wrap #section1-wrap,
+    #detail-wrap #section2,
+    #detail-wrap #section4,
+    #detail-wrap #section5 {
+      max-width: 80%;
+      margin: 0 auto; } }
 
 #detail-wrap #section1 {
   color: white;
