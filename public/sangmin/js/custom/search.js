@@ -41,58 +41,60 @@ $(function() {
 		//ajax 코드 구현
 		$(searchContentContainer).empty().append(loadingPrint()); //기존에 있던 내용 없애고 로딩 추가
 		//NOTE test코드
-		var data = [{
-			title: '앙사나골프텔',
-			imagePath: '/public/images/product.jpg',
-			score: 4.5,
-			article: 'ㄴㅁㄻㄴㄻㄶㅁㄴㅇㅎㄴㅇㅁㅎㄴㅁㅇㅎㄴㅁㅇㅎㄴㅇㅁㅎㄴㅇㅁㅎㄴㅁㅇㅎㄴㅇㅎㄴㅇㅎㄴㅇㅎㄶㅇ'
-		}, {
-			title: '앙사나골프텔',
-			imagePath: '/public/images/product.jpg',
-			score: 4.5,
-			article: 'ㄴㅁㄻㄴㄻㄶㅁㄴㅇㅎㄴㅇㅁㅎㄴㅁㅇㅎㄴㅁㅇㅎㄴㅇㅁㅎㄴㅇㅁㅎㄴㅁㅇㅎㄴㅇㅎㄴㅇㅎㄴㅇㅎㄶㅇ'
-		}, {
-			title: '앙사나골프텔',
-			imagePath: '/public/images/product.jpg',
-			score: 4.5,
-			article: 'ㄴㅁㄻㄴㄻㄶㅁㄴㅇㅎㄴㅇㅁㅎㄴㅁㅇㅎㄴㅁㅇㅎㄴㅇㅁㅎㄴㅇㅁㅎㄴㅁㅇㅎㄴㅇㅎㄴㅇㅎㄴㅇㅎㄶㅇ'
-		}, {
-			title: '앙사나골프텔2',
-			imagePath: '/public/images/product.jpg',
-			score: 3.2,
-			article: '2ㄴㅁㄻㄴㄻㄶㅁㄴㅇㅎㄴㅇㅁㅎㄴㅁㅇㅎㄴㅁㅇㅎㄴㅇㅁㅎㄴㅇㅁㅎㄴㅁㅇㅎㄴㅇㅎㄴㅇㅎㄴㅇㅎㄶㅇ'
-		}];
-		var input = '';
-		input += "<p><span>'" + searchInput.val() + "' '</span>검색결과 <span> / 총' + data.length + '개</span></p>"
-		input += '<div>'
-		input += '<ul class="search-items">'
-		for (var i = 0; i < data.length; i++) {
-			input += '<a href="#' + /*경로*/ '">';
-			input += '<li class="search-item d-flex align-items-strech">'
-			input += '<div class="image d-flex align-items-center justify-content-center">'
-			input += '<img class="rounded-circle" src="' + data[i].imagePath + '"alt="검색이미지" width="100%;">'
-			input += '</div>'
-			input += '<div class="content">'
-			input += '<div class="title d-flex align-items-center">' + data[i].title + '<span class="pl-2 score-icon d-flex">' + printStar(parseFloat(data[i].score)) + '</span><span class="pl-2 score-text">(종합 점수' + parseFloat(data[i].score) + ')</span></div>'
-			input += '<div class="article">' + data[i].article + '</div>';
-			input += '</li>'
-			input += '<a/>';
-		} //loop end
-		input += '</ul>'
-		input += '</div>'
-		setTimeout(function() {
-			//타임아웃은..ajax 딜레이 표현용 ajax 구현시 X
-			$(searchContentContainer).empty().append(input);
-		}, 500) //TEST 코드 end
+		// var data = [{
+		// 	title: '앙사나골프텔',
+		// 	imagePath: '/public/images/product.jpg',
+		// 	score: 4.5,
+		// 	article: 'ㄴㅁㄻㄴㄻㄶㅁㄴㅇㅎㄴㅇㅁㅎㄴㅁㅇㅎㄴㅁㅇㅎㄴㅇㅁㅎㄴㅇㅁㅎㄴㅁㅇㅎㄴㅇㅎㄴㅇㅎㄴㅇㅎㄶㅇ'
+		// }, {
+		// 	title: '앙사나골프텔',
+		// 	imagePath: '/public/images/product.jpg',
+		// 	score: 4.5,
+		// 	article: 'ㄴㅁㄻㄴㄻㄶㅁㄴㅇㅎㄴㅇㅁㅎㄴㅁㅇㅎㄴㅁㅇㅎㄴㅇㅁㅎㄴㅇㅁㅎㄴㅁㅇㅎㄴㅇㅎㄴㅇㅎㄴㅇㅎㄶㅇ'
+		// }, {
+		// 	title: '앙사나골프텔',
+		// 	imagePath: '/public/images/product.jpg',
+		// 	score: 4.5,
+		// 	article: 'ㄴㅁㄻㄴㄻㄶㅁㄴㅇㅎㄴㅇㅁㅎㄴㅁㅇㅎㄴㅁㅇㅎㄴㅇㅁㅎㄴㅇㅁㅎㄴㅁㅇㅎㄴㅇㅎㄴㅇㅎㄴㅇㅎㄶㅇ'
+		// }, {
+		// 	title: '앙사나골프텔2',
+		// 	imagePath: '/public/images/product.jpg',
+		// 	score: 3.2,
+		// 	article: '2ㄴㅁㄻㄴㄻㄶㅁㄴㅇㅎㄴㅇㅁㅎㄴㅁㅇㅎㄴㅁㅇㅎㄴㅇㅁㅎㄴㅇㅁㅎㄴㅁㅇㅎㄴㅇㅎㄴㅇㅎㄴㅇㅎㄶㅇ'
+		// }];
+		// var input = '';
+		// input += "<p><span>'" + searchInput.val() + "' '</span>검색결과 <span> / 총' + data.length + '개</span></p>"
+		// input += '<div>'
+		// input += '<ul class="search-items">'
+		// for (var i = 0; i < data.length; i++) {
+		// 	input += '<a href="#' + /*경로*/ '">';
+		// 	input += '<li class="search-item d-flex align-items-strech">'
+		// 	input += '<div class="image d-flex align-items-center justify-content-center">'
+		// 	input += '<img class="rounded-circle" src="' + data[i].imagePath + '"alt="검색이미지" width="100%;">'
+		// 	input += '</div>'
+		// 	input += '<div class="content">'
+		// 	input += '<div class="title d-flex align-items-center">' + data[i].title + '<span class="pl-2 score-icon d-flex">' + printStar(parseFloat(data[i].score)) + '</span><span class="pl-2 score-text">(종합 점수' + parseFloat(data[i].score) + ')</span></div>'
+		// 	input += '<div class="article">' + data[i].article + '</div>';
+		// 	input += '</li>'
+		// 	input += '<a/>';
+		// } //loop end
+		// input += '</ul>'
+		// input += '</div>'
+		// setTimeout(function() {
+		// 	//타임아웃은..ajax 딜레이 표현용 ajax 구현시 X
+		// 	$(searchContentContainer).empty().append(input);
+		// }, 500) //TEST 코드 end
 		//TODO AJAX 코드 실행..위의 코드 참고해서 작성해주세요
-		/*
+		
 		$.ajax({
-			url: 'url..'
+			url: '/index.php/test/ajax',
 			type: 'get',
+			dataType:'json',
 			data: {
 				search: searchInput.val()
 			},
 			success: function(data) {
+				console.log(data);
 				var input = '';
 				input += "<p><span>'" + searchInput.val() + "' '</span>검색결과 <span> / 총' + data.length + '개</span></p>"
 				input += '<div>'
@@ -113,7 +115,8 @@ $(function() {
 				input += '</div>'
 				$(searchContentContainer).empty().append(input);
 			} //success
-		}); //ajax end*/
+		}); //ajax end
+	
 	}
 
 	function printStar(score) {

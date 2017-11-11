@@ -12,6 +12,21 @@ class Test extends Public_Controller
      
         
     }
+    function ajax()
+    {
+        header("content-type:application/json");
+        $serach =$this->input->get("search");
+
+        
+        $data = array(array(
+            'title'=>"ddd",
+            'imagePath' =>'/public/images/product.jpg',
+            'score'=>"1",
+            "article"=>"asdf"
+        )); 
+        echo json_encode($data);
+        // echo 1;
+    }
     function add($id=null)
     {
     $t=array("홈"=>"1");
