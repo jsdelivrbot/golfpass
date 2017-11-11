@@ -39,9 +39,26 @@ class Product extends Base_Controller {
         $this->_template("gets",$data,'golfpass');
          
     }
+
+    function ajax_gets_by_ranking()
+    {
+        $rankingType = $this->input->post("rankingType");
+        
+         $this->load->model("shop/products_model");
+         $this->db->limit(10,0);
+         $data['products_avgScore'] =$this->products_model->gets_by_ranking($rankingType);
+         
+         $data['rankingType'] = $rankingType;
+        
+         
+        $this->_view("ajax_gets_by_ranking",$data);
+    }
     function gets_by_ranking()
     {
-        $this->_template("gets_by_ranking",array(),'golfpass');
+         //리뷰 평균점수 높은대로순
+         $this->db->limit(10,0);
+        $data['products_avgScore'] =$this->products_model->gets_by_ranking("avg_score");
+        $this->_template("gets_by_ranking",$data,'golfpass');
     }
     
 	public function get($id =1){
