@@ -160,7 +160,7 @@
                   <?php }?>
                 </div>
               </div>
-              <div id="detail" class='col col-xs-6'>
+              <div id="detail" class='col'>
                   <div id="score" class="d-flex flex-column align-items-center">
                       <i class="xi xi-star xi-2x"></i>
                       <span><?=$product->avg_score?></span>
@@ -181,8 +181,12 @@
                       </p>
                   </div>
               </div>
-              <section id="chart">
-              </section>
+              <div id="chart" class="col flex-column align-items-center justify-content-center">
+                <canvas id="chart-canvas" class="w-75 h-75 ml-auto mr-auto">
+                </canvas>
+                <h1 id="chart-score" class="text-center">점수 : 85</h1>
+              </div>
+
             </article>
         </section>
         <article id='section2' class='row no-gutters'>
@@ -630,16 +634,82 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
     <script src="/public/sangmin/dist/bootstrap/bootstrap.bundle.min.js"></script>
     <script src="/public/sangmin/dist/Nwagon/Nwagon.js"></script>
-    <script src="/public/sangmin/js/chart.js"></script>
+    <!-- <script src="/public/sangmin/js/chart.js"></script> -->
     <script src="/public/sangmin/js/sticky.js"></script>
     <script src="/public/sangmin/js/custom/navAction.js"></script>
     <script src="/public/sangmin/js/custom/search.js"></script>
     <script src="/public/sangmin/js/slick.js" type="text/javascript" charset="utf-8"></script>
     <script src="/public/sangmin/js/custom/detail_slide.js"></script>
     <script src="/public/sangmin/js/custom/detail_sticky.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    </script>
+
     <script>
-
-
+    var chartOptions = {
+  scale: {
+    gridLines: {
+      color: "#4b4b4b",
+      lineWidth: 1
+    },
+    angleLines: {
+      display: true,
+    },
+    ticks: {
+      beginAtZero: false,
+      display:false,
+       min: 0,
+       max: 100,
+      stepSize: 20
+    },
+    pointLabels: {
+      fontSize: 0,
+      fontColor: "#c8c8c8",
+      display:false,
+    }
+  },tooltips:
+{
+    bodyFontColor: "#000000",
+    bodyFontSize: 0,
+    bodyFontStyle: "bold",
+    bodyFontColor: '#FFFFFF',
+    bodyFontFamily: "'Helvetica', 'Arial', sans-serif",
+    footerFontSize: 0,
+    titleFontSize:16,//툴팁 폰트크기 @
+    titleFontColor:'orange',//툴팁 옵션색깔 @
+    titleFontFamily:'Noto Sans', //툴팁 폰트 @
+    custom: function(tooltip) {
+        if (!tooltip) return;
+        // disable displaying the color box;
+        tooltip.displayColors = false;
+      },
+},
+  legend: {
+    position: 'left',
+    display:false
+  }
+};
+new Chart(document.getElementById("chart-canvas"), {
+    type: 'radar',
+    data: {
+      labels: ["옵션1","옵션2","옵션3","옵션4","옵션5","옵션6", "옵션7"],
+      datasets: [
+       {
+          //label: "2050",
+          label:false,
+          fill: true,
+          backgroundColor: "rgba(121, 183, 84, 0.5)",//@초록색 바탕
+          borderColor: "#79b754", //@ 점수 선색
+          pointBorderColor: "#79b754", //포인트 색@
+          pointBackgroundColor: "#79b754",//@
+          pointBorderColor: "#79b754",//@
+          pointRadius:5,//포인트 두께@
+          pointHoverRadius: 7,//호버시포인트두께
+          data: [80,74,98,80,88,98]
+        }
+      ]
+    },
+    options:chartOptions
+});
     </script>
 </body>
 
