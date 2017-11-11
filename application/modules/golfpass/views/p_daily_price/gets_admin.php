@@ -1,13 +1,19 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="//code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
-
+<?php if(is_semantic_dev) {?>
+    <link rel="stylesheet/less" type="text/css" href="/public/framework/semantic/src/semantic.less">
+<script src="/public/framework/semantic/src/less.min.js"></script>
+<?php }else{?>
+<link rel="stylesheet" type="text/css" href="/public/framework/semantic/out/semantic.css">
+<?php }?>
 <!-- 아일론 슬라이더 -->
 <script src="<?=domain_url("/public/lib/ion.rangeSlider/js/ion-rangeSlider/ion.rangeSlider.min.js")?>"></script>
 <link rel="stylesheet" href="<?=domain_url("/public/lib/ion.rangeSlider/css/ion.rangeSlider.css")?>" />
 <link rel="stylesheet" href="<?=domain_url("/public/lib/ion.rangeSlider/css/normalize.css")?>" />
 <link rel="stylesheet" href="<?=domain_url("/public/lib/ion.rangeSlider/css/ion.rangeSlider.skinHTML5.css")?>" />
 <!-- 아일론 슬라이더 -->
+<script src="<?=domain_url('/public/js/common.js')?>"></script>
 
 <script>
     $.datepicker.setDefaults({
@@ -31,12 +37,14 @@
         $("#datepicker2").datepicker();
     });
 </script>
+
 <div style="position:fixed; background-color: rgba(0,0,0,0.5)" >
 <form method="post" onsubmit="ajax_submit(this); return false;" action="<?=my_site_url(golfpass_p_daily_price_admin_uri."/ajax_add/{$product->id}")?>">
-시작날자: <input type="text" name="start_date" id="datepicker1" value="<?=set_value('start_date')?>">
-끝시작: <input type="text" name="end_date" id="datepicker2" value="<?=set_value('end_date')?>">
-<!-- 시작날자: <input type="text" name="start_date" id="datepicker1" value="2017-01-01">
-끝시작: <input type="text" name="end_date" id="datepicker2" value="2017-01-09"> -->
+<!-- <form method="post" onsubmit="ajax_submit(this); return false;" action="<?=my_site_url(golfpass_p_daily_price_admin_uri."/ajax_add/{$product->id}")?>"> -->
+<!-- 시작날자: <input type="text" name="start_date" id="datepicker1" value="<?=set_value('start_date')?>"> -->
+<!-- 끝시작: <input type="text" name="end_date" id="datepicker2" value="<?=set_value('end_date')?>"> -->
+시작날자: <input type="text" name="start_date" id="datepicker1" value="2017-01-01">
+끝시작: <input type="text" name="end_date" id="datepicker2" value="2017-01-09">
     <bR>
 가격<input type="text" name="price" value="2000">
     <bR>
@@ -81,6 +89,12 @@
     <input type="submit" value="보내기">
   </form>
   
+  <div class="loading ui active dimmer" style="display:none;    position: fixed">
+    <div class="ui massive text loader">Loading</div>
+  <p></p>
+  <p></p>
+  <p></p>
+</div>
   <table>
   <tr>
   <td id="btn_month_1">1</td>
@@ -127,6 +141,8 @@
 
 </style>
 <div style ="margin-top:600px;"></div>
+
+<div class="target">
 <?php for ($m =1; $m<=12; $m++) {
     // $num_days = cal_days_in_month(CAL_GREGORIAN, $m, $year);
     $num_days = date('t', mktime(0, 0, 0, $m, 1, $year)); 
@@ -190,6 +206,7 @@
 </table>
 <?php }?>
 
+</div>
 
 <script>
 $("#slider_num_people").ionRangeSlider({
@@ -317,4 +334,3 @@ return out_date;
 }
 </script>
 
-<script src="<?=domain_url('/public/js/common.js')?>"></script>

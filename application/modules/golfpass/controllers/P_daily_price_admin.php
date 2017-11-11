@@ -114,8 +114,40 @@ class P_daily_price_admin extends Admin_Controller
                      } while ($date !== $end_date);
                  }
              }
-             $data['alert'] ="완료";
-             $data['reload'] =true;
+
+             ////////////////데이터
+             $year = $this->input->post("year");
+             if($year === null)
+                 $year = date("Y");
+ 
+             $this->db->like("date",$year);
+             $rows =$this->p_daily_price_model->_gets(array('product_id'=>$product_id));
+ 
+             $price = array();
+             if(count($rows) !== 0){
+                 foreach($rows as $row)
+                 {
+                        $price[$row->date][$row->num_people][$row->period] = $row->price; 
+                 }
+                 $data['price'] = $price;
+             }
+             $data['maxium_num_peple'] = 45;
+             $data['num_period'] = 3;
+             $data['year'] = $year;
+             $data['start_plus'] = 1;
+             $data["product"] = $this->db->where('id',$product_id)->get("products")->row();
+
+             ob_start();
+              $this->_view("ajax_target", $data);
+             $output = ob_get_clean();
+
+             $data['change']['html'] = $output;
+             $data['change']['target'] = ".target";
+
+             /////////////데이터
+             
+            //  $data['alert'] ="완료";
+            //  $data['reload'] =true;
             }
         $data['loding'] =".loding";
         

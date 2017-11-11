@@ -59,23 +59,32 @@ function ajax(url,queryString,e=null,callback =function(){return;}){
         dataType : 'json',
         data: queryString,
         url: url,
+        beforeSend: function(){
+            $('.loading').fadeIn(500);
+        },
         success:function(data){
             callback(e,data);
             if("none" in data) return ;
             if("alert" in data)  alert(data['alert']);
-            if(("reload" in data) && data['reload'] ==true)  window.location.reload();
             if("callback" in data) eval(data['callback']);
             if("redirect" in data) window.location.href= data["redirect"];
             if("confirm_redirect" in data) {
-                    if(confirm(data["confirm_redirect"]["msg"]))
-                        window.location.href= data["confirm_redirect"]["url"];
+                if(confirm(data["confirm_redirect"]["msg"]))
+                    window.location.href= data["confirm_redirect"]["url"];
             }
             if("append" in data){
                 var append = data['append'];
                 var ele=$(e)[append['method']](append['selector'])[0];
                 $(ele).append(append['data']);
             }
-       
+            if("change" in data){
+                var html = data['change']['html'];
+                var target = data['change']['target'];
+                $(target).html(html);
+            }
+            $('.loading').fadeOut(500);
+
+            if(("reload" in data) && data['reload'] ==true)  window.location.reload();
         
         },
         error: function(xhr, textStatus, errorThrown){

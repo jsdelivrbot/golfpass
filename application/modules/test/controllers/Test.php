@@ -14,7 +14,8 @@ class Test extends Public_Controller
     }
     function ajax()
     {
-        var_dump(round((int)1 *(float)1));
+        ob_start();
+        $output = ob_get_clean();
     }
     function add($id=null)
     {
