@@ -1,86 +1,111 @@
+@charset "UTF-8";
+
 #detail-wrap {
 	#section1 {
 		color: white;
 		@include backcover('../sangmin/img/background/bg2.jpg');
+		background-repeat: no-repeat;
 		position: relative;
-		padding: 120px 15px 30px;
+		padding: 0;
 
-		> * {
-			z-index: 2;
-		}
-
-		#detail_slide {
-			max-width: 574px;
-		}
-
-		#detail {
+		#section1-wrap {
+			color: white;
 			position: relative;
-			box-sizing: border-box;
-			margin-top: 25px;
-			line-height: 1.2;
-			margin-bottom: 20px;
-			@media (min-width: 768px) {
-				//sm
-				margin-top: 0;
-				padding-left: 10px;
-				margin-left: 50px;
-				margin-bottom: 0;
+			padding: 120px 0 30px;
+
+			> * {
+				z-index: 2;
 			}
 
-			#regine {
-				font-family: 'notokr-regular', sans-serif;
-				font-size: 16px;
-			}
-
-			#title {
-				margin-top: 12px;
-				margin-right: 50px;
-				font-family: 'TmonMonsori';
-				font-size: 60px;
-				@media (min-width: 992px) {
-					padding: 10px;
-				}
-			}
-
-			#title-en {
-				font-family: 'notokr-regular', sans-serif;
-				font-size: 16px;
-			}
-
-			#content {
-				margin-top: 30px;
-				font-size: 14px;
-				line-height: 1.6;
-				font-family: 'Noto Sans', sans-serif;
-
-				#sub-title {
-					font-family: 'notokr-medium', sans-serif;
-					color: $sub-title-color;
-				}
-
-				p {
-					font-family: 'notokr-light', sans-serif;
-				}
-			}
-
-			#score {
-				position: absolute;
-				right: 3%;
-				top: 10%;
-
-				i {
-					color: $yello-color;
-				}
+			#detail_slide {
+				max-width: 574px;
+				margin: 0 auto;
+				padding: 10px;
 				@media (min-width: 768px) {
-					//sm
-					top: 0;
+					margin: 0;
+					padding: 0;
+					margin-right: 50px;
+				}
+			}
+
+			#detail {
+				position: relative;
+				box-sizing: border-box;
+				margin-top: 25px;
+				line-height: 1.2;
+				margin-bottom: 20px;
+				padding: 50px;
+				@media (min-width: 768px) {
+					padding: 0;
+				}
+
+				#regine {
+					font-family: 'notokr-regular', sans-serif;
+					font-size: 16px;
+				}
+
+				#title {
+					margin-top: 12px;
+					font-family: 'TmonMonsori';
+					font-size: 60px;
+					@media (min-width: 992px) {
+						padding: 10px;
+					}
+				}
+
+				#title-en {
+					font-family: 'notokr-regular', sans-serif;
+					font-size: 16px;
+				}
+
+				#content {
+					margin-top: 30px;
+					font-size: 14px;
+					line-height: 1.6;
+					font-family: 'Noto Sans', sans-serif;
+
+					#sub-title {
+						font-family: 'notokr-medium', sans-serif;
+						color: $sub-title-color;
+					}
+
+					p {
+						font-family: 'notokr-light', sans-serif;
+					}
+				}
+
+				#score {
+					//작은별
+					position: absolute;
+					right: 10%;
+					top: 10%;
+					i {
+						color: $yello-color;
+						@media (min-width: 1200px) {
+								display: none;
+						}
+					}
+					@media (min-width: 768px) {
+						//sm
+						right: 15%;
+						top: 0;
+					}
+					@media (min-width: 992px) {
+						right: 20%;
+						top: 0;
+					}
+
+				}
+			}
+
+			#chart {
+				display: none;
+				@media (min-width: 1200px) {
+					display: block;
 				}
 			}
 		}
-		/*    #chart {
-        width: 22%;
-        height: 400px;
-    }*/
+
 		#shadow {
 			z-index: 1;
 			position: absolute;

@@ -3,8 +3,8 @@
 	height: 100%;
 	position: relative;
 
-	>section,#section2 {
-		max-width: 1440px !important;
+	#section1-wrap,#section2,#section3,#section4,#section5 {
+		max-width: 1440px;
 		margin: 0 auto;
 	}
 }

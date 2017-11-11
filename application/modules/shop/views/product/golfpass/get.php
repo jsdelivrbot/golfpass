@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="/public/sangmin/dist/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
     <link rel="stylesheet" href="/public/css/main.css">
-    <link rel="stylesheet" href="/public/sangmin/css/eric-meyer-reset.min.css">
     <link rel="stylesheet" href="/public/sangmin/css/xeicon.min.css">
     <link rel="stylesheet" href="/public/sangmin/dist/Nwagon/Nwagon.css" type="text/css">
 </head>
@@ -108,81 +107,83 @@
             </nav>
         </header>
         <!--NOTE 상단 슬라이드 + 내용 + chart-->
-        <article class="row no-gutter  justify-content-center justify-content-lg-start" id="section1" style="background-image:url('<?=$product_photos[0]->name ?? ''?>') ;">
+        <section class="container-fluid" id="section1" style="background-image:url('<?=$product_photos[0]->name ?? ''?>') ;">
             <!--NOTE 화면 어둡게-->
             <div id="shadow"></div>
-            <div id='detail_slide' class="col-12 col-md-6 col-xl-4 p-lg-0 pb-4 mb-lg-0">
-      				<div class="slider-for">
-                <!--NOTE 슬라이드 큰화면-->
-                <?php for($i = 0 ;$i < count($product_photos);$i++){?>
-                <div>
-      						<img src="<?=$product_photos[$i]->name?>" alt="">
-      					</div>
-                <?php }?>
-                <?php for($i = 0 ;$i < count($product_photos);$i++){?>
-                <div>
-                  <img src="<?=$product_photos[$i]->name?>" alt="">
+            <article id="section1-wrap" class="row no-gutters justify-content-center justify-content-lg-start">
+              <div id='detail_slide' class="col">
+                <div class="slider-for">
+                  <!--NOTE 슬라이드 큰화면-->
+                  <?php for($i = 0 ;$i < count($product_photos);$i++){?>
+                  <div>
+                    <img src="<?=$product_photos[$i]->name?>" alt="">
+                  </div>
+                  <?php }?>
+                  <?php for($i = 0 ;$i < count($product_photos);$i++){?>
+                  <div>
+                    <img src="<?=$product_photos[$i]->name?>" alt="">
+                  </div>
+                  <?php }?>
+                  <?php for($i = 0 ;$i < count($product_photos);$i++){?>
+                  <div>
+                    <img src="<?=$product_photos[$i]->name?>" alt="">
+                  </div>
+                  <?php }?>
+                  <?php for($i = 0 ;$i < count($product_photos);$i++){?>
+                  <div>
+                    <img src="<?=$product_photos[$i]->name?>" alt="">
+                  </div>
+                  <?php }?>
                 </div>
-                <?php }?>
-                <?php for($i = 0 ;$i < count($product_photos);$i++){?>
-                <div>
-                  <img src="<?=$product_photos[$i]->name?>" alt="">
+                <div class="slider-nav">
+                  <!--NOTE 슬라이드 하단 이미지 네비게이션-->
+                  <?php for($i = 0 ;$i < count($product_photos);$i++){?>
+                  <div>
+                    <img src="<?=$product_photos[$i]->name?>" alt="">
+                  </div>
+                  <?php }?>
+                  <?php for($i = 0 ;$i < count($product_photos);$i++){?>
+                  <div>
+                    <img src="<?=$product_photos[$i]->name?>" alt="">
+                  </div>
+                  <?php }?>
+                  <?php for($i = 0 ;$i < count($product_photos);$i++){?>
+                  <div>
+                    <img src="<?=$product_photos[$i]->name?>" alt="">
+                  </div>
+                  <?php }?>
+                  <?php for($i = 0 ;$i < count($product_photos);$i++){?>
+                  <div>
+                    <img src="<?=$product_photos[$i]->name?>" alt="">
+                  </div>
+                  <?php }?>
                 </div>
-                <?php }?>
-                <?php for($i = 0 ;$i < count($product_photos);$i++){?>
-                <div>
-                  <img src="<?=$product_photos[$i]->name?>" alt="">
-                </div>
-                <?php }?>
-      				</div>
-      				<div class="slider-nav">
-                <!--NOTE 슬라이드 하단 이미지 네비게이션-->
-                <?php for($i = 0 ;$i < count($product_photos);$i++){?>
-                <div>
-                  <img src="<?=$product_photos[$i]->name?>" alt="">
-                </div>
-                <?php }?>
-                <?php for($i = 0 ;$i < count($product_photos);$i++){?>
-                <div>
-                  <img src="<?=$product_photos[$i]->name?>" alt="">
-                </div>
-                <?php }?>
-                <?php for($i = 0 ;$i < count($product_photos);$i++){?>
-                <div>
-                  <img src="<?=$product_photos[$i]->name?>" alt="">
-                </div>
-                <?php }?>
-                <?php for($i = 0 ;$i < count($product_photos);$i++){?>
-                <div>
-                  <img src="<?=$product_photos[$i]->name?>" alt="">
-                </div>
-                <?php }?>
-      				</div>
-      			</div>
-            <div id="detail" class='col-12 col-md-6 col-xl-4 p-md-0'>
-                <div id="score" class="d-flex flex-column align-items-center d-none d-lg-block d-xl-none">
-                    <i class="xi xi-star xi-2x"></i>
-                    <span><?=$product->avg_score?></span>
-                </div>
-                <p id="regine">
-                    <?=$product->region?>
-                </p>
-                <h1 id="title">
-                    <?=$product->name?>
-                </h1>
-                <p id="title-en">
-                    <?=$product->eng_name?>
-                </p>
-                <div id="content">
-                    <p id='sub-title'>소개</p>
-                    <p>
-                        <?=$product->desc?>
-                    </p>
-                </div>
-            </div>
-            <section id="chart" class='col-xl-3 d-none d-xl-block'>
-            </section>
-        </article>
+              </div>
+              <div id="detail" class='col col-xs-6'>
+                  <div id="score" class="d-flex flex-column align-items-center">
+                      <i class="xi xi-star xi-2x"></i>
+                      <span><?=$product->avg_score?></span>
+                  </div>
+                  <p id="regine">
+                      <?=$product->region?>
+                  </p>
+                  <h1 id="title">
+                      <?=$product->name?>
+                  </h1>
+                  <p id="title-en">
+                      <?=$product->eng_name?>
+                  </p>
+                  <div id="content">
+                      <p id='sub-title'>소개</p>
+                      <p>
+                          <?=$product->desc?>
+                      </p>
+                  </div>
+              </div>
+              <section id="chart">
+              </section>
+            </article>
+        </section>
         <!--NOTE 예약 박스-->
         <div id="book-box-wrap">
             <div id='book-box'>
@@ -641,45 +642,22 @@
     <script src="/public/sangmin/js/slick.js" type="text/javascript" charset="utf-8"></script>
     	<script src="/public/sangmin/js/custom/detail_slide.js"></script>
     <script>
-    /**
- 	 * Block comment
- 	 *
- 	 * @param type
- 	 * @return void
-    var bottomSpacing = document.body.scrollHeight - $('#section1').outerHeight() - $('#section2').outerHeight();
-        if ($(window).width() > 992) {
+
+      $('#book-box-wrap').css('z-index',9999);
             $('#book-box').sticky({
-                topSpacing: 80,
-                wrapperClassName: '#book-box-wrap',
-                bottomSpacing: bottomSpacing
+                topSpacing: 0,
+                wrapperClassName: '#book-box-wrap'
             });
-            $('#book-box-wrap').css('top', $('#section1').outerHeight() - $('#personnel').outerHeight());
+            console.log($('.ml-auto.toggle').width())
             $('#book-box').on('sticky-start', function() {
-                $('#header').addClass('black-bg-header')
+                $('#header').addClass('black-bg-header');
+                  $('#book-box').css('max-width','320px');
+                    $('#book-box-wrap').css('right','0').css('right','-30px');
             });
             $('#book-box').on('sticky-end', function() {
-                $('#header').removeClass('black-bg-header')
+                $('#header').removeClass('black-bg-header');
+                                    $('#book-box-wrap').css('right','12%');
             });
-        }
-        $(window).resize(function(event) {
-            bottomSpacing = document.body.scrollHeight - $('#section1').outerHeight() - $('#section2').outerHeight();
-            if ($(window).width() > 992) {
-                $('#book-box-wrap').css({
-                    position: 'absolute',
-                    'top': $('#section1').outerHeight() - $('#personnel').outerHeight()
-                });
-                $('#book-box').sticky({
-                    topSpacing: 80,
-                    wrapperClassName: '#book-box-wrap',
-                    bottomSpacing: bottomSpacing
-                });
-            } else {
-                $('#book-box').unstick($('#book-box-wrap').css({
-                    position: 'relative',
-                    top: 0
-                }));
-            }
-        });	 */
 
 
     </script>
