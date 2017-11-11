@@ -29,7 +29,7 @@ class Review extends Admin_Controller {
         if($this->fv->run() === false)
         {
             $data['mode'] = "add";
-            $data['content'] =(object)array('is_display'=>'1','is_secret'=>'0');
+            $data['content'] =(object)array('is_display'=>'0','is_secret'=>'0');
             $data['products'] =$this->db->get("products")->result();
             $this->_template("addUpdate",$data);
              

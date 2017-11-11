@@ -12,7 +12,7 @@
         <li> <?=$contents[$i]->user_name?> (<?=$contents[$i]->userName?>) </li>
         <li><?=$contents[$i]->created?> </li>
         <li><?=$contents[$i]->desc?> </li>
-        <li><a href="<?=site_url(admin_product_review_uri."/update/{$contents[$i]->id}")?>">수정</a> </li>
+        <li><a href="<?=my_site_url(admin_product_review_uri."/update/{$contents[$i]->id}")?>">수정</a> </li>
         <li><a onclick="confirm_callback(this,ajax_a,'복구할 방법이 없습니다. 삭제하시겠습니까?'); return false;" data-action="<?=site_url(admin_product_review_uri."/ajax_delete/{$contents[$i]->id}")?>"  href="#">삭제</a> </li>
     </ul>
 <?php }?>

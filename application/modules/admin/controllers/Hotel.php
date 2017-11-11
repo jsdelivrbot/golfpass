@@ -119,7 +119,6 @@ class Hotel extends Admin_Controller {
         }else{
             $this->_dbSet_addUpdate();
             $insert_id=$this->p_hotel_model->_add();
-            alert('추가완료');
             my_redirect(admin_hotel_uri."/update/$insert_id");
         }
         

@@ -8,7 +8,7 @@
     <br>
 
     <?php }?>   
-    <form class="ui form" action="<?=site_url(admin_product_review_uri."/$mode")?>" method="post">
+    <form class="ui form" action="<?=my_site_url(admin_product_review_uri."/$mode")?>" method="post">
 
 
     <div class="two fields">
