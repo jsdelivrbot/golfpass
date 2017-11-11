@@ -17,7 +17,7 @@ class Test extends Public_Controller
         header("content-type:application/json");
         $serach =$this->input->get("search");
 
-        
+        $this-db->like("");
         $data = array(array(
             'title'=>"ddd",
             'imagePath' =>'/public/images/product.jpg',

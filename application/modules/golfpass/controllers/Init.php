@@ -326,6 +326,7 @@ class Init extends Init_Controller {
         
             $result = $this->db->query("CREATE TABLE `$tb_name`(
             `id` INT UNSIGNED NULL AUTO_INCREMENT, 
+            `hashtag` varchar(255) DEFAULT '', 
             `same_price_every_year` VARCHAR(10) NOT NULL DEFAULT '0',
             `reviews_count` int UNSIGNED NOT NULL DEFAULT '0',
             `name` varchar(30) NOT NULL DEFAULT '샘플상품',

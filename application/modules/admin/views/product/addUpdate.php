@@ -89,6 +89,10 @@ a{
             <label>공휴일 가격</label>
             <input type="text" name="holiday_price" value="<?=set_value_data($product,'holiday_price')?>"> <?=form_error('holiday_price',false,false)?><br>
         </div>
+        <div class="field">
+            <label>해시 태그- 예시)앙사나골프텔,라오골프텔 (띄어쓰기 없이 쉼표로 구분)</label>
+            <input placeholder="앙사나골프텔,라오골프텔"type="text" name="hashtag" value="<?=set_value_data($product,'hashtag')?>"> <?=form_error('hashtag',false,false)?><br>
+        </div>
 
         <input class="ui button positive" type="submit" value="추가/수정">
     </form>
