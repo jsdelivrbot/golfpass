@@ -1,5 +1,5 @@
-@charset "UTF-8";
-/* Slider */
+@charset "UTF-8"; /* Slider */
+
 .slick-slider {
 	position: relative;
 	display: block;
@@ -73,16 +73,24 @@
 		left: 20px;
 	}
 	@media (min-width: 1200px) {
-		left: 60px;
+		left: 30px;
 	}
 
 	.slick-slide {
-		margin: 3px 20px;
+		margin: 3px 5px;
+		max-width: 76px;
+		max-height: 56px;
+
+		&.active {
+			width: 76px;
+			height: 56px;
+		}
 
 		img {
 			display: block;
 			width: 76px;
 			height: 56px;
+
 			&:hover {
 				cursor: pointer;
 			}

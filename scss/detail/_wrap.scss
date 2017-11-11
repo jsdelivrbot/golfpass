@@ -1,11 +1,16 @@
-#detail-wrap{
-width: 100%;
-  height: 100%;
-  position: relative;
+#detail-wrap {
+	width: 100%;
+	height: 100%;
+	position: relative;
+
+	>section,#section2 {
+		max-width: 1440px !important;
+		margin: 0 auto;
+	}
 }
 @import "./section1";
 @import "./section2";
 @import "./section3";
-@import "./section_map";
+@import "./section4";
 @import "./header";
 @import "./book";

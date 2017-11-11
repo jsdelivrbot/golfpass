@@ -9,16 +9,22 @@
 			z-index: 2;
 		}
 
+		#detail_slide {
+			max-width: 574px;
+		}
+
 		#detail {
 			position: relative;
 			box-sizing: border-box;
 			margin-top: 25px;
 			line-height: 1.2;
+			margin-bottom: 20px;
 			@media (min-width: 768px) {
 				//sm
 				margin-top: 0;
 				padding-left: 10px;
-				margin-bottom: 10%;
+				margin-left: 50px;
+				margin-bottom: 0;
 			}
 
 			#regine {
@@ -35,7 +41,7 @@
 					padding: 10px;
 				}
 			}
-            
+
 			#title-en {
 				font-family: 'notokr-regular', sans-serif;
 				font-size: 16px;
@@ -48,13 +54,13 @@
 				font-family: 'Noto Sans', sans-serif;
 
 				#sub-title {
-                    font-family: 'notokr-medium', sans-serif;
+					font-family: 'notokr-medium', sans-serif;
 					color: $sub-title-color;
 				}
-                
-                p {
-                    font-family: 'notokr-light', sans-serif;
-                }
+
+				p {
+					font-family: 'notokr-light', sans-serif;
+				}
 			}
 
 			#score {

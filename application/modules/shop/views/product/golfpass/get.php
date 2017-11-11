@@ -108,16 +108,31 @@
             </nav>
         </header>
         <!--NOTE 상단 슬라이드 + 내용 + chart-->
-        <article class="row no-gutters" id="section1" style="background-image:url('<?=$product_photos[0]->name ?? ''?>') ;">
+        <article class="row no-gutter  justify-content-center justify-content-lg-start" id="section1" style="background-image:url('<?=$product_photos[0]->name ?? ''?>') ;">
             <!--NOTE 화면 어둡게-->
             <div id="shadow"></div>
-            <div id='detail_slide' class="col-12 col-md-6 col-xl-5 ">
+            <div id='detail_slide' class="col-12 col-md-6 col-xl-4 p-lg-0 pb-4 mb-lg-0">
       				<div class="slider-for">
                 <!--NOTE 슬라이드 큰화면-->
                 <?php for($i = 0 ;$i < count($product_photos);$i++){?>
                 <div>
       						<img src="<?=$product_photos[$i]->name?>" alt="">
       					</div>
+                <?php }?>
+                <?php for($i = 0 ;$i < count($product_photos);$i++){?>
+                <div>
+                  <img src="<?=$product_photos[$i]->name?>" alt="">
+                </div>
+                <?php }?>
+                <?php for($i = 0 ;$i < count($product_photos);$i++){?>
+                <div>
+                  <img src="<?=$product_photos[$i]->name?>" alt="">
+                </div>
+                <?php }?>
+                <?php for($i = 0 ;$i < count($product_photos);$i++){?>
+                <div>
+                  <img src="<?=$product_photos[$i]->name?>" alt="">
+                </div>
                 <?php }?>
       				</div>
       				<div class="slider-nav">
@@ -127,9 +142,24 @@
                   <img src="<?=$product_photos[$i]->name?>" alt="">
                 </div>
                 <?php }?>
+                <?php for($i = 0 ;$i < count($product_photos);$i++){?>
+                <div>
+                  <img src="<?=$product_photos[$i]->name?>" alt="">
+                </div>
+                <?php }?>
+                <?php for($i = 0 ;$i < count($product_photos);$i++){?>
+                <div>
+                  <img src="<?=$product_photos[$i]->name?>" alt="">
+                </div>
+                <?php }?>
+                <?php for($i = 0 ;$i < count($product_photos);$i++){?>
+                <div>
+                  <img src="<?=$product_photos[$i]->name?>" alt="">
+                </div>
+                <?php }?>
       				</div>
       			</div>
-            <div id="detail" class='col-12 col-md-6 col-xl-4'>
+            <div id="detail" class='col-12 col-md-6 col-xl-4 p-md-0'>
                 <div id="score" class="d-flex flex-column align-items-center d-none d-lg-block d-xl-none">
                     <i class="xi xi-star xi-2x"></i>
                     <span><?=$product->avg_score?></span>
@@ -158,6 +188,7 @@
             <div id='book-box'>
                 <div id="personnel" class="w-100">
                     <h1 class="mb-2">예약하기</h1>
+                    <!--
                     <div id='count-box' class='d-flex align-items-stretch justify-content-end'>
                         <span id='count'>1명 </span>
                         <div id="icon-box" class="mr-3">
@@ -168,6 +199,10 @@
 	                        </i>
 	                    </span>
                     </div>
+                  -->
+                  <div id='count-box' class='d-flex align-items-stretch justify-content-end'>
+                    <input type="number" name="" value="">
+                  </div>
                 </div>
                 <div id='dateBox'>
                     <form action="#" class="d-flex align-items-center justify-content-between">
@@ -202,7 +237,7 @@
         </div>
 
         <article id='section2' class='row no-gutters flex-column'>
-            <section class="col-md-7 col-lg-8 col-xl-9" id="article-section-1">
+            <section class="col-12 col-lg-8 col-xl-9" id="article-section-1">
                 <div class='d-flex flex-column title-box'>
                     <span>0<?=$number++?></span>
                     <h1 class="mt-13">골프장</h1>
@@ -244,7 +279,7 @@
                 </div>
             </section>
             <?php if(isset($hotel)){?>
-            <section class="col-md-7 col-lg-8 col-xl-9" id="article-section-2">
+            <section class="col-12 col-lg-8 col-xl-9" id="article-section-2">
                 <div class='d-flex flex-column title-box'>
                     <span>0<?=$number++?></span>
                     <h1 class="mt-13">숙박</h1>
@@ -335,7 +370,7 @@
                 </div>
             </section>
             <?php }?>
-            <section class="col-md-7 col-lg-8 col-xl-9" id="article-section-5">
+            <section class="col-12 col-lg-8 col-xl-9" id="article-section-5">
                 <div class='d-flex flex-column title-box'>
                     <span>0<?=$number++?></span>
                     <h1 class="mt-13">취소/환불</h1>
@@ -387,9 +422,11 @@
             </section>
 
         </article>
-        <section id="section-map"></section>
+        <section id="section3">
+        <!--TODO 구글맵-->
+        </section>
         <!--TODO 리뷰  데이터 X-->
-        <section id="section3" class='row no-gutters'>
+        <section id="section4" class='row no-gutters'>
             <div class="col-12 review-warning-text d-flex justify-content-center">
                 <div class="d-flex flex-column align-items-center">
                     <span class="mt-20 mb-10">리뷰</span>
@@ -599,7 +636,12 @@
     <script src="/public/sangmin/js/slick.js" type="text/javascript" charset="utf-8"></script>
     	<script src="/public/sangmin/js/custom/detail_slide.js"></script>
     <script>
-        var bottomSpacing = document.body.scrollHeight - $('#section1').outerHeight() - $('#section2').outerHeight();
+    /**
+ 	 * Block comment
+ 	 *
+ 	 * @param type
+ 	 * @return void
+    var bottomSpacing = document.body.scrollHeight - $('#section1').outerHeight() - $('#section2').outerHeight();
         if ($(window).width() > 992) {
             $('#book-box').sticky({
                 topSpacing: 80,
@@ -632,7 +674,8 @@
                     top: 0
                 }));
             }
-        });
+        });	 */
+
 
     </script>
 </body>
