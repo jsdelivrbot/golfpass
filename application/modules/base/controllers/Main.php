@@ -13,8 +13,6 @@ class Main extends Base_Controller
     }
     function ajax_gets_by_ranking()
     {
-    
-
         $rankingType = $this->input->post("rankingType");
        
         $this->load->model("shop/products_model");
