@@ -88,7 +88,8 @@ function ajax(url,queryString,e=null,callback =function(){return;}){
         
         },
         error: function(xhr, textStatus, errorThrown){
-            alert('ajax 전송 실패.');
+            alert('에러... or 데이터 용량이 너무많습니다.');
+            $('.loading').fadeOut(500);
             console.log('code: '+request.status+"\n"+'message: '+request.responseText+"\n"+'error: '+error);
             console.log(errorThrown);
         }

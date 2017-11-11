@@ -125,24 +125,32 @@
 </form> -->
 
 <style>
-  table {
+    body{
+        overflow: auto;
+    }
+  /* table {
     width: 10000px;
-    /* border: 1px solid #444444; */
+    border: 1px solid #444444;
     border-collapse: collapse;
-  }
+  } */
   th, td {
+    /* border: 1px solid #444444; */
+    /* padding: 10px; */
+    /* width:300px; */
+  }
+  .active {
+      /* background-color:rgba(0,200,0,0.5); */
+  }
+  /* .ui.table td
+  {
     border: 1px solid #444444;
     padding: 10px;
     width:300px;
-  }
-  .green{
-      background-color:rgba(0,200,0,0.5);
-  }
-
+  } */
 </style>
 <div style ="margin-top:600px;"></div>
 
-<div class="target">
+<div class="target ui grid" style="margin-left:50px;">
 <?php for ($m =1; $m<=12; $m++) {
     // $num_days = cal_days_in_month(CAL_GREGORIAN, $m, $year);
     $num_days = date('t', mktime(0, 0, 0, $m, 1, $year)); 
@@ -152,7 +160,7 @@
 <br>
 
 <?="{$m}월"?>
-<table>
+<table class="ui celled table">
 <thead>
 <tr >
     <th>
@@ -181,11 +189,11 @@
         <!-- 명당 가격 시작 -->
         <?php for ($i=1; $i <= (int)$maxium_num_peple; $i++) {?>
         <!--1일 or 2일 가격 -->
-        <td  class="pdate row <?="p{$date}-{$i}-".(1+$start_plus)?> <?=isset($price[$date][$i][1+$start_plus])?( $price[$date][$i][1+$start_plus] !=="0" ? "green" : "red") : "red"?>" rowspan=<?=$num_period?>><?=(0+$start_plus)."박".(1+$start_plus)."일"?><br><?=$price[$date][$i][1+$start_plus] ?? 0?></td>
+        <td  class="pdate row <?="p{$date}-{$i}-".(1+$start_plus)?> <?=isset($price[$date][$i][1+$start_plus])?( $price[$date][$i][1+$start_plus] !=="0" ? "active " : "red") : "red"?>" rowspan=<?=$num_period?>><?=(0+$start_plus)."박".(1+$start_plus)."일"?><br><?=$price[$date][$i][1+$start_plus] ?? 0?></td>
         <!--1일 or 2일 가격-->
             <?php if ($num_period !== 0) {?>
             <!-- 2일or 3일 가격 -->
-            <td  class="pdate colspan <?="p{$date}-{$i}-".(2+$start_plus)?> <?=isset($price[$date][$i][2+$start_plus])?( $price[$date][$i][2+$start_plus] !=="0" ? "green" : "red") : "red"?>" style="width:50px;"><?=(1+$start_plus)."박".(2+$start_plus)."일"?><br><?=$price[$date][$i][2+$start_plus] ?? 0?></td>
+            <td  class="pdate colspan <?="p{$date}-{$i}-".(2+$start_plus)?> <?=isset($price[$date][$i][2+$start_plus])?( $price[$date][$i][2+$start_plus] !=="0" ? "active " : "red") : "red"?>" style="width:50px;"><?=(1+$start_plus)."박".(2+$start_plus)."일"?><br><?=$price[$date][$i][2+$start_plus] ?? 0?></td>
             <!-- 2일or 3일 가격 -->
             <?php }?>
         <?php }?>
@@ -196,7 +204,7 @@
     <?php for ($i=1; $i < (int)$num_period; $i++) {?>
         <tr class="rowspan">
         <?php for ($j=1; $j <= (int)$maxium_num_peple; $j++) {?>
-            <td class="pdate <?="p{$date}-{$j}-".($i+2+$start_plus)?> <?=isset($price[$date][$j][$i+2+$start_plus])?( $price[$date][$j][$i+2+$start_plus] !=="0" ? "green" : "red") : "red"?>"><?=($i+1+$start_plus)."박".($i+2+$start_plus)."일"?><br><?=$price[$date][$j][$i+2+$start_plus] ?? 0?></td>
+            <td class="pdate <?="p{$date}-{$j}-".($i+2+$start_plus)?> <?=isset($price[$date][$j][$i+2+$start_plus])?( $price[$date][$j][$i+2+$start_plus] !=="0" ? "active " : "red") : "red"?>"><?=($i+1+$start_plus)."박".($i+2+$start_plus)."일"?><br><?=$price[$date][$j][$i+2+$start_plus] ?? 0?></td>
             <?php }?>
         </tr>
     <?php }?>
@@ -248,7 +256,7 @@ $("input").change(function(){
 //     }
 
 // // $(".pdate").css("background-color","white");
-// $(".green").css("background-color","rgba(0,200,0,0.5)");
+// $(".active ").css("background-color","rgba(0,200,0,0.5)");
 
 //  var start_date=$("input[name=start_date]").val();
 //  var end_date=$("input[name=end_date]").val();
