@@ -2973,6 +2973,8 @@ body.menu-open .plus-btn .r2 {
         color: #868e93; }
 
 #book-box-wrap {
+  min-width: 320px;
+  width: 320px;
   font-family: 'Noto Sans', sans-serif;
   right: 0;
   position: absolute;
@@ -2980,8 +2982,7 @@ body.menu-open .plus-btn .r2 {
   z-index: 300; }
   @media (min-width: 992px) {
     #book-box-wrap {
-      position: absolute;
-      min-width: 350px; } }
+      position: absolute; } }
   #book-box-wrap #book-box #personnel {
     background-color: #79b754;
     padding: 15px;

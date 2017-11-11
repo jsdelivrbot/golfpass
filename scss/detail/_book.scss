@@ -1,6 +1,8 @@
 @charset "utf-8";
 
 #book-box-wrap {
+	min-width: 320px;
+	width: 320px;
 	font-family: 'Noto Sans', sans-serif;
 	right: 0;
 	position: absolute;
@@ -8,8 +10,8 @@
 	z-index: 300;
 	@media (min-width: 992px) {
 		position: absolute;
-		min-width: 350px;
 	}
+
 	#book-box {
 		#personnel {
 			//인원 박스
@@ -48,12 +50,10 @@
 		#dateBox {
 			padding: 20px;
 			background-color: black;
-
 			.form-group {
 				background-color: white;
 				color: black;
 				width: 45%;
-
 				input {
 					box-sizing: border-box;
 					padding: 15px;
@@ -63,7 +63,6 @@
 					font-family: 'notokr-demilight', sans-serif;
 					font-size: 14px;
 					color: #b2b2b2;
-
 					&:focus {
 						outline: 0;
 					}
@@ -74,7 +73,6 @@
 				}
 			}
 		}
-
 		#info {
 			background-color: #fff;
 			padding: 25px 20px;
@@ -83,7 +81,6 @@
 			font-size: 1em;
 			border: 1px solid #e6e6e6;
 			border-top: 0;
-
 			li {
 				margin-bottom: 5px;
 				box-sizing: border-box;

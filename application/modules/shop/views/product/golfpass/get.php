@@ -187,7 +187,7 @@
 
 
         <article id='section2' class='row no-gutters flex-column'>
-            <div id="book-box-wrap" class="col-3">
+            <div id="book-box-wrap" class="col-4 col-sm-3">
               <div id='book-box'>
                   <div id="personnel" class="w-100">
                       <h1 class="mb-2">예약하기</h1>
@@ -244,7 +244,7 @@
                   </div>
               </div>
             </div>
-            <article id="section2-wrap" class="row col-9 col-sm-8">
+            <article id="section2-wrap" class="row col-8 col-sm-8">
               <section class="col-12" id="article-section-1">
                   <div class='d-flex flex-column title-box'>
                       <span>0<?=$number++?></span>
