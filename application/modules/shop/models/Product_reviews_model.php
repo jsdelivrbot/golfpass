@@ -34,9 +34,10 @@ class Product_reviews_Model extends Public_Model{
     }
     function get_reveiw($id)
     {
-        $this->db->select("r.is_display,r.id, r.title, r.desc, r.created ,if(r.user_id = 0, r.guest_name, u.name) 'user_name', if(r.user_id = 0, '손님', u.userName) 'userName'");
+        $this->db->select("p.name as product_name,r.* ,if(r.user_id = 0, r.guest_name, u.name) 'user_name', if(r.user_id = 0, '손님', u.userName) 'userName'");
         $this->db->from("$this->table AS r");
         $this->db->join("users AS u","r.user_id = u.id","LEFT");
+        $this->db->join("products AS p","r.product_id = p.id","LEFT");
         $this->db->where('r.id',"$id");
         $content = $this->db->get()->row();
         return $content;
@@ -188,8 +189,10 @@ class Product_reviews_Model extends Public_Model{
         $product_id = $set_obj['product_id'];
         $id = parent::_add($set_obj);
 
-        $is_display=parent::_get($id,array('is_display'))->is_display;
-
+        $review=parent::_get($id,array('is_display','is_secret','product_id'));
+        $is_display=$review->is_display;
+        $is_secret=$review->is_secret;
+        $product_id = $review->product_id;
         if($is_display === '1'){
             $this->load->model("shop/products_model");
             $this->products_model->_count_plus(array('id'=>$product_id),'reviews_count');
@@ -199,8 +202,9 @@ class Product_reviews_Model extends Public_Model{
   
     function delete($where,$product_id =false)
     {
-        $row =parent::_get($where,array('is_display','product_id'));
+        $row =parent::_get($where,array('is_display','product_id','is_secret'));
         $is_display=$row->is_display;
+        $is_secret=$row->is_secret;
         $product_id = $row->product_id;
         $where =parent::_delete($where);
         
@@ -212,17 +216,22 @@ class Product_reviews_Model extends Public_Model{
 
     
     
-    function update_admin($where_obj,$set_obj =null,$escape = true)
+    function update($where_obj,$set_obj =null,$escape = true)
     {
+        $row =parent::_get($where_obj, array('is_display','is_secret'));
+        $before_is_display = $row->is_display;
+        $before_is_secret = $row->is_secret;
+
         parent::_update($where_obj,$set_obj,$escape);
-        $row =parent::_get($where_obj,array('is_display','product_id'));
+        $row =parent::_get($where_obj,array('is_display','product_id','is_secret'));
         $is_display = $row->is_display;
+        $is_secret = $row->is_secret;
         $product_id = $row->product_id;
-        if($is_display === '1')
+        if($before_is_display === '0'  && $is_display === '1' )
         {
             $this->load->model("shop/products_model");
             $this->products_model->_count_plus(array('id'=>$product_id),'reviews_count');
-        }else if($is_display === '0')
+        }else if($before_is_display === '1' && $is_display === '0')
         {
             $this->load->model("shop/products_model");
             $this->products_model->_count_minus(array('id'=>$product_id),'reviews_count');

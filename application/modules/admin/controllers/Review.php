@@ -25,25 +25,22 @@ class Review extends Admin_Controller {
     }
     function add()
     {
-        $this->_set_rules();
+        $this->fv->set_rules('product_id',"상품","required");
         if($this->fv->run() === false)
         {
             $data['mode'] = "add";
-            $data['content'] =(object)array('is_display'=>'1');
+            $data['content'] =(object)array('is_display'=>'1','is_secret'=>'0');
+            $data['products'] =$this->db->get("products")->result();
             $this->_template("addUpdate",$data);
              
         }else
         {
             $this->load->model('product_reviews_model');
-            $this->product_reviews_model->_set_by_obj(array(
-                "title"=>$this->input->post('title'),
-                "desc"=>$this->input->post('desc'),
-                $product_id = $this->input->post('product_id'),
-                $user_id = $user_id,
-                "is_display"=>$this->input->post('is_display')
-            ));
-            $this->product_reviews_model->_add();
-            // my_redirect(admin_user_uri."/   gets/$kind");
+            parent::_dbSet_addUpdate();
+            $this->db->set("user_id",$this->user->id);
+            $insert_id=$this->product_reviews_model->add();
+            // my_redirect(admin_product_review_uri."/update/$insert_id");
+            my_redirect(admin_product_review_uri."/gets");
         }
 
     }
@@ -53,31 +50,33 @@ class Review extends Admin_Controller {
         if($this->fv->run() === false)
         {
             $this->load->model("product_reviews_model");
-            $content =$this->product_reviews_model->_get($id,array('title','desc','is_display'));
-            $data =array("content"=>$content,"mode"=>"update/$id");
-             
+             $data['content'] = $this->product_reviews_model->get_reveiw($id);
+             $data['mode'] ="update/$id";
+
              $this->_template("addUpdate",$data);
              
         }else
         {
             $this->load->model('product_reviews_model');
-            $this->product_reviews_model->_set_by_obj(array(
-                "title"=>$this->input->post('title'),
-                "desc"=>$this->input->post('desc'),
-                "is_display"=>$this->input->post('is_display')
-            ));
-            $this->product_reviews_model->update_admin($id);
-            my_redirect(admin_product_review_uri."/gets");
+        
+            parent::_dbSet_addUpdate();
+            $this->product_reviews_model->update($id);
+            my_redirect(admin_product_review_uri."/update/$id");
         }
     }
 
     public function ajax_delete($id){
-        parent::_ajax_delete($id);
+        header("content-type:application/json");
+        $this->product_reviews_model->delete($id);
+        $data['reload'] =true;
+        echo json_encode($data);
+        return;
     }
     function _set_rules()
     {
-        $this->fv->set_rules('title',"제목","required");
-        $this->fv->set_rules('desc',"내용","required");
+        $this->fv->set_rules('is_display',"보이기","required");
+        // $this->fv->set_rules('title',"제목","required");
+        // $this->fv->set_rules('desc',"내용","required");
     }
    
 }
