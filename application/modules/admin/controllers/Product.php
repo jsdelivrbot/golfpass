@@ -16,6 +16,16 @@ class Product extends Admin_Controller {
         $this->db->update("product_option");
         my_redirect($_SERVER['HTTP_REFERER']);
     }
+    function ajax_option_update($id)
+    {
+        header("content-type:application/json");
+        parent::_dbset_addUpdate();
+        $this->db->where("id",$id);
+        $this->db->update("product_option");
+        $data['reload'] =true;
+        echo json_encode($data);
+        return ;
+    }
     function upload_photo()
     {
         $this->load->module("base/common");
@@ -25,7 +35,6 @@ class Product extends Admin_Controller {
             $this->db->set("name",$imgDir);
             $this->db->set("kind","photo");
             $this->db->insert("product_option");
-            alert("업로드 완료");
             my_redirect($_SERVER['HTTP_REFERER']);
         });
         
@@ -36,6 +45,46 @@ class Product extends Admin_Controller {
         $this->db->where('kind',$kind);
         $this->db->delete('product_option');
         my_redirect($_SERVER['HTTP_REFERER']);
+    }
+    function ajax_option_delete($id,$kind)
+    {
+        header("content-type:application/json");
+        $this->db->where('id',$id);
+        $this->db->where('kind',$kind);
+        $this->db->delete('product_option');
+        $data['reload'] =true;
+        echo json_encode($data);
+        return ;
+    }
+    function ajax_option_add($kind)
+    {
+        header("content-type:application/json");
+        
+        $product_id = $this->input->post("product_id");
+        $name = $this->input->post("name");
+
+        $this->db->where("product_id", $product_id);
+        $this->db->where("name", $name);
+        $this->db->where("kind", $kind);
+        $row = $this->db->get("product_option")->row();
+
+        if($row !== null){
+            $data['alert'] = "이미존재합니다";
+            $data['reload'] =true;
+            echo json_encode($data);
+            return;
+        }
+
+        $this->db->set("name",$name);
+        $this->db->set("kind",$kind);
+        $this->db->set("product_id",$product_id);
+        $this->db->set("sort",$this->input->post("sort"));
+        $this->db->set("kind","desc");
+        $this->db->insert("product_option");
+
+        $data['reload'] =true;
+        echo json_encode($data);
+        return ;
     }
     function option_add($kind)
     {
@@ -63,6 +112,29 @@ class Product extends Admin_Controller {
         alert("상품설명 추가완료");
         my_redirect($_SERVER['HTTP_REFERER']);
     }   
+    function ajax_options_reset()
+    {
+        header("content-type:application/json");
+        //모두 삭제하고
+        $product_id = $this->input->post("product_id");
+        $this->db->where("product_id", $product_id);
+        $this->db->where("kind", 'option');
+        $this->db->delete("product_option");
+
+        //다시추가
+        $arr_option = $this->input->post("option");
+        if(is_array($arr_option))
+            foreach($arr_option as $val)
+            {
+                $this->db->set("name",$val);
+                $this->db->set("product_id",$product_id);
+                $this->db->set("kind","option");
+                $this->db->insert("product_option");
+            }   
+        $data = array("reload"=>true);
+        echo json_encode($data);
+        return;
+    }
     function options_reset()
     {
         //모두 삭제하고
@@ -175,6 +247,22 @@ class Product extends Admin_Controller {
         }
     }
 
+    function ajax_update($id)
+    {
+        header("content-type:application/json");
+
+        $this->_set_rules();
+        if(!$this->fv->run()){
+
+            $data['alert'] =  validation_errors(false,false);
+             
+        }else{
+            $this->_dbSet_addUpdate();
+            $this->products_model->_update($id);
+        }
+        $data['reload'] =true;
+        echo json_encode($data);
+    }
     public function update($id){
         $this->_set_rules();
         if(!$this->fv->run()){
@@ -182,13 +270,14 @@ class Product extends Admin_Controller {
             $this->load->model("shop/p_hotel_model");
             $data['product'] =$this->db->where('id',$id)->get($this->table)->row();
             $data['categories'] = $this->product_categories_model->gets_by_recursive_tree(); 
+            
             $data['product_categories'] = $this->product_categories_model->gets_by_product_id($id);
             $data['p_ref_hotel'] = $this->p_hotel_model->gets_by_product_id($id);
             $data['hotels'] = $this->p_hotel_model->_gets();
             $data['options'] = $this->db->query("SELECT * FROM product_option WHERE product_id = $id AND kind = 'option'")->result();
             $data['descs'] = $this->db->query("SELECT * FROM product_option WHERE product_id = $id AND kind = 'desc' ORDER BY sort ASC")->result();
             $data['photos'] = $this->db->query("SELECT * FROM product_option WHERE product_id = $id AND kind = 'photo' ORDER BY sort ASC")->result();
-            $data['mode'] = "update/$id";
+            $data['mode'] = "ajax_update/$id";
             
              $this->_template("addUpdate",$data);
              

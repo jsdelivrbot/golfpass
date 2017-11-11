@@ -73,18 +73,19 @@ class Template extends MX_Controller
                array('name'=>'댓글관리','uri'=>  site_url(admin_board_reply_uri."/gets"))
             ),
             '상품' => array(
-               array('name'=>'기본설정','uri'=> site_url(admin_setting_product_uri.'/get_product?menu_id=product')),
-               array('name'=>'분류관리','uri'=>  site_url(admin_product_category_uri.'/gets?menu_id=product')),
-               array('name'=>'상품관리','uri'=> site_url(admin_product_uri.'/gets?menu_id=product')),
-               array('name'=>'후기관리','uri'=>  site_url(admin_review_uri.'/gets?menu_id=product'))
+               array('name'=>'기본설정','uri'=> site_url(admin_setting_product_uri.'/get_product')),
+               array('name'=>'분류관리','uri'=>  site_url(admin_product_category_uri.'/gets')),
+               array('name'=>'상품관리','uri'=> site_url(admin_product_uri.'/gets')),
+               array('name'=>'호텔관리','uri'=>  site_url('admin/hotel/gets')),
+               array('name'=>'후기관리','uri'=>  site_url(admin_review_uri.'/gets'))
             ),
             '주문' => array(
-               array('name'=>'주문 목록','uri'=> site_url(admin_order_uri.'/gets?menu_id=order')),
+               array('name'=>'주문 목록','uri'=> site_url(admin_order_uri.'/gets')),
             )
            
         ));
         //golf pass
-        array_splice($sub_menus['상품'],3,0,array((object)array('name'=>'호텔관리','uri'=> site_url('admin/hotel/gets'))));
+        // array_splice($sub_menus['상품'],3,0,array((object)array('name'=>'호텔관리','uri'=> site_url('admin/hotel/gets'))));
 
         //메인
         $menu_name =  $this->input->get('menu_name');

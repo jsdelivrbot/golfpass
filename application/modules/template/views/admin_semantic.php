@@ -28,7 +28,7 @@
           <a class="header item">Project Name</a>
           <?php for($i=0 ; $i < count($main_menus) ; $i++){?>
 
-            <a href="<?=$main_menus[$i]->uri?>" class="item"><?=$main_menus[$i]->name?></a>
+            <a href="<?=$main_menus[$i]->uri?>" class="item <?=($menu_name === $main_menus[$i]->name) ?  'active' : ''?>"><?=$main_menus[$i]->name?></a>
 
             <?php }?>
 
@@ -124,17 +124,18 @@
 
       <!-- 콘텐츠 -->
       <div class="column" id="content">
-        <div class="ui grid">
+        <div class="ui grid container">
           <div class="row">
             <h1 class="ui huge header">
-              Dashboard
+              <?=$sub_name?>
             </h1>
           </div>
           <div class="ui divider"></div>
         
           <!-- <div class="row"> -->
+          <div class="sixteen wide column">
             <?php load_view($content_view)?>
-          <!-- </div> -->
+          </div>
       
         </div>
       </div>
@@ -257,7 +258,7 @@
             z-index:999;
         }
     </style>
-
+    <script src="<?=domain_url('/public/js/common.js')?>"></script>
     <script>
       $(document).ready(function() {
         $('.ui.dropdown').dropdown();
