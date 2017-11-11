@@ -94,7 +94,7 @@ class Products_Model extends Board_Model{
             else if($photos !== null)
                 $products[$i]->photos =  array($photos);
             else
-                $products[$i]->photos = array('');
+                $products[$i]->photos = array('','','');
         }
 
         return $products;
