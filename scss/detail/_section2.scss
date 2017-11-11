@@ -5,13 +5,15 @@
 		position: relative;
 		font-family: 'Noto Sans', sans-serif;
 		box-sizing: border-box;
-		margin-bottom: 70px;
 		@media (min-width: 1199px) {
 			/*width: 75%;*/
 		}
 		#section2-wrap>section {
 			@media (min-width: 768px) {
 				padding-left: 40px;
+			}
+			&:last-child{
+				padding-bottom: 70px;
 			}
 			color: #4d4d4d;
 			position: relative;

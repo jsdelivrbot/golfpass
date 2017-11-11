@@ -107,6 +107,7 @@
             </nav>
         </header>
         <!--NOTE 상단 슬라이드 + 내용 + chart-->
+
         <section class="container-fluid" id="section1" style="background-image:url('<?=$product_photos[0]->name ?? ''?>') ;">
             <!--NOTE 화면 어둡게-->
             <div id="shadow"></div>
@@ -184,12 +185,9 @@
               </section>
             </article>
         </section>
-
-
         <article id='section2' class='row no-gutters flex-column'>
-            <div id="book-box-wrap" class="col-4 col-sm-3">
-              <div id='book-box'>
-                  <div id="personnel" class="w-100">
+            <div id="book-box" class="col-12 col-md-4">
+                  <div id="personnel">
                       <h1 class="mb-2">예약하기</h1>
                       <!--
                       <div id='count-box' class='d-flex align-items-stretch justify-content-end'>
@@ -242,9 +240,8 @@
                               <?=$product->price?>원</p>
                       </div>
                   </div>
-              </div>
             </div>
-            <article id="section2-wrap" class="row col-8 col-sm-8">
+            <article id="section2-wrap" class="col-12 col-md-8 ">
               <section class="col-12" id="article-section-1">
                   <div class='d-flex flex-column title-box'>
                       <span>0<?=$number++?></span>
@@ -430,8 +427,8 @@
               </section>
 
             </article>
-            </article>
-        <section id="section3">
+        </article>
+        <section id="section3" class="position-relative">
         <!--TODO 구글맵-->
         </section>
         <!--TODO 리뷰  데이터 X-->
@@ -622,7 +619,7 @@
                     </li>
                 </ul>
                 <ul>
-                    <li class="title">NEWS LETTER</li>
+                    <li class=-"title">NEWS LETTER</li>
                     <li class="mb-20"><input type="text" placeholder="E-mail을 입력해주세요"></li>
                     <li><strong>골프패스</strong>
                         <p>에서 제공하는 유용한 소식</p>
@@ -638,16 +635,14 @@
     <script src="/public/sangmin/dist/bootstrap/bootstrap.bundle.min.js"></script>
     <script src="/public/sangmin/dist/Nwagon/Nwagon.js"></script>
     <script src="/public/sangmin/js/chart.js"></script>
-    <script src="/public/sangmin/js/jquery.sticky.js"></script>
+    <script src="/public/sangmin/js/sticky.js"></script>
     <script src="/public/sangmin/js/custom/navAction.js"></script>
     <script src="/public/sangmin/js/custom/search.js"></script>
     <script src="/public/sangmin/js/slick.js" type="text/javascript" charset="utf-8"></script>
-    	<script src="/public/sangmin/js/custom/detail_slide.js"></script>
+    <script src="/public/sangmin/js/custom/detail_slide.js"></script>
+    <script src="/public/sangmin/js/custom/detail_sticky.js"></script>
     <script>
-      $('#book-box').sticky({
-        topSpacing:0,
-        WrapperClassName:'#book-box-wrap'
-      });
+
 
     </script>
 </body>

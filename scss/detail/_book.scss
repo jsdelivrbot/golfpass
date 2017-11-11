@@ -1,119 +1,129 @@
 @charset "utf-8";
 
-#book-box-wrap {
-	min-width: 320px;
-	width: 320px;
+#book-box {
 	font-family: 'Noto Sans', sans-serif;
-	right: 0;
-	position: absolute;
+	position: relative;
 	color: #fff;
 	z-index: 300;
-	@media (min-width: 992px) {
+	width: 100%;
+	@media (min-width: 768px) {
+		width: 320px;
 		position: absolute;
+		right: 0;
 	}
 
-	#book-box {
-		#personnel {
-			//인원 박스
-			background-color: $background-color1;
-			padding: 15px;
-			height: 80px;
-			h1 {
-				font-family: 'notokr-regular', sans-serif;
-				font-size: 16px;
-				display: block;
-			}
+	#personnel {
+		//인원 박스
+		background-color: $background-color1;
+		padding: 15px;
+		height: 80px;
 
-			#count {
-				// 숫자 : 0명
-				font-size: 1.5rem;
-			}
-			#icon-box {
-				position: relative;
-				min-width: 15px;
-				span {
-					//아래위 화살표
-					font-size: 1.4rem;
-					position: absolute;
-					&:nth-child(1) {
-						top: -6px;
-					}
-					&:nth-child(2) {
-						bottom: -5px;
-					}
-					i {
-						cursor: pointer;
-					}
-				}
-			}
+		h1 {
+			font-family: 'notokr-regular', sans-serif;
+			font-size: 16px;
+			display: block;
 		}
-		#dateBox {
-			padding: 20px;
-			background-color: black;
-			.form-group {
-				background-color: white;
-				color: black;
-				width: 45%;
-				input {
-					box-sizing: border-box;
-					padding: 15px;
-					width: 80%;
-					border: 0;
-					height: 40px;
-					font-family: 'notokr-demilight', sans-serif;
-					font-size: 14px;
-					color: #b2b2b2;
-					&:focus {
-						outline: 0;
-					}
+
+		#count {
+			// 숫자 : 0명
+			font-size: 1.5rem;
+		}
+
+		#icon-box {
+			position: relative;
+			min-width: 15px;
+
+			span {
+				//아래위 화살표
+				font-size: 1.4rem;
+				position: absolute;
+
+				&:nth-child(1) {
+					top: -6px;
+				}
+
+				&:nth-child(2) {
+					bottom: -5px;
 				}
 
 				i {
-					font-size: 14px;
+					cursor: pointer;
 				}
 			}
 		}
-		#info {
-			background-color: #fff;
-			padding: 25px 20px;
-			color: #5e5e5e;
-			font-family: 'Noto Sans', sans-serif;
-			font-size: 1em;
-			border: 1px solid #e6e6e6;
-			border-top: 0;
-			li {
-				margin-bottom: 5px;
+	}
+
+	#dateBox {
+		padding: 20px;
+		background-color: black;
+
+		.form-group {
+			background-color: white;
+			color: black;
+			width: 45%;
+
+			input {
 				box-sizing: border-box;
+				padding: 15px;
+				width: 80%;
+				border: 0;
+				height: 40px;
+				font-family: 'notokr-demilight', sans-serif;
+				font-size: 14px;
+				color: #b2b2b2;
 
-				i {
-					font-size: 15px;
-					color: #efb42a;
-				}
-
-				p {
-					font-family: 'notokr-regular', sans-serif;
-					font-size: 14px;
-					color: #4c4c4c;
-					margin-bottom: 0;
+				&:focus {
+					outline: 0;
 				}
 			}
-		}
 
-		#price {
-			margin: 0;
-
-			h3 {
-				font-family: 'notokr-regular', sans-serif;
+			i {
 				font-size: 14px;
+			}
+		}
+	}
+
+	#info {
+		background-color: #fff;
+		padding: 25px 20px;
+		color: #5e5e5e;
+		font-family: 'Noto Sans', sans-serif;
+		font-size: 1em;
+		border: 1px solid #e6e6e6;
+		border-top: 0;
+
+		li {
+			margin-bottom: 5px;
+			box-sizing: border-box;
+
+			i {
+				font-size: 15px;
 				color: #efb42a;
 			}
 
 			p {
 				font-family: 'notokr-regular', sans-serif;
-				font-size: 30px;
+				font-size: 14px;
 				color: #4c4c4c;
 				margin-bottom: 0;
 			}
+		}
+	}
+
+	#price {
+		margin: 0;
+
+		h3 {
+			font-family: 'notokr-regular', sans-serif;
+			font-size: 14px;
+			color: #efb42a;
+		}
+
+		p {
+			font-family: 'notokr-regular', sans-serif;
+			font-size: 30px;
+			color: #4c4c4c;
+			margin-bottom: 0;
 		}
 	}
 }
