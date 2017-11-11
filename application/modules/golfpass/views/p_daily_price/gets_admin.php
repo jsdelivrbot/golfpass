@@ -33,8 +33,10 @@
 </script>
 <div style="position:fixed; background-color: rgba(0,0,0,0.5)" >
 <form method="post" onsubmit="ajax_submit(this); return false;" action="<?=my_site_url(golfpass_p_daily_price_admin_uri."/ajax_add/{$product->id}")?>">
-시작날자: <input type="text" name="start_date" id="datepicker1" value="2017-01-01">
-끝시작: <input type="text" name="end_date" id="datepicker2" value="2017-01-09">
+시작날자: <input type="text" name="start_date" id="datepicker1" value="<?=set_value('start_date')?>">
+끝시작: <input type="text" name="end_date" id="datepicker2" value="<?=set_value('end_date')?>">
+<!-- 시작날자: <input type="text" name="start_date" id="datepicker1" value="2017-01-01">
+끝시작: <input type="text" name="end_date" id="datepicker2" value="2017-01-09"> -->
     <bR>
 가격<input type="text" name="price" value="2000">
     <bR>
