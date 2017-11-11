@@ -28,20 +28,20 @@
 
         <div class="field">
             <label>점수1</label>
-            <input type="text" name="score_1">
+            <input type="text" name="score_1" value="<?=set_value_data($content,'score_1')?>" >
         </div>
         <div class="field">
             <label>점수2</label>
-            <input type="text" name="score_2">
+            <input type="text" name="score_2" value="<?=set_value_data($content,'score_2')?>">
         </div>
         <div class="field">
             <label>점수3</label>
-            <input type="text" name="score_3">
+            <input type="text" name="score_3" value="<?=set_value_data($content,'score_3')?>">
         </div>
 
         <div class="field">
             <label>점수4</label>
-            <input type="text" name="score_4">
+            <input type="text" name="score_4" value="<?=set_value_data($content,'score_4')?>">
         </div>
     
 
@@ -50,19 +50,19 @@
     <div class="four fields">
           <div class="field">
             <label>점수5</label>
-            <input type="text" name="score_5">
+            <input type="text" name="score_5" value="<?=set_value_data($content,'score_5')?>">
         </div>
         <div class="field">
             <label>점수6</label>
-            <input type="text" name="score_6">
+            <input type="text" name="score_6" value="<?=set_value_data($content,'score_6')?>">
         </div>
         <div class="field">
             <label>점수7</label>
-            <input type="text" name="score_7">
+            <input type="text" name="score_7" value="<?=set_value_data($content,'score_7')?>">
         </div>
         <div class="field">
             <label>점수8</label>
-            <input type="text" name="score_8">
+            <input type="text" name="score_8" value="<?=set_value_data($content,'score_8')?>">
         </div>
     </div>
 

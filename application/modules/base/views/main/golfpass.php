@@ -208,10 +208,10 @@
 							</div>
 							<div class="content">
 								<p><span>
-								<?php for($i=0;$i < (int)$product_main->avg_score; $i++){?>
+								<?php for($j=0;$j < (int)$product_main->avg_score; $j++){?>
 										<i class="xi xi-star"></i>
 									<?php }?>
-									<?php for($i=0;$i < 5- (int)$product_main->avg_score; $i++){?>
+									<?php for($j=0;$j < 5- (int)$product_main->avg_score; $j++){?>
 										<i class="xi xi-star-o"></i>
 									<?php }?>
 
