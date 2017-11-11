@@ -184,251 +184,253 @@
               </section>
             </article>
         </section>
-        <!--NOTE 예약 박스-->
-        <div id="book-box-wrap">
-            <div id='book-box'>
-                <div id="personnel" class="w-100">
-                    <h1 class="mb-2">예약하기</h1>
-                    <!--
-                    <div id='count-box' class='d-flex align-items-stretch justify-content-end'>
-                        <span id='count'>1명 </span>
-                        <div id="icon-box" class="mr-3">
-                            <span><i class="xi-angle-up-min"></i></span><span><i class="xi-angle-down-min"></i></span>
-                        </div>
-                        <span class="d-flex align-items-end">
-	                        <i id='clock-icon' class="xi-time-o">
-	                        </i>
-	                    </span>
-                    </div>
-                  -->
-                  <div id='count-box' class='d-flex align-items-stretch justify-content-end'>
-                    <form class="" action="index.html" method="post">
-                      <select class="" name="">
-                        <option value="" disabled selected>선택주세요</option>
-                        <option value="">옵션1</option>
-                        <option value="">옵션2</option>
-                      </select>
-                    </form>
-                  </div>
-                </div>
-                <div id='dateBox'>
-                    <form action="#" class="d-flex align-items-center justify-content-between">
-                        <div class="form-group d-flex align-items-center mb-0">
-                            <input type="text" id="s-day" placeholder="출발 일정">
-                            <i class="xi-calendar-check"></i>
-                        </div>
-                        <span>·</span>
-                        <div class="form-group d-flex align-items-center mb-0">
-                            <input type="text" id="e-day" placeholder="출발 일정">
-                            <i class="xi-calendar-check"></i>
-                        </div>
-                    </form>
-                </div>
-                <div id="info" class="pt-20">
-                    <ul class="list-unstyled">
-                        <?php for($i=0;$i<count($product_sub_desc);$i++){?>
-                        <li class='d-flex align-items-center'><span class="mr-2 align-self-baseline"><i class='xi-radiobox-checked'></i></span>
-                            <p>
-                                <?=$product_sub_desc[$i]->name?>
-                            </p>
-                        </li>
-                        <?php }?>
-                    </ul>
-                    <div id='price' class="mt-20 mb-20">
-                        <h3 class='mb-3'>가격</h3>
-                        <p>
-                            <?=$product->price?>원</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+
 
         <article id='section2' class='row no-gutters flex-column'>
-            <section class="col-12 col-lg-8 col-xl-9" id="article-section-1">
-                <div class='d-flex flex-column title-box'>
-                    <span>0<?=$number++?></span>
-                    <h1 class="mt-13">골프장</h1>
-                </div>
-                <div class="list-content">
-                    <ul class="d-flex flex-wrap">
-                        <li class='d-flex flex-column'><span>홀수</span>
-                            <p class='mt-2'>
-                                <?=$product->hole_count?>
-                            </p>
-                        </li>
-                        <li class='d-flex flex-column'><span>코스타입</span>
-                            <p class='mt-2'>
-                                <?=$product->course_type?>
-                            </p>
-                        </li>
-                        <li class='d-flex flex-column'><span>파</span>
-                            <p class='mt-2'>
-                                <?=$product->pa?>
-                            </p>
-                        </li>
-                        <li class='d-flex flex-column'><span>길이</span>
-                            <p class='mt-2'>
-                                <?=$product->distance?>
-                            </p>
-                        </li>
+            <div id="book-box-wrap" class="col-3">
+              <div id='book-box'>
+                  <div id="personnel" class="w-100">
+                      <h1 class="mb-2">예약하기</h1>
+                      <!--
+                      <div id='count-box' class='d-flex align-items-stretch justify-content-end'>
+                          <span id='count'>1명 </span>
+                          <div id="icon-box" class="mr-3">
+                              <span><i class="xi-angle-up-min"></i></span><span><i class="xi-angle-down-min"></i></span>
+                          </div>
+                          <span class="d-flex align-items-end">
+                            <i id='clock-icon' class="xi-time-o">
+                            </i>
+                        </span>
+                      </div>
+                    -->
+                    <div id='count-box' class='d-flex align-items-stretch justify-content-end'>
+                      <form class="" action="index.html" method="post">
+                        <select class="" name="">
+                          <option value="" disabled selected>선택주세요</option>
+                          <option value="">옵션1</option>
+                          <option value="">옵션2</option>
+                        </select>
+                      </form>
+                    </div>
+                  </div>
+                  <div id='dateBox'>
+                      <form action="#" class="d-flex align-items-center justify-content-between">
+                          <div class="form-group d-flex align-items-center mb-0">
+                              <input type="text" id="s-day" placeholder="출발 일정">
+                              <i class="xi-calendar-check"></i>
+                          </div>
+                          <span>·</span>
+                          <div class="form-group d-flex align-items-center mb-0">
+                              <input type="text" id="e-day" placeholder="출발 일정">
+                              <i class="xi-calendar-check"></i>
+                          </div>
+                      </form>
+                  </div>
+                  <div id="info" class="pt-20">
+                      <ul class="list-unstyled">
+                          <?php for($i=0;$i<count($product_sub_desc);$i++){?>
+                          <li class='d-flex align-items-center'><span class="mr-2 align-self-baseline"><i class='xi-radiobox-checked'></i></span>
+                              <p>
+                                  <?=$product_sub_desc[$i]->name?>
+                              </p>
+                          </li>
+                          <?php }?>
+                      </ul>
+                      <div id='price' class="mt-20 mb-20">
+                          <h3 class='mb-3'>가격</h3>
+                          <p>
+                              <?=$product->price?>원</p>
+                      </div>
+                  </div>
+              </div>
+            </div>
+            <article id="section2-wrap" class="row col-9 col-sm-8">
+              <section class="col-12" id="article-section-1">
+                  <div class='d-flex flex-column title-box'>
+                      <span>0<?=$number++?></span>
+                      <h1 class="mt-13">골프장</h1>
+                  </div>
+                  <div class="list-content">
+                      <ul class="d-flex flex-wrap">
+                          <li class='d-flex flex-column'><span>홀수</span>
+                              <p class='mt-2'>
+                                  <?=$product->hole_count?>
+                              </p>
+                          </li>
+                          <li class='d-flex flex-column'><span>코스타입</span>
+                              <p class='mt-2'>
+                                  <?=$product->course_type?>
+                              </p>
+                          </li>
+                          <li class='d-flex flex-column'><span>파</span>
+                              <p class='mt-2'>
+                                  <?=$product->pa?>
+                              </p>
+                          </li>
+                          <li class='d-flex flex-column'><span>길이</span>
+                              <p class='mt-2'>
+                                  <?=$product->distance?>
+                              </p>
+                          </li>
 
-                        <li class='d-flex flex-column'><span>잔디타입</span>
-                            <p class='mt-2'>
-                                <?=$product->grass_type?>
-                            </p>
-                        </li>
-                        <li class='d-flex flex-column'><span>개장일</span>
-                            <p class='mt-2'>
-                                <?=$product->open_day?>
-                            </p>
-                        </li>
-                    </ul>
-                </div>
-            </section>
-            <?php if(isset($hotel)){?>
-            <section class="col-12 col-lg-8 col-xl-9" id="article-section-2">
-                <div class='d-flex flex-column title-box'>
-                    <span>0<?=$number++?></span>
-                    <h1 class="mt-13">숙박</h1>
-                </div>
-                <div class="list-content">
-                    <ul class="d-flex flex-wrap">
-                        <li class='d-flex flex-column'><span>업체명</span>
-                            <p class='mt-2'>
-                                <?=$hotel->name?>
-                            </p>
-                        </li>
-                        <li class='d-flex flex-column'><span>객실수</span>
-                            <p class='mt-2'>
-                                <?=$hotel->room_count?>
-                            </p>
-                        </li>
-                        <li class='d-flex flex-column'><span>객실타입</span>
-                            <p class='mt-2'>
-                                <?=$hotel->room_type?>
-                            </p>
-                        </li>
-                        <li class='d-flex flex-column'><span>침실</span>
-                            <p class='mt-2'>
-                                <?=$hotel->bedroom?>
-                            </p>
-                        </li>
+                          <li class='d-flex flex-column'><span>잔디타입</span>
+                              <p class='mt-2'>
+                                  <?=$product->grass_type?>
+                              </p>
+                          </li>
+                          <li class='d-flex flex-column'><span>개장일</span>
+                              <p class='mt-2'>
+                                  <?=$product->open_day?>
+                              </p>
+                          </li>
+                      </ul>
+                  </div>
+              </section>
+              <?php if(isset($hotel)){?>
+              <section class="col-12" id="article-section-2">
+                  <div class='d-flex flex-column title-box'>
+                      <span>0<?=$number++?></span>
+                      <h1 class="mt-13">숙박</h1>
+                  </div>
+                  <div class="list-content">
+                      <ul class="d-flex flex-wrap">
+                          <li class='d-flex flex-column'><span>업체명</span>
+                              <p class='mt-2'>
+                                  <?=$hotel->name?>
+                              </p>
+                          </li>
+                          <li class='d-flex flex-column'><span>객실수</span>
+                              <p class='mt-2'>
+                                  <?=$hotel->room_count?>
+                              </p>
+                          </li>
+                          <li class='d-flex flex-column'><span>객실타입</span>
+                              <p class='mt-2'>
+                                  <?=$hotel->room_type?>
+                              </p>
+                          </li>
+                          <li class='d-flex flex-column'><span>침실</span>
+                              <p class='mt-2'>
+                                  <?=$hotel->bedroom?>
+                              </p>
+                          </li>
 
-                        <li class='d-flex flex-column'><span>화장실</span>
-                            <p class='mt-2'>
-                                <?=$hotel->bathroom?>
-                            </p>
-                        </li>
-                        <li class='d-flex flex-column'><span>최대 인원</span>
-                            <p class='mt-2'>
-                                <?=$hotel->maxium_number_of_people?>
-                            </p>
-                        </li>
-                        <li class='d-flex flex-column'><span>침대</span>
-                            <p class='mt-2'>
-                                <?=$hotel->bed?>
-                            </p>
-                        </li>
-                        <li class='d-flex flex-column'><span>체크 인/체크 아웃</span>
-                            <p class='mt-2'>
-                                <?=$hotel->check_in_out?>
-                            </p>
-                        </li>
-                    </ul>
-                </div>
-            </section>
-            <?php }?>
-            <?php if(count($product_options) !== 0) {?>
-            <section class="col-12" id="article-section-3">
-                <div class='d-flex flex-column title-box'>
-                    <span>0<?=$number++?></span>
-                    <h1 class="mt-13">골프장 시설</h1>
-                </div>
-                <div class="list-content">
-                    <ul class="d-flex flex-wrap">
-                        <?php for($i=0 ; $i < count($product_options); $i++ ){?>
-                        <li class='d-flex flex-column'>
-                            <p>
-                                <?=$product_options[$i]->name?>
-                            </p>
-                        </li>
-                        <?php }?>
-                    </ul>
-                </div>
-            </section>
-            <?php }?>
+                          <li class='d-flex flex-column'><span>화장실</span>
+                              <p class='mt-2'>
+                                  <?=$hotel->bathroom?>
+                              </p>
+                          </li>
+                          <li class='d-flex flex-column'><span>최대 인원</span>
+                              <p class='mt-2'>
+                                  <?=$hotel->maxium_number_of_people?>
+                              </p>
+                          </li>
+                          <li class='d-flex flex-column'><span>침대</span>
+                              <p class='mt-2'>
+                                  <?=$hotel->bed?>
+                              </p>
+                          </li>
+                          <li class='d-flex flex-column'><span>체크 인/체크 아웃</span>
+                              <p class='mt-2'>
+                                  <?=$hotel->check_in_out?>
+                              </p>
+                          </li>
+                      </ul>
+                  </div>
+              </section>
+              <?php }?>
+              <?php if(count($product_options) !== 0) {?>
+              <section class="col-12" id="article-section-3">
+                  <div class='d-flex flex-column title-box'>
+                      <span>0<?=$number++?></span>
+                      <h1 class="mt-13">골프장 시설</h1>
+                  </div>
+                  <div class="list-content">
+                      <ul class="d-flex flex-wrap">
+                          <?php for($i=0 ; $i < count($product_options); $i++ ){?>
+                          <li class='d-flex flex-column'>
+                              <p>
+                                  <?=$product_options[$i]->name?>
+                              </p>
+                          </li>
+                          <?php }?>
+                      </ul>
+                  </div>
+              </section>
+              <?php }?>
 
-            <?php if(isset($hotel_options) &&  count($hotel_options) !== 0) {?>
-            <section class="col-12" id="article-section-4">
-                <div class='d-flex flex-column title-box'>
-                    <span>0<?=$number++?></span>
-                    <h1 class="mt-13">숙박 시설</h1>
-                </div>
-                <div class="list-content">
-                    <ul class="d-flex flex-wrap">
-                        <?php for($i=0 ; $i < count($hotel_options); $i++ ){?>
-                        <li class='d-flex flex-column'>
-                            <p>
-                                <?=$hotel_options[$i]->name?>
-                            </p>
-                        </li>
-                        <?php }?>
-                    </ul>
-                </div>
-            </section>
-            <?php }?>
-            <section class="col-12 col-lg-8 col-xl-9" id="article-section-5">
-                <div class='d-flex flex-column title-box'>
-                    <span>0<?=$number++?></span>
-                    <h1 class="mt-13">취소/환불</h1>
-                </div>
-                <div id="section-5-list-content">
-                    <ul class="d-flex flex-wrap flex-column list-unstyled">
-                        <li>
-                            <p>
-                                출발일 7일 전까지 예약 취소시 전액 환불됩니다.
-                            </p>
-                        </li>
-                        <li>
-                            <p>
-                                * 출발일 6일전~1일전 취소시 위약금은 결제금액의 50% 입니다.
-                            </p>
-                        </li>
-                        <li>
-                            <p>
-                                * 게스트가 체크인하지 않은 경우 고객의 변심으로 간주되어 환불이 불가합니다.
-                            </p>
-                        </li>
-                        <li>
-                            <p>
-                                * 게스트 또는 호스트에게 불만이 생길 경우, 체크인 이후 24시간 내에 스테이골프 측에 알려야 합니다.
-                            </p>
-                        </li>
-                        <li>
-                            <p>
-                                * 분쟁 발생 시 스테이골프는 중재를 위해 개입할 수 있으며 이 경우 스테이골프가 최종 결정을 내리게 됩니다.
-                            </p>
-                        </li>
-                        <li>
-                            <p>
-                                * 예약 취소 확인 화면에서 예약 취소 버튼을 클릭해야 예약이 정식으로 취소됩니다.
-                            </p>
-                        </li>
-                        <li>
-                            <p>
-                                * 게스트 환불 정책, 안전문제로 인한 예약취소, 또는 정상참작 가능한 상황에 해당되는 경우 숙소의 환불 정책 대신 관련 정책이 적용될 수 있습니다.
-                            </p>
-                        </li>
-                        <li>
-                            <p>
-                                * 관련 세금액은 차감 및 징수됩니다.
-                            </p>
-                        </li>
-                    </ul>
-                </div>
-            </section>
+              <?php if(isset($hotel_options) &&  count($hotel_options) !== 0) {?>
+              <section class="col-12" id="article-section-4">
+                  <div class='d-flex flex-column title-box'>
+                      <span>0<?=$number++?></span>
+                      <h1 class="mt-13">숙박 시설</h1>
+                  </div>
+                  <div class="list-content">
+                      <ul class="d-flex flex-wrap">
+                          <?php for($i=0 ; $i < count($hotel_options); $i++ ){?>
+                          <li class='d-flex flex-column'>
+                              <p>
+                                  <?=$hotel_options[$i]->name?>
+                              </p>
+                          </li>
+                          <?php }?>
+                      </ul>
+                  </div>
+              </section>
+              <?php }?>
+              <section class="col-12" id="article-section-5">
+                  <div class='d-flex flex-column title-box'>
+                      <span>0<?=$number++?></span>
+                      <h1 class="mt-13">취소/환불</h1>
+                  </div>
+                  <div id="section-5-list-content">
+                      <ul class="d-flex flex-wrap flex-column list-unstyled">
+                          <li>
+                              <p>
+                                  출발일 7일 전까지 예약 취소시 전액 환불됩니다.
+                              </p>
+                          </li>
+                          <li>
+                              <p>
+                                  * 출발일 6일전~1일전 취소시 위약금은 결제금액의 50% 입니다.
+                              </p>
+                          </li>
+                          <li>
+                              <p>
+                                  * 게스트가 체크인하지 않은 경우 고객의 변심으로 간주되어 환불이 불가합니다.
+                              </p>
+                          </li>
+                          <li>
+                              <p>
+                                  * 게스트 또는 호스트에게 불만이 생길 경우, 체크인 이후 24시간 내에 스테이골프 측에 알려야 합니다.
+                              </p>
+                          </li>
+                          <li>
+                              <p>
+                                  * 분쟁 발생 시 스테이골프는 중재를 위해 개입할 수 있으며 이 경우 스테이골프가 최종 결정을 내리게 됩니다.
+                              </p>
+                          </li>
+                          <li>
+                              <p>
+                                  * 예약 취소 확인 화면에서 예약 취소 버튼을 클릭해야 예약이 정식으로 취소됩니다.
+                              </p>
+                          </li>
+                          <li>
+                              <p>
+                                  * 게스트 환불 정책, 안전문제로 인한 예약취소, 또는 정상참작 가능한 상황에 해당되는 경우 숙소의 환불 정책 대신 관련 정책이 적용될 수 있습니다.
+                              </p>
+                          </li>
+                          <li>
+                              <p>
+                                  * 관련 세금액은 차감 및 징수됩니다.
+                              </p>
+                          </li>
+                      </ul>
+                  </div>
+              </section>
 
-        </article>
+            </article>
+            </article>
         <section id="section3">
         <!--TODO 구글맵-->
         </section>
@@ -642,23 +644,10 @@
     <script src="/public/sangmin/js/slick.js" type="text/javascript" charset="utf-8"></script>
     	<script src="/public/sangmin/js/custom/detail_slide.js"></script>
     <script>
-
-      $('#book-box-wrap').css('z-index',9999);
-            $('#book-box').sticky({
-                topSpacing: 0,
-                wrapperClassName: '#book-box-wrap'
-            });
-            console.log($('.ml-auto.toggle').width())
-            $('#book-box').on('sticky-start', function() {
-                $('#header').addClass('black-bg-header');
-                  $('#book-box').css('max-width','320px');
-                    $('#book-box-wrap').css('right','0').css('right','-30px');
-            });
-            $('#book-box').on('sticky-end', function() {
-                $('#header').removeClass('black-bg-header');
-                                    $('#book-box-wrap').css('right','12%');
-            });
-
+      $('#book-box').sticky({
+        topSpacing:0,
+        WrapperClassName:'#book-box-wrap'
+      });
 
     </script>
 </body>

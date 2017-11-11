@@ -8,19 +8,14 @@
 	z-index: 300;
 	@media (min-width: 992px) {
 		position: absolute;
-		width: 100px;
-		right: 12.5%;
 		min-width: 350px;
 	}
-
-
 	#book-box {
 		#personnel {
 			//인원 박스
 			background-color: $background-color1;
 			padding: 15px;
 			height: 80px;
-
 			h1 {
 				font-family: 'notokr-regular', sans-serif;
 				font-size: 16px;
@@ -31,31 +26,25 @@
 				// 숫자 : 0명
 				font-size: 1.5rem;
 			}
-
 			#icon-box {
 				position: relative;
 				min-width: 15px;
-
 				span {
 					//아래위 화살표
 					font-size: 1.4rem;
 					position: absolute;
-
 					&:nth-child(1) {
 						top: -6px;
 					}
-
 					&:nth-child(2) {
 						bottom: -5px;
 					}
-
 					i {
 						cursor: pointer;
 					}
 				}
 			}
 		}
-
 		#dateBox {
 			padding: 20px;
 			background-color: black;

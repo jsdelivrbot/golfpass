@@ -2796,18 +2796,18 @@ body.menu-open .plus-btn .r2 {
   @media (min-width: 1199px) {
     #detail-wrap #section2 {
       /*width: 75%;*/ } }
-  #detail-wrap #section2 section {
+  #detail-wrap #section2 #section2-wrap > section {
     color: #4d4d4d;
     position: relative;
     margin-top: 100px; }
     @media (min-width: 768px) {
-      #detail-wrap #section2 section {
+      #detail-wrap #section2 #section2-wrap > section {
         padding-left: 40px; } }
-    #detail-wrap #section2 section .title-box {
+    #detail-wrap #section2 #section2-wrap > section .title-box {
       padding: 30px 0;
       margin-right: 80px;
       position: absolute; }
-      #detail-wrap #section2 section .title-box:after {
+      #detail-wrap #section2 #section2-wrap > section .title-box:after {
         top: 0;
         content: '';
         display: inline-block;
@@ -2816,44 +2816,44 @@ body.menu-open .plus-btn .r2 {
         height: 100%;
         border-top: 1px solid #d9d9d9;
         border-bottom: 1px solid #d9d9d9; }
-      #detail-wrap #section2 section .title-box span {
+      #detail-wrap #section2 #section2-wrap > section .title-box span {
         font-family: 'notokr-medium', sans-serif;
         color: #efb42a;
         font-size: 24px; }
-      #detail-wrap #section2 section .title-box h1 {
+      #detail-wrap #section2 #section2-wrap > section .title-box h1 {
         font-family: 'notokr-medium', sans-serif;
         color: #4c4c4c;
         font-size: 14px; }
-    #detail-wrap #section2 section .list-content {
+    #detail-wrap #section2 #section2-wrap > section .list-content {
       margin-left: 10%;
       margin-top: 10px; }
-      #detail-wrap #section2 section .list-content ul {
+      #detail-wrap #section2 #section2-wrap > section .list-content ul {
         padding-left: 30px; }
-        #detail-wrap #section2 section .list-content ul li {
+        #detail-wrap #section2 #section2-wrap > section .list-content ul li {
           color: #4d4d4d;
           width: 33%; }
           @media (min-width: 960px) {
-            #detail-wrap #section2 section .list-content ul li {
+            #detail-wrap #section2 #section2-wrap > section .list-content ul li {
               width: 25%; } }
-          #detail-wrap #section2 section .list-content ul li span {
+          #detail-wrap #section2 #section2-wrap > section .list-content ul li span {
             font-family: 'notokr-regular', sans-serif;
             color: #9fa0a1;
             font-size: 14px; }
-          #detail-wrap #section2 section .list-content ul li p {
+          #detail-wrap #section2 #section2-wrap > section .list-content ul li p {
             font-family: 'notokr-medium', sans-serif;
             color: #4c4c4c;
             font-size: 20px; }
-    #detail-wrap #section2 section #section-5-list-content {
+    #detail-wrap #section2 #section2-wrap > section #section-5-list-content {
       margin-left: 10%;
       margin-top: 10px; }
-      #detail-wrap #section2 section #section-5-list-content ul {
+      #detail-wrap #section2 #section2-wrap > section #section-5-list-content ul {
         padding-left: 30px; }
-        #detail-wrap #section2 section #section-5-list-content ul li:nth-child(1) p {
+        #detail-wrap #section2 #section2-wrap > section #section-5-list-content ul li:nth-child(1) p {
           font-family: 'notokr-regular', sans-serif;
           color: #4c4c4c;
           font-size: 14px;
           margin-bottom: 10px; }
-        #detail-wrap #section2 section #section-5-list-content ul li p {
+        #detail-wrap #section2 #section2-wrap > section #section-5-list-content ul li p {
           margin-bottom: 5px;
           font-family: 'notokr-regular', sans-serif;
           color: #9fa0a1;
@@ -2981,8 +2981,6 @@ body.menu-open .plus-btn .r2 {
   @media (min-width: 992px) {
     #book-box-wrap {
       position: absolute;
-      width: 100px;
-      right: 12.5%;
       min-width: 350px; } }
   #book-box-wrap #book-box #personnel {
     background-color: #79b754;
