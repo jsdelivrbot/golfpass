@@ -2822,17 +2822,20 @@ body.menu-open .plus-btn .r2 {
             color: #4c4c4c;
             font-size: 20px; }
     #detail-wrap #section2 section #section-5-list-content {
-      margin-left: 10%; }
-      #detail-wrap #section2 section #section-5-list-content ul li:nth-child(1) p {
-        font-family: 'notokr-regular', sans-serif;
-        color: #4c4c4c;
-        font-size: 14px;
-        margin-bottom: 10px; }
-      #detail-wrap #section2 section #section-5-list-content ul li p {
-        margin-bottom: 5px;
-        font-family: 'notokr-regular', sans-serif;
-        color: #9fa0a1;
-        font-size: 14px; }
+      margin-left: 10%;
+      margin-top: 10px; }
+      #detail-wrap #section2 section #section-5-list-content ul {
+        padding-left: 30px; }
+        #detail-wrap #section2 section #section-5-list-content ul li:nth-child(1) p {
+          font-family: 'notokr-regular', sans-serif;
+          color: #4c4c4c;
+          font-size: 14px;
+          margin-bottom: 10px; }
+        #detail-wrap #section2 section #section-5-list-content ul li p {
+          margin-bottom: 5px;
+          font-family: 'notokr-regular', sans-serif;
+          color: #9fa0a1;
+          font-size: 14px; }
 
 #section3 {
   width: 100%;

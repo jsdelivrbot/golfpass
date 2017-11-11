@@ -55,14 +55,12 @@
 
 				ul {
 					padding-left: 30px;
-
 					li {
 						color: #4d4d4d;
 						width: 33%;
 						@media (min-width: 960px) {
 							width: 25%;
 						}
-
 						span {
 							font-family: 'notokr-regular', sans-serif;
 							color: #9fa0a1;
@@ -80,8 +78,9 @@
 
 			#section-5-list-content {
 				margin-left: 10%;
-
+					margin-top: 10px;
 				ul {
+					padding-left: 30px;
 					li:nth-child(1) {
 						p {
 							font-family: 'notokr-regular', sans-serif;
