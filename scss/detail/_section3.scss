@@ -11,12 +11,14 @@
 		padding: 0 4%;
 		border: 1px solid #e6e6e6;
 		span {
-		  font-size: 1.3rem;
-		  color: #efb42a;
+            font-family: 'notokr-medium', sans-serif;
+            font-size: 24px;
+            color: #efb42a;
 		}
 		p {
-		  font-size: 0.8rem;
-		  text-align: center;
+            font-family: 'notokr-regular', sans-serif;
+            font-size: 14px;
+            color: #4c4c4c;
 		}
 	  }
 	}
@@ -30,14 +32,14 @@
 		padding: 20px;
 		background-color: #fcfcfc;
 		border: 1px solid #e6e6e6;
-		color: #bbbfc1;
+		color: #bfc5cb;
 		border-radius: 8px;
 		width: 95%;
 		margin: 10px auto;
 		.profile {
 		  p {
-			font-size: 0.7rem;
-			color: #c3c9ce;
+            font-family: 'notokr-regular', sans-serif;
+            font-size: 14px;
 			span {
 			  color: #32a8ef;
 			}
@@ -49,29 +51,45 @@
 		  padding-left: 10%;
 		}
 		.content {
-		  color: #868e93;
-		  line-height: 1.5;
+            font-family: 'notokr-regular', sans-serif;
+            font-size: 14px;
+            color: #868e93;
 		}
 		.score {
 		  > p {
 			margin-right: 10%;
-			font-size: 4rem;
-			font-weight: 100;
-			color: #1ba545;
+            font-family: 'notokr-thin', sans-serif;
+            font-size: 65px;
+            color: #1ba545;
 		  }
 		  ul {
 			width: 60%;
 			li {
 			  height: 35px;
+                p {
+                    font-family: 'notokr-regular', sans-serif;
+                    font-size: 12px;
+                    color: #868e93;
+                }
+                span {
+                    font-family: 'notokr-regular', sans-serif;
+                    font-size: 12px;
+                    color: #868e93;
+                }
 			  .line {
 				box-sizing: border-box;
 				margin: 0 20px;
 				flex-grow: 1;
-				border-bottom: 1px solid #bbbfc1;
+				border-bottom: 1px solid #e5e5e5;
 			  }
 			}
 		  }
 		}
+          .date {
+            font-family: 'notokr-regular', sans-serif;
+            font-size: 14px;
+            color: #868e93;
+          }
 	  }
 	}
 	#all {
@@ -95,8 +113,9 @@
 		  border-right: 1px solid #ebebeb;
 		}
 		span {
-		  color: #99a0a4;
-		  font-size: 0.8rem;
+            font-family: 'notokr-regular', sans-serif;
+            font-size: 14px;
+            color: #868e93;
 		}
 	  }
 	}

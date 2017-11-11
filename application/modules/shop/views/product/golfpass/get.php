@@ -415,7 +415,7 @@
                             <p>5.0</p>
                             <ul class="list-unstyled">
                                 <li class="d-flex align-items-center justify-content-between">
-                                    <p>코스전체 전략성</p>
+                                    <p>코스 전체 전략성</p>
                                     <span class="line"></span>
                                     <span>5.0</span></li>
                                 <li class="d-flex align-items-center justify-content-between">
@@ -443,7 +443,7 @@
                                     <span class="line"></span>
                                     <span>5.0</span></li>
                                 <li class="d-flex align-items-center justify-content-between">
-                                    <p>스텝 서비스</p>
+                                    <p>스태프 서비스</p>
                                     <span class="line"></span>
                                     <span>5.0</span></li>
                             </ul>

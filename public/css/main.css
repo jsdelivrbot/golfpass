@@ -2836,11 +2836,13 @@ body.menu-open .plus-btn .r2 {
       padding: 0 4%;
       border: 1px solid #e6e6e6; }
       #detail-wrap #section3 .review-warning-text > div span {
-        font-size: 1.3rem;
+        font-family: 'notokr-medium', sans-serif;
+        font-size: 24px;
         color: #efb42a; }
       #detail-wrap #section3 .review-warning-text > div p {
-        font-size: 0.8rem;
-        text-align: center; }
+        font-family: 'notokr-regular', sans-serif;
+        font-size: 14px;
+        color: #4c4c4c; }
   #detail-wrap #section3 #review-box {
     font-size: 0.8rem;
     box-sizing: border-box;
@@ -2851,13 +2853,13 @@ body.menu-open .plus-btn .r2 {
       padding: 20px;
       background-color: #fcfcfc;
       border: 1px solid #e6e6e6;
-      color: #bbbfc1;
+      color: #bfc5cb;
       border-radius: 8px;
       width: 95%;
       margin: 10px auto; }
       #detail-wrap #section3 #review-box .review .profile p {
-        font-size: 0.7rem;
-        color: #c3c9ce; }
+        font-family: 'notokr-regular', sans-serif;
+        font-size: 14px; }
         #detail-wrap #section3 #review-box .review .profile p span {
           color: #32a8ef; }
       #detail-wrap #section3 #review-box .review .content,
@@ -2865,22 +2867,35 @@ body.menu-open .plus-btn .r2 {
       #detail-wrap #section3 #review-box .review .date {
         padding-left: 10%; }
       #detail-wrap #section3 #review-box .review .content {
-        color: #868e93;
-        line-height: 1.5; }
+        font-family: 'notokr-regular', sans-serif;
+        font-size: 14px;
+        color: #868e93; }
       #detail-wrap #section3 #review-box .review .score > p {
         margin-right: 10%;
-        font-size: 4rem;
-        font-weight: 100;
+        font-family: 'notokr-thin', sans-serif;
+        font-size: 65px;
         color: #1ba545; }
       #detail-wrap #section3 #review-box .review .score ul {
         width: 60%; }
         #detail-wrap #section3 #review-box .review .score ul li {
           height: 35px; }
+          #detail-wrap #section3 #review-box .review .score ul li p {
+            font-family: 'notokr-regular', sans-serif;
+            font-size: 12px;
+            color: #868e93; }
+          #detail-wrap #section3 #review-box .review .score ul li span {
+            font-family: 'notokr-regular', sans-serif;
+            font-size: 12px;
+            color: #868e93; }
           #detail-wrap #section3 #review-box .review .score ul li .line {
             box-sizing: border-box;
             margin: 0 20px;
             flex-grow: 1;
-            border-bottom: 1px solid #bbbfc1; }
+            border-bottom: 1px solid #e5e5e5; }
+      #detail-wrap #section3 #review-box .review .date {
+        font-family: 'notokr-regular', sans-serif;
+        font-size: 14px;
+        color: #868e93; }
   #detail-wrap #section3 #all {
     margin: 60px auto 80px auto;
     position: relative;
@@ -2901,8 +2916,9 @@ body.menu-open .plus-btn .r2 {
         top: 0;
         border-right: 1px solid #ebebeb; }
       #detail-wrap #section3 #all #circle span {
-        color: #99a0a4;
-        font-size: 0.8rem; }
+        font-family: 'notokr-regular', sans-serif;
+        font-size: 14px;
+        color: #868e93; }
 
 #section-map {
   width: 100%;
