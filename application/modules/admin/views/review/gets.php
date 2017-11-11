@@ -16,7 +16,7 @@
         <li><a onclick="confirm_callback(this,ajax_a,'복구할 방법이 없습니다. 삭제하시겠습니까?'); return false;" data-action="<?=site_url(admin_product_review_uri."/ajax_delete/{$contents[$i]->id}")?>"  href="#">삭제</a> </li>
     </ul>
 <?php }?>
-
+<a href="<?=my_site_url(admin_product_review_uri.'/add')?>">리뷰추가</a>
 <form action="<?=my_site_url(admin_product_review_uri."/gets")?>" method="post">
     <select name="field" id="">
         <!-- <option value="r.product_id" <?=my_set_selected('field','r.product_id','POST')?>>상품id</option> -->
