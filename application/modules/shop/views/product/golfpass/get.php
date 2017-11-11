@@ -185,63 +185,58 @@
               </section>
             </article>
         </section>
-        <article id='section2' class='row no-gutters flex-column'>
-            <div id="book-box" class="col-12 col-md-4">
-                  <div id="personnel">
-                      <h1 class="mb-2">예약하기</h1>
-                      <!--
-                      <div id='count-box' class='d-flex align-items-stretch justify-content-end'>
-                          <span id='count'>1명 </span>
-                          <div id="icon-box" class="mr-3">
-                              <span><i class="xi-angle-up-min"></i></span><span><i class="xi-angle-down-min"></i></span>
-                          </div>
-                          <span class="d-flex align-items-end">
-                            <i id='clock-icon' class="xi-time-o">
-                            </i>
-                        </span>
-                      </div>
-                    -->
-                    <div id='count-box' class='d-flex align-items-stretch justify-content-end'>
-                      <form class="" action="index.html" method="post">
-                        <select class="" name="">
-                          <option value="" disabled selected>선택주세요</option>
-                          <option value="">옵션1</option>
-                          <option value="">옵션2</option>
-                        </select>
-                      </form>
-                    </div>
+        <article id='section2' class='row no-gutters'>
+          <div id="book-box-wrap" class="order-1 order-md-3 col-12 col-md-4">
+            <div id='book-box'>
+              <div id="personnel">
+                <h1 class="mb-2">예약하기</h1>
+                <!--
+                            <div id='count-box' class='d-flex align-items-stretch justify-content-end'>
+                                <span id='count'>1명 </span>
+                                <div id="icon-box" class="mr-3">
+                                    <span><i class="xi-angle-up-min"></i></span><span><i class="xi-angle-down-min"></i></span>
+                                </div>
+                                <span class="d-flex align-items-end">
+                                  <i id='clock-icon' class="xi-time-o">
+                                  </i>
+                              </span>
+                            </div>
+                          -->
+                <div id='count-box' class='d-flex align-items-stretch justify-content-end'>
+                  <form class="" action="index.html" method="post">
+                    <select class="" name="">
+                                <option value="" disabled selected>선택주세요</option>
+                                <option value="">옵션1</option>
+                                <option value="">옵션2</option>
+                              </select>
+                  </form>
+                </div>
+              </div>
+              <div id='dateBox'>
+                <form action="#" class="d-flex align-items-center justify-content-between">
+                  <div class="form-group d-flex align-items-center mb-0">
+                    <input type="text" id="s-day" placeholder="출발 일정">
+                    <i class="xi-calendar-check"></i>
                   </div>
-                  <div id='dateBox'>
-                      <form action="#" class="d-flex align-items-center justify-content-between">
-                          <div class="form-group d-flex align-items-center mb-0">
-                              <input type="text" id="s-day" placeholder="출발 일정">
-                              <i class="xi-calendar-check"></i>
-                          </div>
-                          <span>·</span>
-                          <div class="form-group d-flex align-items-center mb-0">
-                              <input type="text" id="e-day" placeholder="출발 일정">
-                              <i class="xi-calendar-check"></i>
-                          </div>
-                      </form>
+                  <span>·</span>
+                  <div class="form-group d-flex align-items-center mb-0">
+                    <input type="text" id="e-day" placeholder="출발 일정">
+                    <i class="xi-calendar-check"></i>
                   </div>
-                  <div id="info" class="pt-20">
-                      <ul class="list-unstyled">
-                          <?php for($i=0;$i<count($product_sub_desc);$i++){?>
-                          <li class='d-flex align-items-center'><span class="mr-2 align-self-baseline"><i class='xi-radiobox-checked'></i></span>
-                              <p>
-                                  <?=$product_sub_desc[$i]->name?>
-                              </p>
-                          </li>
-                          <?php }?>
-                      </ul>
-                      <div id='price' class="mt-20 mb-20">
-                          <h3 class='mb-3'>가격</h3>
-                          <p>
-                              <?=$product->price?>원</p>
-                      </div>
-                  </div>
+                </form>
+              </div>
+              <div id="info" class="pt-20">
+                <ul class="list-unstyled">
+                </ul>
+                <div id='price' class="mt-20 mb-20">
+                  <h3 class='mb-3'>가격</h3>
+                  <p>
+                    0원</p>
+                </div>
+              </div>
             </div>
-            <article id="section2-wrap" class="col-12 col-md-8 ">
+          </div>
+          	<article id="section2-wrap" class="order-2 col-12  col-md-8 ">
               <section class="col-12" id="article-section-1">
                   <div class='d-flex flex-column title-box'>
                       <span>0<?=$number++?></span>
@@ -427,6 +422,7 @@
               </section>
 
             </article>
+
         </article>
         <section id="section3" class="position-relative">
         <!--TODO 구글맵-->

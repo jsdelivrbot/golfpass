@@ -8,44 +8,50 @@
 		@media (min-width: 1199px) {
 			/*width: 75%;*/
 		}
-		#section2-wrap>section {
-			@media (min-width: 768px) {
-				padding-left: 40px;
-			}
-			&:last-child{
-				padding-bottom: 70px;
-			}
-			color: #4d4d4d;
+
+		#section2-wrap {
 			position: relative;
-			//리스트간 여백
-			margin-top: 100px;
+			&> section {
+				@media (min-width: 768px) {
+					padding-left: 40px;
+				}
 
-			.title-box {
-				padding: 30px 0;
-				margin-right: 80px;
-				&:after {
-					top: 0;
-					content: '';
-					display: inline-block;
+				&:last-child {
+					padding-bottom: 70px;
+				}
+				color: #4d4d4d;
+				position: relative;
+				//리스트간 여백
+				margin-top: 100px;
+
+				.title-box {
+					padding: 30px 0;
+					margin-right: 80px;
+
+					&:after {
+						top: 0;
+						content: '';
+						display: inline-block;
+						position: absolute;
+						width: 50px;
+						height: 100%;
+						border-top: 1px solid #d9d9d9;
+						border-bottom: 1px solid #d9d9d9;
+					}
+
+					span {
+						font-family: 'notokr-medium', sans-serif;
+						color: #efb42a;
+						font-size: 24px;
+					}
+
+					h1 {
+						font-family: 'notokr-medium', sans-serif;
+						color: #4c4c4c;
+						font-size: 14px;
+					}
 					position: absolute;
-					width: 50px;
-					height: 100%;
-					border-top: 1px solid #d9d9d9;
-					border-bottom: 1px solid #d9d9d9;
 				}
-
-				span {
-					font-family: 'notokr-medium', sans-serif;
-					color: #efb42a;
-					font-size: 24px;
-				}
-
-				h1 {
-					font-family: 'notokr-medium', sans-serif;
-					color: #4c4c4c;
-					font-size: 14px;
-				}
-				position: absolute;
 			}
 
 			.list-content {
@@ -56,12 +62,14 @@
 
 				ul {
 					padding-left: 30px;
+
 					li {
 						color: #4d4d4d;
 						width: 33%;
 						@media (min-width: 960px) {
 							width: 25%;
 						}
+
 						span {
 							font-family: 'notokr-regular', sans-serif;
 							color: #9fa0a1;
@@ -79,9 +87,11 @@
 
 			#section-5-list-content {
 				margin-left: 10%;
-					margin-top: 10px;
+				margin-top: 10px;
+
 				ul {
 					padding-left: 30px;
+
 					li:nth-child(1) {
 						p {
 							font-family: 'notokr-regular', sans-serif;

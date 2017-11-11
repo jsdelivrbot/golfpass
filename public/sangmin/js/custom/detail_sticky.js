@@ -1,22 +1,18 @@
 var delta = 300;
 var timer = null;
 $(window).on('resize', function() {
-	clearTimeout(timer);
-	timer = setTimeout(detailResizeDone, delta);
+	$("#book-box").trigger("sticky_kit:update");
 });
 stickInit();
 function detailResizeDone() {
+	// $("#book-box-wrap,#book-box").trigger("sticky_kit:recalc");
+	// $("#book-box-wrap").trigger("sticky_kit:recalc");
+	// $("#book-box").trigger("sticky_kit:recalc");
+	// $$("#book-box-wrap,#book-box").trigger("sticky_kit:detach");
 	$("#book-box").trigger("sticky_kit:detach");
-	stickInit();
+	$("#book-box").stick_in_parent();
 }
+
 function stickInit() {
-	$("#book-box").stick_in_parent()
-		.on("sticky_kit:stick", function(e) {
-			console.log("has stuck!", e.target);
-		})
-		.on("sticky_kit:unstick", function(e) {
-			console.log("has unstuck!", e.target);
-		}).on("sticky_kit:bottom", function(e) {
-			console.log("bottom!", e.target);
-		});
+	$("#book-box").stick_in_parent();
 }
