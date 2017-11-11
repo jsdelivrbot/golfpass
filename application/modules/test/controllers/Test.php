@@ -46,8 +46,8 @@ class Test extends Public_Controller
     }
     function semantic()
     {
-        // $this->_view("test/semantic");
-        $this->_template("test/semantic",array(),"golfpass");
+        $this->_view("test/semantic");
+        // $this->_template("test/semantic",array(),"golfpass");
     }
 
 

@@ -51,6 +51,8 @@ class Product_categories_Model extends Board_Model{
         $this->db->from('ref_cate_product as r');
         $this->db->join("$this->table c","r.cate_id = c.id","LEFT");
         $this->db->where("product_id",$product_id);
+
+        $this->db->order_by("r.sort","asc");
         $rows =$this->db->get()->result();
 
         return $rows;

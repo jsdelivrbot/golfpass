@@ -40,6 +40,7 @@ class Init_Controller extends MX_Controller{
         $this->board_replys();
         $this->pages();
         $this->product_cartlist();
+        $this->hashtag();
     }
     
     function setting()
@@ -179,6 +180,33 @@ class Init_Controller extends MX_Controller{
              echo "already table $tb_name exists";
          }
          echo "<br>";
+    }
+    function hashtag()
+    {
+         //hashtag 테이블 만들기
+         $tb_name = 'hashtag';
+         if(!$this->db->table_exists($tb_name)){
+         
+             $result = $this->db->query("CREATE TABLE `$tb_name`(
+             `id` INT UNSIGNED NULL AUTO_INCREMENT, 
+             `name` varchar(255) DEFAULT NULL,
+             `target_id` int UNSIGNED DEFAULT NULL, 
+             `table` varchar(255)  DEFAULT NULL, 
+             `created` datetime NOT NULL DEFAULT NOW(),
+             PRIMARY KEY (`id`),
+             UNIQUE KEY (`target_id`,`table`)
+              ) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
+                 
+             if($result) echo("success create $tb_name ");
+             else echo("failed create $tb_name");
+             echo "<br>";
+             return true;
+         }else{
+             echo "already table $tb_name exists";
+             echo "<br>";
+             return false;
+         }
+         
     }
     function products()
     {

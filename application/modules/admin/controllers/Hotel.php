@@ -39,6 +39,40 @@ class Hotel extends Admin_Controller {
         $this->db->delete('p_ref_hotel');
         my_redirect($_SERVER['HTTP_REFERER']);
     }
+    function ajax_ref_product_delete($id)
+    {
+        header("content-type:application/json");
+        $this->db->where('id',$id);
+        $this->db->delete('p_ref_hotel');
+        $data['reload'] =true;
+        echo json_encode($data);
+    }
+    function ajax_ref_product_add()
+    {
+        header("content-type:application/json");
+        
+        $this->fv->set_rules('hotel_id','호텔',array('required',
+            array('이미 등록 되어 있습니다.',function($str){
+                $this->db->where('hotel_id',$this->input->post('hotel_id'));
+                $this->db->where('product_id',$this->input->post('product_id'));
+                $row =$this->db->get("p_ref_hotel")->row();
+                if($row !== null)
+                    return false;
+                return true;
+            })
+        ));
+        if(!$this->fv->run()){
+
+            $data['alert'] =  validation_errors(false,false);
+                
+        }else{
+            $this->db->set('hotel_id',$this->input->post('hotel_id'));
+            $this->db->set('product_id',$this->input->post('product_id'));
+            $this->db->insert("p_ref_hotel");
+        }
+        $data['reload'] =true;
+        echo json_encode($data);
+    }
     function ref_product_add()
     {
         $this->fv->set_rules('hotel_id','호텔',array('required',
