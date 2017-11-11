@@ -27,6 +27,101 @@ class P_daily_price_admin extends Admin_Controller
         // $this->_view("gets_admin", $data);
     }
 
+    function ajax_add($product_id)
+    {
+        header("Content-Type:application/json");
+        
+        $this->_set_rules();
+        if($this->fv->run() === false)
+        {
+            $data['alert'] =  validation_errors(false,false);
+        } 
+        else 
+        {
+             set_time_limit(0);
+             $arr_days =$this->input->post("day");
+             $arr_num_people = $this->input->post("num_people");
+             $start_date = $this->input->post("start_date");
+             $end_date = $this->input->post("end_date");
+             $arr_period = $this->input->post("period");
+             $times = $this->input->post("times");
+             $price = $this->input->post("price");
+          
+             $period_times_sw = $this->input->post("period_times_sw");
+             $period_times = $this->input->post("period_times");
+             $num_people_sw_times = $this->input->post("num_people_sw_times");
+             $num_people_times = $this->input->post("num_people_times");
+         
+             if($period_times_sw === '1')
+             {
+                 $cal_price = function($price,$period) use($period_times)
+                 {
+                     
+                     $price =(float)$price/2;
+                     $price  =(string)round((float)$price * (float)($period_times[$period-2]) * (float)$period);
+                     return $price;
+                 };
+             }
+             else
+             {
+                 $cal_price = function($price)
+                 {
+                     return $price;
+                 };
+             }
+             if($num_people_sw_times === '1')
+             {
+                 $cal_price_2 = function($price,$num_people) use($num_people_times)
+                 {
+                     $price  =(string)round((float)$price * (float)($num_people_times[$num_people-1]) * (float)$num_people);
+                     return $price;
+                 };
+             }
+             else
+             {
+                 $cal_price_2 = function($price)
+                 {
+                     return $price;
+                 };
+             }
+             
+             foreach($arr_period as $period)
+             {
+                 $tmp_price =$cal_price($price,$period);
+                 foreach ($arr_num_people as $num_people) {
+                     $insert_price =$cal_price_2($tmp_price,$num_people);
+                     $n = 0;
+                     do {
+                         $date = strtotime("+{$n} day", strtotime($start_date));
+                         $date = date("Y-m-d", $date);
+                    
+                         if(in_array(date('w',strtotime($date)),$arr_days))     //요일검사
+                         {
+                             $this->db->set("product_id",$product_id);
+                             $sql=$this->db->insert_string($this->table,array(
+                                     'product_id'=>$product_id,
+                                     'date'=>$date,
+                                     'num_people'=>$num_people,
+                                     'period'=>$period,
+                                     'price'=> $insert_price
+                             ))."ON DUPLICATE KEY UPDATE price = $insert_price";
+                             $this->db->query($sql);
+                         }
+                       
+                         
+                         $n++;
+                        
+                     } while ($date !== $end_date);
+                 }
+             }
+             $data['alert'] ="완료";
+             $data['reload'] =true;
+            }
+        $data['loding'] =".loding";
+        
+        echo json_encode($data);
+        return;
+    }
     function add($product_id)
     {
         
@@ -217,24 +312,24 @@ class P_daily_price_admin extends Admin_Controller
         my_redirect(p_daily_price_uri."/gets");
         // my_redirect($_SERVER['HTTP_REFERER']);
     }
-    function ajax_add()
-    {
-        header("Content-Type:application/json");
+    // function ajax_add()
+    // {
+    //     header("Content-Type:application/json");
 
-        parent::_set_rules();
-         // $this->_set_rules();
-        if ($this->fv->run() === false) {
-            $data['alert'] =  validation_errors(false, false);
-        } else {
-            parent::_dbSet_addUpdate();
-            // $this->_dbSet_addUpdate();
-            $insert_id =$this->{$this->model}->_add();
-            $data['alert'] ="완료";
-            $data['reload'] =true;
-        }
-        echo json_encode($data);
-        return;
-    }
+    //     parent::_set_rules();
+    //      // $this->_set_rules();
+    //     if ($this->fv->run() === false) {
+    //         $data['alert'] =  validation_errors(false, false);
+    //     } else {
+    //         parent::_dbSet_addUpdate();
+    //         // $this->_dbSet_addUpdate();
+    //         $insert_id =$this->{$this->model}->_add();
+    //         $data['alert'] ="완료";
+    //         $data['reload'] =true;
+    //     }
+    //     echo json_encode($data);
+    //     return;
+    // }
 
 
     public function ajax_delete($id)
