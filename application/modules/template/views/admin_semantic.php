@@ -25,7 +25,7 @@
       <div class="ui container grid">
         <div class="computer only row">
             
-          <a class="header item">Project Name</a>
+        <a href="<?=site_url('')?>" class="header item"> golfpass</a>
           <?php for($i=0 ; $i < count($main_menus) ; $i++){?>
 
             <a href="<?=$main_menus[$i]->uri?>" class="item <?=($menu_name === $main_menus[$i]->name) ?  'active' : ''?>"><?=$main_menus[$i]->name?></a>
@@ -59,7 +59,7 @@
           <!-- <div class="right menu"> </div> -->
         </div>
         <div class="tablet mobile only row">
-          <a class="header item"> Project Name</a>
+          <a href="<?=site_url('')?>" class="header item"> golfpass</a>
           <div class="right menu">
             <a class="menu item">
               <div class="ui basic icon toggle button">

@@ -55,7 +55,19 @@ class Main extends Base_Controller
         $rankingType = $this->input->post("rankingType");
        
         $this->load->model("shop/products_model");
-        $data['products_avgScore'] =$this->products_model->gets_by_ranking($rankingType);
+        $products_avgScore =$this->products_model->gets_by_ranking($rankingType);
+
+        for($i=0 ;$i <count($products_avgScore); $i++)
+        {
+            $photos = $products_avgScore[$i]->photos;
+            if(strpos($photos,',') > -1)
+                $products_avgScore[$i]->photos =  explode(",",$photos);
+            else if($photos !== null)
+                $products_avgScore[$i]->photos =  array($photos);
+            else
+                $products_avgScore[$i]->photos = array();
+        }
+        $data['products_avgScore'] = $products_avgScore;
         $data['rankingType'] = $rankingType;
         
          $this->_view("ajax_gets_by_ranking",$data);
@@ -98,8 +110,19 @@ class Main extends Base_Controller
         $data['products_panel'] =$products_panel;
 
         //리뷰 평균점수 높은대로순
-        $data['products_avgScore'] =$this->products_model->gets_by_ranking("avg_score");
-
+        $products_avgScore =$this->products_model->gets_by_ranking("avg_score");
+        for($i=0 ;$i <count($products_avgScore); $i++)
+        {
+            $photos = $products_avgScore[$i]->photos;
+            if(strpos($photos,',') > -1)
+                $products_avgScore[$i]->photos =  explode(",",$photos);
+            else if($photos !== null)
+                $products_avgScore[$i]->photos =  array($photos);
+            else
+                $products_avgScore[$i]->photos = array();
+        }
+        $data['products_avgScore'] = $products_avgScore;
+        
         //패널
         $this->load->model("users_model");
         $this->db->limit(10,0);

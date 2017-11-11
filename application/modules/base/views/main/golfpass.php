@@ -436,7 +436,7 @@
 						<div class="col-12 content-box">
 							<a href="<?=site_url(shop_product_uri."/get/{$products_avgScore[$i]->id}")?>">
 								<div class="d-flex align-items-center p-4 mb-3 content"
-								 	style="height: 150px; background-image: url(/image/rank_001.png)">
+								 	style="height: 150px; background-image: url(<?=$products_avgScore[$i]->photos[0]?>)">
 									<div class='d-flex align-items-center justify-content-center bg-light rounded-circle'>
 										<span class="d-flex align-items-center justify-content-center"><?=$i+1?></span>
 									</div>

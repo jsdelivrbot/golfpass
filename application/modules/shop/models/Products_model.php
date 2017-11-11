@@ -77,6 +77,10 @@ class Products_Model extends Board_Model{
         $sub_query = "SELECT parent_cate.name FROM product_categories as parent_cate WHERE parent_cate.id = cate_parent_id LIMIT 0,1";
         $query .= ",($sub_query) as nation";
 
+        //product_option 사진들
+        $sub_query = "SELECT group_concat(o.name) FROM `product_option` AS `o` WHERE o.product_id= p.id AND o.kind = 'photo'";
+        $query .= ",($sub_query) as photos";
+        
         $this->db->select("p.*".$query);
         $this->db->from("products as p");
         $this->db->order_by($rankingType,'desc');
