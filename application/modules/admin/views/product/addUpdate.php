@@ -330,7 +330,7 @@ a{
 
 
 
-<div class="sixteen wide column">
+<div class="sixteen wide column" style="margin-top:50px">
 <a class="ui left labeled icon button  secondary" href="<?=my_site_url(admin_product_uri."/gets")?>">
     <i class="left arrow icon"></i>
     목록으로
