@@ -15,12 +15,12 @@ $(function() {
 	});
 
 
-	var search_delta = 0.5; //이벤트 지연시간
+	var search_delta = 0.8; //이벤트 지연시간
 	var search_timer = null; //setTimeout담을 객체
 	searchInput.on('keyup', function() {
 		//키입력시마다 실행하면 안좋을거같아서 search_delta초 후에 실행
 		$(searchContentContainer).fadeIn("fast");
-		if (searchInput.val().length < 2) {
+		if (searchInput.val().length == 0) { //글자를 모두 지웟을때 창없앰 
 			searchInit();
 		}
 		clearTimeout(search_timer);
@@ -85,11 +85,11 @@ $(function() {
 		// 	$(searchContentContainer).empty().append(input);
 		// }, 500) //TEST 코드 end
 		//TODO AJAX 코드 실행..위의 코드 참고해서 작성해주세요
-		
+
 		$.ajax({
 			url: '/index.php/base/main/search',
 			type: 'post',
-			dataType:'json',
+			dataType: 'json',
 			data: {
 				search: searchInput.val()
 			},
@@ -115,7 +115,7 @@ $(function() {
 				$(searchContentContainer).empty().append(input);
 			} //success
 		}); //ajax end
-	
+
 	}
 
 	function printStar(score) {
