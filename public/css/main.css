@@ -2806,7 +2806,7 @@ body.menu-open .plus-btn .r2 {
             #detail-wrap #section2 section .list-content ul li {
               width: 25%; } }
           #detail-wrap #section2 section .list-content ul li span {
-            font-family: 'notokr-demilight', sans-serif;
+            font-family: 'notokr-regular', sans-serif;
             color: #9fa0a1;
             font-size: 14px; }
           #detail-wrap #section2 section .list-content ul li p {
@@ -2815,18 +2815,14 @@ body.menu-open .plus-btn .r2 {
             font-size: 20px; }
     #detail-wrap #section2 section #section-5-list-content {
       margin-left: 10%; }
+      #detail-wrap #section2 section #section-5-list-content ul li:nth-child(1) p {
+        font-family: 'notokr-regular', sans-serif;
+        color: #4c4c4c;
+        font-size: 14px; }
       #detail-wrap #section2 section #section-5-list-content ul li p {
-        font-size: 0.8rem;
-        padding-top: 12px;
-        color: #aeaeaf; }
-        #detail-wrap #section2 section #section-5-list-content ul li p:hover {
-          color: #4d4d4d; }
-        #detail-wrap #section2 section #section-5-list-content ul li p:hover:before {
-          content: ''; }
-        #detail-wrap #section2 section #section-5-list-content ul li p:before {
-          content: '*';
-          font-size: 0.3rem;
-          margin-right: 1px; }
+        font-family: 'notokr-regular', sans-serif;
+        color: #9fa0a1;
+        font-size: 14px; }
 
 #detail-wrap #section3 {
   position: relative;
@@ -2911,7 +2907,7 @@ body.menu-open .plus-btn .r2 {
 #section-map {
   width: 100%;
   padding-left: 0;
-  height: 400px;
+  height: 500px;
   background-color: #4d4d4d; }
 
 #book-box-wrap {
@@ -2988,7 +2984,7 @@ body.menu-open .plus-btn .r2 {
           font-size: 15px;
           color: #efb42a; }
         #book-box-wrap #book-box #info li p {
-          font-family: 'notokr-demilight', sans-serif;
+          font-family: 'notokr-regular', sans-serif;
           font-size: 14px;
           color: #4c4c4c;
           margin-bottom: 0; }

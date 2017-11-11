@@ -50,7 +50,7 @@
 			  width: 25%;
 			}
 			span {
-              font-family: 'notokr-demilight', sans-serif;
+              font-family: 'notokr-regular', sans-serif;
               color: #9fa0a1;
               font-size: 14px;
 			}
@@ -63,29 +63,24 @@
 		}
 	  }
 	  #section-5-list-content {
-		margin-left: 10%; // width: 100%;
+		margin-left: 10%;
 		ul {
+		  li:nth-child(1) {
+			p {
+              font-family: 'notokr-regular', sans-serif;
+              color: #4c4c4c;
+              font-size: 14px;
+			}
+		  }
 		  li {
 			p {
-			  font-size: 0.8rem;
-			  padding-top: 12px;
-			  color: #aeaeaf;
-			  &:hover {
-				color: #4d4d4d;
-			  }
-			  &:hover:before {
-				content: '';
-			  }
-			  &:before {
-				content: '*';
-				font-size: 0.3rem;
-				margin-right: 1px;
-			  }
+              font-family: 'notokr-regular', sans-serif;
+              color: #9fa0a1;
+              font-size: 14px;
 			}
 		  }
 		}
 	  }
 	}
-
   }
 }
