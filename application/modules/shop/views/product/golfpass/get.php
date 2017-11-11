@@ -172,12 +172,12 @@
                 <div id='dateBox'>
                     <form action="#" class="d-flex align-items-center justify-content-between">
                         <div class="form-group d-flex align-items-center mb-0">
-                            <input type="text" id="s-day" placeholder="출발일정">
+                            <input type="text" id="s-day" placeholder="출발 일정">
                             <i class="xi-calendar-check"></i>
                         </div>
                         <span>~</span>
                         <div class="form-group d-flex align-items-center mb-0">
-                            <input type="text" id="e-day" placeholder="도착일정">
+                            <input type="text" id="e-day" placeholder="출발 일정">
                             <i class="xi-calendar-check"></i>
                         </div>
                     </form>

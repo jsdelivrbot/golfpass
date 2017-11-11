@@ -13,7 +13,7 @@
     min-width: 350px;
 	}
 	@media (min-width: 1199px) {
-		width: 20%;
+		width: 320px;
 	}
 
 	#book-box {
@@ -61,7 +61,7 @@
 		}
 
 		#dateBox {
-			padding: 20px;
+			padding: 15px;
 			background-color: black;
 
 			.form-group {
@@ -71,43 +71,62 @@
 
 				input {
 					box-sizing: border-box;
-					padding: 5px;
+					padding: 15px;
 					width: 80%;
 					border: 0;
-					height: 30px;
+					height: 40px;
+                    font-family: 'notokr-demilight', sans-serif;
+                    font-size: 14px;
+                    color: #b2b2b2;
 
 					&:focus {
 						outline: 0;
 					}
 				}
+                
+                i {
+                    font-size: 14px;
+                }
 			}
 		}
 
 		#info {
 			background-color: #fff;
-			padding: 10px;
+			padding: 25px 20px 25px 20px;
 			color: #5e5e5e;
 			font-family: 'Noto Sans', sans-serif;
 			font-size: 1em;
+            border: 1px solid #e6e6e6;
+            border-top: 0px;
 
 			li {
 				margin-bottom: 5px;
 				box-sizing: border-box;
 
 				i {
-					color: $sub-title-color;
+					font-size: 15px;
+                    color: #efb42a;
 				}
+                
+                p {
+                    font-family: 'notokr-light', sans-serif;
+                    font-size: 14px;
+                    color: #4c4c4c;
+                }
 			}
 		}
 
 		#price {
-			h3 {
-        font-size: 2rem;
-				color: $sub-title-color;
-			}
+            h3 {
+                font-family: 'notokr-regular', sans-serif;
+                font-size: 14px;
+                color: #efb42a;
+            }
 
 			p {
-				font-size: 1.5rem;
+                font-family: 'notokr-regular', sans-serif;
+                font-size: 30px;
+                color: #4c4c4c;
 			}
 		}
 	}
