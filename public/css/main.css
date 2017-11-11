@@ -8,20 +8,20 @@
   src: url("/public/sangmin/fonts/TmonFont/TmonMonsori.woff") format("woff");
   src: url("/public/sangmin/fonts/TmonFont/TmonMonsori.ttf") format("truetype"); }
 @font-face {
+  font-family: 'notokr-thin';
+  src: url("/public/sangmin/fonts/noto/notokr-thin.eot"), url("/public/sangmin/fonts/noto/notokr-thin.woff") format("woff"), url("/public/sangmin/fonts/noto/notokr-thin.woff") format("woff2"), url("/public/sangmin/fonts/noto/notokr-thin.ttf") format("truetype"); }
+@font-face {
   font-family: 'notokr-light';
   src: url("/public/sangmin/fonts/noto/notokr-light.eot"), url("/public/sangmin/fonts/noto/notokr-light.woff") format("woff"), url("/public/sangmin/fonts/noto/notokr-light.woff") format("woff2"), url("/public/sangmin/fonts/noto/notokr-medium.ttf") format("truetype"); }
 @font-face {
-  font-family: 'notokr-medium';
-  src: url("/public/sangmin/fonts/noto/notokr-medium.eot"), url("/public/sangmin/fonts/noto/notokr-medium.woff") format("woff"), url("/public/sangmin/fonts/noto/notokr-medium.woff") format("woff2"), url("/public/sangmin/fonts/noto/notokr-medium.ttf") format("truetype"); }
+  font-family: 'notokr-demilight';
+  src: url("/public/sangmin/fonts/noto/notokr-demilight.eot"), url("/public/sangmin/fonts/noto/notokr-demilight.woff") format("woff"), url("/public/sangmin/fonts/noto/notokr-demilight.woff") format("woff2"), url("/public/sangmin/fonts/noto/notokr-demilight.ttf") format("truetype"); }
 @font-face {
   font-family: 'notokr-regular';
   src: url("/public/sangmin/fonts/noto/notokr-regular.eot"), url("/public/sangmin/fonts/noto/notokr-regular.woff") format("woff"), url("/public/sangmin/fonts/noto/notokr-regular.woff") format("woff2"), url("/public/sangmin/fonts/noto/notokr-regular.ttf") format("truetype"); }
 @font-face {
-  font-family: 'notokr-thin';
-  src: url("/public/sangmin/fonts/noto/notokr-thin.eot"), url("/public/sangmin/fonts/noto/notokr-thin.woff") format("woff"), url("/public/sangmin/fonts/noto/notokr-thin.woff") format("woff2"), url("/public/sangmin/fonts/noto/notokr-thin.ttf") format("truetype"); }
-@font-face {
-  font-family: 'notokr-demilight';
-  src: url("/public/sangmin/fonts/noto/notokr-demilight.eot"), url("/public/sangmin/fonts/noto/notokr-demilight.woff") format("woff"), url("/public/sangmin/fonts/noto/notokr-demilight.woff") format("woff2"), url("/public/sangmin/fonts/noto/notokr-demilight.ttf") format("truetype"); }
+  font-family: 'notokr-medium';
+  src: url("/public/sangmin/fonts/noto/notokr-medium.eot"), url("/public/sangmin/fonts/noto/notokr-medium.woff") format("woff"), url("/public/sangmin/fonts/noto/notokr-medium.woff") format("woff2"), url("/public/sangmin/fonts/noto/notokr-medium.ttf") format("truetype"); }
 body {
   width: 100%;
   height: 100%;
@@ -2717,23 +2717,29 @@ body.menu-open .plus-btn .r2 {
         padding-left: 10px;
         margin-bottom: 10%; } }
     #detail-wrap #section1 #detail #regine {
-      font-family: 'Noto Sans', sans-serif;
-      font-size: 1rem; }
+      font-family: 'notokr-regular', sans-serif;
+      font-size: 16px; }
     #detail-wrap #section1 #detail #title {
       margin-top: 12px;
       margin-right: 50px;
       font-family: 'TmonMonsori';
-      font-size: 3rem; }
+      font-size: 60px; }
       @media (min-width: 992px) {
         #detail-wrap #section1 #detail #title {
           padding: 10px; } }
+    #detail-wrap #section1 #detail #title-en {
+      font-family: 'notokr-regular', sans-serif;
+      font-size: 16px; }
     #detail-wrap #section1 #detail #content {
       margin-top: 30px;
       font-size: 14px;
       line-height: 1.6;
       font-family: 'Noto Sans', sans-serif; }
       #detail-wrap #section1 #detail #content #sub-title {
+        font-family: 'notokr-medium', sans-serif;
         color: #fdd931; }
+      #detail-wrap #section1 #detail #content p {
+        font-family: 'notokr-light', sans-serif; }
     #detail-wrap #section1 #detail #score {
       position: absolute;
       right: 3%;
@@ -2922,14 +2928,14 @@ body.menu-open .plus-btn .r2 {
     #book-box-wrap {
       width: 20%; } }
   #book-box-wrap #book-box {
-    border: 1px solid #e6e6e6;
     width: 100%; }
     #book-box-wrap #book-box #personnel {
       background-color: #79b754;
-      padding: 10px;
-      height: 100px; }
+      padding: 15px;
+      height: 80px; }
       #book-box-wrap #book-box #personnel h1 {
-        font-size: 2rem;
+        font-family: 'notokr-regular', sans-serif;
+        font-size: 16px;
         display: block; }
       #book-box-wrap #book-box #personnel #count {
         font-size: 1.5rem; }

@@ -22,18 +22,23 @@
 			}
 
 			#regine {
-				font-family: 'Noto Sans', sans-serif;
-				font-size: 1rem;
+				font-family: 'notokr-regular', sans-serif;
+				font-size: 16px;
 			}
 
 			#title {
 				margin-top: 12px;
 				margin-right: 50px;
 				font-family: 'TmonMonsori';
-				font-size: 3rem;
+				font-size: 60px;
 				@media (min-width: 992px) {
 					padding: 10px;
 				}
+			}
+            
+			#title-en {
+				font-family: 'notokr-regular', sans-serif;
+				font-size: 16px;
 			}
 
 			#content {
@@ -43,8 +48,13 @@
 				font-family: 'Noto Sans', sans-serif;
 
 				#sub-title {
+                    font-family: 'notokr-medium', sans-serif;
 					color: $sub-title-color;
 				}
+                
+                p {
+                    font-family: 'notokr-light', sans-serif;
+                }
 			}
 
 			#score {
