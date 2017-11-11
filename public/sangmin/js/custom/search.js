@@ -87,23 +87,23 @@ $(function() {
 		//TODO AJAX 코드 실행..위의 코드 참고해서 작성해주세요
 		
 		$.ajax({
-			url: '/index.php/test/ajax',
+			url: '/index.php/base/main/search',
 			type: 'get',
 			dataType:'json',
 			data: {
 				search: searchInput.val()
 			},
 			success: function(data) {
-				console.log(data);
+				
 				var input = '';
-				input += "<p><span>'" + searchInput.val() + "' '</span>검색결과 <span> / 총' + data.length + '개</span></p>"
+				input += "<p><span>'" + searchInput.val() + `' </span>검색결과 <span> / 총  ${data.length}  개</span></p>`
 				input += '<div>'
 				input += '<ul class="search-items">'
 				for (var i = 0; i < data.length; i++) {
 					input += '<a href="' + data[i].경로 + '">';
 					input += '<li class="search-item d-flex align-items-strech">'
 					input += '<div class="image d-flex align-items-center justify-content-center">'
-					input += '<img class="rounded-circle" src="' + data[i].imagePath + '"alt="검색이미지" width="100%;">'
+					input += '<img class="rounded-circle" src="' + data[i].imagePath + '" alt="검색이미지" width="100%;">'
 					input += '</div>'
 					input += '<div class="content">'
 					input += '<div class="title d-flex align-items-center">' + data[i].title + '<span class="pl-2 score-icon d-flex">' + printStar(parseFloat(data[i].score)) + '</span><span class="pl-2 score-text">(종합 점수' + parseFloat(data[i].score) + ')</span></div>'

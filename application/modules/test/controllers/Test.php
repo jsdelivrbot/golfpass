@@ -14,16 +14,36 @@ class Test extends Public_Controller
     }
     function ajax()
     {
+        
         header("content-type:application/json");
-        $serach =$this->input->get("search");
 
-        $this-db->like("");
-        $data = array(array(
-            'title'=>"ddd",
-            'imagePath' =>'/public/images/product.jpg',
-            'score'=>"1",
-            "article"=>"asdf"
-        )); 
+        $search =$this->input->get("search");
+
+         $this->load->model("shop/products_model");
+         $this->db->or_like("p.hashtag",$search);
+         $this->db->or_like("p.name",$search);
+         $this->db->limit(10,0);
+        $products=$this->products_model->gets_by_ranking('avg_score');
+
+        $data =array();
+        foreach($products as $product)
+        {
+            $photo = $product->photos[0] ?? '';
+            array_push($data,array(
+                'title'=>$product->name,
+                'imagePath'=>$photo,
+                'score' => $product->avg_score,
+                "article"=>$product->desc
+            ));
+        } 
+       
+
+        // $data = array(array(
+        //     'title'=>"ddd",
+        //     'imagePath' =>'/public/images/product.jpg',
+        //     'score'=>"1",
+        //     "article"=>"asdf"
+        // )); 
         echo json_encode($data);
         // echo 1;
     }

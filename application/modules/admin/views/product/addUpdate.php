@@ -30,7 +30,7 @@ a{
         상품 추가/수정
     </h1>
    
-    <form class="ui form" class="ui form" onsubmit="ajax_submit(this); return false;" action="<?=my_site_url(admin_product_uri."/$mode")?>" method="post">
+    <form class="ui form" class="ui form" <?=strpos($mode, "update") ? "onsubmit=\"ajax_submit(this); return false;\"": ""?> action="<?=my_site_url(admin_product_uri."/$mode")?>" method="post">
         <div class="field">
             <label>상품이름</label>
             <input type="text" name="name" value="<?=set_value_data($product,'name')?>" > <?=form_error('name',false,false)?><br> 

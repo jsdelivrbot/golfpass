@@ -57,12 +57,12 @@ class Products_Model extends Board_Model{
         if($rankingType === 'avg_score')
         {
             //product_reviews 총 평균점수
-            $sub_query3 = "SELECT (avg(score_1)+avg(score_2)+avg(score_3)+avg(score_4)+avg(score_5)+avg(score_6)+avg(score_7)+avg(score_8))/8 FROM product_reviews as s_r WHERE s_r.product_id = p.id AND s_r.is_display = 1 AND s_r.is_secret = 0";
+            $sub_query3 = "SELECT IFNULL((avg(score_1)+avg(score_2)+avg(score_3)+avg(score_4)+avg(score_5)+avg(score_6)+avg(score_7)+avg(score_8))/8,0) FROM product_reviews as s_r WHERE s_r.product_id = p.id AND s_r.is_display = 1 AND s_r.is_secret = 0";
             $query .= ",($sub_query3) as avg_score";
         }
         else
         {
-            $sub_query4 = "SELECT avg($rankingType) FROM product_reviews as s_r1 WHERE s_r1.product_id = p.id AND s_r1.is_display = 1 AND s_r1.is_secret = 0";
+            $sub_query4 = "SELECT IFNULL(avg($rankingType),0) FROM product_reviews as s_r1 WHERE s_r1.product_id = p.id AND s_r1.is_display = 1 AND s_r1.is_secret = 0";
             $query .= ",($sub_query4) as $rankingType";
         }
         //카테고리 도시 parent_id
@@ -84,7 +84,20 @@ class Products_Model extends Board_Model{
         $this->db->select("p.*".$query);
         $this->db->from("products as p");
         $this->db->order_by($rankingType,'desc');
-        return $this->db->get()->result();
+        $products= $this->db->get()->result();
+
+        for($i=0 ;$i <count($products); $i++)
+        {
+            $photos = $products[$i]->photos;
+            if(strpos($photos,',') > -1)
+                $products[$i]->photos =  explode(",",$photos);
+            else if($photos !== null)
+                $products[$i]->photos =  array($photos);
+            else
+                $products[$i]->photos = array();
+        }
+
+        return $products;
     }
 
     function gets_by_category_id($cate_id)

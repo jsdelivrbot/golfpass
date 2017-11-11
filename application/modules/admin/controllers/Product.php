@@ -291,7 +291,7 @@ class Product extends Admin_Controller {
     }
     public function _set_rules(){
         $this->fv->set_rules('name','상품명','required');
-        $this->fv->set_rules('desc','상품 설명','required');
+        // $this->fv->set_rules('desc','상품 설명','required');
     }
 
     // public function _dbSet_addUpdate(){
