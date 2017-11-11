@@ -8,14 +8,6 @@
 		> * {
 			z-index: 2;
 		}
-        
-        #detail_slide {
-			max-width: 574px;
-
-            #regine {
-                
-            }
-		}
 
 		#detail {
 			position: relative;
@@ -25,7 +17,7 @@
 			@media (min-width: 768px) {
 				//sm
 				margin-top: 0;
-				padding-left: 50px;
+				padding-left: 10px;
 				margin-bottom: 10%;
 			}
 
@@ -40,7 +32,7 @@
 				font-family: 'TmonMonsori';
 				font-size: 60px;
 				@media (min-width: 992px) {
-					padding: 10px 10px 10px 0;
+					padding: 10px;
 				}
 			}
             
