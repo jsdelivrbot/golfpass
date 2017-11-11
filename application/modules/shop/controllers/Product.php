@@ -26,7 +26,7 @@ class Product extends Base_Controller {
             else if($photos !== null)
                 $products[$i]->photos =  array($photos);
             else
-                $products[$i]->photos = array();
+                $products[$i]->photos = array('','','');
         }
         $data['products'] =$products;
 

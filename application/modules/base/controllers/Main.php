@@ -83,7 +83,7 @@ class Main extends Base_Controller
             else if($photos !== null)
                 $products_panel[$i]->photos =  array($photos);
             else
-                $products_panel[$i]->photos = array();
+                $products_panel[$i]->photos = array('','','');
         }
         $data['products_panel'] =$products_panel;
 
