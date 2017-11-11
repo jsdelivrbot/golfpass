@@ -9,24 +9,25 @@ $(function() {
 		searchInput.val(''); //input text 비움
 	}
 	searchInit();
+
 	searchInput.on('focus', function() {
 		//input포커스 이벤트
 		$(search).addClass('focus');
 	});
 
-
-	var search_delta = 0.8; //이벤트 지연시간
+	var search_delta = 1; //이벤트 지연시간
 	var search_timer = null; //setTimeout담을 객체
 	searchInput.on('keyup', function() {
 		//키입력시마다 실행하면 안좋을거같아서 search_delta초 후에 실행
 		$(searchContentContainer).fadeIn("fast");
-		if (searchInput.val().length == 0) { //글자를 모두 지웟을때 창없앰 
+		if (searchInput.val().length == 0) { //글자를 모두 지웟을때 창없앰
 			searchInit();
 		}
 		clearTimeout(search_timer);
-		timer = setTimeout(inputDone, search_delta * 1000);
-
+		search_timer = setTimeout(inputDone, search_delta * 1000);
 	});
+
+
 	searchInput.on('blur', function() {
 		//focus에서 벗어낫을 경우 init호출하여 원상태로 돌림
 		setTimeout(function() {
@@ -115,7 +116,6 @@ $(function() {
 				$(searchContentContainer).empty().append(input);
 			} //success
 		}); //ajax end
-
 	}
 
 	function printStar(score) {
