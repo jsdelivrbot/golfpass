@@ -2769,19 +2769,21 @@ body.menu-open .plus-btn .r2 {
 #detail-wrap #section2 {
   position: relative;
   font-family: 'Noto Sans', sans-serif;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  margin-bottom: 70px; }
   @media (min-width: 1199px) {
     #detail-wrap #section2 {
       /*width: 75%;*/ } }
   #detail-wrap #section2 section {
-    margin-top: 80px;
     color: #4d4d4d;
-    position: relative; }
+    position: relative;
+    margin-top: 100px; }
     @media (min-width: 768px) {
       #detail-wrap #section2 section {
         padding-left: 40px; } }
     #detail-wrap #section2 section .title-box {
       padding: 30px 0;
+      margin-right: 80px;
       position: absolute; }
       #detail-wrap #section2 section .title-box:after {
         top: 0;
@@ -2801,13 +2803,12 @@ body.menu-open .plus-btn .r2 {
         color: #4c4c4c;
         font-size: 14px; }
     #detail-wrap #section2 section .list-content {
-      margin-left: 10%; }
+      margin-left: 10%;
+      margin-top: 10px; }
       #detail-wrap #section2 section .list-content ul {
-        padding-left: 30px;
-        margin-top: 10px; }
+        padding-left: 30px; }
         #detail-wrap #section2 section .list-content ul li {
           color: #4d4d4d;
-          height: 100px;
           width: 33%; }
           @media (min-width: 960px) {
             #detail-wrap #section2 section .list-content ul li {
@@ -2844,12 +2845,16 @@ body.menu-open .plus-btn .r2 {
   position: relative;
   width: 100%;
   margin-top: 95px; }
+  #detail-wrap #section4 p {
+    margin-bottom: 0; }
   #detail-wrap #section4 .review-warning-text {
     width: 100%;
+    max-width: 500px;
+    height: 100px;
     position: relative; }
     #detail-wrap #section4 .review-warning-text > div {
       box-sizing: padding-box;
-      padding: 0 4%;
+      padding: 0 30px;
       border: 1px solid #e6e6e6; }
       #detail-wrap #section4 .review-warning-text > div span {
         font-family: 'notokr-medium', sans-serif;
@@ -2861,59 +2866,65 @@ body.menu-open .plus-btn .r2 {
         color: #4c4c4c; }
   #detail-wrap #section4 #review-box {
     font-size: 0.8rem;
-    box-sizing: border-box;
-    position: relative;
-    width: 100%;
-    margin-top: 70px; }
+    width: 100%; }
     #detail-wrap #section4 #review-box .review {
-      padding: 20px;
+      margin-top: 60px;
       background-color: #fcfcfc;
       border: 1px solid #e6e6e6;
       color: #bfc5cb;
       border-radius: 8px;
-      width: 95%;
-      margin: 10px auto; }
-      #detail-wrap #section4 #review-box .review .profile p {
+      width: 99%; }
+      #detail-wrap #section4 #review-box .review .profile .proflie-img {
+        padding: 15px; }
+        #detail-wrap #section4 #review-box .review .profile .proflie-img img {
+          width: 60px;
+          height: 60px; }
+      #detail-wrap #section4 #review-box .review .profile .proflie-name {
         font-family: 'notokr-regular', sans-serif;
         font-size: 14px; }
-        #detail-wrap #section4 #review-box .review .profile p span {
+        #detail-wrap #section4 #review-box .review .profile .proflie-name span {
           color: #32a8ef; }
-      #detail-wrap #section4 #review-box .review .content,
-      #detail-wrap #section4 #review-box .review .score,
-      #detail-wrap #section4 #review-box .review .date {
-        padding-left: 10%; }
       #detail-wrap #section4 #review-box .review .content {
         font-family: 'notokr-regular', sans-serif;
         font-size: 14px;
-        color: #868e93; }
-      #detail-wrap #section4 #review-box .review .score > p {
-        margin-right: 10%;
-        font-family: 'notokr-thin', sans-serif;
-        font-size: 65px;
-        color: #1ba545; }
-      #detail-wrap #section4 #review-box .review .score ul {
-        width: 60%; }
-        #detail-wrap #section4 #review-box .review .score ul li {
-          height: 35px; }
-          #detail-wrap #section4 #review-box .review .score ul li p {
-            font-family: 'notokr-regular', sans-serif;
-            font-size: 12px;
-            color: #868e93; }
-          #detail-wrap #section4 #review-box .review .score ul li span {
-            font-family: 'notokr-regular', sans-serif;
-            font-size: 12px;
-            color: #868e93; }
-          #detail-wrap #section4 #review-box .review .score ul li .line {
-            box-sizing: border-box;
-            margin: 0 20px;
-            flex-grow: 1;
-            border-bottom: 1px solid #e5e5e5; }
+        color: #868e93;
+        margin-left: 90px;
+        width: 82%; }
+      #detail-wrap #section4 #review-box .review .score-box {
+        margin-top: 50px; }
+        #detail-wrap #section4 #review-box .review .score-box .score {
+          font-family: 'notokr-thin', sans-serif;
+          font-size: 65px;
+          color: #1ba545;
+          margin-left: 15px;
+          margin-right: 55px; }
+        #detail-wrap #section4 #review-box .review .score-box ul {
+          width: 100%;
+          padding-right: 20px;
+          margin-bottom: 0; }
+          #detail-wrap #section4 #review-box .review .score-box ul li {
+            margin-bottom: 20px; }
+            #detail-wrap #section4 #review-box .review .score-box ul li p {
+              font-family: 'notokr-regular', sans-serif;
+              font-size: 12px;
+              color: #868e93; }
+            #detail-wrap #section4 #review-box .review .score-box ul li span {
+              font-family: 'notokr-regular', sans-serif;
+              font-size: 12px;
+              color: #868e93; }
+            #detail-wrap #section4 #review-box .review .score-box ul li .line {
+              box-sizing: border-box;
+              margin: 0 20px;
+              flex-grow: 1;
+              border-bottom: 1px solid #e5e5e5; }
       #detail-wrap #section4 #review-box .review .date {
         font-family: 'notokr-regular', sans-serif;
         font-size: 14px;
-        color: #868e93; }
+        color: #868e93;
+        margin-top: 50px;
+        margin-bottom: 20px; }
   #detail-wrap #section4 #all {
-    margin: 60px auto 80px auto;
+    margin: 60px auto 80px;
     position: relative;
     width: 25%;
     border-top: 1px solid #ebebeb; }

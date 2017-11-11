@@ -201,7 +201,13 @@
                     </div>
                   -->
                   <div id='count-box' class='d-flex align-items-stretch justify-content-end'>
-                    <input type="number" name="" value="">
+                    <form class="" action="index.html" method="post">
+                      <select class="" name="">
+                        <option value="" disabled selected>선택주세요</option>
+                        <option value="">옵션1</option>
+                        <option value="">옵션2</option>
+                      </select>
+                    </form>
                   </div>
                 </div>
                 <div id='dateBox'>
@@ -426,8 +432,8 @@
         <!--TODO 구글맵-->
         </section>
         <!--TODO 리뷰  데이터 X-->
-        <section id="section4" class='row no-gutters'>
-            <div class="col-12 review-warning-text d-flex justify-content-center">
+        <section id="section4" class='row no-gutters justify-content-center'>
+            <div class="row review-warning-text d-flex justify-content-center">
                 <div class="d-flex flex-column align-items-center">
                     <span class="mt-20 mb-10">리뷰</span>
                     <p class='mb-20'>타인에게 불쾌감을 주는 리뷰는 동의없이 삭제될 수 있습니다.</p>
@@ -436,116 +442,115 @@
             <article id="review-box" class="row no-gutters">
                 <div class="col-lg-12 col-xl-6 ">
                     <article class="review d-flex flex-column">
-                        <div class="profile d-flex align-items-center">
-                            <div>
-                                <img src="./public/sangmin/img/icon/noimage.png" alt="" width="60px;" height="60px;">
-                            </div>
-                            <p class="ml-3">
-                                <span>박세리</span>님의
-                                <span>리뷰</span>
-                            </p>
+                      <div class="profile d-flex align-items-center">
+                          <div class="proflie-img">
+                            <img src="/public/sangmin/img/icon/noimage.png">
+                          </div>
+                          <div class='proflie-name'>
+                            <span>박세리</span>님의
+                            <span>리뷰</span>
+                          </div>
                         </div>
-                        <div class="content mt-8">
-                            <p>지핸디 +25입니다.오늘 처음으로 별5개짜리 해봤는데..ㅠㅠ 초보자가 하기엔 오비지역이 좀 많은 곳인것 같네요. +14타 나왔는데 좀더 연습해서 싱글 나오는 날까지..ㅎ홧팅! 그린 라이가 젤 안 맞는곳이 하이원 인데..캐디 말 하고 흐르는게 엄청 많이 틀려도 대체 골프존 직원들은 겜 안해보나?? 아니면 못 고치는건지.. 홀인원 한번하고싶어요 어떻하면 할까요</p>
-                        </div>
-                        <div class="score d-flex align-items-center  mt-30">
-                            <p>5.0</p>
-                            <ul class="list-unstyled">
-                                <li class="d-flex align-items-center justify-content-between">
-                                    <p>코스 전체 전략성</p>
-                                    <span class="line"></span>
-                                    <span>5.0</span></li>
-                                <li class="d-flex align-items-center justify-content-between">
-                                    <p>페어웨이 넓이</p>
-                                    <span class="line"></span>
-                                    <span>5.0</span></li>
-                                <li class="d-flex align-items-center justify-content-between ">
-                                    <p>코스 천장 길이</p>
-                                    <span class="line"></span>
-                                    <span>5.0</span></li>
-                                <li class="d-flex align-items-center justify-content-between">
-                                    <p>그린의 난이도</p>
-                                    <span class="line"></span>
-                                    <span>5.0</span></li>
-                                <li class="d-flex align-items-center justify-content-between ">
-                                    <p>코스트 퍼포먼스</p>
-                                    <span class="line"></span>
-                                    <span>5.0</span></li>
-                                <li class="d-flex align-items-center justify-content-between ">
-                                    <p>시설 설비가 좋다</p>
-                                    <span class="line"></span>
-                                    <span>5.0</span></li>
-                                <li class="d-flex align-items-center justify-content-between">
-                                    <p>식사가 맛있다.</p>
-                                    <span class="line"></span>
-                                    <span>5.0</span></li>
-                                <li class="d-flex align-items-center justify-content-between">
-                                    <p>스태프 서비스</p>
-                                    <span class="line"></span>
-                                    <span>5.0</span></li>
-                            </ul>
-                        </div>
-                        <div class="date mt-45">
-                            <p>2017년 9월 19일 오전 11시 32분</p>
+                        <div class="content">
+                          <p>지핸디 +25입니다.오늘 처음으로 별5개짜리 해봤는데..ㅠㅠ 초보자가 하기엔 오비지역이 좀 많은 곳인것 같네요. +14타 나왔는데 좀더 연습해서 싱글 나오는 날까지..ㅎ홧팅! 그린 라이가 젤 안 맞는곳이 하이원 인데..캐디 말 하고 흐르는게 엄청 많이 틀려도 대체 골프존 직원들은 겜 안해보나?? 아니면 못 고치는건지.. 홀인원 한번하고싶어요 어떻하면 할까요</p>
+                          <div class="score-box d-flex align-items-center">
+                              <span class='score'>5.0</span>
+                              <ul class="list-unstyled">
+                                  <li class="d-flex align-items-center justify-content-between">
+                                      <p>코스 전체 전략성</p>
+                                      <span class="line"></span>
+                                      <span>5.0</span></li>
+                                  <li class="d-flex align-items-center justify-content-between">
+                                      <p>페어웨이 넓이</p>
+                                      <span class="line"></span>
+                                      <span>5.0</span></li>
+                                  <li class="d-flex align-items-center justify-content-between ">
+                                      <p>코스 천장 길이</p>
+                                      <span class="line"></span>
+                                      <span>5.0</span></li>
+                                  <li class="d-flex align-items-center justify-content-between">
+                                      <p>그린의 난이도</p>
+                                      <span class="line"></span>
+                                      <span>5.0</span></li>
+                                  <li class="d-flex align-items-center justify-content-between ">
+                                      <p>코스트 퍼포먼스</p>
+                                      <span class="line"></span>
+                                      <span>5.0</span></li>
+                                  <li class="d-flex align-items-center justify-content-between ">
+                                      <p>시설 설비가 좋다</p>
+                                      <span class="line"></span>
+                                      <span>5.0</span></li>
+                                  <li class="d-flex align-items-center justify-content-between">
+                                      <p>식사가 맛있다.</p>
+                                      <span class="line"></span>
+                                      <span>5.0</span></li>
+                                  <li class="d-flex align-items-center justify-content-between">
+                                      <p>스태프 서비스</p>
+                                      <span class="line"></span>
+                                      <span>5.0</span></li>
+                              </ul>
+                          </div>
+                          <div class="date">
+                              <p>2017년 9월 19일 오전 11시 32분</p>
+                          </div>
                         </div>
                     </article>
                 </div>
                 <div class="col-lg-12 col-xl-6 ">
                     <article class="review d-flex flex-column">
-                        <div class="profile d-flex align-items-center">
-                            <div>
-                                <img src="./public/sangmin/img/icon/noimage.png" alt="" width="60px;" height="60px;">
-                            </div>
-                            <p class="ml-3">
-                                <span>박세리</span>님의
-                                <span>리뷰</span>
-                            </p>
+                      <div class="profile d-flex align-items-center">
+                          <div class="proflie-img">
+                            <img src="/public/sangmin/img/icon/noimage.png">
+                          </div>
+                          <div class='proflie-name'>
+                            <span>박세리</span>님의
+                            <span>리뷰</span>
+                          </div>
                         </div>
-                        <div class="content mt-8">
-                            <p>지핸디 +25입니다.오늘 처음으로 별5개짜리 해봤는데..ㅠㅠ 초보자가 하기엔 오비지역이 좀 많은 곳인것 같네요. +14타 나왔는데 좀더 연습해서 싱글 나오는 날까지..ㅎ홧팅! 그린 라이가 젤 안 맞는곳이 하이원 인데..캐디 말 하고 흐르는게 엄청 많이 틀려도 대체 골프존 직원들은 겜 안해보나?? 아니면 못 고치는건지.. 홀인원 한번하고싶어요 어떻하면 할까요</p>
-                        </div>
-                        <div class="score d-flex align-items-center  mt-30">
-                            <p>5.0</p>
-                            <ul class="list-unstyled">
-                                <li class="d-flex align-items-center justify-content-between">
-                                    <p>코스전체 전략성</p>
-                                    <span class="line"></span>
-                                    <span>5.0</span></li>
-                                <li class="d-flex align-items-center justify-content-between">
-                                    <p>페어웨이 넓이</p>
-                                    <span class="line"></span>
-                                    <span>5.0</span></li>
-                                <li class="d-flex align-items-center justify-content-between ">
-                                    <p>코스 천장 길이</p>
-                                    <span class="line"></span>
-                                    <span>5.0</span></li>
-                                <li class="d-flex align-items-center justify-content-between">
-                                    <p>그린의 난이도</p>
-                                    <span class="line"></span>
-                                    <span>5.0</span></li>
-                                <li class="d-flex align-items-center justify-content-between ">
-                                    <p>코스트 퍼포먼스</p>
-                                    <span class="line"></span>
-                                    <span>5.0</span></li>
-                                <li class="d-flex align-items-center justify-content-between ">
-                                    <p>시설 설비가 좋다</p>
-                                    <span class="line"></span>
-                                    <span>5.0</span></li>
-                                <li class="d-flex align-items-center justify-content-between">
-                                    <p>식사가 맛있다.</p>
-                                    <span class="line"></span>
-                                    <span>5.0</span></li>
-                                <li class="d-flex align-items-center justify-content-between">
-                                    <p>스텝 서비스</p>
-                                    <span class="line"></span>
-                                    <span>5.0</span></li>
-                            </ul>
-                        </div>
-                        <div class="date mt-45">
-                            <p>2017년 9월 19일 오전 11시 32분</p>
+                        <div class="content">
+                          <p>지핸디 +25입니다.오늘 처음으로 별5개짜리 해봤는데..ㅠㅠ 초보자가 하기엔 오비지역이 좀 많은 곳인것 같네요. +14타 나왔는데 좀더 연습해서 싱글 나오는 날까지..ㅎ홧팅! 그린 라이가 젤 안 맞는곳이 하이원 인데..캐디 말 하고 흐르는게 엄청 많이 틀려도 대체 골프존 직원들은 겜 안해보나?? 아니면 못 고치는건지.. 홀인원 한번하고싶어요 어떻하면 할까요</p>
+                          <div class="score-box d-flex align-items-center">
+                              <span class='score'>5.0</span>
+                              <ul class="list-unstyled">
+                                  <li class="d-flex align-items-center justify-content-between">
+                                      <p>코스 전체 전략성</p>
+                                      <span class="line"></span>
+                                      <span>5.0</span></li>
+                                  <li class="d-flex align-items-center justify-content-between">
+                                      <p>페어웨이 넓이</p>
+                                      <span class="line"></span>
+                                      <span>5.0</span></li>
+                                  <li class="d-flex align-items-center justify-content-between ">
+                                      <p>코스 천장 길이</p>
+                                      <span class="line"></span>
+                                      <span>5.0</span></li>
+                                  <li class="d-flex align-items-center justify-content-between">
+                                      <p>그린의 난이도</p>
+                                      <span class="line"></span>
+                                      <span>5.0</span></li>
+                                  <li class="d-flex align-items-center justify-content-between ">
+                                      <p>코스트 퍼포먼스</p>
+                                      <span class="line"></span>
+                                      <span>5.0</span></li>
+                                  <li class="d-flex align-items-center justify-content-between ">
+                                      <p>시설 설비가 좋다</p>
+                                      <span class="line"></span>
+                                      <span>5.0</span></li>
+                                  <li class="d-flex align-items-center justify-content-between">
+                                      <p>식사가 맛있다.</p>
+                                      <span class="line"></span>
+                                      <span>5.0</span></li>
+                                  <li class="d-flex align-items-center justify-content-between">
+                                      <p>스태프 서비스</p>
+                                      <span class="line"></span>
+                                      <span>5.0</span></li>
+                              </ul>
+                          </div>
+                          <div class="date">
+                              <p>2017년 9월 19일 오전 11시 32분</p>
+                          </div>
                         </div>
                     </article>
-                </div>
             </article>
 
             <section id='all' class='pl-0 d-flex justify-content-center'>
