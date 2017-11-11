@@ -38,68 +38,99 @@ class Template extends MX_Controller
         $this->load->view("tmp",$data);
     }
 
-    
+
     function admin($data = array())
     {
         $data['sidebar_view'] =  $data['sidebar_view'] ?? null;
         $data['content_view'] =  $data['content_view'] ?? null;
 
-        $main_menus= array(
-            (object)array('id'=>'home','name'=>'홈','uri'=>  site_url(admin_home_uri."/index")),
-            (object)array('id'=>'general','name'=>'일반','uri'=> site_url(admin_user_uri."/gets")),
-            (object)array('id'=>'user','name'=>'회원','uri'=> site_url(admin_user_uri."/gets")),
-            (object)array('id'=>'board','name'=>'게시판','uri'=> site_url(admin_board_uri."/gets")),
-            (object)array('id'=>'product','name'=>'상품','uri'=> site_url(admin_setting_product_uri."/get_product")),
-            (object)array('id'=>'order','name'=>'주문','uri'=> site_url(admin_order_uri."/gets")),
-              
-        );
-        $sub_menus = array(
-            'home' => array(
-                (object)array('name'=>'홈','uri'=> site_url(admin_home_uri.'/index?menu_id=home')),
-                (object)array('name'=>'시작하기','uri'=> site_url(admin_home_uri.'/gettingStart?menu_id=home')),
+        $main_menus=$this->_create_data_main_menus(array(
+            array('name'=>'홈','uri'=>  site_url(admin_home_uri."/index")),
+            array('name'=>'일반','uri'=> site_url(admin_user_uri."/gets")),
+            array('name'=>'회원','uri'=> site_url(admin_user_uri."/gets")),
+            array('name'=>'게시판','uri'=> site_url(admin_board_uri."/gets")),
+            array('name'=>'상품','uri'=> site_url(admin_setting_product_uri."/get_product")),
+            array('name'=>'주문','uri'=> site_url(admin_order_uri."/gets"))
+        ));
+        $sub_menus = $this->_create_data_sub_menus(array(
+            '홈' => array(
+               array('name'=>'홈','uri'=> site_url(admin_home_uri.'/index')),
+               array('name'=>'시작하기','uri'=> site_url(admin_home_uri.'/gettingStart')),
             ),
-            'general' => array(
-                (object)array('name'=>'메뉴관리','uri'=> site_url(admin_menu_uri.'/gets?menu_id=general')),
-                (object)array('name'=>'페이지관리','uri'=> site_url(admin_page_uri.'/gets?menu_id=general')),
-                (object)array('name'=>'쪽지관리','uri'=>  site_url(admin_message_uri.'/gets?menu_id=general'))
+            '일반' => array(
+               array('name'=>'메뉴관리','uri'=> site_url(admin_menu_uri.'/gets')),
+               array('name'=>'페이지관리','uri'=> site_url(admin_page_uri.'/gets')),
+               array('name'=>'쪽지관리','uri'=>  site_url(admin_message_uri.'/gets'))
             ),
-            'user' => array(
-                (object)array('name'=>'회원관리','uri'=> site_url(admin_user_uri.'/gets/general?menu_id=user')),
-                (object)array('name'=>'기업회원관리','uri'=> site_url(admin_user_uri.'/gets/corporate?menu_id=user')),
-                (object)array('name'=>'패널관리','uri'=> site_url(admin_user_uri.'/gets/panel?menu_id=user'))
+            '회원' => array(
+               array('name'=>'회원관리','uri'=> site_url(admin_user_uri.'/gets/general')),
+               array('name'=>'기업회원관리','uri'=> site_url(admin_user_uri.'/gets/corporate')),
+               array('name'=>'패널관리','uri'=> site_url(admin_user_uri.'/gets/panel'))
             ),
-            'board' => array(
-                (object)array('name'=>'게시판관리','uri'=>  site_url(admin_board_uri."/gets?menu_id=board")),
-                (object)array('name'=>'게시물관리','uri'=>  site_url(admin_content_uri."/gets?menu_id=board")),
-                (object)array('name'=>'댓글관리','uri'=>  site_url(admin_board_reply_uri."/gets?menu_id=board"))
+            '게시판' => array(
+               array('name'=>'게시판관리','uri'=>  site_url(admin_board_uri."/gets")),
+               array('name'=>'게시물관리','uri'=>  site_url(admin_content_uri."/gets")),
+               array('name'=>'댓글관리','uri'=>  site_url(admin_board_reply_uri."/gets"))
             ),
-            'product' => array(
-                (object)array('name'=>'기본설정','uri'=> site_url(admin_setting_product_uri.'/get_product?menu_id=product')),
-                (object)array('name'=>'분류관리','uri'=>  site_url(admin_product_category_uri.'/gets?menu_id=product')),
-                (object)array('name'=>'상품관리','uri'=> site_url(admin_product_uri.'/gets?menu_id=product')),
-                (object)array('name'=>'후기관리','uri'=>  site_url(admin_review_uri.'/gets?menu_id=product'))
+            '상품' => array(
+               array('name'=>'기본설정','uri'=> site_url(admin_setting_product_uri.'/get_product?menu_id=product')),
+               array('name'=>'분류관리','uri'=>  site_url(admin_product_category_uri.'/gets?menu_id=product')),
+               array('name'=>'상품관리','uri'=> site_url(admin_product_uri.'/gets?menu_id=product')),
+               array('name'=>'후기관리','uri'=>  site_url(admin_review_uri.'/gets?menu_id=product'))
             ),
-            'order' => array(
-                (object)array('name'=>'주문 목록','uri'=> site_url(admin_order_uri.'/gets?menu_id=order')),
+            '주문' => array(
+               array('name'=>'주문 목록','uri'=> site_url(admin_order_uri.'/gets?menu_id=order')),
             )
            
-        );
-
+        ));
         //golf pass
-        array_splice($sub_menus['product'],3,0,array((object)array('name'=>'호텔관리','uri'=> site_url('admin/hotel/gets?menu_id=product'))));
+        array_splice($sub_menus['상품'],3,0,array((object)array('name'=>'호텔관리','uri'=> site_url('admin/hotel/gets'))));
 
-
-        $menu_id =  $this->input->get('menu_id');
-        if(!$menu_id)
-            $menu_id = 'home';
-        // $sub_menus =  $sub_menus->$menu_id;
-
-        // $data += array('main_menus'=>$main_menus,'sub_menus'=>$sub_menus,'menu_id'=>$menu_id);
+        //메인
+        $menu_name =  $this->input->get('menu_name');
+        if(!$menu_name)
+            $menu_name = '홈';
+        $data['menu_name'] =$menu_name;
         $data['main_menus'] =$main_menus;
-        $data['sub_menus'] =$sub_menus;
-        $data['menu_id'] =$menu_id;
-        $data['sidebar_view'] = 'template/admin_sidebar/sidebar';
-        $this->load->view("adminLTE",$data);
+        //서브
+        $data['sub_menus'] =  $sub_menus[$menu_name];
+        $sub_name =  $this->input->get('sub_name');
+        if(!$sub_name)
+            $sub_name = $sub_menus[$menu_name][0]->name;
+        $data['sub_name'] = $sub_name;
+
+        // $data['sidebar_view'] = 'template/admin_sidebar/sidebar';
+        $this->load->view("admin_semantic",$data);
+    }
+ 
+    function _create_data_main_menus($data)
+    {
+        $out_data =array();
+        foreach($data as $key=>$val)
+        {
+            $name =$val['name'];
+            $uri = "{$val['uri']}?menu_name={$val['name']}";
+            $arr_tmp= (object)array('name'=> $name, 'uri'=>$uri);
+            array_push($out_data,$arr_tmp);
+
+        }
+        return $out_data;
+    }
+    function _create_data_sub_menus($data)
+    {
+        $out_data = array();
+        foreach($data as $key=>$val)
+        {
+            $arr_tmp = array();
+            foreach($val as $key2=>$val2)
+            {
+                $name = $val2['name'];
+                $uri = "{$val2['uri']}?menu_name={$key}&sub_name={$val2['name']}";
+                array_push($arr_tmp,(object)array('name'=> $name, 'uri'=>$uri));
+            }
+            $out_data[$key] = $arr_tmp;
+        }
+        return $out_data;
     }
    
 }

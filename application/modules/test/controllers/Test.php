@@ -12,11 +12,14 @@ class Test extends Public_Controller
      
         
     }
-    function add($id)
+    function add($id=null)
     {
-        $r=$this->db->query("SELECT  (SELECT u.id FROM users as u WHERE u.id = 1 ) as u, (SELECT b.id FROM boards as b WHERE b.id = u) as k FROM products as p WHERE p.id = 1")->result();
-        var_dump($r);
+    $t=array("홈"=>"1");
+        var_dump($t['홈']);
 
+        // $r=$this->db->query("SELECT group_concat(c.title) FROM users as u INNER JOIN board_contents as c ON u.id = c.user_id WHERE u.id = 3 GROUP BY u.id")->result();
+
+        // var_dump($r);
 
     }
     function product($id)

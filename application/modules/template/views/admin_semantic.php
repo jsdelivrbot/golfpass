@@ -109,11 +109,15 @@
         <!-- 사이드바 -->
       <div class="column" id="sidebar">
         <div class="ui secondary vertical fluid menu">
-          <a class="active item">Overview</a><a class="item">Reports</a><a class="item">Analytics</a><a class="item">Export</a>
+          <?php for($i=0 ; $i < count($sub_menus) ; $i++){?>
+          <a href="<?=$sub_menus[$i]->uri?>" class="item <?=($sub_name === $sub_menus[$i]->name) ?  'active' : ''?>"><?=$sub_menus[$i]->name?></a>
+
+          <?php }?>
+          <!-- <a class="item">Reports</a><a class="item">Analytics</a><a class="item">Export</a>
           <div class="ui hidden divider"></div>
           <a class="item">Nav item</a><a class="item">Nav item again</a><a class="item">One more nav</a><a class="item">Another nav item</a><a class="item">More navigation</a>
           <div class="ui hidden divider"></div>
-          <a class="item">Macintosh</a><a class="item">Linux</a><a class="item">Windows</a>
+          <a class="item">Macintosh</a><a class="item">Linux</a><a class="item">Windows</a> -->
         </div>
       </div>
       <!-- 사이드바 -->
@@ -201,6 +205,7 @@
         left: 0;
         bottom: 0;
         width: 18%;
+        min-width : 90px;
         background-color: #f5f5f5;
         padding: 0px;
       }
