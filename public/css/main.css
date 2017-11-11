@@ -2777,7 +2777,7 @@ body.menu-open .plus-btn .r2 {
       display: none; }
       @media (min-width: 1200px) {
         #detail-wrap #section1 #section1-wrap #chart {
-          display: block; } }
+          display: flex; } }
   #detail-wrap #section1 #shadow {
     z-index: 1;
     position: absolute;
@@ -2988,44 +2988,18 @@ body.menu-open .plus-btn .r2 {
       background-color: #79b754;
       padding: 15px;
       height: 80px; }
-      #book-box-wrap #book-box #personnel h1 {
+      #book-box-wrap #book-box #personnel .box-title {
         font-family: 'notokr-regular', sans-serif;
         font-size: 16px;
         display: block; }
-      #book-box-wrap #book-box #personnel #count {
-        font-size: 1.5rem; }
-      #book-box-wrap #book-box #personnel #icon-box {
-        position: relative;
-        min-width: 15px; }
-        #book-box-wrap #book-box #personnel #icon-box span {
-          font-size: 1.4rem;
-          position: absolute; }
-          #book-box-wrap #book-box #personnel #icon-box span:nth-child(1) {
-            top: -6px; }
-          #book-box-wrap #book-box #personnel #icon-box span:nth-child(2) {
-            bottom: -5px; }
-          #book-box-wrap #book-box #personnel #icon-box span i {
-            cursor: pointer; }
+      #book-box-wrap #book-box #personnel #count-box select {
+        transform: translateY(-3px); }
     #book-box-wrap #book-box #dateBox {
       padding: 20px;
       background-color: black; }
-      #book-box-wrap #book-box #dateBox .form-group {
-        background-color: white;
-        color: black;
-        width: 45%; }
-        #book-box-wrap #book-box #dateBox .form-group input {
-          box-sizing: border-box;
-          padding: 15px;
-          width: 80%;
-          border: 0;
-          height: 40px;
-          font-family: 'notokr-demilight', sans-serif;
-          font-size: 14px;
-          color: #b2b2b2; }
-          #book-box-wrap #book-box #dateBox .form-group input:focus {
-            outline: 0; }
-        #book-box-wrap #book-box #dateBox .form-group i {
-          font-size: 14px; }
+      #book-box-wrap #book-box #dateBox #e-day,
+      #book-box-wrap #book-box #dateBox #s-day {
+        width: 46%; }
     #book-box-wrap #book-box #info {
       background-color: #fff;
       padding: 25px 20px;

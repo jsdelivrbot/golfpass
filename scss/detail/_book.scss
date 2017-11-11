@@ -1,6 +1,8 @@
 @charset "utf-8";
-#book-box-wrap{
-		z-index: 1200;
+
+#book-box-wrap {
+	z-index: 1200;
+
 	#book-box {
 		font-family: 'Noto Sans', sans-serif;
 		color: #fff;
@@ -8,74 +10,33 @@
 		@media (min-width: 768px) {
 			width: 320px;
 		}
+
 		#personnel {
 			//인원 박스
 			background-color: $background-color1;
 			padding: 15px;
 			height: 80px;
 
-			h1 {
+			.box-title {
 				font-family: 'notokr-regular', sans-serif;
 				font-size: 16px;
 				display: block;
 			}
-
-			#count {
-				// 숫자 : 0명
-				font-size: 1.5rem;
-			}
-
-			#icon-box {
-				position: relative;
-				min-width: 15px;
-
-				span {
-					//아래위 화살표
-					font-size: 1.4rem;
-					position: absolute;
-
-					&:nth-child(1) {
-						top: -6px;
-					}
-
-					&:nth-child(2) {
-						bottom: -5px;
-					}
-
-					i {
-						cursor: pointer;
-					}
+			#count-box{
+				select{
+					transform: translateY(-3px);//select폼 위치조정
 				}
 			}
+
 		}
 
 		#dateBox {
 			padding: 20px;
 			background-color: black;
 
-			.form-group {
-				background-color: white;
-				color: black;
-				width: 45%;
-
-				input {
-					box-sizing: border-box;
-					padding: 15px;
-					width: 80%;
-					border: 0;
-					height: 40px;
-					font-family: 'notokr-demilight', sans-serif;
-					font-size: 14px;
-					color: #b2b2b2;
-
-					&:focus {
-						outline: 0;
-					}
-				}
-
-				i {
-					font-size: 14px;
-				}
+			#e-day,
+			#s-day {
+				width: 46%;
 			}
 		}
 

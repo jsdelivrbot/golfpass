@@ -193,7 +193,7 @@
           <div id="book-box-wrap" class="order-1 order-md-3 col-12 col-md-4">
             <div id='book-box'>
               <div id="personnel">
-                <h1 class="mb-2">예약하기</h1>
+                <span class="box-title">예약하기</span>
                 <!--
                             <div id='count-box' class='d-flex align-items-stretch justify-content-end'>
                                 <span id='count'>1명 </span>
@@ -208,25 +208,37 @@
                           -->
                 <div id='count-box' class='d-flex align-items-stretch justify-content-end'>
                   <form class="" action="index.html" method="post">
-                    <select class="" name="">
-                                <option value="" disabled selected>선택주세요</option>
-                                <option value="">옵션1</option>
-                                <option value="">옵션2</option>
-                              </select>
+                    <select class="custom-select" id="">
+                      <option selected disabled>선택해주세요</option>
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                    </select>
                   </form>
                 </div>
               </div>
               <div id='dateBox'>
                 <form action="#" class="d-flex align-items-center justify-content-between">
-                  <div class="form-group d-flex align-items-center mb-0">
-                    <input type="text" id="s-day" placeholder="출발 일정">
-                    <i class="xi-calendar-check"></i>
-                  </div>
+                    <!-- <input type="text" id="s-day" placeholder="출발 일정"> -->
+                    <!-- <select class="" id="s-day" placeholder="출발 일정">
+    									<option value="" disabled selected>선택주세요</option>
+    									<option value="">옵션1</option>
+    									<option value="">옵션2</option>
+    								</select> -->
+                    <select class="custom-select" id="s-day">
+                      <option selected disabled>출발 날짜</option>
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                    </select>
                   <span>·</span>
-                  <div class="form-group d-flex align-items-center mb-0">
-                    <input type="text" id="e-day" placeholder="출발 일정">
-                    <i class="xi-calendar-check"></i>
-                  </div>
+                    <!-- <input type="text" id="e-day" placeholder="출발 일정"> -->
+                    <select class="custom-select" id="e-day">
+                      <option selected disabled>종료 날짜</option>
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                    </select>
                 </form>
               </div>
               <div id="info" class="pt-20">
