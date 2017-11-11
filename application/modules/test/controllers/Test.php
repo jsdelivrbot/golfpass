@@ -15,9 +15,10 @@ class Test extends Public_Controller
     function ajax()
     {
         
-        header("content-type:application/json");
+        // header("content-type:application/json");
 
         $search =$this->input->get("search");
+        $search = str_replace(" ","",$search);
 
          $this->load->model("shop/products_model");
          $this->db->or_like("p.hashtag",$search);
@@ -36,16 +37,9 @@ class Test extends Public_Controller
                 "article"=>$product->desc
             ));
         } 
-       
-
-        // $data = array(array(
-        //     'title'=>"ddd",
-        //     'imagePath' =>'/public/images/product.jpg',
-        //     'score'=>"1",
-        //     "article"=>"asdf"
-        // )); 
-        echo json_encode($data);
-        // echo 1;
+        var_dump(123);
+        // echo json_encode($data);
+        // echo json_encode("asdf");
     }
     function add($id=null)
     {

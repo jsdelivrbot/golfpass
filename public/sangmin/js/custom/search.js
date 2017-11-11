@@ -88,13 +88,12 @@ $(function() {
 		
 		$.ajax({
 			url: '/index.php/base/main/search',
-			type: 'get',
+			type: 'post',
 			dataType:'json',
 			data: {
 				search: searchInput.val()
 			},
 			success: function(data) {
-				
 				var input = '';
 				input += "<p><span>'" + searchInput.val() + `' </span>검색결과 <span> / 총  ${data.length}  개</span></p>`
 				input += '<div>'

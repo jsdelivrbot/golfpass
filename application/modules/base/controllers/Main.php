@@ -29,7 +29,8 @@ class Main extends Base_Controller
     {
         header("content-type:application/json");
 
-        $search =$this->input->get("search");
+        $search =$this->input->post("search");
+        $search = str_replace(" ","",$search);
 
         $this->load->model("shop/products_model");
         $this->db->or_like("p.hashtag",$search);
