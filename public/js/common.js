@@ -94,12 +94,33 @@ function confirm_callback(e,callback,msg){
         callback(e);
     }
 }
+function serializePost(form) {
+    var data = {};
+    form = $(form).serializeArray();
+    for (var i = form.length; i--;) {
+        var name = form[i].name;
+        var value = form[i].value;
+        var index = name.indexOf('[]');
+        if (index > -1) {
+            name = name.substring(0, index);
+            if (!(name in data)) {
+                data[name] = [];
+            }
+            data[name].push(value);
+        }
+        else
+            data[name] = value;
+    }
+    return data;
+}
 function ajax_submit(e,validation =function(){return true;}){
     if(!validation(e)){
         return false;
     }
     var $form =$(e);
     var queryString = $form.serialize();
+    // var queryString = $form.serialize().replace(/%5B%5D/g, '[]');
+    // var queryString =serializePost(e);
     var url = $form[0].action;
     ajax(url,queryString,e);
    
