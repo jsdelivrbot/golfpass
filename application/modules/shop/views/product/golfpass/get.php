@@ -108,9 +108,9 @@
             </nav>
         </header>
         <!--NOTE 상단 슬라이드 + 내용 + chart-->
-        <article class="row no-gutters" id="section1" style="background-image:url('<?=$product_photos[0]->name ?? ''?>') ; padding: 120px 15px 30px 0;">
+        <article class="row no-gutters" id="section1" style="background-image:url('<?=$product_photos[0]->name ?? ''?>') ;">
             <!--NOTE 화면 어둡게-->
-            <div id="shadow" style="background-color: rgba(38, 38, 38, 0.85);"></div>
+            <div id="shadow"></div>
             <div id='detail_slide' class="col-12 col-md-6 col-xl-5 ">
       				<div class="slider-for">
                 <!--NOTE 슬라이드 큰화면-->
@@ -129,23 +129,23 @@
                 <?php }?>
       				</div>
       			</div>
-            <div id="detail" class='col-12 col-md-6 col-xl-4' style="padding-left:50px;">
+            <div id="detail" class='col-12 col-md-6 col-xl-4'>
                 <div id="score" class="d-flex flex-column align-items-center d-none d-lg-block d-xl-none">
                     <i class="xi xi-star xi-2x"></i>
                     <span><?=$product->avg_score?></span>
                 </div>
-                <p id="regine" style="font-size: 16px; font-family:본고딕 Regular; margin-bottom:15px;">
+                <p id="regine">
                     <?=$product->region?>
                 </p>
-                <h1 id="title" style="font-size: 60px; padding:0;">
+                <h1 id="title">
                     <?=$product->name?>
                 </h1>
-                <p id="title-en" style="font-size: 16px; font-family:본고딕 Regular; margin-top:15px;">
+                <p id="title-en">
                     <?=$product->eng_name?>
                 </p>
                 <div id="content">
-                    <p id='sub-title' style="font-size: 14px; font-family:본고딕 Medium; margin-bottom:7px;">소개</p>
-                    <p style="font-size: 14px; font-family:본고딕 Light; margin-bottom:7px;">
+                    <p id='sub-title'>소개</p>
+                    <p>
                         <?=$product->desc?>
                     </p>
                 </div>
@@ -389,7 +389,7 @@
         </article>
         <section id="section-map"></section>
         <!--TODO 리뷰  데이터 X-->
-        <section id="section3" class='row no-gutters' style="width:80%; margin:0 auto; margin-top:100px;">
+        <section id="section3" class='row no-gutters'>
             <div class="col-12 review-warning-text d-flex justify-content-center">
                 <div class="d-flex flex-column align-items-center">
                     <span class="mt-20 mb-10">리뷰</span>
