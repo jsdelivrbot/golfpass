@@ -67,17 +67,10 @@
 
 .slider-nav {
 	position: relative;
-	width: 80%;
-	left: 10%;
-	@media (min-width: 768px) {
-		left: 20px;
-	}
-	@media (min-width: 1200px) {
-		left: 30px;
-	}
+	width: 100%;
 
 	.slick-slide {
-		margin: 3px 5px;
+		margin: 30px 3px 0 3px;
 		max-width: 76px;
 		max-height: 56px;
 
