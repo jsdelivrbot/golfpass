@@ -29,24 +29,37 @@ class P_daily_price_admin extends Admin_Controller
     function ajax_add($product_id)
     {
         header("Content-Type:application/json");
-        $num_people = $this->input->post("num_people");
-        $date = $this->input->post("date");
-        $period = $this->input->post("period");
-        $price = $this->input->post("price");
 
-        $this->db->set("product_id",$product_id);
-        $sql=$this->db->insert_string($this->table,array(
-                'product_id'=>$product_id,
-                'date'=>$date,
-                'num_people'=>$num_people,
-                'period'=>$period,
-                'price'=> $price
-        ))."ON DUPLICATE KEY UPDATE price = $price";
-        $this->db->query($sql);
-
-        $data['reload'] =true;
-        $data['loding'] =".loding";
-
+        $this->fv->set_rules("num_people", "명", "required");
+        $this->fv->set_rules("date", "날짜", "required");
+        $this->fv->set_rules("period", "기간", "required");
+        $this->fv->set_rules("price", "가격", "required");
+        if($this->fv->run() === false)
+        {
+            $data['alert'] =  validation_errors(false,false);
+        } 
+        else
+        {
+            $num_people = $this->input->post("num_people");
+            $date = $this->input->post("date");
+            $period = $this->input->post("period");
+            $price = $this->input->post("price");
+    
+            $this->db->set("product_id",$product_id);
+            $sql=$this->db->insert_string($this->table,array(
+                    'product_id'=>$product_id,
+                    'date'=>$date,
+                    'num_people'=>$num_people,
+                    'period'=>$period,
+                    'price'=> $price
+            ))."ON DUPLICATE KEY UPDATE price = $price";
+            $this->db->query($sql);
+    
+            $data['reload'] =true;
+            $data['loding'] =".loding";
+        }
+        
+      
         echo json_encode($data);
         return;
 
@@ -172,8 +185,8 @@ class P_daily_price_admin extends Admin_Controller
              
             //  $data['alert'] ="완료";
              $data['reload'] =true;
+             $data['loding'] =".loding";
             }
-        $data['loding'] =".loding";
         
         echo json_encode($data);
         return;
