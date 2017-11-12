@@ -14,8 +14,10 @@ class Test extends Public_Controller
     }
     function ajax()
     {
-        ob_start();
-        $output = ob_get_clean();
+        $this->load->model("shop/product_reviews_model");
+        $r = $this->product_reviews_model->gets_with_pgi(array('product_id'=>1));
+        var_dump($r);
+
     }
     function add($id=null)
     {

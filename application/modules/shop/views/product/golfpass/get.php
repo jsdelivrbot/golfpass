@@ -523,11 +523,12 @@
                 <?php }?>
              
             </article>
-
             <section id='all' class='pl-0 d-flex justify-content-center'>
+                  <a href="<?=site_url(shop_review_uri."/gets/{$product->id}")?>">
                 <div id='circle' class='d-flex justify-content-center align-items-center'>
-                    <a href="<?=site_url(shop_review_uri."/gets")?>"> <span>모두보기</span></a>
+                     <span>모두보기</span>
                 </div>
+                </a>
             </section>
         </section>
         <footer id='footer' class='container-fluid'>

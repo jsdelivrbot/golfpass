@@ -95,6 +95,7 @@ class Product extends Base_Controller {
 
         //reviews
         $this->load->model('product_reviews_model');
+        $this->db->limit(2,0);
         $data['reviews'] = $this->product_reviews_model->gets(array('r.product_id'=>$id));
 
         //number

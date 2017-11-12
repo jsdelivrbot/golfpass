@@ -83,8 +83,8 @@ class MY_Pagination extends CI_Pagination {
         }
         function style_golfpass($config){
 
-            $config [ 'full_tag_open'] = '<ol id="hotel-results-pagination" class="hotel-results-pagination">';
-            $config [ 'full_tag_close'] = '</ol>';
+            $config [ 'full_tag_open'] = '<ul class="d-flex list-unstyled justify-content-center mb-0">';
+            $config [ 'full_tag_close'] = '</ul>';
             
             $config['first_link'] = "";
             $config [ 'first_tag_open'] = '<li id="hotel-results-pagination-next">';
@@ -98,9 +98,9 @@ class MY_Pagination extends CI_Pagination {
             $config [ 'prev_link'] = false;
             $config [ 'next_link'] = false;
     
-            $config [ 'cur_tag_open'] = '<li class="selected"><a href="#">';
+            $config [ 'cur_tag_open'] = '<li class="current"><a>';
             $config [ 'cur_tag_close'] = '</a></li>';
-            $config [ 'num_tag_open'] = '<li class="">';
+            $config [ 'num_tag_open'] = '<li>';
             $config [ 'num_tag_close'] = '</li>'; 
             return $config;
         }

@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') OR exit('no direct script access allrowed');
 
-class Product_reviews_Model extends Public_Model{
+class Product_reviews_Model extends Board_Model{
     function __construct(){
         parent:: __construct('product_reviews');
     }
@@ -173,6 +173,32 @@ class Product_reviews_Model extends Public_Model{
 
         $rows=$this->gets();
         return $rows;
+    }
+    
+    function gets_with_pgi($where_obj)
+    {
+        return $reviews = $this->_gets_with_pgi_func(
+            "style_golfpass",
+            function()
+            {
+                // return 1;
+                return count($this->gets($where_obj));
+            },
+            function($offset,$per_page) use($where_obj) 
+            {
+                $this->db->limit($per_page,$offset);
+                return $this->gets($where_obj);
+            },
+            function() use($where_obj)
+            {
+                 
+                $this->load->model("shop/products_model");
+                // return 1;
+                return $this->products_model->_get($where_obj['product_id'],array('reviews_count'))->reviews_count;
+            }
+            ,
+            array("per_page"=>1)
+        );
     }
     public function gets($where_obj =null,$select_arr =false,$limit=null)
     {

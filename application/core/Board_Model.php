@@ -121,12 +121,15 @@ class Board_Model extends Public_Model{
             $pgi_style,
             function() use ($where_obj)
             {   
-                $this->_where_by_obj($where_obj);
-                return $this->_get_num_rows();
+                parent::_where_by_obj($where_obj);
+                // return paren::_get_num_rows();
+                return count($this->gets());
             },
             function($offset,$per_page) use($where_obj) 
             {
-                $this->_where_by_obj($where_obj);
+                parent::_where_by_obj($where_obj);
+                $this->db->limit($per_page,$offset);
+                //gets()를 재정의해주세요.
                 return $this->gets();
             }
         );

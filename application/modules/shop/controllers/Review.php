@@ -49,10 +49,16 @@ class Review extends Base_Controller {
         return $reivews; 
     }
 
-    public function gets()
+    public function gets($product_id)
     {
-         $data['reviews'] = $this->_gets();
-         $this->_template("$this->view_dir/gets",$data);
+
+        // $data['reviews'] = $this->product_reviews_model->gets(array('r.product_id'=>$product_id));
+        $data['reviews'] = $this->product_reviews_model->gets_with_pgi(array('product_id'=>$product_id));
+       
+        
+        $data['product_id'] =$product_id;
+        //  $data['reviews'] = $this->_gets();
+         $this->_template("review/golfpass/gets",$data,'golfpass');
          
 
     }
