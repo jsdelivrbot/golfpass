@@ -2,13 +2,14 @@
 
 #book-box-wrap {
 	z-index: 1200;
+    top: -80px;
 
 	#book-box {
 		font-family: 'Noto Sans', sans-serif;
 		color: #fff;
 		z-index: 1200;
 		@media (min-width: 768px) {
-			width: 320px;
+			width: 100%;
 		}
 
 		#personnel {

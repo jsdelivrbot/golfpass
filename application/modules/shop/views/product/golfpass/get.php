@@ -189,7 +189,7 @@
             </article>
         </section>
         <article id='section2' class='row no-gutters'>
-          <div id="book-box-wrap" class="order-1 order-md-3 col-12 col-md-4">
+          <div id="book-box-wrap" class="order-1 order-md-3 col-12 col-md-3">
             <div id='book-box'>
               <div id="personnel">
                 <span class="box-title">예약하기</span>
@@ -262,7 +262,7 @@
               </div>
             </div>
           </div>
-          	<article id="section2-wrap" class="order-2 col-12  col-md-8 ">
+          	<article id="section2-wrap" class="order-2 col-12  col-md-9 ">
               <section class="col-12" id="article-section-1">
                   <div class='d-flex flex-column title-box'>
                       <span>0<?=$number++?></span>
@@ -450,7 +450,7 @@
             </article>
 
         </article>
-        <section id="section3" class="position-relative">
+        <section id="section3" class="position-relative" style="width: 100%; padding-left: 0; height: 500px; background-color: #4d4d4d; margin-top: 100px; margin-bottom: 90px;">
         <!--TODO 구글맵-->
         </section>
         <!--TODO 리뷰  데이터 X-->
