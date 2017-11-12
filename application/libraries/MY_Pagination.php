@@ -87,7 +87,7 @@ class MY_Pagination extends CI_Pagination {
             $config [ 'full_tag_close'] = '</ul>';
             
             $config['first_link'] = "";
-            $config [ 'first_tag_open'] = '<li id="hotel-results-pagination-next">';
+            $config [ 'first_tag_open'] = '<li id="">';
             $config [ 'first_tag_close'] = '</li>';
     
             $config [ 'last_link'] = "";
@@ -98,9 +98,9 @@ class MY_Pagination extends CI_Pagination {
             $config [ 'prev_link'] = false;
             $config [ 'next_link'] = false;
     
-            $config [ 'cur_tag_open'] = '<li class="current"><a>';
-            $config [ 'cur_tag_close'] = '</a></li>';
-            $config [ 'num_tag_open'] = '<li>';
+            $config [ 'cur_tag_open'] = '&nbsp&nbsp&nbsp<li class="current">';
+            $config [ 'cur_tag_close'] = '</li>';
+            $config [ 'num_tag_open'] = '&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<li>';
             $config [ 'num_tag_close'] = '</li>'; 
             return $config;
         }

@@ -197,7 +197,7 @@ class Product_reviews_Model extends Board_Model{
                 return $this->products_model->_get($where_obj['product_id'],array('reviews_count'))->reviews_count;
             }
             ,
-            array("per_page"=>1)
+            array("per_page"=>6)
         );
     }
     public function gets($where_obj =null,$select_arr =false,$limit=null)
