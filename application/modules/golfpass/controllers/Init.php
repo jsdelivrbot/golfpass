@@ -77,7 +77,7 @@ class Init extends Init_Controller {
         $this->db->insert("users");
         $user_id = $this->db->insert_id();
 
-        $this->board_contents_model->_add(array("board_id"=>$board_id,"user_id"=>$user_id,"title"=>"샘플제목","desc"=>"샘플내용입니다."));
+        $this->board_contents_model->add(array("board_id"=>$board_id,"user_id"=>$user_id,"title"=>"샘플제목","desc"=>"샘플내용입니다."));
     }
     function sample_cate_product_add()
     {

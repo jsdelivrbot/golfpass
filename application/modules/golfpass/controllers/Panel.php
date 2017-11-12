@@ -14,6 +14,7 @@ class Panel extends Base_Controller {
         $this->content_per_page = 10;
         // $this->content_per_page = 1;
     }
+  
     function get($id)
     {
         $data['panel'] = $this->{$this->model}->_get($id);

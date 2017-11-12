@@ -204,13 +204,15 @@ class Content extends Base_Controller {
         if(!$this->fv->run()){ 
             $content =$this->db->query("SELECT * FROM $this->table WHERE id = $id")->row();
             $data = array('mode'=>"update/$id",'content'=>$content,'board_id'=>$this->board_id);
-            $this->_template('addUpdate',$data);
-             
+            
+            $this->_template('addUpdate',$data,'golfpass');
+            // $this->_template("content/panel/content/addUpdate",$data,'golfpass');
         }else{
             $this->_dbSet_addUpdate();
             $this->board_contents_model->_update($id);
             
-            my_redirect(content_uri."/get/$id");
+            my_redirect(golfpass_panel_content_uri."/get/$id");
+            // my_redirect(content_uri."/get/$id");
         }
     }
     public function delete($id){
@@ -234,7 +236,8 @@ class Content extends Base_Controller {
         }
         //삭제
         $this->board_contents_model->delete($id,$this->board_id);
-        my_redirect(content_uri."/gets");
+        // my_redirect(content_uri."/gets");
+        my_redirect(golfpass_panel_uri."/gets");
     }
     public function _set_rules(){
         $this->fv->set_rules('title','제목','required');
