@@ -2985,7 +2985,7 @@ body.menu-open .plus-btn .r2 {
       #book-box-wrap #book-box {
         width: 320px; } }
     #book-box-wrap #book-box #personnel {
-      background-color: #79b754;
+      background-color: #71b051;
       padding: 15px;
       height: 80px; }
       #book-box-wrap #book-box #personnel .box-title {
@@ -2993,7 +2993,16 @@ body.menu-open .plus-btn .r2 {
         font-size: 16px;
         display: block; }
       #book-box-wrap #book-box #personnel #count-box select {
-        transform: translateY(-3px); }
+        padding: 0 10px 0 15px;
+        width: 90px;
+        border: 0;
+        border-radius: 0;
+        height: 40px;
+        font-family: 'notokr-medium', sans-serif;
+        font-size: 24px;
+        color: #fff;
+        background-color: #71b051;
+        transform: translateY(-8px); }
     #book-box-wrap #book-box #dateBox {
       padding: 20px;
       background-color: black; }
@@ -3013,7 +3022,7 @@ body.menu-open .plus-btn .r2 {
         width: 45%; }
         #book-box-wrap #book-box #dateBox .form-group input {
           box-sizing: border-box;
-          padding: 15px;
+          padding: 0 15px 0 15px;
           width: 80%;
           border: 0;
           height: 40px;

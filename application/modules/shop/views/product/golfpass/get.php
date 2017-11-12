@@ -209,10 +209,21 @@
                 <div id='count-box' class='d-flex align-items-stretch justify-content-end'>
                   <form class="" action="index.html" method="post">
                     <select class="custom-select" id="">
-                      <option selected disabled>선택해주세요</option>
-                      <option value="1">One</option>
-                      <option value="2">Two</option>
-                      <option value="3">Three</option>
+                      <option value="1">1명</option>
+                      <option value="2">2명</option>
+                      <option value="3">3명</option>
+                      <option value="4">4명</option>
+                      <option value="5">5명</option>
+                      <option value="6">6명</option>
+                      <option value="7">7명</option>
+                      <option value="8">8명</option>
+                      <option value="9">9명</option>
+                      <option value="10">10명</option>
+                      <option value="11">11명</option>
+                      <option value="12">12명</option>
+                      <option value="13">13명</option>
+                      <option value="14">14명</option>
+                      <option value="15">15명</option>
                     </select>
                   </form>
                 </div>
