@@ -148,11 +148,30 @@ class Products_Model extends Board_Model{
         }
         return $data;
     }
-    public function gets($where_obj =null,$select_arr =false,$limit=null)
+    function gets()
     {
-        $rows =$this->db->get($this->table)->result();
-        return $rows;
+        $sub_query = '';
+        $sub = "SELECT o3.name FROM product_option as o3 WHERE o3.product_id = o.product_id AND o3.kind = 'photo' ORDER BY o3.sort ASC LIMIT 0,1";
+        $sub_query .= ",($sub) as photo";
+
+        $more_select = '';
+        $more_select .= ", GROUP_CONCAT(o2.name) as photos";
+        $more_select .= ", (avg(r.score_1)+ avg(r.score_2) + avg(r.score_3)+ avg(r.score_4)+ avg(r.score_5)+ avg(r.score_6)+ avg(r.score_7)+ avg(r.score_8))/8 as avg_score ";
+        $this->db->select("o.id as option_id, o.sort,p.*". $more_select . $sub_query)
+        ->from("product_option as o")
+        ->join("$this->table as p","p.id = o.product_id","LEFT")
+        ->join("product_option as o2","o.product_id = o2.product_id AND o2.kind = 'photo'","LEFT")
+        ->join("product_reviews as r","o.product_id = r.product_id","LEFT")
+        ->where("o.kind","main")
+        ->order_by("o.sort","asc")
+        ->group_by("o.product_id");
+        return $this->db->get()->result();
     }
+    // public function gets($where_obj =null,$select_arr =false,$limit=null)
+    // {
+    //     $rows =$this->db->get($this->table)->result();
+    //     return $rows;
+    // }
    
     function delete($id)
     {

@@ -79,7 +79,6 @@ class Product extends Admin_Controller {
         $this->db->set("kind",$kind);
         $this->db->set("product_id",$product_id);
         $this->db->set("sort",$this->input->post("sort"));
-        $this->db->set("kind","desc");
         $this->db->insert("product_option");
 
         $data['reload'] =true;

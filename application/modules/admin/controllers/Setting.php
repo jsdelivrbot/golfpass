@@ -17,21 +17,21 @@ class Setting extends Admin_Controller {
     //     }else{
     //         $row->is_product_review_display ='바로 보이게';
     //     }
-
     //     $this->_template("get",$data);
-         
     // }
-    public function get_product(){
+    public function get_product()
+    {
 
         $data['row']=$this->setting_model->_get(1);
         $this->load->model("shop/products_model");
         $data['products'] =$this->products_model->_gets();
+        $data['products_main'] = $this->products_model->gets();
+
         $this->_template("shop_addUpdate",$data);
 
-       
-        
     }
-    function ajax_update_product(){
+    function ajax_update_product()
+    {
         header("content-type:application/json");
 
         $this->fv->set_rules('is_product_review_display','상품 자동 후기보이기','required');
@@ -50,7 +50,6 @@ class Setting extends Admin_Controller {
         }
         echo json_encode($data);
     }
-    
 }
 
 

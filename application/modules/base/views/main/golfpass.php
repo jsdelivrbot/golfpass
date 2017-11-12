@@ -180,25 +180,25 @@
 				</ol>
 				<div class="carousel-inner">
 					<div class="carousel-item active">
-						<img src="<?=$product_main_photos[0]->name?? ""?>" alt="" class="position-absolute d-block">
+						<img src="<?=$product_main[0]->photo ?? ""?>" alt="" class="position-absolute d-block">
 						<div class="content-box d-flex flex-column align-items-start justify-content-center justify-content-lg-end">
 							<div class='title'>
-								<h1><?=$product_main->name?></h1>
-								<p><?=$product_main->region?> - <?=$product_main->hole_count?>홀 / <?=$product_main->distance?>야드</p>
+								<h1><?=$product_main[0]->name?></h1>
+								<p><?=$product_main[0]->region?> - <?=$product_main[0]->hole_count?>홀 / <?=$product_main[0]->distance?>야드</p>
 							</div>
 							<div class="content">
 								<p><span>
-									<?php for($i=0;$i < (int)$product_main->avg_score; $i++){?>
+									<?php for($i=0;$i < (int)$product_main[0]->avg_score; $i++){?>
 										<i class="xi xi-star"></i>
 									<?php }?>
-									<?php for($i=0;$i < 5- (int)$product_main->avg_score; $i++){?>
+									<?php for($i=0;$i < 5- (int)$product_main[0]->avg_score; $i++){?>
 										<i class="xi xi-star-o"></i>
 									<?php }?>
-									</span>(리뷰 <?=$product_main->reviews_count?>개)
+									</span>(리뷰 <?=$product_main[0]->reviews_count?>개)
 								</p>
-								<p><?=$product_main->desc?></p>
+								<p><?=$product_main[0]->desc?></p>
 							</div>
-							<a href="<?=site_url(shop_product_uri."/get/{$product_main->id}")?>">
+							<a href="<?=site_url(shop_product_uri."/get/{$product_main[0]->id}")?>">
 							<div class="btn-box d-flex align-items-center justify-content-center">
 							<button>보러가기
 								</button>
@@ -206,28 +206,28 @@
 							</a>
 						</div>
 					</div>
-					<?php for($i=1; $i<= count($product_main_photos)-1 ; $i++){?>
+					<?php for($i=1; $i<= count($product_main)-1 ; $i++){?>
 					<div class="carousel-item">
-						<img src="<?=$product_main_photos[$i]->name?>" alt="" class="position-absolute d-block">
+						<img src="<?=$product_main[$i]->photo?>" alt="" class="position-absolute d-block">
 						<div class="content-box d-flex flex-column align-items-start justify-content-center justify-content-lg-end">
 							<div class='title'>
-							<h1><?=$product_main->name?></h1>
-							<p>아랍에미레이트, 아부다비 - <?=$product_main->hole_count?>홀 / <?=$product_main->distance?>야드</p>
+							<h1><?=$product_main[$i]->name?></h1>
+							<p>아랍에미레이트, 아부다비 - <?=$product_main[$i]->hole_count?>홀 / <?=$product_main[$i]->distance?>야드</p>
 							</div>
 							<div class="content">
 								<p><span>
-								<?php for($j=0;$j < (int)$product_main->avg_score; $j++){?>
+								<?php for($j=0;$j < (int)$product_main[$i]->avg_score; $j++){?>
 										<i class="xi xi-star"></i>
 									<?php }?>
-									<?php for($j=0;$j < 5- (int)$product_main->avg_score; $j++){?>
+									<?php for($j=0;$j < 5- (int)$product_main[$i]->avg_score; $j++){?>
 										<i class="xi xi-star-o"></i>
 									<?php }?>
 
-								</span>(리뷰 <?=$product_main->reviews_count?>개)
+								</span>(리뷰 <?=$product_main[$i]->reviews_count?>개)
 								</p>
-								<p><?=$product_main->desc?></p>
+								<p><?=$product_main[$i]->desc?></p>
 							</div>
-							<a href="<?=site_url(shop_product_uri."/get/{$product_main->id}")?>">
+							<a href="<?=site_url(shop_product_uri."/get/{$product_main[$i]->id}")?>">
 							<div class="btn-box d-flex align-items-center justify-content-center">
 								<button>보러가기
 								</button>

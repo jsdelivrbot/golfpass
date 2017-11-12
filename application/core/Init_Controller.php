@@ -243,9 +243,9 @@ class Init_Controller extends MX_Controller{
          
              $result = $this->db->query("CREATE TABLE `$tb_name`(
              `id` INT UNSIGNED NULL AUTO_INCREMENT, 
-             `product_id` int UNSIGNED NOT NULL,
-             `name` varchar(255) NOT NULL,
-             `kind` varchar(255) NOT NULL, 
+             `product_id` int UNSIGNED,
+             `name` varchar(255),
+             `kind` varchar(255), 
              `sort` int NOT NULL DEFAULT '0', 
              `created` datetime NOT NULL DEFAULT NOW(),
              PRIMARY KEY (`id`),
