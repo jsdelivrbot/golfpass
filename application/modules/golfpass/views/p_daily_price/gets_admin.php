@@ -53,9 +53,15 @@
   <p></p>
 </div>
 <!-- 로딩 디머 -->
+
+<!-- <div style="background-image:url('<?=$product_photos ?? ''?>') ;"> -->
+<!-- <div style="background-image:url('/public/images/theme1.jpg'); background-repeat:no-repeat"> -->
+<div style="background-image:url('/public/images/backgroundimg.jpg'); ">
+<div style=" background-color: rgba(0,0,0,0.2)">
+ 
 <a href="<?=my_site_url(admin_product_uri."/update/{$product->id}")?>" class="ui button positive" style="float:left"><?=$product->name?>으로</a>
 <!-- 메뉴판 -->
-<div id="fixed_menu" style="margin-left:200px;position:fixed; background-color: rgba(0,0,0,0.3)" >
+<div id="fixed_menu" style="margin-left:200px;position:fixed; background-color: rgba(0,0,0,0.5); color:#eeeeee" >
 <!-- <form method="post" action="<?=my_site_url(golfpass_p_daily_price_admin_uri."/add/{$product->id}")?>"> -->
     <form id="fixed_menu_form" method="post" onsubmit="ajax_submit(this); return false;" action="<?=my_site_url(golfpass_p_daily_price_admin_uri."/ajax_add_all/{$product->id}")?>">
     <!-- 시작날자: <input type="text" name="start_date" id="datepicker1" value="<?=set_value('start_date')?>"> -->
@@ -248,9 +254,9 @@
     </table>
 </div>
 <?php }?>
-
 </div>
-
+</div>
+</div>
 <script>
 $("#slider_num_people").ionRangeSlider({
     type: "double",
@@ -380,3 +386,8 @@ return out_date;
 
 
 
+<script>
+  
+    
+
+</script>
