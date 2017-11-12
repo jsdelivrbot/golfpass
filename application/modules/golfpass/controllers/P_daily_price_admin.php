@@ -154,6 +154,15 @@ class P_daily_price_admin extends Admin_Controller
         echo json_encode($data);
         return;
     }
+    function ajax_update()
+    {
+        header("content-type:application/json");
+
+        $num_people = $this->input->post("num_people");
+        $data['alert'] = "$num_people";
+        echo json_encode($data);
+        return;
+    }
     function add($product_id)
     {
         
@@ -191,7 +200,7 @@ class P_daily_price_admin extends Admin_Controller
             $data['start_plus'] = 1;
 
             $data["product"] = $this->db->where('id',$product_id)->get("products")->row();
-
+            
 
             $this->_view("gets_admin", $data);
            

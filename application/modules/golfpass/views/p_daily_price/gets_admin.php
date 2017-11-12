@@ -55,9 +55,9 @@
 <!-- 로딩 디머 -->
 
 <!-- 메뉴판 -->
-<div id="fixed_menu" style="position:fixed; background-color: rgba(0,0,0,0.5)" >
+<div id="fixed_menu" style="margin-left:200px;position:fixed; background-color: rgba(0,0,0,0.3)" >
 <!-- <form method="post" action="<?=my_site_url(golfpass_p_daily_price_admin_uri."/add/{$product->id}")?>"> -->
-    <form id="fixed_menu_form"method="post" onsubmit="ajax_submit(this); return false;" action="<?=my_site_url(golfpass_p_daily_price_admin_uri."/ajax_add/{$product->id}")?>">
+    <form id="fixed_menu_form" method="post" onsubmit="ajax_submit(this); return false;" action="<?=my_site_url(golfpass_p_daily_price_admin_uri."/ajax_add/{$product->id}")?>">
     <!-- 시작날자: <input type="text" name="start_date" id="datepicker1" value="<?=set_value('start_date')?>"> -->
     <!-- 끝시작: <input type="text" name="end_date" id="datepicker2" value="<?=set_value('end_date')?>"> -->
     시작날자: <input type="text" name="start_date" id="datepicker1" value="2017-01-01">
@@ -110,7 +110,7 @@
         <select name="year" id="">
         <?php $current_year = date("Y");
         for($i = $current_year - 3 ; $i <= $current_year+3 ; $i++){?>
-        <option value="<?=$i?>"><?=$i?></option>
+        <option value="<?=$i?>"  <?=set_select("year",$i,false)?>><?=$i?></option>
         <?php
         }
         ?>
@@ -126,18 +126,10 @@
             </tr>
     </table>
   
+    <div class ="ui button" onclick="$('#fixed_menu_form').css('display','block');">열기</div>
     <div class ="ui button" onclick="$('#fixed_menu_form').css('display','none');">접기</div>
-    <div class ="ui button" onclick="$('#fixed_menu').css('display','block'); $('#fixed_menu2').css('display','none')">열기</div>
 </div>
-<div id="fixed_menu2" style="margin-left:150px ;position:fixed; background-color: rgba(0,0,0,0.2); display:none" >
-<table>
-        <?php for($i=1; $i<= 12 ; $i++ ){?>
-            <td class="ui button"  onclick="$(`#target_month_<?=$i?>`).goTo();"><?=$i?>월</td>
-        <?php }?>
-            </tr>
-        </table>
-        <div class ="ui button" onclick="$('#fixed_menu').css('display','block'); $('#fixed_menu2').css('display','none')">열기</div>
-</div>
+
     <!-- 메뉴판 -->
   <br>
 <!-- <form method ="post" action="<?=my_site_url(golfpass_p_daily_price_admin_uri."/add/{$product->id}")?>">
@@ -219,7 +211,14 @@
         <!-- 명당 가격 시작 -->
         <?php for ($i=1; $i <= (int)$maxium_num_peple; $i++) {?>
         <!--1일 or 2일 가격 -->
-        <td  class="pdate  <?="p{$date}-{$i}-".(1+$start_plus)?> <?=isset($price[$date][$i][1+$start_plus])?( $price[$date][$i][1+$start_plus] !=="0" ? "active " : "red") : "red"?>" rowspan=<?=$num_period?>><?=(0+$start_plus)."박".(1+$start_plus)."일"?><br><?=$price[$date][$i][1+$start_plus] ?? 0?></td>
+        <td  class="pdate  <?="p{$date}-{$i}-".(1+$start_plus)?> <?=isset($price[$date][$i][1+$start_plus])?( $price[$date][$i][1+$start_plus] !=="0" ? "active " : "red") : "red"?>" rowspan=<?=$num_period?>>
+            <?=(0+$start_plus)."박".(1+$start_plus)."일"?><br>    
+            <form onsubmit="ajax_submit(this); return false" class="ui form" action="<?=my_site_url(golfpass_p_daily_price_admin_uri."/ajax_update")?>" method="post">
+                    <input type="text" value="<?=$price[$date][$i][1+$start_plus] ?? 0?>">
+        
+                    <input type="submit"  class="">
+            </form>    
+        </td>
         <!--1일 or 2일 가격-->
             <?php if ($num_period !== 0) {?>
             <!-- 2일or 3일 가격 -->
