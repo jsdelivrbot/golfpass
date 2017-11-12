@@ -5,6 +5,14 @@
         $data = array("reload"=>true);
         echo json_encode($data);
         return;
+
+
+
+   
+        ob_start();
+        $this->_view("ajax_target", $data);
+       $output = ob_get_clean();
+         
 ?>
 
 
@@ -15,3 +23,6 @@
 
          onclick="confirm_callback(this,ajax_a,'복구할 방법이 없습니다. 삭제하시겠습니까?'); return false;" data-action="<?=my_site_url(admin_hotel_uri."/ajax_delete/{$rows[$i]->id}")?>" href="#"
          <a onclick="confirm_callback(this,ajax_a,'복구할 방법이 없습니다. 삭제하시겠습니까?'); return false;" data-action="<?=my_site_url(admin_hotel_uri."/ajax_delete/{$rows[$i]->id}")?>" href="#">삭제</a> </li>
+
+
+         

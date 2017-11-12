@@ -26,8 +26,32 @@ class P_daily_price_admin extends Admin_Controller
         // // $this->_template("gets_admin",$data);
         // $this->_view("gets_admin", $data);
     }
-
     function ajax_add($product_id)
+    {
+        header("Content-Type:application/json");
+        $num_people = $this->input->post("num_people");
+        $date = $this->input->post("date");
+        $period = $this->input->post("period");
+        $price = $this->input->post("price");
+
+        $this->db->set("product_id",$product_id);
+        $sql=$this->db->insert_string($this->table,array(
+                'product_id'=>$product_id,
+                'date'=>$date,
+                'num_people'=>$num_people,
+                'period'=>$period,
+                'price'=> $price
+        ))."ON DUPLICATE KEY UPDATE price = $price";
+        $this->db->query($sql);
+
+        $data['reload'] =true;
+        $data['loding'] =".loding";
+
+        echo json_encode($data);
+        return;
+
+    }
+    function ajax_add_all($product_id)
     {
         header("Content-Type:application/json");
         
@@ -116,45 +140,45 @@ class P_daily_price_admin extends Admin_Controller
              }
 
              ////////////////데이터
-             $year = $this->input->post("year");
-             if($year === null)
-                 $year = date("Y");
+            //  $year = $this->input->post("year");
+            //  if($year === null)
+            //      $year = date("Y");
  
-             $this->db->like("date",$year);
-             $rows =$this->p_daily_price_model->_gets(array('product_id'=>$product_id));
+            //  $this->db->like("date",$year);
+            //  $rows =$this->p_daily_price_model->_gets(array('product_id'=>$product_id));
  
-             $price = array();
-             if(count($rows) !== 0){
-                 foreach($rows as $row)
-                 {
-                        $price[$row->date][$row->num_people][$row->period] = $row->price; 
-                 }
-                 $data['price'] = $price;
-             }
-             $data['maxium_num_peple'] = 45;
-             $data['num_period'] = 3;
-             $data['year'] = $year;
-             $data['start_plus'] = 1;
-             $data["product"] = $this->db->where('id',$product_id)->get("products")->row();
+            //  $price = array();
+            //  if(count($rows) !== 0){
+            //      foreach($rows as $row)
+            //      {
+            //             $price[$row->date][$row->num_people][$row->period] = $row->price; 
+            //      }
+            //      $data['price'] = $price;
+            //  }
+            //  $data['maxium_num_peple'] = 45;
+            //  $data['num_period'] = 3;
+            //  $data['year'] = $year;
+            //  $data['start_plus'] = 1;
+            //  $data["product"] = $this->db->where('id',$product_id)->get("products")->row();
 
-             ob_start();
-              $this->_view("ajax_target", $data);
-             $output = ob_get_clean();
+            //  ob_start();
+            //   $this->_view("ajax_target", $data);
+            //  $output = ob_get_clean();
 
-             $data['change']['html'] = $output;
-             $data['change']['target'] = ".target";
+            //  $data['change']['html'] = $output;
+            //  $data['change']['target'] = ".target";
 
              /////////////데이터
              
             //  $data['alert'] ="완료";
-            //  $data['reload'] =true;
+             $data['reload'] =true;
             }
         $data['loding'] =".loding";
         
         echo json_encode($data);
         return;
     }
-    function ajax_update()
+    function ajax_update($id)
     {
         header("content-type:application/json");
 
@@ -163,13 +187,12 @@ class P_daily_price_admin extends Admin_Controller
         echo json_encode($data);
         return;
     }
-    function add($product_id)
+    function add($product_id,$year=null)
     {
         
         $this->_set_rules();
         if ($this->fv->run() === false) {
 
-            $year = $this->input->post("year");
             if($year === null)
                 $year = date("Y");
 

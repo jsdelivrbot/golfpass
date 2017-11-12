@@ -17,7 +17,7 @@ a{
             목록으로
         </a>
     <?php if(strpos($mode, "update") >-1 ){?>
-        <a class="ui right labeled icon button  secondary" href="<?=my_site_url(golfpass_p_daily_price_admin_uri."/add/{$product->id}")?>">
+            <a class="ui right labeled icon button  secondary" href="<?=my_site_url(golfpass_p_daily_price_admin_uri."/add/{$product->id}/".date('Y'))?>">
             <i class="right arrow icon"></i>
         날자별 가격
         </a>
@@ -340,7 +340,7 @@ a{
     목록으로
 </a>
 <?php if(strpos($mode, "update") >-1 ){?>
-<a class="ui right labeled icon button  secondary" href="<?=my_site_url(golfpass_p_daily_price_admin_uri."/add/{$product->id}")?>">
+    <a class="ui right labeled icon button  secondary" href="<?=my_site_url(golfpass_p_daily_price_admin_uri."/add/{$product->id}/".date('Y'))?>">
     <i class="right arrow icon"></i>
 날자별 가격
 </a>

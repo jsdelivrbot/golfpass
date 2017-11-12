@@ -53,11 +53,11 @@
   <p></p>
 </div>
 <!-- 로딩 디머 -->
-
+<a href="<?=my_site_url(admin_product_uri."/update/{$product->id}")?>" class="ui button positive" style="float:left"><?=$product->name?>으로</a>
 <!-- 메뉴판 -->
 <div id="fixed_menu" style="margin-left:200px;position:fixed; background-color: rgba(0,0,0,0.3)" >
 <!-- <form method="post" action="<?=my_site_url(golfpass_p_daily_price_admin_uri."/add/{$product->id}")?>"> -->
-    <form id="fixed_menu_form" method="post" onsubmit="ajax_submit(this); return false;" action="<?=my_site_url(golfpass_p_daily_price_admin_uri."/ajax_add/{$product->id}")?>">
+    <form id="fixed_menu_form" method="post" onsubmit="ajax_submit(this); return false;" action="<?=my_site_url(golfpass_p_daily_price_admin_uri."/ajax_add_all/{$product->id}")?>">
     <!-- 시작날자: <input type="text" name="start_date" id="datepicker1" value="<?=set_value('start_date')?>"> -->
     <!-- 끝시작: <input type="text" name="end_date" id="datepicker2" value="<?=set_value('end_date')?>"> -->
     시작날자: <input type="text" name="start_date" id="datepicker1" value="2017-01-01">
@@ -103,48 +103,54 @@
 
         <br>
     <br>
-        <input type="submit" value="보내기" class="ui button  positive">
+        <input type="submit" value="범위 가격입력" class="ui button  positive">
   </form>
-
-    <form method ="post"action="<?=my_site_url(golfpass_p_daily_price_admin_uri."/add/{$product->id}")?>">
-        <select name="year" id="">
-        <?php $current_year = date("Y");
+<form method="post" onsubmit="ajax_submit(this); return false;" action="<?=my_site_url(golfpass_p_daily_price_admin_uri."/ajax_add/{$product->id}")?>">
+<input type="submit" value="개별 가격입력" class="ui button  positive">
+<input type="text" name="price" style=" width:100px">
+원
+<input type="text" name="date" value="<?=date("Y")."-01-01"?>" style=" width:100px">
+<input type="text" name="num_people" value="1" style=" width:40px">
+명
+<input type="text" name="period" value="2"style=" width:40px" >
+기간(2는 1박2일)
+</form>
+  <!-- 해당년도로 -->
+ 
+      <select style="float:left;" name="" id="select_year">
+          <?php $current_year = date("Y");
         for($i = $current_year - 3 ; $i <= $current_year+3 ; $i++){?>
         <option value="<?=$i?>"  <?=set_select("year",$i,false)?>><?=$i?></option>
         <?php
         }
         ?>
         </select>
-
-        <input type="submit" class="ui button positive" value="해당년도로">
-    </form>
+        <a  id ="a_link_year"style="float:left;"class="ui button black" href="<?=my_site_url(golfpass_p_daily_price_admin_uri."/add/{$product->id}/".(date('Y')-3))?>">해당년도로</a>
+        <script>
+        $("#select_year").change(function(){
+            var base_url ="<?=my_site_url(golfpass_p_daily_price_admin_uri."/add/{$product->id}")?>";
+            var year =$(this).val();
+            var $a = $("#a_link_year");
+            $a.attr("href", `${base_url}/${year}`);
+        });
+    </script>
+<!-- 해당년도로 -->
   
     <table>
         <?php for($i=1; $i<= 12 ; $i++ ){?>
-            <td class="ui button" onclick="$(`#target_month_<?=$i?>`).goTo();"><?=$i?>월</td>
+            <!-- <td class="ui button" onclick="$(`#target_month_<?=$i?>`).goTo();"><?=$i?>월</td> -->
+            <td class="ui button" onclick="$(`.month_table`).css('display','none'); $('#month_table_<?=$i?>').css('display','block');"><?=$i?>월</td>
         <?php }?>
             </tr>
     </table>
-  
+            <div style="margin-top:10px;">
     <div class ="ui button" onclick="$('#fixed_menu_form').css('display','block');">열기</div>
     <div class ="ui button" onclick="$('#fixed_menu_form').css('display','none');">접기</div>
+    </div>
 </div>
 
     <!-- 메뉴판 -->
   <br>
-<!-- <form method ="post" action="<?=my_site_url(golfpass_p_daily_price_admin_uri."/add/{$product->id}")?>">
-    <select name="search_period" id="">
-        <option value="2" <?=set_select('search_period', 2)?>>1박2일</option>
-        <option value="3" <?=set_select('search_period', 3)?>>2박3일</option>
-        <option value="4" <?=set_select('search_period', 4)?>>3박4일</option>
-        <option value="5" <?=set_select('search_period', 5)?>>4박5일</option>
-        <option value="6" <?=set_select('search_period', 6)?>>5박6일</option>
-        <option value="7" <?=set_select('search_period', 7)?>>6박7일</option>
-        <option value="8" <?=set_select('search_period', 8)?>>7박8일</option>
-        <option value="9" <?=set_select('search_period', 9)?>>8박9일</option>
-    </select>
-    <input type="submit">
-</form> -->
 
 <style>
     body{
@@ -170,7 +176,7 @@
     width:300px;
   } */
 </style>
-<div style ="margin-top:600px;"></div>
+<div style ="margin-top:440px;"></div>
 
 <div class="target ui grid" style="margin-left:50px;">
 <?php for ($m =1; $m<=12; $m++) {
@@ -181,66 +187,66 @@
 <br>
 <br>
 
-<h3 id ="target_month_<?=$m?>"><?="{$m}월"?></h3>
-<table class="ui celled table">
-<thead>
-<tr >
-    <th>
-        날자
-    </th>
-    <?php for ($i=1; $i <= (int)$maxium_num_peple; $i++) {?>
-    <th class="col center aligned" colspan=2>
-        <?=$i?>인 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-    </th>
-<?php }?>
-</tr>
-</thead>
+<div class="month_table"id="month_table_<?=$m?>" <?=$m !== 1 ? "style='display:none'": ""?>>
+    <h3 id ="target_month_<?=$m?>"><?="{$m}월"?></h3>
 
-<tbody>
-
-<?php for ($d =1; $d <= $num_days; $d++) {
-    $date = date("Y-m-d", strtotime("{$year}-{$m}-{$d}"));
-    $week = array("일", "월", "화", "수", "목", "금", "토");
-    $day = $week[date("w", strtotime("{$year}-{$m}-{$d}"))];
-?>
-<tr class="">
-        <!-- 날짜 -->
-        <td class="" rowspan=<?=$num_period?>><?=$date?><?="({$day})"?></td> 
-        <!-- 날짜 -->
-
-        <!-- 명당 가격 시작 -->
+    <table class="ui celled table" >
+    <thead>
+    <tr >
+        <th>
+            날자
+        </th>
         <?php for ($i=1; $i <= (int)$maxium_num_peple; $i++) {?>
-        <!--1일 or 2일 가격 -->
-        <td  class="pdate  <?="p{$date}-{$i}-".(1+$start_plus)?> <?=isset($price[$date][$i][1+$start_plus])?( $price[$date][$i][1+$start_plus] !=="0" ? "active " : "red") : "red"?>" rowspan=<?=$num_period?>>
-            <?=(0+$start_plus)."박".(1+$start_plus)."일"?><br>    
-            <form onsubmit="ajax_submit(this); return false" class="ui form" action="<?=my_site_url(golfpass_p_daily_price_admin_uri."/ajax_update")?>" method="post">
-                    <input type="text" value="<?=$price[$date][$i][1+$start_plus] ?? 0?>">
-        
-                    <input type="submit"  class="">
-            </form>    
-        </td>
-        <!--1일 or 2일 가격-->
-            <?php if ($num_period !== 0) {?>
-            <!-- 2일or 3일 가격 -->
-            <td  class="pdate <?="p{$date}-{$i}-".(2+$start_plus)?> <?=isset($price[$date][$i][2+$start_plus])?( $price[$date][$i][2+$start_plus] !=="0" ? "active " : "red") : "red"?>" style="width:50px;"><?=(1+$start_plus)."박".(2+$start_plus)."일"?><br><?=$price[$date][$i][2+$start_plus] ?? 0?></td>
-            <!-- 2일or 3일 가격 -->
-            <?php }?>
-        <?php }?>
-         <!-- 명당가격 끝 -->
-    </tr>
-
-    <!-- 기간별/명당 가격 -->
-    <?php for ($i=1; $i < (int)$num_period; $i++) {?>
-        <tr class="">
-        <?php for ($j=1; $j <= (int)$maxium_num_peple; $j++) {?>
-            <td class="pdate <?="p{$date}-{$j}-".($i+2+$start_plus)?> <?=isset($price[$date][$j][$i+2+$start_plus])?( $price[$date][$j][$i+2+$start_plus] !=="0" ? "active " : "red") : "red"?>"><?=($i+1+$start_plus)."박".($i+2+$start_plus)."일"?><br><?=$price[$date][$j][$i+2+$start_plus] ?? 0?></td>
-            <?php }?>
-        </tr>
+        <th class="col center aligned" colspan=2>
+            <?=$i?>인 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+        </th>
     <?php }?>
-       <!-- 기간별/명당 가격 -->
-<?php }?>
-</tbody>
-</table>
+    </tr>
+    </thead>
+
+    <tbody>
+
+    <?php for ($d =1; $d <= $num_days; $d++) {
+        $date = date("Y-m-d", strtotime("{$year}-{$m}-{$d}"));
+        $week = array("일", "월", "화", "수", "목", "금", "토");
+        $day = $week[date("w", strtotime("{$year}-{$m}-{$d}"))];
+    ?>
+    <tr class="">
+            <!-- 날짜 -->
+            <td class="" rowspan=<?=$num_period?>><?=$date?><?="({$day})"?></td> 
+            <!-- 날짜 -->
+
+            <!-- 명당 가격 시작 -->
+            <?php for ($i=1; $i <= (int)$maxium_num_peple; $i++) {?>
+            <!--1일 or 2일 가격 -->
+            <td  class="pdate  <?="p{$date}-{$i}-".(1+$start_plus)?> <?=isset($price[$date][$i][1+$start_plus])?( $price[$date][$i][1+$start_plus] !=="0" ? "active " : "red") : "red"?>" rowspan=<?=$num_period?>>
+                <?=(0+$start_plus)."박".(1+$start_plus)."일"?><br>    
+                <?=$price[$date][$i][1+$start_plus] ?? 0?>
+                
+            </td>
+            <!--1일 or 2일 가격-->
+                <?php if ($num_period !== 0) {?>
+                <!-- 2일or 3일 가격 -->
+                <td  class="pdate <?="p{$date}-{$i}-".(2+$start_plus)?> <?=isset($price[$date][$i][2+$start_plus])?( $price[$date][$i][2+$start_plus] !=="0" ? "active " : "red") : "red"?>" style="width:50px;"><?=(1+$start_plus)."박".(2+$start_plus)."일"?><br><?=$price[$date][$i][2+$start_plus] ?? 0?></td>
+                <!-- 2일or 3일 가격 -->
+                <?php }?>
+            <?php }?>
+            <!-- 명당가격 끝 -->
+        </tr>
+
+        <!-- 기간별/명당 가격 -->
+        <?php for ($i=1; $i < (int)$num_period; $i++) {?>
+            <tr class="">
+            <?php for ($j=1; $j <= (int)$maxium_num_peple; $j++) {?>
+                <td class="pdate <?="p{$date}-{$j}-".($i+2+$start_plus)?> <?=isset($price[$date][$j][$i+2+$start_plus])?( $price[$date][$j][$i+2+$start_plus] !=="0" ? "active " : "red") : "red"?>"><?=($i+1+$start_plus)."박".($i+2+$start_plus)."일"?><br><?=$price[$date][$j][$i+2+$start_plus] ?? 0?></td>
+                <?php }?>
+            </tr>
+        <?php }?>
+        <!-- 기간별/명당 가격 -->
+    <?php }?>
+    </tbody>
+    </table>
+</div>
 <?php }?>
 
 </div>
