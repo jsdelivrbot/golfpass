@@ -91,7 +91,18 @@
 				</div>
 				<div id='nav-icon-box' class="offset-2 col-5 d-flex align-items-stretch justify-content-end">
 					<div id="search" class="d-flex align-items-center">
-						<span><i class="xi xi-search"></i></span>
+						<a class="mk-search-trigger mk-fullscreen-trigger" href="#" id="search-button-listener">
+							<span><i class="xi xi-search" id="search-button"></i></span>
+						</a>
+						<div class="mk-fullscreen-search-overlay" id="mk-search-overlay">
+							<a href="#" class="mk-fullscreen-close" id="mk-fullscreen-close-button"><i class="xi xi-close"></i></a>
+							<div id="mk-fullscreen-search-wrapper">
+								<form method="get" id="mk-fullscreen-searchform" action="">
+									<input type="text" value="" placeholder="Search..." id="mk-fullscreen-search-input">
+									<i class="xi xi-search fullscreen-search-icon"><input value="" type="submit"></i>
+								</form>
+							</div>
+						</div>
 					</div>
 					<?php if(!is_login()){?>
 					<div id="login" class="d-flex align-items-center">
@@ -629,6 +640,7 @@
 <script src="public/sangmin/js/custom/navAction.js"></script>
 <script src="public/sangmin/js/custom/main_section2.js"></script>
 <script src="public/sangmin/js/custom/search.js"></script>
+<script src="public/sangmin/js/mobile_search.js"></script>
 <script>
 $('.btn.btn-outline-light.btn-sm').click(function()
 {
