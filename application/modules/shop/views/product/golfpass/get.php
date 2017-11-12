@@ -450,7 +450,7 @@
             </article>
 
         </article>
-        <section id="section3" class="position-relative" style="width: 100%; padding-left: 0; height: 500px; background-color: #4d4d4d; margin-top: 100px; margin-bottom: 90px;">
+        <section id="section3" class="position-relative" style="width: 100%; padding-left: 0; height: 500px; background-color: #4d4d4d; margin-top: 100px; margin-bottom: 100px;">
         <!--TODO 구글맵-->
         </section>
         <!--TODO 리뷰  데이터 X-->
