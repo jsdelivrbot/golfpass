@@ -121,13 +121,14 @@
 			right: 0;
 			max-width: 80px;
 			@media (min-width: 992px) {
-				max-width: 320px;
+				max-width: 80px;
 			}
 			background-color: transparent;
 
 			i {
 				cursor: pointer;
-				padding: 5px;
+				padding: 25px;
+                font-size: 30px;
 			}
 
 			p {

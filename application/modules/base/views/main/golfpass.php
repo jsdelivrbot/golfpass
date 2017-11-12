@@ -169,10 +169,7 @@
 					 onclick="$('body').toggleClass('menu-open'); $('.carousel-indicators').toggleClass('d-none d-flex');">
 					<span>
 						<i class="xi xi-bars"></i>
-						<i class=""></i>
-
 					</span>
-					<p class="d-none d-lg-block">메뉴</p>
 				</div>
 			</nav>
 		</header>

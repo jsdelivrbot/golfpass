@@ -2094,10 +2094,11 @@ body.menu-open .plus-btn .r2 {
       background-color: transparent; }
       @media (min-width: 992px) {
         #header nav#md-nav .toggle, .black-bg-header nav#md-nav .toggle {
-          max-width: 320px; } }
+          max-width: 80px; } }
       #header nav#md-nav .toggle i, .black-bg-header nav#md-nav .toggle i {
         cursor: pointer;
-        padding: 5px; }
+        padding: 25px;
+        font-size: 30px; }
       #header nav#md-nav .toggle p, .black-bg-header nav#md-nav .toggle p {
         font-weight: 600;
         font-size: 1.3rem;
@@ -2254,10 +2255,11 @@ body.menu-open .plus-btn .r2 {
       background-color: transparent; }
       @media (min-width: 992px) {
         #header nav#md-nav .toggle, .black-bg-header nav#md-nav .toggle {
-          max-width: 320px; } }
+          max-width: 80px; } }
       #header nav#md-nav .toggle i, .black-bg-header nav#md-nav .toggle i {
         cursor: pointer;
-        padding: 5px; }
+        padding: 25px;
+        font-size: 30px; }
       #header nav#md-nav .toggle p, .black-bg-header nav#md-nav .toggle p {
         font-weight: 600;
         font-size: 1.3rem;
