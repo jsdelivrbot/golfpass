@@ -162,7 +162,7 @@
               <div id="detail" class='col'>
                   <div id="score" class="flex-column align-items-center">
                       <i class="xi xi-star xi-2x"></i>
-                      <span class="score_num"><!--<?=$product->avg_score?>-->4.5</span>
+                      <span class="score_num"><!--<?=$product->avg_score?>--></span>
                   </div>
                   <p id="regine">
                       <?=$product->region?>
