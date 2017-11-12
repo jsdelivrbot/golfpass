@@ -192,7 +192,7 @@
     width:300px;
   } */
 </style>
-<div style ="margin-top:440px;"></div>
+<div style ="margin-top:480px;"></div>
 
 <div class="target ui grid" style="margin-left:50px;">
 <?php for ($m =1; $m<=12; $m++) {
@@ -204,13 +204,12 @@
 <br>
 
 <div class="month_table"id="month_table_<?=$m?>" <?=$m !== 1 ? "style='display:none'": ""?>>
-    <h3 id ="target_month_<?=$m?>"><?="{$m}월"?></h3>
 
     <table class="ui celled table" >
     <thead>
     <tr >
         <th>
-            날자
+        <?="{$m}월"?>
         </th>
         <?php for ($i=1; $i <= (int)$maxium_num_peple; $i++) {?>
         <th class="col center aligned" colspan=2>
