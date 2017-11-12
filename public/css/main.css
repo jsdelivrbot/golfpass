@@ -2997,9 +2997,33 @@ body.menu-open .plus-btn .r2 {
     #book-box-wrap #book-box #dateBox {
       padding: 20px;
       background-color: black; }
-      #book-box-wrap #book-box #dateBox #e-day,
-      #book-box-wrap #book-box #dateBox #s-day {
-        width: 46%; }
+      #book-box-wrap #book-box #dateBox .custom-select {
+        box-sizing: border-box;
+        padding: 0 15px 0 15px;
+        width: 45%;
+        border: 0;
+        border-radius: 0;
+        height: 40px;
+        font-family: 'notokr-demilight', sans-serif;
+        font-size: 14px;
+        color: #b2b2b2; }
+      #book-box-wrap #book-box #dateBox .form-group {
+        background-color: white;
+        color: black;
+        width: 45%; }
+        #book-box-wrap #book-box #dateBox .form-group input {
+          box-sizing: border-box;
+          padding: 15px;
+          width: 80%;
+          border: 0;
+          height: 40px;
+          font-family: 'notokr-demilight', sans-serif;
+          font-size: 14px;
+          color: #b2b2b2; }
+          #book-box-wrap #book-box #dateBox .form-group input:focus {
+            outline: 0; }
+        #book-box-wrap #book-box #dateBox .form-group i {
+          font-size: 14px; }
     #book-box-wrap #book-box #info {
       background-color: #fff;
       padding: 25px 20px;

@@ -33,11 +33,43 @@
 		#dateBox {
 			padding: 20px;
 			background-color: black;
+            
+            .custom-select {
+					box-sizing: border-box;
+					padding: 0 15px 0 15px;
+					width: 45%;
+					border: 0;
+                    border-radius: 0;
+					height: 40px;
+					font-family: 'notokr-demilight', sans-serif;
+					font-size: 14px;
+					color: #b2b2b2;
+            }
+            
+			.form-group {
+				background-color: white;
+				color: black;
+				width: 45%;
 
-			#e-day,
-			#s-day {
-				width: 46%;
-			}
+				input {
+					box-sizing: border-box;
+					padding: 15px;
+					width: 80%;
+					border: 0;
+					height: 40px;
+					font-family: 'notokr-demilight', sans-serif;
+					font-size: 14px;
+					color: #b2b2b2;
+
+					&:focus {
+						outline: 0;
+					}
+				}
+
+				i {
+					font-size: 14px;
+				}
+            }
 		}
 
 		#info {

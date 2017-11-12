@@ -226,19 +226,19 @@
     									<option value="">옵션2</option>
     								</select> -->
                     <select class="custom-select" id="s-day">
-                      <option selected disabled>출발 날짜</option>
-                      <option value="1">One</option>
-                      <option value="2">Two</option>
-                      <option value="3">Three</option>
+                      <option selected disabled>여행 일정</option>
+                      <option value="1">1박 2일</option>
+                      <option value="2">2박 3일</option>
+                      <option value="3">3박 4일</option>
+                      <option value="4">4박 5일</option>
+                      <option value="5">5박 6일</option>
                     </select>
                   <span>·</span>
                     <!-- <input type="text" id="e-day" placeholder="출발 일정"> -->
-                    <select class="custom-select" id="e-day">
-                      <option selected disabled>종료 날짜</option>
-                      <option value="1">One</option>
-                      <option value="2">Two</option>
-                      <option value="3">Three</option>
-                    </select>
+                  <div class="form-group d-flex align-items-center mb-0">
+                    <input type="text" id="e-day" placeholder="출발 일정">
+                    <i class="xi-calendar-check"></i>
+                  </div>
                 </form>
               </div>
               <div id="info" class="pt-20">
