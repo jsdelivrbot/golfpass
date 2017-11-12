@@ -2056,29 +2056,26 @@ body.menu-open .plus-btn .r2 {
         margin: 0 20px; }
       #header nav#md-nav #logo .search-container, .black-bg-header nav#md-nav #logo .search-container {
         padding: 10px;
-        width: 100%; }
+        width: 100%;
+        background: white; }
         #header nav#md-nav #logo .search-container i, .black-bg-header nav#md-nav #logo .search-container i {
-          font-size: 1rem; }
+          font-size: 1rem;
+          color: #4b4b4b; }
         #header nav#md-nav #logo .search-container input, .black-bg-header nav#md-nav #logo .search-container input {
           width: 100%;
           background-color: inherit;
           border: 0;
           font-size: 14px;
-          opacity: 0.4;
+          opacity: 0.5;
           outline: 0;
           color: white;
           padding-left: 5px; }
-          #header nav#md-nav #logo .search-container input::placeholder, .black-bg-header nav#md-nav #logo .search-container input::placeholder {
-            color: white; }
-      #header nav#md-nav #logo .search-container.focus, .black-bg-header nav#md-nav #logo .search-container.focus {
-        background: white; }
-        #header nav#md-nav #logo .search-container.focus i, .black-bg-header nav#md-nav #logo .search-container.focus i,
-        #header nav#md-nav #logo .search-container.focus input,
-        .black-bg-header nav#md-nav #logo .search-container.focus input,
-        #header nav#md-nav #logo .search-container.focus input::placeholder,
-        .black-bg-header nav#md-nav #logo .search-container.focus input::placeholder {
-          font-weight: bold;
-          color: #4b4b4b; }
+      #header nav#md-nav #logo .search-container.focus i, .black-bg-header nav#md-nav #logo .search-container.focus i,
+      #header nav#md-nav #logo .search-container.focus input,
+      .black-bg-header nav#md-nav #logo .search-container.focus input,
+      #header nav#md-nav #logo .search-container.focus input::placeholder,
+      .black-bg-header nav#md-nav #logo .search-container.focus input::placeholder {
+        color: #4b4b4b; }
     #header nav#md-nav #nav-icon-box, .black-bg-header nav#md-nav #nav-icon-box {
       padding-right: 16px; }
       #header nav#md-nav #nav-icon-box div, .black-bg-header nav#md-nav #nav-icon-box div {
@@ -2219,29 +2216,26 @@ body.menu-open .plus-btn .r2 {
         margin: 0 20px; }
       #header nav#md-nav #logo .search-container, .black-bg-header nav#md-nav #logo .search-container {
         padding: 10px;
-        width: 100%; }
+        width: 100%;
+        background: white; }
         #header nav#md-nav #logo .search-container i, .black-bg-header nav#md-nav #logo .search-container i {
-          font-size: 1rem; }
+          font-size: 1rem;
+          color: #4b4b4b; }
         #header nav#md-nav #logo .search-container input, .black-bg-header nav#md-nav #logo .search-container input {
           width: 100%;
           background-color: inherit;
           border: 0;
           font-size: 14px;
-          opacity: 0.4;
+          opacity: 0.5;
           outline: 0;
           color: white;
           padding-left: 5px; }
-          #header nav#md-nav #logo .search-container input::placeholder, .black-bg-header nav#md-nav #logo .search-container input::placeholder {
-            color: white; }
-      #header nav#md-nav #logo .search-container.focus, .black-bg-header nav#md-nav #logo .search-container.focus {
-        background: white; }
-        #header nav#md-nav #logo .search-container.focus i, .black-bg-header nav#md-nav #logo .search-container.focus i,
-        #header nav#md-nav #logo .search-container.focus input,
-        .black-bg-header nav#md-nav #logo .search-container.focus input,
-        #header nav#md-nav #logo .search-container.focus input::placeholder,
-        .black-bg-header nav#md-nav #logo .search-container.focus input::placeholder {
-          font-weight: bold;
-          color: #4b4b4b; }
+      #header nav#md-nav #logo .search-container.focus i, .black-bg-header nav#md-nav #logo .search-container.focus i,
+      #header nav#md-nav #logo .search-container.focus input,
+      .black-bg-header nav#md-nav #logo .search-container.focus input,
+      #header nav#md-nav #logo .search-container.focus input::placeholder,
+      .black-bg-header nav#md-nav #logo .search-container.focus input::placeholder {
+        color: #4b4b4b; }
     #header nav#md-nav #nav-icon-box, .black-bg-header nav#md-nav #nav-icon-box {
       padding-right: 16px; }
       #header nav#md-nav #nav-icon-box div, .black-bg-header nav#md-nav #nav-icon-box div {
@@ -2409,7 +2403,7 @@ body.menu-open .plus-btn .r2 {
         padding: 0;
         margin: 10px 0;
         background-color: #fff;
-        opacity: 0.2; }
+        opacity: 0.4; }
       #main-wrap #section1 .carousel .carousel-indicators li.active {
         background-color: transparent;
         padding: 10px;
