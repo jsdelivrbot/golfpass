@@ -16,6 +16,14 @@
 <script src="<?=domain_url('/public/js/common.js')?>"></script>
 
 <script>
+(function($) {
+    $.fn.goTo = function() {
+        $('html, body').animate({
+            scrollTop: $(this).offset().top + 'px'
+        }, 'fast');
+        return this; // for chaining...
+    }
+})(jQuery);
     $.datepicker.setDefaults({
         dateFormat: 'yy-mm-dd',
         prevText: '이전 달',
@@ -37,78 +45,100 @@
         $("#datepicker2").datepicker();
     });
 </script>
-
-<div style="position:fixed; background-color: rgba(0,0,0,0.5)" >
-<!-- <form method="post" action="<?=my_site_url(golfpass_p_daily_price_admin_uri."/add/{$product->id}")?>"> -->
-<form method="post" onsubmit="ajax_submit(this); return false;" action="<?=my_site_url(golfpass_p_daily_price_admin_uri."/ajax_add/{$product->id}")?>">
-<!-- 시작날자: <input type="text" name="start_date" id="datepicker1" value="<?=set_value('start_date')?>"> -->
-<!-- 끝시작: <input type="text" name="end_date" id="datepicker2" value="<?=set_value('end_date')?>"> -->
-시작날자: <input type="text" name="start_date" id="datepicker1" value="2017-01-01">
-끝시작: <input type="text" name="end_date" id="datepicker2" value="2017-01-09">
-    <bR>
-가격<input type="text" name="price" value="2000">
-    <bR>
-    배율
-        <input type="checkbox" name="period_times_sw" value="1" checked>
-        <br>
-        <?php for($i=1;$i <= ((int)$num_period) +1 ; $i++ ){
-            ?>
-        <input  type="checkbox" name="period[]" checked value="<?=$i+1?>"><?="{$i}박".($i+1)."일"?>
-        <input type="text" name="period_times[]" value="1">
-        <?php }?>
-
-
-    <bR>
-    <input type="checkbox" name="day[]" checked value="1">월
-    <input type="checkbox" name="day[]" checked value="2">화
-    <input type="checkbox" name="day[]" checked value="3">수
-    <input type="checkbox" name="day[]" checked value="4">목
-    <input type="checkbox" name="day[]" checked value="5">금
-    <input type="checkbox" name="day[]" checked value="6">토
-    <input type="checkbox" name="day[]" checked value="0">일
-<br>
-<input type="checkbox" name="num_people_sw_times" value="1" checked>배율
-
-<div style="width: 400px;">
-<input type="text" id="slider_num_people" value="" />
-</div>
-
-<input id="" type="button" value="모두선택">
-<?php for($i=1;$i <= ((int)$maxium_num_peple) ; $i++ ){
-            if($i%10 === 1) echo "<br>";
-            ?>
-            
-        <input type="checkbox" name="num_people[]" value="<?=$i?>"><?="{$i}인"?>
-        <input type="text" name="num_people_times[]" value="1" style="width:50px;">
-        <?php }?>
-
-
-
-    <br>
-<br>
-    <input type="submit" value="보내기">
-  </form>
-  
-  <div class="loading ui active dimmer" style="display:none;    position: fixed">
+<!-- 로딩 디머 -->
+<div class="loading ui active dimmer" style="display:none;    position: fixed">
     <div class="ui massive text loader">Loading</div>
   <p></p>
   <p></p>
   <p></p>
 </div>
-  <table>
-  <tr>
-  <td id="btn_month_1">1</td>
-  <td>2</td>
-  <td>3</td>
-  <td>1</td>
-  <td>1</td>
-  <td>1</td>
-  <td>1</td>
-  <td>1</td>
-  </tr>
-  </table>
-  ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
-  </div>
+<!-- 로딩 디머 -->
+
+<!-- 메뉴판 -->
+<div id="fixed_menu" style="position:fixed; background-color: rgba(0,0,0,0.5)" >
+<!-- <form method="post" action="<?=my_site_url(golfpass_p_daily_price_admin_uri."/add/{$product->id}")?>"> -->
+    <form id="fixed_menu_form"method="post" onsubmit="ajax_submit(this); return false;" action="<?=my_site_url(golfpass_p_daily_price_admin_uri."/ajax_add/{$product->id}")?>">
+    <!-- 시작날자: <input type="text" name="start_date" id="datepicker1" value="<?=set_value('start_date')?>"> -->
+    <!-- 끝시작: <input type="text" name="end_date" id="datepicker2" value="<?=set_value('end_date')?>"> -->
+    시작날자: <input type="text" name="start_date" id="datepicker1" value="2017-01-01">
+    끝시작: <input type="text" name="end_date" id="datepicker2" value="2017-01-09">
+        <bR>
+    가격<input type="text" name="price" value="2000">
+        <bR>
+        배율
+            <input type="checkbox" name="period_times_sw" value="1" checked>
+            <br>
+            <?php for($i=1;$i <= ((int)$num_period) +1 ; $i++ ){
+                ?>
+            <input  type="checkbox" name="period[]" checked value="<?=$i+1?>"><?="{$i}박".($i+1)."일"?>
+            <input type="text" name="period_times[]" value="1">
+            <?php }?>
+
+
+        <bR>
+        <input type="checkbox" name="day[]" checked value="1">월
+        <input type="checkbox" name="day[]" checked value="2">화
+        <input type="checkbox" name="day[]" checked value="3">수
+        <input type="checkbox" name="day[]" checked value="4">목
+        <input type="checkbox" name="day[]" checked value="5">금
+        <input type="checkbox" name="day[]" checked value="6">토
+        <input type="checkbox" name="day[]" checked value="0">일
+    <br>
+    <input type="checkbox" name="num_people_sw_times" value="1" checked>배율
+
+    <div style="width: 400px;">
+    <input type="text" id="slider_num_people" value="" />
+    </div>
+
+    <input id="" type="button" value="모두선택">
+    <?php for($i=1;$i <= ((int)$maxium_num_peple) ; $i++ ){
+                if($i%10 === 1) echo "<br>";
+                ?>
+                
+            <input type="checkbox" name="num_people[]" value="<?=$i?>"><?="{$i}인"?>
+            <input type="text" name="num_people_times[]" value="1" style="width:50px;">
+            <?php }?>
+
+
+
+        <br>
+    <br>
+        <input type="submit" value="보내기" class="ui button  positive">
+  </form>
+
+    <form method ="post"action="<?=my_site_url(golfpass_p_daily_price_admin_uri."/add/{$product->id}")?>">
+        <select name="year" id="">
+        <?php $current_year = date("Y");
+        for($i = $current_year - 3 ; $i <= $current_year+3 ; $i++){?>
+        <option value="<?=$i?>"><?=$i?></option>
+        <?php
+        }
+        ?>
+        </select>
+
+        <input type="submit" class="ui button positive" value="해당년도로">
+    </form>
+  
+    <table>
+        <?php for($i=1; $i<= 12 ; $i++ ){?>
+            <td class="ui button" onclick="$(`#target_month_<?=$i?>`).goTo();"><?=$i?>월</td>
+        <?php }?>
+            </tr>
+    </table>
+  
+    <div class ="ui button" onclick="$('#fixed_menu_form').css('display','none');">접기</div>
+    <div class ="ui button" onclick="$('#fixed_menu').css('display','block'); $('#fixed_menu2').css('display','none')">열기</div>
+</div>
+<div id="fixed_menu2" style="margin-left:150px ;position:fixed; background-color: rgba(0,0,0,0.2); display:none" >
+<table>
+        <?php for($i=1; $i<= 12 ; $i++ ){?>
+            <td class="ui button"  onclick="$(`#target_month_<?=$i?>`).goTo();"><?=$i?>월</td>
+        <?php }?>
+            </tr>
+        </table>
+        <div class ="ui button" onclick="$('#fixed_menu').css('display','block'); $('#fixed_menu2').css('display','none')">열기</div>
+</div>
+    <!-- 메뉴판 -->
   <br>
 <!-- <form method ="post" action="<?=my_site_url(golfpass_p_daily_price_admin_uri."/add/{$product->id}")?>">
     <select name="search_period" id="">
@@ -159,7 +189,7 @@
 <br>
 <br>
 
-<?="{$m}월"?>
+<h3 id ="target_month_<?=$m?>"><?="{$m}월"?></h3>
 <table class="ui celled table">
 <thead>
 <tr >
@@ -167,8 +197,8 @@
         날자
     </th>
     <?php for ($i=1; $i <= (int)$maxium_num_peple; $i++) {?>
-    <th class="col" colspan=2>
-        <?=$i?>인
+    <th class="col center aligned" colspan=2>
+        <?=$i?>인 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
     </th>
 <?php }?>
 </tr>
@@ -181,19 +211,19 @@
     $week = array("일", "월", "화", "수", "목", "금", "토");
     $day = $week[date("w", strtotime("{$year}-{$m}-{$d}"))];
 ?>
-<tr class="dataset">
+<tr class="">
         <!-- 날짜 -->
-        <td class="row" rowspan=<?=$num_period?>><?=$date?><?="({$day})"?></td> 
+        <td class="" rowspan=<?=$num_period?>><?=$date?><?="({$day})"?></td> 
         <!-- 날짜 -->
 
         <!-- 명당 가격 시작 -->
         <?php for ($i=1; $i <= (int)$maxium_num_peple; $i++) {?>
         <!--1일 or 2일 가격 -->
-        <td  class="pdate row <?="p{$date}-{$i}-".(1+$start_plus)?> <?=isset($price[$date][$i][1+$start_plus])?( $price[$date][$i][1+$start_plus] !=="0" ? "active " : "red") : "red"?>" rowspan=<?=$num_period?>><?=(0+$start_plus)."박".(1+$start_plus)."일"?><br><?=$price[$date][$i][1+$start_plus] ?? 0?></td>
+        <td  class="pdate  <?="p{$date}-{$i}-".(1+$start_plus)?> <?=isset($price[$date][$i][1+$start_plus])?( $price[$date][$i][1+$start_plus] !=="0" ? "active " : "red") : "red"?>" rowspan=<?=$num_period?>><?=(0+$start_plus)."박".(1+$start_plus)."일"?><br><?=$price[$date][$i][1+$start_plus] ?? 0?></td>
         <!--1일 or 2일 가격-->
             <?php if ($num_period !== 0) {?>
             <!-- 2일or 3일 가격 -->
-            <td  class="pdate colspan <?="p{$date}-{$i}-".(2+$start_plus)?> <?=isset($price[$date][$i][2+$start_plus])?( $price[$date][$i][2+$start_plus] !=="0" ? "active " : "red") : "red"?>" style="width:50px;"><?=(1+$start_plus)."박".(2+$start_plus)."일"?><br><?=$price[$date][$i][2+$start_plus] ?? 0?></td>
+            <td  class="pdate <?="p{$date}-{$i}-".(2+$start_plus)?> <?=isset($price[$date][$i][2+$start_plus])?( $price[$date][$i][2+$start_plus] !=="0" ? "active " : "red") : "red"?>" style="width:50px;"><?=(1+$start_plus)."박".(2+$start_plus)."일"?><br><?=$price[$date][$i][2+$start_plus] ?? 0?></td>
             <!-- 2일or 3일 가격 -->
             <?php }?>
         <?php }?>
@@ -202,7 +232,7 @@
 
     <!-- 기간별/명당 가격 -->
     <?php for ($i=1; $i < (int)$num_period; $i++) {?>
-        <tr class="rowspan">
+        <tr class="">
         <?php for ($j=1; $j <= (int)$maxium_num_peple; $j++) {?>
             <td class="pdate <?="p{$date}-{$j}-".($i+2+$start_plus)?> <?=isset($price[$date][$j][$i+2+$start_plus])?( $price[$date][$j][$i+2+$start_plus] !=="0" ? "active " : "red") : "red"?>"><?=($i+1+$start_plus)."박".($i+2+$start_plus)."일"?><br><?=$price[$date][$j][$i+2+$start_plus] ?? 0?></td>
             <?php }?>
@@ -341,4 +371,7 @@ var out_date = `${date.getFullYear()}-${month}-${day}`;
 return out_date;
 }
 </script>
+
+
+
 

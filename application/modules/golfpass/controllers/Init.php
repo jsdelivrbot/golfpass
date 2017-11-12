@@ -94,6 +94,7 @@ class Init extends Init_Controller {
                 $this->ref_cate_product_model->_add(array("product_id"=>$sample_product_id,'cate_id'=>$city_id));
                 $hotel_id=$this->p_hotel_model->_add(array("name"=>"웨이하이포인트 리조트"));
                 $this->db->set("product_id",$sample_product_id)->set("hotel_id",$hotel_id)->insert("p_ref_hotel");
+                $this->db->set("product_id","1")->set("kind","main")->insert("product_option");
             $city_id=$this->product_categories_model->_add(array('name'=>'연태','desc'=>'','parent_id'=>$china_id,'photo'=>'','can_add'=>'0'));
             $city_id=$this->product_categories_model->_add(array('name'=>'백두산','desc'=>'','parent_id'=>$china_id,'photo'=>'','can_add'=>'0'));
             $city_id=$this->product_categories_model->_add(array('name'=>'청도','desc'=>'','parent_id'=>$china_id,'photo'=>'','can_add'=>'0'));

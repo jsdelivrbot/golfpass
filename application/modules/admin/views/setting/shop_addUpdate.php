@@ -58,7 +58,7 @@
         <div class="field">
             <input type="text" name="sort" placeholder="순서">
         </div>
-        <input class="ui button positive" type="submit" value="수정">
+        <input class="ui button positive" type="submit" value="추가">
     </form>
 
     <h3 class="ui left floated header">추가된 메인상품 리스트</h3>

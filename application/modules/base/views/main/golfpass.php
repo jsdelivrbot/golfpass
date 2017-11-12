@@ -179,7 +179,9 @@
 				<ol class=" carousel-indicators d-flex flex-column align-items-center">
 				</ol>
 				<div class="carousel-inner">
+				<?php if(isset($product_main[0])){?>
 					<div class="carousel-item active">
+						
 						<img src="<?=$product_main[0]->photo ?? ""?>" alt="" class="position-absolute d-block">
 						<div class="content-box d-flex flex-column align-items-start justify-content-center justify-content-lg-end">
 							<div class='title'>
@@ -206,6 +208,7 @@
 							</a>
 						</div>
 					</div>
+					<?php }?>
 					<?php for($i=1; $i<= count($product_main)-1 ; $i++){?>
 					<div class="carousel-item">
 						<img src="<?=$product_main[$i]->photo?>" alt="" class="position-absolute d-block">
