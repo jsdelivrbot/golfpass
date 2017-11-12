@@ -189,7 +189,7 @@ class Product extends Admin_Controller {
         $field = $this->input->post('field');
         if($field) $this->db->like($field, $this->input->post('value'));
         $this->db->order_by('id','desc');
-        $products = $this->db->select("p.*")
+        $data['products'] = $this->db->select("p.* , left(p.desc,10) as 'desc'")
         ->from("{$this->table} as p")
         ->limit($per_page,$offset)
         ->get()
@@ -197,8 +197,6 @@ class Product extends Admin_Controller {
         // $products = $this->db->get($this->table, $per_page, $offset)->result();
 
         //view
-        $data = array('products' => $products);
-         
          $this->_template("gets",$data);
          
     }
