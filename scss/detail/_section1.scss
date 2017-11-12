@@ -120,3 +120,22 @@
 		}
 	}
 }
+#chart{ width: 400px; height: 400px;}
+#chart-canvas{ width: 90% !important; height: auto !important; position: relative}
+#chart-score{position: absolute; width: 100px; height: 80px; top: 50%; margin-top: -85px; left: 50%; margin-left: -50px; font-size: 14px;}
+#score .score_num{ vertical-align: super}
+@media (min-width:1200px){
+    #chart{ display: block !important}
+    #score .score_num{ display: none}
+}
+@media (min-width:1024px) and (max-width:1735px){
+    #detail_slide{ width: 459px; max-width: 459px !important;}
+    #detail_slide .slick-slide img{ width: 100%; max-width: 459px; max-height: 302px}
+    #detail_slide .slider-nav{width: 459px;}
+    #chart-canvas{width: 75% !important}
+}
+@media (min-width:768px) and (max-width:1023px){
+    #detail_slide{ width: 402px; max-width: 402px !important}
+    #detail_slide .slick-slide img{ width: 100%; max-width: 402px; max-height: 265px}
+    #detail_slide .slider-nav{width: 402px;}
+}

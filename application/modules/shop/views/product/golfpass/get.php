@@ -160,9 +160,9 @@
                 </div>
               </div>
               <div id="detail" class='col'>
-                  <div id="score" class="d-flex flex-column align-items-center">
+                  <div id="score" class="flex-column align-items-center">
                       <i class="xi xi-star xi-2x"></i>
-                      <span><?=$product->avg_score?></span>
+                      <span class="score_num"><!--<?=$product->avg_score?>-->4.5</span>
                   </div>
                   <p id="regine">
                       <?=$product->region?>
@@ -181,7 +181,8 @@
                   </div>
               </div>
               <div id="chart" class="col flex-column align-items-center justify-content-center">
-                <canvas id="chart-canvas" class="w-75 h-75 ml-auto mr-auto">
+                <canvas id="chart-canvas" class="ml-auto mr-auto">
+                    
                 </canvas>
                 <h1 id="chart-score" class="text-center">점수 : <?=$product->avg_score?></h1>
               </div>
