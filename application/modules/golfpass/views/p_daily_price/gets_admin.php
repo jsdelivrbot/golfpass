@@ -58,10 +58,20 @@
 <!-- <div style="background-image:url('/public/images/theme1.jpg'); background-repeat:no-repeat"> -->
 <div style="background-image:url('/public/images/backgroundimg.jpg'); ">
 <div style=" background-color: rgba(0,0,0,0.2)">
- 
+ <style>
+     #fixed_menu{
+        color:#eeeeee;
+     }
+     #fixed_menu input{
+        color:black;
+     }
+     #fixed_menu select{
+        color:black;
+     }
+ </style>
 <a href="<?=my_site_url(admin_product_uri."/update/{$product->id}")?>" class="ui button positive" style="float:left"><?=$product->name?>으로</a>
 <!-- 메뉴판 -->
-<div id="fixed_menu" style="margin-left:200px;position:fixed; background-color: rgba(0,0,0,0.5); color:#eeeeee" >
+<div id="fixed_menu" style="margin-left:200px;position:fixed; background-color: rgba(0,0,0,0.5);" >
 <!-- <form method="post" action="<?=my_site_url(golfpass_p_daily_price_admin_uri."/add/{$product->id}")?>"> -->
     <form id="fixed_menu_form" method="post" onsubmit="ajax_submit(this); return false;" action="<?=my_site_url(golfpass_p_daily_price_admin_uri."/ajax_add_all/{$product->id}")?>">
     <!-- 시작날자: <input type="text" name="start_date" id="datepicker1" value="<?=set_value('start_date')?>"> -->
@@ -109,10 +119,10 @@
 
         <br>
     <br>
-        <input type="submit" value="범위 가격입력" class="ui button  positive">
+        <input type="submit" value="범위 가격입력" class="ui button  positive" style="color:white">
   </form>
 <form method="post" onsubmit="ajax_submit(this); return false;" action="<?=my_site_url(golfpass_p_daily_price_admin_uri."/ajax_add/{$product->id}")?>">
-<input type="submit" value="개별 가격입력" class="ui button  positive">
+<input type="submit" value="개별 가격입력" class="ui button  positive" style="color:white">
 <input type="text" name="price" style=" width:100px">
 원
 <input type="text" name="date" value="<?=date("Y")."-01-01"?>" style=" width:100px">
