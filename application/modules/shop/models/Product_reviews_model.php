@@ -177,7 +177,30 @@ class Product_reviews_Model extends Public_Model{
     public function gets($where_obj =null,$select_arr =false,$limit=null)
     {
         $this->db->order_by("id","desc");
-        $this->db->select("r.*,r.id, r.title, r.desc, r.created , (score_1+score_2+score_3+score_4+score_5+score_6+score_7+score_8)/8 'avg_score' ,if(r.user_id = 0, r.guest_name, u.name) 'user_name', if(r.user_id = 0, '손님', u.userName) 'userName'");
+        $select_query = '';
+        // $select_query .= ",CASE DAYOFWEEK(r.created)
+        // WHEN '1' THEN '일요일'
+        // WHEN '2' THEN '월요일'
+        // WHEN '3' THEN '화요일'
+        // WHEN '4' THEN '수요일'
+        // WHEN '5' THEN '목요일'
+        // WHEN '6' THEN '금요일'
+        // WHEN '7' THEN '토요일'
+        // END AS week";
+        $select_query.= ",YEAR(r.created) as year";
+        $select_query.= ",DATE_FORMAT(r.created,'%m') as month";
+        $select_query.= ",DATE_FORMAT(r.created,'%d') as day";
+        // $select_query.= ",DATE_FORMAT(r.created,'%p') as when";
+        $select_query .= ",CASE DATE_FORMAT(r.created,'%p')
+        WHEN 'AM' THEN '오전'
+        WHEN 'PM' THEN '오후'
+        END AS ampm";
+        // $select_query.= ",DATE_FORMAT(r.created,'%k') as hour";
+        $select_query.= ",IF(DATE_FORMAT(r.created,'%k')>12, DATE_FORMAT(r.created,'%k') -12 , DATE_FORMAT(r.created,'%k')) as hour";
+        $select_query.= ",DATE_FORMAT(r.created,'%i') as min";
+
+        $this->db->select("r.*,r.id, r.title, r.desc, r.created , (score_1+score_2+score_3+score_4+score_5+score_6+score_7+score_8)/8 'avg_score' ,if(r.user_id = 0, r.guest_name, u.name) 'user_name', if(r.user_id = 0, '손님', u.userName) 'userName'".$select_query);
+        
         $this->db->from('product_reviews as r');
         $this->db->join("users AS u","r.user_id = u.id","LEFT");
         $this->db->where("u.kind",'general');

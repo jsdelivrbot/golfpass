@@ -184,7 +184,7 @@
               <div id="chart" class="col flex-column align-items-center justify-content-center">
                 <canvas id="chart-canvas" class="w-75 h-75 ml-auto mr-auto">
                 </canvas>
-                <h1 id="chart-score" class="text-center">점수 : 85</h1>
+                <h1 id="chart-score" class="text-center">점수 : <?=$product->avg_score?></h1>
               </div>
 
             </article>
@@ -463,6 +463,7 @@
                 </div>
             </div>
             <article id="review-box" class="row no-gutters">
+                <?php for($i = 0 ; $i < count ($reviews) ; $i++){?>
                 <div class="col-lg-12 col-xl-6 ">
                     <article class="review d-flex flex-column">
                       <div class="profile d-flex align-items-center">
@@ -470,115 +471,62 @@
                             <img src="/public/sangmin/img/icon/noimage.png">
                           </div>
                           <div class='proflie-name'>
-                            <span>박세리</span>님의
+                            <span><?=$reviews[$i]->user_name?></span>님의
                             <span>리뷰</span>
                           </div>
                         </div>
                         <div class="content">
-                          <p>지핸디 +25입니다.오늘 처음으로 별5개짜리 해봤는데..ㅠㅠ 초보자가 하기엔 오비지역이 좀 많은 곳인것 같네요. +14타 나왔는데 좀더 연습해서 싱글 나오는 날까지..ㅎ홧팅! 그린 라이가 젤 안 맞는곳이 하이원 인데..캐디 말 하고 흐르는게 엄청 많이 틀려도 대체 골프존 직원들은 겜 안해보나?? 아니면 못 고치는건지.. 홀인원 한번하고싶어요 어떻하면 할까요</p>
+                          <p><?=$reviews[$i]->desc?></p>
                           <div class="score-box d-flex align-items-center">
-                              <span class='score'>5.0</span>
+                              <span class='score'><?=ceil($reviews[$i]->avg_score*10)/10?></span>
                               <ul class="list-unstyled">
                                   <li class="d-flex align-items-center justify-content-between">
                                       <p>코스 전체 전략성</p>
                                       <span class="line"></span>
-                                      <span>5.0</span></li>
+                                      <span><?=$reviews[$i]->score_1?>.0</span></li>
                                   <li class="d-flex align-items-center justify-content-between">
                                       <p>페어웨이 넓이</p>
                                       <span class="line"></span>
-                                      <span>5.0</span></li>
+                                      <span><?=$reviews[$i]->score_2?>.0</span></li>
                                   <li class="d-flex align-items-center justify-content-between ">
                                       <p>코스 천장 길이</p>
                                       <span class="line"></span>
-                                      <span>5.0</span></li>
+                                      <span><?=$reviews[$i]->score_3?>.0</span></li>
                                   <li class="d-flex align-items-center justify-content-between">
                                       <p>그린의 난이도</p>
                                       <span class="line"></span>
-                                      <span>5.0</span></li>
+                                      <span><?=$reviews[$i]->score_4?>.0</span></li>
                                   <li class="d-flex align-items-center justify-content-between ">
                                       <p>코스트 퍼포먼스</p>
                                       <span class="line"></span>
-                                      <span>5.0</span></li>
+                                      <span><?=$reviews[$i]->score_5?>.0</span></li>
                                   <li class="d-flex align-items-center justify-content-between ">
                                       <p>시설 설비가 좋다</p>
                                       <span class="line"></span>
-                                      <span>5.0</span></li>
+                                      <span><?=$reviews[$i]->score_6?>.0</span></li>
                                   <li class="d-flex align-items-center justify-content-between">
                                       <p>식사가 맛있다.</p>
                                       <span class="line"></span>
-                                      <span>5.0</span></li>
+                                      <span><?=$reviews[$i]->score_7?>.0</span></li>
                                   <li class="d-flex align-items-center justify-content-between">
                                       <p>스태프 서비스</p>
                                       <span class="line"></span>
-                                      <span>5.0</span></li>
+                                      <span><?=$reviews[$i]->score_8?>.0</span></li>
                               </ul>
                           </div>
                           <div class="date">
-                              <p>2017년 9월 19일 오전 11시 32분</p>
+                              <p><?=$reviews[$i]->year?>년 <?=$reviews[$i]->month?>월 <?=$reviews[$i]->day?>일 <?=$reviews[$i]->ampm?> <?=strlen($reviews[$i]->hour) === 1 ? "0{$reviews[$i]->hour}" : "{$reviews[$i]->hour}"?>시 <?=$reviews[$i]->min?>분</p>
                           </div>
                         </div>
                     </article>
                 </div>
-                <div class="col-lg-12 col-xl-6 ">
-                    <article class="review d-flex flex-column">
-                      <div class="profile d-flex align-items-center">
-                          <div class="proflie-img">
-                            <img src="/public/sangmin/img/icon/noimage.png">
-                          </div>
-                          <div class='proflie-name'>
-                            <span>박세리</span>님의
-                            <span>리뷰</span>
-                          </div>
-                        </div>
-                        <div class="content">
-                          <p>지핸디 +25입니다.오늘 처음으로 별5개짜리 해봤는데..ㅠㅠ 초보자가 하기엔 오비지역이 좀 많은 곳인것 같네요. +14타 나왔는데 좀더 연습해서 싱글 나오는 날까지..ㅎ홧팅! 그린 라이가 젤 안 맞는곳이 하이원 인데..캐디 말 하고 흐르는게 엄청 많이 틀려도 대체 골프존 직원들은 겜 안해보나?? 아니면 못 고치는건지.. 홀인원 한번하고싶어요 어떻하면 할까요</p>
-                          <div class="score-box d-flex align-items-center">
-                              <span class='score'>5.0</span>
-                              <ul class="list-unstyled">
-                                  <li class="d-flex align-items-center justify-content-between">
-                                      <p>코스 전체 전략성</p>
-                                      <span class="line"></span>
-                                      <span>5.0</span></li>
-                                  <li class="d-flex align-items-center justify-content-between">
-                                      <p>페어웨이 넓이</p>
-                                      <span class="line"></span>
-                                      <span>5.0</span></li>
-                                  <li class="d-flex align-items-center justify-content-between ">
-                                      <p>코스 천장 길이</p>
-                                      <span class="line"></span>
-                                      <span>5.0</span></li>
-                                  <li class="d-flex align-items-center justify-content-between">
-                                      <p>그린의 난이도</p>
-                                      <span class="line"></span>
-                                      <span>5.0</span></li>
-                                  <li class="d-flex align-items-center justify-content-between ">
-                                      <p>코스트 퍼포먼스</p>
-                                      <span class="line"></span>
-                                      <span>5.0</span></li>
-                                  <li class="d-flex align-items-center justify-content-between ">
-                                      <p>시설 설비가 좋다</p>
-                                      <span class="line"></span>
-                                      <span>5.0</span></li>
-                                  <li class="d-flex align-items-center justify-content-between">
-                                      <p>식사가 맛있다.</p>
-                                      <span class="line"></span>
-                                      <span>5.0</span></li>
-                                  <li class="d-flex align-items-center justify-content-between">
-                                      <p>스태프 서비스</p>
-                                      <span class="line"></span>
-                                      <span>5.0</span></li>
-                              </ul>
-                          </div>
-                          <div class="date">
-                              <p>2017년 9월 19일 오전 11시 32분</p>
-                          </div>
-                        </div>
-                    </article>
+                <?php }?>
+             
             </article>
 
             <section id='all' class='pl-0 d-flex justify-content-center'>
                 <div id='circle' class='d-flex justify-content-center align-items-center'>
-                    <span>모두보기</span>
+                    <a href="<?=site_url(shop_review_uri."/gets")?>"> <span>모두보기</span></a>
                 </div>
             </section>
         </section>
@@ -714,11 +662,11 @@
 new Chart(document.getElementById("chart-canvas"), {
     type: 'radar',
     data: {
-      labels: ["옵션1","옵션2","옵션3","옵션4","옵션5","옵션6", "옵션7"],
+      labels: ["옵션1","옵션2","옵션3","옵션4","옵션5","옵션6", "옵션7","옵션8"],
       datasets: [
        {
-          //label: "2050",
-          label:false,
+        //   label: "2050",
+        //   label:false,
           fill: true,
           backgroundColor: "rgba(121, 183, 84, 0.5)",//@초록색 바탕
           borderColor: "#79b754", //@ 점수 선색
@@ -727,12 +675,13 @@ new Chart(document.getElementById("chart-canvas"), {
           pointBorderColor: "#79b754",//@
           pointRadius:5,//포인트 두께@
           pointHoverRadius: 7,//호버시포인트두께
-          data: [80,74,98,80,88,98]
+          data: [<?=$product->score_1?> * 25 , <?=$product->score_2?> * 25 ,<?=$product->score_3?> * 25 ,<?=$product->score_4?> * 25,<?=$product->score_5?> * 25,<?=$product->score_6?> * 25 , <?=$product->score_7?> * 25 ,<?=$product->score_8?> * 25 ]
         }
       ]
     },
     options:chartOptions
 });
+console.log(<?=$product->score_1?> + 2);
     </script>
 </body>
 
