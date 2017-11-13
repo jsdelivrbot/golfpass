@@ -12,12 +12,43 @@ class Test extends Public_Controller
      
         
     }
-    function ajax()
+    function get_content($url) {
+        $ch = curl_init(); 
+        curl_setopt ($ch, CURLOPT_URL,$url); //접속할 URL 주소 
+        curl_setopt ($ch, CURLOPT_SSL_VERIFYPEER, false); // 인증서 체크같은데 true 시 안되는 경우가 많다. 
+        // default 값이 true 이기때문에 이부분을 조심 (https 접속시에 필요) 
+        curl_setopt ($ch, CURLOPT_SSLVERSION,4); // SSL 버젼 (https 접속시에 필요) 
+        curl_setopt ($ch, CURLOPT_HEADER, 0); // 헤더 출력 여부 
+        curl_setopt ($ch, CURLOPT_POST, 0); // Post Get 접속 여부 
+        // curl_setopt ($ch, CURLOPT_POSTFIELDS, "latlng=37,126.961452&key=AIzaSyDG0o9eNwx-e019j2Xe-yBdwrSojDr29eY"); // Post 값  Get 방식처럼적는다. 
+        // curl_setopt ($ch, CURLOPT_POSTFIELDS, "latlng=37,126.961452&key=AIzaSyDG0o9eNwx-e019j2Xe-yBdwrSojDr29eY"); // Post 값  Get 방식처럼적는다. 
+        curl_setopt ($ch, CURLOPT_TIMEOUT, 30); // TimeOut 값 
+        curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1); // 결과값을 받을것인지 
+        $result = curl_exec ($ch); 
+        curl_close ($ch); 
+        return $result;
+    }
+        
+        
+    function test2()
     {
-        $this->load->model("shop/product_reviews_model");
-        $r = $this->product_reviews_model->gets_with_pgi(array('product_id'=>1));
-        var_dump($r);
+        // $this->load->library("curl");
+        
+        // $result= $this->curl->get("http://golfpass.net/index.php");
+        $this->_view("test/test2");
+    }
+    function get_google_geocode()
+    {
+        // $result=$this->get_content("https://maps.googleapis.com/maps/api/geocode/json");
+        $result=$this->get_content("https://maps.googleapis.com/maps/api/geocode/json?latlng=37,126.961452&key=AIzaSyDG0o9eNwx-e019j2Xe-yBdwrSojDr29eY&language=ko");
+        $result = json_decode($result);
+        // $result = json_encode($result);
+        var_dump($result);
+        // header("Content-Type:application/json");
 
+        // $data['asd'] = '1234'; 
+        // echo json_encode($data);
+        // return;
     }
     function add($id=null)
     {
@@ -46,10 +77,7 @@ class Test extends Public_Controller
 
 
     
-    function test2()
-    {
-        $this->_view("test/test");
-    }
+ 
     function admin()
     {
         // $this->_template("test/admin",array(),"admin");
