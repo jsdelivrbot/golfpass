@@ -1,6 +1,10 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
+// use Ivory\GoogleMap\Helper\Builder\ApiHelperBuilder;
+// use Ivory\GoogleMap\Helper\Builder\MapHelperBuilder;
+// use Ivory\GoogleMap\Map;
+// use Ivory\GoogleMap\Layer\GeoJsonLayer;
 class Test extends Public_Controller
 // class Sample extends Public_Controller
 {
@@ -12,48 +16,64 @@ class Test extends Public_Controller
      
         
     }
-    function get_content($url) {
-        $ch = curl_init(); 
-        curl_setopt ($ch, CURLOPT_URL,$url); //접속할 URL 주소 
-        curl_setopt ($ch, CURLOPT_SSL_VERIFYPEER, false); // 인증서 체크같은데 true 시 안되는 경우가 많다. 
-        // default 값이 true 이기때문에 이부분을 조심 (https 접속시에 필요) 
-        curl_setopt ($ch, CURLOPT_SSLVERSION,4); // SSL 버젼 (https 접속시에 필요) 
-        curl_setopt ($ch, CURLOPT_HEADER, 0); // 헤더 출력 여부 
-        curl_setopt ($ch, CURLOPT_POST, 0); // Post Get 접속 여부 
-        // curl_setopt ($ch, CURLOPT_POSTFIELDS, "latlng=37,126.961452&key=AIzaSyDG0o9eNwx-e019j2Xe-yBdwrSojDr29eY"); // Post 값  Get 방식처럼적는다. 
-        // curl_setopt ($ch, CURLOPT_POSTFIELDS, "latlng=37,126.961452&key=AIzaSyDG0o9eNwx-e019j2Xe-yBdwrSojDr29eY"); // Post 값  Get 방식처럼적는다. 
-        curl_setopt ($ch, CURLOPT_TIMEOUT, 30); // TimeOut 값 
-        curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1); // 결과값을 받을것인지 
-        $result = curl_exec ($ch); 
-        curl_close ($ch); 
-        return $result;
-    }
+ 
         
         
     function test2()
     {
         // $this->load->library("curl");
         // $this->load->library("test2");
-        $d  = new Test2();
-        // var_dump($d);
-        echo $d->tt();
+    //     $map = new Map();
+    //     $map->setVariable('map');
+    //     $map->setHtmlId('map_canvas');
+ 
+    //     $mapHelperBuilder = MapHelperBuilder::create(); 
+    //     $mapHelper = $mapHelperBuilder->build();
+
+    //    $mapHelperBuilder->getFormatter()->setDebug(true);
+    //    $mapHelperBuilder->getFormatter()->setIndentationStep(4);
+
+    //    $apiHelper = ApiHelperBuilder::create()
+    //    ->setKey('AIzaSyDG0o9eNwx-e019j2Xe-yBdwrSojDr29eY')
+    //    ->build();
+
+    //    echo $mapHelper->render($map);
+    //    echo $apiHelper->render([$map]);
+        
         // echo $this->test2->tt();
         // echo $this->date->test();
         // $result= $this->curl->get("http://golfpass.net/index.php");
-        // $this->_view("test/test2");
+        $this->_view("test/test2");
     }
-    function get_google_geocode()
+    function gets_geocode_name()
     {
+        header("content-type:application/json");
+        $search = $this->input->post("search");
+
+
+        $this->load->library("map_api");
+        $this->map_api->api_key = "AIzaSyDG0o9eNwx-e019j2Xe-yBdwrSojDr29eY";
+        $infos=$this->map_api->geocode($search);
+        $adress = $this->map_api->get_address($infos[0]);
+        $location=$this->map_api->get_location($infos[0]);
+        $lat = $location->lat;
+        $lng = $location->lng;
+        
         // $result=$this->get_content("https://maps.googleapis.com/maps/api/geocode/json");
-        $result=$this->get_content("https://maps.googleapis.com/maps/api/geocode/json?latlng=37,126.961452&key=AIzaSyDG0o9eNwx-e019j2Xe-yBdwrSojDr29eY&language=ko");
-        $result = json_decode($result);
         // $result = json_encode($result);
-        var_dump($result->results[7]);
+        // var_dump($result[0]->formatted_address);
+        // var_dump($result);
         // header("Content-Type:application/json");
 
-        // $data['asd'] = '1234'; 
-        // echo json_encode($data);
-        // return;
+        $data['callback'] = "
+
+        deleteMarkers();
+        moveToLocation(map,{$lat}, {$lng});
+        placeMarker(map,'{$adress}',{$lat}, {$lng});
+        set_location_info('{$adress}',{$lat}, {$lng});
+        "; 
+        echo json_encode($data);
+        return;
     }
     function add($id=null)
     {
