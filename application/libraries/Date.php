@@ -13,8 +13,13 @@ class Solar
     public $solarMonth;
     public $solarYear;
 }
+
 class Date
 {
+    function test()
+    {
+        echo "test";
+    }
     private function get_current_solar_date($holiday,$range)
     {
         $range = (int)$range;

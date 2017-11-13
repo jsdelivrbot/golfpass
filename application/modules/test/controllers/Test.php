@@ -33,9 +33,14 @@ class Test extends Public_Controller
     function test2()
     {
         // $this->load->library("curl");
-        
+        // $this->load->library("test2");
+        $d  = new Test2();
+        // var_dump($d);
+        echo $d->tt();
+        // echo $this->test2->tt();
+        // echo $this->date->test();
         // $result= $this->curl->get("http://golfpass.net/index.php");
-        $this->_view("test/test2");
+        // $this->_view("test/test2");
     }
     function get_google_geocode()
     {
@@ -43,7 +48,7 @@ class Test extends Public_Controller
         $result=$this->get_content("https://maps.googleapis.com/maps/api/geocode/json?latlng=37,126.961452&key=AIzaSyDG0o9eNwx-e019j2Xe-yBdwrSojDr29eY&language=ko");
         $result = json_decode($result);
         // $result = json_encode($result);
-        var_dump($result);
+        var_dump($result->results[7]);
         // header("Content-Type:application/json");
 
         // $data['asd'] = '1234'; 
