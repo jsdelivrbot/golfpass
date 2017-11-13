@@ -4,7 +4,7 @@
   <!-- <form  action="<?=site_url("/test/gets_geocode_name")?>" method="post"> -->
   <form onsubmit="ajax_submit(this); return false;" action="<?=site_url("/test/gets_geocode_name")?>" method="post">
     <input type="text" name="search">
-    <input type="submit" value="검색">
+    <input type="submit" value="주소검색">
   </form>
 <div id="map" style="width:100%;height:500px;"></div>
 
