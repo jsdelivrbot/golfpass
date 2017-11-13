@@ -683,7 +683,8 @@ new Chart(document.getElementById("chart-canvas"), {
           pointBorderColor: "#79b754",//@
           pointRadius:5,//포인트 두께@
           pointHoverRadius: 7,//호버시포인트두께
-          data: [<?=$product->score_1?> * 25 , <?=$product->score_2?> * 25 ,<?=$product->score_3?> * 25 ,<?=$product->score_4?> * 25,<?=$product->score_5?> * 25,<?=$product->score_6?> * 25 , <?=$product->score_7?> * 25 ,<?=$product->score_8?> * 25 ]
+          data: [<?=$product->score_1?> * 20 , <?=$product->score_2?> * 20 ,<?=$product->score_3?> * 20 ,<?=$product->score_4?> * 20,<?=$product->score_5?> * 20,<?=$product->score_6?> * 20 , <?=$product->score_7?> * 20 ,<?=$product->score_8?> * 20 ]
+          
         }
       ]
     },

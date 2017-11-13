@@ -108,7 +108,7 @@ class MY_Pagination extends CI_Pagination {
         // public function get($total_rows,$style,$per_page=10,$num_link=5){
         public function get($in_config){
             $config['total_rows'] = isset($in_config['total_rows']) ? $in_config['total_rows'] : null;
-            $config['per_page'] = 5;
+            $config['per_page'] = 10;
             $config['num_links'] = 3;
 
             $style_pgi = isset($in_config['style_pgi']) ? $in_config['style_pgi'] : 'style_1';

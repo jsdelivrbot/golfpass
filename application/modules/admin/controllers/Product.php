@@ -274,15 +274,15 @@ class Product extends Admin_Controller {
             $data['options'] = $this->db->query("SELECT * FROM product_option WHERE product_id = $id AND kind = 'option'")->result();
             $data['descs'] = $this->db->query("SELECT * FROM product_option WHERE product_id = $id AND kind = 'desc' ORDER BY sort ASC")->result();
             $data['photos'] = $this->db->query("SELECT * FROM product_option WHERE product_id = $id AND kind = 'photo' ORDER BY sort ASC")->result();
-            $data['mode'] = "ajax_update/$id";
+            $data['mode'] = "update/$id";
             
              $this->_template("addUpdate",$data);
              
         }else{
             
-            $this->_dbSet_addUpdate();
+            parent::_dbSet_addUpdate();
             $this->products_model->_update($id);
-            alert('수정 되었습니다.');
+            // alert('수정 되었습니다.');
             my_redirect(admin_product_uri."/update/$id");
         }
     }

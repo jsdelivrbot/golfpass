@@ -67,7 +67,8 @@ $('#navi_btn').click(function(){
         상품 추가/수정
     </h1>
    
-    <form  class="ui form" <?=strpos($mode, "update") ? "onsubmit=\"ajax_submit(this); return false;\"": ""?> action="<?=my_site_url(admin_product_uri."/$mode")?>" method="post">
+    <!-- <form  class="ui form" <?=strpos($mode, "update") ? "onsubmit=\"ajax_submit(this); return false;\"": ""?> action="<?=my_site_url(admin_product_uri."/$mode")?>" method="post"> -->
+    <form  class="ui form" action="<?=my_site_url(admin_product_uri."/$mode")?>" method="post">
         <div class="field">
             <label>상품이름</label>
             <input type="text" name="name" value="<?=set_value_data($product,'name')?>" > <?=form_error('name',false,false)?><br> 
@@ -78,8 +79,19 @@ $('#navi_btn').click(function(){
         </div>
         <div class="field">
             <label>상품 설명</label>
-            <input type="text" name="desc" value="<?=set_value_data($product,'desc')?>"> <?=form_error('desc',false,false)?><br>
+            <!-- <input type="text" name="desc" value="<?=set_value_data($product,'desc')?>"> <?=form_error('desc',false,false)?><br> -->
+            <textarea placeholder="내용" name="desc">
+            <?=set_value_data($product,'desc')?>
+            </textarea>
         </div>
+        <!-- <script src="<?=domain_url('/public/lib/ckeditor/ckeditor.js')?>"></script>
+        <script>
+        CKEDITOR.replace( 'desc',{
+            filebrowserUploadUrl: '/index.php<?=common_uri?>/upload_receive_from_ck'
+        } );
+
+        </script> -->
+
         <div class="field">
             <label>지역</label>
         <input type="text" name="region" value="<?=set_value_data($product,'region')?>"> <?=form_error('region',false,false)?><br>
