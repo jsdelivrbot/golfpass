@@ -52,7 +52,8 @@
         <?php for($i=0; $i < count($products) ; $i++){
         if($i%5 === 0) echo "<br>"    ;
         ?>
-        <input type='radio' name='product_id' value='<?=$products[$i]->id?>' <?=my_set_checked($row,'representative_product',"{$products[$i]->id}")?>/><?=$products[$i]->name?></label>
+        <input type='radio' name='product_id' value='<?=$products[$i]->id?>' <?=my_set_checked($row,'representative_product',"{$products[$i]->id}")?>/>
+        <a href="<?=my_site_url(admin_product_uri."/update/{$products[$i]->id}?menu_name=상품&sub_name=상품관리")?>"> <?=$products[$i]->name?></a>
         <?php }?> 
 
         <div class="field">

@@ -10,7 +10,44 @@
 a{
     color: black;
 }
+
+#navi
+{
+    position : fixed;
+    right:1%;
+    z-index : 999;
+    
+}
 </style>
+
+
+<!-- 네비게이터 -->
+<div id="navi"class="ui compact vertical labeled icon menu">
+  <a id="navi_btn"class="item" >
+    <i class="gamepad icon"></i>
+    x
+  </a>
+  <div>
+  <a class="item">
+    <i class="video camera icon"></i>
+    x
+  </a>
+  <a class="item">
+    <i class="video play icon"></i>
+    x
+  </a>
+  </div>
+</div>
+<script>
+$('#navi_btn').click(function(){
+    $('#navi')
+    .transition('scale')
+    ;
+});
+
+</script>
+<!-- 네비게이터 -->
+
 <div class="sixteen wide column">
         <a class="ui left labeled icon button  secondary" href="<?=my_site_url(admin_product_uri."/gets")?>">
             <i class="left arrow icon"></i>

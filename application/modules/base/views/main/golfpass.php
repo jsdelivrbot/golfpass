@@ -186,7 +186,7 @@
 						<div class="content-box d-flex flex-column align-items-start justify-content-center justify-content-lg-end">
 							<div class='title'>
 								<h1><?=$product_main[0]->name?></h1>
-								<p><?=$product_main[0]->region?> - <?=$product_main[0]->hole_count?>홀 / <?=$product_main[0]->distance?>야드</p>
+								<p><?=$product_main[0]->region?> - <?=$product_main[0]->hole_count?> / <?=$product_main[0]->distance?>야드</p>
 							</div>
 							<div class="content">
 								<p><span>
@@ -215,7 +215,7 @@
 						<div class="content-box d-flex flex-column align-items-start justify-content-center justify-content-lg-end">
 							<div class='title'>
 							<h1><?=$product_main[$i]->name?></h1>
-							<p>아랍에미레이트, 아부다비 - <?=$product_main[$i]->hole_count?>홀 / <?=$product_main[$i]->distance?>야드</p>
+							<p>아랍에미레이트, 아부다비 - <?=$product_main[$i]->hole_count?> / <?=$product_main[$i]->distance?>야드</p>
 							</div>
 							<div class="content">
 								<p><span>

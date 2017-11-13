@@ -254,6 +254,13 @@
               </div>
               <div id="info" class="pt-20">
                 <ul class="list-unstyled">
+                        <?php for($i=0;$i<count($product_sub_desc);$i++){?>
+                        <li class='d-flex align-items-center'><span class="mr-2 align-self-baseline"><i class='xi-radiobox-checked'></i></span>
+                            <p>
+                                <?=$product_sub_desc[$i]->name?>
+                            </p>
+                        </li>
+                        <?php }?>
                 </ul>
                 <div id='price' class="mt-20 mb-20">
                   <h3 class='mb-3'>가격</h3>
