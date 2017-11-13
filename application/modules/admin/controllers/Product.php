@@ -78,6 +78,7 @@ class Product extends Admin_Controller {
         $this->db->set("name",$name);
         $this->db->set("kind",$kind);
         $this->db->set("product_id",$product_id);
+        $this->db->set("price",$this->input->post("price"));
         $this->db->set("sort",$this->input->post("sort"));
         $this->db->insert("product_option");
 
@@ -271,6 +272,7 @@ class Product extends Admin_Controller {
             $data['product_categories'] = $this->product_categories_model->gets_by_product_id($id);
             $data['p_ref_hotel'] = $this->p_hotel_model->gets_by_product_id($id);
             $data['hotels'] = $this->p_hotel_model->_gets();
+            $data['main_options'] = $this->db->query("SELECT * FROM product_option WHERE product_id = $id AND kind = 'main_option' ORDER BY sort ASC")->result();
             $data['options'] = $this->db->query("SELECT * FROM product_option WHERE product_id = $id AND kind = 'option'")->result();
             $data['descs'] = $this->db->query("SELECT * FROM product_option WHERE product_id = $id AND kind = 'desc' ORDER BY sort ASC")->result();
             $data['photos'] = $this->db->query("SELECT * FROM product_option WHERE product_id = $id AND kind = 'photo' ORDER BY sort ASC")->result();

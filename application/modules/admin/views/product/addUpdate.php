@@ -147,10 +147,59 @@ $('#navi_btn').click(function(){
     </form>
 </div>
 
-<!-- 분류 추가 시작 -->
+
 <?php if(strpos($mode, "update") >-1 ){?>
+<!-- 상품메인옵션 -->
+
+<div class="sixteen wide column" style="margin-top:50px;">
+    <h1 class="ui horizontal divider header">
+        <i class="plus icon"></i>
+        상품메인 옵션 추가
+    </h1>
+
+    <form onsubmit="ajax_submit(this); return false;" class="ui form" action="<?=my_site_url(admin_product_uri."/ajax_option_add/main_option")?>" method="post">
+        <input type="hidden" name="product_id" value="<?=$product->id?>">
+        <div class="field">
+            <label>옵션이름</label>
+            <input type="text" name="name" value="" placeholder="이름" > <?=form_error('name',false,false)?><br> 
+        </div>
+        <div class="two fields">
+            <div class="field">
+                <label>가격</label>
+                <input type="text" name="price" value="0" > <?=form_error('eng_name',false,false)?><br>
+            </div>
+            <div class="field">
+                <label>순서</label>
+                <input type="text" name="sort" value="0" > <?=form_error('name',false,false)?><br> 
+            </div>
+        </div>
+        <input class="ui button positive" type="submit" value="추가">
+    </form>
+
+    <br>
+    <h3 class="ui left floated header">추가된 추가설명 리스트</h3>
+    <div class="ui clearing divider"></div>
+
+    <ol class="ui list">
+        <?php for($i=0 ; $i < count($main_options); $i++){?>
+            <div style="display:block">
+            <li style="display:inline-block" ><?=$main_options[$i]->name?></li>
+            가격/순서수정
+            <form  onsubmit="ajax_submit(this); return false;" style="display:inline-block" class="ui form" style="display:inline-block;" action="<?=my_site_url(admin_product_uri."/ajax_option_update/{$main_options[$i]->id}")?>" method="post">
+                <input value="<?=set_value_data($main_options[$i],'price')?>" type="text" name="price" style="display:inline-block; width:120px;">
+                <input value="<?=set_value_data($main_options[$i],'sort')?>" type="text" name="sort" style="display:inline-block; width:50px;">
+                <input class="ui button basic positive" type="submit" value="수정">
+            </form>
+            <a onclick="confirm_callback(this,ajax_a,'복구할 방법이 없습니다. 삭제하시겠습니까?'); return false;" data-action="<?=site_url(admin_product_uri."/ajax_option_delete/{$main_options[$i]->id}/main_option")?>" href="#" class="ui button basic positive" style="display:inline-block">삭제</a>
+            </div>
+        <?php }?>
+    </ol>
 
 
+</div>   
+<!-- 상품메인옵션 -->
+
+<!-- 분류 추가 시작 -->
 <div class="sixteen wide column" style="margin-top:50px;">
     <h1 class="ui horizontal divider header">
         <i class="plus icon"></i>
@@ -194,8 +243,8 @@ $('#navi_btn').click(function(){
     </ol>
 
 </div>   
-<?php }?>
 <!-- 분류 추가 끝-->
+<?php }?>
 
 
 <!-- 호텔 추가 시작 -->

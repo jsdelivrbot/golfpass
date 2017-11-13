@@ -56,7 +56,13 @@
 											 <h1><?=$panel_contents[$i]->title?></h1>
 											 		</a>
 											 <div class="content">
-													  <?=$panel_contents[$i]->desc?>
+											<?php
+											$desc =strip_tags($panel_contents[$i]->desc);
+											if(mb_strlen($desc) >= 80)
+												echo iconv_substr($desc,0,80,"utf-8")."...";
+											else 
+												echo $desc;
+											?>
 											 </div>
 											 <p class="date">
 													 <?=$panel_contents[$i]->created?><span> | </span>

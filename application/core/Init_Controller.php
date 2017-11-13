@@ -245,6 +245,7 @@ class Init_Controller extends MX_Controller{
              `id` INT UNSIGNED NULL AUTO_INCREMENT, 
              `product_id` int UNSIGNED,
              `name` varchar(255),
+             `price` varchar(255),
              `kind` varchar(255), 
              `sort` int NOT NULL DEFAULT '0', 
              `created` datetime NOT NULL DEFAULT NOW(),
