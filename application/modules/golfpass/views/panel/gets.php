@@ -1,4 +1,3 @@
-<a href="<?=site_url(content_uri."/add?board_id=1")?>">글쓰기</a>
 <div id="panel-wrap">
 	<article id="panel-article" class="container-fluid">
 					 <div class="row text-center">
@@ -57,7 +56,7 @@
 									?>
 									<!-- desc에서 이미지태그 src만 추출 -->
 									 <div class="d-none d-md-block col-md-2 d-md-flex align-items-md-start justify-content-end">
-											 <img src="<?=$src?>" class="rounded-circle" alt="" style="widht:60px; height:60px;">
+											 <img src="<?=$src?>" class="rounded-circle" alt="" style="width:60px; height:60px;">
 									 </div>
 									 <div class="col-12 col-md-10">
 										  <a class="w-100" href="<?=site_url(golfpass_panel_content_uri."/get/{$panel_contents[$i]->id}")?>">
@@ -84,6 +83,7 @@
 								<div class="col-12 d-flex justify-content-center align-items-center pagination">
 							    	<?php echo $this->ajax_pgi_2->create_links(); ?>
 								</div>
+								<a href="<?=site_url(content_uri."/add?board_id=1")?>">글쓰기</a>
 								<!-- 페이지네이션 샘플 -->
 							 <!-- <div class="col-12 d-flex justify-content-center align-items-center pagination">
 									 <div class="prev">
