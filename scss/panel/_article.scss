@@ -124,13 +124,13 @@
 				}
 				p {
 					//내용
-                    font-family: 'notokr-light', sans-serif;
-                    font-size: 17px;
-                    color: #4d5256;
 				}
 				.content {
 					//내용이 길어지면 ....
 					overflow: hidden;
+                    font-family: 'notokr-light', sans-serif;
+                    font-size: 17px;
+                    color: #4d5256;
 					p {
 						white-space: normal;
 						line-height: 2;

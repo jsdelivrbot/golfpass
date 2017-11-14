@@ -3199,12 +3199,11 @@ body.menu-open .plus-btn .r2 {
         font-family: 'notokr-medium', sans-serif;
         font-size: 32px;
         color: #4d5256; }
-      #panel-wrap #panel-article section#content-boxs .content-box p {
+      #panel-wrap #panel-article section#content-boxs .content-box .content {
+        overflow: hidden;
         font-family: 'notokr-light', sans-serif;
         font-size: 17px;
         color: #4d5256; }
-      #panel-wrap #panel-article section#content-boxs .content-box .content {
-        overflow: hidden; }
         #panel-wrap #panel-article section#content-boxs .content-box .content p {
           white-space: normal;
           line-height: 2;
