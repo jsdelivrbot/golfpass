@@ -79,7 +79,7 @@ class Product extends Base_Controller {
             'num_people'=>"1"
         ));
         if($row !== null)
-            $data['total_price'] = $row->price;
+            $data['total_price'] = "{$row->price}원";
         else
             $data['total_price'] = "데이터값 없음";
 

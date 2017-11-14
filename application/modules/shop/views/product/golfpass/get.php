@@ -354,7 +354,7 @@
                 </ul>
                 <div id='price' class="mt-20 mb-20">
                   <h3 class='mb-3'>가격</h3>
-                  <p ><span id="total_price"><?=$total_price?></span>원</p>
+                  <p ><span id="total_price"><?=$total_price?></span></p>
                 </div>
               </div>
             </div>

@@ -40,7 +40,7 @@ class P_daily_price extends Base_Controller
                     'num_people'=>$num_people
                 ));
         if($row !== null)
-            $total_price = $row->price;
+            $total_price = "{$row->price}원";
         else
             $total_price = "데이터값 없음";
 
