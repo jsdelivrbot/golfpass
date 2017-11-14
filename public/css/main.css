@@ -3219,6 +3219,10 @@ body.menu-open .plus-btn .r2 {
         font-family: 'notokr-light', sans-serif;
         font-size: 17px;
         color: #81878b; }
+      #panel-wrap #panel-article section#content-boxs .content-box .post_write {
+        font-family: 'notokr-medium', sans-serif;
+        font-size: 11px;
+        color: #cecece; }
 
 #footer {
   margin-top: 20px;
