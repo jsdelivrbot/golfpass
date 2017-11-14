@@ -20,7 +20,7 @@
         <div class="sixteen wide column">
             <div class="ui text menu">
                 <div class="header item">
-                    <h3 class="ui header"><i style="display:inline-block" class="user icon"></i> <?=$this->user->name?> (<?=$this->user->userName?>)</h3>
+                    <h3 class="ui header"><i style="display:inline-block" class="user icon"></i> </h3>
                 </div>
                 <a class="computer only item">
                     <h3 class="ui header"><i class="diamond icon"></i>다이아몬드</h3>
