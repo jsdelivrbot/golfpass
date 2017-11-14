@@ -432,23 +432,33 @@ $('#navi_btn').click(function(){
 
     <div id="map" style="width:100%;height:500px;"></div>
 
-    <form  style="margin-top:20px;"class="ui form"onsubmit="ajax_submit(this); return false;" action="<?=site_url("/test/get_marker")?>" method="post">
+    <form  style="margin-top:20px;"class="ui form"onsubmit="ajax_submit(this); return false;" action="<?=site_url(api_google_map."/ajax_get_marker_by_address")?>" method="post">
         <div class="field">
                 <!-- <label >이미지</label> -->
             <input type="text"placeholder="주소" name="search">
         </div>
         <input class="ui button positive basic" type="submit" value="주소검색">
     </form>
-    <form style="margin-top:20px;" class="ui form"action="">
+    <form style="margin-top:20px;" class="ui form" onsubmit="ajax_submit(this); return false;" action="<?=site_url(admin_product_uri."/ajax_update/{$product->id}")?>">
+            <input type="hidden" name="name" value="<?=$product->name?>">
+        <div class="two fields">    
+            <div class="field">
+                <input type="text" name="map_name" placeholder="업소이름" value="<?=set_value_data($product,'map_name')?>">
+            
+            </div>
+            <div class="field">
+                <input type="text" name="map_type" placeholder="업소타입" value="<?=set_value_data($product,'map_type')?>">
+            </div>
+        </div>
         <div class="field">
-        <input type="text" name="map_address">
+            <input type="text" name="address" placeholder="주소" value="<?=set_value_data($product,'address')?>">
         </div>
         <div class="two fields">
             <div class="field">
-                <input type="text" name="map_lat">
+                <input type="text" name="lat" placeholder="위도" value="<?=set_value_data($product,'lat')?>">
             </div>
             <div class="field">
-                <input type="text" name="map_lng">
+                <input type="text" name="lng" placeholder="경도" value="<?=set_value_data($product,'lng')?>">
             </div>
         </div>
         <input class="ui button positive" type="submit" value="위치저장">

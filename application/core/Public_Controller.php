@@ -4,6 +4,7 @@ class Public_Controller extends MX_Controller{
     public static $instance;
     public $view_dir;
     public $user =null;
+    // public $setting =null;
     public $template_kind;
     public $table;
     public $model;
@@ -36,6 +37,9 @@ class Public_Controller extends MX_Controller{
         }else{
             $this->user = (object)array("id"=>"0","auth"=>"0");
         }
+
+        $this->setting= $this->db->where('id','1')->get("setting")->row();
+
     }
 
     function _template($view,$data=array() , $template_kind = null)

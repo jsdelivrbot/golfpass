@@ -328,6 +328,13 @@ class Init extends Init_Controller {
             $result = $this->db->query("CREATE TABLE `$tb_name`(
             `id` INT UNSIGNED NULL AUTO_INCREMENT, 
             `hashtag` varchar(255) DEFAULT '', 
+            -- 위치정보 
+            `map_name` VARCHAR( 60 ) NOT NULL ,
+            `address` VARCHAR( 80 ) NOT NULL ,
+            `lat` FLOAT( 10, 6 ) NOT NULL ,
+            `lng` FLOAT( 10, 6 ) NOT NULL ,
+            `map_type` VARCHAR( 30 ) NOT NULL,
+            -- 위치정보 
             `same_price_every_year` VARCHAR(10) NOT NULL DEFAULT '0',
             `reviews_count` int UNSIGNED NOT NULL DEFAULT '0',
             `name` varchar(30) NOT NULL DEFAULT '샘플상품',

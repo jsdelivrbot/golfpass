@@ -42,8 +42,25 @@ class Init_Controller extends MX_Controller{
         $this->pages();
         $this->product_cartlist();
         $this->hashtag();
+
+        if(ENVIRONMENT === 'development')
+        {
+            $this->test_setting();
+            $this->db->set('google_map_api_key',"AIzaSyDG0o9eNwx-e019j2Xe-yBdwrSojDr29eY");
+            $this->db->set('cafe24_userName',"santutu6");
+            $this->db->set('cafe24_sms_api_key',"1856aaacd1dee9bdb79b60c1c8746f38");
+            $this->db->set('cafe24_sms_number',"01051008825");
+            $this->db->set('imp_key',"9540423424246518");
+            $this->db->set('imp_secret',"Jw97K8hHJMJbZ2BgxSIaqV1Z9qWAlIH4fRc0ZtHIfrUfuvw1ofbOadNjDKTYsB3IsfIsJqaYR4elAKnY");
+
+            $this->db->where("id","1");
+            $this->db->update("setting");
+        }
     }
-    
+    function test_setting()
+    {
+
+    }
     function setting()
     {
          // setting 테이블 만들기
@@ -54,6 +71,7 @@ class Init_Controller extends MX_Controller{
              `id` INT UNSIGNED NULL AUTO_INCREMENT, 
              `is_product_review_display` varchar(10) NOT NULL DEFAULT '0',
              `google_map_api_key` varchar(255),
+             `cafe24_userName` varchar(255),
              `cafe24_sms_api_key` varchar(255),
              `cafe24_sms_number` varchar(255),
              `imp_key` varchar(255),

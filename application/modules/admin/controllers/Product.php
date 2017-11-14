@@ -255,7 +255,7 @@ class Product extends Admin_Controller {
             $data['alert'] =  validation_errors(false,false);
              
         }else{
-            $this->_dbSet_addUpdate();
+            parent::_dbSet_addUpdate();
             $this->products_model->_update($id);
         }
         $data['reload'] =true;
@@ -278,8 +278,9 @@ class Product extends Admin_Controller {
             $data['photos'] = $this->db->query("SELECT * FROM product_option WHERE product_id = $id AND kind = 'photo' ORDER BY sort ASC")->result();
             $data['mode'] = "update/$id";
 
+            
             $this->load->library("map_api");
-            $this->map_api->api_key = "AIzaSyDG0o9eNwx-e019j2Xe-yBdwrSojDr29eY";
+            $this->map_api->api_key = $this->setting->google_map_api_key;
 
             $this->_template("addUpdate",$data);
              

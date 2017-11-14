@@ -8,6 +8,10 @@ class Map_api
     public $callback ="mapInit";
     public $target = "map";
     public $default_zoom = "2";
+
+    public $address_input_name = "address";
+    public $lat_input_name = "lat";
+    public $lng_input_name = "lng";
     function create_script()
     {
         ?>
@@ -29,9 +33,9 @@ class Map_api
             }
             function set_location_info(address,lat,lng)
             {
-            $("input[name=map_address]").val(address);
-            $("input[name=map_lat]").val(lat);
-            $("input[name=map_lng]").val(lng);
+            $("input[name=<?=$this->address_input_name?>]").val(address);
+            $("input[name=<?=$this->lat_input_name?>]").val(lat);
+            $("input[name=<?=$this->lng_input_name?>]").val(lng);
             }
             function moveToLocation(map,lat, lng){
                 var center = new google.maps.LatLng(lat, lng);

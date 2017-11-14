@@ -34,6 +34,7 @@ define("admin_order_uri","/admin/order");
 define("admin_product_review_uri","/admin/review");
 define("admin_page_uri","/admin/page");
 define("admin_ref_cate_product_uri","/admin/ref_cate_product");
+define("admin_sms_uri","/admin/sms");
 
 define("admin_setting_product_uri","/admin/setting");
 define("admin_setting_general_uri","/admin/setting");
@@ -60,6 +61,9 @@ define("shop_reply_uri","/shop/reply");
 define("shop_category_uri","/shop/category");
 define("shop_celebrity_uri","/shop/celebrity");
 define("shop_user_uri","/shop/user");
+
+//api
+define("api_google_map","/api/google_map");
 
 //golfpass
 define("golfpass_panel_uri","/golfpass/panel");

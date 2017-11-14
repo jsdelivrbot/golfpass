@@ -7,8 +7,8 @@ class Google_map extends Public_Controller {
         parent::__construct();
 
         $this->load->library("map_api");
-        $this->map_api->api_key = "AIzaSyDG0o9eNwx-e019j2Xe-yBdwrSojDr29eY";
-        
+        $this->map_api->api_key = $this->setting->google_map_api_key;
+      
     }
     
 

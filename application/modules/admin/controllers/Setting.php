@@ -21,7 +21,7 @@ class Setting extends Admin_Controller {
     // }
     function get_general()
     {
-
+        
         $data['row']=$this->setting_model->_get(1);
         $this->_template("get_general",$data);
     }
@@ -36,7 +36,13 @@ class Setting extends Admin_Controller {
         $this->_template("get_product",$data);
 
     }
+    function get_sms()
+    {
+        $data['row']=$this->setting_model->_get(1);
+        $this->_template("get_sms",$data);
+    }
    
+
     function ajax_update()
     {
         header("content-type:application/json");
