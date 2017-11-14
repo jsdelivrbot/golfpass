@@ -3114,14 +3114,16 @@ body.menu-open .plus-btn .r2 {
   width: 100%;
   font-family: 'Noto Sans', sans-serif; }
   #panel-wrap #panel-article #panel-title {
-    font-size: 1.5rem; }
+    font-family: 'notokr-demilight', sans-serif;
+    font-size: 32px;
+    color: #4d5256; }
     @media (min-width: 767px) {
       #panel-wrap #panel-article #panel-title {
-        font-size: 2rem;
-        font-weight: bold;
         margin: 40px; } }
     #panel-wrap #panel-article #panel-title span {
-      color: #a3cc8e;
+      font-family: 'notokr-medium', sans-serif;
+      font-size: 32px;
+      color: #79b754;
       display: inline-block; }
       #panel-wrap #panel-article #panel-title span::before {
         content: '';
@@ -3147,7 +3149,7 @@ body.menu-open .plus-btn .r2 {
         left: 0;
         bottom: 0;
         padding: 30px;
-        border-bottom: 2px solid #e1e4e6; }
+        border-bottom: 1px solid #e1e4e6; }
       #panel-wrap #panel-article section#panel-section article#panel-box .panel {
         margin-bottom: 40px; }
         @media (min-width: 992px) {
@@ -3158,13 +3160,17 @@ body.menu-open .plus-btn .r2 {
           overflow: hidden;
           margin-top: 20px; }
           #panel-wrap #panel-article section#panel-section article#panel-box .panel .panel-content p {
+            font-family: 'notokr-light', sans-serif;
+            font-size: 14px;
+            color: #4d5256;
             margin-bottom: 10px; }
           #panel-wrap #panel-article section#panel-section article#panel-box .panel .panel-content .intro {
-            font-size: 0.8rem;
-            color: #c5c5c5;
+            font-family: 'notokr-light', sans-serif;
+            font-size: 14px;
+            color: #bbbbbb;
             white-space: normal;
             line-height: 2;
-            text-align: left;
+            text-align: center;
             word-wrap: break-word;
             display: -webkit-box;
             -webkit-line-clamp: 2;
@@ -3189,7 +3195,7 @@ body.menu-open .plus-btn .r2 {
       position: relative;
       padding: 45px 0; }
       #panel-wrap #panel-article section#content-boxs .content-box:not(:first-child) {
-        border-top: 2px solid #e1e4e6; }
+        border-top: 1px solid #e1e4e6; }
       #panel-wrap #panel-article section#content-boxs .content-box > * {
         margin: 13px 0; }
       #panel-wrap #panel-article section#content-boxs .content-box h1 {

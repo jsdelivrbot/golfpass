@@ -6,15 +6,17 @@
 		font-family: 'Noto Sans', sans-serif;
 		#panel-title {
 			//h1 "골프패스 패널 소개" 부분
-			font-size: 1.5rem;
+                font-family: 'notokr-demilight', sans-serif;
+                font-size: 32px;
+                color: #4d5256;
 			@media(min-width: 767px) {
-				font-size: 2rem;
-				font-weight: bold;
 				margin: 40px;
 			}
 			span {
 				//h1>span '골프패스' 색상과 짧은 보더
-				color: #a3cc8e;
+                font-family: 'notokr-medium', sans-serif;
+                font-size: 32px;
+                color: #79b754;
 				display: inline-block;
 				&::before {
 					content: '';
@@ -45,7 +47,7 @@
 					left: 0;
 					bottom: 0;
 					padding: 30px;
-					border-bottom: 2px solid #e1e4e6;
+					border-bottom: 1px solid #e1e4e6;
 				}
 				.panel {
 					//패널 프로필
@@ -59,15 +61,19 @@
 						margin-top: 20px;
 						p {
 							//패널 이름
+                            font-family: 'notokr-light', sans-serif;
+                            font-size: 14px;
+                            color: #4d5256;
 							margin-bottom: 10px;
 						}
 						.intro {
 							//패널 소개
-							font-size: 0.8rem;
-							color: #c5c5c5;
+                            font-family: 'notokr-light', sans-serif;
+                            font-size: 14px;
+                            color: #bbbbbb;
 							white-space: normal;
 							line-height: 2;
-							text-align: left;
+							text-align: center;
 							word-wrap: break-word;
 							display: -webkit-box;
 							-webkit-line-clamp: 2;
@@ -108,7 +114,7 @@
 				padding: 45px 0;
 				&:not(:first-child) {
 					//첫번째 컨텐츠를 제외한 나머지 보더top 설정
-					border-top: 2px solid #e1e4e6;
+					border-top: 1px solid #e1e4e6;
 				}
 				> * {
 					margin: 13px 0;
