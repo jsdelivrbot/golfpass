@@ -19,7 +19,30 @@ class Test extends Public_Controller
     }
  
         
-        
+    function css()
+    {
+        $this->fv->set_rules('html',"html","required");
+        if($this->fv->run() === false)
+        {
+            $this->_view("css");
+        }
+        else
+        {
+            $html=$this->input->post("html");
+            // $html =preg_match("/(?<=\bclass=\"[^\"]*?)[^\"\s]+/",$html,$match);
+
+            // $url = "www.exampe.com/id/1234";
+            // preg_match("/(?<=id\/)\d+/",$url,$matches);
+            // print_r($matches);
+
+            $html =preg_match_all("/\.(-?[_a-zA-Z]+[_a-zA-Z0-9-]*)[^}]+{/",$html,$match);
+
+            // var_dump($html);
+            var_dump($match);
+        }
+
+
+    }
     function test2()
     {
      
