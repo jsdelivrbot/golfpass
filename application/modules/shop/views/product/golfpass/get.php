@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="/public/css/main.css">
     <link rel="stylesheet" href="/public/sangmin/css/xeicon.min.css">
     <link rel="stylesheet" href="/public/sangmin/dist/Nwagon/Nwagon.css" type="text/css">
+
 </head>
 
 <body>
@@ -249,7 +250,7 @@
                           -->
                 <div id='count-box' class='d-flex align-items-stretch justify-content-end'>
                   <form class="" action="index.html" method="post">
-                    <select class="custom-select" id="">
+                    <select name="num_people"class="custom-select" id="">
                       <option value="1">1명</option>
                       <option value="2">2명</option>
                       <option value="3">3명</option>
@@ -292,6 +293,54 @@
                     <i class="xi-calendar-check"></i>
                   </div>
                 </form>
+                                    <script
+                    src="https://code.jquery.com/jquery-3.2.1.min.js"
+                    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+                    crossorigin="anonymous"></script>
+                <script>
+                    $(document).ready(function(){
+                        $("select[name=num_people]").change(function(){
+                            ajax_get_price();
+                        });
+                    });
+
+                    function ajax_get_price()
+                    {
+                        var num_people = $("select[name=num_people] option:selected").val();
+                        var product_id = "<?=$product->id?>";
+                        var start_date;
+                        var end_date;
+                        var url = "<?=site_url(golfpass_p_daily_price_uri."/ajax_cal")?>"
+                        $.ajax({
+                            type: "POST",
+                            dataType : 'json',
+                            data: {
+                                product_id : product_id,
+                                num_people: num_people
+                            },
+                            url: url,
+                            beforeSend: function(){
+                                // $('.loading').fadeIn(500);
+                            },
+                            success:function(data){
+                                $("#total_price").text(data.total_price);
+                                // console.log(data);
+                            },
+                            error: function(xhr, textStatus, errorThrown){
+                                alert('에러... ');
+                                // $('.loading').fadeOut(500);
+                                console.log('code: '+request.status+"\n"+'message: '+request.responseText+"\n"+'error: '+error);
+                                console.log(errorThrown);
+                            }
+                        });
+                    }
+                </script>
+                <!-- <form action="<?=site_url(golfpass_p_daily_price_uri."/ajax_cal")?>" method="post">
+
+                    <input type="text" value="1" name="product_id">
+                    <input type="text" value="1" name="num_people">
+                    <input type="submit">
+                </form> -->
               </div>
               <div id="info" class="pt-20">
                 <ul class="list-unstyled">
@@ -305,8 +354,7 @@
                 </ul>
                 <div id='price' class="mt-20 mb-20">
                   <h3 class='mb-3'>가격</h3>
-                  <p>
-                    0원</p>
+                  <p ><span id="total_price"><?=$total_price?></span>원</p>
                 </div>
               </div>
             </div>

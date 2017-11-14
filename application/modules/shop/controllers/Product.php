@@ -70,7 +70,19 @@ class Product extends Base_Controller {
         //product
         $product= $this->products_model->get($id);
         $data['product'] =$product;
-        
+        //1박 2일 1인 가격
+        $this->load->model("golfpass/p_daily_price_model");
+        $row=$this->p_daily_price_model->_get(array(
+            'product_id'=>$id,
+            'date'=>date("Y-m-d"),
+            'period'=>"2",
+            'num_people'=>"1"
+        ));
+        if($row !== null)
+            $data['total_price'] = $row->price;
+        else
+            $data['total_price'] = "데이터값 없음";
+
         //product_option
         $this->load->model("product_option_model");
         $data['product_sub_desc'] = $this->product_option_model->gets_options($id,'desc');

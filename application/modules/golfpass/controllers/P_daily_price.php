@@ -14,17 +14,18 @@ class P_daily_price extends Base_Controller
     }
     function ajax_cal()
     {
+        header("Content-Type:application/json");
         date_default_timezone_set('Asia/Seoul');
 
         // $product_id = $this->input->post("product_id");
         // $num_people = $this->input->post("num_people");
         // $start_date = $this->input->post("start_date");
         // $end_date = $this->input->post("end_date");
-        $product_id = '1';
-        $num_people = '1';
+        $product_id = $this->input->post("product_id");
+        $num_people = $this->input->post("num_people");
         $start_date = "2017-11-01";
-        $end_date  ="2017-11-03";
-
+        $end_date  ="2017-11-02";
+      
         $end_date =date("Y-m-d",strtotime("{$end_date} +1 days"));
 
         $obj_start_date = date_create($start_date);
@@ -32,12 +33,21 @@ class P_daily_price extends Base_Controller
         $period = date_diff($obj_start_date, $obj_end_date)->days;
 
         //start date하나로 계산
-        $price=$this->p_daily_price_model->_get(array(
+        $row=$this->p_daily_price_model->_get(array(
                     'product_id'=>$product_id,
                     'date'=>$start_date,
                     'period'=>$period,
                     'num_people'=>$num_people
-                ))->price;
+                ));
+        if($row !== null)
+            $total_price = $row->price;
+        else
+            $total_price = "데이터값 없음";
+
+        $data['total_price'] = $total_price;
+        echo json_encode($data);
+        
+        return;
         // start date하나로 계산
         // //날자 하나씩 계산
         // $price =0;
@@ -55,9 +65,10 @@ class P_daily_price extends Base_Controller
         // }
         // //날자 하나씩 계산
 
-        $data['price'] = $price;
+       
 
-        var_dump($price);
+     
+
 
     }
 
