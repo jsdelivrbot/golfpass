@@ -3174,9 +3174,9 @@ body.menu-open .plus-btn .r2 {
             -webkit-box-orient: vertical; }
   #panel-wrap #panel-article .pagination a {
     margin: 10px;
-    font-weight: bold;
-    font-size: 0.8rem;
-    color: #c5c5c5;
+    font-family: 'notokr-medium', sans-serif;
+    font-size: 11px;
+    color: #cecece;
     text-decoration: none; }
     #panel-wrap #panel-article .pagination a:hover {
       color: black; }
