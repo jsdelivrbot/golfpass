@@ -166,8 +166,8 @@ class Order extends Base_Controller {
     }
     public function ajax_payment_check_update(){
         header("content-type:application/json");
-        $imp_key = $this->config->item('imp_key');
-        $imp_secret = $this->config->item('imp_secret');
+        $imp_key = $this->config->item($this->setting->imp_key);
+        $imp_secret = $this->config->item($this->setting->imp_secret);
         $this->load->library("Iamport",array("imp_key"=>$imp_key, "imp_secret"=>$imp_secret));
 
         $imp_uid =$this->input->post('imp_uid');
@@ -283,8 +283,10 @@ class Order extends Base_Controller {
     public function ajax_payment_error_cancel(){
         header("content-type:application/json");
 
-        $imp_key = $this->config->item('imp_key');
-        $imp_secret = $this->config->item('imp_secret');
+        $imp_key = $this->config->item($this->setting->imp_key);
+        $imp_secret = $this->config->item($this->setting->imp_secret);
+        // $imp_key = $this->config->item('imp_key');
+        // $imp_secret = $this->config->item('imp_secret');
         $this->load->library("Iamport",array("imp_key"=>$imp_key, "imp_secret"=>$imp_secret));
 
         $merchant_uid = $this->input->post("merchant_uid");

@@ -7,6 +7,10 @@
     <!-- <label>상품 후기 자동 보이기</label> -->
     <form class="ui form"onsubmit="ajax_submit(this);return false;"action="<?=site_url(admin_setting_product_uri."/ajax_update")?>" method="post">
         <div class="field">
+            <label>CAFE24 SMS 아이디</label>
+            <input type="text" name="cafe24_userName" placeholder="아이디" value="<?=set_value_data($row,'cafe24_userName')?>" >
+        </div>
+        <div class="field">
             <label>CAFE24 SMS API 키</label>
             <input type="text" name="cafe24_sms_api_key" placeholder="apikey" value="<?=set_value_data($row,'cafe24_sms_api_key')?>" >
         </div>

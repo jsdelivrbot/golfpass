@@ -136,7 +136,8 @@ $config['subclass_prefix'] = 'MY_';
 | Note: This will NOT disable or override the CodeIgniter-specific
 |	autoloading (application/config/autoload.php)
 */
-$config['composer_autoload'] = FALSE;
+// $config['composer_autoload'] = TRUE;
+// $config['composer_autoload'] = '//vendor/autoload.php';
 
 /*
 |--------------------------------------------------------------------------
@@ -539,8 +540,6 @@ $config['email'] = "santutu";
 $config['per_page']= 3;
 
 //iamport
-$config['imp_key'] = '9540423424246518';
-$config['imp_secret'] ='Jw97K8hHJMJbZ2BgxSIaqV1Z9qWAlIH4fRc0ZtHIfrUfuvw1ofbOadNjDKTYsB3IsfIsJqaYR4elAKnY';
 
 
 

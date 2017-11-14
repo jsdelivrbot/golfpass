@@ -387,9 +387,9 @@ class User extends Base_Controller
                //폰에 번호보내기 
                $this->load->library("sms_cafe24");
                
-               $this->sms_cafe24->secure = "1856aaacd1dee9bdb79b60c1c8746f38";
-               $this->sms_cafe24->user_id = "santutu6";
-               $this->sms_cafe24->send("010-5100-8825",$to,"[{$auth_key}] 골프패스 인증번호입니다.");
+               $this->sms_cafe24->secure = $this->setting->cafe24_sms_api_key;
+               $this->sms_cafe24->user_id = $this->setting->cafe24_userName;
+               $this->sms_cafe24->send("{$this->setting->cafe24_sms_number}",$to,"[{$auth_key}] 골프패스 인증번호입니다.");
             }
             else //POST
             { 
