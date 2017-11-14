@@ -26,6 +26,18 @@
         text-decoration: none !important;
     }
 </style>
+
+<!-- 추가한 부분 -->
+<style>
+#bg-div{ background-image:url(<?=$product_main[0]->photo?>) !important}
+.content-box:first-child a .content{ height:250px}
+.content-box a .content{height: 100px; transition:0.8s; background-repeat:no-repeat; background-position:center; background-size:cover}
+.content-box a:hover .content{ height:250px !important}
+.blank_img{ max-width:438px; width:100%}
+@media (max-width:767px){.blank_img{ max-width:100%;}}
+</style>
+<!-- // 추가한 부분 -->
+
 </head>
 
 <body>
@@ -173,6 +185,7 @@
             </div>
         </nav>
     </header>
+
     <div id="bg-div" style=""></div>
     <section id="section1" class="scroll-smooth">
         <article class="carousel slide" id='section1-slide'>
@@ -180,9 +193,7 @@
             </ol>
             <div class="carousel-inner">
             <?php if(isset($product_main[0])){?>
-                <div class="carousel-item active">
-
-                    <img src="<?=$product_main[0]->photo ?? ""?>" alt="" class="position-absolute d-block">
+                <div class="carousel-item active" style=" background-image:url(<?=$product_main[0]->photo?>); ">
                     <div class="content-box d-flex flex-column align-items-start justify-content-center justify-content-lg-end">
                         <div class='title'>
                             <h1><?=$product_main[0]->name?></h1>
@@ -210,8 +221,7 @@
                 </div>
                 <?php }?>
                 <?php for($i=1; $i<= count($product_main)-1 ; $i++){?>
-                <div class="carousel-item">
-                    <img src="<?=$product_main[$i]->photo?>" alt="" class="position-absolute d-block">
+                <div class="carousel-item" style=" background-image:url(<?=$product_main[$i]->photo?>); ">
                     <div class="content-box d-flex flex-column align-items-start justify-content-center justify-content-lg-end">
                         <div class='title'>
                         <h1><?=$product_main[$i]->name?></h1>
@@ -312,8 +322,11 @@
                              <div class="col-12 col-md-6 col-lg-3 mb-3 d-flex item">
                              <a href="<?=site_url(shop_product_uri."/get/{$products_panel[$i]->id}")?>">
                                  <figure>
-                                                                 <div class="position-relative">
-                                                                         <img class="rounded-top " src="<?=$products_panel[$i]->photos[0]?>" alt="" width="100%">
+                                 								<!-- 이부분 수정 : 아래 이미지 경로에서 blank2.png 파일을 받아서 똑같은 경로에 넣어줘야함 -->
+                                                                 <div class="position-relative rounded-top" style="background-image:url(<?=$products_panel[$i]->photos[0]?>); background-repeat:no-repeat; background-position:center; background-size:cover">
+                                                                         <img src="/public/images/blank2.png" class="blank_img">
+                                                                <!-- // 이부분 수정 -->
+                                                                          
                                                                          <span class="position-absolute text-light price"><?=$products_panel[$i]->price?>원</span>
                                                                  </div>
                                                                  <div class="d-flex align-items-center p-1 text-light rounded-top content">
@@ -438,6 +451,7 @@
                 <button data-rankingtype="score_7" class="btn btn-outline-light btn-sm" >#score_7</button>
                 <button data-rankingtype="score_8" class="btn btn-outline-light btn-sm" >#score_8</button>
             </div>
+            
             <div class="row no-gutters">
                 <div class="col-12 col-lg-6">
                     <!--1위부터 3위까지 아래 div.content-box-->
@@ -447,7 +461,7 @@
                     <div class="col-12 content-box">
                         <a href="<?=site_url(shop_product_uri."/get/{$products_avgScore[$i]->id}")?>">
                             <div class="d-flex align-items-center p-4 mb-3 content"
-                                style="height: 150px; background-image: url(<?=$products_avgScore[$i]->photos[0]?>)">
+                                style="background-image: url(<?=$products_avgScore[$i]->photos[0]?>)">
                                 <div class='d-flex align-items-center justify-content-center bg-light rounded-circle'>
                                     <span class="d-flex align-items-center justify-content-center"><?=$i+1?></span>
                                 </div>
@@ -546,7 +560,7 @@
         <article class="w-100">
             <div class="row d-flex justify-content-center">
                 <iframe width="90%" height="100%" src="https://www.youtube.com/embed/GF4xrSnzNPo" frameborder="0"
-                        gesture="media" allowfullscreen style="min-height: 450px;"></iframe>
+                        gesture="media" allowfullscreen style="min-height: 725px;"></iframe>
             </div>
         </article>
     </section>
@@ -659,6 +673,22 @@ success: function(data){
 
 });
 </script>
+
+<!-- 추가한 부분 -->
+<script>
+$(function(){
+	$(".content-box:nth-child(2) a .content, .content-box:nth-child(3) a .content").hover(
+		function() {
+			$(".content-box:first-child a .content").css("height","100px");
+		}, 
+		function() {
+			$(".content-box:first-child a .content").css("height","250px");	
+		}
+	);
+});
+</script>
+<!-- // 추가한 부분 -->
+
 </body>
 
 </html>
