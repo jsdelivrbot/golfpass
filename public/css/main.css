@@ -3182,6 +3182,12 @@ body.menu-open .plus-btn .r2 {
       color: black; }
   #panel-wrap #panel-article .pagination li.current a {
     color: black; }
+  #panel-wrap #panel-article .post_write {
+    width: 100%;
+    text-align: right;
+    font-family: 'notokr-medium', sans-serif;
+    font-size: 14px;
+    color: #000; }
   #panel-wrap #panel-article section#content-boxs {
     margin: 0 auto 60px;
     margin-top: 30px;
@@ -3219,10 +3225,6 @@ body.menu-open .plus-btn .r2 {
         font-family: 'notokr-light', sans-serif;
         font-size: 17px;
         color: #81878b; }
-      #panel-wrap #panel-article section#content-boxs .content-box .post_write {
-        font-family: 'notokr-medium', sans-serif;
-        font-size: 11px;
-        color: #cecece; }
 
 #footer {
   margin-top: 20px;

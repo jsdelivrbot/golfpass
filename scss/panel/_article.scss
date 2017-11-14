@@ -98,6 +98,13 @@
 				}
 			}
 		}
+                .post_write {
+                    width: 100%;
+                    text-align: right;
+                    font-family: 'notokr-medium', sans-serif;
+                    font-size: 14px;
+                    color: #000;
+                }
 		section#content-boxs {
 			//아래 컨텐츠 컨테이너
 			margin: 0 auto 60px;
@@ -151,11 +158,6 @@
                     font-size: 17px;
                     color: #81878b;
 				}
-                .post_write {
-                    font-family: 'notokr-medium', sans-serif;
-                    font-size: 11px;
-                    color: #cecece;
-                }
 			}
 		}
 	}
