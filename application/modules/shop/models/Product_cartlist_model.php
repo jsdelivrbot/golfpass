@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') OR exit('no direct script access allrowed');
 
-class Product_cartlist_Model extends CI_Model{
+class Product_cartlist_Model extends Public_Model{
     public $table;
     function __construct(){
         parent:: __construct();

@@ -354,8 +354,9 @@
                 </ul>
                 <div id='price' class="mt-20 mb-20">
                   <h3 class='mb-3'>가격</h3>
-                  <p ><span id="total_price"><?=$total_price?></span></p>
+                  <p id="total_price"><?=$total_price?></p>
                 </div>
+                <a  onclick="ajax_a(this); return false;" data-action="<?=site_url(shop_wishlist_uri."/ajax_add/{$product->id}")?>"href="#">위시리스트에 추가</a>
               </div>
             </div>
           </div>
@@ -719,6 +720,7 @@
     <script src="/public/sangmin/js/custom/detail_slide.js"></script>
     <script src="/public/sangmin/js/custom/detail_sticky.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+  <script src="<?=domain_url('/public/js/common.js')?>"></script>
     </script>
 
     <script>

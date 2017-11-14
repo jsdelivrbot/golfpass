@@ -33,7 +33,7 @@ class Public_Controller extends MX_Controller{
 
         if($this->session->userdata("is_login")){
             $this->load->model("base/users_model");
-            $this->user =$this->users_model->_get($this->session->userdata("user_id"),array('id','auth','userName','kind'));
+            $this->user =$this->users_model->_get($this->session->userdata("user_id"),array('id','auth','userName','kind','name'));
         }else{
             $this->user = (object)array("id"=>"0","auth"=>"0");
         }
