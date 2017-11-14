@@ -33,3 +33,10 @@
 
         </div>
        <?php }?>
+        <!-- TODO 문법을 몰라서 그냥둠.. -->
+               <div class="col-12 d-flex justify-content-center align-items-center pagination" style="padding:0;">
+                   <?php echo $this->ajax_pgi_2->create_links(); ?>
+               </div>
+               <div class="post_write">
+                   <a href="<?=site_url(content_uri."/add?board_id=1")?>">작성하기</a>
+               </div>

@@ -2,7 +2,11 @@
 <!-- <div class="sixteen wide column"> -->
 
 <?php if(strpos($mode,"update") !== false){?>
-    <h3 class="ui header">상품명 : <?=$content->product_name?></h3>
+    <h3 class="ui header">상품명 :
+         <a href="<?=site_url(admin_product_uri."/update/{$content->product_id}")?>"><?=$content->product_name?></a>
+          | <a href="<?=site_url(shop_product_uri."/get/{$content->product_id}")?>">사이트에서 보기</a>    
+    </h3>
+
     <h3 class="ui header">글쓴이 : <?=$content->user_name?></h3>
     <div class="ui divider"></div>    
     <br>
