@@ -19,6 +19,12 @@ class Setting extends Admin_Controller {
     //     }
     //     $this->_template("get",$data);
     // }
+    function get_general()
+    {
+
+        $data['row']=$this->setting_model->_get(1);
+        $this->_template("get_general",$data);
+    }
     public function get_product()
     {
 
@@ -27,27 +33,20 @@ class Setting extends Admin_Controller {
         $data['products'] =$this->products_model->_gets();
         $data['products_main'] = $this->products_model->gets();
 
-        $this->_template("shop_addUpdate",$data);
+        $this->_template("get_product",$data);
 
     }
-    function ajax_update_product()
+   
+    function ajax_update()
     {
         header("content-type:application/json");
 
-        $this->fv->set_rules('is_product_review_display','상품 자동 후기보이기','required');
-        if($this->fv->run() === false){
-            $data['alert'] =  '잘못된 접근';
-             
-        }else{
-            // $this->setting_model->_set_by_obj(array(
-            //     'is_product_review_display' => $this->input->post('is_product_review_display')
-            // ));
-            $this->_dbset_addUpdate();
-            $this->setting_model->_update(1);
+        
 
-            $data['alert'] = "수정완료";
-            $data['reload'] = true;
-        }
+        parent::_dbset_addUpdate();
+        $this->setting_model->_update(1);
+
+        $data['reload'] = true;
         echo json_encode($data);
     }
 }

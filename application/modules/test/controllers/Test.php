@@ -13,7 +13,8 @@ class Test extends Public_Controller
     {
         parent::__construct();
         
-     
+        $this->load->library("map_api");
+        $this->map_api->api_key = "AIzaSyDG0o9eNwx-e019j2Xe-yBdwrSojDr29eY";
         
     }
  
@@ -21,60 +22,10 @@ class Test extends Public_Controller
         
     function test2()
     {
-        // $this->load->library("curl");
-        // $this->load->library("test2");
-    //     $map = new Map();
-    //     $map->setVariable('map');
-    //     $map->setHtmlId('map_canvas');
- 
-    //     $mapHelperBuilder = MapHelperBuilder::create(); 
-    //     $mapHelper = $mapHelperBuilder->build();
-
-    //    $mapHelperBuilder->getFormatter()->setDebug(true);
-    //    $mapHelperBuilder->getFormatter()->setIndentationStep(4);
-
-    //    $apiHelper = ApiHelperBuilder::create()
-    //    ->setKey('AIzaSyDG0o9eNwx-e019j2Xe-yBdwrSojDr29eY')
-    //    ->build();
-
-    //    echo $mapHelper->render($map);
-    //    echo $apiHelper->render([$map]);
-        
-        // echo $this->test2->tt();
-        // echo $this->date->test();
-        // $result= $this->curl->get("http://golfpass.net/index.php");
+     
         $this->_view("test/test2");
     }
-    function gets_geocode_name()
-    {
-        header("content-type:application/json");
-        $search = $this->input->post("search");
-
-
-        $this->load->library("map_api");
-        $this->map_api->api_key = "AIzaSyDG0o9eNwx-e019j2Xe-yBdwrSojDr29eY";
-        $infos=$this->map_api->geocode($search);
-        $adress = $this->map_api->get_address($infos[0]);
-        $location=$this->map_api->get_location($infos[0]);
-        $lat = $location->lat;
-        $lng = $location->lng;
-        
-        // $result=$this->get_content("https://maps.googleapis.com/maps/api/geocode/json");
-        // $result = json_encode($result);
-        // var_dump($result[0]->formatted_address);
-        // var_dump($result);
-        // header("Content-Type:application/json");
-
-        $data['callback'] = "
-
-        deleteMarkers();
-        moveToLocation(map,{$lat}, {$lng});
-        placeMarker(map,'{$adress}',{$lat}, {$lng});
-        set_location_info('{$adress}',{$lat}, {$lng});
-        "; 
-        echo json_encode($data);
-        return;
-    }
+   
     function add($id=null)
     {
     $t=array("홈"=>"1");

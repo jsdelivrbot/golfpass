@@ -277,8 +277,11 @@ class Product extends Admin_Controller {
             $data['descs'] = $this->db->query("SELECT * FROM product_option WHERE product_id = $id AND kind = 'desc' ORDER BY sort ASC")->result();
             $data['photos'] = $this->db->query("SELECT * FROM product_option WHERE product_id = $id AND kind = 'photo' ORDER BY sort ASC")->result();
             $data['mode'] = "update/$id";
-            
-             $this->_template("addUpdate",$data);
+
+            $this->load->library("map_api");
+            $this->map_api->api_key = "AIzaSyDG0o9eNwx-e019j2Xe-yBdwrSojDr29eY";
+
+            $this->_template("addUpdate",$data);
              
         }else{
             

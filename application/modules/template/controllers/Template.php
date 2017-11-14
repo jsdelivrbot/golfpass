@@ -46,11 +46,12 @@ class Template extends MX_Controller
 
         $main_menus=$this->_create_data_main_menus(array(
             array('name'=>'홈','uri'=>  site_url(admin_home_uri."/index")),
-            array('name'=>'일반','uri'=> site_url(admin_user_uri."/gets")),
+            array('name'=>'일반','uri'=> site_url(admin_setting_general_uri.'/get_general')),
             array('name'=>'회원','uri'=> site_url(admin_user_uri."/gets")),
             array('name'=>'게시판','uri'=> site_url(admin_board_uri."/gets")),
             array('name'=>'상품','uri'=> site_url(admin_setting_product_uri."/get_product")),
             array('name'=>'주문','uri'=> site_url(admin_order_uri."/gets"))
+            // array('name'=>'SMS','uri'=> site_url(admin_sms_uri."/gets"))
         ));
         $sub_menus = $this->_create_data_sub_menus(array(
             '홈' => array(
@@ -58,6 +59,7 @@ class Template extends MX_Controller
                array('name'=>'시작하기','uri'=> site_url(admin_home_uri.'/gettingStart')),
             ),
             '일반' => array(
+               array('name'=>'기본 설정','uri'=> site_url(admin_setting_general_uri.'/get_general')),
                array('name'=>'메뉴관리','uri'=> site_url(admin_menu_uri.'/gets')),
                array('name'=>'페이지관리','uri'=> site_url(admin_page_uri.'/gets')),
                array('name'=>'쪽지관리','uri'=>  site_url(admin_message_uri.'/gets'))
@@ -82,6 +84,9 @@ class Template extends MX_Controller
             '주문' => array(
                array('name'=>'주문 목록','uri'=> site_url(admin_order_uri.'/gets')),
             )
+            // 'SMS' => array(
+            //    array('name'=>'기본설정','uri'=> site_url(admin_sms_uri.'/gets')),
+            // )
            
         ));
         //golf pass
