@@ -24,7 +24,14 @@ class Init_Controller extends MX_Controller{
         $this->map_markers();
         $this->session();
         $this->users();
-        $this->products();
+        if($this->products()===true)
+        {
+            if(ENVIRONMENT === 'development')
+            {
+                $this->test_setting_update();
+               
+            }
+        }
         $this->product_option();
         $this->procedure();
         // $this->p_ref_option();
@@ -43,23 +50,19 @@ class Init_Controller extends MX_Controller{
         $this->product_cartlist();
         $this->hashtag();
 
-        if(ENVIRONMENT === 'development')
-        {
-            $this->test_setting();
-            $this->db->set('google_map_api_key',"AIzaSyDG0o9eNwx-e019j2Xe-yBdwrSojDr29eY");
-            $this->db->set('cafe24_userName',"santutu6");
-            $this->db->set('cafe24_sms_api_key',"1856aaacd1dee9bdb79b60c1c8746f38");
-            $this->db->set('cafe24_sms_number',"01051008825");
-            $this->db->set('imp_key',"9540423424246518");
-            $this->db->set('imp_secret',"Jw97K8hHJMJbZ2BgxSIaqV1Z9qWAlIH4fRc0ZtHIfrUfuvw1ofbOadNjDKTYsB3IsfIsJqaYR4elAKnY");
-
-            $this->db->where("id","1");
-            $this->db->update("setting");
-        }
+      
     }
-    function test_setting()
+    function test_setting_update()
     {
+        $this->db->set('google_map_api_key',"AIzaSyDG0o9eNwx-e019j2Xe-yBdwrSojDr29eY");
+        $this->db->set('cafe24_userName',"santutu6");
+        $this->db->set('cafe24_sms_api_key',"1856aaacd1dee9bdb79b60c1c8746f38");
+        $this->db->set('cafe24_sms_number',"01051008825");
+        $this->db->set('imp_key',"9540423424246518");
+        $this->db->set('imp_secret',"Jw97K8hHJMJbZ2BgxSIaqV1Z9qWAlIH4fRc0ZtHIfrUfuvw1ofbOadNjDKTYsB3IsfIsJqaYR4elAKnY");
 
+        $this->db->where("id","1");
+        $this->db->update("setting");
     }
     function setting()
     {
@@ -293,12 +296,22 @@ class Init_Controller extends MX_Controller{
             -- KEY `idx_category_id`(`category_id`)
              ) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
                 
-            if($result) echo("success create $tb_name ");
+            if($result){
+                echo("success create $tb_name ");
+                echo "<br>";
+                return true;
+            }
+                
             else echo("failed create $tb_name");
+            echo "<br>";
+            return false;
+            
         }else{
             echo "already table $tb_name exists";
+            echo "<br>";
+            return false;
         }
-        echo "<br>";
+        
     }
     function product_option()
     {
