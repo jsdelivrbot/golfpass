@@ -3,10 +3,10 @@
 	<article id="panel-article" class="container-fluid">
 					 <div class="row text-center">
 							 <div class="col-12">
-								 <a href="<?=site_url(golfpass_panel_uri."/gets")?>">
+								 
 									 <h1 id='panel-title' class="text-center">
 										 <span>골프패스</span> 패널 소개</h1>
-								 </a>
+								 
 							 </div>
 					 </div>
 					 <section class="row ajax_taget_panel_list" id='panel-section'>
@@ -15,7 +15,7 @@
 									 	<div class="col-6 col-md-3 panel">
 											 	<div class="d-flex flex-column justify-content-center align-items-center">
 												 <a href="javascript:void(0);" onclick="getData('.ajax_taget_content_list',0,'<?=site_url(golfpass_panel_uri."/ajax_pgi_contents/")?>',<?=$panels[$i]->id?>)">
-														 <img src="<?=$panels[$i]->profilePhoto?>" class="rounded-circle" alt="" style="width: 120px; height:120px;">
+														 <img src="<?=$panels[$i]->profilePhoto?>" class="rounded-circle" alt="" style="width: 120px; height:120px; margin-left: 10px;">
 													 	<div class="panel-content text-center">
 															<p><?=$panels[$i]->name?></p>
 														 <p class="intro"><?=$panels[$i]->intro?></p>
