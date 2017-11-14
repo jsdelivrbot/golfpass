@@ -3196,11 +3196,13 @@ body.menu-open .plus-btn .r2 {
       #panel-wrap #panel-article section#content-boxs .content-box > * {
         margin: 13px 0; }
       #panel-wrap #panel-article section#content-boxs .content-box h1 {
-        font-weight: bold;
-        font-size: 2rem;
-        font-family: 'Noto Sans', sans-serif; }
+        font-family: 'notokr-medium', sans-serif;
+        font-size: 32px;
+        color: #4d5256; }
       #panel-wrap #panel-article section#content-boxs .content-box p {
-        font-size: 1rem; }
+        font-family: 'notokr-light', sans-serif;
+        font-size: 17px;
+        color: #4d5256; }
       #panel-wrap #panel-article section#content-boxs .content-box .content {
         overflow: hidden; }
         #panel-wrap #panel-article section#content-boxs .content-box .content p {
@@ -3215,8 +3217,9 @@ body.menu-open .plus-btn .r2 {
             #panel-wrap #panel-article section#content-boxs .content-box .content p {
               display: block; } }
       #panel-wrap #panel-article section#content-boxs .content-box .date {
-        font-size: 1rem;
-        color: #8b9194; }
+        font-family: 'notokr-light', sans-serif;
+        font-size: 17px;
+        color: #81878b; }
 
 #footer {
   margin-top: 20px;

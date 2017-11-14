@@ -118,13 +118,15 @@
 				}
 				h1 {
 					//제목
-					font-weight: bold;
-					font-size: 2rem;
-					font-family: 'Noto Sans', sans-serif;
+                font-family: 'notokr-medium', sans-serif;
+                font-size: 32px;
+                color: #4d5256;
 				}
 				p {
 					//내용
-					font-size: 1rem;
+                    font-family: 'notokr-light', sans-serif;
+                    font-size: 17px;
+                    color: #4d5256;
 				}
 				.content {
 					//내용이 길어지면 ....
@@ -145,8 +147,9 @@
 				}
 				.date {
 					//컨텐츠 날짜
-					font-size: 1rem;
-					color: #8b9194
+                    font-family: 'notokr-light', sans-serif;
+                    font-size: 17px;
+                    color: #81878b;
 				}
 			}
 		}

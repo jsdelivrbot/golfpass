@@ -25,7 +25,7 @@
 							 		<?php }?>
 							 </article>
 							 <!-- TODO 문법을 몰라서 그냥둠.. -->
-							 <div class="col-12 d-flex justify-content-center align-items-center pagination">
+							 <div class="col-12 d-flex justify-content-center align-items-center pagination" style="padding:0;">
 							 <?php echo $this->ajax_pgi_1->create_links(); ?>
 							 </div>
 
@@ -83,7 +83,7 @@
 								<div class="col-12 d-flex justify-content-center align-items-center pagination" style="padding:0;">
 							    	<?php echo $this->ajax_pgi_2->create_links(); ?>
 								</div>
-								<div class="col-12 d-flex justify-content-center align-items-right pagination"><a href="<?=site_url(content_uri."/add?board_id=1")?>">글쓰기</a></div>
+								<a href="<?=site_url(content_uri."/add?board_id=1")?>">글쓰기</a>
 								<!-- 페이지네이션 샘플 -->
 							 <!-- <div class="col-12 d-flex justify-content-center align-items-center pagination">
 									 <div class="prev">
