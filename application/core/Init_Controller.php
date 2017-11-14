@@ -21,6 +21,7 @@ class Init_Controller extends MX_Controller{
        
 
         $this->setting();
+        $this->map_markers();
         $this->session();
         $this->users();
         $this->products();
@@ -52,7 +53,12 @@ class Init_Controller extends MX_Controller{
              $result = $this->db->query("CREATE TABLE `$tb_name`(
              `id` INT UNSIGNED NULL AUTO_INCREMENT, 
              `is_product_review_display` varchar(10) NOT NULL DEFAULT '0',
-             `representative_product` INT UNSIGNED DEFAULT '1',
+             `google_map_api_key` varchar(255),
+             `cafe24_sms_api_key` varchar(255),
+             `cafe24_sms_number` varchar(255),
+             `imp_key` varchar(255),
+             `imp_secret` varchar(255),
+
              `created` datetime NOT NULL DEFAULT NOW(),
              PRIMARY KEY (`id`)
               ) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
@@ -61,15 +67,56 @@ class Init_Controller extends MX_Controller{
                  $this->load->model('admin/setting_model');
                  $this->setting_model->_add();
                  echo("success create $tb_name ");
+                 echo "<br>";
+                 return true;
              }else{
                  echo("failed create $tb_name");
+                 echo "<br>";
+                 return false;
              } 
  
          }else{
              echo "already table $tb_name exists";
+             echo "<br>";
+            return false;
          }
-         echo "<br>";
+        
     }
+    function map_markers()
+    {
+         // setting 테이블 만들기
+         $tb_name = 'map_markers';
+         if(!$this->db->table_exists($tb_name)){
+         
+             $result = $this->db->query("CREATE TABLE `$tb_name`(
+             `id` INT UNSIGNED NULL AUTO_INCREMENT, 
+             `name` VARCHAR( 60 ) NOT NULL ,
+             `address` VARCHAR( 80 ) NOT NULL ,
+             `lat` FLOAT( 10, 6 ) NOT NULL ,
+             `lng` FLOAT( 10, 6 ) NOT NULL ,
+             `type` VARCHAR( 30 ) NOT NULL,
+             `created` datetime NOT NULL DEFAULT NOW(),
+             PRIMARY KEY (`id`)
+              ) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
+                 
+             if($result){
+                 echo("success create $tb_name ");
+                 echo "<br>";
+                 return true;
+             }else{
+                 echo("failed create $tb_name");
+                 echo "<br>";
+                 return false;
+             } 
+ 
+         }else{
+             echo "already table $tb_name exists";
+             echo "<br>";
+            return false;
+         }
+        
+    }
+   
    
      function test()
     {

@@ -10,7 +10,21 @@
     기본설정
     </h1>
     <!-- <label>상품 후기 자동 보이기</label> -->
-    <form class="ui form"onsubmit="ajax_submit(this);return false;"action="<?=my_site_url(admin_setting_product_uri."/ajax_update_product")?>" method="post">
+    <form class="ui form"onsubmit="ajax_submit(this);return false;"action="<?=my_site_url(admin_setting_product_uri."/ajax_update")?>" method="post">
+        <div class="field">
+            <label>IAMPORT API 키</label>
+            <input type="text" name="imp_key" placeholder="apikey" value="<?=set_value_data($row,'imp_key')?>" >
+        </div>
+        
+         <div class="field">
+            <label>IAMPORT 비밀 키(절대 유출되면 안됩니다.)</label>
+            <input type="password" name="imp_secret" placeholder="imp_secret_key" >
+        </div>
+        <input class="ui button positive" type="submit" value="수정">
+    </form>
+    <form class="ui form"onsubmit="ajax_submit(this);return false;"action="<?=my_site_url(admin_setting_product_uri."/ajax_update")?>" method="post">
+         
+        
         <div class="grouped fields">
             <label>상품 후기 자동 보이기</label>
             <div class="field">

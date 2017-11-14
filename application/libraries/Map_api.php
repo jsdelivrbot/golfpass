@@ -5,7 +5,98 @@ class Map_api
 {
     public $api_key;
     public $language = "ko";
-    
+    public $callback ="mapInit";
+    public $target = "map";
+    public $default_zoom = "2";
+    function create_script()
+    {
+        ?>
+        
+        <script>
+            var map; //구글맵 변수 전역으로 선언
+            var markers = [];
+            function mapInit() {
+            var mapCanvas = document.getElementById("<?=$this->target?>");
+            var myCenter=new google.maps.LatLng(51.508742,-0.120850);
+            var mapOptions = {center: myCenter, zoom: <?=$this->default_zoom?>};
+            map = new google.maps.Map(mapCanvas, mapOptions);
+
+            //이벤트
+            // google.maps.event.addListener(map, 'click', function(event) {
+            //   placeMarker(map, event.latLng);
+            //   getTargetInfo(event.latLng);
+            // });
+            }
+            function set_location_info(address,lat,lng)
+            {
+            $("input[name=map_address]").val(address);
+            $("input[name=map_lat]").val(lat);
+            $("input[name=map_lng]").val(lng);
+            }
+            function moveToLocation(map,lat, lng){
+                var center = new google.maps.LatLng(lat, lng);
+                map.panTo(center);
+            }
+
+            function placeMarker(map, address,lat,lng) {
+            
+            var location=new google.maps.LatLng(lat,lng);
+            var marker =addMarker(map,lat,lng);
+
+            var infowindow = new google.maps.InfoWindow({
+                content: address+'<br>Latitude: ' + location.lat() + '<br>Longitude: ' + location.lng()
+            });
+            infowindow.open(map,marker);
+            
+            }
+
+            function addMarker(map,lat,lng) {
+
+            var location=new google.maps.LatLng(lat,lng);
+            var marker = new google.maps.Marker({
+                    position: location,
+                    map: map
+            });
+            map.setZoom(8);
+            markers.push(marker);
+            return marker;
+            
+            }
+
+            function deleteMarkers() {
+            for (var i = 0; i < markers.length; i++) {
+                markers[i].setMap(null);
+            }
+            markers = [];
+            }
+
+
+            // function getTargetInfo(location)
+            // {
+            // $.ajax({
+            //     type :"post",
+            //     dataType:"json",
+            //     data : {
+            //     'latlng':location.lat()+","+location.lng()
+            //     },
+            //     url:"<?=site_url('/test/get_google_geocode')?>" ,
+            //     success:function(data)
+            //     {
+            //     console.log(data);
+            //     },
+            //     error: function(xhr, textStatus, errorThrown){
+            //             alert('에러... or 데이터 용량이 너무많습니다.');
+            //             $('.loading').fadeOut(500);
+            //             console.log('code: '+request.status+"\n"+'message: '+request.responseText+"\n"+'error: '+error);
+            //             console.log(errorThrown);
+            //         }
+            // });
+            // }
+             </script>
+             <script src="https://maps.googleapis.com/maps/api/js?callback=<?=$this->callback?>&key=<?=$this->api_key?>"></script>
+        <?php
+
+    }
     function get_address($info)
     {
         return $info->formatted_address;

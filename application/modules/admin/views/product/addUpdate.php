@@ -423,11 +423,41 @@ $('#navi_btn').click(function(){
     </div>
 </div>
 
-<!-- 날짜별 가격 설정가기 -->
+<!-- 위치  설정가기 -->
 <div class="sixteen wide column">
-  
+<h1 class="ui horizontal divider header">
+    <i class="plus icon"></i>
+    위치 추가하기
+    </h1>
+
+    <div id="map" style="width:100%;height:500px;"></div>
+
+    <form  style="margin-top:20px;"class="ui form"onsubmit="ajax_submit(this); return false;" action="<?=site_url("/test/get_marker")?>" method="post">
+        <div class="field">
+                <!-- <label >이미지</label> -->
+            <input type="text"placeholder="주소" name="search">
+        </div>
+        <input class="ui button positive basic" type="submit" value="주소검색">
+    </form>
+    <form style="margin-top:20px;" class="ui form"action="">
+        <div class="field">
+        <input type="text" name="map_address">
+        </div>
+        <div class="two fields">
+            <div class="field">
+                <input type="text" name="map_lat">
+            </div>
+            <div class="field">
+                <input type="text" name="map_lng">
+            </div>
+        </div>
+        <input class="ui button positive" type="submit" value="위치저장">
+    </form>
+
+    <?=$this->map_api->create_script()?>
+    
 </div>
-<!-- 날짜별 가격 설정가기 -->
+<!-- 위치  설정가기 -->
 <?php }?>
 
 
