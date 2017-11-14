@@ -68,7 +68,8 @@ class Product extends Base_Controller {
         // $data['hotel'] = $this->db->select("*")
         // ->from("")
         //product
-        $data['product'] = $this->products_model->get($id);
+        $product= $this->products_model->get($id);
+        $data['product'] =$product;
         
         //product_option
         $this->load->model("product_option_model");
@@ -97,6 +98,10 @@ class Product extends Base_Controller {
         $this->load->model('product_reviews_model');
         $this->db->limit(2,0);
         $data['reviews'] = $this->product_reviews_model->gets(array('r.product_id'=>$id));
+
+        //googld map
+        $this->load->library("map_api");
+        $this->map_api->api_key = $this->setting->google_map_api_key;
 
         //number
         $data['number'] =1 ;

@@ -465,7 +465,10 @@ $('#navi_btn').click(function(){
     </form>
 
     <?=$this->map_api->create_script()?>
-    
+    <?php if($product->address !== ''){
+        $this->map_api->add_marker($product->lat,$product->lng,$product->address,$product->map_name,$product->map_type);
+        $this->map_api->move_to_location($product->lat,$product->lng);
+     } ?>
 </div>
 <!-- 위치  설정가기 -->
 <?php }?>

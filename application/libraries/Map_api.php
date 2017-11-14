@@ -33,39 +33,49 @@ class Map_api
             }
             function set_location_info(address,lat,lng)
             {
-            $("input[name=<?=$this->address_input_name?>]").val(address);
-            $("input[name=<?=$this->lat_input_name?>]").val(lat);
-            $("input[name=<?=$this->lng_input_name?>]").val(lng);
+                $("input[name=<?=$this->address_input_name?>]").val(address);
+                $("input[name=<?=$this->lat_input_name?>]").val(lat);
+                $("input[name=<?=$this->lng_input_name?>]").val(lng);
             }
             function moveToLocation(map,lat, lng){
                 var center = new google.maps.LatLng(lat, lng);
                 map.panTo(center);
             }
 
-            function placeMarker(map, address,lat,lng) {
-            
-            var location=new google.maps.LatLng(lat,lng);
-            var marker =addMarker(map,lat,lng);
-
-            var infowindow = new google.maps.InfoWindow({
-                content: address+'<br>Latitude: ' + location.lat() + '<br>Longitude: ' + location.lng()
-            });
-            infowindow.open(map,marker);
-            
+         
+            function addMarker(map,lat,lng,address=null,name=null,type=null)
+            {
+                var location=new google.maps.LatLng(lat,lng);
+                var marker = new google.maps.Marker({
+                        position: location,
+                        map: map
+                });
+                map.setZoom(8);
+                markers.push(marker);
+                var content ='';
+                if(name !== null && name !== 'null' && name !=='')
+                {
+                    content += name;
+                }
+                if(type !== null && type !== 'null' && type !=='')
+                {
+                    content += `(${type})<br>`;
+                }
+                else if(name !== null && name !== 'null' && name !=='')
+                {
+                    content +="<br>";
+                }
+                if(address !== null && address !== 'null' && address !=='')
+                {
+                    content += `${address}<br>`;
+                }
+                content += 'Latitude: ' + location.lat() + '<br>Longitude: ' + location.lng();
+                var infowindow = new google.maps.InfoWindow({
+                    content: content
+                });
+                infowindow.open(map,marker);
             }
-
-            function addMarker(map,lat,lng) {
-
-            var location=new google.maps.LatLng(lat,lng);
-            var marker = new google.maps.Marker({
-                    position: location,
-                    map: map
-            });
-            map.setZoom(8);
-            markers.push(marker);
-            return marker;
-            
-            }
+         
 
             function deleteMarkers() {
             for (var i = 0; i < markers.length; i++) {
@@ -83,7 +93,7 @@ class Map_api
             //     data : {
             //     'latlng':location.lat()+","+location.lng()
             //     },
-            //     url:"<?=site_url('/test/get_google_geocode')?>" ,
+            //     url:"" ,
             //     success:function(data)
             //     {
             //     console.log(data);
@@ -100,6 +110,22 @@ class Map_api
              <script src="https://maps.googleapis.com/maps/api/js?callback=<?=$this->callback?>&key=<?=$this->api_key?>"></script>
         <?php
 
+    }
+    function move_to_location($lat,$lng)
+    {   
+        ?>
+        <script>
+        moveToLocation(map,<?=$lat?>,<?=$lng?>);
+        </script>
+        <?php
+    }
+    function add_marker($lat,$lng,$address =null,$name =null,$type =null )
+    {
+        ?>
+        <script>
+        addMarker(map,<?=$lat?>,<?=$lng?>,'<?=$address?>','<?=$name?>','<?=$type?>');
+        </script>
+        <?php
     }
     function get_address($info)
     {
@@ -129,12 +155,12 @@ class Map_api
         // curl_setopt ($ch, CURLOPT_POSTFIELDS, "latlng=37,126.961452&key=AIzaSyDG0o9eNwx-e019j2Xe-yBdwrSojDr29eY"); // Post 값  Get 방식처럼적는다. 
         curl_setopt ($ch, CURLOPT_TIMEOUT, 30); // TimeOut 값 
         curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1); // 결과값을 받을것인지 
-        $result = curl_exec ($ch); 
+        $infos = curl_exec ($ch); 
         curl_close ($ch); 
 
-        $result = json_decode($result);
-        $result = $result->results;
+        $infos = json_decode($infos);
+        $infos = $infos->results;
         
-        return $result;
+        return $infos;
     }
 }

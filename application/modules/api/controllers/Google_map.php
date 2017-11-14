@@ -33,7 +33,7 @@ function ajax_get_marker_by_address()
 
         deleteMarkers();
         moveToLocation(map,{$lat}, {$lng});
-        placeMarker(map,'{$adress}',{$lat}, {$lng});
+        addMarker(map,{$lat}, {$lng},'{$adress}');
         set_location_info('{$adress}',{$lat}, {$lng});
         "; 
         echo json_encode($data);

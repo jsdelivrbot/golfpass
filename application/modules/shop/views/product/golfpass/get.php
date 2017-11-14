@@ -460,6 +460,11 @@
         </article>
         <section id="section3" class="position-relative" style="width: 100%; padding-left: 0; height: 500px; background-color: #4d4d4d; margin-top: 100px; margin-bottom: 100px;">
         <!--TODO 구글맵-->
+        <div id="map" style="width:100%;height:100%;"></div>
+
+        <?=$this->map_api->create_script()?>
+        <?= $this->map_api->add_marker($product->lat,$product->lng,$product->address,$product->map_name,$product->map_type);?>                            
+        <?= $this->map_api->move_to_location($product->lat,$product->lng);?>                            
         </section>
         <!--TODO 리뷰  데이터 X-->
         <section id="section4" class='row no-gutters justify-content-center'>
