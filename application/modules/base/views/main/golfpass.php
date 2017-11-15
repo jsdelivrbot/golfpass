@@ -225,7 +225,8 @@
                     <div class="content-box d-flex flex-column align-items-start justify-content-center justify-content-lg-end">
                         <div class='title'>
                         <h1><?=$product_main[$i]->name?></h1>
-                        <p>아랍에미레이트, 아부다비 - <?=$product_main[$i]->hole_count?> / <?=$product_main[$i]->distance?></p>
+                        <p>eng name form</p>
+                        <p><?=$product_main[$i]->region?> - <?=$product_main[$i]->hole_count?> / <?=$product_main[$i]->distance?></p>
                         </div>
                         <div class="content">
                             <p><span>
