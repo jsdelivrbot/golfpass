@@ -61,15 +61,13 @@
 			.title {
 			  h1 {
 				//아이템 타이틀
-				font-family: 'TmonMonsori';
-				font-size: 60px;
-				margin-bottom: 20px;
+				font-family: 'notokr-medium';
+				font-size: 40px;
 			  }
 			  p {
 				//아이템 소제목
 				font-size: 16px;
 				font-family: "notokr-regular";
-				margin-bottom: 20px;
 			  }
 			}
 			.content {
@@ -78,15 +76,16 @@
 				max-width: 500px;
 				font-size: 14px;
 				font-family: "notokr-light";
-				margin-bottom: 20px;
 			  }
 			}
 			.btn-box {
 			  //보러가기 버튼
 			  border: 2px solid white;
-			  min-width: 140px;
-			  min-height: 40px;
+			  min-width: 104px;
+			  min-height: 44px;
 			  button {
+				font-family: 'notokr-medium';
+				font-size: 14px;
 				background-color: transparent;
 				color: white;
 				border: 0;

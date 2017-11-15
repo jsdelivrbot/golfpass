@@ -1979,7 +1979,7 @@ a:hover {
   right: 0;
   bottom: 0;
   transform: translateY(-100%);
-  transition: transform 0.5s; /* 위에서 아래로 내려오는 속도 */
+  transition: transform 0.5s;
   transition-delay: 0.5s;
   visibility: hidden; }
   .menu ul li {
@@ -1993,13 +1993,12 @@ a:hover {
     .menu ul li a {
       cursor: pointer; }
 
-    
 .menu-sliders {
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: flex 0.45s; } /* 메뉴 양옆으로문닫기 속도 */
+  transition: flex 0.45s; }
   .menu-sliders:nth-child(2) {
     flex: 1 0 100%;
     background: transparent; }
@@ -2437,23 +2436,22 @@ body.menu-open .plus-btn .r2 {
               margin-left: 30px;
               padding: 80px; } }
           #main-wrap #section1 .carousel .carousel-inner .carousel-item .content-box .title h1 {
-            font-family: 'TmonMonsori';
-            font-size: 60px;
-            margin-bottom: 20px; }
+            font-family: 'notokr-medium';
+            font-size: 40px; }
           #main-wrap #section1 .carousel .carousel-inner .carousel-item .content-box .title p {
             font-size: 16px;
-            font-family: "notokr-regular";
-            margin-bottom: 20px; }
+            font-family: "notokr-regular"; }
           #main-wrap #section1 .carousel .carousel-inner .carousel-item .content-box .content p {
             max-width: 500px;
             font-size: 14px;
-            font-family: "notokr-light";
-            margin-bottom: 20px; }
+            font-family: "notokr-light"; }
           #main-wrap #section1 .carousel .carousel-inner .carousel-item .content-box .btn-box {
             border: 2px solid white;
-            min-width: 140px;
-            min-height: 40px; }
+            min-width: 104px;
+            min-height: 44px; }
             #main-wrap #section1 .carousel .carousel-inner .carousel-item .content-box .btn-box button {
+              font-family: 'notokr-medium';
+              font-size: 14px;
               background-color: transparent;
               color: white;
               border: 0;
