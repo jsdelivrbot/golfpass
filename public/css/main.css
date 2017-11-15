@@ -2644,7 +2644,7 @@ body.menu-open .plus-btn .r2 {
       font-family: 'notokr-demilight', sans-serif;
       font-size: 14px; }
   #main-wrap #section5 .list-after-four {
-    font-family: notokr-medium; }
+    font-family: 'notokr-medium', sans-serif; }
     #main-wrap #section5 .list-after-four:not(:last-child) {
       border-bottom: 1px solid #818589; }
     #main-wrap #section5 .list-after-four p {
