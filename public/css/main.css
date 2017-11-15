@@ -1964,7 +1964,7 @@ a:hover {
   height: 100vh;
   width: 100vw;
   pointer-events: none;
-  z-index: 1300; }
+  z-index: 1000; }
 
 .menu {
   display: flex;
@@ -2003,7 +2003,7 @@ a:hover {
     flex: 1 0 100%;
     background: transparent; }
   .menu-sliders:nth-child(odd) {
-    background: #71b051; }
+    background: #79b754; }
 
 body.menu-open .menu-sliders:nth-child(2) {
   flex: 0 0 0%; }

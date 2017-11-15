@@ -8,7 +8,7 @@
     height: 100vh;
     width: 100vw;
     pointer-events: none;
-    z-index: 1300;
+    z-index: 1000;
 }
 
 .menu {
@@ -54,7 +54,7 @@
         background: transparent;
     }
     &:nth-child(odd) {
-        background: #71b051;
+        background: #79b754;
     }
 }
 
