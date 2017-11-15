@@ -1,17 +1,17 @@
 <article class="w-100 p-xl-4">
-				<div class="row no-gutters main-section-title mb-5">
-					<h4>순위별 골프장</h4>
+				<div class="row no-gutters main-section-title mb-5" style="margin-bottom: 20px !important;">
+					<h4 class="main_sub_title">순위별 골프장</h4>
 				</div>
-				<div class="d-flex mb-5 category flex-wrap">
-					<button data-rankingtype="avg_score" class="btn btn-outline-light btn-sm <?=$rankingType==='avg_score' ? 'active' : ''?>">#평균</button>
-					<button data-rankingtype="score_1" class="btn btn-outline-light btn-sm <?=$rankingType==='score_1' ? 'active' : ''?>" >#score_1</button>
-					<button data-rankingtype="score_2" class="btn btn-outline-light btn-sm <?=$rankingType==='score_2' ? 'active' : ''?>" >#score_2</button>
-					<button data-rankingtype="score_3" class="btn btn-outline-light btn-sm <?=$rankingType==='score_3' ? 'active' : ''?>" >#score_3</button>
-					<button data-rankingtype="score_4" class="btn btn-outline-light btn-sm <?=$rankingType==='score_4' ? 'active' : ''?>" >#score_4</button>
-					<button data-rankingtype="score_5" class="btn btn-outline-light btn-sm <?=$rankingType==='score_5' ? 'active' : ''?>" >#score_5</button>
-					<button data-rankingtype="score_6" class="btn btn-outline-light btn-sm <?=$rankingType==='score_6' ? 'active' : ''?>" >#score_6</button>
-					<button data-rankingtype="score_7" class="btn btn-outline-light btn-sm <?=$rankingType==='score_7' ? 'active' : ''?>" >#score_7</button>
-					<button data-rankingtype="score_8" class="btn btn-outline-light btn-sm <?=$rankingType==='score_8' ? 'active' : ''?>" >#score_8</button>
+				<div class="d-flex mb-5 category flex-wrap" style="margin-left:10px;">
+					<button data-rankingtype="avg_score" class="btn btn-outline-light btn-sm <?=$rankingType==='avg_score' ? 'active' : ''?>">#종합 평가가 높은</button>
+					<button data-rankingtype="score_1" class="btn btn-outline-light btn-sm <?=$rankingType==='score_1' ? 'active' : ''?>" >#전략성이 높은</button>
+					<button data-rankingtype="score_2" class="btn btn-outline-light btn-sm <?=$rankingType==='score_2' ? 'active' : ''?>" >#페어웨이가 넓은</button>
+					<button data-rankingtype="score_3" class="btn btn-outline-light btn-sm <?=$rankingType==='score_3' ? 'active' : ''?>" >#코스 전장이 긴</button>
+					<button data-rankingtype="score_4" class="btn btn-outline-light btn-sm <?=$rankingType==='score_4' ? 'active' : ''?>" >#그린의 난이도가 높은</button>
+					<button data-rankingtype="score_5" class="btn btn-outline-light btn-sm <?=$rankingType==='score_5' ? 'active' : ''?>" >#가성비가 우수한</button>
+					<button data-rankingtype="score_6" class="btn btn-outline-light btn-sm <?=$rankingType==='score_6' ? 'active' : ''?>" >#시설이 좋은</button>
+					<button data-rankingtype="score_7" class="btn btn-outline-light btn-sm <?=$rankingType==='score_7' ? 'active' : ''?>" >#식사가 맛있는</button>
+					<button data-rankingtype="score_8" class="btn btn-outline-light btn-sm <?=$rankingType==='score_8' ? 'active' : ''?>" >#스탭 서비스가 좋은</button>
 				</div>
                 <!-- 추가한 부분 -->
                 <style>
