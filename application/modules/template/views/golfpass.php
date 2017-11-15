@@ -66,7 +66,7 @@
 			</li>
 			<?php }?>
 			<li>
-			<a style="color:white;" href="<?=site_url(shop_mypage_uri.'')?>">마이페이지      </a>
+			<a style="color:white;" href="<?=site_url(shop_mypage_uri.'/gets_wishlist')?>">마이페이지      </a>
 			</li>
 			<li>
 			<a style="color:white;" href="<?=site_url(shop_wishlist_uri.'/gets')?>">위시리스트      </a>

@@ -48,7 +48,7 @@ class Board_replys_Model extends Public_Model{
 
     function gets_by_recursive($content_id,$board_id)
     {
-        $this->db->select("r.id,r.desc, r.user_id ,r.created, if(r.user_id= 0,r.guest_name,u.name) 'user_name', if(r.user_id= 0, '손님',u.userName) 'userName'");
+        $this->db->select("u.profilePhoto,r.id,r.desc, r.user_id ,r.created, if(r.user_id= 0,r.guest_name,u.name) 'user_name', if(r.user_id= 0, '손님',u.userName) 'userName'");
         $this->db->from("board_replys as r");
         $this->db->join("users as u","r.user_id = u.id","LEFT");
         $this->db->where("r.content_id",$content_id);

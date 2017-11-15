@@ -1,4 +1,4 @@
-<?php 
+<?php defined('BASEPATH') OR exit('no direct script access allrowed');
 
 // function remove_duplication_querystring($in_querystring){
 //     $data= array("guest_order");

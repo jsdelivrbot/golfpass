@@ -40,7 +40,7 @@ class Public_Controller extends MX_Controller{
                 case "panel" :$kind = "패널회원"; break;
                 case "corporate" :$kind = "기업회원"; break;
             }
-            $this->user->kind= $kind;
+            $this->user->kr_kind= $kind;
 
         }else{
             $this->user = (object)array("id"=>"0","auth"=>"0","kind"=>"손님");

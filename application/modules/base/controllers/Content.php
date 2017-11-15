@@ -64,29 +64,96 @@ class Content extends Base_Controller {
 		 
     }
     
-   
-    public function get($id){
+    function _check_get_auth()
+    {
         $authLv= $this->board->auth_r_content;
         if(!can_guest($authLv)){
             alert("로그인해주세요.");
             my_redirect(user_uri."/login?return_url=".rawurlencode(my_current_url()),false);
-            return; 
+            exit; 
         }
         if(!min_lv($authLv)) {
             alert("게시물을 볼 권한이 없습니다.");
             my_redirect($_SERVER['HTTP_REFERER']);
-            return ;
+            exit ;
         }
+    }
+   
+    public function get($id,$getdata =false){
+        $this->_check_get_auth();
         $this->load->model("board_replys_model");
         $data['board'] = $this->board;
         $data['content'] =$this->board_contents_model->get_content($id);
         $data['replys']   =$this->board_replys_model->gets_by_recursive($id,$this->board_id);
         $data +=$this->_gets();
-
+        if($getdata === true)
+        {
+            return $data;
+        }
+        
         $reply_view_dir = "content/{$this->board->skin}/reply/gets";
-        $this->_template(array("get",$reply_view_dir,"gets"),$data);
+        $this->_template(array("get",$reply_view_dir,"gets"),$data,"golfpass2");
     }
 
+    function _addCallback($func_fv_false,$func_fv_true)
+    {
+        $authLv= $this->board->auth_w_content;
+        $authKind = $this->board->auth_kind_w_content;
+        //손님이 가능?
+        if(!can_guest($authLv)){
+            alert("로그인해주세요.");
+            my_redirect(user_uri."/login?return_url=".rawurlencode(my_current_url()),false);
+            return; 
+        }
+
+        //권한?
+        if( !min_lv($authLv) ) {
+            alert("글쓰기 권한이 없습니다");
+            my_redirect($_SERVER['HTTP_REFERER']);
+            return ;
+        }
+        if( !is_auth_kind($authKind))
+        {
+            alert("{$authKind} 회원만 쓸수있습니다.");
+            my_redirect($_SERVER['HTTP_REFERER'],false);
+            return ;
+        }
+        //손님?
+        if(is_guest()){ 
+            $this->fv->set_rules('guest_name','아이디','required');
+            $this->fv->set_rules('guest_password','비번','required');
+        }
+
+       
+        $this->_set_rules();
+        if(!$this->fv->run()){
+            $content= (object)array();
+            $data = array('mode'=>'add','content'=>$content,'board_id'=>$this->board_id);
+            $func_fv_false($data);
+
+            // $this->_template("addUpdate",$data,'golfpass');
+             
+        }else{
+            if(!is_guest()){ //회원일떄
+                $userName = $this->user->userName;
+                $user_id =$this->db->query("SELECT id FROM users WHERE userName = '$userName'")->row()->id;
+                $this->db->set('user_id',$user_id);
+            }else{//손님일떄
+                $hash = password_hash($this->input->post('guest_password'), PASSWORD_BCRYPT);
+                $this->db->set('guest_name',$this->input->post('guest_name'));
+                $this->db->set('guest_password',$hash);
+                $this->db->set('user_id','0');
+            }
+
+          
+            $this->_dbSet_addUpdate();
+            $insert_id =$this->board_contents_model->add(array('board_id'=>$this->board_id));
+            
+            $func_fv_true($insert_id);
+            return;
+        }
+   
+    }
     public function add(){
         
         $authLv= $this->board->auth_w_content;

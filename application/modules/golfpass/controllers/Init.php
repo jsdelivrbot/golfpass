@@ -25,8 +25,9 @@ class Init extends Init_Controller {
         $this->p_hotel();
         if($this->hotel_option()===true)
         {
-            $this->sample_cate_product_add();
-            $this->panel_data_add();
+            $this->add_sample_cate_product();
+            $this->add_panel_data();
+            $this->add_board_contact();
         }
         $this->p_daily_price();
      
@@ -60,7 +61,12 @@ class Init extends Init_Controller {
         // ));
     }
  
-    function panel_data_add()
+    function add_board_contact()
+    {
+        $board_id =$this->boards_model->_add(array("name"=>"고객센터",'skin'=>'contact'));
+
+    }
+    function add_panel_data()
     {
         // $this->boards_model->_add(array("name"=>"패널 게시판",'skin'=>'panel','auth_r_board'=>'0','auth_r_content'=>'0','auth_w_content'=>'999','auth_w_review'=>'999'));
         $board_id =$this->boards_model->_add(array("name"=>"패널 게시판",'skin'=>'panel','auth_kind_w_content'=>'panel'));
@@ -79,7 +85,7 @@ class Init extends Init_Controller {
 
         $this->board_contents_model->add(array("board_id"=>$board_id,"user_id"=>$user_id,"title"=>"샘플제목","desc"=>"샘플내용입니다."));
     }
-    function sample_cate_product_add()
+    function add_sample_cate_product()
     {
         ////카테고리추가
         //나라 도시별

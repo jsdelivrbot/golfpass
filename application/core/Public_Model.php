@@ -165,7 +165,7 @@ class Public_Model extends CI_Model{
 
     function _get_num_rows()
     {
-        $this->db->count_all_results($this->table);
+        return $this->db->count_all_results($this->table);
     }
 
     function set_select()

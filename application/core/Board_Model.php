@@ -118,11 +118,20 @@ class Board_Model extends Public_Model{
     }
     
 
-    function _gets_with_pgi($where_obj,$pgi_style)
+    function _gets_with_pgi($where_obj,$config=array())
     {
-
+        $style = $config['stlye'] ?? "style_1";
+        $per_page = $config['per_page'] ?? "5";
+        $total_num = null;
+        if(isset($config['total_num']))
+        {
+            $total_num = function() use ($config)
+            {
+                return $config['total_num'];
+            };
+        }
         return $this->_gets_with_pgi_func(
-            $pgi_style,
+            $style,
             function() use ($where_obj)
             {   
                 parent::_where_by_obj($where_obj);
@@ -136,33 +145,14 @@ class Board_Model extends Public_Model{
                 //gets()를 재정의해주세요.
                 return $this->gets();
             }
+            ,
+            $total_num
+            ,
+            array("per_page"=>$per_page)
         );
     }
 
-    ////샘플
-    // function gets_with_pgi($where_obj=null)
-    // {
-    //     return  $this->_gets_with_pgi_func(
-    //         "style_1",
-    //         function() use($where_obj)
-    //         {
-    //             return count($this->gets($where_obj)); //총 rows 갯수//gets함수를 작성해주세요
-    //         },
-    //         function($offset,$per_page) use($where_obj) 
-    //         {
-    //             $this->db->limit($per_page,$offset); //보여질 rows값들//gets함수를 작성해주세요
-    //             return $this->gets($where_obj);
-    //         },
-    //         function() use($where_obj) //카운터데이터가 있다면 func, 없다면 null
-    //         {
-                 
-    //             $this->load->model("shop/products_model");
-    //             return $this->products_model->_get($where_obj['product_id'],array('reviews_count'))->reviews_count;
-    //         }
-    //         ,
-    //         array("per_page"=>6) //per_page
-    //     );
-    // }
+  
 //    function gets($where_obj =null)
 //     {
 //         $this->db->select("c.*,p.*")
