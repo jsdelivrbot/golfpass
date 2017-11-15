@@ -314,10 +314,10 @@
          </section>
     <section id="section3" class="pt-49 pt-xl-0 mb-5 container-fluid align-items-start align-items-md-center">
                      <article class="w-100 p-xl-4">
-                         <div class="row no-gutters main-section-title">
+                         <div class="row no-gutters main-section-title" style="margin-bottom: 20px !important;">
                              <h4 class="main_sub_title">골프패스 패널이 추천하는 골프장</h4>
                          </div>
-                         <div class="row position-relative pt-5 items justify-content-around">
+                         <div class="row position-relative pt-5 items justify-content-around" style="margin: 0 !important;">
                                              <!-- 아래 div반복 -->
                                              <?php for($i=0;$i<count($products_panel); $i++){?>
                              <div class="col-12 col-md-6 col-lg-3 mb-3 d-flex item">
@@ -357,7 +357,7 @@
     <section id="section4" class="mb-5 container-fluid d-flex align-items-start align-items-md-center">
         <article class="w-100 p-xl-4">
             <div class="row no-gutters main-section-title mb-5">
-                <h4 class="main_sub_title">테마별 골프장</h4>
+                <h4 class="main_sub_title" style="margin-bottom: 20px !important;">테마별 골프장</h4>
             </div>
             <div class="row no-gutters flex-column d-sm-none">
                 <div class="col-12 d-flex justify-content-center mb-2 bg-dark" style="height: 180px;">
