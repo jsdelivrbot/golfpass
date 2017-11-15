@@ -679,9 +679,11 @@ success: function(data){
 $(function(){
 	$(".content-box:nth-child(2) a .content, .content-box:nth-child(3) a .content").hover(
 		function() {
+
 			$(".content-box:first-child a .content").css("height","100px");
 		}, 
 		function() {
+
 			$(".content-box:first-child a .content").css("height","250px");	
 		}
 	);
