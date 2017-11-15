@@ -197,7 +197,8 @@
                     <div class="content-box d-flex flex-column align-items-start justify-content-center justify-content-lg-end">
                         <div class='title'>
                             <h1><?=$product_main[0]->name?></h1>
-                            <p><?=$product_main[0]->region?> - <?=$product_main[0]->hole_count?> / <?=$product_main[0]->distance?>야드</p>
+                            <p>eng name form</p>
+                            <p><?=$product_main[0]->region?> - <?=$product_main[0]->hole_count?> / <?=$product_main[0]->distance?></p>
                         </div>
                         <div class="content">
                             <p><span>
@@ -209,7 +210,6 @@
                                 <?php }?>
                                 </span>(리뷰 <?=$product_main[0]->reviews_count?>개)
                             </p>
-                            <p><?=$product_main[0]->desc?></p>
                         </div>
                         <a href="<?=site_url(shop_product_uri."/get/{$product_main[0]->id}")?>">
                         <div class="btn-box d-flex align-items-center justify-content-center">
@@ -225,7 +225,7 @@
                     <div class="content-box d-flex flex-column align-items-start justify-content-center justify-content-lg-end">
                         <div class='title'>
                         <h1><?=$product_main[$i]->name?></h1>
-                        <p>아랍에미레이트, 아부다비 - <?=$product_main[$i]->hole_count?> / <?=$product_main[$i]->distance?>야드</p>
+                        <p>아랍에미레이트, 아부다비 - <?=$product_main[$i]->hole_count?> / <?=$product_main[$i]->distance?></p>
                         </div>
                         <div class="content">
                             <p><span>
@@ -238,7 +238,6 @@
 
                             </span>(리뷰 <?=$product_main[$i]->reviews_count?>개)
                             </p>
-                            <p><?=$product_main[$i]->desc?></p>
                         </div>
                         <a href="<?=site_url(shop_product_uri."/get/{$product_main[$i]->id}")?>">
                         <div class="btn-box d-flex align-items-center justify-content-center">
@@ -262,9 +261,10 @@
             <i class="xi xi-angle-down"></i>
         </section>
         <section id='sns-box' class='d-flex align-items-center justify-content-around'>
-            <span><i class="xi xi-facebook-official"></i></span>
-            <span><i class="xi xi-instagram"></i></span>
-            <span><i class="xi xi-naver"></i></span>
+            <span><a href="http://blog.naver.com/golfpass_" target="_blank"><i class="xi xi-naver"></i></a></span>
+            <span><a href="https://www.facebook.com/Golfpass-1193606817407595" target="_blank"><i class="xi xi-facebook-official"></i></a></span>
+            <span><a href="https://www.instagram.com/golfpass_net" target="_blank"><i class="xi xi-instagram"></i></a></span>
+            <span><a href="https://www.youtube.com/channel/UCVCuIlbXMgiv4TrPolcgkgQ" target="_blank"><i class="xi xi-youtube-play"></i></a></span>
         </section>
     </section>
 
