@@ -236,8 +236,8 @@ class User extends Base_Controller
 
     public function update(){
         if(!$this->session->userdata("user_update")){
-            redirect("/");
-            exit;
+            // redirect("/");
+            // exit;
         }
 
         if($this->input->post("password") !== "" || $this->input->post("re_password") !== ""){
@@ -248,13 +248,14 @@ class User extends Base_Controller
         if ($this->fv->run()=== false) {
            
             $this->session->set_flashdata('user_update', true);
-            $this->db->select("userName,postal_number,address,address_more,name,phone,sex,profilePhoto, substring(birth,1,4) 'year', substring(birth,6,2) 'month', substring(birth,9,2) 'day'");
-            $this->db->from($this->table);
-            $this->db->where("userName",$this->session->userdata('userName'));
-            $user= $this->db->get()->row();
-            $data = array("mode" =>"update",'user'=> $user);
+            // $this->db->select("userName,postal_number,address,address_more,name,phone,sex,profilePhoto, substring(birth,1,4) 'year', substring(birth,6,2) 'month', substring(birth,9,2) 'day'");
+            // $this->db->from($this->table);
+            // $this->db->where("userName",$this->session->userdata('userName'));
+            // $user= $this->db->get()->row();
+            $data['user'] = $this->user;
+            $data['mode'] = "update";
            
-            $this->_template("addUpdate",$data);
+            $this->_template("user/golfpass/addUpdate",$data,"golfpass2");
         } else {
             if($this->input->post("password") !== "" || $this->input->post("re_password") !== ""){
                 $hash = password_hash($this->input->post('password'), PASSWORD_BCRYPT);
@@ -265,7 +266,7 @@ class User extends Base_Controller
             $this->db->where('userName',$this->session->userdata('userName'));
             $this->db->update('users');
 
-            msg_redirect("수정완료", "/");
+            msg_redirect("수정완료", shop_mypage_uri."/");
         }
     }
     function _dbSet_addUpdate(){
@@ -305,7 +306,7 @@ class User extends Base_Controller
 ));
         // $this->fv->set_rules('sex', '성별', 'required|min_length[1]|max_length[5]',array('required'=>'%s을 선택해주세요'));
      
-        $this->fv->set_rules('phone', '연락처', 'required|min_length[1]|max_length[20]');
+        // $this->fv->set_rules('phone', '연락처', 'required|min_length[1]|max_length[20]');
     }
     function email_auth()
     {
@@ -437,15 +438,15 @@ class User extends Base_Controller
                 $fileName= $this->upload->data()['file_name'];
                 $imgDir= "/public/uploads/user/images/$fileName";
                 //리사이즈
-                $config['image_library'] = 'gd2';
-                $config['source_image'] = "./public/uploads/user/images/$fileName";
-                $config['maintain_ratio'] = true;
-                $config['width']   = 80;
-                $config['height']   = 80;
+                // $config['image_library'] = 'gd2';
+                // $config['source_image'] = "./public/uploads/user/images/$fileName";
+                // $config['maintain_ratio'] = true;
+                // $config['width']   = 80;
+                // $config['height']   = 80;
 
-                $this->load->library('image_lib', $config);
+                // $this->load->library('image_lib', $config);
 
-                $this->image_lib->resize();
+                // $this->image_lib->resize();
             }
         }
         $this->_view("profilePhoto_upload", array("profilePhoto"=>$imgDir));
@@ -456,14 +457,14 @@ class User extends Base_Controller
 
 
         if($this->fv->run() === false){
-            $this->_template("check_pssword_forUpdate");
+            $this->_template("check_pssword_forUpdate",array(),"golfpass2");
         }else{
 
             $hash= $this->db->query("SELECT password FROM $this->table WHERE userName = '{$this->session->userdata('userName')}'")->row()->password;
             $password = $this->input->post('password');
             if (!password_verify($password, $hash)) { //비밀번호 불일치
                 alert("비밀번호가 일치하지 않습니다.");
-                $this->_template("check_pssword_forUpdate");
+                $this->_template("check_pssword_forUpdate",array(),"golfpass2");
             }else{
                 $this->session->set_flashdata('user_update', true);
                 redirect(user_uri."/update");

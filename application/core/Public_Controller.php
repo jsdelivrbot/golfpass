@@ -33,9 +33,17 @@ class Public_Controller extends MX_Controller{
 
         if($this->session->userdata("is_login")){
             $this->load->model("base/users_model");
-            $this->user =$this->users_model->_get($this->session->userdata("user_id"),array('id','auth','userName','kind','name'));
+            $this->user =$this->users_model->_get($this->session->userdata("user_id"));
+            switch($this->user->kind) {
+                case "admin" :$kind = "관리자"; break;
+                case "general" :$kind = "회원"; break;
+                case "panel" :$kind = "패널회원"; break;
+                case "corporate" :$kind = "기업회원"; break;
+            }
+            $this->user->kind= $kind;
+
         }else{
-            $this->user = (object)array("id"=>"0","auth"=>"0");
+            $this->user = (object)array("id"=>"0","auth"=>"0","kind"=>"손님");
         }
 
         $this->setting= $this->db->where('id','1')->get("setting")->row();

@@ -223,6 +223,7 @@ class Init_Controller extends MX_Controller{
              $password =password_hash("admin",PASSWORD_BCRYPT);
              $this->db->set("auth","-1");
              $this->db->set("userName","admin");
+             $this->db->set("kind","admin");
              $this->db->set("password",$password);
              $this->db->set("name","최고관리자");
              $this->db->set("sex","");

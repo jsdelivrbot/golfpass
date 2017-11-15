@@ -171,13 +171,14 @@ $('.ui.basic.modal').modal({
          var chk2=$("input[name=agree_2]").prop("checked");
         if(chk1 === false || chk2 === false)
         {
-            
+            alert("모두 동의해주세요.");
             return false;
         }
  
     },
     onDeny : function()
     {
+        window.location.href="/";
         return false;
     }
 })
