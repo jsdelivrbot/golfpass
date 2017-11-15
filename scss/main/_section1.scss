@@ -138,10 +138,12 @@
 		font-size: 14px;
 		font-family: "notokr-regular";
 		margin-bottom: 10px;
-          @media (min-width: 768px) {
+	  }
+        span {
+          @media (max-width: 768px) {
               display: none;
           }
-	  }
+        }
 	}
 	#sns-box {
 	  //sns
