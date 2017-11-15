@@ -72,7 +72,7 @@
 			<a style="color:white;" href="<?=site_url(shop_wishlist_uri.'/gets')?>">위시리스트      </a>
 			</li>
 			<li>
-			<a style="color:white;" href="<?=site_url(shop_contact_uri.'')?>">고객센터</a>
+			<a style="color:white;" href="<?=site_url(content_uri.'/gets?board_id=4')?>">고객센터</a>
 			</li>
 		</ul>
 	</div>

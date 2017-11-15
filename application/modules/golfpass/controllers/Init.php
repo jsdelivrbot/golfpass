@@ -27,7 +27,7 @@ class Init extends Init_Controller {
         {
             $this->add_sample_cate_product();
             $this->add_panel_data();
-            $this->add_board_contact();
+            $this->add_board();
         }
         $this->p_daily_price();
      
@@ -61,9 +61,11 @@ class Init extends Init_Controller {
         // ));
     }
  
-    function add_board_contact()
+    function add_board()
     {
-        $board_id =$this->boards_model->_add(array("name"=>"고객센터",'skin'=>'contact'));
+        $board_id =$this->boards_model->_add(array("name"=>"1:1문의",'skin'=>'golfpass'));
+        $board_id =$this->boards_model->_add(array("name"=>"FAQ",'skin'=>'golfpass',"auth_kind_w_content"=>"admin","auth_kind_w_review"=>"all"));
+        $board_id =$this->boards_model->_add(array("name"=>"공지사항",'skin'=>'golfpass',"auth_kind_w_content"=>"admin","auth_kind_w_review"=>"all"));
 
     }
     function add_panel_data()
