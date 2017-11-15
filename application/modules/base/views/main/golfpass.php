@@ -515,7 +515,7 @@
     <section id="section6" class="mb-5 mt-5 container-fluid align-items-start align-items-md-center">
         <article class="w-100 p-xl-4">
             <div class="row no-gutters main-section-title">
-                <h4>골프패스 패널 소개</h4>
+                <h4>그늘집 by GOLFPASS</h4>
             </div>
             <div class="row no-gutters justify-content-start">
                 <!--패널 반복 아래 div.panel-item-->
