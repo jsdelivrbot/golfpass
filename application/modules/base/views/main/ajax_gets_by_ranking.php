@@ -1,8 +1,8 @@
 <article class="w-100 p-xl-4">
-				<div class="row no-gutters main-section-title mb-5" style="margin-bottom: 20px !important;">
+				<div class="row no-gutters main-section-title mb-5" style="margin-bottom: 0 !important;">
 					<h4 class="main_sub_title">순위별 골프장</h4>
 				</div>
-				<div class="d-flex mb-5 category flex-wrap" style="margin-left:10px;">
+				<div class="d-flex mb-5 category flex-wrap" style="margin-left:10px; margin-bottom: 20px !important">
 					<button data-rankingtype="avg_score" class="btn btn-outline-light btn-sm <?=$rankingType==='avg_score' ? 'active' : ''?>">#종합 평가가 높은</button>
 					<button data-rankingtype="score_1" class="btn btn-outline-light btn-sm <?=$rankingType==='score_1' ? 'active' : ''?>" >#전략성이 높은</button>
 					<button data-rankingtype="score_2" class="btn btn-outline-light btn-sm <?=$rankingType==='score_2' ? 'active' : ''?>" >#페어웨이가 넓은</button>

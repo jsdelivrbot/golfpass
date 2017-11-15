@@ -271,11 +271,11 @@
 
     <section id="section2" class="mb-5 main-section scroll-smooth container-fluid d-flex align-items-center">
                  <article class="w-100 p-xl-4">
-                         <div class="row no-gutters main-section-title">
+                         <div class="row no-gutters main-section-title" style="margin-bottom:20px !important;">
                                  <h4 class="main_sub_title">나라별 골프장</h4>
                          </div>
                          <!--NOTE 나라별 모바일 구간 -->
-                         <div class="row no-gutters flex-column d-md-none">
+                         <div class="row no-gutters flex-column d-md-none" style="padding-top: 0 !important;">
                          <?php for($i=0;$i < count($nation_list)	;$i++){?>
                             <a href="<?=site_url(shop_category_uri."/gets/{$nation_list[$i]->id}")?>">
                                  <div class="col-12 d-flex justify-content-center mb-2 bg-dark" style="height: 180px;">
@@ -290,7 +290,7 @@
                          </div>
                          <!--NOTE 나라별 slide 테블릿 ~ 구간 -->
 
-                         <div class="row flex-nowrap d-none d-md-flex position-relative pt-5">
+                         <div class="row flex-nowrap d-none d-md-flex position-relative pt-5" style="padding-top: 0 !important;">
                                  <div id="jssor_1" style="position:relative;margin:0 auto;top:0px;left:0px;width:980px;height:440px;overflow:hidden;visibility:hidden;">
                                          <!-- Loading Screen -->
                                          <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:980px;height:440px;overflow:hidden;">
@@ -314,10 +314,10 @@
          </section>
     <section id="section3" class="pt-49 pt-xl-0 mb-5 container-fluid align-items-start align-items-md-center">
                      <article class="w-100 p-xl-4">
-                         <div class="row no-gutters main-section-title" style="margin-bottom: 20px !important;">
+                         <div class="row no-gutters main-section-title" style="margin-bottom:20px !important;">
                              <h4 class="main_sub_title">골프패스 패널이 추천하는 골프장</h4>
                          </div>
-                         <div class="row position-relative pt-5 items justify-content-around" style="margin: 0 !important;">
+                         <div class="row position-relative pt-5 items justify-content-around" style="padding-top: 0 !important;">
                                              <!-- 아래 div반복 -->
                                              <?php for($i=0;$i<count($products_panel); $i++){?>
                              <div class="col-12 col-md-6 col-lg-3 mb-3 d-flex item">
@@ -356,8 +356,8 @@
 
     <section id="section4" class="mb-5 container-fluid d-flex align-items-start align-items-md-center">
         <article class="w-100 p-xl-4">
-            <div class="row no-gutters main-section-title mb-5">
-                <h4 class="main_sub_title" style="margin-bottom: 20px !important;">테마별 골프장</h4>
+            <div class="row no-gutters main-section-title mb-5" style="margin-bottom: 20px !important;">
+                <h4 class="main_sub_title">테마별 골프장</h4>
             </div>
             <div class="row no-gutters flex-column d-sm-none">
                 <div class="col-12 d-flex justify-content-center mb-2 bg-dark" style="height: 180px;">
@@ -438,10 +438,10 @@
     </section>
     <section id="section5" class="mb-5  container-fluid align-items-start align-items-md-center">
         <article class="w-100 p-xl-4">
-            <div class="row no-gutters main-section-title mb-5" style="margin-bottom: 20px !important;">
+            <div class="row no-gutters main-section-title mb-5" style="margin-bottom: 0 !important;">
                 <h4 class="main_sub_title">순위별 골프장</h4>
             </div>
-            <div class="d-flex mb-5 category flex-wrap" style="margin-left:10px;">
+            <div class="d-flex mb-5 category flex-wrap" style="margin-left:10px; margin-bottom: 20px !important">
                 <button data-rankingtype="avg_score" class="btn btn-outline-light btn-sm active">#종합 평가가 높은</button>
                 <button data-rankingtype="score_1" class="btn btn-outline-light btn-sm" >#전략성이 높은</button>
                 <button data-rankingtype="score_2" class="btn btn-outline-light btn-sm" >#페어웨이가 넓은</button>
