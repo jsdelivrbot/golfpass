@@ -18,7 +18,15 @@ class Template extends MX_Controller
         $data +=get_menu_view_data();
         $this->load->view("base",$data);
     }
+    function golfpass2($data = array())
+    {
+        $this->load->model("shop/product_categories_model");
+        $categories =$this->product_categories_model->_gets();
+        $data['categories'] = $categories;
 
+        $data +=get_menu_view_data();
+        $this->load->view("golfpass2",$data);
+    }
     function golfpass($data = array())
     {
         $this->load->model("shop/product_categories_model");

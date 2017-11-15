@@ -16,7 +16,7 @@ class Mypage extends Base_Controller {
             return; 
         }
         // $this->_template('index');
-        $this->_template('index',array(),'golfpass');
+        $this->_template('index',array(),'golfpass2');
         // $data = array();
         // $this->_template(array(
         //     'content_view'=>'index',

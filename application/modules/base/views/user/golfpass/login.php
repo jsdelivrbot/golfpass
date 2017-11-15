@@ -31,7 +31,7 @@
             <div class="field">
                 <div class="ui left icon input">
                     <i class="user icon"></i>
-                    <input type="text" name="userName" placeholder="아이디">
+                    <input type="text" name="userName" placeholder="아이디" value="<?=set_value('userName')?>">
                 </div>
             </div>
             <div class="field">

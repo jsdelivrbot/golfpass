@@ -20,7 +20,8 @@ class Wishlist extends Base_Controller {
         else
         {
             $data['wishlist'] =$this->product_cartlist_model->gets($this->user->id,'wishlist');
-            $this->_template('gets',$data,'golfpass');
+            $data['user'] =$this->user;
+            $this->_template('gets',$data,'golfpass2');
             // $this->_view('gets',$data);
         }
         

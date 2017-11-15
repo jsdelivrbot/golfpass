@@ -6,17 +6,19 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/semantic.min.css">
 
 
-<div class="ui middle aligned center aligned grid">
+<!-- <div class="ui middle aligned center aligned grid"> -->
+<!-- <div class="ui aligned aligned grid"> -->
+<div class="ui centered grid ">
 <div class="column">
 <div class="ui small image">
-<img id="img_profilePhoto" src="<?=$profilePhoto?>">
+<img id="img_profilePhoto" src="<?=$profilePhoto?>" style="width:150px;">
                 
 </div>
 
 
 <form  method="POST" action="<?=my_site_url(user_uri."/profilePhoto_upload")?>" enctype='multipart/form-data'>
-<div style="">
-<label for="fileInput" class="ui icon button basic gray" style="padding-bottom:0px; height:100px;margin-bottom:20px;">
+<div style="margin-top:2px;">
+<label for="fileInput" class="ui icon button basic gray"style="font-size:13.3px;" >
     <i class="upload  icon"></i>
     프로필 사진 업로드</label>
 <input id="fileInput"  name='profilePhoto' type="file" style="display:none">

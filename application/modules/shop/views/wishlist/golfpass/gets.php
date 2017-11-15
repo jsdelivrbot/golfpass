@@ -20,15 +20,15 @@
         <div class="sixteen wide column">
             <div class="ui text menu">
                 <div class="header item">
-                    <h3 class="ui header"><i style="display:inline-block" class="user icon"></i> </h3>
+                    <h3 class="ui header"><i style="display:inline-block" class="user icon"></i><?="{$user->name}($user->userName)"?> </h3>
                 </div>
                 <a class="computer only item">
-                    <h3 class="ui header"><i class="diamond icon"></i>다이아몬드</h3>
+                    <!-- <h3 class="ui header"><i class="diamond icon"></i>다이아몬드</h3> -->
                 </a>
 
-                <a class="right float item active">
+                <a href="<?=site_url(user_uri."/check_pssword_forUpdate")?>"class="right float item active">
                     <h3 class="ui header">
-                        내정보 수정
+                    내 정보 수정
                     </h3>
                 </a>
             </div>
