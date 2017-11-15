@@ -365,12 +365,25 @@ class Init extends Init_Controller {
             -- KEY `idx_category_id`(`category_id`)
              ) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
                 
-            if($result) echo("success create $tb_name ");
-            else echo("failed create $tb_name");
+            if($result){
+                echo("success create $tb_name ");
+                echo "<br>";
+                return true;
+
+            }
+            else{
+                echo("failed create $tb_name");
+
+                echo "<br>";
+                return false;
+            } 
+                
         }else{
             echo "already table $tb_name exists";
+            echo "<br>";
+            return false;
         }
-        echo "<br>";
+        
     }
     //재정의 시작
 

@@ -8,6 +8,13 @@
 		<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
 		<!-- <link rel="stylesheet" href="/public/sangmin/dist/bootstrap/bootstrap.min.css"> -->
 		<!-- <link rel="stylesheet" href="/public/css/main.css"> -->
+		
+<?php if(is_semantic_dev) {?>
+    <link rel="stylesheet/less" type="text/css" href="/public/framework/semantic/src/semantic.less">
+<script src="/public/framework/semantic/src/less.min.js"></script>
+<?php }else{?>
+<link rel="stylesheet" type="text/css" href="/public/framework/semantic/out/semantic.css">
+<?php }?>
 		<link rel="stylesheet" href="/public/css/bootstrap.css">
 		<link rel="stylesheet" href="/public/css/template.css">
 		<style>::-webkit-scrollbar{display: none;}a{text-decoration: none !important;}

@@ -60,7 +60,7 @@ class Content extends Base_Controller {
     public function gets()
     { 
         $data =$this->_gets();
-        $this->_template('gets',$data,"golfpass");
+        $this->_template('gets',$data,"golfpass2");
 		 
     }
     
@@ -82,6 +82,7 @@ class Content extends Base_Controller {
     public function get($id,$getdata =false){
         $this->_check_get_auth();
         $this->load->model("board_replys_model");
+        $data['user'] = $this->user;
         $data['board'] = $this->board;
         $data['content'] =$this->board_contents_model->get_content($id);
         $data['replys']   =$this->board_replys_model->gets_by_recursive($id,$this->board_id);
@@ -92,8 +93,8 @@ class Content extends Base_Controller {
         }
         
         // $reply_view_dir = "content/{$this->board->skin}/reply/gets";
-        // $this->_template(array("get",$reply_view_dir,"gets"),$data,"golfpass");
-        $this->_template("get",$data,"golfpass");
+        // $this->_template(array("get",$reply_view_dir,"gets"),$data,"golfpass2");
+        $this->_template("get",$data,"golfpass2");
     }
 
     function _addCallback($func_fv_false,$func_fv_true)
@@ -208,7 +209,7 @@ class Content extends Base_Controller {
             $this->_dbSet_addUpdate();
             $insert_id =$this->board_contents_model->add(array('board_id'=>$this->board_id));
 
-            if($this->user->kind === "panel")
+            if($this->board->skin === "panel")
                 my_redirect(golfpass_panel_content_uri."/get/$insert_id");
             else
                 my_redirect(content_uri."/get/$insert_id");
@@ -279,8 +280,10 @@ class Content extends Base_Controller {
             $this->_dbSet_addUpdate();
             $this->board_contents_model->_update($id);
             
-            my_redirect(golfpass_panel_content_uri."/get/$id");
-            // my_redirect(content_uri."/get/$id");
+            if($this->board->skin === "panel")
+                my_redirect(golfpass_panel_content_uri."/get/$id");
+            else
+                my_redirect(content_uri."/get/$id");
         }
     }
     public function delete($id){
@@ -304,8 +307,10 @@ class Content extends Base_Controller {
         }
         //삭제
         $this->board_contents_model->delete($id,$this->board_id);
-        // my_redirect(content_uri."/gets");
-        my_redirect(golfpass_panel_uri."/gets");
+        if($this->board->skin === "panel")
+            my_redirect(golfpass_panel_uri."/gets");
+        else
+            my_redirect(content_uri."/gets");
     }
     public function _set_rules(){
         $this->fv->set_rules('title','제목','required');

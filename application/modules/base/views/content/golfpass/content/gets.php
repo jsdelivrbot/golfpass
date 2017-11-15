@@ -1,17 +1,17 @@
-<div id="panel-wrap">
-	<article id="panel-article" class="container-fluid">
-					 <div class="row text-center">
-							 <div class="col-12">
+<div id="tp-panel-wrap">
+	<article id="tp-panel-article" class="tp-container-fluid">
+					 <div class="tp-row tp-text-center">
+							 <div class="tp-col-12">
 								 
-									 <h1 id='panel-title' class="text-center">
+									 <h1 id='tp-panel-title' class="tp-text-center">
 										 <span>골프패스</span> <?=$board->name?></h1>
 								 
 							 </div>
 					 </div>
 				
-					 <section id='content-boxs' class="ajax_taget_content_list row justify-content-center">
+					 <section id='tp-content-boxs' class="tp-ajax_taget_content_list tp-row tp-justify-content-center">
 						  <?php for($i=0; $i< count($contents);$i++){?>
-							 <div class="content-box col-12 row">
+							 <div class="tp-content-box tp-col-12 tp-row">
 									
 							 		<!-- desc에서 이미지태그 src만 추출 -->
 									 <?php 
@@ -21,14 +21,14 @@
 									 $src = $xpath->evaluate("string(//img/@src)"); # "/images/image.jpg"
 									?>
 									<!-- desc에서 이미지태그 src만 추출 -->
-									 <div class="d-none d-md-block col-md-2 d-md-flex align-items-md-start justify-content-end">
-											 <img src="<?=$src?>" class="rounded-circle" alt="" style="width:60px; height:60px;">
+									 <div class="tp-d-none tp-d-md-block tp-col-md-2 tp-d-md-flex tp-align-items-md-start tp-justify-content-end">
+											 <img src="<?=$src?>" class="tp-rounded-circle" alt="" style="width:60px; height:60px;">
 									 </div>
-									 <div class="col-12 col-md-10">
-										  <a class="w-100" href="<?=my_site_url(content_uri."/get/{$contents[$i]->id}")?>">
+									 <div class="tp-col-12 tp-col-md-10">
+										  <a class="tp-w-100" href="<?=my_site_url(content_uri."/get/{$contents[$i]->id}")?>">
 											 <h1><?=$contents[$i]->title?></h1>
 											 		</a>
-											 <div class="content">
+											 <div class="tp-content">
 											<?php
 											$desc =strip_tags($contents[$i]->desc);
 											if(mb_strlen($desc) >= 80)
@@ -37,9 +37,9 @@
 												echo $desc;
 											?>
 											 </div>
-											 <p class="date">
+											 <p class="tp-date">
 													 <?=$contents[$i]->created?><span> | </span>
-													 <span class="name"><?=$contents[$i]->name?></span>
+													 <span class="tp-name"><?=$contents[$i]->name?></span>
 											 </p>
 									 </div>
 
@@ -47,7 +47,7 @@
 							<?php }?>
 							 <!-- TODO 문법을 몰라서 그냥둠.. -->
 							
-								<div class="post_write">
+								<div class="tp-post_write">
 								    <a href="<?=site_url(content_uri."/add?board_id={$board->id}")?>">작성하기</a>
 								</div>
 								<!-- 페이지네이션 샘플 -->

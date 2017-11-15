@@ -29,6 +29,7 @@ class Init_Controller extends MX_Controller{
             if(ENVIRONMENT === 'development')
             {
                 $this->test_setting_update();
+                echo "테스티세팅 완료<br>";
                
             }
         }
@@ -195,7 +196,7 @@ class Init_Controller extends MX_Controller{
              `id` INT UNSIGNED NULL AUTO_INCREMENT, 
              `auth` INT NOT NULL DEFAULT '1',
              `kind` varchar(50) NOT NULL DEFAULT 'general',
-             `profilePhoto` varchar(255),
+             `profilePhoto` varchar(255) DEFAULT '/public/images/noimg.png',
              `intro` varchar(255) DEFAULT '',
              `userName` varchar(10), 
              `password` varchar(255), 

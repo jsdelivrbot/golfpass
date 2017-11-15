@@ -133,7 +133,9 @@ function append_answer_form(e){
     $form.css('display','block');
     $form.attr('action',action);
 
-    var el=$e.parents("li")[0];
+    // var el=$e.parents("li")[0];
+    var el=$e.parents(".comment")[0];
+    
     $(el).append($form);
 
     return true;
