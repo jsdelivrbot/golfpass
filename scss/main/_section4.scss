@@ -1,7 +1,7 @@
 #main-wrap {
   #section4 {
 	.mobile-content {
-	  font-family: notokr-medium;
+	  font-family: 'notokr-medium', sans-serif;
 	  left: 6% !important;
 	  width: 88% !important;
 	  bottom: 15px !important;
@@ -12,21 +12,24 @@
 		margin-bottom: 0;
 	  }
 	  p {
-		font-family: notokr-regular;
+		font-family: 'notokr-regular', sans-serif;
 		font-size: 1.2rem;
 		margin-bottom: 5;
 	  }
 	}
 	.position-absolute {
-	  left: 3%;
-	  bottom: 5%;
-	  font-family: notokr-regular;
+	  left: 5%;
+	  bottom: 7%;
+	  font-family: 'notokr-regular', sans-serif;
 	  h3 {
-		font-size: 28px;
+			font-family: 'notokr-regular', sans-serif;
+			font-size: 27px;
+              margin-bottom: 10px;
 	  }
 	  p {
-		font-size: 14px;
-		font-weight: 300;
+			font-family: 'notokr-demilight', sans-serif;
+			font-size: 14px;
+          margin: 0;
 	  }
 	}
   }

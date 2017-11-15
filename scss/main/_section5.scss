@@ -2,18 +2,17 @@
 
 #main-wrap {
 	#section5 {
-		font-family: notokr-medium;
+		font-family: 'notokr-medium', sans-serif;
 
 		.category {
 			//카테고리 버튼 컨테이너
-			padding: 10px 15px;
 
 			button {
 				//카테고리 버튼
-				font-family: notokr-demilight;
-				font-weight: 500;
+				font-family: 'notokr-medium', sans-serif;
 				font-size: 14px;
-				margin: 8px 15px;
+				margin: 0 7px 14px 7px;
+                padding: 8px 15px;
 				@media (min-width: 768px) {
 					&:first-child {
 						margin-left: 0;
@@ -33,19 +32,19 @@
 				border-radius: 10px;
 				span {
 					//동그란 순위 1,2,3
-					font-family: notokr-medium;
+					font-family: 'notokr-medium', sans-serif;
 					font-size: 20px;
 					width: 40px;
 					height: 40px;
 				}
 				h1 {
           //제목 힐데스하임CC
-					font-family: notokr-regular;
+					font-family: 'notokr-regular', sans-serif;
 					font-size: 30px;
 				}
 				p {
           //내용 ~~패키지
-					font-family: notokr-light;
+					font-family: 'notokr-demilight', sans-serif;
 					font-size: 14px;
 				}
 			}

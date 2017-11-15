@@ -272,7 +272,7 @@
     <section id="section2" class="mb-5 main-section scroll-smooth container-fluid d-flex align-items-center">
                  <article class="w-100 p-xl-4">
                          <div class="row no-gutters main-section-title">
-                                 <h4>나라별 골프장</h4>
+                                 <h4 class="main_sub_title">나라별 골프장</h4>
                          </div>
                          <!--NOTE 나라별 모바일 구간 -->
                          <div class="row no-gutters flex-column d-md-none">
@@ -315,7 +315,7 @@
     <section id="section3" class="pt-49 pt-xl-0 mb-5 container-fluid align-items-start align-items-md-center">
                      <article class="w-100 p-xl-4">
                          <div class="row no-gutters main-section-title">
-                             <h4>골프패스 패널이 추천하는 골프장</h4>
+                             <h4 class="main_sub_title">골프패스 패널이 추천하는 골프장</h4>
                          </div>
                          <div class="row position-relative pt-5 items justify-content-around">
                                              <!-- 아래 div반복 -->
@@ -357,7 +357,7 @@
     <section id="section4" class="mb-5 container-fluid d-flex align-items-start align-items-md-center">
         <article class="w-100 p-xl-4">
             <div class="row no-gutters main-section-title mb-5">
-                <h4>테마별 골프장</h4>
+                <h4 class="main_sub_title">테마별 골프장</h4>
             </div>
             <div class="row no-gutters flex-column d-sm-none">
                 <div class="col-12 d-flex justify-content-center mb-2 bg-dark" style="height: 180px;">
@@ -438,8 +438,8 @@
     </section>
     <section id="section5" class="mb-5  container-fluid align-items-start align-items-md-center">
         <article class="w-100 p-xl-4">
-            <div class="row no-gutters main-section-title mb-5">
-                <h4>순위별 골프장</h4>
+            <div class="row no-gutters main-section-title mb-5" style="margin-bottom: 20px !important;">
+                <h4 class="main_sub_title">순위별 골프장</h4>
             </div>
             <div class="d-flex mb-5 category flex-wrap">
                 <button data-rankingtype="avg_score" class="btn btn-outline-light btn-sm active">#종합 평가가 높은</button>
@@ -515,7 +515,7 @@
     <section id="section6" class="mb-5 mt-5 container-fluid align-items-start align-items-md-center">
         <article class="w-100 p-xl-4">
             <div class="row no-gutters main-section-title">
-                <h4>그늘집 by GOLFPASS</h4>
+                <h4 class="main_sub_title">그늘집 by GOLFPASS</h4>
             </div>
             <div class="row no-gutters justify-content-start">
                 <!--패널 반복 아래 div.panel-item-->

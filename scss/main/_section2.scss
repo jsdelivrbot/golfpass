@@ -1,18 +1,18 @@
 #main-wrap {
   #section2 {
 	.mobile-content {
-	  font-family: notokr-medium;
+	  font-family: 'notokr-medium', sans-serif;
 	  left: 6%;
 	  width: 88%;
 	  bottom: 15px;
 	  color: white;
 	  border-bottom: 4px solid white;
 	  h3 {
-		font-family: notokr-regular;
+		font-family: 'notokr-regular', sans-serif;
 		font-size: 30px;
 	  }
 	  p {
-		font-family: notokr-light;
+		font-family: 'notokr-demilight', sans-serif;
 		font-style: 14px;
 	  }
 	}
@@ -25,11 +25,11 @@
 	  height: 30%;
 	  border-bottom: 2px solid white;
 	  h3 {
-		font-family: notokr-regular;
+		font-family: 'notokr-regular', sans-serif;
 		font-size: 30px;
 	  }
 	  p {
-		font-family: notokr-light;
+		font-family: 'notokr-demilight', sans-serif;
 		font-size: 14px;
 	  }
 	}
@@ -40,4 +40,10 @@
 	  }
 	}
   }
+}
+
+.main_sub_title {
+    font-family: 'notokr-regular', sans-serif;
+    font-size: 22px;
+    color: #ffffff;
 }

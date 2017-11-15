@@ -2454,7 +2454,7 @@ body.menu-open .plus-btn .r2 {
           #main-wrap #section1 .carousel .carousel-inner .carousel-item .content-box .content p {
             max-width: 500px;
             font-size: 14px;
-            font-family: "notokr-light";
+            font-family: "notokr-demilight";
             margin-bottom: 20px; }
           #main-wrap #section1 .carousel .carousel-inner .carousel-item .content-box .btn-box {
             border: 2px solid white;
@@ -2513,17 +2513,17 @@ body.menu-open .plus-btn .r2 {
       font-size: 18px; }
 
 #main-wrap #section2 .mobile-content {
-  font-family: notokr-medium;
+  font-family: 'notokr-medium', sans-serif;
   left: 6%;
   width: 88%;
   bottom: 15px;
   color: white;
   border-bottom: 4px solid white; }
   #main-wrap #section2 .mobile-content h3 {
-    font-family: notokr-regular;
+    font-family: 'notokr-regular', sans-serif;
     font-size: 30px; }
   #main-wrap #section2 .mobile-content p {
-    font-family: notokr-light;
+    font-family: 'notokr-demilight', sans-serif;
     font-style: 14px; }
 #main-wrap #section2 .content {
   font-family: "notokr-regular", sans-serif;
@@ -2534,14 +2534,19 @@ body.menu-open .plus-btn .r2 {
   height: 30%;
   border-bottom: 2px solid white; }
   #main-wrap #section2 .content h3 {
-    font-family: notokr-regular;
+    font-family: 'notokr-regular', sans-serif;
     font-size: 30px; }
   #main-wrap #section2 .content p {
-    font-family: notokr-light;
+    font-family: 'notokr-demilight', sans-serif;
     font-size: 14px; }
 #main-wrap #section2 #jssor_1 .slide-item {
   width: 220px !important;
   height: 440px; }
+
+.main_sub_title {
+  font-family: 'notokr-regular', sans-serif;
+  font-size: 22px;
+  color: #ffffff; }
 
 #main-wrap #section3 .item:nth-child(n+5) {
   display: none !important; }
@@ -2554,12 +2559,12 @@ body.menu-open .plus-btn .r2 {
   #main-wrap #section3 .item figure .content {
     background-color: #06adef; }
     #main-wrap #section3 .item figure .content p, #main-wrap #section3 .item figure .content i {
-      font-family: "notokr-light";
+      font-family: "notokr-demilight";
       font-size: 12px; }
   #main-wrap #section3 .item figure .price {
     bottom: 20px;
     left: 20px;
-    font-size: 1.8rem;
+    font-size: 20px;
     font-family: "notokr-regular"; }
   #main-wrap #section3 .item figure figcaption {
     font-family: "notokr-regular"; }
@@ -2567,11 +2572,11 @@ body.menu-open .plus-btn .r2 {
       font-size: 16px;
       color: #4c4c4c; }
     #main-wrap #section3 .item figure figcaption p {
-      font-family: "notokr-light";
+      font-family: "notokr-demilight";
       font-size: 12px;
       color: #808080; }
     #main-wrap #section3 .item figure figcaption span {
-      font-family: "notokr-light";
+      font-family: "notokr-demilight";
       color: #808080;
       font-size: 10px; }
       #main-wrap #section3 .item figure figcaption span i {
@@ -2579,7 +2584,7 @@ body.menu-open .plus-btn .r2 {
         font-size: 1.8rem; }
 
 #main-wrap #section4 .mobile-content {
-  font-family: notokr-medium;
+  font-family: 'notokr-medium', sans-serif;
   left: 6% !important;
   width: 88% !important;
   bottom: 15px !important;
@@ -2589,46 +2594,47 @@ body.menu-open .plus-btn .r2 {
     font-size: 2rem;
     margin-bottom: 0; }
   #main-wrap #section4 .mobile-content p {
-    font-family: notokr-regular;
+    font-family: 'notokr-regular', sans-serif;
     font-size: 1.2rem;
     margin-bottom: 5; }
 #main-wrap #section4 .position-absolute {
-  left: 3%;
-  bottom: 5%;
-  font-family: notokr-regular; }
+  left: 5%;
+  bottom: 7%;
+  font-family: 'notokr-regular', sans-serif; }
   #main-wrap #section4 .position-absolute h3 {
-    font-size: 28px; }
+    font-family: 'notokr-regular', sans-serif;
+    font-size: 27px;
+    margin-bottom: 10px; }
   #main-wrap #section4 .position-absolute p {
+    font-family: 'notokr-demilight', sans-serif;
     font-size: 14px;
-    font-weight: 300; }
+    margin: 0; }
 
 #main-wrap #section5 {
-  font-family: notokr-medium; }
-  #main-wrap #section5 .category {
-    padding: 10px 15px; }
-    #main-wrap #section5 .category button {
-      font-family: notokr-demilight;
-      font-weight: 500;
-      font-size: 14px;
-      margin: 8px 15px;
-      border-radius: 45px; }
-      @media (min-width: 768px) {
-        #main-wrap #section5 .category button:first-child {
-          margin-left: 0; } }
-    #main-wrap #section5 .category button.active {
-      box-shadow: 0 0 0 0; }
+  font-family: 'notokr-medium', sans-serif; }
+  #main-wrap #section5 .category button {
+    font-family: 'notokr-medium', sans-serif;
+    font-size: 14px;
+    margin: 0 7px 14px 7px;
+    padding: 8px 15px;
+    border-radius: 45px; }
+    @media (min-width: 768px) {
+      #main-wrap #section5 .category button:first-child {
+        margin-left: 0; } }
+  #main-wrap #section5 .category button.active {
+    box-shadow: 0 0 0 0; }
   #main-wrap #section5 .content-box .content {
     border-radius: 10px; }
     #main-wrap #section5 .content-box .content span {
-      font-family: notokr-medium;
+      font-family: 'notokr-medium', sans-serif;
       font-size: 20px;
       width: 40px;
       height: 40px; }
     #main-wrap #section5 .content-box .content h1 {
-      font-family: notokr-regular;
+      font-family: 'notokr-regular', sans-serif;
       font-size: 30px; }
     #main-wrap #section5 .content-box .content p {
-      font-family: notokr-light;
+      font-family: 'notokr-demilight', sans-serif;
       font-size: 14px; }
   #main-wrap #section5 .list-after-four {
     font-family: notokr-medium; }
