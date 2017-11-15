@@ -442,15 +442,15 @@
                 <h4>순위별 골프장</h4>
             </div>
             <div class="d-flex mb-5 category flex-wrap">
-                <button data-rankingtype="avg_score" class="btn btn-outline-light btn-sm active">#평균</button>
-                <button data-rankingtype="score_1" class="btn btn-outline-light btn-sm" >#score_1</button>
-                <button data-rankingtype="score_2" class="btn btn-outline-light btn-sm" >#score_2</button>
-                <button data-rankingtype="score_3" class="btn btn-outline-light btn-sm" >#score_3</button>
-                <button data-rankingtype="score_4" class="btn btn-outline-light btn-sm" >#score_4</button>
-                <button data-rankingtype="score_5" class="btn btn-outline-light btn-sm" >#score_5</button>
-                <button data-rankingtype="score_6" class="btn btn-outline-light btn-sm" >#score_6</button>
-                <button data-rankingtype="score_7" class="btn btn-outline-light btn-sm" >#score_7</button>
-                <button data-rankingtype="score_8" class="btn btn-outline-light btn-sm" >#score_8</button>
+                <button data-rankingtype="avg_score" class="btn btn-outline-light btn-sm active">#종합 평가가 높은</button>
+                <button data-rankingtype="score_1" class="btn btn-outline-light btn-sm" >#전략성이 높은</button>
+                <button data-rankingtype="score_2" class="btn btn-outline-light btn-sm" >#페어웨이가 넓은</button>
+                <button data-rankingtype="score_3" class="btn btn-outline-light btn-sm" >#코스 전장이 긴</button>
+                <button data-rankingtype="score_4" class="btn btn-outline-light btn-sm" >#그린의 난이도가 높은</button>
+                <button data-rankingtype="score_5" class="btn btn-outline-light btn-sm" >#가성비가 우수한</button>
+                <button data-rankingtype="score_6" class="btn btn-outline-light btn-sm" >#시설이 좋은</button>
+                <button data-rankingtype="score_7" class="btn btn-outline-light btn-sm" >#식사가 맛있는</button>
+                <button data-rankingtype="score_8" class="btn btn-outline-light btn-sm" >#스탭 서비스가 좋은</button>
             </div>
             
             <div class="row no-gutters">
