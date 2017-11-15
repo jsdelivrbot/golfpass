@@ -78,15 +78,13 @@ class Cartlist extends Base_Controller {
             $sess_cartlist = $this->session->userdata('cartlist');
             unset($sess_cartlist[$id]);
             $this->session->set_userdata(array("cartlist"=>$sess_cartlist));
-            $data = array("reload" => true );
-            echo json_encode($data);
-            return;
         }else{
             $this->product_cartlist_model->delete($id,$this->user->id,'cartlist');
-            $data = array("reload" => true );
-            echo json_encode($data);
-            return;
         }
+        
+        $data = array("reload" => true );
+        echo json_encode($data);
+        return;
     }
 
     public function ajax_update($id){

@@ -72,13 +72,23 @@
                 <?php }?>
              
             </article>
-
+                
             <section id='all' class='pl-0 d-flex justify-content-center'>
+                <?php if(isset($product_id)){?>
                 <a href="<?=site_url(shop_product_uri."/get/{$product_id}")?>">
                     <div id='circle' class='d-flex justify-content-center align-items-center'>
                         <span>상품으로</span>
                     </div>
                 </a>
+                <?php }else{?>
+
+                <a href="<?=site_url(shop_wishlist_uri."/gets")?>">
+                    <div id='circle' class='d-flex justify-content-center align-items-center'>
+                        <span>마이페이지로</span>
+                    </div>
+                </a>
+
+                <?php }?>
             </section>
         </section>
         <div class="col-12 d-flex justify-content-center align-items-center pagination">

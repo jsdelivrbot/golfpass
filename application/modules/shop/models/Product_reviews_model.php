@@ -43,47 +43,7 @@ class Product_reviews_Model extends Board_Model{
         return $content;
     }
 
-    function gets_by_user_id_with_pgi($config)
-    {
-        $ci = Public_Controller::$instance;
-
-        $pgi_style =  isset($config['pgi_style']) ?  $config['pgi_style'] : 'style_1';
-        $this->load->library('pagination');
-        //get totoal_rows
-        $field = $this->input->get('field');
     
-        if($field !== null)//검색 true
-        {
-            $this->_like_or_by_split($field,$this->input->get('value'));
-            $this->db->join("users as u","r.user_id = u.id","LEFT");
-        }
-        $this->db->select('count(*) as rows_num');
-        $this->db->from("$this->table as r");
-        $this->db->where('r.is_display','1');
-        $this->db->where('r.user_id',$ci->user->id);
-        $total_rows= $this->db->get()->row()->rows_num;
-        
-        //get pagination
-        $pgiData =$this->pagination->get(array(
-            'total_rows'=>$total_rows,
-            'style_pgi'=>$pgi_style
-        ));
-        $offset = $pgiData['offset'];
-        $per_page = $pgiData['per_page'];
-        
-        //select from board_$id's contents
-        $field = $this->input->get('field');
-        if($field)
-            $this->_like_or_by_split($field,$this->input->get('value'));
-        $this->db->order_by('id','desc');
-        $this->db->limit($per_page,$offset);
-        $this->db->where('r.user_id',$ci->user->id);
-        $this->db->where('r.is_display','1');
-
-       
-        $rows=$this->gets();
-        return $rows;
-    }
     function gets_with_pagination_in_admin($config)
     {
         $pgi_style =  isset($config['pgi_style']) ?  $config['pgi_style'] : 'style_1';
@@ -175,10 +135,27 @@ class Product_reviews_Model extends Board_Model{
         return $rows;
     }
     
-    function gets_with_pgi($where_obj)
+
+    function gets_with_pgi($where_obj,$config=null)
     {
+        $style = $config['style'] ?? 'style_golfpass';
+        $by_user =$config['by_user'] ?? false;
+        if($by_user)
+        {
+            $count_table=null;
+        }
+        else
+        {
+            $count_table = function() use($where_obj)
+            {
+                $this->load->model("shop/products_model");
+                // return 1;
+                return $this->products_model->_get($where_obj['product_id'],array('reviews_count'))->reviews_count;
+            };
+        }
+        
         return $reviews = $this->_gets_with_pgi_func(
-            "style_golfpass",
+            $style,
             function() use($where_obj)
             {
                 // return 1;
@@ -189,13 +166,7 @@ class Product_reviews_Model extends Board_Model{
                 $this->db->limit($per_page,$offset);
                 return $this->gets($where_obj);
             },
-            function() use($where_obj)
-            {
-                 
-                $this->load->model("shop/products_model");
-                // return 1;
-                return $this->products_model->_get($where_obj['product_id'],array('reviews_count'))->reviews_count;
-            }
+            $count_table
             ,
             array("per_page"=>6)
         );

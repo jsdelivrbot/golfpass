@@ -84,18 +84,22 @@
         </div>
         <div class="sixteen wide column">
             <div class="sixteen wide column">
-                <div class="ui five item stackable tabs menu">
+                <div class="ui four item stackable tabs menu">
 
-                    <a class="item" data-tab="definition">프로필 관리</a>
+                    <!-- <a class="item" data-tab="definition">프로필 관리</a> -->
 
-                    <a href="<?php site_url(shop_wishlist_uri.'/gets')?>" class="active item" data-tab="settings">위시리스트</a>
-                    <a href="" class="item" data-tab="examples">주문내역</a>
+                    <a href="<?=site_url(shop_wishlist_uri.'/gets')?>" class="<?=$page_name==="위시리스트" ? "active" : ""?> item" data-tab="settings">
+                    위시리스트
+                    </a>
+                    <a href="<?=site_url(shop_order_uri."/gets")?>" class="<?=$page_name==="주문내역" ? "active" : ""?> item" data-tab="examples">
+                    주문내역
+                    </a>
 
 
-                    <a class="item" data-tab="usage">1:1문의 내역</a>
+                    <a class="<?=$page_name==="고객센터" ? "active" : ""?> item" data-tab="usage">고객센터</a>
 
 
-                    <a class="item" data-tab="settings">내가 쓴 리뷰</a>
+                    <a href="<?=site_url(shop_review_uri."/gets_by_user/{$user->userName}")?>" class="<?=$page_name==="내가 쓴 리뷰" ? "active" : ""?> item" data-tab="settings">내가 쓴 리뷰</a>
                
 
 
@@ -103,7 +107,7 @@
             </div>
         </div>
         <div class="sixteen wide column">
-            <h1 class="ui header">위시리스트</h1>
+            <h1 class="ui header"><?=$page_name?></h1>
             <table class="ui green table responsive">
                 <thead>
                     <tr>
@@ -118,12 +122,11 @@
                 <tbody>
                 <?php for($i=0 ; $i < count($rows) ; $i++){?>
                     <tr>
-                        <td><?=$i+1?></td>
-                        <td><?=$rows[$i]->{$ths[0]}?></td>
-                        <td><?=$rows[$i]->상품가격?></td>
-                        <td><?=$rows[$i]->p_count?></td>
-                        <td><?=$rows[$i]->created?></td>
-                        <td><a style="color:black" onclick="confirm_callback(this,ajax_a,'복구할 방법이 없습니다. 삭제하시겠습니까?'); return false;" data-action="<?=site_url(shop_wishlist_uri."/ajax_delete/{$rows[$i]->product_id}")?>" href="#">삭제</a></td>
+                        <td><?=$rows[$i]->numrow?></td>
+                        <?php for($j = 1 ; $j < count($ths)-1 ; $j++){?>
+                        <td><?=$rows[$i]->{$ths[$j]}?></td>
+                        <?php }?>
+                        <td><a style="color:black" onclick="confirm_callback(this,ajax_a,'복구할 방법이 없습니다. 삭제하시겠습니까?'); return false;" data-action="<?=site_url(shop_wishlist_uri."/ajax_delete/{$rows[$i]->id}")?>" href="#">삭제</a></td>
                     </tr>
                    
                 <?php }?>

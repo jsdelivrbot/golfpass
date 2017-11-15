@@ -30,9 +30,10 @@ class Product_cartlist_Model extends Board_Model{
     public function gets($where_obj =null)
     {
         
-        $this->db->select("c.*,p.id 'p_id',p.name '상품이름', p.price '상품가격', c.count 'p_count',(p.price * c.count) 'p_total_price'");
+        $this->db->select("c.*, c.id 'id', p.id 'p_id',p.name '상품이름', p.price '상품가격',c.created '날짜' ,c.count 'p_count',(p.price * c.count) 'p_total_price'");
         $this->db->from("$this->table as c");
         $this->db->join("products as p","c.product_id = p.id","LEFT");
+        $this->db->order_by("c.id","desc");
         parent::_where_by_obj($where_obj);
         $rows =$this->db->get()->result();
         return $rows;

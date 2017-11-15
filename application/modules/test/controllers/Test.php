@@ -45,13 +45,17 @@ class Test extends Public_Controller
     }
     function test2()
     {
+        $per_page = 2;
         $offset= 0;
-        $this->db->select("@numrows-{$offset}-@count 'numrow',@count:=@count+1 'none', p.name '상품이름' , u.userName '유저아이디'")
-        ->from("product_cartlist as c, (SELECT @count:=0,@numrows:=3) der_tap")
+        $total_rows =3;
+        $this->db->select("{$total_rows}-{$offset}-@count 'numrow', @count:=@count+1 'none'");
+        $this->db->from("(SELECT @count:=0) der_tap");
+        $this->db->select("p.name '상품이름' , u.userName '유저아이디'")
+        ->from("product_cartlist as c")
         ->join("users u","c.user_id = u.id","LEFT")
         ->join("products as p","p.id = c.product_id","LEFT")
         ->where("u.id","1")
-        ->limit("2",$offset);
+        ->limit($per_page,$offset);
 
         $result = $this->db->get()->result();
         var_dump($result);

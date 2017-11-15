@@ -81,9 +81,13 @@ class Order extends Base_Controller {
     }
     public function gets()
     {
-        
-        $data['orders'] =$this->_gets();
-        $this->_template('gets',$data);
+        //로그인한 회원 주문정보
+        $this->load->model('product_orders_model');
+        $data['page_name'] ="주문내역";         
+        $data['rows'] =$this->product_orders_model->gets_with_pgi();
+        $data['user'] = $this->user;
+        $data['ths'] = array("번호","주문명","주문금액","결제방식","후기작성여부");
+        $this->_template('mypage/index',$data,"golfpass2");
          
     }
     public function _get($merchant_uid)

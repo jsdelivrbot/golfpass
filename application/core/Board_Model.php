@@ -92,6 +92,10 @@ class Board_Model extends Public_Model{
         
         //select from board_$id's contents
         $this->_like_or_by_split($field,$this->input->get('value'));
+        //numrow
+        $this->db->select("{$total_rows}-{$offset}-@count 'numrow', @count:=@count+1 'none'");
+        $this->db->from("(SELECT @count:=0) der_tap");
+
         $rows =$get_rows_func($offset,$per_page);
         return $rows;
     }
@@ -135,12 +139,12 @@ class Board_Model extends Public_Model{
         );
     }
 
-    // 샘플
-    // function gets_with_pgi($where_obj)
+    ////샘플
+    // function gets_with_pgi($where_obj=null)
     // {
-    //     return $reviews = $this->_gets_with_pgi_func(
+    //     return  $this->_gets_with_pgi_func(
     //         "style_1",
-    //         function() function() use($where_obj)
+    //         function() use($where_obj)
     //         {
     //             return count($this->gets($where_obj)); //총 rows 갯수//gets함수를 작성해주세요
     //         },
@@ -161,12 +165,11 @@ class Board_Model extends Public_Model{
     // }
 //    function gets($where_obj =null)
 //     {
-//         $this->db->select("c.*,p.*");
-//         $this->db->from("$this->table as c");
-//         $this->db->join("products as p","c.product_id = p.id","LEFT");
+//         $this->db->select("c.*,p.*")
+//         ->from("$this->table as c")
+//         ->join("products as p","c.product_id = p.id","LEFT");
 //        parent::_where_by_obj($where_obj);
-        // $rows =$this->db->get()->result();
-        // return $rows;
+        //  return $this->db->get()->result();
 
 //     }
     
