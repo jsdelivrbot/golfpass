@@ -41,7 +41,8 @@
 				h1 {
           //제목 힐데스하임CC
 					font-family: 'notokr-regular', sans-serif;
-					font-size: 30px;
+					font-size: 25px;
+                    margin-bottom: 5px;
 				}
 				p {
           //내용 ~~패키지
@@ -61,17 +62,32 @@
 			}
 
 			p {
-				font-size: 1.1rem;
+                font-family: 'notokr-medium', sans-serif;
+                font-size: 18px;
 				color: #fff;
 
 				span {
+					font-family: 'notokr-medium', sans-serif;
+					font-size: 18px;
 					color: inherit;
 				}
 			}
 
 			span {
+                font-family: 'notokr-demilight', sans-serif;
+                font-size: 18px;
 				color: #999d9f;
 			}
 		}
 	}
+}
+
+.justify-content-center {
+    a {
+        p {
+            font-family: 'notokr-demilight', sans-serif;
+            font-size: 18px;
+            color: #fff;
+        }
+    }
 }

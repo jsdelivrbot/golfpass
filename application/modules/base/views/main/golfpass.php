@@ -332,7 +332,7 @@
                                                                  </div>
                                                                  <div class="d-flex align-items-center p-1 text-light rounded-top content">
                                                                          <i class="xi-marker-check ml-1 mr-1"></i>
-                                                                         <p class=" mb-0 "><?=$products_panel[$i]->hotel_id !== null ? "골프장과 숙박 시설이 함께 있는 상품입니다." : "골프장만 있는 상품입니다."?></p>
+                                                                         <p class=" mb-0 "><?=$products_panel[$i]->hotel_id !== null ? "골프장+숙박" : "골프장"?></p>
                                                                  </div>
                                                                  <figcaption class="rounded-bottom d-flex align-items-center justify-content-between p-3 bg-light">
                                                                          <div>
@@ -514,7 +514,7 @@
     </section>
     <section id="section6" class="mb-5 mt-5 container-fluid align-items-start align-items-md-center">
         <article class="w-100 p-xl-4">
-            <div class="row no-gutters main-section-title">
+            <div class="row no-gutters main-section-title" style="margin-bottom: 20px !important">
                 <h4 class="main_sub_title">그늘집 by GOLFPASS</h4>
             </div>
             <div class="row no-gutters justify-content-start">
@@ -531,7 +531,7 @@
                         <div class="position-absolute bg-light trans-box d-none d-md-block">
                         </div>
                         <h4 class="mb-1"><?=$panels[$i]->name?></h4>
-                        <p class="mb-0" style='max-width: 400px; font-size: 0.9rem; color:#a5a5a5;'><?=$panels[$i]->intro?> </p>
+                        <p class="mb-0"'><?=$panels[$i]->intro?> </p>
                         <div class="position-absolute review-box">
                                 <span>
                                     <i class="xi-pen"></i> <?=$panels[$i]->num_contents?>개
