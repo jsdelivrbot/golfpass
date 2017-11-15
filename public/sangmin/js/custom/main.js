@@ -32,7 +32,7 @@ $(function() {
 		$("html,body").stop().animate({
 			scrollTop: moveTop + 'px'
 		}, {
-			duration: 900,
+			duration: 200,
 			complete: function() {}
 		});
 	});
@@ -57,7 +57,7 @@ $(function() {
 				$("html,body").stop().animate({
 					scrollTop: moveTop + 'px'
 				}, {
-					duration: 900,
+					duration: 200,
 					complete: function() {}
 				});
 			}

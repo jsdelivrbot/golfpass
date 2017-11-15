@@ -49,7 +49,6 @@
     <li>메인 - s1 모바일 타이틀 폰트 대응</li>
     <li style="color:red">메인 - 실시간 검색 기능 정상 작동</li>
     <li style="color:red">메인 - 검색창에서 엔터쳤을 때 검색 결과 페이지로 이동</li>
-    <li>메인 - s1에서 넘어갈 때 속도를 증가시켜 답답함을 없애야 함</li>
     <li style="color:red">메인 - 골프패스 패널이 추천하는 골프장 가격 연동</li>
     <li style="color:red">메인 - 순위별 골프장 리스트에서 점수도 표기</li>
     <li style="color:red">메인 - 순위별 카테고리에서 오른쪽에 카테고리가 아닌 지명이 나오도록 수정</li>
