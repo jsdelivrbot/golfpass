@@ -179,7 +179,7 @@ class Product_reviews_Model extends Board_Model{
     {
         return $reviews = $this->_gets_with_pgi_func(
             "style_golfpass",
-            function()
+            function() use($where_obj)
             {
                 // return 1;
                 return count($this->gets($where_obj));

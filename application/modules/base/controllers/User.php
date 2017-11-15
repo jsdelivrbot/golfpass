@@ -236,8 +236,8 @@ class User extends Base_Controller
 
     public function update(){
         if(!$this->session->userdata("user_update")){
-            // redirect("/");
-            // exit;
+            redirect("/");
+            exit;
         }
 
         if($this->input->post("password") !== "" || $this->input->post("re_password") !== ""){

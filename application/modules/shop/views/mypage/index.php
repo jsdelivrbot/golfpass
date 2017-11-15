@@ -16,31 +16,22 @@
 <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/semantic.min.js"></script>
 <div style="margin-top:120px;"></div>
 
-<!-- <style>
-    @media all and (max-width:750px) {
-        .ui.text.menu>.computer.only {
-            display: none;
-        }
-        .computer.only
-        {
-            display :none;
-        }
-    }
-</style> -->
-
     <div class="ui grid container">
         <div class="sixteen wide column">
             <div class="ui text menu">
                 <div class="header item">
-                    <h3 class="ui header"><i style="display:inline-block" class="user icon"></i> 김민성 (kimmincatsle)</h3>
+                    <img style="width:40px;"src="<?=domain_url("/public/icon/golfman.png")?>" alt=""/>
+                    <h1 class="ui header" style="margin-top:0px;">
+                        <!-- <i style="display:inline-block" class="user icon"></i> -->
+                        <span ><?="{$user->name}($user->userName)"?></span> </h1>
                 </div>
                 <a class="computer only item">
-                    <h3 class="ui header"><i class="diamond icon"></i>다이아몬드</h3>
+                    <!-- <h3 class="ui header"><i class="diamond icon"></i>다이아몬드</h3> -->
                 </a>
 
-                <a class="right float item active">
+                <a href="<?=site_url(user_uri."/check_pssword_forUpdate")?>"class="right float item active">
                     <h3 class="ui header">
-                        내정보 수정
+                    내 정보 수정
                     </h3>
                 </a>
             </div>
@@ -93,51 +84,91 @@
         </div>
         <div class="sixteen wide column">
             <div class="sixteen wide column">
-                <div class="ui four item stackable tabs menu">
+                <div class="ui five item stackable tabs menu">
 
-                    <a class="active item" data-tab="definition">프로필 관리</a>
+                    <a class="item" data-tab="definition">프로필 관리</a>
 
-
-                    <a class="item" data-tab="examples">주문내역</a>
+                    <a href="<?php site_url(shop_wishlist_uri.'/gets')?>" class="active item" data-tab="settings">위시리스트</a>
+                    <a href="" class="item" data-tab="examples">주문내역</a>
 
 
                     <a class="item" data-tab="usage">1:1문의 내역</a>
 
 
                     <a class="item" data-tab="settings">내가 쓴 리뷰</a>
+               
 
 
                 </div>
             </div>
         </div>
         <div class="sixteen wide column">
-            <h1 class="ui header">최근 주문상품</h1>
+            <h1 class="ui header">위시리스트</h1>
             <table class="ui green table responsive">
                 <thead>
                     <tr>
-                        <th>구매일자</th>
-                        <th>구매상품</th>
-                        <th>결제방법</th>
-                        <th>결제금액</th>
-                        <th>예약상태</th>
-                        <th>적립포인트</th>
+                    <?php 
+                    for($i = 0 ; $i < count($ths) ; $i++)
+                        {
+                        ?>
+                        <th><?=$ths[$i]?></th>
+                        <?php }?>
                     </tr>
                 </thead>
                 <tbody>
+                <?php for($i=0 ; $i < count($rows) ; $i++){?>
                     <tr>
-                        <td>10/10/25252526</td>
-                        <td>그라이헨드 골프장</td>
-                        <td>무통장</td>
-                        <td>255000원</td>
-                        <td>대기중</td>
-                        <td>250</td>
+                        <td><?=$i+1?></td>
+                        <td><?=$rows[$i]->{$ths[0]}?></td>
+                        <td><?=$rows[$i]->상품가격?></td>
+                        <td><?=$rows[$i]->p_count?></td>
+                        <td><?=$rows[$i]->created?></td>
+                        <td><a style="color:black" onclick="confirm_callback(this,ajax_a,'복구할 방법이 없습니다. 삭제하시겠습니까?'); return false;" data-action="<?=site_url(shop_wishlist_uri."/ajax_delete/{$rows[$i]->product_id}")?>" href="#">삭제</a></td>
                     </tr>
-                    <tr>
-                    </tr>
+                   
+                <?php }?>
+
                 </tbody>
             </table>
 
         </div>
-    
+        <div class="ui one column centered grid">
+        <div class="row">
+                    <?=$this->pagination->create_links();?>
+        </div>
+        </div>
+        <!-- <div class="right aligned sixteen wide column ">
+                <?php if(!is_login()){?>
+                    <button class="ui olive button"><a style="color:white" href="<?=my_site_url(shop_order_uri."/index/wishlist?guest_order=true")?>">주문하기</a></button>
+                <?php }else{?>
+                    <button class="ui olive button"><a style="color:white" href="<?=my_site_url(shop_order_uri."/index/wishlist")?>">주문하기</a></button>
+                <?php }?>
+        </div> -->
     </div>
+
+
+    <!-- sample -->
+
+<!-- <?php for($i=0 ; $i < count($rows) ; $i++){?>
+
+<ul>
+<li><?=$rows[$i]->p_name?></li>
+<li><?=$rows[$i]->p_count?>개</li>
+<li>개당<?=$rows[$i]->p_price?>원</li>
+<li>합계<?=$rows[$i]->p_total_price?>원</li>
+<a href="">주문하기</a>
+<form onsubmit="ajax_submit(this);return false;" action="<?=site_url(shop_wishlist_uri."/ajax_update/{$rows[$i]->p_id}")?>">
+수량<input type="text" name="product_count" value="<?=$rows[$i]->p_count?>">
+<input type="submit" value="수정하기">
+</form>
+
+
+<form onsubmit="confirm_callback(this,ajax_submit,'삭제하시겠습니까?');return false;" action="<?=site_url(shop_wishlist_uri."/ajax_delete/{$rows[$i]->p_id}")?>">
+<input type="submit" value="삭제하기">
+</form>
+
+</ul>
+<?php }?> -->
+
+<!-- sample -->
 

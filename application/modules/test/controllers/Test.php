@@ -45,8 +45,21 @@ class Test extends Public_Controller
     }
     function test2()
     {
-     
-        $this->_view("test/test2");
+        $offset= 0;
+        $this->db->select("@numrows-{$offset}-@count 'numrow',@count:=@count+1 'none', p.name '상품이름' , u.userName '유저아이디'")
+        ->from("product_cartlist as c, (SELECT @count:=0,@numrows:=3) der_tap")
+        ->join("users u","c.user_id = u.id","LEFT")
+        ->join("products as p","p.id = c.product_id","LEFT")
+        ->where("u.id","1")
+        ->limit("2",$offset);
+
+        $result = $this->db->get()->result();
+        var_dump($result);
+        
+
+        // $r=$this->db->query("SELECT @rownum:=@rownum+1 'rownum' FROM users as u , (SELECT @rownum:=0,@num_rows:=40) der_tab")->result();;
+        // var_dump($r);
+        // $this->_view("test/test2");
     }
    
     function add($id=null)

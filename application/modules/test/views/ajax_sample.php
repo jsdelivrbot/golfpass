@@ -1,11 +1,12 @@
 <?php
+ public function _ajax_delete($id){
   header("content-type:application/json");
-        $this->{$this->model}->_delete($id);
+  $this->{$this->model}->_delete($id);
 
-        $data = array("reload"=>true);
-        echo json_encode($data);
-        return;
-
+  $data['reload'] = true;
+  echo json_encode($data);
+  return;
+}
 
 
    

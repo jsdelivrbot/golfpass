@@ -6,7 +6,7 @@ class Wishlist extends Base_Controller {
     function __construct(){
         parent::__construct(array(
             'table'=>'product_cartlist',
-            'view_dir'=>"wishlist/golfpass"
+            'view_dir'=>"mypage"
         ));
     }
     
@@ -19,9 +19,21 @@ class Wishlist extends Base_Controller {
         }
         else
         {
-            $data['wishlist'] =$this->product_cartlist_model->gets($this->user->id,'wishlist');
+            $하 = array("ad"=>"12");
+            // $하->안녕  = "ㅎㅎ";
+            // $하->오지마 = "ㅇㅇ";
+            // $key = key((array)$하);
+
+            // var_dump($하);
+            // var_dump(array($하));
+            $keys = array_keys((array)$하);
+            // $value = current((array)$하);
+            // var_dump($keys);
+            $data['ths'] = array("번호","상품이름","상품가격","날짜","옵션");
+            $rows =$this->product_cartlist_model->gets_with_pgi(array('c.user_id'=>$this->user->id,'c.kind'=>"wishlist"));
+            $data['rows'] = $rows;
             $data['user'] =$this->user;
-            $this->_template('gets',$data,'golfpass2');
+            $this->_template('index',$data,'golfpass2');
             // $this->_view('gets',$data);
         }
         
@@ -60,7 +72,10 @@ class Wishlist extends Base_Controller {
 
     function ajax_delete($product_id)
     {
-        $this->{$this->model}->delete($procut_id,$this->user->id,"wishlist");
-        
+        header("content-type:application/json");
+        $this->{$this->model}->_delete(array("user_id"=>$this->user->id,"product_id"=>$product_id,"kind"=>"wishlist"));
+      
+        $data['redirect'] = site_url( shop_wishlist_uri."/gets");
+        echo json_encode($data);
     }
 }

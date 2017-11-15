@@ -1,4 +1,4 @@
-<!-- Standard Meta -->
+<!-- Standard Meta
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
@@ -20,7 +20,10 @@
         <div class="sixteen wide column">
             <div class="ui text menu">
                 <div class="header item">
-                    <h3 class="ui header"><i style="display:inline-block" class="user icon"></i><?="{$user->name}($user->userName)"?> </h3>
+                    <img style="width:40px;"src="<?=domain_url("/public/icon/golfman.png")?>" alt=""/>
+                    <h1 class="ui header" style="margin-top:0px;">
+                        <!-- <i style="display:inline-block" class="user icon"></i> -->
+                        <span ><?="{$user->name}($user->userName)"?></span> </h1>
                 </div>
                 <a class="computer only item">
                     <!-- <h3 class="ui header"><i class="diamond icon"></i>다이아몬드</h3> -->
@@ -109,7 +112,7 @@
                         <th>상품가격</th>
                         <th>갯수</th>
                         <th>날자</th>
-                        <th>수정/삭제</th>
+                        <th>옵션</th>
 
                     </tr>
                 </thead>
@@ -121,7 +124,7 @@
                         <td><?=$wishlist[$i]->p_price?></td>
                         <td><?=$wishlist[$i]->p_count?></td>
                         <td><?=$wishlist[$i]->created?></td>
-                        <td><a href="">수정</a>/ <a href="">삭제</a></td>
+                        <td><a style="color:black" onclick="confirm_callback(this,ajax_a,'복구할 방법이 없습니다. 삭제하시겠습니까?'); return false;" data-action="<?=site_url(shop_wishlist_uri."/ajax_delete/{$wishlist[$i]->product_id}")?>" href="#">삭제</a></td>
                     </tr>
                    
                 <?php }?>
@@ -130,7 +133,13 @@
             </table>
 
         </div>
-        
+        <div class="ui one column centered grid">
+        <div class="row">
+                    <?=$this->pagination->create_links();?>
+        </div>
+        </div>
+
+
 
         <!-- <div class="right aligned sixteen wide column ">
                 <?php if(!is_login()){?>
@@ -166,4 +175,4 @@
 <?php }?> -->
 
 <!-- sample -->
-
+ -->

@@ -81,6 +81,32 @@ class MY_Pagination extends CI_Pagination {
             $config [ 'num_tag_close'] = '</li>'; 
             return $config;
         }
+         function style_semantic($config){
+
+            $config [ 'full_tag_open'] = '<div class="ui pagination menu">';
+            $config [ 'full_tag_close'] = '</div>';
+            
+            $config['first_link'] = "";
+            $config [ 'first_tag_open'] = '<li id="">';
+            $config [ 'first_tag_close'] = '</li>';
+    
+            $config [ 'last_link'] = "";
+            // $config [ 'last_link'] =false;
+            $config [ 'last_tag_open'] = '<li id="hotel-results-pagination-next">';
+            $config [ 'last_tag_close'] = '</li>';
+    
+            $config [ 'prev_link'] = false;
+            $config [ 'next_link'] = false;
+            
+            $config['attributes'] = array('class' => 'item');
+
+            $config [ 'cur_tag_open'] = '<span class="active item">';
+            $config [ 'cur_tag_close'] = '</span>';
+            // $config [ 'num_tag_open'] = '<span class="item">';
+            // $config [ 'num_tag_close'] = '</span>'; 
+            return $config;
+        }
+
         function style_golfpass($config){
 
             $config [ 'full_tag_open'] = '<ul class="d-flex list-unstyled justify-content-center mb-0">';
