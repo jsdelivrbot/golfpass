@@ -57,11 +57,14 @@
 			  margin-left: 30px;
 			  padding: 80px;
 			}
-              @media (max-width: 992px) {
-                  height: 50%;
-                  top: 40%;
-                  padding: 50px;
-              }
+          @media (max-width: 992px) {
+              height: 50%;
+              top: 40%;
+              padding: 50px;
+          }
+          @media (max-width: 350px) {
+              top: 30%;
+          }
 			color: white;
 			.title {
 			  h1 {

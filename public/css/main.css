@@ -2440,6 +2440,9 @@ body.menu-open .plus-btn .r2 {
               height: 50%;
               top: 40%;
               padding: 50px; } }
+          @media (max-width: 350px) {
+            #main-wrap #section1 .carousel .carousel-inner .carousel-item .content-box {
+              top: 30%; } }
           #main-wrap #section1 .carousel .carousel-inner .carousel-item .content-box .title h1 {
             font-family: 'notokr-medium';
             font-size: 40px;
