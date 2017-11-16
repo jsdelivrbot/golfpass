@@ -236,7 +236,8 @@ class User extends Base_Controller
 
     public function update(){
         if(!$this->session->userdata("user_update")){
-            redirect("/");
+            alert("잘못된 접근!");
+            my_redirect(user_uri."/check_pssword_forUpdate");
             exit;
         }
 
@@ -266,7 +267,7 @@ class User extends Base_Controller
             $this->db->where('userName',$this->session->userdata('userName'));
             $this->db->update('users');
 
-            msg_redirect("수정완료", shop_mypage_uri."/");
+            msg_redirect("수정완료", shop_mypage_uri."/gets_wishlist");
         }
     }
     function _dbSet_addUpdate(){
@@ -423,7 +424,7 @@ class User extends Base_Controller
     function profilePhoto_upload()
     {
         $imgDir = "";
-
+        $this->session->set_flashdata('user_update', true);
         if (isset($_FILES['profilePhoto'])) {
             $config['upload_path'] = './public/uploads/user/images';
             $config['allowed_types'] = 'gif|jpg|jpeg|png';

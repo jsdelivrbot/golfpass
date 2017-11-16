@@ -19,7 +19,7 @@ if(!function_exists('is_auth_kind')){
          $ci = &Public_Controller::$instance;
         $user_kind=$ci->user->kind;
         if($authKind !== $user_kind){
-            var_dump($user_kind);
+            // var_dump($user_kind);
             return false;
         }
         return true;

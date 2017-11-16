@@ -11,7 +11,7 @@
 <div class="ui centered grid ">
 <div class="column">
 <div class="ui small image">
-<img id="img_profilePhoto" src="<?=$profilePhoto?>" style="width:150px;">
+<img id="img_profilePhoto" src="<?=$profilePhoto?>" style="height:110px;">
                 
 </div>
 
