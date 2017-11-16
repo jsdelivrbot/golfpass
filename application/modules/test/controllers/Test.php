@@ -17,7 +17,9 @@ class Test extends Public_Controller
         $this->map_api->api_key = $this->setting->google_map_api_key;
         
     }
- 
+    function test3(){
+        $this->_view("test");
+    }
         
     function css()
     {

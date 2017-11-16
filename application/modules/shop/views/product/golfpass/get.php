@@ -272,69 +272,33 @@
               </div>
               <div id='dateBox'>
                 <form action="#" class="d-flex align-items-center justify-content-between">
-                    <!-- <input type="text" id="s-day" placeholder="출발 일정"> -->
+                <div class="form-group d-flex align-items-center mb-0">
+                    <input type="text" id="s-day" placeholder="출발 일정">
+                    <i class="xi-calendar-check"></i>
+                  </div>
                     <!-- <select class="" id="s-day" placeholder="출발 일정">
     									<option value="" disabled selected>선택주세요</option>
     									<option value="">옵션1</option>
     									<option value="">옵션2</option>
     								</select> -->
-                    <select class="custom-select" id="s-day">
+                    <!-- <select class="custom-select" id="s-day">
                       <option selected disabled>여행 일정</option>
                       <option value="1">1박 2일</option>
                       <option value="2">2박 3일</option>
                       <option value="3">3박 4일</option>
                       <option value="4">4박 5일</option>
                       <option value="5">5박 6일</option>
-                    </select>
+                    </select> -->
                   <span>·</span>
                     <!-- <input type="text" id="e-day" placeholder="출발 일정"> -->
+
                   <div class="form-group d-flex align-items-center mb-0">
-                    <input type="text" id="e-day" placeholder="출발 일정">
+                    <input type="text" id="e-day" placeholder="도착 일정">
                     <i class="xi-calendar-check"></i>
                   </div>
                 </form>
-                                    <script
-                    src="https://code.jquery.com/jquery-3.2.1.min.js"
-                    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-                    crossorigin="anonymous"></script>
-                <script>
-                    $(document).ready(function(){
-                        $("select[name=num_people]").change(function(){
-                            ajax_get_price();
-                        });
-                    });
-
-                    function ajax_get_price()
-                    {
-                        var num_people = $("select[name=num_people] option:selected").val();
-                        var product_id = "<?=$product->id?>";
-                        var start_date;
-                        var end_date;
-                        var url = "<?=site_url(golfpass_p_daily_price_uri."/ajax_cal")?>"
-                        $.ajax({
-                            type: "POST",
-                            dataType : 'json',
-                            data: {
-                                product_id : product_id,
-                                num_people: num_people
-                            },
-                            url: url,
-                            beforeSend: function(){
-                                // $('.loading').fadeIn(500);
-                            },
-                            success:function(data){
-                                $("#total_price").text(data.total_price);
-                                // console.log(data);
-                            },
-                            error: function(xhr, textStatus, errorThrown){
-                                alert('에러... ');
-                                // $('.loading').fadeOut(500);
-                                console.log('code: '+request.status+"\n"+'message: '+request.responseText+"\n"+'error: '+error);
-                                console.log(errorThrown);
-                            }
-                        });
-                    }
-                </script>
+                                   
+               
                 <!-- <form action="<?=site_url(golfpass_p_daily_price_uri."/ajax_cal")?>" method="post">
 
                     <input type="text" value="1" name="product_id">
@@ -721,7 +685,129 @@
     <script src="/public/sangmin/js/custom/detail_sticky.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
   <script src="<?=domain_url('/public/js/common.js')?>"></script>
-    </script>
+
+                        <!-- 달력 -->
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+<script>
+
+    
+   $.datepicker.setDefaults({
+        dateFormat: 'yy-mm-dd',
+        prevText: '이전 달',
+        nextText: '다음 달',
+        monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+        monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+        dayNames: ['일', '월', '화', '수', '목', '금', '토'],
+        dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
+        dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+        showMonthAfterYear: true,
+        yearSuffix: '년'
+    });
+
+var $startDate=$( "#s-day" );
+var $endDate=$( "#e-day" );
+var $numPeople = $("select[name=num_people]");
+    $(document).ready(function(){
+       $startDate.datepicker({
+          dateFormat: 'yy-mm-dd'
+        });
+        $endDate.datepicker({
+            dateFormat: 'yy-mm-dd'
+        });
+
+    });
+</script>
+<!-- 달력 -->
+
+<!-- 상품날자가격계산 -->
+<script>
+
+    $(document).ready(function(){
+        $numPeople.change(function(){
+            // if(validationGetPrice() === 1)
+            // validationGetPrice()
+                ajax_get_price();
+
+        });
+        $startDate.change(function(){
+            // if(validationGetPrice() === 1)
+            // validationGetPrice()
+               ajax_get_price();
+        });
+        $endDate.change(function(){
+            // if(validationGetPrice() === 1)
+            // validationGetPrice()
+                ajax_get_price();
+        });
+    });
+
+    function validationGetPrice()
+    {
+        var date =$startDate.val();
+        var dateArray = date.split("-");  
+        var startDateObj = new Date(dateArray[0], Number(dateArray[1])-1, dateArray[2]);  
+
+        var date =$endDate.val();
+        var dateArray = date.split("-");  
+        var endDateObj = new Date(dateArray[0], Number(dateArray[1])-1, dateArray[2]);  
+        var betweenDay = endDateObj.getTime()-startDateObj.getTime();
+        var betweenDay = betweenDay/1000/60/60/24;
+        // if()
+        if($startDate.val() ==="" || $endDate.val() ==="")
+        {
+            return 0;
+        }
+        else if( betweenDay === 0)
+        {
+            alert("하루 예약은 불가능합니다.");
+            return 0;
+        }
+        else if(betweenDay <= -1)
+        {
+            alert("날자가 잘못 설정되었습니다.");
+            return 0;
+        }
+        return 1;
+    }
+    function ajax_get_price()
+    {
+        // var num_people = $("select[name=num_people] option:selected").val();
+        var num_people = $numPeople.find("option:selected").val();
+        var product_id = "<?=$product->id?>";
+        var start_date = $startDate.val();
+        var end_date =  $endDate.val();
+        var url = "<?=site_url(golfpass_p_daily_price_uri."/ajax_cal")?>"
+        $.ajax({
+            type: "POST",
+            dataType : 'json',
+            data: {
+                product_id : product_id,
+                num_people: num_people,
+                start_date : start_date,
+                end_date :end_date
+            },
+            url: url,
+            beforeSend: function(){
+                // $('.loading').fadeIn(500);
+            },
+            success:function(data){
+                $("#total_price").html(`${data.total_price}`);
+                // console.log(data);
+            },
+            error: function(xhr, textStatus, errorThrown){
+                alert('에러... ');
+                // $('.loading').fadeOut(500);
+                console.log('code: '+request.status+"\n"+'message: '+request.responseText+"\n"+'error: '+error);
+                console.log(errorThrown);
+            }
+        });
+    }
+</script>
+
+<!-- 상품날자가격계산 -->
+
+<!-- 차트 -->
 
     <script>
     var chartOptions = {
@@ -790,8 +876,8 @@ new Chart(document.getElementById("chart-canvas"), {
     },
     options:chartOptions
 });
-console.log(<?=$product->score_1?> + 2);
     </script>
+    <!-- 차트 -->
 </body>
 
 </html>
