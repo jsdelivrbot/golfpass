@@ -109,7 +109,8 @@ class P_daily_price extends Base_Controller
             //해당 날자데이터가 없을때
             if($row === null)
             {
-                $data['total_price'] = "{$date} <br> {$num_people}인 데이터가 존재하지 않습니다. <br>예약이 불가능합니다";
+                // $data['total_price'] = "{$date} <br> {$num_people}인 데이터가 존재하지 않습니다. <br>예약이 불가능합니다";
+                $data['total_price'] = "(인)수를 선택해주세요.";
                 echo json_encode($data);
                 return;
             }

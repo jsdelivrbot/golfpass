@@ -60,6 +60,59 @@ class Common extends Public_Controller {
 
      
     }
+    function _multi_upload_photo($who,$name,$uploadfunc=null,$failFunc =null,$endFunc =null)
+    {       
+        $this->load->library('upload');
+        $imgDir = "";
+        $files = $_FILES;
+        $cpt = count($_FILES[$name]['name']);
+        $errors ="";
+
+        $config = array();
+        $config['upload_path'] = "./public/uploads/{$who}/images";
+        $config['allowed_types'] = 'gif|jpg|jpeg|png';
+        $config['max_size'] = '500000'; //500KB
+        $config['max_width']  = '10240';
+        $config['max_height']  = '7680';
+        $config['overwrite']     = FALSE;
+
+        for($i=0; $i<$cpt; $i++)
+        {           
+            $_FILES[$name]['name']= $files[$name]['name'][$i];
+            $_FILES[$name]['type']= $files[$name]['type'][$i];
+            $_FILES[$name]['tmp_name']= $files[$name]['tmp_name'][$i];
+            $_FILES[$name]['error']= $files[$name]['error'][$i];
+            $_FILES[$name]['size']= $files[$name]['size'][$i];    
+    
+          
+            $this->upload->initialize($config);
+            if (!$this->upload->do_upload($name)) {//실패
+                if($failFunc === null)
+                {
+                    $errors .=$this->upload->display_errors(false,false)."<br>";
+                }
+                else
+                {
+                    $failFunc();
+                }
+            }
+            else//성공
+            {
+                $fileName= $this->upload->data()['file_name'];
+                $imgDir= "/public/uploads/$who/images/$fileName";
+                $uploadfunc($imgDir);
+            }
+        }
+        //끝
+        if($errors!=="")
+            alert($errors);
+        if($endFunc !== null)
+            $endFunc($imgDir);
+        return ;
+    }
+    
+  
+
     function _upload_photo($who,$name,$uploadfunc,$failFunc =null,$endFunc =null)
     {
         $imgDir = "";

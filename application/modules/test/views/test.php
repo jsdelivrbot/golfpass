@@ -1,13 +1,6 @@
-<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-<script src="//code.jquery.com/jquery.min.js"></script>
-<script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
-    
-<script>
-$(function() {
-  $( "#datepicker1" ).datepicker({
-    dateFormat: 'yy-mm-dd'
-  });
-});
-</script>
-    
-생년월일: <input type="text" id="datepicker1">
+<form action="">
+
+<input multiple="multiple" type="file" name="filename[]" />
+  <input type="submit" value="파일 전송" />
+
+</form>

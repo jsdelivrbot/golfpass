@@ -26,17 +26,31 @@ class Product extends Admin_Controller {
         echo json_encode($data);
         return ;
     }
+  
+
+
     function upload_photo()
     {
         $this->load->module("base/common");
-        $this->common->_upload_photo('admin','photo',function($imgDir){
+        $this->common->_multi_upload_photo('admin','photo',function($imgDir){
             $this->db->set("product_id",$this->input->post('product_id'));
-            $this->db->set("sort",$this->input->post('sort'));
             $this->db->set("name",$imgDir);
             $this->db->set("kind","photo");
             $this->db->insert("product_option");
-            my_redirect($_SERVER['HTTP_REFERER']);
-        });
+           
+        },
+        null,
+        function(){
+             my_redirect($_SERVER['HTTP_REFERER']);
+        });   
+        // $this->common->_upload_photo('admin','photo',function($imgDir){
+        //     $this->db->set("product_id",$this->input->post('product_id'));
+        //     $this->db->set("sort",$this->input->post('sort'));
+        //     $this->db->set("name",$imgDir);
+        //     $this->db->set("kind","photo");
+        //     $this->db->insert("product_option");
+        //     // my_redirect($_SERVER['HTTP_REFERER']);
+        // });
         
     }
     function option_delete($id,$kind)
@@ -49,6 +63,12 @@ class Product extends Admin_Controller {
     function ajax_option_delete($id,$kind)
     {
         header("content-type:application/json");
+        $this->load->model("shop/product_option_model");
+
+        $dir=$this->product_option_model->_get($id)->name;
+        $dir=substr($dir,1,strlen($dir));
+        unlink($dir);
+
         $this->db->where('id',$id);
         $this->db->where('kind',$kind);
         $this->db->delete('product_option');

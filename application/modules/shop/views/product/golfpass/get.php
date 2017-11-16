@@ -259,7 +259,7 @@
                   <form class="" action="index.html" method="post">
                     <select name="num_people"class="custom-select" id="">
                     <option>선택</option>
-                        <?php for($i = 4 ; $i<=$product->max_people; $i++){?>
+                        <?php for($i =  $product->min_people; $i<=$product->max_people; $i++){?>
                       <option value="<?=$i?>"><?=$i?>명</option>
                         <?php }?>
                     </select>

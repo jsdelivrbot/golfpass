@@ -394,7 +394,7 @@ $('#navi_btn').click(function(){
     이미지 추가
     </h1>
     <form class="ui form"  method="POST" action="<?=my_site_url(admin_product_uri."/upload_photo")?>" enctype='multipart/form-data'>
-        <div class="two fields">
+        <!-- <div class="two fields">
                 <div class="field">
                     <label for="photo">이미지</label>
                     <input type='file' name='photo'/>
@@ -403,8 +403,11 @@ $('#navi_btn').click(function(){
                     <label for="sort">순서</label>
                     <input type="text" name='sort'/>
                 </div>
+        </div> -->
+        <div class="field">
+                <label for="photo">이미지</label>
+                <input multiple="multiple" type="file" name="photo[]" />
         </div>
-    
     
         <input type="hidden" name='product_id' value="<?=$product->id?>"/>
         <br>
