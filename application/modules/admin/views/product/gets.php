@@ -1,6 +1,6 @@
 
 
-<table class="ui table">
+<table class="ui selectable table">
     <thead>
         <tr>
             <th>아이디</th>
@@ -12,9 +12,9 @@
     <tbody>
 <?php for($i=0 ; $i<count($products) ; $i++){?>
     <tr>
-        <td><?=$products[$i]->id?> </td>
-        <td><a href="<?=my_site_url(admin_product_uri."/update/{$products[$i]->id}")?>"><?=$products[$i]->name?></a></td>
-        <td><?=$products[$i]->desc?> </td>
+        <td class="selectable"><a href="<?=my_site_url(admin_product_uri."/update/{$products[$i]->id}")?>"><?=$products[$i]->id?></a> </td>
+        <td class="selectable"><a href="<?=my_site_url(admin_product_uri."/update/{$products[$i]->id}")?>"><?=$products[$i]->name?></a></td>
+        <td class="selectable"><a href="<?=my_site_url(admin_product_uri."/update/{$products[$i]->id}")?>"><?=$products[$i]->desc?></a> </td>
         <!-- <td><?=$products[$i]->category_id?> </td> -->
         <!-- <td><?=$products[$i]->c_name?> </td> -->
         <td>
