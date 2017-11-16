@@ -12,7 +12,14 @@ class Order extends Base_Controller {
        
     public function index($product_id){
         $guest_order =$this->input->get("guest_order");
-        $order_count = $this->input->get("order_count");
+        $order_count = $this->input->get("order_count") ?? 1;
+        
+        $num_people= $this->input->post("num_people");
+        $start_date= $this->input->post("start_date");
+        $end_date= $this->input->post("end_date");
+        // var_dump($num_people);
+        // var_dump($start_date);
+        // var_dump($end_date);
         if(!is_login() && !$guest_order){
             redirect(user_uri."/login?order_count=$order_count&order_id=$product_id&guest_order=true&return_url=".rawurlencode(my_current_url()));
         }
@@ -69,7 +76,7 @@ class Order extends Base_Controller {
             "order_name" =>$order_name
         );
          
-        $this->_template('index',$data);
+        $this->_template('index',$data,"golfpass2");
          
     }
 

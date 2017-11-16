@@ -235,7 +235,13 @@
           <div id="book-box-wrap" class="order-1 order-md-3 col-12 col-md-3">
             <div id='book-box'>
               <div id="personnel">
-              <a href="<?=my_site_url(shop_order_uri."/index/{$product->id}")?>"><span class="box-title"> 예약하기</span></a>
+              <a id="golfpass_order" href="#"><span class="box-title"> 예약하기</span></a>
+                <form id="golfpass_order_form" style="display:none"action="<?=site_url(shop_order_uri."/index/{$product->id}")?>" method="post">
+                  <input type="hidden" name="num_people">
+                  <input type="hidden" name="start_date">
+                  <input type="hidden" name="end_date">
+                  <input type="submit">
+              </form>
                 <!--
                             <div id='count-box' class='d-flex align-items-stretch justify-content-end'>
                                 <span id='count'>1명 </span>
@@ -273,7 +279,7 @@
               <div id='dateBox'>
                 <form action="#" class="d-flex align-items-center justify-content-between">
                 <div class="form-group d-flex align-items-center mb-0">
-                    <input type="text" id="s-day" placeholder="출발 일정">
+                    <input type="text" id="s-day" placeholder="출발 일정" value="<?=$current_date?>">
                     <i class="xi-calendar-check"></i>
                   </div>
                     <!-- <select class="" id="s-day" placeholder="출발 일정">
@@ -293,7 +299,7 @@
                     <!-- <input type="text" id="e-day" placeholder="출발 일정"> -->
 
                   <div class="form-group d-flex align-items-center mb-0">
-                    <input type="text" id="e-day" placeholder="도착 일정">
+                    <input type="text" id="e-day" placeholder="도착 일정"  value="<?=$current_date_plus?>">
                     <i class="xi-calendar-check"></i>
                   </div>
                 </form>
@@ -318,7 +324,7 @@
                 </ul>
                 <div id='price' class="mt-20 mb-20">
                   <h3 class='mb-3'>가격</h3>
-                  <p id="total_price"><?=$total_price?></p>
+                  <p id="total_price"><?=$price?></p>
                 </div>
                 <a  onclick="ajax_a(this); return false;" data-action="<?=site_url(shop_wishlist_uri."/ajax_add/{$product->id}")?>"href="#">위시리스트에 추가</a>
               </div>
@@ -803,6 +809,22 @@ var $numPeople = $("select[name=num_people]");
             }
         });
     }
+
+    $("#golfpass_order").click(function(event){
+        if($startDate.val() === "" || $endDate.val() === "" ||  $("#total_price").text().indexOf("원") === -1 || $("#total_price").text().indexOf("존재") >-1)
+        {
+            alert("잘못된 주문입니다.");
+            return false;
+        }
+        event.preventDefault();
+        $order_form =$("#golfpass_order_form");
+        $order_form.find("input[name=num_people]").val($numPeople.val());
+        $order_form.find("input[name=start_date]").val($startDate.val());
+        $order_form.find("input[name=end_date]").val($endDate.val());
+        $order_form.submit();
+    });
+       
+
 </script>
 
 <!-- 상품날자가격계산 -->

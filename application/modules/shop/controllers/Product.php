@@ -79,16 +79,21 @@ class Product extends Base_Controller {
             'num_people'=>"1"
         ));
         if($row !== null)
-            $data['total_price'] = "{$row->price}원";
+            $data['price'] = "{$row->price}원";
         else
-            $data['total_price'] = "데이터값 없음";
+            $data['price'] = "데이터값 없음";
+
+        $current_date = date("Y-m-d");
+        $data["current_date"] = $current_date;
+        $data["current_date_plus"] = date("Y-m-d",strtotime("{$current_date} +1 days"));
 
         //product_option
         $this->load->model("product_option_model");
         $data['product_sub_desc'] = $this->product_option_model->gets_options($id,'desc');
         $data['product_options'] = $this->product_option_model->gets_options($id,'option');
         $data['product_photos'] = $this->product_option_model->gets_options($id,'photo');
-        // $data['hotel_option'] = $this->db->query("SELECT name FROM hotel_option WHERE hotel_id = $hotel_id AND kind = 'option' ORDER BY id asc")->result();
+        
+         // $data['hotel_option'] = $this->db->query("SELECT name FROM hotel_option WHERE hotel_id = $hotel_id AND kind = 'option' ORDER BY id asc")->result();
         
         //hotel
         $this->load->model("p_hotel_model");
