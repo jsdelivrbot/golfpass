@@ -3351,6 +3351,8 @@ body.menu-open .plus-btn .r2 {
         font-weight: normal;
         color: #fff;
         margin-right: 10px; }
+      #footer ul li p {
+        margin-top: 1px; }
       #footer ul li > input {
         font-family: 'notokr-light', sans-serif;
         font-size: 12px;
@@ -3364,8 +3366,7 @@ body.menu-open .plus-btn .r2 {
     font-size: 0.8rem;
     color: #b2b2b2 !important; }
   #footer strong {
-    color: #b2b2b2;
-    font-weight: bolder; }
+    font-family: 'notokr-medium', sans-serif; }
 
 /* Slider */
 .slick-slider {

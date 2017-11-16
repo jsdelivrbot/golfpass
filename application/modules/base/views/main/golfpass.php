@@ -594,11 +594,11 @@
                  <ul>
                          <li class="title">NEWS LETTER</li>
                          <li class="mb-20"><input type="text" placeholder="E-mail을 입력해주세요"></li>
-                         <li><span>골프패스</span>
-                                 <p>에서 제공하는 유용한 소식</p>
+                         <li><strong>골프패스</strong>
+                                 <p style="margin-bottom: 0;">에서 제공하는 유용한 소식</p>
                          </li>
                  </ul>
-                 <p class='align-self-end mr-auto ml-auto'>© 2017 <span>GOLFPASS.</span> All Rights Reserved.</p>
+                 <p class='align-self-end mr-auto ml-auto'>© 2017 <strong>GOLFPASS.</strong> All Rights Reserved.</p>
          </div>
 
     </footer>
