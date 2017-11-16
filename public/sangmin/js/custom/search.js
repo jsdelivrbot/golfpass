@@ -103,10 +103,10 @@ $(function() {
 					input += '<a href="' + data[i].경로 + '">';
 					input += '<li class="search-item d-flex align-items-strech">'
 					input += '<div class="image d-flex align-items-center justify-content-center">'
-					input += '<img class="rounded-circle" src="' + data[i].imagePath + '" alt="검색이미지" width="100%;">'
+					input += '<img class="rounded-circle" src="' + data[i].imagePath + '" alt="검색이미지" width="100%;" height="100%;">'
 					input += '</div>'
 					input += '<div class="content">'
-					input += '<div class="title d-flex align-items-center">' + data[i].title + '<span class="pl-2 score-icon d-flex">' + printStar(parseFloat(data[i].score)) + '</span><span class="pl-2 score-text">(종합 점수' + parseFloat(data[i].score) + ')</span></div>'
+					input += '<div class="title d-flex align-items-center">' + data[i].title + '<span class="pl-2 score-icon d-flex">' + printStar(parseFloat(data[i].score)) + '</span><span class="pl-2 score-text">(종합 점수 ' + parseFloat(data[i].score) + ')</span></div>'
 					input += '<div class="article">' + data[i].article + '</div>';
 					input += '</li>';
 					input += '<a/>';

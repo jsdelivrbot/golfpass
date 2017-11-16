@@ -2144,9 +2144,10 @@ body.menu-open .plus-btn .r2 {
         height: 90px;
         overflow: hidden;
         padding-bottom: 10px;
+        padding-top: 10px;
         border-bottom: 1px solid #d9d9d9; }
         #header .search-content-container .search-items .search-item:not(:first-child), .black-bg-header .search-content-container .search-items .search-item:not(:first-child) {
-          padding-top: 10px; }
+          padding-top: 15px; }
         #header .search-content-container .search-items .search-item .image, .black-bg-header .search-content-container .search-items .search-item .image {
           width: 15%; }
           #header .search-content-container .search-items .search-item .image img, .black-bg-header .search-content-container .search-items .search-item .image img {
@@ -2158,19 +2159,23 @@ body.menu-open .plus-btn .r2 {
           width: 85%;
           font-size: 16px; }
           #header .search-content-container .search-items .search-item .content .title, .black-bg-header .search-content-container .search-items .search-item .content .title {
-            font-family: 'notokr-medium';
-            color: #4b4b4b;
-            font-size: 20px;
+            font-family: 'notokr-regular';
+            color: #4c4c4c;
+            font-size: 16px;
             margin-bottom: 5px; }
             #header .search-content-container .search-items .search-item .content .title .score-icon i, .black-bg-header .search-content-container .search-items .search-item .content .title .score-icon i {
               color: #fcbf3f !important; }
             #header .search-content-container .search-items .search-item .content .title .score-text, .black-bg-header .search-content-container .search-items .search-item .content .title .score-text {
-              font-size: 12px; }
+              font-family: 'notokr-demilight';
+              color: #808080;
+              font-size: 12px;
+              padding-top: 6px; }
           #header .search-content-container .search-items .search-item .content .article, .black-bg-header .search-content-container .search-items .search-item .content .article {
-            height: 40px;
+            height: 37px;
             overflow: hidden;
-            font-size: 14px;
-            color: #4b4b4b;
+            font-family: 'notokr-demilight';
+            color: #849096;
+            font-size: 12px;
             white-space: normal;
             line-height: 1.5;
             text-align: left;
@@ -2310,9 +2315,10 @@ body.menu-open .plus-btn .r2 {
         height: 90px;
         overflow: hidden;
         padding-bottom: 10px;
+        padding-top: 10px;
         border-bottom: 1px solid #d9d9d9; }
         #header .search-content-container .search-items .search-item:not(:first-child), .black-bg-header .search-content-container .search-items .search-item:not(:first-child) {
-          padding-top: 10px; }
+          padding-top: 15px; }
         #header .search-content-container .search-items .search-item .image, .black-bg-header .search-content-container .search-items .search-item .image {
           width: 15%; }
           #header .search-content-container .search-items .search-item .image img, .black-bg-header .search-content-container .search-items .search-item .image img {
@@ -2324,19 +2330,23 @@ body.menu-open .plus-btn .r2 {
           width: 85%;
           font-size: 16px; }
           #header .search-content-container .search-items .search-item .content .title, .black-bg-header .search-content-container .search-items .search-item .content .title {
-            font-family: 'notokr-medium';
-            color: #4b4b4b;
-            font-size: 20px;
+            font-family: 'notokr-regular';
+            color: #4c4c4c;
+            font-size: 16px;
             margin-bottom: 5px; }
             #header .search-content-container .search-items .search-item .content .title .score-icon i, .black-bg-header .search-content-container .search-items .search-item .content .title .score-icon i {
               color: #fcbf3f !important; }
             #header .search-content-container .search-items .search-item .content .title .score-text, .black-bg-header .search-content-container .search-items .search-item .content .title .score-text {
-              font-size: 12px; }
+              font-family: 'notokr-demilight';
+              color: #808080;
+              font-size: 12px;
+              padding-top: 6px; }
           #header .search-content-container .search-items .search-item .content .article, .black-bg-header .search-content-container .search-items .search-item .content .article {
-            height: 40px;
+            height: 37px;
             overflow: hidden;
-            font-size: 14px;
-            color: #4b4b4b;
+            font-family: 'notokr-demilight';
+            color: #849096;
+            font-size: 12px;
             white-space: normal;
             line-height: 1.5;
             text-align: left;
