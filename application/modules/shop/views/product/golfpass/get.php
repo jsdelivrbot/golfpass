@@ -673,6 +673,7 @@
         </footer>
     </div>
     <script src="/public/sangmin/js/jquery-3.2.1.min.js"></script>
+    <script src="/public/sangmin/js/slick.js" type="text/javascript" charset="utf-8"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
     <script src="/public/sangmin/dist/bootstrap/bootstrap.bundle.min.js"></script>
     <script src="/public/sangmin/dist/Nwagon/Nwagon.js"></script>
@@ -680,7 +681,6 @@
     <script src="/public/sangmin/js/sticky.js"></script>
     <script src="/public/sangmin/js/custom/navAction.js"></script>
     <script src="/public/sangmin/js/custom/search.js"></script>
-    <script src="/public/sangmin/js/slick.js" type="text/javascript" charset="utf-8"></script>
     <script src="/public/sangmin/js/custom/detail_slide.js"></script>
     <script src="/public/sangmin/js/custom/detail_sticky.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>

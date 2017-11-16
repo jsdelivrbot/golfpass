@@ -192,9 +192,9 @@
     width:300px;
   } */
 </style>
-<div style ="margin-top:540px;"></div>
+<div style =""></div>
 
-<div class="target ui grid" style="margin-left:50px;">
+<div id="target" class="target ui grid" style="margin-left:50px;margin-top:540px;">
 <?php for ($m =1; $m<=12; $m++) {
     // $num_days = cal_days_in_month(CAL_GREGORIAN, $m, $year);
     $num_days = date('t', mktime(0, 0, 0, $m, 1, $year)); 

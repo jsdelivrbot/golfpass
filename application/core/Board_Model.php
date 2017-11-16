@@ -59,6 +59,7 @@ class Board_Model extends Public_Model{
     // }
     function _gets_with_pgi_func($pgi_style,$get_num_rows_func , $get_rows_func,$is_count_field = null,$config =array())
     {
+        $is_numrow = $config['is_numrow'] ?? true;
         if($get_num_rows_func === null)
             $get_num_rows_func = function()
             {
@@ -92,9 +93,12 @@ class Board_Model extends Public_Model{
         
         //select from board_$id's contents
         $this->_like_or_by_split($field,$this->input->get('value'));
-        //numrow
-        $this->db->select("{$total_rows}-{$offset}-@count 'numrow', @count:=@count+1 'none'");
-        $this->db->from("(SELECT @count:=0) der_tap");
+        //is_numrow
+        if($is_numrow === true)
+        {
+            $this->db->select("{$total_rows}-{$offset}-@count 'numrow', @count:=@count+1 'none'");
+            $this->db->from("(SELECT @count:=0) der_tap");
+        }
 
         $rows =$get_rows_func($offset,$per_page);
         return $rows;
