@@ -14,8 +14,10 @@
   font-family: notokr-medium;
   #partner {
 	h6 {
-	  font-size: bold;
-	  font-size: 1.1rem;
+        font-family: 'notokr-regular', sans-serif;
+        font-size: 16px;
+        font-weight: normal;
+        color: #fff;
 	}
 	figure {
 	  padding: 20px 40px 20px 0;
@@ -28,29 +30,35 @@
 	color: #b5b5b5;
 	.title {
 	  padding: 10px 0;
-	  margin-bottom: 20px;
+	  margin-bottom: 5px;
 	  height: 50px;
-	  font-size: bold;
-	  font-size: 1.1rem;
-	  color: inherit;
+        font-family: 'notokr-regular', sans-serif;
+        font-size: 16px;
+        font-weight: normal;
+        color: #fff;
 	}
 	li {
 	  display: flex;
-	  color: inherit;
 	  height: 30px;
-	  font-size: 0.9rem;
+        font-family: 'notokr-light', sans-serif;
+        font-size: 14px;
+        font-weight: normal;
+        color: #fff;
 	  a {
 		color: inherit;
 		text-decoration: none;
 	  }
 	  span {
-		color: inherit;
-		font-weight: bolder;
+        font-family: 'notokr-medium', sans-serif;
+        font-size: 14px;
+        font-weight: normal;
+        color: #fff;
 		margin-right: 10px;
 	  }
 	  > input {
-		font-family: notokr-light;
-		font-size: 12px;
+        font-family: 'notokr-light', sans-serif;
+        font-size: 12px;
+        font-weight: normal;
 		color: #b2b2b2;
 		padding: 5px;
 		height: 40px;

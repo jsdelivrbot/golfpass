@@ -2744,7 +2744,7 @@ body.menu-open .plus-btn .r2 {
   color: #fff !important; }
   @media (min-width: 992px) {
     #main-wrap #footer {
-      padding: 50px 0px 110px 50px; } }
+      padding: 50px; } }
   #main-wrap #footer ul {
     color: #fff !important; }
   #main-wrap #footer > p {
@@ -3319,34 +3319,42 @@ body.menu-open .plus-btn .r2 {
   #footer #partner {
     padding-left: 40px; }
     #footer #partner h6 {
-      font-size: bold;
-      font-size: 1.1rem; }
+      font-family: 'notokr-regular', sans-serif;
+      font-size: 16px;
+      font-weight: normal;
+      color: #fff; }
     #footer #partner figure {
       padding: 20px 40px 20px 0; }
   #footer ul {
     color: #b5b5b5; }
     #footer ul .title {
       padding: 10px 0;
-      margin-bottom: 20px;
+      margin-bottom: 5px;
       height: 50px;
-      font-size: bold;
-      font-size: 1.1rem;
-      color: inherit; }
+      font-family: 'notokr-regular', sans-serif;
+      font-size: 16px;
+      font-weight: normal;
+      color: #fff; }
     #footer ul li {
       display: flex;
-      color: inherit;
       height: 30px;
-      font-size: 0.9rem; }
+      font-family: 'notokr-light', sans-serif;
+      font-size: 14px;
+      font-weight: normal;
+      color: #fff; }
       #footer ul li a {
         color: inherit;
         text-decoration: none; }
       #footer ul li span {
-        color: inherit;
-        font-weight: bolder;
+        font-family: 'notokr-medium', sans-serif;
+        font-size: 14px;
+        font-weight: normal;
+        color: #fff;
         margin-right: 10px; }
       #footer ul li > input {
-        font-family: notokr-light;
+        font-family: 'notokr-light', sans-serif;
         font-size: 12px;
+        font-weight: normal;
         color: #b2b2b2;
         padding: 5px;
         height: 40px;

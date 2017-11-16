@@ -590,9 +590,6 @@
                          <li><span>등록판매업신고번호</span>
                                     <p>2017-서울강서-1545호</p>
                          </li>
-                         <li><span>개인정보관리책임자</span>
-                                 <p>김민성</p>
-                         </li>
                  </ul>
                  <ul>
                          <li class="title">NEWS LETTER</li>
