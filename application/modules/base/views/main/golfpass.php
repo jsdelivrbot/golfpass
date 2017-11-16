@@ -48,49 +48,20 @@
         <div class="menu-sliders"></div>
         <div class="menu">
             <ul class="list-unstyled">
-            <?php if(is_admin()){?>
-                <li>
-                  <a style="color:white;" href="<?=site_url(admin_home_uri.'')?>">관리자 페이지</a>
-                </li>
+                <?php if(is_admin()){?>
+                    <li><a style="color:white;" href="<?=site_url(admin_home_uri.'')?>">관리자 페이지</a></li>
                 <?php }?>
-                <li>
-                  <a style="color:white;" href="<?=site_url('')?>">골프패스</a>
-                </li>
-
-                <li>
-                <a style="color:white;" href="<?=site_url(shop_category_uri.'/gets_by_name/나라별')?>">나라별 골프장</a>
-
-                </li>
-                <li>
-                <a style="color:white;" href="<?=site_url(golfpass_panel_uri.'/gets')?>">패널소개</a>
-
-                </li>
-
+                    <li><a style="color:white;" href="<?=site_url(shop_category_uri.'/gets_by_name/나라별')?>">나라별 골프장</a></li>
+                    <li><a style="color:white;" href="<?=site_url(golfpass_panel_uri.'/gets')?>">그늘집 by GOLFPASS</a></li>
+                    <li><a style="color:white;" href="<?=site_url(shop_contact_uri.'')?>">고객센터</a></li>
                 <?php if(!is_login()){?>
-                <li>
-                  <a style="color:white;" href="<?=site_url(user_uri.'/login')?>">로그인</a>
-
-                </li>
-                <li>
-                <a style="color:white;" href="<?=site_url(user_uri.'/register_agree_1')?>">회원가입</a>
-
-                </li>
+                    <li><a style="color:white;" href="<?=site_url(user_uri.'/login')?>">로그인</a></li>
+                    <li><a style="color:white;" href="<?=site_url(user_uri.'/register_agree_1')?>">회원가입</a></li>
                 <?php }?>
                 <?php if(is_login()){?>
-
-                <li>
-                  <a style="color:white;" href="<?=site_url(user_uri.'/logout')?>">로그아웃</a>
-                </li>
+                    <li><a style="color:white;" href="<?=site_url(shop_mypage_uri.'')?>">마이페이지</a></li>
+                    <li><a style="color:white;" href="<?=site_url(user_uri.'/logout')?>">로그아웃</a></li>
                 <?php }?>
-                <li>
-                  <a style="color:white;" href="<?=site_url(shop_mypage_uri.'')?>">마이페이지      </a>
-                </li>
-                <li>
-                  <a style="color:white;" href="<?=site_url(shop_wishlist_uri.'/gets')?>">위시리스트      </a>
-                </li>
-                <li>
-                  <a style="color:white;" href="<?=site_url(shop_contact_uri.'')?>">고객센터</a>
-                </li>
             </ul>
         </div>
     </div>
