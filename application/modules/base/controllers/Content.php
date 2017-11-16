@@ -63,7 +63,7 @@ class Content extends Base_Controller {
     public function gets()
     { 
         $data =$this->_gets();
-        $this->_template(array("gets","sidebar"),$data,"golfpass2");
+        $this->_template(array("gets"),$data,"golfpass2");
 		 
     }
 
@@ -96,7 +96,7 @@ class Content extends Base_Controller {
         
         // $reply_view_dir = "content/{$this->board->skin}/reply/gets";
         // $this->_template(array("get",$reply_view_dir,"gets"),$data,"golfpass2");
-        $this->_template(array("get","sidebar"),$data,"golfpass2");
+        $this->_template(array("get"),$data,"golfpass2");
     }
 
     function _addCallback($func_fv_false,$func_fv_true)

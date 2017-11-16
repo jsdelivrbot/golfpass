@@ -4,11 +4,25 @@
 							 <div class="tp-col-12">
 								 
 									 <h1 id='tp-panel-title' class="tp-text-center">
+							
+							
 										 <span>골프패스</span> <?=$board->name?></h1>
+
+											
+<div class="ui centered grid container">
+<div class="row"  style="max-width:700px;">
+<div class="ui three item stackable tabs menu">
+    <a class="<?=$board->id==="4" ? "active" : ""?> item" href="<?=my_site_url(content_uri."/gets?board_id=4")?>">공지사항</a>
+    <a class="<?=$board->id==="3" ? "active" : ""?> item"  href="<?=my_site_url(content_uri."/gets?board_id=3")?>">FAQ</a>
+    <a class="<?=$board->id==="2" ? "active" : ""?> item"  href="<?=my_site_url(content_uri."/gets?board_id=2&is_user=true")?>">1:1문의</a>
+    </div>
+</div>
+</div>
 								 
 							 </div>
+
 					 </div>
-				
+					
 					 <section id='tp-content-boxs' class="tp-ajax_taget_content_list tp-row tp-justify-content-center">
 						  <?php for($i=0; $i< count($contents);$i++){?>
 							 <div class="tp-content-box tp-col-12 tp-row">
