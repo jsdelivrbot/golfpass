@@ -135,16 +135,16 @@
             <?php if(!is_login()){?>
                 <div id="login" class="d-flex align-items-center">
                     <span><i class="xi-log-in xi-x"></i></span>
-                    <p class="mb-0"><a style="color:white;" href="<?=site_url(user_uri.'/login')?>">로그인</a></p>
+                    <p class="mb-0"><a style="color: white; font-family: 'notokr-regular', sans-serif; font-size: 12px;" href="<?=site_url(user_uri.'/login')?>">로그인</a></p>
                 </div>
                 <div id="join" class="d-flex align-items-center">
                     <span><i class="xi xi-user-plus"></i></span>
-                    <p class="mb-0"><a style="color:white;"href="<?=site_url(user_uri.'/register_agree_1')?>">회원가입</a></p>
+                    <p class="mb-0"><a style="color: white; font-family: 'notokr-regular', sans-serif; font-size: 12px;" href="<?=site_url(user_uri.'/register_agree_1')?>">회원가입</a></p>
                 </div>
             <?php }else{?>
                 <div id="logout" class="d-flex align-items-center">
                     <span><i class="xi-log-out xi-x"></i></span>
-                    <p class="mb-0"><a style="color:white;"href="<?=site_url(user_uri.'/logout')?>">로그아웃</a></p>
+                    <p class="mb-0"><a style="color: white; font-family: 'notokr-regular', sans-serif; font-size: 12px;" href="<?=site_url(user_uri.'/logout')?>">로그아웃</a></p>
                 </div>
             <?php }?>
             </div>
