@@ -75,7 +75,7 @@
             <div id='nav-icon-box' class="offset-2 col-5 d-flex align-items-stretch justify-content-end">
                 <div id="search" class="d-flex align-items-center">
                     <a class="mk-search-trigger mk-fullscreen-trigger" href="#" id="search-button-listener">
-                        <span><i class="xi xi-search" id="search-button"></i></span>
+                        <span><i class="xi xi-search" id="search-button" style="text-shadow: 0 0 7px rgba(0,0,0,1);"></i></span>
                     </a>
                     <div class="mk-fullscreen-search-overlay" id="mk-search-overlay">
                         <a href="#" class="mk-fullscreen-close" id="mk-fullscreen-close-button"><i class="xi xi-close"></i></a>
@@ -90,18 +90,18 @@
                 <?php if(!is_login()){?>
                 <div id="login" class="d-flex align-items-center">
                     <a href="<?=site_url(user_uri.'/login')?>" style="color:white;">
-                        <span><i class="xi-log-in xi-x"></i></span>
+                        <span><i class="xi-log-in xi-x" style="text-shadow: 0 0 7px rgba(0,0,0,1);"></i></span>
                     </a>
                 </div>
                 <div id="join" class="d-flex align-items-center">
                     <a href="<?=site_url(user_uri.'/register_agree_1')?>" style="color:white;">
-                        <span><i class="xi xi-user-plus"></i></span>
+                        <span><i class="xi xi-user-plus" style="text-shadow: 0 0 7px rgba(0,0,0,1);"></i></span>
                     </a>
                 </div>
                 <?php }else{?>
                     <div id="logout" class="d-flex align-items-center">
                     <a href="<?=site_url(user_uri.'/logout')?>" style="color:white;">
-                        <span><i class="xi-log-out xi-x"></i></span>
+                        <span><i class="xi-log-out xi-x" style="text-shadow: 0 0 7px rgba(0,0,0,1);"></i></span>
                     </a>
                 </div>
                 <?php }?>
@@ -598,6 +598,8 @@
                                  <p style="margin-bottom: 0;">에서 제공하는 유용한 소식</p>
                          </li>
                  </ul>
+         </div>
+         <div class="row d-flex">
                  <p class='align-self-end mr-auto ml-auto'>© 2017 <strong>GOLFPASS.</strong> All Rights Reserved.</p>
          </div>
 
