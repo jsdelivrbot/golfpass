@@ -3356,9 +3356,10 @@ body.menu-open .plus-btn .r2 {
         font-size: 12px;
         font-weight: normal;
         color: #b2b2b2;
-        padding: 5px;
+        padding: 15px;
         height: 40px;
-        width: 240px; }
+        width: 240px;
+        border: 0; }
   #footer > p {
     font-size: 0.8rem;
     color: #b2b2b2 !important; }
