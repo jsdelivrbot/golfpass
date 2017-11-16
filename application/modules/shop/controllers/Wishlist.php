@@ -47,11 +47,13 @@ class Wishlist extends Base_Controller {
         {
             $this->db->query("INSERT INTO {$this->table} (product_id,user_id,count,kind,created) VALUES ($product_id,$user_id,{$order_count},'wishlist',NOW())");
             $data['confirm_redirect']['msg'] ="위시리스트에 에 추가하였습니다. 확인하시겠습니까?";
-            $data['confirm_redirect']['url'] =site_url(shop_wishlist_uri."/gets");
+            // $data['confirm_redirect']['url'] =site_url(shop_wishlist_uri."/gets");
+            $data['confirm_redirect']['url'] =site_url(shop_mypage_uri."/gets_wishlist");
         }
         else{
             $data['confirm_redirect']['msg'] ="위시리스트에 이미 존재합니다. 확인하시겠습니까?";
-            $data['confirm_redirect']['url'] =site_url(shop_wishlist_uri."/gets");
+            // $data['confirm_redirect']['url'] =site_url(shop_wishlist_uri."/gets");
+            $data['confirm_redirect']['url'] =site_url(shop_mypage_uri."/gets_wishlist");
         }
     
       }
