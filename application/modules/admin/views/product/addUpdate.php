@@ -93,6 +93,10 @@ $('#navi_btn').click(function(){
             <i class="right arrow icon"></i>
         날자별 가격
         </a>
+        <a class="ui right labeled icon button  secondary" href="<?=my_site_url(shop_product_uri."/get/{$product->id}/")?>">
+            <i class="right arrow icon"></i>
+        사이트에서 보기
+        </a>
     <?php }?>
 </div>
 
