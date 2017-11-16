@@ -2793,7 +2793,8 @@ body.menu-open .plus-btn .r2 {
   #detail-wrap #section1 #section1-wrap {
     color: white;
     position: relative;
-    padding: 120px 0 40px; }
+    padding: 120px 0 40px;
+    max-width: 1440px; }
     #detail-wrap #section1 #section1-wrap > * {
       z-index: 2; }
     #detail-wrap #section1 #section1-wrap #detail_slide {
@@ -2929,6 +2930,7 @@ body.menu-open .plus-btn .r2 {
     width: 402px; } }
 #detail-wrap #section2 {
   position: relative;
+  max-width: 1440px;
   font-family: 'Noto Sans', sans-serif;
   box-sizing: border-box; }
   @media (min-width: 1199px) {
