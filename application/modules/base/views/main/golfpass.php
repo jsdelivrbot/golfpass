@@ -299,7 +299,7 @@
                                                                          <img src="/public/images/blank2.png" class="blank_img">
                                                                 <!-- // 이부분 수정 -->
                                                                           
-                                                                         <span class="position-absolute text-light price"><?=$products_panel[$i]->price?>원</span>
+                                                                         <span class="position-absolute text-light price" style="text-shadow: 0 0 7px rgba(0,0,0,1);"><?=$products_panel[$i]->price?>원</span>
                                                                  </div>
                                                                  <div class="d-flex align-items-center p-1 text-light rounded-top content">
                                                                          <i class="xi-marker-check ml-1 mr-1"></i>
