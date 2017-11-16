@@ -18,6 +18,8 @@
 		//모바일 경우
 		#nav-icon-box {
 			padding-right: 16px;
+            max-width: 41%;
+            margin-left: 8%;
 
 			div:not(:last-child) {
 				&::after {
@@ -37,7 +39,8 @@
 
 			i {
 				cursor: pointer;
-				padding: 5px;
+				padding: 25px;
+                font-size: 30px;
 			}
 		}
 	}

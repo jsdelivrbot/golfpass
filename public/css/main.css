@@ -2028,7 +2028,9 @@ body.menu-open .plus-btn .r2 {
     color: white;
     z-index: 9999; }
   #header nav#sm-nav #nav-icon-box, .black-bg-header nav#sm-nav #nav-icon-box {
-    padding-right: 16px; }
+    padding-right: 16px;
+    max-width: 41%;
+    margin-left: 8%; }
     #header nav#sm-nav #nav-icon-box div:not(:last-child)::after, .black-bg-header nav#sm-nav #nav-icon-box div:not(:last-child)::after {
       content: '|';
       display: inline-block;
@@ -2041,7 +2043,8 @@ body.menu-open .plus-btn .r2 {
     background-color: transparent; }
     #header nav#sm-nav .toggle i, .black-bg-header nav#sm-nav .toggle i {
       cursor: pointer;
-      padding: 5px; }
+      padding: 25px;
+      font-size: 30px; }
   #header nav#md-nav, .black-bg-header nav#md-nav {
     font-size: 0.8rem; }
     #header nav#md-nav .xi, .black-bg-header nav#md-nav .xi {
@@ -2199,7 +2202,9 @@ body.menu-open .plus-btn .r2 {
     color: white;
     z-index: 9999; }
   #header nav#sm-nav #nav-icon-box, .black-bg-header nav#sm-nav #nav-icon-box {
-    padding-right: 16px; }
+    padding-right: 16px;
+    max-width: 41%;
+    margin-left: 8%; }
     #header nav#sm-nav #nav-icon-box div:not(:last-child)::after, .black-bg-header nav#sm-nav #nav-icon-box div:not(:last-child)::after {
       content: '|';
       display: inline-block;
@@ -2212,7 +2217,8 @@ body.menu-open .plus-btn .r2 {
     background-color: transparent; }
     #header nav#sm-nav .toggle i, .black-bg-header nav#sm-nav .toggle i {
       cursor: pointer;
-      padding: 5px; }
+      padding: 25px;
+      font-size: 30px; }
   #header nav#md-nav, .black-bg-header nav#md-nav {
     font-size: 0.8rem; }
     #header nav#md-nav .xi, .black-bg-header nav#md-nav .xi {
