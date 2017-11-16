@@ -79,7 +79,7 @@ class Product extends Base_Controller {
             'num_people'=>"1"
         ));
         if($row !== null)
-            $data['price'] = "{$row->price}원";
+            $data['price'] = "{$row->price}원 부터 시작";
         else
             $data['price'] = "데이터값 없음";
 

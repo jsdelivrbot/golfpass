@@ -80,9 +80,7 @@ $('#navi_btn').click(function(){
         <div class="field">
             <label>상품 설명</label>
             <!-- <input type="text" name="desc" value="<?=set_value_data($product,'desc')?>"> <?=form_error('desc',false,false)?><br> -->
-            <textarea placeholder="내용" name="desc">
-            <?=set_value_data($product,'desc')?>
-            </textarea>
+            <textarea placeholder="내용" name="desc"><?=set_value_data($product,'desc')?></textarea>
         </div>
         <!-- <script src="<?=domain_url('/public/lib/ckeditor/ckeditor.js')?>"></script>
         <script>
@@ -122,6 +120,14 @@ $('#navi_btn').click(function(){
             개장일<input type="text" name="open_day" value="<?=set_value_data($product,'open_day')?>"> <?=form_error('open_day',false,false)?><br>
         </div>
     
+        <div class="field">
+            <label>최소 인(명)</label>
+            <input type="text" name="min_people" value="<?=set_value_data($product,'min_people')?>"> <?=form_error('min_people',false,false)?><br>
+        </div>
+        <div class="field">
+            <label>최대 인(명)</label>
+            <input type="text" name="max_people" value="<?=set_value_data($product,'max_people')?>"> <?=form_error('max_people',false,false)?><br>
+        </div>
         <!-- <div class="field">
             <label>가격</label>
             가격<input type="text" name="price" value="<?=set_value_data($product,'price')?>"> <?=form_error('price',false,false)?><br>

@@ -240,6 +240,7 @@
                   <input type="hidden" name="num_people">
                   <input type="hidden" name="start_date">
                   <input type="hidden" name="end_date">
+                  <input type="hidden" name="total_price">
                   <input type="submit">
               </form>
                 <!--
@@ -257,21 +258,10 @@
                 <div id='count-box' class='d-flex align-items-stretch justify-content-end'>
                   <form class="" action="index.html" method="post">
                     <select name="num_people"class="custom-select" id="">
-                      <option value="1">1명</option>
-                      <option value="2">2명</option>
-                      <option value="3">3명</option>
-                      <option value="4">4명</option>
-                      <option value="5">5명</option>
-                      <option value="6">6명</option>
-                      <option value="7">7명</option>
-                      <option value="8">8명</option>
-                      <option value="9">9명</option>
-                      <option value="10">10명</option>
-                      <option value="11">11명</option>
-                      <option value="12">12명</option>
-                      <option value="13">13명</option>
-                      <option value="14">14명</option>
-                      <option value="15">15명</option>
+                    <option>선택</option>
+                        <?php for($i = 4 ; $i<=$product->max_people; $i++){?>
+                      <option value="<?=$i?>"><?=$i?>명</option>
+                        <?php }?>
                     </select>
                   </form>
                 </div>
@@ -714,6 +704,7 @@
 var $startDate=$( "#s-day" );
 var $endDate=$( "#e-day" );
 var $numPeople = $("select[name=num_people]");
+var $total_price = $("#total_price");
     $(document).ready(function(){
        $startDate.datepicker({
           dateFormat: 'yy-mm-dd'
@@ -798,7 +789,15 @@ var $numPeople = $("select[name=num_people]");
                 // $('.loading').fadeIn(500);
             },
             success:function(data){
-                $("#total_price").html(`${data.total_price}`);
+                var totalPrice = data.total_price;
+                if(totalPrice.indexOf("원") >-1 )
+                {
+                    totalPrice =totalPrice.substr(0,totalPrice.length-1);
+                    totalPrice=Number(totalPrice).toLocaleString('en');
+                    totalPrice+="원";
+                }
+                $total_price.html(totalPrice);
+                $total_price.val(data.total_price);
                 // console.log(data);
             },
             error: function(xhr, textStatus, errorThrown){
@@ -821,6 +820,7 @@ var $numPeople = $("select[name=num_people]");
         $order_form.find("input[name=num_people]").val($numPeople.val());
         $order_form.find("input[name=start_date]").val($startDate.val());
         $order_form.find("input[name=end_date]").val($endDate.val());
+        $order_form.find("input[name=total_price]").val($total_price.val());
         $order_form.submit();
     });
        

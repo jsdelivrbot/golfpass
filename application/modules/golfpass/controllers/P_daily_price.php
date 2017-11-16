@@ -21,7 +21,7 @@ class P_daily_price extends Base_Controller
         $end_date = $this->input->post("end_date");
 
         //설정 날자차이가 음수일때
-        if(strtotime($end_date) <= strtotime($start_date))
+        if(strtotime($end_date) < strtotime($start_date))
         {
             $data['total_price'] = "올바르게 설정되지 않았습니다.";
             echo json_encode($data);
@@ -58,13 +58,13 @@ class P_daily_price extends Base_Controller
         // // start date하나로 계산
       
       
-        //  //하루예약시
-        // if($period <= 1)
-        // {
-        //     $data['total_price'] = "1일 예약은 불가능합니다.";
-        //     echo json_encode($data);
-        //     return;
-        // }
+         //하루예약시
+        if($period <= 1)
+        {
+            $data['total_price'] = "1일 예약은 불가능합니다.";
+            echo json_encode($data);
+            return;
+        }
 
         //  //날자 하나씩 계산
         // $total_price =0;

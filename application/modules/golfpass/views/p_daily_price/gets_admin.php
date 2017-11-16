@@ -135,7 +135,7 @@
  
       <select style="float:left;" name="" id="select_year">
           <?php $current_year = date("Y");
-        for($i = $current_year - 3 ; $i <= $current_year+3 ; $i++){?>
+        for($i = $current_year ; $i <= $current_year+3 ; $i++){?>
         <option value="<?=$i?>"  <?=set_select("year",$i,false)?>><?=$i?></option>
         <?php
         }

@@ -185,5 +185,10 @@ class Products_Model extends Board_Model{
         //메인상품 삭제
         $this->load->model("shop/product_option_model");
         $this->product_option_model->_delete(array("product_id"=>$id,"kind"=>"main"));
+
+        //가격 삭제
+        $this->load->model("golfpass/p_daily_price_model");
+        $this->p_daily_price_model->_delete(array("product_id"=>$id));
+
     }
 }

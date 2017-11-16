@@ -359,6 +359,8 @@ class Init extends Init_Controller {
             `weekday_price` INT UNSIGNED NOT NULL,
             `weekend_price` INT UNSIGNED NOT NULL,
             `holiday_price` INT UNSIGNED NOT NULL,
+            `min_people` INT UNSIGNED NOT NULL,
+            `max_people` INT UNSIGNED NOT NULL,
             `hits` int UNSIGNED NOT NULL DEFAULT '0',    
             `created` datetime NOT NULL DEFAULT NOW(),
             PRIMARY KEY (`id`)
