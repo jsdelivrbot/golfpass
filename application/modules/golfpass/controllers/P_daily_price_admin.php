@@ -229,7 +229,8 @@ class P_daily_price_admin extends Admin_Controller
             $data['maxium_num_peple'] = 45;
             // $data['maxium_num_peple'] = 10;
             
-            $data['num_period'] = 3;
+            $data['num_period'] = 0;
+            // $data['num_period'] = 3;
 
             $data['year'] = $year;
 

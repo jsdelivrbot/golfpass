@@ -192,16 +192,13 @@
     width:300px;
   } */
 </style>
-<div style ="margin-top:480px;"></div>
+<div style ="margin-top:540px;"></div>
 
 <div class="target ui grid" style="margin-left:50px;">
 <?php for ($m =1; $m<=12; $m++) {
     // $num_days = cal_days_in_month(CAL_GREGORIAN, $m, $year);
     $num_days = date('t', mktime(0, 0, 0, $m, 1, $year)); 
 ?>
-<br>
-<br>
-<br>
 
 <div class="month_table"id="month_table_<?=$m?>" <?=$m !== 1 ? "style='display:none'": ""?>>
 
@@ -212,7 +209,7 @@
         <?="{$m}월"?>
         </th>
         <?php for ($i=1; $i <= (int)$maxium_num_peple; $i++) {?>
-        <th class="col center aligned" colspan=2>
+        <th class="col center aligned" colspan=<?=$num_period === 0 ? "1" :"2"?>>
             <?=$i?>인 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
         </th>
     <?php }?>
