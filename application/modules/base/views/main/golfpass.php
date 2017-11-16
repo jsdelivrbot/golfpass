@@ -537,7 +537,7 @@
     </section> -->
     <footer id='footer' class='main-footer container-fluid'>
         <div id="partner">
-            <div class="row">
+            <div class="row" style="width:100%;">
                 <div class="w-100">
                     <h6 >PARTNERS</h6>
                 </div>
@@ -563,7 +563,7 @@
 
         </div>
 
-         <div class="row d-flex">
+         <div class="row d-flex" style="width:100%;">
                  <ul>
                          <li class="title">ABOUT US</li>
                          <li><a href="#">회사 소개</a></li>
@@ -599,7 +599,7 @@
                          </li>
                  </ul>
          </div>
-         <div class="row d-flex">
+         <div class="row d-flex" style="width:100%">
                  <p class='align-self-end mr-auto ml-auto'>© 2017 <strong>GOLFPASS.</strong> All Rights Reserved.</p>
          </div>
 
