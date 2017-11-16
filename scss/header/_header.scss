@@ -78,7 +78,7 @@
 					font-size: 14px;
 					opacity: 0.5;
 					outline: 0;
-					color: white;
+					color: #4b4b4b;
 					padding-left: 5px;
 
 				}
@@ -164,11 +164,13 @@
 		}
 
 		p {
-			font-family: 'notokr-medium';
+			font-family: 'notokr-demilight';
+            font-size: 12px;
+			color: #737f86;
+            letter-spacing: 2px;
 			//NOTE <p> 검색결과/총 ~~개
 			padding: 20px;
 			margin: 0;
-			color: #bbbcbd;
 			border-bottom: 1px solid #d9d9d9;
 
 			span {
@@ -242,4 +244,8 @@
 			}
 		}
 	}
+}
+
+.search_data_num {
+    color: #b9c3c5;
 }

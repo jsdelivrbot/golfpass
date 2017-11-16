@@ -96,7 +96,7 @@ $(function() {
 			},
 			success: function(data) {
 				var input = '';
-				input += "<p><span>'" + searchInput.val() + `' </span>검색결과 <span> / 총  ${data.length}  개</span></p>`
+				input += "<p><span>'" + searchInput.val() + `' </span>검색결과 <span class="search_data_num"> / 총  ${data.length}  개</span></p>`
 				input += '<div>'
 				input += '<ul class="search-items">'
 				for (var i = 0; i < data.length; i++) {

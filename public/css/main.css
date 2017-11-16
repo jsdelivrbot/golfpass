@@ -2068,7 +2068,7 @@ body.menu-open .plus-btn .r2 {
           font-size: 14px;
           opacity: 0.5;
           outline: 0;
-          color: white;
+          color: #4b4b4b;
           padding-left: 5px; }
       #header nav#md-nav #logo .search-container.focus i, .black-bg-header nav#md-nav #logo .search-container.focus i,
       #header nav#md-nav #logo .search-container.focus input,
@@ -2125,10 +2125,12 @@ body.menu-open .plus-btn .r2 {
       position: absolute;
       background-color: white; }
     #header .search-content-container p, .black-bg-header .search-content-container p {
-      font-family: 'notokr-medium';
+      font-family: 'notokr-demilight';
+      font-size: 12px;
+      color: #737f86;
+      letter-spacing: 2px;
       padding: 20px;
       margin: 0;
-      color: #bbbcbd;
       border-bottom: 1px solid #d9d9d9; }
       #header .search-content-container p span, .black-bg-header .search-content-container p span {
         font-family: 'notokr-regular'; }
@@ -2176,6 +2178,9 @@ body.menu-open .plus-btn .r2 {
             display: -webkit-box;
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical; }
+
+.search_data_num {
+  color: #b9c3c5; }
 
 #header, .black-bg-header {
   position: absolute; }
@@ -2229,7 +2234,7 @@ body.menu-open .plus-btn .r2 {
           font-size: 14px;
           opacity: 0.5;
           outline: 0;
-          color: white;
+          color: #4b4b4b;
           padding-left: 5px; }
       #header nav#md-nav #logo .search-container.focus i, .black-bg-header nav#md-nav #logo .search-container.focus i,
       #header nav#md-nav #logo .search-container.focus input,
@@ -2286,10 +2291,12 @@ body.menu-open .plus-btn .r2 {
       position: absolute;
       background-color: white; }
     #header .search-content-container p, .black-bg-header .search-content-container p {
-      font-family: 'notokr-medium';
+      font-family: 'notokr-demilight';
+      font-size: 12px;
+      color: #737f86;
+      letter-spacing: 2px;
       padding: 20px;
       margin: 0;
-      color: #bbbcbd;
       border-bottom: 1px solid #d9d9d9; }
       #header .search-content-container p span, .black-bg-header .search-content-container p span {
         font-family: 'notokr-regular'; }
@@ -2337,6 +2344,9 @@ body.menu-open .plus-btn .r2 {
             display: -webkit-box;
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical; }
+
+.search_data_num {
+  color: #b9c3c5; }
 
 .black-bg-header {
   z-index: 1000;
