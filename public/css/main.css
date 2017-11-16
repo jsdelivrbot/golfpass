@@ -3368,11 +3368,11 @@ body.menu-open .plus-btn .r2 {
   #footer strong {
     font-family: 'notokr-medium', sans-serif; }
 
-.align-self-end p {
+.align-self-end {
   font-family: 'notokr-light', sans-serif;
   font-size: 14px;
   font-weight: normal; }
-  .align-self-end p strong {
+  .align-self-end strong {
     font-family: 'notokr-medium', sans-serif; }
 
 /* Slider */
