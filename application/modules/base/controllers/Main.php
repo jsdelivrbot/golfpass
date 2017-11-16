@@ -89,7 +89,7 @@ class Main extends Base_Controller
         //리뷰 평균점수 높은대로순
         $this->db->limit(10,0);
         $data['products_avgScore'] =$this->products_model->gets_by_ranking("avg_score");
-       
+        $data['rankingType'] = "avg_score";
         
         //패널
         $this->load->model("users_model");

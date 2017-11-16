@@ -20,13 +20,13 @@ class P_daily_price extends Base_Controller
         $start_date = $this->input->post("start_date");
         $end_date = $this->input->post("end_date");
 
-        //설정 날자차이가 음수일때
-        if(strtotime($end_date) < strtotime($start_date))
-        {
-            $data['total_price'] = "올바르게 설정되지 않았습니다.";
-            echo json_encode($data);
-            return;
-        }
+        // //설정 날자차이가 음수일때
+        // if(strtotime($end_date) < strtotime($start_date))
+        // {
+        //     $data['total_price'] = "올바르게 설정되지 않았습니다.";
+        //     echo json_encode($data);
+        //     return;
+        // }
 
         $product_id = $this->input->post("product_id");
         $num_people = $this->input->post("num_people");
@@ -56,46 +56,71 @@ class P_daily_price extends Base_Controller
         
         // return;
         // // start date하나로 계산
-        //날자 하나씩 계산
       
-         //하루예약시
-        if($period <= 1)
-        {
-            $data['total_price'] = "1일 예약은 불가능합니다.";
-            echo json_encode($data);
-            return;
-        }
+      
+        //  //하루예약시
+        // if($period <= 1)
+        // {
+        //     $data['total_price'] = "1일 예약은 불가능합니다.";
+        //     echo json_encode($data);
+        //     return;
+        // }
 
-        $total_price =0;
-        for($i =0 ; $i < $period ; $i++)
-        {
-            $date = date("Y-m-d",strtotime("{$start_date} +{$i} days"));
-            $row=$this->p_daily_price_model->_get(array(
-                'product_id'=>$product_id,
-                'date'=>$date,
-                'period'=>$period,
-                'num_people'=>$num_people
-            ));
-            //해당 날자데이터가 없을때
-            if($row === null)
-            {
-                $data['total_price'] = "{$date}가격이 없습니다 <br> 예약이 불가능합니다.";
-                echo json_encode($data);
-                return;
-            }
+        //  //날자 하나씩 계산
+        // $total_price =0;
+        // for($i =0 ; $i < $period ; $i++)
+        // {
+        //     $date = date("Y-m-d",strtotime("{$start_date} +{$i} days"));
+        //     $row=$this->p_daily_price_model->_get(array(
+        //         'product_id'=>$product_id,
+        //         'date'=>$date,
+        //         'period'=>$period,
+        //         'num_people'=>$num_people
+        //     ));
+        //     //해당 날자데이터가 없을때
+        //     if($row === null)
+        //     {
+        //         $data['total_price'] = "{$date}가격이 없습니다 <br> 예약이 불가능합니다.";
+        //         echo json_encode($data);
+        //         return;
+        //     }
 
-            $tmp_price =$row->price;
-            $total_price += (int)$tmp_price/$period;
-        }
+        //     $tmp_price =$row->price;
+        //     $total_price += (int)$tmp_price/$period;
+        // }
 
-        $data['total_price'] = $total_price."원";
-        echo json_encode($data);
+        // $data['total_price'] = $total_price."원";
+        // echo json_encode($data);
         
-        return;
-        //날자 하나씩 계산
+        // return;
+        // //날자 하나씩 계산
 
-       
+    //    1박 2일 데이터로만 계산
+              // for($i =0 ; $i < $period ; $i++)
+        // {
+        //     $date = date("Y-m-d",strtotime("{$start_date} +{$i} days"));
+        //     $row=$this->p_daily_price_model->_get(array(
+        //         'product_id'=>$product_id,
+        //         'date'=>$date,
+        //         'period'=>$period,
+        //         'num_people'=>$num_people
+        //     ));
+        //     //해당 날자데이터가 없을때
+        //     if($row === null)
+        //     {
+        //         $data['total_price'] = "{$date}가격이 없습니다 <br> 예약이 불가능합니다.";
+        //         echo json_encode($data);
+        //         return;
+        //     }
 
+        //     $tmp_price =$row->price;
+        //     $total_price += (int)$tmp_price/$period;
+        // }
+
+        // $data['total_price'] = $total_price."원";
+        // echo json_encode($data);
+        
+        // return;
      
 
 
