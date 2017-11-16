@@ -98,7 +98,7 @@
                         </a>
 
 
-                        <a href="<?=site_url(shop_mypage_uri."/gets_contact")?>" class="<?=$page_name==="고객센터" ? "active" : ""?> item" data-tab="usage">고객센터</a>
+                        <a href="<?=site_url(content_uri."/gets?board_id=4")?>" class="<?=$page_name==="고객센터" ? "active" : ""?> item" data-tab="usage">고객센터</a>
 
 
                         <a href="<?=site_url(shop_review_uri."/gets_by_user/{$user->userName}")?>" class="<?=$page_name==="내가 쓴 리뷰" ? "active" : ""?> item" data-tab="settings">내가 쓴 후기</a>
