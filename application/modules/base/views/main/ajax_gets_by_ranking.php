@@ -1,5 +1,5 @@
 <article class="w-100 p-xl-4">
-				<div class="row no-gutters main-section-title mb-5" style="margin-bottom: 0 !important;">
+				<div class="row no-gutters main-section-title mb-5" style="margin-bottom: 10px !important;">
 					<h4 class="main_sub_title">순위별 골프장</h4>
 				</div>
 				<div class="d-flex mb-5 category flex-wrap" style="margin-left:10px; margin-bottom: 20px !important">
