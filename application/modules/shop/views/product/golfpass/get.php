@@ -235,7 +235,7 @@
           <div id="book-box-wrap" class="order-1 order-md-3 col-12 col-md-3">
             <div id='book-box'>
               <div id="personnel">
-                <span class="box-title">예약하기</span>
+              <a href="<?=my_site_url(shop_order_uri."/index/{$product->id}")?>"><span class="box-title"> 예약하기</span></a>
                 <!--
                             <div id='count-box' class='d-flex align-items-stretch justify-content-end'>
                                 <span id='count'>1명 </span>
