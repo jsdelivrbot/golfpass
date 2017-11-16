@@ -2110,7 +2110,7 @@ body.menu-open .plus-btn .r2 {
     left: 0;
     width: 70%;
     max-width: 800px;
-    min-width: 500px;
+    min-width: 400px;
     top: 65px;
     color: #bbbcbd;
     min-height: 100px;
@@ -2281,7 +2281,7 @@ body.menu-open .plus-btn .r2 {
     left: 0;
     width: 70%;
     max-width: 800px;
-    min-width: 500px;
+    min-width: 400px;
     top: 65px;
     color: #bbbcbd;
     min-height: 100px;
@@ -2466,19 +2466,22 @@ body.menu-open .plus-btn .r2 {
           #main-wrap #section1 .carousel .carousel-inner .carousel-item .content-box .title h1 {
             font-family: 'notokr-medium';
             font-size: 40px;
-            margin-bottom: 10px; }
+            margin-bottom: 10px;
+            text-shadow: 0 0 7px black; }
             @media (max-width: 500px) {
               #main-wrap #section1 .carousel .carousel-inner .carousel-item .content-box .title h1 {
                 font-size: 30px; } }
           #main-wrap #section1 .carousel .carousel-inner .carousel-item .content-box .title p {
             font-size: 16px;
             font-family: "notokr-regular";
-            margin-bottom: 10px; }
+            margin-bottom: 10px;
+            text-shadow: 0 0 7px black; }
           #main-wrap #section1 .carousel .carousel-inner .carousel-item .content-box .content p {
             max-width: 500px;
             font-size: 14px;
             font-family: "notokr-demilight";
-            margin-bottom: 20px; }
+            margin-bottom: 20px;
+            text-shadow: 0 0 7px black; }
           #main-wrap #section1 .carousel .carousel-inner .carousel-item .content-box .btn-box {
             border: 2px solid white;
             min-width: 100px;
@@ -2486,6 +2489,7 @@ body.menu-open .plus-btn .r2 {
             #main-wrap #section1 .carousel .carousel-inner .carousel-item .content-box .btn-box button {
               font-family: 'notokr-medium';
               font-size: 14px;
+              text-shadow: 0 0 7px black;
               background-color: transparent;
               color: white;
               border: 0;
@@ -2526,7 +2530,8 @@ body.menu-open .plus-btn .r2 {
     #main-wrap #section1 #scroll-alert > * {
       font-size: 14px;
       font-family: "notokr-regular";
-      margin-bottom: 10px; }
+      margin-bottom: 10px;
+      text-shadow: 0 0 7px black; }
     @media (max-width: 768px) {
       #main-wrap #section1 #scroll-alert span {
         display: none; } }
@@ -2539,7 +2544,8 @@ body.menu-open .plus-btn .r2 {
     min-width: 150px;
     color: white; }
     #main-wrap #section1 #sns-box i {
-      font-size: 18px; }
+      font-size: 18px;
+      text-shadow: 0 0 7px black; }
 
 #main-wrap #section2 {
   padding-top: 180px !important; }
