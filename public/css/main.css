@@ -2457,16 +2457,14 @@ body.menu-open .plus-btn .r2 {
           height: 100%;
           padding: 10px;
           color: white; }
-          @media (min-width: 992px) {
-            #main-wrap #section1 .carousel .carousel-inner .carousel-item .content-box {
-              margin-left: 30px;
-              padding: 80px; } }
           @media (max-width: 992px) {
             #main-wrap #section1 .carousel .carousel-inner .carousel-item .content-box {
               height: 50%;
               top: 40%;
-              right: 10%;
               padding: 50px; } }
+          @media (max-width: 500px) {
+            #main-wrap #section1 .carousel .carousel-inner .carousel-item .content-box {
+              right: 10%; } }
           #main-wrap #section1 .carousel .carousel-inner .carousel-item .content-box .title h1 {
             font-family: 'notokr-medium';
             font-size: 40px;
