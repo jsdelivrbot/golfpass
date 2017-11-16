@@ -78,10 +78,15 @@ class Product extends Base_Controller {
             'period'=>"2",
             'num_people'=>"1"
         ));
-        if($row !== null)
-            $data['price'] = "{$row->price}원 부터 시작";
+        if($row !== null){
+            $price=number_format($row->price);
+            $data['price'] = "{$price}원 부터 시작";
+        }
         else
+        {
             $data['price'] = "데이터값 없음";
+            
+        }
 
         $current_date = date("Y-m-d");
         $data["current_date"] = $current_date;
