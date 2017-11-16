@@ -20,7 +20,7 @@
         <td>
             <a href="<?=my_site_url(admin_product_uri."/update/{$products[$i]->id}")?>">수정</a> 
             /
-            <a onctdck="confirm_redirect('<?=my_site_url(admin_product_uri."/delete/{$products[$i]->id}")?>','정말 삭제하시겠습니까? 복구 할 방법이 없습니다.')" href="#">삭제</a> 
+            <a onclick="confirm_redirect('<?=my_site_url(admin_product_uri."/delete/{$products[$i]->id}")?>','정말 삭제하시겠습니까? 복구 할 방법이 없습니다.')" href="#">삭제</a> 
         </td>
         
     </tr>
