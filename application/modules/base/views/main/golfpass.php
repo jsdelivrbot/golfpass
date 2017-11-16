@@ -59,7 +59,7 @@
                     <li><a style="color:white;" href="<?=site_url(user_uri.'/register_agree_1')?>">회원가입</a></li>
                 <?php }?>
                 <?php if(is_login()){?>
-                    <li><a style="color:white;" href="<?=site_url(shop_mypage_uri.'')?>">마이페이지</a></li>
+                    <li><a style="color:white;" href="<?=site_url(shop_mypage_uri.'/gets_wishlist')?>">마이페이지</a></li>
                     <li><a style="color:white;" href="<?=site_url(user_uri.'/logout')?>">로그아웃</a></li>
                 <?php }?>
             </ul>

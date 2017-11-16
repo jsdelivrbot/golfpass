@@ -97,16 +97,16 @@ class Mypage extends Base_Controller {
     }
     function get_contact($id)
     {
-        $data['page_name'] ="고객센터";         
-        $data+=$this->_gets_content_data();
-        $data+=$this->_get_container_data();
+        // $data['page_name'] ="고객센터";         
+        // $data+=$this->_gets_content_data();
+        // $data+=$this->_get_container_data();
 
-        $this->load->module("base/content");
-        $this->content->_check_get_auth();
-        $data+=$this->content->get($id,true);
+        // $this->load->module("base/content");
+        // $this->content->_check_get_auth($id);
+        // $data+=$this->content->get($id,true);
 
-        $views = array("container_h","get_content","table","container_f");
-        $this->_template($views,$data,'golfpass2');
+        // $views = array("container_h","get_content","table","container_f");
+        // $this->_template($views,$data,'golfpass2');
     }
     function _gets_content_data()
     {

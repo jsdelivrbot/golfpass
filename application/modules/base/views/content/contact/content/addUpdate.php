@@ -16,6 +16,7 @@ if(!is_login() && $mode==="add"){ ?>
 <?php }?>
 </form>
 
+
 <script src="<?=domain_url('/public/lib/ckeditor/ckeditor.js')?>"></script>
 
 <script>

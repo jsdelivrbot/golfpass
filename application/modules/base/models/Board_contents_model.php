@@ -6,7 +6,7 @@ class Board_contents_Model extends Board_Model{
     }
     function get_content($id,$select=false){
 
-        $this->db->select("c.id, c.title, c.desc, c.created ,if(c.user_id = 0, c.guest_name, u.name) 'user_name', if(c.user_id = 0, '손님', u.userName) 'userName'");
+        $this->db->select("c.*,c.id, c.title, c.desc, c.created ,if(c.user_id = 0, c.guest_name, u.name) 'user_name', if(c.user_id = 0, '손님', u.userName) 'userName'");
         $this->db->from("$this->table AS c");
         $this->db->join("users AS u","c.user_id = u.id","LEFT");
         $this->db->where('c.id',"$id");
@@ -54,25 +54,25 @@ class Board_contents_Model extends Board_Model{
     //     $rows=$this->gets();
     //     return $rows;
     // }
-    function gets_with_pgi($config)
+    function gets_with_pgi($where_obj,$config)
     {
-        $board_id =  isset($config['board_id']) ?  $config['board_id'] : null;
         $pgi_style =  isset($config['pgi_style']) ?  $config['pgi_style'] : 'style_1';
+        $board_id = $where_obj['board_id'];
         $rows=$this->_gets_with_pgi_func(
             $pgi_style,
-            function() use ($board_id){
+            function() use ($where_obj){
                 $this->db->select("count(*) as rows_num");
                 $this->db->from("$this->table as c");
                 $this->db->join("users as u","c.user_id = u.id","LEFT");
                 $this->db->where('c.is_display','1');
-                $this->db->where('c.board_id',$board_id);
+                parent::_where_by_obj($where_obj);
                 $total_rows= $this->db->get()->row()->rows_num;
                 return $total_rows;
             },
-            function($offset,$per_page) use($board_id){
+            function($offset,$per_page) use($where_obj){
                 $this->db->order_by('c.id','desc');
                 $this->db->limit($per_page,$offset);
-                $this->db->where('c.board_id',$board_id);
+                parent::_where_by_obj($where_obj);
                 $this->db->where('c.is_display','1');
                 $rows = $this->gets();
                 return $rows;

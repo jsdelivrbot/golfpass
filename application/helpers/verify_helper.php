@@ -35,6 +35,17 @@ if(!function_exists('min_lv')){
         return true;
      }
 }
+if(!function_exists('is_secret')){
+    function is_secret($content)
+    {
+        $ci = &Public_Controller::$instance;
+        if($content->is_secret === "1" && $content->user_id !== $ci->user->id)
+        {
+            return false;
+        }
+        return true;
+    }
+}
 if(!function_exists('is_login')){
       function is_login(){
          $ci = &Public_Controller::$instance;

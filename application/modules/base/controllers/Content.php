@@ -27,18 +27,21 @@ class Content extends Base_Controller {
     }
     
     public function _gets(){
-        $pgi_style = 'style_1';
+        $config['pgi_style'] = "style_1";
         $board_id = $this->board_id;
         if($this->input->get('is_user') === 'true') //로그인한 user의 글만
-            $contents =$this->board_contents_model->gets_by_user_id_with_pgi(array(
-                'board_id'=>$this->board_id,
-                "pgi_style"=>$pgi_style
-            ));
+            $contents =$this->board_contents_model->gets_with_pgi(array(
+                    "user_id"=>$this->user->id,
+                    'board_id'=>$this->board_id
+                ),
+                $config
+            );
         else
             $contents =$this->board_contents_model->gets_with_pgi(array(
-                'board_id'=>$this->board_id,
-                "pgi_style"=>$pgi_style
-            ));
+                    'board_id'=>$this->board_id
+                ),
+                $config
+          );
         
         //view
         $data = array('contents' => $contents, 'board'=>$this->board);
@@ -63,28 +66,27 @@ class Content extends Base_Controller {
         $this->_template('gets',$data,"golfpass2");
 		 
     }
-    
-    function _check_get_auth()
-    {
+
+    public function get($id,$getdata =false){
+       
         $authLv= $this->board->auth_r_content;
+        $content = $this->board_contents_model->get_content($id);
+
         if(!can_guest($authLv)){
             alert("로그인해주세요.");
             my_redirect(user_uri."/login?return_url=".rawurlencode(my_current_url()),false);
             exit; 
         }
-        if(!min_lv($authLv)) {
+        if(!min_lv($authLv) || !is_secret($content)) {
             alert("게시물을 볼 권한이 없습니다.");
             my_redirect($_SERVER['HTTP_REFERER']);
             exit ;
         }
-    }
-   
-    public function get($id,$getdata =false){
-        $this->_check_get_auth();
+
         $this->load->model("board_replys_model");
         $data['user'] = $this->user;
         $data['board'] = $this->board;
-        $data['content'] =$this->board_contents_model->get_content($id);
+        $data['content'] = $content;
         $data['replys']   =$this->board_replys_model->gets_by_recursive($id,$this->board_id);
         $data +=$this->_gets();
         if($getdata === true)
@@ -205,7 +207,7 @@ class Content extends Base_Controller {
                 $this->db->set('user_id','0');
             }
 
-          
+            // parent::_dbSet_addUpdate();
             $this->_dbSet_addUpdate();
             $insert_id =$this->board_contents_model->add(array('board_id'=>$this->board_id));
 
@@ -321,7 +323,8 @@ class Content extends Base_Controller {
     public function _dbSet_addUpdate(){
         $this->board_contents_model->_set_by_obj(array(
           "title"=> $this->input->post('title'),
-           "desc"=> $this->input->post('desc')
+           "desc"=> $this->input->post('desc'),
+           "is_secret"=> $this->input->post('is_secret')
         ));
     }
 
