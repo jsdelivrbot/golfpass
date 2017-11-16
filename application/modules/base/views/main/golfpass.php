@@ -518,7 +518,7 @@
                         <div class="position-absolute bg-light trans-box d-none d-md-block">
                         </div>
                         <h4 class="mb-1"><?=$panels[$i]->name?></h4>
-                        <p class="mb-0"'><?=$panels[$i]->intro?> </p>
+                        <p class="mb-0"><?=$panels[$i]->intro?> </p>
                         <div class="position-absolute review-box">
                                 <span>
                                     <i class="xi-pen"></i> <?=$panels[$i]->num_contents?>개

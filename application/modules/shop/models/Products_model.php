@@ -182,5 +182,8 @@ class Products_Model extends Board_Model{
         //ref 호텔 삭제
         $this->db->where("product_id",$id)
         ->delete("p_ref_hotel");
+        //메인상품 삭제
+        $this->load->model("shop/product_option_model");
+        $this->product_option_model->_delete(array("product_id"=>$id,"kind"=>"main"));
     }
 }
