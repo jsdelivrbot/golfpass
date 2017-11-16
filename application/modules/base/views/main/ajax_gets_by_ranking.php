@@ -16,6 +16,9 @@
                 <!-- 추가한 부분 -->
                 <style>
                 .content-box:first-child a .content{ height:250px}
+				.content-box .new_position{ position:absolute; left:40px; margin:0 !important; bottom:30px}
+				.content-box .new_position2{ position:absolute; left:110px; margin:0 !important; bottom:19px}
+				.content-box .new_position3{ position:absolute; right:40px; margin:0 !important; bottom:30px}
 				</style>
                 <!-- //추가한 부분 -->
 				<div class="row no-gutters">
@@ -28,13 +31,17 @@
 							<a href="<?=site_url(shop_product_uri."/get/{$products_avgScore[$i]->id}")?>">
 								<div class="d-flex align-items-center p-4 mb-3 content"
 								 	style="background-image: url(<?=$products_avgScore[$i]->photos[0]?>)"> <!-- style에서 height:150px 삭제 -->
-									<div class='d-flex align-items-center justify-content-center bg-light rounded-circle'>
+									<div class='d-flex align-items-center justify-content-center bg-light rounded-circle new_position'>
 										<span class="d-flex align-items-center justify-content-center"><?=$i+1?></span>
 									</div>
-									<div class="d-flex flex-column ml-4 text-light">
+									<div class="d-flex flex-column ml-4 text-light new_position2">
 										<h1><?=$products_avgScore[$i]->name?></h1>
 										<p class="mb-0"> <?=$products_avgScore[$i]->eng_name?> - <?=$products_avgScore[$i]->nation?>, <?=$products_avgScore[$i]->city?></p>
 									</div>
+                                    <div class="new_position3">
+                                        <span><i class="xi-star"></i></span>
+                                        <span>123</span>
+                                    </div>
 								</div>
 							</a>
 						</div>
