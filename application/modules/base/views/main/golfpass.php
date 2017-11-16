@@ -134,17 +134,17 @@
             <div id='nav-icon-box' class="col  d-flex justify-content-end">
             <?php if(!is_login()){?>
                 <div id="login" class="d-flex align-items-center">
-                    <span><i class="xi-log-in xi-x"></i></span>
-                    <p class="mb-0"><a style="color: white; font-family: 'notokr-regular', sans-serif; font-size: 12px;" href="<?=site_url(user_uri.'/login')?>">로그인</a></p>
+                    <span><i class="xi-log-in xi-x" style="text-shadow: 0 0 7px rgba(0,0,0,1);"></i></span>
+                    <p class="mb-0"><a style="color: white; font-family: 'notokr-regular', sans-serif; font-size: 12px; text-shadow: 0 0 7px rgba(0,0,0,1);" href="<?=site_url(user_uri.'/login')?>">로그인</a></p>
                 </div>
                 <div id="join" class="d-flex align-items-center">
-                    <span><i class="xi xi-user-plus"></i></span>
-                    <p class="mb-0"><a style="color: white; font-family: 'notokr-regular', sans-serif; font-size: 12px;" href="<?=site_url(user_uri.'/register_agree_1')?>">회원가입</a></p>
+                    <span><i class="xi xi-user-plus" style="text-shadow: 0 0 7px rgba(0,0,0,1);"></i></span>
+                    <p class="mb-0"><a style="color: white; font-family: 'notokr-regular', sans-serif; font-size: 12px; text-shadow: 0 0 7px rgba(0,0,0,1);" href="<?=site_url(user_uri.'/register_agree_1')?>">회원가입</a></p>
                 </div>
             <?php }else{?>
                 <div id="logout" class="d-flex align-items-center">
-                    <span><i class="xi-log-out xi-x"></i></span>
-                    <p class="mb-0"><a style="color: white; font-family: 'notokr-regular', sans-serif; font-size: 12px;" href="<?=site_url(user_uri.'/logout')?>">로그아웃</a></p>
+                    <span><i class="xi-log-out xi-x" style="text-shadow: 0 0 7px rgba(0,0,0,1);"></i></span>
+                    <p class="mb-0"><a style="color: white; font-family: 'notokr-regular', sans-serif; font-size: 12px; text-shadow: 0 0 7px rgba(0,0,0,1);" href="<?=site_url(user_uri.'/logout')?>">로그아웃</a></p>
                 </div>
             <?php }?>
             </div>
@@ -252,8 +252,8 @@
                                  <div class="col-12 d-flex justify-content-center mb-2 bg-dark" style="height: 180px;">
                                             <img class="w-100" src="<?=$nation_list[$i]->photo3?>" alt="">
                                          <div class="mobile-content position-absolute d-flex flex-column align-items-center justify-content-end">
-                                                 <h3><?=$nation_list[$i]->name?></h3>
-                                                 <p><?=$nation_list[$i]->desc?></p>
+                                                 <h3 style="text-shadow: 0 0 7px rgba(0,0,0,1);"><?=$nation_list[$i]->name?></h3>
+                                                 <p style="text-shadow: 0 0 7px rgba(0,0,0,1);"><?=$nation_list[$i]->desc?></p>
                                          </div>
                                  </div>
                          </a>
@@ -272,8 +272,8 @@
                           <a href="<?=site_url(shop_category_uri."/gets/{$nation_list[$i]->id}")?>">
                          <img src="<?=$nation_list[$i]->photo?>" class="w-100"/>
                          <div class="position-absolute content d-flex flex-column justify-content-center align-items-center">
-                             <h3><?=$nation_list[$i]->name?></h3>
-                             <p><?=$nation_list[$i]->desc?></p>
+                             <h3 style="text-shadow: 0 0 7px rgba(0,0,0,1);"><?=$nation_list[$i]->name?></h3>
+                             <p style="text-shadow: 0 0 7px rgba(0,0,0,1);"><?=$nation_list[$i]->desc?></p>
                          </div>
                      </a>
                      </div>
@@ -334,8 +334,8 @@
                 <div class="col-12 d-flex justify-content-center mb-2 bg-dark" style="height: 180px;">
                     <!--	<img class="w-100" src="/public/sangmin/img/golf_course_1.jpg" alt="">-->
                     <div class="mobile-content position-absolute d-flex flex-column align-items-center justify-content-end">
-                        <h1>이달의 인기 코스</h1>
-                        <p>트렌디한 코스를 경험하고 싶다면</p>
+                        <h1 style="text-shadow: 0 0 7px rgba(0,0,0,1);">이달의 인기 코스</h1>
+                        <p style="text-shadow: 0 0 7px rgba(0,0,0,1);">트렌디한 코스를 경험하고 싶다면</p>
                     </div>
                 </div>
             </div>
@@ -345,8 +345,8 @@
                     <img src="<?=$thema_list[0]->photo?>" alt="" width="100%">
 
                     <div class='position-absolute text-light'>
-                        <h3><?=$thema_list[0]->name?></h3>
-                        <p>
+                        <h3 style="text-shadow: 0 0 7px rgba(0,0,0,1);"><?=$thema_list[0]->name?></h3>
+                        <p style="text-shadow: 0 0 7px rgba(0,0,0,1);">
                         <?=$thema_list[0]->desc?>
                         </p>
                     </div>
@@ -359,8 +359,8 @@
                             <img src="<?=$thema_list[1]->photo?>" alt="" width="100%">
 
                             <div class='position-absolute text-light'>
-                                <h3><?=$thema_list[1]->name?></h3>
-                                <p>
+                                <h3 style="text-shadow: 0 0 7px rgba(0,0,0,1);"><?=$thema_list[1]->name?></h3>
+                                <p style="text-shadow: 0 0 7px rgba(0,0,0,1);">
                                 <?=$thema_list[1]->desc?>
                                 </p>
                             </div>
@@ -371,8 +371,8 @@
                             <img src="<?=$thema_list[2]->photo?>" alt="" width="100%">
 
                             <div class='position-absolute text-light'>
-                                <h3><?=$thema_list[2]->name?></h3>
-                                <p>
+                                <h3 style="text-shadow: 0 0 7px rgba(0,0,0,1);"><?=$thema_list[2]->name?></h3>
+                                <p style="text-shadow: 0 0 7px rgba(0,0,0,1);">
                                 <?=$thema_list[2]->desc?>
                                 </p>
                             </div>
@@ -383,8 +383,8 @@
                             <img src="<?=$thema_list[3]->photo?>" alt="" width="100%">
 
                             <div class='position-absolute text-light'>
-                                <h3><?=$thema_list[3]->name?></h3>
-                                <p>
+                                <h3 style="text-shadow: 0 0 7px rgba(0,0,0,1);"><?=$thema_list[3]->name?></h3>
+                                <p style="text-shadow: 0 0 7px rgba(0,0,0,1);">
                                 <?=$thema_list[3]->desc?>
                                 </p>
                             </div>
@@ -395,8 +395,8 @@
                             <img src="<?=$thema_list[4]->photo?>" alt="" width="100%">
 
                             <div class='position-absolute text-light'>
-                                <h3><?=$thema_list[4]->name?></h3>
-                                <p>
+                                <h3 style="text-shadow: 0 0 7px rgba(0,0,0,1);"><?=$thema_list[4]->name?></h3>
+                                <p style="text-shadow: 0 0 7px rgba(0,0,0,1);">
                                 <?=$thema_list[4]->desc?>
                                 </p>
                             </div>
@@ -409,7 +409,7 @@
     </section>
     <section id="section5" class="mb-5  container-fluid align-items-start align-items-md-center">
         <article class="w-100 p-xl-4">
-            <div class="row no-gutters main-section-title mb-5" style="margin-bottom: 0 !important;">
+            <div class="row no-gutters main-section-title mb-5" style="margin-bottom: 10px !important;">
                 <h4 class="main_sub_title">순위별 골프장</h4>
             </div>
             <div class="d-flex mb-5 category flex-wrap" style="margin-left:10px; margin-bottom: 20px !important">

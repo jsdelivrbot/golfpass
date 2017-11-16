@@ -2675,10 +2675,12 @@ body.menu-open .plus-btn .r2 {
     #main-wrap #section5 .content-box .content h1 {
       font-family: 'notokr-regular', sans-serif;
       font-size: 25px;
+      text-shadow: 0 0 7px black;
       margin-bottom: 5px; }
     #main-wrap #section5 .content-box .content p {
       font-family: 'notokr-demilight', sans-serif;
-      font-size: 14px; }
+      font-size: 14px;
+      text-shadow: 0 0 7px black; }
   #main-wrap #section5 .list-after-four {
     font-family: 'notokr-medium', sans-serif; }
     #main-wrap #section5 .list-after-four:not(:last-child) {
