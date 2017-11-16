@@ -14,28 +14,63 @@ a{
 #navi
 {
     position : fixed;
-    right:1%;
+    right:10%;
     z-index : 999;
     
 }
+@media (max-width: 1500px) and (min-width: 699px) {
+    #navi
+    {
+        right:1%;
+    }
+}
+
+@media screen and (max-width: 699px)   {
+    #navi
+    {
+        right:1%;
+        display: none;   
+    }
+}
+
 </style>
 
 
 <!-- 네비게이터 -->
 <div id="navi"class="ui compact vertical labeled icon menu">
-  <a id="navi_btn"class="item" >
+
+  <!-- <a id="navi_btn"class="item" >
     <i class="gamepad icon"></i>
-    x
-  </a>
+    닫기
+  </a> -->
   <div>
-  <a class="item">
-    <i class="video camera icon"></i>
-    x
+  <?php 
+    $v_menus = array("수정","메인옵션","분류","호텔","설명","상품옵션","이미지","위치");
+    $v_icons = array("edit","options","list layout","h","remove from calendar","options","image","map outline");
+    for($i = 0; $i<count($v_menus); $i++){
+    ?>
+     <a class="item" id="<?=$v_menus[$i]?>">
+     <i class="<?=$v_icons[$i]?> icon"></i>
+    <b><?=$v_menus[$i]?></b>
   </a>
-  <a class="item">
-    <i class="video play icon"></i>
-    x
-  </a>
+  <script>
+      $("#<?=$v_menus[$i]?>").click(function(){
+          $("#target_<?=$v_menus[$i]?>").goTo();
+      });
+  </script>
+    <?php }?>
+
+ <script>
+ (function($) {
+    $.fn.goTo = function() {
+        $('html, body').animate({
+            scrollTop: $(this).offset().top -110 + 'px'
+        }, 'fast');
+        return this; // for chaining...
+    }
+})(jQuery);
+ </script>
+  
   </div>
 </div>
 <script>
@@ -61,7 +96,7 @@ $('#navi_btn').click(function(){
     <?php }?>
 </div>
 
-<div class="sixteen wide column" style="margin-top:50px;">
+<div id="target_<?=$v_menus[0]?>"class="sixteen wide column" style="margin-top:50px;">
     <h1 class="ui horizontal divider header">
         <i class="plus icon"></i>
         상품 추가/수정
@@ -157,7 +192,7 @@ $('#navi_btn').click(function(){
 <?php if(strpos($mode, "update") >-1 ){?>
 <!-- 상품메인옵션 -->
 
-<div class="sixteen wide column" style="margin-top:50px;">
+<div id="target_<?=$v_menus[1]?>" class="sixteen wide column" style="margin-top:50px;">
     <h1 class="ui horizontal divider header">
         <i class="plus icon"></i>
         상품메인 옵션 추가
@@ -206,7 +241,7 @@ $('#navi_btn').click(function(){
 <!-- 상품메인옵션 -->
 
 <!-- 분류 추가 시작 -->
-<div class="sixteen wide column" style="margin-top:50px;">
+<div id="target_<?=$v_menus[2]?>" class="sixteen wide column" style="margin-top:50px;">
     <h1 class="ui horizontal divider header">
         <i class="plus icon"></i>
         분류추가
@@ -255,7 +290,7 @@ $('#navi_btn').click(function(){
 
 <!-- 호텔 추가 시작 -->
 <?php if(strpos($mode, "update") >-1 ){?>
-<div class="sixteen wide column" style="margin-top:50px;">
+<div id="target_<?=$v_menus[3]?>" class="sixteen wide column" style="margin-top:50px;">
     <h1 class="ui horizontal divider header">
     <i class="plus icon"></i>
     호텔 추가
@@ -302,7 +337,7 @@ $('#navi_btn').click(function(){
 
 <!-- 상품서브설명  시작 -->
 <?php if(strpos($mode, "update") >-1 ){?>
-<div class="sixteen wide column" style="margin-top:50px;">
+<div id="target_<?=$v_menus[4]?>" class="sixteen wide column" style="margin-top:50px;">
     <h1 class="ui horizontal divider header">
     <i class="plus icon"></i>
     추가설명 
@@ -345,7 +380,7 @@ $('#navi_btn').click(function(){
 
 <!-- 상품옵션 시작 -->
 <?php if(strpos($mode, "update") >-1 ){?>
-<div class="sixteen wide column" style="margin-top:50px;">
+<div id="target_<?=$v_menus[5]?>" class="sixteen wide column" style="margin-top:50px;">
     <h1 class="ui horizontal divider header">
     <i class="plus icon"></i>
     상품옵션
@@ -378,7 +413,7 @@ $('#navi_btn').click(function(){
 <br>
 <!-- 이미지 업로드폼 시작 -->
 <?php if(strpos($mode, "update") >-1 ){?>
-<div class="sixteen wide column" style="margin-top:50px;">
+<div id="target_<?=$v_menus[6]?>" class="sixteen wide column" style="margin-top:50px;">
     <h1 class="ui horizontal divider header">
     <i class="plus icon"></i>
     이미지 추가
@@ -423,7 +458,7 @@ $('#navi_btn').click(function(){
 </div>
 
 <!-- 위치  설정가기 -->
-<div class="sixteen wide column">
+<div id="target_<?=$v_menus[7]?>" class="sixteen wide column">
 <h1 class="ui horizontal divider header">
     <i class="plus icon"></i>
     위치 추가하기

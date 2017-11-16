@@ -65,9 +65,15 @@ class Product extends Admin_Controller {
         header("content-type:application/json");
         $this->load->model("shop/product_option_model");
 
-        $dir=$this->product_option_model->_get($id)->name;
-        $dir=substr($dir,1,strlen($dir));
-        unlink($dir);
+        
+        $row=$this->product_option_model->_get($id);
+        if($row->kind ==="photo")
+        {
+            $dir =$row->name;
+            $dir=substr($dir,1,strlen($dir));
+            unlink($dir);
+
+        }
 
         $this->db->where('id',$id);
         $this->db->where('kind',$kind);
