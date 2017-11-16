@@ -84,6 +84,12 @@
 	}
 }
 
+.ranking_ghost {
+    @media (max-width: 575px) {
+        display: none;
+    }
+}
+
 .justify-content-center {
     a {
         p {
