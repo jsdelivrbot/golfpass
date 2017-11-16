@@ -201,7 +201,7 @@ class Product extends Admin_Controller {
         $this->load->library('pagination');
         $pgiData =$this->pagination->get(array(
             'total_rows'=>$total_rows,
-            'style_pgi'=>'style_1'
+            'style_pgi'=>'style_semantic'
         ));
         $offset = $pgiData['offset'];
         $per_page = $pgiData['per_page'];
