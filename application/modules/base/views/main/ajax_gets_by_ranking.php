@@ -39,8 +39,8 @@
 										<p class="mb-0"> <?=$products_avgScore[$i]->eng_name?> - <?=$products_avgScore[$i]->nation?>, <?=$products_avgScore[$i]->city?></p>
 									</div>
                                     <div class="new_position3">
-                                        <span><i class="xi-star"></i></span>
-                                        <span>123</span>
+                                        <span><i class="xi-star" style="color:#fcbf3f;"></i></span>
+                                        <span style="color:#fff; font-family: 'notokr-demilight', sans-serif; font-size: 18px;">4.7</span>
                                     </div>
 								</div>
 							</a>
