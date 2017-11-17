@@ -18,7 +18,7 @@ class Test extends Public_Controller
         
     }
     function test3(){
-        unlink("public/uploads/admin/images/pc_golf_course_41.jpg");
+        $this->_view("test2");
     }
         
     function css()

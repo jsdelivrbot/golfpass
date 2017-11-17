@@ -115,7 +115,6 @@ function alert_payment_window(e){
         return false;
     }
     
-    ajax_submit(e);
 
     
     IMP.request_pay({

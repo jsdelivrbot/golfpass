@@ -13,7 +13,7 @@
 	<link rel="stylesheet" href="/public/sangmin/dist/bootstrap/bootstrap.min.css">
 	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
 	<link rel="stylesheet" href="/public/css/main.css">
-
+	<script src="/public/tmp/sangmin/js/jquery-3.2.1.min.js"></script>
 	<style>
 		::-webkit-scrollbar {
 			display: none;
@@ -216,7 +216,7 @@
 	 </footer>
 
 
-<script src="/public/tmp/sangmin/js/jquery-3.2.1.min.js"></script>
+
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
 	<script src="/public/tmp/sangmin/dist/bootstrap/bootstrap.bundle.min.js"></script>
 	<script src="/public/tmp/sangmin/dist/Nwagon/Nwagon.js"></script>

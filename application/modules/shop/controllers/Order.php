@@ -8,7 +8,33 @@ class Order extends Base_Controller {
             'view_dir'=>"order"
         ));
         $this->load->helper('enum');
-	}
+    }
+    function ajax_check_payment()
+    {
+        header("content-type:application/json");
+      
+        $product_id = $this->input->post("product_id");
+        $num_people = $this->input->post("num_people");
+        $total_price = $this->input->post("total_price");
+        $start_date = $this->input->post("start_date");
+        $end_date = $this->input->post("end_date");
+
+        $data['total_price'] = "1000";
+        $this->load->model("products_model");
+        $data['product'] = $this->products_model->_get($product_id);
+        $data['user'] = $this->user;
+        if(true) //계산이 맞다면
+        {
+
+            $data["is_check"] =  true;
+        }
+        else //계산이 틀리다면
+        {
+            $data["is_check"] =  false;
+        }
+
+        echo json_encode($data);
+    }
     function golfpass()
     {
         $product_id = $this->input->post("product_id");
@@ -47,8 +73,10 @@ class Order extends Base_Controller {
             my_redirect(shop_product_uri."/get/{$product_id}");
         }
         //5개값 유효성 체크 끝
+        $this->load->model("shop/products_model");
         $data['user'] = $this->user;
-        
+        $data['product'] =$this->products_model->_get(array("id"=>$product_id));
+
         $data["start_date"] = $start_date;
         $data["end_date"] = $end_date;
         $data["num_people"] = $num_people;
@@ -222,7 +250,9 @@ class Order extends Base_Controller {
         $data = array("temp"=>'temp');
         echo json_encode($data);
     }
-    public function ajax_payment_check_update(){
+    public function ajax_payment_check_update()
+    {
+
         header("content-type:application/json");
         $imp_key = $this->config->item($this->setting->imp_key);
         $imp_secret = $this->config->item($this->setting->imp_secret);
@@ -247,15 +277,20 @@ class Order extends Base_Controller {
         }
         
        
-        if($result->status === 'paid' && (string)$result->amount === (string)$amount_to_be_paid ){
+        if($result->status === 'paid' && (string)$result->amount === (string)$amount_to_be_paid )
+        {
             $payment_check = 'paid';
             $this->db->set("status",$this->input->post("status"));
             //success_post_process(payment_result) 결제까지 성공적으로 완료
-        }else if($result->status === 'ready' && $result->pay_method === 'vbank' && (string)$result->amount === (string)$amount_to_be_paid){
+        }
+        else if($result->status === 'ready' && $result->pay_method === 'vbank' && (string)$result->amount === (string)$amount_to_be_paid)
+        {
             $payment_check = "vbank";
             $this->db->set("status",$this->input->post("status"));
             //  vbank_number_assigned(payment_result) 가상계좌 발급성공
-        }else{
+        }
+        else
+        {
             $payment_check = "error";
             $this->db->set("status","error");
             //fail_post_process(payment_result) 결제실패 처리

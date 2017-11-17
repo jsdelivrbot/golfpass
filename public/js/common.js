@@ -94,7 +94,6 @@ function ajax(url,queryString,e=null,callback =function(){return;}){
             console.log(errorThrown);
         }
     });
-
 }
 
 
