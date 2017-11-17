@@ -615,7 +615,7 @@
                          </li>
                  </ul>
          </div>
-         <div class="row d-flex" style="width:100%">
+         <div class="row d-flex" style="width:100%; margin:0;">
                  <p class='align-self-end mr-auto ml-auto'>© 2017 <strong>GOLFPASS.</strong> All Rights Reserved.</p>
          </div>
 
