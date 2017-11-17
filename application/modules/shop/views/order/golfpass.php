@@ -1,4 +1,4 @@
-
+총금액<?=$total_price?>
 <form id="form_order" onsubmit="check_payment(this);return false;"method="post"action="<?=site_url(shop_order_uri."/ajax_check_payment")?>">
 <input type="hidden" name="product_id" value="<?=$product_id?>">
     <input type="hidden" name="start_date" value="<?=$start_date?>">
@@ -60,17 +60,16 @@
 </article>
 <script src="https://service.iamport.kr/js/iamport.payment-1.1.5.js" type="text/javascript"></script>
 
-<script>
-
-</script>
 
 <script>
 
+//아이엠포트 초기화
 $(document).ready(function(){
     
     IMP.init('imp52394971'); // 아임포트 관리자 페이지의 "시스템 설정" > "내 정보" 에서 확인 가능
 })
 
+//결제 ajax로 총가격 체크후 iamport api 불러오기
 function check_payment(e)
 {
 
@@ -88,7 +87,6 @@ function check_payment(e)
             $('.loading').fadeIn(500);
         },
         success:function(data){
-            
             if(data.is_check === true){ //총금액과 계산이 맞다면
                 //
                 var product =data.product; //상품정보
@@ -192,7 +190,8 @@ function check_payment(e)
             }
             else //총금액이 틀리다면
             {
-
+                alert("올바른 경로로 접근해주세요.");
+                return false;
             }
             
         }
