@@ -38,12 +38,28 @@
 			//아이템 타이틀
 			font-size: 16px;
 			color: #4c4c4c;
+                white-space: normal;
+                line-height: 1.5;
+                overflow: hidden;
+                height: 20px;
+                word-wrap: break-word;
+                display: -webkit-box;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical;
 		  }
 		  p {
 			//아이템 영어 타이틀
 			font-family: "notokr-demilight";
 			font-size: 12px;
 			color: #808080;
+                white-space: normal;
+                line-height: 1.5;
+                overflow: hidden;
+                height: 15px;
+                word-wrap: break-word;
+                display: -webkit-box;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical;
 		  }
 		  span {
 			i {

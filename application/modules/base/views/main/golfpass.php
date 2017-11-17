@@ -308,7 +308,7 @@
                                                                          <span class="position-absolute text-light price" style="text-shadow: 0 0 7px rgba(0,0,0,1);"><?=$products_panel[$i]->price?>원</span>
                                                                  </div>
                                                                  <div class="d-flex align-items-center p-1 text-light rounded-top content">
-                                                                         <i class="xi-marker-check ml-1 mr-1"></i>
+                                                                         <i class="xi-marker-check ml-1 mr-1" style="padding-bottom:2px;"></i>
                                                                          <p class=" mb-0 "><?=$products_panel[$i]->hotel_id !== null ? "골프장+숙박" : "골프장"?></p>
                                                                  </div>
                                                                  <figcaption class="rounded-bottom d-flex align-items-center justify-content-between p-3 bg-light">
@@ -433,7 +433,7 @@
                 <style>
                 .content-box:first-child a .content{ height:250px}
 				.content-box .new_position{ position:absolute; left:40px; margin:0 !important; bottom:30px}
-				.content-box .new_position2{ position:absolute; left:110px; margin:0 !important; bottom:19px}
+				.content-box .new_position2{ position:absolute; left:95px; margin:0 !important; bottom:25px}
 				.content-box .new_position3{ position:absolute; right:40px; margin:0 !important; bottom:30px}
 				</style>
                 <!-- //추가한 부분 -->

@@ -2615,11 +2615,27 @@ body.menu-open .plus-btn .r2 {
       font-family: "notokr-regular"; }
       #main-wrap #section3 .item figure figcaption h3 {
         font-size: 16px;
-        color: #4c4c4c; }
+        color: #4c4c4c;
+        white-space: normal;
+        line-height: 1.5;
+        overflow: hidden;
+        height: 20px;
+        word-wrap: break-word;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical; }
       #main-wrap #section3 .item figure figcaption p {
         font-family: "notokr-demilight";
         font-size: 12px;
-        color: #808080; }
+        color: #808080;
+        white-space: normal;
+        line-height: 1.5;
+        overflow: hidden;
+        height: 15px;
+        word-wrap: break-word;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical; }
       #main-wrap #section3 .item figure figcaption span {
         font-family: "notokr-demilight";
         color: #808080;
