@@ -218,7 +218,7 @@
             <div id='book-box'>
               <div id="personnel">
               <a id="golfpass_order" href="#"><span class="box-title"> 예약하기</span></a>
-                <form id="golfpass_order_form" style="display:none"action="<?=site_url(shop_product_uri."/add_option")?>" method="post">
+                <form id="golfpass_order_form" style="display:none"action="<?=site_url(shop_order_uri."/golfpass")?>" method="post">
                   <input type="hidden" name="num_people">
                   <input type="hidden" name="start_date">
                   <input type="hidden" name="end_date">

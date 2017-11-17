@@ -9,16 +9,61 @@ class Order extends Base_Controller {
         ));
         $this->load->helper('enum');
 	}
-       
+    function golfpass()
+    {
+        $product_id = $this->input->post("product_id");
+        $num_people = $this->input->post("num_people");
+        $total_price = $this->input->post("total_price");
+        $start_date = $this->input->post("start_date");
+        $end_date = $this->input->post("end_date");
+
+        //5개값 유효성 체크 시작
+        if(is_numeric($num_people) === false)
+        {
+            alert("인수를 선택해주세요.");
+            my_redirect(shop_product_uri."/get/{$product_id}");
+        }
+        if(is_numeric($total_price) === false)
+        {
+            alert("가격이 잘못되었습니다.");
+            my_redirect(shop_product_uri."/get/{$product_id}");
+        }
+        if(is_numeric($product_id) === false)
+        {
+            alert("상품 아이디가 잘못되었습니다.");
+            my_redirect(shop_product_uri."/get/{$product_id}");
+        }
+
+        $check_date =preg_match("/^(19|20)\d{2}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[0-1])$/",$start_date);
+        if($check_date === 0)
+        {
+            alert("시작날짜가 잘못 되었습니다.");
+            my_redirect(shop_product_uri."/get/{$product_id}");
+        }
+        $check_date =preg_match("/^(19|20)\d{2}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[0-1])$/",$end_date);
+        if($check_date === 0)
+        {
+            alert("종료날짜가 잘못 되었습니다.");
+            my_redirect(shop_product_uri."/get/{$product_id}");
+        }
+        //5개값 유효성 체크 끝
+        $data['user'] = $this->user;
+        
+        $data["start_date"] = $start_date;
+        $data["end_date"] = $end_date;
+        $data["num_people"] = $num_people;
+        $data["product_id"] = $product_id;
+        $data["total_price"] = $total_price;
+
+
+        $this->_template("golfpass",$data,"golfpass");
+
+    }
     public function index($product_id){
+
+        
         $guest_order =$this->input->get("guest_order");
         $order_count = $this->input->get("order_count") ?? 1;
-        
-        $num_people= $this->input->post("num_people");
-        $start_date= $this->input->post("start_date");
-        $end_date= $this->input->post("end_date");
-        $total_price= $this->input->post("total_price");
-
         
         // var_dump($start_date);
         // var_dump($end_date);

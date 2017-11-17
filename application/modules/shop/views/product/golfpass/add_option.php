@@ -1,4 +1,4 @@
-<form action="<?=site_url(shop_order_uri."/index/$product_id")?>">
+<form action="<?=site_url(shop_order_uri."/golfpass")?>">
     홀수 추가
     <input type="text">
 
