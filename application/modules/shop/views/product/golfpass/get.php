@@ -218,11 +218,12 @@
             <div id='book-box'>
               <div id="personnel">
               <a id="golfpass_order" href="#"><span class="box-title"> 예약하기</span></a>
-                <form id="golfpass_order_form" style="display:none"action="<?=site_url(shop_order_uri."/index/{$product->id}")?>" method="post">
+                <form id="golfpass_order_form" style="display:none"action="<?=site_url(shop_product_uri."/add_option")?>" method="post">
                   <input type="hidden" name="num_people">
                   <input type="hidden" name="start_date">
                   <input type="hidden" name="end_date">
                   <input type="hidden" name="total_price">
+                  <input type="hidden" name="product_id" value="<?=$product->id?>">
                   <input type="submit">
               </form>
                 <!--
@@ -771,15 +772,17 @@ var $total_price = $("#total_price");
                 // $('.loading').fadeIn(500);
             },
             success:function(data){
+                $total_price.val(data.total_price);
+                
                 var totalPrice = data.total_price;
                 if(totalPrice.indexOf("원") >-1 )
                 {
                     totalPrice =totalPrice.substr(0,totalPrice.length-1);
+                    $total_price.val(totalPrice);
                     totalPrice=Number(totalPrice).toLocaleString('en');
                     totalPrice+="원";
                 }
                 $total_price.html(totalPrice);
-                $total_price.val(data.total_price);
                 // console.log(data);
             },
             error: function(xhr, textStatus, errorThrown){
@@ -790,14 +793,19 @@ var $total_price = $("#total_price");
             }
         });
     }
-
+    //예약하기
     $("#golfpass_order").click(function(event){
+        event.preventDefault();
+        if($numPeople.val().indexOf("선택") >-1)
+        {
+            alert("명수를 선택해주세요.");
+            return ;
+        }
         if($startDate.val() === "" || $endDate.val() === "" ||  $("#total_price").text().indexOf("원") === -1 || $("#total_price").text().indexOf("존재") >-1)
         {
             alert("잘못된 주문입니다.");
             return false;
         }
-        event.preventDefault();
         $order_form =$("#golfpass_order_form");
         $order_form.find("input[name=num_people]").val($numPeople.val());
         $order_form.find("input[name=start_date]").val($startDate.val());
