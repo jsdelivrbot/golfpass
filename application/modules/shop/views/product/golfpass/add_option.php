@@ -10,6 +10,12 @@
     기타옵션 추가
     <input type="text">
 
+    <br>
+    동행자 정보 입력(<?=$num_people-1?>명)
+<?php for($i = 0 ; $i < $num_people-1; $i++){ ?>
+    <br><input type="text" name="name_with[]" placeholder="이름">
+<?php }?>
+<br>
     <input type="submit" value="예약">
 
 <input type="hidden" name="product_id" value="<?=$product_id?>">
