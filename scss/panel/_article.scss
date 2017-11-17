@@ -58,7 +58,7 @@
 						margin-top: 20px;
 						p {
 							//패널 이름
-                            font-family: 'notokr-light', sans-serif;
+                            font-family: 'notokr-demilight', sans-serif;
                             font-size: 14px;
                             color: #4d5256;
 							margin-bottom: 10px;
@@ -69,7 +69,8 @@
                             font-size: 14px;
                             color: #bbbbbb;
 							white-space: normal;
-							line-height: 2;
+							line-height: 1.5;
+                            height: 30px;
 							text-align: center;
 							word-wrap: break-word;
 							display: -webkit-box;
