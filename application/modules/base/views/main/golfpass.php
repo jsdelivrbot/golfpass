@@ -35,7 +35,7 @@
 .content-box a .content{ height: 100px; transition:0.8s; background-repeat:no-repeat; background-position:center; background-size:cover}
 .content-box a:hover .content{height:250px !important}
 .content-box .new_position{ position:absolute; left:40px; margin:0 !important; bottom:30px}
-.content-box .new_position2{ position:absolute; left:110px; margin:0 !important; bottom:19px}
+.content-box .new_position2{ position:absolute; left:95px; margin:0 !important; bottom:25px}
 .content-box .new_position3{ position:absolute; right:40px; margin:0 !important; bottom:30px}
 .blank_img{ max-width:438px; width:100%}
 @media (max-width:767px){.blank_img{ max-width:100%;}}
