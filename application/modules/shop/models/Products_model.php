@@ -122,14 +122,18 @@ class Products_Model extends Board_Model{
         $sub_query2 = "SELECT (avg(score_1)+avg(score_2)+avg(score_3)+avg(score_4)+avg(score_5)+avg(score_6)+avg(score_7)+avg(score_8))/8 FROM product_reviews as r WHERE r.product_id = p.id  AND r.is_secret = 0";
         //호텔 여부
         $sub_query3 = "SELECT p_ref_h.hotel_id FROM `p_ref_hotel` as p_ref_h WHERE p_ref_h.product_id = p.id LIMIT 0,1";
+        //오늘날자 1박2일 1인가격
+        $date = date("Y-m-d");
+        $sub_query4 = "SELECT price FROM p_daily_price as sub_dp WHERE sub_dp.product_id = r.product_id AND sub_dp.date = '{$date}' AND sub_dp.num_people = '1' AND sub_dp.period = '2' LIMIT 0, 1";
 
-        $this->db->select("p.*,r.id as ref_id,r.sort ,($sub_query) as photos, ($sub_query2) as avg_score, ($sub_query3) as hotel_id");
+        $this->db->select("p.*,r.id as ref_id,r.sort ,($sub_query) as photos, ($sub_query2) as avg_score, ($sub_query3) as hotel_id, IFNULL(($sub_query4),'0') as price");
         $this->db->from("ref_cate_product as r");
         $this->db->join("products as p", "p.id = r.product_id","LEFT");
         $this->db->join("product_categories as c", "c.id = r.cate_id","LEFT");
         $this->db->where("r.cate_id",$cate_id);
         $this->db->order_by("r.sort",'asc');
-        return $this->db->get()->result();
+        $rows = $this->db->get()->result();
+        return $rows;
 
     }
     function gets_by_category_id_recursive_tree($cate_id=null)
