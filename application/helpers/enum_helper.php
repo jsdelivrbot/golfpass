@@ -17,17 +17,17 @@ if(!function_exists('get_merchant_uid')){
 }
 
 
-if(!function_exists('get_pay_method_enum')){
-    function get_pay_method_enum($data){
+// if(!function_exists('get_pay_method_enum')){
+//     function get_pay_method_enum($data){
         
-        if($data === 'vbank')
-            $result = '가상계좌';
-        else if($data === 'card')
-            $result = '카드';
+//         if($data === 'vbank')
+//             $result = '가상계좌';
+//         else if($data === 'card')
+//             $result = '카드';
         
-        return $result;
-    }
-}
+//         return $result;
+//     }
+// }
 
 if(!function_exists('get_status_enum')){
     function get_status_enum($data){

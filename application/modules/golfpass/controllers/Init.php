@@ -30,7 +30,7 @@ class Init extends Init_Controller {
             $this->add_board();
         }
         $this->p_daily_price();
-     
+        $this->p_order_infos();
 
         
         // $sample_product_id =$this->products_model->_add(array("name"=>"222 C.C","eng_name"=>"product_name","desc"=>"샘플내용",'hole_count'=>'18'));
@@ -320,8 +320,73 @@ class Init extends Init_Controller {
          }
         
     }
-    //재정의 시작
+    function p_order_infos()
+    {
+        //p_order_infos 테이블 만들기
+        $tb_name = 'p_order_infos';
+        if(!$this->db->table_exists($tb_name)){
+            $result = $this->db->query("CREATE TABLE `$tb_name`(
+            `id` INT UNSIGNED NULL AUTO_INCREMENT, 
+            `merchant_uid` varchar(100) NOT NULL,
+            `product_id` INT UNSIGNED NOT NULL, 
+            `name_with` varchar(255) NOT NULL, 
+            `visa` varchar(255) NOT NULL, 
+            `created` datetime NOT NULL DEFAULT NOW(),
+            PRIMARY KEY (`id`),
+            KEY `idx_merchant_uid` (`merchant_uid`),
+            KEY `idx_product_id` (`product_id`),
+            KEY `idx_merchant_uid_product_id` (`product_id`,`merchant_uid`)
+             ) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
+                
+            if($result) echo("success create $tb_name ");
+            else echo("failed create $tb_name");
+        }else{
+            echo "already table $tb_name exists";
+        }
+        echo "<br>";
 
+    }
+    //재정의 시작
+    function product_orders()
+    {
+        //product_orders 테이블 만들기
+        $tb_name = 'product_orders';
+        if(!$this->db->table_exists($tb_name)){
+            $result = $this->db->query("CREATE TABLE `$tb_name`(
+            `id` INT UNSIGNED NULL AUTO_INCREMENT, 
+            `product_id` INT NOT NULL,
+            `start_date` varchar(100),
+            `end_date` varchar(100),
+            `num_people` varchar(100),
+            `merchant_uid` varchar(100) NOT NULL,
+            `order_name` varchar(100),
+            `user_id` INT UNSIGNED NOT NULL,
+            `user_name` varchar(50),
+            `phone` varchar(50) NOT NULL,
+            `email` varchar(255),
+            `address` varchar(255),
+            `total_price` INT UNSIGNED,
+            `status` varchar(100) NOT NULL,
+            `pay_method` varchar(100),
+            `apply_num` varchar(100),
+            `vbank_name` varchar(100),
+            `vbank_holder` varchar(100),
+            `vbank_num` varchar(100),
+            `vbank_date` varchar(100),
+            `is_review_write` varchar(10) NOT NULL DEFAULT '0',
+            `created` datetime NOT NULL DEFAULT NOW(),
+            PRIMARY KEY (`id`),
+            UNIQUE KEY `idx_merchant_uid` (`merchant_uid`),
+            KEY `idx_user_id` (`user_id`)
+             ) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
+                
+            if($result) echo("success create $tb_name ");
+            else echo("failed create $tb_name");
+        }else{
+            echo "already table $tb_name exists";
+        }
+        echo "<br>";
+    }
  
 
 
@@ -387,7 +452,7 @@ class Init extends Init_Controller {
         }
         
     }
-    //재정의 시작
+    //재정의 끝
 
     //추가 시작
     function p_ref_hotel()

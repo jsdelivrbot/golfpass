@@ -11,6 +11,22 @@
     </h1>
     <!-- <label>상품 후기 자동 보이기</label> -->
     <form class="ui form"onsubmit="ajax_submit(this);return false;"action="<?=my_site_url(admin_setting_product_uri."/ajax_update")?>" method="post">
+
+        <div class="field">
+            <label>무통장 은행이름</label>
+            <input type="text" name="bank_name" placeholder="apikey" value="<?=set_value_data($row,'bank_name')?>" >
+        </div>
+        <div class="field">
+            <label>무통장 계좌번호</label>
+            <input type="text" name="bank_num" placeholder="계좌번호" value="<?=set_value_data($row,'bank_num')?>" >
+        </div>
+        <div class="field">
+            <label>무통장 명의</label>
+            <input type="text" name="bank_holder" placeholder="홍길동 or 주(컴퍼니)" value="<?=set_value_data($row,'bank_holder')?>" >
+        </div>
+        <input class="ui button positive" type="submit" value="수정">
+    </form>
+    <form class="ui form"onsubmit="ajax_submit(this);return false;"action="<?=my_site_url(admin_setting_product_uri."/ajax_update")?>" method="post">
         <div class="field">
             <label>IAMPORT API 키</label>
             <input type="text" name="imp_key" placeholder="apikey" value="<?=set_value_data($row,'imp_key')?>" >

@@ -1,9 +1,9 @@
-<?php for($i =0 ; $i < count($order_products); $i++){?>
- 상품이름<?=$order_products[$i]->p_name?>
- 갯수<?=$order_products[$i]->count?>
- 가격<?=$order_products[$i]->price?>
- 합계<?=$order_products[$i]->p_total_price?>
- <br>
+<br>주문 상품 상세
+<?php for($i=0;$i < count($order_infos) ;$i++){   ?>
+<ul>
+<li>동행자이름 <?=$order_infos[$i]->name_with?></li>
+<li>비자 <?=$order_infos[$i]->visa?></li>
+</ul>
 <?php }?>
 
 <br>총결제금액<?=$order->total_price?>
@@ -16,9 +16,19 @@
 
 <bR>
  <?php if($order->pay_method === 'vbank'){?>
-    <br>입금정보
+    <br>가상계좌 입금정보
     <br>은행 <?=$order->vbank_name?>
     <br>예금주 <?=$order->vbank_holder?>
     <br>계좌번호 <?=$order->vbank_num?>
     <br>입금기한 <?=$order->vbank_date?>
  <?php } ?>
+ <bR>
+ <?php if( $order->pay_method === 'bank'){?>
+    <br>무통장입금정보
+    <br>은행 <?=$setting->bank_name?>
+    <br>예금주 <?=$setting->bank_holder?>
+    <br>계좌번호 <?=$setting->bank_num?>
+ <?php } ?>
+
+
+

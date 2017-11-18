@@ -20,11 +20,7 @@ class Init_Controller extends MX_Controller{
         echo "<br>";
        
 
-        $this->setting();
-        $this->map_markers();
-        $this->session();
-        $this->users();
-        if($this->products()===true)
+        if($this->setting() ===true)
         {
             if(ENVIRONMENT === 'development')
             {
@@ -32,6 +28,13 @@ class Init_Controller extends MX_Controller{
                 echo "테스티세팅 완료<br>";
                
             }
+        }
+        $this->map_markers();
+        $this->session();
+        $this->users();
+        if($this->products()===true)
+        {
+           
         }
         $this->product_option();
         $this->procedure();
@@ -80,6 +83,13 @@ class Init_Controller extends MX_Controller{
              `cafe24_sms_number` varchar(255),
              `imp_key` varchar(255),
              `imp_secret` varchar(255),
+             `bank_num` varchar(255),
+             `bank_holder` varchar(255),
+             `bank_name` varchar(255),
+             `site_title` varchar(255),
+             `site_brand` varchar(255),
+             `site_representative` varchar(255),
+             `site_phone` varchar(255),
 
              `created` datetime NOT NULL DEFAULT NOW(),
              PRIMARY KEY (`id`)

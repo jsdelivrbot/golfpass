@@ -12,12 +12,7 @@ class Product_orders_Model extends Board_Model{
         $this->db->join("users as u", "o.user_id = u.id","LEFT");
         $order =  parent::_get($where);
         
-        $this->load->helper("enum");
-        if($order !== null)
-        {
-            $order->pay_method_enum =get_pay_method_enum($order->pay_method);
-            $order->status_enum =get_status_enum($order->status);
-        }
+      
         
 
         return $order;

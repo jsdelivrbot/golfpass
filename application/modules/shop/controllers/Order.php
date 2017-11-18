@@ -211,7 +211,166 @@ class Order extends Base_Controller {
         $this->_template('get',$data);
 
     }
+    function golfpas_bank()
+    {
+
+        $merchant_uid = $this->input->post("merchant_uid");
+        $merchant_uid = get_merchant_code($merchant_uid);
+        $order =$this->product_orders_model->_get(array("merchant_uid"=>$merchant_uid));
+        
+
+        $data['order'] = $order;
+        $this->_template("complete",$data,'golfpass');
+    }
     ////결제
+    function golfpass_ajax_add()
+    {
+        header("content-type:application/json");
+        
+            $pay_method =$this->input->post('pay_method');
+            $status = ($pay_method === 'bank') ? "ready" : "try";
+
+            //table insert product_orders
+            $merchant_uid = $this->input->post("merchant_uid");
+            $merchant_uid = get_merchant_code($merchant_uid);
+            $this->db->set('merchant_uid',$merchant_uid);
+            $this->db->set('order_name',$this->input->post('order_name'));
+            $this->db->set('user_id',$this->user->id);
+            $this->db->set('user_name',$this->input->post("user_name"));
+            $this->db->set('phone',$this->input->post("phone"));
+            $this->db->set('status',$status);
+            $this->db->set('email',$this->input->post('email'));
+            $this->db->set('product_id',$this->input->post('product_id'));
+            $this->db->set('address',$this->user->address);
+            $this->db->set('pay_method',$pay_method);
+            $this->db->set('total_price',$this->input->post('total_price'));
+            $this->db->set('start_date',$this->input->post('start_date'));
+            $this->db->set('end_date',$this->input->post('end_date'));
+            $this->db->set('num_people',$this->input->post('num_people'));
+            $this->db->set('created',"NOW()",false);
+            $this->db->insert($this->table);
+    
+            $product_id=$this->input->post('product_id');
+            $names_with =$this->input->post("name_with[]");
+            $visas =$this->input->post("visa[]");
+            for($i =0 ; $i < count($names_with) ; $i++){
+                $this->db->set('merchant_uid',$merchant_uid);
+                $this->db->set('product_id',$product_id);
+                $this->db->set('created',"NOW()",false);
+
+                $this->db->set('visa',$visas[$i]);
+                $this->db->set('name_with',$names_with[$i]);
+                $this->db->insert('p_order_infos');
+            }
+
+            $data = array("temp"=>'temp');
+            echo json_encode($data);
+    }
+    public function golfpass_ajax_payment_check_update()
+    {
+
+        header("content-type:application/json");
+       
+
+        $imp_uid =$this->input->post('imp_uid');
+        $merchant_uid =$this->input->post('merchant_uid');
+        $merchant_uid =get_merchant_code($merchant_uid);
+        $this->load->model('p_order_products_model');
+        $order = $this->product_orders_model->_get(array("merchant_uid"=>$merchant_uid));
+        $amount_to_be_paid =  $order->total_price;
+
+        //시작 날자 ~끝날자 * 인 === 총가격 변조 있는지 체크 시작
+        $product_id = $order->product_id;
+        $start_date = $order->start_date;
+        $end_date = $order->end_date;
+        $end_date =date("Y-m-d",strtotime("{$end_date} +1 days"));
+        $obj_start_date = date_create($start_date);
+        $obj_end_date = date_create($end_date);
+        $period = date_diff($obj_start_date, $obj_end_date)->days;
+        $num_people = $order->num_people;
+        $total_price =0;
+        $this->load->model("golfpass/p_daily_price_model");
+        for($i =0 ; $i < $period ; $i++)
+        {
+            $date = date("Y-m-d",strtotime("{$start_date} +{$i} days"));
+            $row=$this->p_daily_price_model->_get(array(
+                'product_id'=>$product_id,
+                'date'=>$date,
+                'period'=>"2",
+                'num_people'=>$num_people
+            ));
+            //해당 날자데이터가 없을때
+            if($row === null)
+            {
+                $data['payment_check'] = "{$date}날자 {$num_people}명에 가격 데이터가 존재하지 않습니다.";
+                echo json_encode($data);
+                return;
+            }
+            $tmp_price =$row->price;
+            $total_price += (int)$tmp_price/2;
+        }
+
+        if((string)$total_price !== (string)$amount_to_be_paid)
+        {
+            $data['payment_check'] = "날자,인 가격 계산이 총합계와 맞지않습니다.";
+            echo json_encode($data);
+            return;
+            
+        }
+        //시작 날자 ~끝날자 * 인 === 총가격 변조 있는지 체크 끝
+        
+        //아이엠포트시작
+        $imp_key = $this->setting->imp_key;
+        $imp_secret = $this->setting->imp_secret;
+        $this->load->library("Iamport",array("imp_key"=>$imp_key, "imp_secret"=>$imp_secret));
+        $result =$this->iamport->findByImpUID($imp_uid);
+
+
+        if(!$result->success){
+            $data['payment_check'] ='fail_1';
+            echo json_encode($data);
+            return;
+        }else{
+            $result = $result->data;
+        }
+        
+        $data['result'] = $result;
+        $data["amount_to_be_paid"] =$amount_to_be_paid;
+        if($result->status === 'paid' && (string)$result->amount === (string)$amount_to_be_paid )
+        {
+            $payment_check = 'paid';
+            $this->db->set("status",$this->input->post("status"));
+            //success_post_process(payment_result) 결제까지 성공적으로 완료
+        }
+        else if($result->status === 'ready' && $result->pay_method === 'vbank' && (string)$result->amount === (string)$amount_to_be_paid)
+        {
+            $payment_check = "vbank";
+            $this->db->set("status",$this->input->post("status"));
+            //  vbank_number_assigned(payment_result) 가상계좌 발급성공
+        }
+        else
+        {
+            $payment_check = "error";
+            $this->db->set("status","error");
+            //fail_post_process(payment_result) 결제실패 처리
+        }
+        // // var_dump($result);
+
+        // //update
+
+        $this->db->set('total_price',$amount_to_be_paid);
+        $this->db->set("apply_num",$this->input->post("apply_num"));
+        $this->db->set("vbank_num",$this->input->post("vbank_num"));
+        $this->db->set("vbank_name",$this->input->post("vbank_name"));
+        $this->db->set("vbank_holder",$this->input->post("vbank_holder"));
+        $this->db->set("vbank_date",$this->input->post("vbank_date"));
+        $this->db->where("merchant_uid",$merchant_uid);
+        $this->db->update($this->table);
+
+        $data['payment_check'] = $payment_check;
+        echo json_encode($data);
+   
+    }
     public function ajax_add(){
         header("content-type:application/json");
     
@@ -226,6 +385,7 @@ class Order extends Base_Controller {
         $this->db->set('phone',$this->input->post("phone"));
         $this->db->set('status',$status);
         $this->db->set('pay_method',$this->input->post('pay_method'));
+     
        
         $this->db->set('created',"NOW()",false);
         $this->db->insert($this->table);
@@ -250,12 +410,16 @@ class Order extends Base_Controller {
         $data = array("temp"=>'temp');
         echo json_encode($data);
     }
+   
+
+
     public function ajax_payment_check_update()
     {
 
         header("content-type:application/json");
-        $imp_key = $this->config->item($this->setting->imp_key);
-        $imp_secret = $this->config->item($this->setting->imp_secret);
+
+        $imp_key = $this->setting->imp_key;
+        $imp_secret = $this->setting->imp_secret;
         $this->load->library("Iamport",array("imp_key"=>$imp_key, "imp_secret"=>$imp_secret));
 
         $imp_uid =$this->input->post('imp_uid');
@@ -339,11 +503,13 @@ class Order extends Base_Controller {
         if($order->pay_method === 'card')
             $order->pay_method_enum = "카드";
         else if($order->pay_method === 'vbank')
-            $order->pay_method_enum = "가상결제";            
+            $order->pay_method_enum = "가상은행";            
+        else if($order->pay_method === 'bank')
+            $order->pay_method_enum = "무통장입금";            
         else 
             $order->pay_method_enum = "알수없음";            
 
-        if($order->status === 'ready')
+        if($order->status === 'ready' || $order->status === 'try')
             $order->status_enum = '미결제';
         else if($order->status === 'paid')            
             $order->status_enum = '결제완료';
@@ -351,13 +517,11 @@ class Order extends Base_Controller {
             $order->status_enum = '알수없음';
 
         // var_dump($order_products);
-
-        $data = array(
-            "order" =>$order,
-            "order_products" =>$order_products
-        );
-         
-        $this->_template('complete',$data);
+        $data['order_infos'] =$this->db->where("merchant_uid",$merchant_uid)->from("p_order_infos")->get()->result();
+        $data['order']= $order;
+        $data['order_products'] = $order_products;
+        $data['setting'] =$this->setting;         
+        $this->_template('complete',$data,"golfpass2");
 
     }
 
@@ -376,8 +540,8 @@ class Order extends Base_Controller {
     public function ajax_payment_error_cancel(){
         header("content-type:application/json");
 
-        $imp_key = $this->config->item($this->setting->imp_key);
-        $imp_secret = $this->config->item($this->setting->imp_secret);
+        $imp_key = $this->setting->imp_key;
+        $imp_secret = $this->setting->imp_secret;
         // $imp_key = $this->config->item('imp_key');
         // $imp_secret = $this->config->item('imp_secret');
         $this->load->library("Iamport",array("imp_key"=>$imp_key, "imp_secret"=>$imp_secret));

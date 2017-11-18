@@ -48,23 +48,8 @@ class Order extends Admin_Controller {
          
     }
     public function get($merchant_uid){
-        //product_orders where $merchant_uid
-        $order =$this->product_orders_model->get_with_join(array('o.merchant_uid'=>$merchant_uid));
-      
-        
-        //p_order_products where $merchant_uid
-        $this->load->model("shop/p_order_products_model");
-        $order_products = $this->p_order_products_model->gets_order_products($merchant_uid);
-        
-        //get order by iamport api where $merchant_uid
-        // $imp_key = $this->config->item('imp_key');
-        // $imp_secret = $this->config->item('imp_secret');
-        // $this->load->library("Iamport",array("imp_key"=>$imp_key, "imp_secret"=>$imp_secret));
-        // $result =$this->iamport->findByMerchantUID(get_merchant_uid($merchant_uid));
-        
-        // var_dump($result);
-
-        $data = array("order"=>$order,"order_products"=>$order_products);
+        $data['order'] =$this->product_orders_model->get_with_join(array('o.merchant_uid'=>$merchant_uid));
+        $data['order_infos'] =$this->db->where("merchant_uid",$merchant_uid)->from("p_order_infos")->get()->result();
         
         $this->_template("get",$data);
          
