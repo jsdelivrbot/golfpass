@@ -23,33 +23,16 @@
 <div class="ui middle aligned center aligned grid">
     <div class="column" style="   max-width: 700px;">
         <div class="ui two column grid">
-            <div class="column">
+            <div class="column" style="margin: 0 auto;">
                 <div class="ui fluid card">
                     <div class="image">
-                    <img src="/public/images/product.jpg">
-                </div>
+                        <img src="/public/images/register.jpeg" style="width: 50%; height: 50%; margin: 0 auto;">
+                    </div>
                     <div class="content">
-                    <a href="<?=site_url(user_uri."/add")?>"class="header">개인회원 가입</a>
-                    </div>
-                    <div class="meta">
-                    <a href="<?=site_url(user_uri."/add")?>" >골프장 및 호텔을 예약할 수 있습니다.</a>
+                    <a href="<?=site_url(user_uri."/add")?>"class="header">개인 회원 가입</a>
                     </div>
                 </div>
             </div>
-        <div class="column">
-            <div class="ui fluid card">
-                <div class="image">
-                <img src="/public/images/product.jpg">
-                </div>
-                <div class="content">
-                <a class="header">투어 코디네이터 가입</a>
-                </div>
-                <div class="meta">
-                <a>골프 여행을 디자인합니다.</a>
-                </div>
-            </div>
-        </div>
-
         </div>
 
         <div class="ui horizontal divider">
