@@ -2,17 +2,27 @@
 <form  id="form_order" onsubmit="alert_payment_window(this); return false;"  action="<?=site_url(shop_order_uri."/golfpass_ajax_add")?>"method ="post">
 
 
-    홀수 추가
-    <input type="text">
+    <!-- 홀수 추가
+    <select name="" id="">
+        <option value="">8홀</option>
+        <option value="">16홀</option>
+    </select>
 
     <br>
     싱글룸추가
-    <input type="text">
+    <select name="" id="">
+        <option value="">1인</option>
+        <option value="">2인</option>
+    </select> -->
 
     <br>
     기타옵션 추가
-    <input type="text">
-
+    <select name="" id="">
+        <option>선택</option>
+    <?php for($i=0; $i<count($options) ; $i++){?>
+        <option value="<?=$options[$i]->id?>"><?=$options[$i]->name?><?=$options[$i]->price?></option>
+        <?php }?>
+    </select>
     <br>
     동행자 정보 입력(<?=$num_people-1?>명)
     <?php for($i = 0 ; $i < $num_people-1; $i++){ ?>
@@ -68,14 +78,14 @@
 
 <script>
 
-// //아이엠포트 초기화
-// $(document).ready(function(){
+//아이엠포트 초기화
+$(document).ready(function(){
     
 
 
    
 
-// })
+})
 
 IMP.init('imp52394971'); // 아임포트 관리자 페이지의 "시스템 설정" > "내 정보" 에서 확인 가능
 

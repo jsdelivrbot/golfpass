@@ -228,11 +228,11 @@ $('#navi_btn').click(function(){
     <ol class="ui list">
         <?php for($i=0 ; $i < count($main_options); $i++){?>
             <div style="display:block">
-            <li style="display:inline-block" ><?=$main_options[$i]->name?></li>
-            가격/순서수정
+           
             <form  onsubmit="ajax_submit(this); return false;" style="display:inline-block" class="ui form" style="display:inline-block;" action="<?=my_site_url(admin_product_uri."/ajax_option_update/{$main_options[$i]->id}")?>" method="post">
-                <input value="<?=set_value_data($main_options[$i],'price')?>" type="text" name="price" style="display:inline-block; width:120px;">
-                <input value="<?=set_value_data($main_options[$i],'sort')?>" type="text" name="sort" style="display:inline-block; width:50px;">
+            이름     <input value="<?=set_value_data($main_options[$i],'name')?>" type="text" name="name" style="display:inline-block; width:120px;">
+            가격  <input value="<?=set_value_data($main_options[$i],'price')?>" type="text" name="price" style="display:inline-block; width:120px;">
+            순서  <input value="<?=set_value_data($main_options[$i],'sort')?>" type="text" name="sort" style="display:inline-block; width:50px;">
                 <input class="ui button basic positive" type="submit" value="수정">
             </form>
             <a onclick="confirm_callback(this,ajax_a,'복구할 방법이 없습니다. 삭제하시겠습니까?'); return false;" data-action="<?=site_url(admin_product_uri."/ajax_option_delete/{$main_options[$i]->id}/main_option")?>" href="#" class="ui button basic positive" style="display:inline-block">삭제</a>

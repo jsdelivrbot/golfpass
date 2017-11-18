@@ -88,7 +88,10 @@ class Order extends Base_Controller {
         $data["num_people"] = $num_people;
         $data["product_id"] = $product_id;
         $data["total_price"] = $total_price;
-
+        $data["options"] = $this->db->where("kind","main_option")
+        ->where("product_id",$product_id)->from("product_option")
+        ->order_by("sort","asc")
+        ->get()->result();
 
         $this->_template("golfpass",$data,"golfpass");
 
@@ -217,17 +220,7 @@ class Order extends Base_Controller {
         $this->_template('get',$data);
 
     }
-    function golfpas_bank()
-    {
-
-        $merchant_uid = $this->input->post("merchant_uid");
-        $merchant_uid = get_merchant_code($merchant_uid);
-        $order =$this->product_orders_model->_get(array("merchant_uid"=>$merchant_uid));
-        
-
-        $data['order'] = $order;
-        $this->_template("complete",$data,'golfpass');
-    }
+  
     ////결제
     function golfpass_ajax_add()
     {
