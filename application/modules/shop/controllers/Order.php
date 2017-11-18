@@ -8,6 +8,11 @@ class Order extends Base_Controller {
             'view_dir'=>"order"
         ));
         $this->load->helper('enum');
+        if(!is_login())
+        {
+            alert("로그인해주세요.");
+            my_redirect(user_uri."/login?return_url=".rawurlencode(my_current_url()),false);
+        }
     }
     function ajax_check_payment()
     {
@@ -37,11 +42,12 @@ class Order extends Base_Controller {
     }
     function golfpass()
     {
-        $product_id = $this->input->post("product_id");
-        $num_people = $this->input->post("num_people");
-        $total_price = $this->input->post("total_price");
-        $start_date = $this->input->post("start_date");
-        $end_date = $this->input->post("end_date");
+        
+        $product_id = $this->input->get("product_id");
+        $num_people = $this->input->get("num_people");
+        $total_price = $this->input->get("total_price");
+        $start_date = $this->input->get("start_date");
+        $end_date = $this->input->get("end_date");
 
         //5개값 유효성 체크 시작
         if(is_numeric($num_people) === false)
@@ -226,8 +232,24 @@ class Order extends Base_Controller {
     function golfpass_ajax_add()
     {
         header("content-type:application/json");
-        
-            $pay_method =$this->input->post('pay_method');
+
+        $product_id = $this->input->post('product_id');
+        $start_date = $this->input->post('start_date');
+        $end_date = $this->input->post('end_date');
+        $num_people = $this->input->post('num_people');
+        $total_price =$this->_golfpass_cal_total_price((object)array(
+            "product_id"=>$product_id,
+            "start_date"=>$start_date,
+            "end_date"=>$end_date,
+            "num_people"=>$num_people
+        ));        
+        if((string)$total_price !== (string)$this->input->post('total_price'))
+        {
+            $data["is_check"] =  false;
+            echo json_encode($data);
+            return;
+        }
+        $pay_method =$this->input->post('pay_method');
             $status = ($pay_method === 'bank') ? "ready" : "try";
 
             //table insert product_orders
@@ -240,13 +262,13 @@ class Order extends Base_Controller {
             $this->db->set('phone',$this->input->post("phone"));
             $this->db->set('status',$status);
             $this->db->set('email',$this->input->post('email'));
-            $this->db->set('product_id',$this->input->post('product_id'));
+            $this->db->set('product_id',$product_id);
             $this->db->set('address',$this->user->address);
             $this->db->set('pay_method',$pay_method);
             $this->db->set('total_price',$this->input->post('total_price'));
-            $this->db->set('start_date',$this->input->post('start_date'));
-            $this->db->set('end_date',$this->input->post('end_date'));
-            $this->db->set('num_people',$this->input->post('num_people'));
+            $this->db->set('start_date',$start_date);
+            $this->db->set('end_date',$end_date);
+            $this->db->set('num_people',$num_people);
             $this->db->set('created',"NOW()",false);
             $this->db->insert($this->table);
     
@@ -263,8 +285,42 @@ class Order extends Base_Controller {
                 $this->db->insert('p_order_infos');
             }
 
-            $data = array("temp"=>'temp');
+
+            $data["is_check"] =  true;
             echo json_encode($data);
+    }
+    function _golfpass_cal_total_price($order)
+    {
+         //시작 날자 ~끝날자 * 인 === 총가격 변조 있는지 체크 시작
+         $product_id = $order->product_id;
+         $start_date = $order->start_date;
+         $num_people = $order->num_people;
+         $end_date = $order->end_date;
+         $end_date =date("Y-m-d",strtotime("{$end_date} +1 days"));
+         $obj_start_date = date_create($start_date);
+         $obj_end_date = date_create($end_date);
+         $period = date_diff($obj_start_date, $obj_end_date)->days;
+         $total_price =0;
+         $this->load->model("golfpass/p_daily_price_model");
+         for($i =0 ; $i < $period ; $i++)
+         {
+             $date = date("Y-m-d",strtotime("{$start_date} +{$i} days"));
+             $row=$this->p_daily_price_model->_get(array(
+                 'product_id'=>$product_id,
+                 'date'=>$date,
+                 'period'=>"2",
+                 'num_people'=>$num_people
+             ));
+             //해당 날자데이터가 없을때
+             if($row === null)
+             {
+                  return "{$date}날자 {$num_people}명에 가격 데이터가 존재하지 않습니다.";
+             }
+             $tmp_price =$row->price;
+             $total_price += (int)$tmp_price/2;
+         }
+ 
+         return $total_price;
     }
     public function golfpass_ajax_payment_check_update()
     {
@@ -280,35 +336,7 @@ class Order extends Base_Controller {
         $amount_to_be_paid =  $order->total_price;
 
         //시작 날자 ~끝날자 * 인 === 총가격 변조 있는지 체크 시작
-        $product_id = $order->product_id;
-        $start_date = $order->start_date;
-        $end_date = $order->end_date;
-        $end_date =date("Y-m-d",strtotime("{$end_date} +1 days"));
-        $obj_start_date = date_create($start_date);
-        $obj_end_date = date_create($end_date);
-        $period = date_diff($obj_start_date, $obj_end_date)->days;
-        $num_people = $order->num_people;
-        $total_price =0;
-        $this->load->model("golfpass/p_daily_price_model");
-        for($i =0 ; $i < $period ; $i++)
-        {
-            $date = date("Y-m-d",strtotime("{$start_date} +{$i} days"));
-            $row=$this->p_daily_price_model->_get(array(
-                'product_id'=>$product_id,
-                'date'=>$date,
-                'period'=>"2",
-                'num_people'=>$num_people
-            ));
-            //해당 날자데이터가 없을때
-            if($row === null)
-            {
-                $data['payment_check'] = "{$date}날자 {$num_people}명에 가격 데이터가 존재하지 않습니다.";
-                echo json_encode($data);
-                return;
-            }
-            $tmp_price =$row->price;
-            $total_price += (int)$tmp_price/2;
-        }
+        $total_price = $this->_golfpass_cal_total_price($order);
 
         if((string)$total_price !== (string)$amount_to_be_paid)
         {

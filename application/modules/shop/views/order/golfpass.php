@@ -125,7 +125,11 @@ function alert_payment_window(e)
             $('.loading').fadeIn(500);
         },
         success:function(data){
-            
+            if(data.is_check === false)
+            {
+                alert("정상적인 경로로 이용해주세요");
+                return false;
+            }
             //무통장 입금일때
             if(pay_method === 'bank')
             {
