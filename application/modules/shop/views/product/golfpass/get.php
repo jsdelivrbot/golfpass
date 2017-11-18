@@ -761,7 +761,7 @@
             var product_id = "<?=$product->id?>";
             var start_date = $startDate.val();
             var end_date = $endDate.val();
-            var url = "<?=site_url(golfpass_p_daily_price_uri." / ajax_cal ")?>"
+            var url = "<?=site_url(golfpass_p_daily_price_uri."/ajax_cal")?>"
             $.ajax({
                 type: "POST",
                 dataType: 'json',
