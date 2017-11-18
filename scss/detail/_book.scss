@@ -3,6 +3,9 @@
 #book-box-wrap {
 	z-index: 999;
     top: -80px;
+		@media (max-width: 991px) {
+			top: 0;
+		}
 
 	#book-box {
 		font-family: 'Noto Sans', sans-serif;

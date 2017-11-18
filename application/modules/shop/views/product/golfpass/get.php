@@ -217,7 +217,7 @@
             </article>
         </section>
         <article id='section2' class='row no-gutters'>
-            <div id="book-box-wrap" class="order-1 order-md-3 col-12 col-md-3">
+            <div id="book-box-wrap" class="order-1 order-lg-3 col-12 col-lg-3">
                 <div id='book-box'>
                     <div id="personnel">
                         <a id="golfpass_order" href="#"><span class="box-title"> 예약하기</span></a>
@@ -308,7 +308,7 @@
                     </div>
                 </div>
             </div>
-            <article id="section2-wrap" class="order-2 col-12  col-md-9 ">
+            <article id="section2-wrap" class="order-2 col-12  col-lg-9 ">
                 <section class="col-12" id="article-section-1">
                     <div class='d-flex flex-column title-box'>
                         <span>0<?=$number++?></span>

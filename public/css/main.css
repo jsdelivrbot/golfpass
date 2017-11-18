@@ -3168,6 +3168,9 @@ body.menu-open .plus-btn .r2 {
 #book-box-wrap {
   z-index: 999;
   top: -80px; }
+  @media (max-width: 991px) {
+    #book-box-wrap {
+      top: 0; } }
   #book-box-wrap #book-box {
     font-family: 'Noto Sans', sans-serif;
     color: #fff;
