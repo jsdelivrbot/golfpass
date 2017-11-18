@@ -24,7 +24,7 @@
 
 
 
- 주문자이름<input type="text" name="user_name" value="<?=set_value_data($user,'user_name')?>"><br>
+ 주문자이름<input type="text" name="user_name" value="<?=set_value_data($user,'name')?>"><br>
  휴대폰번호<input type="text" name="phone" value="<?=set_value_data($user,'phone')?>"><br>
  주소<input type="text" name="address" value="<?=set_value_data($user,'address')?>"><br>
  이메일<input type="text" name="email" value="<?=set_value_data($user,'email')?>"><br>
