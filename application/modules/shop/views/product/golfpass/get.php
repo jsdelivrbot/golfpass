@@ -186,7 +186,7 @@
                 <div id="detail" class='col'>
                     <div id="score" class="flex-column align-items-center">
                         <i class="xi xi-star xi-2x"></i>
-                        <span class="score_num">4.7<?=$product->avg_score?></span>
+                        <span class="score_num">4.7<?=$product->avg_score?>점</span>
                     </div>
                     <p id="regine">
                         <?=$product->region?>
@@ -209,8 +209,7 @@
                     
                 </canvas>
                     <h1 id="chart-score" class="text-center">종합 점수
-                        <p>4.7
-                            <?=$product->avg_score?>점</p>
+                        <p>4.7<?=$product->avg_score?>점</p>
                     </h1>
                 </div>
 
@@ -304,7 +303,7 @@
                                 <?=$price?>
                             </p>
                         </div>
-                        <a onclick="ajax_a(this); return false;" data-action="<?=site_url(shop_wishlist_uri."/ajax_add/{$product->id}")?>"href="#">위시리스트에 추가</a>
+                        <p class="wishlist"><a onclick="ajax_a(this); return false;" data-action="<?=site_url(shop_wishlist_uri."/ajax_add/{$product->id}")?>"href="#">위시리스트에 추가하기</a></p>
                     </div>
                 </div>
             </div>
