@@ -10,7 +10,7 @@
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="/public/sangmin/dist/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
-    <link rel="stylesheet" href="/public/css/main.css">
+    <link rel="stylesheet" href="/public/css/tp-main.css">
     <link rel="stylesheet" href="/public/sangmin/css/xeicon.min.css">
     <link rel="stylesheet" href="/public/sangmin/dist/Nwagon/Nwagon.css" type="text/css">
 
@@ -592,76 +592,75 @@
                 </a>
             </section>
         </section>
-        <footer id='footer' class='container-fluid'>
-            <div id="partner">
-                <div class="row">
-                    <div class="w-100">
-                        <h6>PARTNERS</h6>
-                    </div>
-                    <div class="d-flex flex-wrap">
-                        <figure>
-                            <img src="public/sangmin/img/partner/partner_google.png" alt="">
-                        </figure>
-                        <figure>
-                            <img src="public/sangmin/img/partner/partner_facebook.png" alt="">
-                        </figure>
-
-                        <figure>
-                            <img src="public/sangmin/img/partner/partner_instar.png" alt="">
-                        </figure>
-                        <figure>
-                            <img src="public/sangmin/img/partner/partner_naver.png" alt="">
-                        </figure>
-                        <figure>
-                            <img src="public/sangmin/img/partner/partner_daum.png" alt="">
-                        </figure>
-                    </div>
+    <footer id='tp-footer' class='main-footer container-fluid'>
+        <div id="tp-partner">
+            <div class="row" style="width:100%;">
+                <div class="w-100">
+                    <h6>PARTNERS</h6>
                 </div>
+                <div class="d-flex flex-wrap">
+                    <figure>
+                        <img src="/public/sangmin/img/partner/b_partner_google.png" alt="">
+                    </figure>
+                    <figure>
+                        <img src="/public/sangmin/img/partner/b_partner_facebook.png" alt="">
+                    </figure>
 
+                    <figure>
+                        <img src="/public/sangmin/img/partner/b_partner_instar.png" alt="">
+                    </figure>
+                    <figure>
+                        <img src="/public/sangmin/img/partner/b_partner_naver.png" alt="">
+                    </figure>
+                    <figure>
+                        <img src="/public/sangmin/img/partner/b_partner_daum.png" alt="">
+                    </figure>
+                </div>
             </div>
 
-            <div class="row d-flex">
-                <ul>
-                    <li class="title">ABOUT US</li>
-                    <li><a href="#">회사 소개</a></li>
-                    <li><a href="#">이용약관</a></li>
-                    <li><a href="#">개인 정보 취급 방침</a></li>
-                </ul>
-                <ul>
-                    <li class="title">OFFICE</li>
-                    <li><span>TEL</span>
-                        <p>1500-1500</p>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="title">CONTACT US</li>
-                    <li><span>상호</span>
-                        <p>PLAY SEVEN</p>
-                    </li>
-                    <li><span>대표</span>
-                        <p>홍길동</p>
-                    </li>
-                    <li><span>사업자등록번호</span>
-                        <p>000-00-00000</p>
-                    </li>
-                    <li><span>등록판매업신고번호</span>
-                        <p>2017-서울강서-0000호</p>
-                    </li>
-                    <li><span>개인정보관리책임자</span>
-                        <p>홍길동</p>
-                    </li>
-                </ul>
-                <ul>
-                    <li class=- "title">NEWS LETTER</li>
-                    <li class="mb-20"><input type="text" placeholder="E-mail을 입력해주세요"></li>
-                    <li><strong>골프패스</strong>
-                        <p>에서 제공하는 유용한 소식</p>
-                    </li>
-                </ul>
-                <p class='align-self-end mr-auto ml-auto'>© 2017 <strong>GOLFPASS.</strong> All Rights Reserved.</p>
-            </div>
+        </div>
 
-        </footer>
+        <div class="row d-flex" style="width:100%;">
+            <ul>
+                <li class="tp-title">ABOUT US</li>
+                <li><a href="#">회사 소개</a></li>
+                <li><a href="#">이용약관</a></li>
+                <li><a href="#">개인 정보 취급 방침</a></li>
+            </ul>
+            <ul>
+                <li class="tp-title">OFFICE</li>
+                <li><span>TEL</span>
+                    <p>02-6959-5454</p>
+                </li>
+            </ul>
+            <ul>
+                <li class="tp-title">CONTACT US</li>
+                <li><span>상호</span>
+                    <p>PLAYSEVEN</p>
+                </li>
+                <li><span>대표</span>
+                    <p>황현철</p>
+                </li>
+                <li><span>사업자등록번호</span>
+                    <p>280-81-00963</p>
+                </li>
+                <li><span>등록판매업신고번호</span>
+                    <p>2017-서울강서-1545호</p>
+                </li>
+            </ul>
+            <ul>
+                <li class="tp-title">NEWS LETTER</li>
+                <li class="mb-20"><input type="text" placeholder="E-mail을 입력해주세요"></li>
+                <li><strong>골프패스</strong>
+                    <p style="margin-bottom: 0;">에서 제공하는 유용한 소식</p>
+                </li>
+            </ul>
+        </div>
+        <div class="row d-flex" style="width:100%; margin:0;">
+            <p class='align-self-end mr-auto ml-auto'>© 2017 <strong>GOLFPASS.</strong> All Rights Reserved.</p>
+        </div>
+
+    </footer>
     </div>
     <script src="/public/sangmin/js/jquery-3.2.1.min.js"></script>
     <script src="/public/sangmin/js/slick.js" type="text/javascript" charset="utf-8"></script>
