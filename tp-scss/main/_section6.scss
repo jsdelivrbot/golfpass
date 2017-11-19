@@ -1,0 +1,56 @@
+@charset "utf-8";
+#main-wrap {
+    #section6 {
+                padding-top: 100px !important;
+        font-family: 'notokr-medium', sans-serif;
+        .trans-box {
+            /*말꼬리..*/
+            -ms-transform: rotate(45deg);
+            /* IE 9 */
+            -webkit-transform: rotate(45deg);
+            /* Safari */
+            transform: rotate(45deg);
+            width: 40px;
+            height: 40px;
+            left: 0;
+            z-index: -1;
+        }
+        .review-box {
+            /*연필 리뷰 컨테이너*/
+            top: 20%;
+            right: 5%;
+            span {
+                font-family: 'notokr-demilight', sans-serif;
+                color: #959595;
+                font-size: 12px;
+            }
+        }
+        .panel-item {
+            img {
+                margin: 0 20px;
+            }
+        }
+        .panel-content {
+            padding: 15px;
+            h4 {
+                font-family: 'notokr-regular', sans-serif;
+                font-size: 17px;
+                color: #333333;
+            }
+            p {
+                font-family: 'notokr-demilight', sans-serif;
+                max-width: 100%;
+                font-size: 14px;
+                color: #959595;
+                white-space: normal;
+                line-height: 1.5;
+                overflow: hidden;
+                height: 40px;
+                word-wrap: break-word;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+            }
+        }
+    }
+}

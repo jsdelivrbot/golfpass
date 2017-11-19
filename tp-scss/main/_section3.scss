@@ -1,0 +1,79 @@
+@charset "utf-8";
+#main-wrap {
+  #section3 {
+      padding-top: 100px !important;
+	.item {
+	  //item 4개부터 display-none
+	  &:nth-child(n+5) {
+		display: none !important;
+	  }
+	  @media (min-width: 576px) {
+		&:nth-child(n+5) {
+		  display: flex !important;
+		}
+	  }
+	  figure {
+		width: 100%;
+		font-family: "notokr-regular";
+		.content {
+		  //파란색 바탕
+		  background-color: #06adef;
+		  p, i {
+			//아이콘과 글
+			font-family: "notokr-demilight";
+			font-size: 12px;
+		  }
+		}
+		.price {
+		  //가격
+		  bottom: 20px;
+		  left: 20px;
+		  font-size: 20px;
+		  font-family: "notokr-regular";
+		}
+		figcaption {
+		  //item 흰색 바탕
+		  font-family: "notokr-regular";
+		  h3 {
+			//아이템 타이틀
+			font-size: 16px;
+			color: #4c4c4c;
+                white-space: normal;
+                line-height: 1.5;
+                overflow: hidden;
+                height: 20px;
+                word-wrap: break-word;
+                display: -webkit-box;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical;
+		  }
+		  p {
+			//아이템 영어 타이틀
+			font-family: "notokr-demilight";
+			font-size: 12px;
+			color: #808080;
+                white-space: normal;
+                line-height: 1.5;
+                overflow: hidden;
+                height: 15px;
+                word-wrap: break-word;
+                display: -webkit-box;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical;
+		  }
+		  span {
+			i {
+			  //별표
+			  color: #fcbf3f;
+			  font-size: 1.8rem;
+			}
+			//점수
+			font-family: "notokr-demilight";
+			color: #808080;
+			font-size: 10px;
+		  }
+		}
+	  }
+	}
+  }
+}

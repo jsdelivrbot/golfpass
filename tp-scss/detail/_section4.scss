@@ -1,0 +1,155 @@
+#detail-wrap {
+	#section4 {
+		p {
+			margin-bottom: 0;
+		}
+		position: relative;
+		width: 100%;
+		margin-top: 95px;
+
+		.review-warning-text {
+			width: 100%;
+			max-width: 500px;
+			height: 100px;
+			position: relative;
+
+			> div {
+				box-sizing: padding-box;
+				padding: 0 30px;
+				border: 1px solid #e6e6e6;
+
+				span {
+					font-family: 'notokr-medium', sans-serif;
+					font-size: 24px;
+					color: #efb42a;
+				}
+
+				p {
+					font-family: 'notokr-regular', sans-serif;
+					font-size: 14px;
+					color: #4c4c4c;
+				}
+			}
+		}
+
+		#review-box {
+			font-size: 0.8rem;
+			width: 100%;
+			.review {
+        margin-top: 60px;
+				background-color: #fcfcfc;
+				border: 1px solid #e6e6e6;
+				color: #bfc5cb;
+				border-radius: 8px;
+        width: 99%;
+				.profile {
+					.proflie-img {
+						padding: 15px;
+
+						img {
+							width: 60px;
+							height: 60px;
+						}
+					}
+
+					.proflie-name {
+						font-family: 'notokr-regular', sans-serif;
+						font-size: 14px;
+
+						span {
+							color: #32a8ef;
+						}
+					}
+				}
+
+				.content {
+					font-family: 'notokr-regular', sans-serif;
+					font-size: 14px;
+					color: #868e93;
+					margin-left: 90px;
+          width: 82%;
+				}
+
+				.score-box {
+					margin-top: 50px;
+
+					.score {
+						font-family: 'notokr-thin', sans-serif;
+						font-size: 65px;
+						color: #1ba545;
+						margin-left: 15px;
+						margin-right: 55px;
+					}
+
+					ul {
+						width: 100%;
+						padding-right: 20px;
+						margin-bottom: 0;
+
+						li {
+							margin-bottom: 20px;
+
+							p {
+								font-family: 'notokr-regular', sans-serif;
+								font-size: 12px;
+								color: #868e93;
+							}
+
+							span {
+								font-family: 'notokr-regular', sans-serif;
+								font-size: 12px;
+								color: #868e93;
+							}
+
+							.line {
+								box-sizing: border-box;
+								margin: 0 20px;
+								flex-grow: 1;
+								border-bottom: 1px solid #e5e5e5;
+							}
+						}
+					}
+				}
+
+				.date {
+					font-family: 'notokr-regular', sans-serif;
+					font-size: 14px;
+					color: #868e93;
+					margin-top: 50px;
+					margin-bottom: 20px;
+				}
+			}
+		}
+
+		#all {
+			margin: 60px auto 80px;
+			position: relative;
+			width: 25%;
+			border-top: 1px solid #ebebeb;
+
+			#circle {
+				cursor: pointer;
+				margin-top: 40px;
+				min-width: 100px;
+				min-height: 100px;
+				border: 1px solid #ebebeb;
+				border-radius: 50%;
+
+				&:before {
+					position: absolute;
+					content: '';
+					display: block;
+					height: 40px;
+					top: 0;
+					border-right: 1px solid #ebebeb;
+				}
+
+				span {
+					font-family: 'notokr-regular', sans-serif;
+					font-size: 14px;
+					color: #868e93;
+				}
+			}
+		}
+	}
+}
