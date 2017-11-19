@@ -46,14 +46,7 @@ class Main extends Base_Controller
         $this->db->limit(10,0);
          $products=$this->products_model->gets_by_ranking('avg_score');
 
-         $this->db->select("c.* ")
-         ->where("board_id","1")
-         ->or_like("title",$search)
-         ->limit(10,0)
-         ->from("board_contents as c");
-
-        $contents =$this->db->get()->result();
-        $data =array();
+         $data =array();
     
         foreach($products as $product)
         {
@@ -67,6 +60,15 @@ class Main extends Base_Controller
             ));
         } 
 
+        $this->db->select("c.* ")
+        ->where("c.board_id","1")
+        ->like("c.title",$search)
+        ->limit(10,0)
+        ->from("board_contents as c");
+
+       $contents =$this->db->get()->result();
+     
+       
         foreach($contents as $row)
         {
             $doc = new DOMDocument();
