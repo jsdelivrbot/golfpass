@@ -75,7 +75,7 @@
                     </a>
                     </div>
                     <?php }else{?>
-                    <div style="margin-top:25px;"><a href="#none"><img src="/public/images/ico_my.png" alt=""></a></div>
+                    <div style="margin-top:25px;"><a href="<?=site_url(shop_mypage_uri."/gets_wishlist")?>"><img src="<?=$user->profilePhoto?>" alt=""></a></div>
                     <?php }?>
                 </div>
                 <div class="col-2 ml-auto toggle" onclick="$('body').toggleClass('menu-open'); $('.carousel-indicators').toggleClass('d-none d-flex');">
@@ -115,7 +115,7 @@
                         <p class="mb-0"><a style="color: white; font-family: 'notokr-regular', sans-serif; font-size: 12px; text-shadow: 0 0 7px rgba(0,0,0,1);" href="<?=site_url(user_uri.'/register_agree_1')?>">회원가입</a></p>
                     </div>
                     <?php }else{?>
-                    <div style="margin-top:25px;"><a href="#none"><img src="/public/images/ico_my.png" alt=""></a></div>
+                    <div style="margin-top:25px;"><a href="<?=site_url(shop_mypage_uri."/gets_wishlist")?>"><img src="<?=$user->profilePhoto?>" alt=""></a></div>
                     <div id="logout" class="d-flex align-items-center">
                         <span><i class="xi-log-out xi-x" style="text-shadow: 0 0 7px rgba(0,0,0,1);"></i></span>
                         <p class="mb-0"><a style="color: white; font-family: 'notokr-regular', sans-serif; font-size: 12px; text-shadow: 0 0 7px rgba(0,0,0,1);" href="<?=site_url(user_uri.'/logout')?>">로그아웃</a></p>
@@ -186,7 +186,7 @@
                 <div id="detail" class='col'>
                     <div id="score" class="flex-column align-items-center">
                         <i class="xi xi-star xi-2x"></i>
-                        <span class="score_num">4.7<?=$product->avg_score?>점</span>
+                        <span class="score_num"><?=ceil(($product->avg_score)*10)/10?>점</span>
                     </div>
                     <p id="regine">
                         <?=$product->region?>
@@ -209,7 +209,7 @@
                     
                 </canvas>
                     <h1 id="chart-score" class="text-center">종합 점수
-                        <p>4.7<?=$product->avg_score?>점</p>
+                        <p><?=ceil(($product->avg_score)*10)/10?>점</p>
                     </h1>
                 </div>
 

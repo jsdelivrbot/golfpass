@@ -115,13 +115,12 @@ class Product extends Base_Controller {
 
         //user
         $this->load->model("base/users_model");
-        $data['user'] = $this->users_model->_get($this->user->id, array("userName,name,phone"));
+        $data['user'] = $this->users_model->_get($this->user->id);
 
         //reviews
         $this->load->model('product_reviews_model');
         $this->db->limit(2,0);
         $data['reviews'] = $this->product_reviews_model->gets(array('r.product_id'=>$id));
-
         //googld map
         $this->load->library("map_api");
         $this->map_api->api_key = $this->setting->google_map_api_key;

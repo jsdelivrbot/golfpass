@@ -43,8 +43,8 @@
                 <!-- <div class="ui four statistics"> -->
 
                 <div class="ui grid">
-                    <div class="ui four statistics doubling four column row">
-                        <div class="statistic column">
+                    <div class="ui three statistics doubling four column row">
+                        <!-- <div class="statistic column">
 
                             <div class="value">
                                 0
@@ -52,7 +52,7 @@
                             <div class="label">
                                 투어 코디네이터
                             </div>
-                        </div>
+                        </div> -->
 
                         <div class="statistic column">
 

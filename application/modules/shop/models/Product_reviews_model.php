@@ -200,7 +200,7 @@ class Product_reviews_Model extends Board_Model{
         
         $this->db->from('product_reviews as r');
         $this->db->join("users AS u","r.user_id = u.id","LEFT");
-        $this->db->where("u.kind",'general');
+        // $this->db->where("u.kind",'general');
         $this->db->where("r.is_display",'1');
         $rows = parent::_gets($where_obj,$select_arr,$limit);
 
