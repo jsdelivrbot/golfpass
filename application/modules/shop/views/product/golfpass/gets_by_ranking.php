@@ -40,7 +40,7 @@
 								<div class="d-flex align-items-center p-4 mb-3 content"
 								 	style="background-image: url(<?=$products_avgScore[$i]->photos[0]?>)"> <!-- style에서 height:150px 삭제 -->
 									<div class='d-flex align-items-center justify-content-center bg-light rounded-circle new_position'>
-										<span class="d-flex align-items-center justify-content-center"><?=$i+1?></span>
+										<span class="d-flex align-items-center justify-content-center"><?=$products_avgScore[$i]->numrow2?></span>
 									</div>
 									<div class="d-flex flex-column ml-4 text-light new_position2">
 										<h1><?=$products_avgScore[$i]->name?></h1>
@@ -67,7 +67,7 @@
                             <a href="<?=site_url(shop_product_uri."/get/{$products_avgScore[$i]->id}")?>">
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div>
-                                        <p class='mb-0' style="color:#333;"><span class='mr-3 ml-2'><?=$i?></span><?=$products_avgScore[$i]->name?></p>
+                                        <p class='mb-0' style="color:#333;"><span class='mr-3 ml-2'><?=$products_avgScore[$i]->numrow2?></span><?=$products_avgScore[$i]->name?></p>
                                     </div>
                                     <div>
                                     <span><?=$products_avgScore[$i]->nation?>, <?=$products_avgScore[$i]->city?></span>

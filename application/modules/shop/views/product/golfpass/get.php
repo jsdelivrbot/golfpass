@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+  
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -13,10 +13,52 @@
     <link rel="stylesheet" href="/public/css/detail-main.css">
     <link rel="stylesheet" href="/public/sangmin/css/xeicon.min.css">
     <link rel="stylesheet" href="/public/sangmin/dist/Nwagon/Nwagon.css" type="text/css">
-
+    <script src="/public/sangmin/js/jquery-3.2.1.min.js"></script>
 </head>
 
 <body>
+<style>
+    .jy-dim
+    {
+        position: fixed;
+        width: 100%;
+        height :100%;
+        background-color:black;
+        z-index :10000;
+    }
+    .jy-loader {
+        z-index :10001;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        margin-top: -150px;
+        margin-left: -60px; 
+        border: 16px solid #f3f3f3; /* Light grey */
+        border-top: 16px solid #3498db; /* Blue */
+        border-radius: 50%;
+        width: 120px;
+        height: 120px;
+        animation: spin 2s linear infinite;
+    }
+    @-webkit-keyframes spin {
+        0% { -webkit-transform: rotate(0deg); }
+        100% { -webkit-transform: rotate(360deg); }
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+    </style>
+    <script>
+        $(document).ready(function(){
+            $(".jy-dim").fadeOut(500);
+        })
+    </script>
+<div class="jy-dim">
+    <div class="jy-loader"></div>
+</div>
+
     <div id='detail-wrap'>
         <!--숨겨진 nav-->
         <div class="menu-container position-fixed">
@@ -672,7 +714,7 @@
 
     </footer>
     </div>
-    <script src="/public/sangmin/js/jquery-3.2.1.min.js"></script>
+   
     <script src="/public/sangmin/js/slick.js" type="text/javascript" charset="utf-8"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
     <script src="/public/sangmin/dist/bootstrap/bootstrap.bundle.min.js"></script>
