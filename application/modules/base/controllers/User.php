@@ -26,7 +26,7 @@ class User extends Base_Controller
         $this->fv->set_rules("userName","아이디","required");
         if($this->fv->run() === false)
         {
-            $this->_template("user/golfpass/find_pw",array(),'golfpass');
+            $this->_template("user/golfpass/find_pw",array(),'golfpass2');
         }
         else//input userName 값 존재
         {
@@ -84,20 +84,20 @@ class User extends Base_Controller
         $this->fv->set_rules("phone","폰 번호","required");
          if($this->fv->run() === false)
          {
-             $this->_template("user/golfpass/find_id",array(),'golfpass');
+             $this->_template("user/golfpass/find_id",array(),'golfpass2');
          }
          else
         {
             $user = $this->users_model->_get(array("phone"=>$this->input->post("phone")),array("userName"));
             $data['userName'] = $user ? $user->userName : "존재하지않음"; 
 
-            $this->_template("user/golfpass/find_id",$data,'golfpass');
+            $this->_template("user/golfpass/find_id",$data,'golfpass2');
          }
     }
 
     function register_agree_1()
     {
-        $this->_template('user/golfpass/register_agree_1',array(),'golfpass');
+        $this->_template('user/golfpass/register_agree_1',array(),'golfpass2');
         // $this->_view('user/golfpass/register_agree_1',array());
     }
    function _login_view($data = array())
@@ -110,7 +110,7 @@ class User extends Base_Controller
         // }
        
         // $this->_template($view,$data);
-        $this->_template('user/golfpass/login',$data,'golfpass');
+        $this->_template('user/golfpass/login',$data,'golfpass2');
         // $this->_view('user/golfpass/login',$data);
    }
     function login()
@@ -175,7 +175,7 @@ class User extends Base_Controller
         if ($this->fv->run()=== false) {
             $user = (object)array();
             $data = array("mode" =>"add","user"=>$user);
-            $this->_template("user/golfpass/addUpdate",$data,'golfpass');
+            $this->_template("user/golfpass/addUpdate",$data,'golfpass2');
             // $this->_template("addUpdate",$data);
 
             if($this->session->userdata('email_auth') !== null && $this->session->userdata('email') !== null){
@@ -205,7 +205,7 @@ class User extends Base_Controller
             echo "<script>alert('휴대폰 인증이 완료되지 않았습니다.')</script>";
             // $this->_template("user/golfpass/addUpdate",$data,'golfpass');
             // $this->_template("addUpdate",$data);
-            $this->_template("user/golfpass/addUpdate",$data,'golfpass');
+            $this->_template("user/golfpass/addUpdate",$data,'golfpass2');
         }
         else
         {

@@ -71,7 +71,7 @@ class Panel extends Base_Controller {
             $this->db->where("c.user_id",$panel_id);
         $this->db->limit($this->content_per_page,0);
         $data['panel_contents'] =$this->board_contents_model->gets(array("c.board_id"=>'1'));
-        $this->_template("gets",$data,'golfpass');
+        $this->_template("gets",$data,'golfpass2');
         // $this->_view("gets",$data);
 
  

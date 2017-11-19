@@ -12,6 +12,6 @@ class Contact extends Base_Controller {
     function index()
     {
         
-        $this->_template('index',array(),'golfpass');
+        $this->_template('index',array(),'golfpass2');
     }
 }

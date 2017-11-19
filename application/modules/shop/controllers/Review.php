@@ -54,7 +54,7 @@ class Review extends Base_Controller {
         $config['by_user'] =true;
         $data['reviews'] = $this->product_reviews_model->gets_with_pgi(array('u.userName'=>$this->user->userName),$config);
         // $this->_template("mypage/index",$data,'golfpass2');
-        $this->_template("review/golfpass/gets",$data,'golfpass');
+        $this->_template("review/golfpass/gets",$data,'golfpass2');
     }
     public function gets($product_id)
     {
@@ -65,7 +65,7 @@ class Review extends Base_Controller {
         
         $data['product_id'] =$product_id;
         //  $data['reviews'] = $this->_gets();
-         $this->_template("review/golfpass/gets",$data,'golfpass');
+         $this->_template("review/golfpass/gets",$data,'golfpass2');
          
 
     }

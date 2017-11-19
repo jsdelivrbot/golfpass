@@ -59,7 +59,7 @@ class Product extends Base_Controller {
          //리뷰 평균점수 높은대로순
          $this->db->limit(10,0);
         $data['products_avgScore'] =$this->products_model->gets_by_ranking("avg_score");
-        $this->_template("gets_by_ranking",$data,'golfpass');
+        $this->_template("gets_by_ranking",$data,'golfpass2');
     }
     
 	public function get($id =1){
@@ -188,7 +188,7 @@ class Product extends Base_Controller {
         $data["num_people"] = $num_people;
         $data["product_id"] = $product_id;
         $data["total_price"] = $total_price;
-        $this->_template("add_option",$data,"golfpass");
+        $this->_template("add_option",$data,"golfpass2");
     }
    
 }

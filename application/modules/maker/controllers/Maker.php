@@ -60,40 +60,40 @@ class Maker extends Public_Controller
     }
     function contact()
     {
-        $this->_template("contact",array(),"golfpass");
+        $this->_template("contact",array(),"golfpass2");
     }
     function regist()
     {
         // $this->_view("regist");
-        $this->_template("regist",array(),"golfpass");
+        $this->_template("regist",array(),"golfpass2");
     }
     function forgot_id()
     {
-        $this->_template("forgot_id",array(),"golfpass");
+        $this->_template("forgot_id",array(),"golfpass2");
     }
     function mypage()
     {
-        $this->_template("mypage",array(),"golfpass");
+        $this->_template("mypage",array(),"golfpass2");
     }
     function wishlist()
     {
-        $this->_template("wishlist",array(),"golfpass");
+        $this->_template("wishlist",array(),"golfpass2");
     }
     function order_complete()
     {
-        $this->_template("order_complete",array(),"golfpass");
+        $this->_template("order_complete",array(),"golfpass2");
     }
     function login()
     {
-        $this->_template("login",array(),"golfpass");
+        $this->_template("login",array(),"golfpass2");
         // $this->_view("login");
     }
     function forgot_pw()
     {
-        $this->_template("forgot_pw",array(),"golfpass");
+        $this->_template("forgot_pw",array(),"golfpass2");
     }
     function review_w()
     {
-        $this->_template("review_w",array(),"golfpass");
+        $this->_template("review_w",array(),"golfpass2");
     }
 }

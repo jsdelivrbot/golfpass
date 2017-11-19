@@ -15,6 +15,6 @@ class Panel_content extends Base_Controller {
     {
         $data['content'] = $this->board_contents_model->_get($id);
        
-        $this->_template("get",$data,'golfpass');
+        $this->_template("get",$data,'golfpass2');
     }
 }

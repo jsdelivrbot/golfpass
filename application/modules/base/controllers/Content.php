@@ -193,7 +193,7 @@ class Content extends Base_Controller {
             $content= (object)array();
             $data = array('mode'=>'add','content'=>$content,'board_id'=>$this->board_id);
 
-            $this->_template("addUpdate",$data,'golfpass');
+            $this->_template("addUpdate",$data,'golfpass2');
              
         }else{
             if(!is_guest()){ //회원일떄
@@ -276,7 +276,7 @@ class Content extends Base_Controller {
             $content =$this->db->query("SELECT * FROM $this->table WHERE id = $id")->row();
             $data = array('mode'=>"update/$id",'content'=>$content,'board_id'=>$this->board_id);
             
-            $this->_template('addUpdate',$data,'golfpass');
+            $this->_template('addUpdate',$data,'golfpass2');
             // $this->_template("content/panel/content/addUpdate",$data,'golfpass');
         }else{
             $this->_dbSet_addUpdate();
