@@ -17,6 +17,7 @@
 </head>
 
 <body>
+<!-- 로딩딤시작 -->
 <style>
     .jy-dim
     {
@@ -58,7 +59,7 @@
 <div class="jy-dim">
     <div class="jy-loader"></div>
 </div>
-
+<!-- 로딩딤끝 -->
     <div id='detail-wrap'>
         <!--숨겨진 nav-->
         <div class="menu-container position-fixed">
