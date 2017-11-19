@@ -131,7 +131,7 @@
       </div> 
     </a> 
     <?php }else{?>
-    <a href="<?=site_url(shop_wishlist_uri."/gets")?>">
+    <a href="<?=site_url(shop_mypage_uri."/gets_wishlist")?>">
       <div id='tp-circle' class='tp-d-flex tp-justify-content-center tp-align-items-center'> 
         <span>마이페이지로
         </span>
