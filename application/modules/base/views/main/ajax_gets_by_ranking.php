@@ -70,7 +70,7 @@
 						</ul>
 						<!--전체 순위 보러 가기 -->
 						<div class="row justify-content-center align-items-center">
-							<a href="<?=site_url(shop_product_uri."/gets_by_ranking")?>" class="d-flex justify-content-center align-items-center" style='text-decoration: none'>
+							<a href="<?=site_url(shop_product_uri."/gets_by_ranking/{$rankingType}")?>" class="d-flex justify-content-center align-items-center" style='text-decoration: none'>
 								<p class="mb-0 text-light mr-3">
 									전체 순위 보러가기
 								</p>
