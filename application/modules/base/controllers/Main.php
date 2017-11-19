@@ -46,7 +46,15 @@ class Main extends Base_Controller
         $this->db->limit(10,0);
          $products=$this->products_model->gets_by_ranking('avg_score');
 
+         $this->db->select("c.* ")
+         ->where("board_id","1")
+         ->or_like("title",$search)
+         ->limit(10,0)
+         ->from("board_contents as c");
+
+        $contents =$this->db->get()->result();
         $data =array();
+    
         foreach($products as $product)
         {
             $photo = $product->photos[0] ?? '';
@@ -59,6 +67,22 @@ class Main extends Base_Controller
             ));
         } 
 
+        foreach($contents as $row)
+        {
+            $doc = new DOMDocument();
+            $doc->loadHTML($row->desc);
+            $xpath = new DOMXPath($doc);
+            $photo = $xpath->evaluate("string(//img/@src)"); # "/images/image.jpg"
+            $desc =strip_tags($row->desc);
+            $desc = mb_substr($desc,0,20); 
+            array_push($data,array(
+                'title'=>$row->title,
+                'imagePath'=>$photo,
+                'score' => "5",
+                "article"=>$desc,
+                "href" =>site_url(golfpass_panel_content_uri."/get/{$row->id}")
+            ));
+        } 
         echo json_encode($data);
     }
     function index()
