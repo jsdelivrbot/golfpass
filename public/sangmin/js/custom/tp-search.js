@@ -1,7 +1,7 @@
 $(function() {
-	var search = $('.search-container');
-	var searchInput = $('.search-container>input');
-	var searchContentContainer = $('.search-content-container'); //검색내용 컨테이너
+	var search = $('.tp-search-container');
+	var searchInput = $('.tp-search-container>input');
+	var searchContentContainer = $('.tp-search-content-container'); //검색내용 컨테이너
 	function searchInit() {
 		$(searchContentContainer).fadeOut("fast"); //검색내용 사라짐
 		$(searchContentContainer).empty().append(loadingPrint()); //검색내용 비움
@@ -96,20 +96,20 @@ $(function() {
 			},
 			success: function(data) {
 				var input = '';
-				input += "<p><span>'" + searchInput.val() + `' </span>검색결과 <span class="search_data_num"> / 총  ${data.length}  개</span></p>`
+				input += "<p><span>'" + searchInput.val() + `' </span>검색결과 <span class="tp-search_data_num"> / 총  ${data.length}  개</span></p>`
 				input += '<div>'
-				input += '<ul class="search-items">'
+				input += '<ul class="tp-search-items">'
 				for (var i = 0; i < data.length; i++) {
 					input += '<a href="' + data[i].href + '">';
-					input += '<li class="search-item d-flex align-items-strech">'
-					input += '<div class="image d-flex align-items-center justify-content-center">'
-					input += '<img class="rounded-circle" src="' + data[i].imagePath + '" alt="검색이미지" width="100%;" height="100%;">'
+					input += '<li class="tp-search-item tp-d-flex tp-align-items-strech">'
+					input += '<div class="tp-image tp-d-flex tp-align-items-center tp-justify-content-center">'
+					input += '<img class="tp-rounded-circle" src="' + data[i].imagePath + '" alt="검색이미지" width="100%;" height="100%;">'
 					input += '</div>'
-					input += '<div class="content">'
-					input += '<div class="title d-flex align-items-center">' + data[i].title + '<span class="pl-2 score-icon d-flex">' + printStar(parseFloat(data[i].score)) + '</span><span class="pl-2 score-text">(종합 점수 ' + parseFloat(data[i].score) + ')</span></div>'
-					input += '<div class="article">' + data[i].article + '</div>';
+					input += '<div class="tp-content">'
+					input += '<div class="tp-title tp-d-flex tp-align-items-center">' + data[i].title + '<span class="pl-2 score-icon d-flex">' + printStar(parseFloat(data[i].score)) + '</span><span tp-class="pl-2 tp-score-text">(종합 점수 ' + parseFloat(data[i].score) + ')</span></div>'
+					input += '<div class="tp-article">' + data[i].article + '</div>';
 					input += '</li>';
-					input += '<a/>';
+					input += '</a>';
 				} //loop end
 				input += '</ul>'
 				input += '</div>'
@@ -141,6 +141,4 @@ $(function() {
 	}
 
 });
-
-
 
