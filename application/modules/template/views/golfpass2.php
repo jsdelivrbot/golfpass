@@ -368,8 +368,7 @@
     </script> 
     <!-- <script src="/public/sangmin/js/mobile_search.js"></script>  -->
     <script src="/public/sangmin/js/tp-mobile_search.js"></script> 
- 
-
+  <script src="<?=domain_url('/public/js/common.js')?>"></script>
     <script>$("#newsLetter").keypress(function(e){
         var key=e.which;
         if(key==13) {
