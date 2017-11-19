@@ -1,6 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300,100);
 
-.menu-container {
+.tp-menu-container {
     position: absolute;
     display: flex;
     align-items: stretch;
@@ -11,7 +11,7 @@
     z-index: 1000;
 }
 
-.menu {
+.tp-menu {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -43,7 +43,7 @@
     }
 }
 
-.menu-sliders {
+.tp-menu-sliders {
     flex: 1;
     display: flex;
     justify-content: center;
@@ -59,20 +59,20 @@
 }
 
 
-body.menu-open {
-    .menu-sliders:nth-child(2) {
+body.tp-menu-open {
+    .tp-menu-sliders:nth-child(2) {
         flex: 0 0 0%;
     }
-    .menu {
+    .tp-menu {
         transform: translateY(0%);
         visibility: visible;
         pointer-events: all;
     }
-    .plus-btn {
-        .r1 {
+    .tp-plus-btn {
+        .tp-r1 {
             transform: translateX(-50%)translateY(-50%)rotate(-45deg);
         }
-        .r2 {
+        .tp-r2 {
             transform: translateX(-50%)translateY(-50%)rotate(-135deg);
         }
     }

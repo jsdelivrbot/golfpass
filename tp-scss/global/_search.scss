@@ -1,4 +1,4 @@
-.mk-fullscreen-search-overlay #mk-fullscreen-search-wrapper #mk-fullscreen-searchform input[type=submit] {
+.tp-mk-fullscreen-search-overlay #tp-mk-fullscreen-search-wrapper #tp-mk-fullscreen-searchform input[type=submit] {
 	position: absolute;
 	width: 100px;
 	height: 100%;
@@ -8,12 +8,12 @@
 	top: 0;
 }
 
-#mk-fullscreen-searchform:focus {
+#tp-mk-fullscreen-searchform:focus {
 	outline: none;
 	border: none;
 }
 
-.mk-fullscreen-search-overlay #mk-fullscreen-search-wrapper #mk-fullscreen-searchform .fullscreen-search-icon {
+.tp-mk-fullscreen-search-overlay #tp-mk-fullscreen-search-wrapper #tp-mk-fullscreen-searchform .tp-fullscreen-search-icon {
 	font-size: 25px;
 	position: absolute;
 	right: 15px;
@@ -28,8 +28,8 @@
 	transition: all 0.2s ease-out;
 }
 
-.fullscreen-search-icon:focus,
-.fullscreen-search-icon:hover {
+.tp-fullscreen-search-icon:focus,
+.tp-fullscreen-search-icon:hover {
 	border: none;
 	outline: none;
 	color: #fff !important;
@@ -41,12 +41,12 @@
 	transform: rotate(180deg);
 }
 
-#mk-fullscreen-searchform {
+#tp-mk-fullscreen-searchform {
 	position: relative;
 	verticle-align: middle;
 }
 
-.mk-fullscreen-search-overlay #mk-fullscreen-search-wrapper #mk-fullscreen-searchform #mk-fullscreen-search-input {
+.tp-mk-fullscreen-search-overlay #tp-mk-fullscreen-search-wrapper #tp-mk-fullscreen-searchform #tp-mk-fullscreen-search-input {
 	width: 80%;//search input@
 	background-color: transparent;
 	-webkit-box-shadow: 0 3px 0 0 rgba(255, 255, 255, .1);
@@ -64,17 +64,17 @@
 	transition: all 0.3s ease-out;
 }
 
-.mk-fullscreen-search-overlay #mk-fullscreen-search-wrapper #mk-fullscreen-searchform #mk-fullscreen-search-input:focus {
+.tp-mk-fullscreen-search-overlay #tp-mk-fullscreen-search-wrapper #tp-mk-fullscreen-searchform #tp-mk-fullscreen-search-input:focus {
 	boder: none;
 	outline: none;
 }
 
-.mk-fullscreen-search-overlay.mk-fullscreen-search-overlay-show {
+.tp-mk-fullscreen-search-overlay.tp-mk-fullscreen-search-overlay-show {
 	visibility: visible;
 	opacity: 1;
 }
 
-.mk-fullscreen-search-overlay {
+.tp-mk-fullscreen-search-overlay {
 	width: 100%;
 	height: 100%;
 	position: fixed;
@@ -91,24 +91,24 @@
 	transition: all ease-in-out 0.25s;
 }
 
-.mk-animate-element,
-.mk-effect-bg-layer,
-.mk-fullscreen-search-overlay {
+.tp-mk-animate-element,
+.tp-mk-effect-bg-layer,
+.tp-mk-fullscreen-search-overlay {
 	-webkit-transform: translateZ(0);
 	-ms-transform: translateZ(0);
 	transform: translateZ(0);
 }
 
-.mk-fullscreen-search-overlay {
+.tp-mk-fullscreen-search-overlay {
 	z-index: 999;
 }
 
-.mk-fullscreen-search-overlay .mk-fullscreen-close:link,
-.mk-fullscreen-search-overlay .mk-fullscreen-close:visited {
+.tp-mk-fullscreen-search-overlay .tp-mk-fullscreen-close:link,
+.tp-mk-fullscreen-search-overlay .tp-mk-fullscreen-close:visited {
 	color: #fff;
 }
 
-.mk-fullscreen-search-overlay .mk-fullscreen-close {
+.tp-mk-fullscreen-search-overlay .tp-mk-fullscreen-close {
 	position: absolute;
 	right: 50px;
 	top: 70px;
@@ -121,7 +121,7 @@
 	transform: rotate(0deg);
 }
 
-.mk-fullscreen-search-overlay.mk-fullscreen-search-overlay-show #mk-fullscreen-search-wrapper {
+.tp-mk-fullscreen-search-overlay.tp-mk-fullscreen-search-overlay-show #tp-mk-fullscreen-search-wrapper {
 	opacity: 1;
 	visibility: visible;
 	-webkit-transform: scale(1);
@@ -132,7 +132,7 @@
 	ms-transform: scale(1);
 }
 
-.mk-fullscreen-search-overlay #mk-fullscreen-search-wrapper {
+.tp-mk-fullscreen-search-overlay #tp-mk-fullscreen-search-wrapper {
 	display: inline-block;
 	max-width: 1000px;
 	vertical-align: middle;
@@ -153,7 +153,7 @@
 	transition: all ease-in-out 0.3s;
 }
 
-.mk-search-trigger {
+.tp-mk-search-trigger {
 	-webkit-transition: color 0.2s ease-in-out;
 	-moz-transition: color 0.2s ease-in-out;
 	-ms-transition: color 0.2s ease-in-out;
@@ -161,7 +161,7 @@
 	transition: color 0.2s ease-in-out;
 }
 /* Search Button */
-#search-button {
+#tp-search-button {
 	cursor: pointer;
 	opacity: 1;
 	-webkit-transition: all 400ms;
@@ -175,7 +175,7 @@
 	transform: rotate(0deg);
 }
 
-#search-button i {
+#tp-search-button i {
 	color: white !important;
 	font-size: 20px;
 	position: absolute;
@@ -183,8 +183,8 @@
 	top: 15px;
 }
 
-#search-button:hover,
-.mk-fullscreen-close:hover {
+#tp-search-button:hover,
+.tp-mk-fullscreen-close:hover {
 	opacity: 0.6;
 	-webkit-transform: rotate(180deg);
 	-moz-transform: rotate(180deg);
@@ -197,6 +197,6 @@
 	-o-transition: all 400ms;
 }
 
-#mk-fullscreen-search-input:focus {
+#tp-mk-fullscreen-search-input:focus {
 	box-shadow: 0 3px 0 0 rgba(0, 86, 210, 0.54) !important;
 }

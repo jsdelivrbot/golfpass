@@ -1,7 +1,7 @@
 @import 'header';
 
-.black-bg-header {
-  @extend #header;
+.tp-black-bg-header {
+  @extend #tp-header;
   z-index: 1000;
   position: fixed !important;
   nav {
@@ -9,7 +9,7 @@
 	position: fixed;
 	background-color: $panel-nav-bg !important;
   }
-  .toggle {
+  .tp-toggle {
 	background-color: $panel-nav-toggle-bg !important;
   }
 }

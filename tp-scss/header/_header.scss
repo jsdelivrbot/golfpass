@@ -1,6 +1,6 @@
 @charset "utf-8";
 
-#header {
+#tp-header {
 	position: absolute;
 
 	nav {
@@ -14,9 +14,9 @@
 		z-index: 9999;
 	}
 
-	nav#sm-nav {
+	nav#tp-sm-nav {
 		//모바일 경우
-		#nav-icon-box {
+		#tp-nav-icon-box {
 			padding-right: 16px;
             max-width: 41%;
             margin-left: 8%;
@@ -30,7 +30,7 @@
 			}
 		}
 
-		.toggle {
+		.tp-toggle {
 			cursor: pointer;
 			max-width: 80px !important;
 			position: relative;
@@ -45,15 +45,15 @@
 		}
 	}
 
-	nav#md-nav {
+	nav#tp-md-nav {
 		//테블릿 부터
 		font-size: 0.8rem;
 
-		.xi {
+		.tp-xi {
 			font-size: 1.2rem;
 		}
 
-		#logo {
+		#tp-logo {
 			padding-left: 15px;
 
 			figure::after {
@@ -64,7 +64,7 @@
 				margin: 0 20px;
 			}
 
-			.search-container {
+			.tp-search-container {
 				padding: 10px;
 				width: 100%;
 				background: white;
@@ -87,7 +87,7 @@
 				}
 			}
 
-			.search-container.focus {
+			.tp-search-container.focus {
 				//input 포커스 됐을때
 
 				i,
@@ -98,7 +98,7 @@
 			}
 		}
 
-		#nav-icon-box {
+		#tp-nav-icon-box {
 			padding-right: 20px;
 
 			div {
@@ -118,7 +118,7 @@
 			}
 		}
 
-		.toggle {
+		.tp-toggle {
 			cursor: pointer;
 			position: relative;
 			right: 0;
@@ -143,7 +143,7 @@
 		}
 	}
 
-	.search-content-container {
+	.tp-search-content-container {
 		display: none;
 		background-color: white;
 		left: 0;
@@ -181,12 +181,12 @@
 			}
 		}
 
-		.search-items {
+		.tp-search-items {
 			padding: 10px;
 			height: 330px;
 			overflow-y: scroll;
 
-			.search-item {
+			.tp-search-item {
 				box-sizing: border-box;
 				width: 100%;
 				height: 90px;
@@ -199,7 +199,7 @@
 					padding-top: 15px;
 				}
 
-				.image {
+				.tp-image {
 					width: 15%;
 
 					img {
@@ -210,23 +210,23 @@
 					}
 				}
 
-				.content {
+				.tp-content {
 					width: 85%;
 					font-size: 16px;
 
-					.title {
+					.tp-title {
 						font-family: 'notokr-regular';
 						color: #4c4c4c;
 						font-size: 16px;
 						margin-bottom: 5px;
 
-						.score-icon {
+						.tp-score-icon {
 							i {
 								color: #fcbf3f !important;
 							}
 						}
 
-						.score-text {
+						.tp-score-text {
                             font-family: 'notokr-demilight';
                             color: #808080;
                             font-size: 12px;
@@ -234,7 +234,7 @@
 						}
 					}
 
-					.article {
+					.tp-article {
 						height: 37px;
 						overflow: hidden;
                         font-family: 'notokr-demilight';
@@ -254,6 +254,6 @@
 	}
 }
 
-.search_data_num {
+.tp-search_data_num {
     color: #b9c3c5;
 }
