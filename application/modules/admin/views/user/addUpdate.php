@@ -7,11 +7,15 @@
 <form action ="<?=my_site_url(admin_user_uri."/{$mode}")?>"method="POST" >
 <input type='hidden' name='profilePhoto' value="<?=set_value_data($user,'profilePhoto')?>"/> <br/>
 
-이름<input placeholder="이름" type="text" name="name" value="<?=set_value_data($user,'name')?>"/> <?=form_error('name',false,false)?>
+아이디<input placeholder="아이디" type="text" name="userName" value="<?=set_value_data($user,'userName')?>"/>
 <br>
- 아이디<input placeholder="아이디" type="text" name="userName" value="<?=set_value_data($user,'userName')?>"/>
- <br/>
- 소개<input placeholder="소개" type="text" name="intro" value="<?=set_value_data($user,'intro')?>"/>
+
+<?php if(strpos($mode,"add") !== false ){?>
+    비밀번호<input placeholder="비밀번호" type="password" name="password" />
+    <?php }?>
+    <br/>
+    이름<input placeholder="이름" type="text" name="name" value="<?=set_value_data($user,'name')?>"/> <?=form_error('name',false,false)?>
+ <br>소개<input placeholder="소개" type="text" name="intro" value="<?=set_value_data($user,'intro')?>"/>
  <br/>
 
  회원종류

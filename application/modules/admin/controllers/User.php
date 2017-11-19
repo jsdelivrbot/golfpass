@@ -44,7 +44,7 @@ class User extends Admin_Controller {
     function add($kind)
     {
         
-        $this->fv->set_rules('name','이름','required');
+        $this->fv->set_rules('userName','아이디','required');
         if ($this->fv->run()=== false) {
             $data['user'] = (object)array();
             $data['mode']="add/$kind";
@@ -113,6 +113,8 @@ class User extends Admin_Controller {
             $phone =null;
         }
         
+        $hash =password_hash($this->input->post('password'), PASSWORD_BCRYPT);
+        $this->db->set('password',$hash);
         $this->db->set('intro',$this->input->post('intro'));
         $this->db->set('userName',$userName);
         $this->db->set('postal_number', $this->input->post('postal_number'));
