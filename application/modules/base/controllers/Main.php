@@ -11,6 +11,16 @@ class Main extends Base_Controller
         ));
    
     }
+    function add_newslatter()
+    {
+        header("content-type:application/json");
+        $email = $this->input->post("email");
+        $this->db->set("email",$email);
+        $this->db->insert("newsletter");
+        
+        $data['email'] = $email;
+        echo json_encode($data);
+    }
     function ajax_gets_by_ranking()
     {
         $rankingType = $this->input->post("rankingType");

@@ -35,6 +35,7 @@ define("admin_product_review_uri","/admin/review");
 define("admin_page_uri","/admin/page");
 define("admin_ref_cate_product_uri","/admin/ref_cate_product");
 define("admin_sms_uri","/admin/sms");
+define("admin_newsletter_uri","/admin/newsletter");
 
 define("admin_setting_product_uri","/admin/setting");
 define("admin_setting_general_uri","/admin/setting");

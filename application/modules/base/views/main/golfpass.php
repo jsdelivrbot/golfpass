@@ -692,22 +692,33 @@ $(function(){
 </script>
 <!-- // 추가한 부분 -->
 <!-- 뉴스레터 시작-->
-<!-- <script>
+<script>
     $("#newsLetter").keypress(function (e) {
         var key = e.which;
         if(key == 13)  // the enter key code
         {
-            alert("뉴스레터에 등록되었습니다.");
+            var email =$(this).val();
+            var url = "<?=site_url(main_uri."/add_newslatter")?>";
+          
             $.ajax({
                 type:"post",
                 dataType:"json",
-                data: {},
-                success : function()
+                url : url,
+                data: { email : email},
+                success : function(data){
+                    alert(data.email + "이(가) 뉴스레터에 등록되었습니다.");
+                },
+                error: function(xhr, textStatus, errorThrown){
+                    alert('에러...');
+                    $('.loading').fadeOut(500);
+                    console.log('code: '+request.status+"\n"+'message: '+request.responseText+"\n"+'error: '+error);
+                    console.log(errorThrown);
+                }
             });
             return false;  
         }
     });     
-</script> -->
+</script>
 
 <!-- 뉴스레터 끝-->
 </body>

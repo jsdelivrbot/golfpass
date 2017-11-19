@@ -59,7 +59,8 @@ class Template extends MX_Controller
             array('name'=>'게시판','uri'=> site_url(admin_board_uri."/gets")),
             array('name'=>'상품','uri'=> site_url(admin_setting_product_uri."/get_product")),
             array('name'=>'주문','uri'=> site_url(admin_order_uri."/gets")),
-            array('name'=>'SMS','uri'=> site_url(admin_setting_sms_uri."/get_sms"))
+            array('name'=>'SMS','uri'=> site_url(admin_setting_sms_uri."/get_sms")),
+            array('name'=>'뉴스레터','uri'=> site_url(admin_newsletter_uri."/gets"))
         ));
         $sub_menus = $this->_create_data_sub_menus(array(
             '홈' => array(
@@ -95,6 +96,9 @@ class Template extends MX_Controller
             'SMS' => array(
                array('name'=>'기본설정','uri'=> site_url(admin_setting_sms_uri.'/get_sms'))
             //    array('name'=>'기본설정','uri'=> site_url(admin_sms_uri.'/gets'))
+            ),
+            '뉴스레터' => array(
+               array('name'=>'구독자','uri'=> site_url(admin_newsletter_uri.'/gets'))
             )
            
         ));
