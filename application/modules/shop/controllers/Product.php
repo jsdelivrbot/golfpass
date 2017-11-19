@@ -21,7 +21,7 @@ class Product extends Base_Controller {
         $this->db->or_like("p.name",$where);
         $products=$this->products_model->gets_by_ranking('avg_score');
         // var_dump($products);
-        $this->products_model->_gets_with_pgi_func(
+       $products= $this->products_model->_gets_with_pgi_func(
             "style_hotel",
             function() use($products)
             {
@@ -71,24 +71,28 @@ class Product extends Base_Controller {
          
     }
 
-    function ajax_gets_by_ranking()
+
+    function gets_by_ranking($rankingType)
     {
-        $rankingType = $this->input->post("rankingType");
-        
-         $this->load->model("shop/products_model");
-         $this->db->limit(10,0);
-         $data['products_avgScore'] =$this->products_model->gets_by_ranking($rankingType);
-         
-         $data['rankingType'] = $rankingType;
-        
-         
-        $this->_view("ajax_gets_by_ranking",$data);
-    }
-    function gets_by_ranking()
-    {
+
          //리뷰 평균점수 높은대로순
-         $this->db->limit(10,0);
-        $data['products_avgScore'] =$this->products_model->gets_by_ranking("avg_score");
+         $products =$this->products_model->gets_by_ranking($rankingType);
+         $products= $this->products_model->_gets_with_pgi_func(
+             "style_golfpass",
+            function() use($products)
+            {
+                return count($products);
+            },
+            function($offset,$per_page) use($products,$rankingType)
+            {
+                $this->db->limit($per_page,$offset);
+               return $this->products_model->gets_by_ranking($rankingType);
+            },
+            null,
+            array("per_page"=>10)
+         );
+         $data['rankingType'] = $rankingType;
+         $data['products_avgScore'] = $products;
         $this->_template("gets_by_ranking",$data,'golfpass2');
     }
     

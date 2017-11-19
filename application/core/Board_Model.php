@@ -96,7 +96,7 @@ class Board_Model extends Public_Model{
         //is_numrow
         if($is_numrow === true)
         {
-            $this->db->select("{$total_rows}-{$offset}-@count 'numrow', @count:=@count+1 'none'");
+            $this->db->select("{$total_rows}-{$offset}-@count 'numrow',{$offset}+@count+1 'numrow2', @count:=@count+1 'none'");
             $this->db->from("(SELECT @count:=0) der_tap");
         }
 
