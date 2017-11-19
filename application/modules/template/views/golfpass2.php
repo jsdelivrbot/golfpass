@@ -130,19 +130,19 @@
           <div id="tp-search" class="tp-d-flex tp-align-items-center"> 
             <a class="tp-mk-search-trigger tp-mk-fullscreen-trigger" href="#" id="tp-search-button-listener"> 
               <span>
-                <i class="tp-xi tp-xi-search" id="tp-search-button" style="text-shadow: 0 0 7px rgba(0,0,0,1);">
+                <i class="xi xi-search" id="tp-search-button" style="text-shadow: 0 0 7px rgba(0,0,0,1);">
                 </i>
               </span> 
             </a>
             <div class="tp-mk-fullscreen-search-overlay" id="tp-mk-search-overlay"> 
               <a href="#" class="tp-mk-fullscreen-close" id="tp-mk-fullscreen-close-button">
-                <i class="tp-xi tp-xi-close">
+                <i class="xi xi-close">
                 </i>
               </a>
               <div id="tp-mk-fullscreen-search-wrapper">
                 <form method="get" id="tp-mk-fullscreen-searchform" action=""> 
                   <input type="text" value="" placeholder="Search..." id="tp-mk-fullscreen-search-input"> 
-                  <i class="tp-xi tp-xi-search tp-fullscreen-search-icon">
+                  <i class="xi xi-search fullscreen-search-icon">
                     <input value="" type="submit">
                   </i>
                 </form>
@@ -153,7 +153,7 @@
           <div id="tp-login" class="tp-d-flex tp-align-items-center"> 
             <a href="<?=site_url(user_uri.'/login')?>" style="color:white;"> 
               <span>
-                <i class="tp-xi-log-in tp-xi-x" style="text-shadow: 0 0 7px rgba(0,0,0,1);">
+                <i class="xi-log-in xi-x" style="text-shadow: 0 0 7px rgba(0,0,0,1);">
                 </i>
               </span> 
             </a>
@@ -161,7 +161,7 @@
           <div id="tp-join" class="tp-d-flex tp-align-items-center"> 
             <a href="<?=site_url(user_uri.'/register_agree_1')?>" style="color:white;"> 
               <span>
-                <i class="tp-xi tp-xi-user-plus" style="text-shadow: 0 0 7px rgba(0,0,0,1);">
+                <i class="xi xi-user-plus" style="text-shadow: 0 0 7px rgba(0,0,0,1);">
                 </i>
               </span> 
             </a>
@@ -176,7 +176,7 @@
         </div>
         <div class="tp-col-2 tp-ml-auto tp-toggle" onclick="$('body').toggleClass('tp-menu-open'); $('.tp-carousel-indicators').toggleClass('tp-d-none tp-d-flex');"> 
           <span> 
-            <i class="tp-xi tp-xi-bars">
+            <i class="xi xi-bars">
             </i> 
           </span>
         </div> 
@@ -192,7 +192,7 @@
             </figure>
           </a>
           <div class="tp-search-container tp-d-flex tp-align-items-center tp-position-relative"> 
-            <i class="tp-xi tp-xi-search">
+            <i class="xi xi-search">
             </i> 
             <input id="tp-serach"type="text" placeholder="관심있는 나라나 골프장을 검색해보세요!">
             <div class="tp-search-content-container tp-position-absolute tp-w-100">
@@ -203,7 +203,7 @@
           <?php if(!is_login()){?>
           <div id="tp-login" class="tp-d-flex tp-align-items-center"> 
             <span>
-              <i class="tp-xi-log-in tp-xi-x" style="text-shadow: 0 0 7px rgba(0,0,0,1);">
+              <i class="xi-log-in xi-x" style="text-shadow: 0 0 7px rgba(0,0,0,1);">
               </i>
             </span>
             <p class="tp-mb-0">
@@ -213,7 +213,7 @@
           </div>
           <div id="tp-join" class="tp-d-flex tp-align-items-center"> 
             <span>
-              <i class="tp-xi tp-xi-user-plus" style="text-shadow: 0 0 7px rgba(0,0,0,1);">
+              <i class="xi xi-user-plus" style="text-shadow: 0 0 7px rgba(0,0,0,1);">
               </i>
             </span>
             <p class="tp-mb-0">
@@ -229,7 +229,7 @@
           </div>
           <div id="tp-logout" class="tp-d-flex tp-align-items-center"> 
             <span>
-              <i class="tp-xi-log-out tp-xi-x" style="text-shadow: 0 0 7px rgba(0,0,0,1);">
+              <i class="xi-log-out xi-x" style="text-shadow: 0 0 7px rgba(0,0,0,1);">
               </i>
             </span>
             <p class="tp-mb-0">
@@ -241,7 +241,7 @@
         </div>
         <div class="tp-col tp-ml-auto tp-toggle" onclick="$('body').toggleClass('tp-menu-open'); $('.tp-carousel-indicators').toggleClass('tp-d-none tp-d-flex');"> 
           <span> 
-            <i class="tp-xi tp-xi-bars">
+            <i class="xi xi-bars">
             </i> 
           </span>
         </div> 
