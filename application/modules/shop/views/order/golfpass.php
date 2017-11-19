@@ -146,6 +146,7 @@ $(document).ready(function(){
     {
         $options =$("#options");
         $selected =  $options.find("option:selected");
+        if($selected.text() ==="선택") return false;
         var option_id= $selected.val();
         var option_price = $selected.data('price');
         var option_name = $selected.data('name');
@@ -154,7 +155,7 @@ $(document).ready(function(){
         $list =$("#added_option_list");
 
         var option_item = document.createElement("div");
-        option_item.setAttribute("class","optionItem");
+        option_item.setAttribute("class","optionItem field");
         option_item.setAttribute("data-price",option_price);
         $option_item = $(option_item);
         $list.append(option_item);
@@ -167,11 +168,12 @@ $(document).ready(function(){
     //히든태그추가 끝
     //옵션추가 시작
         var option = document.createElement("div");
-        option.innerHTML = option_text;
+        option.innerHTML = `<div class="ui header" style="margin-top:20px;">${option_text}</div>`;
         $option_item.append(option);
     //옵션추가 끝
         var removeBtn = document.createElement("button");
         removeBtn.setAttribute("type","button");
+        removeBtn.setAttribute("class","ui button basic");
         removeBtn.setAttribute("onclick","  g_totalPrice-= $(this).parent('.optionItem').data('price');$('#total_price').text(g_totalPrice); $(this).parent('.optionItem').remove();");
         removeBtn.innerHTML = "삭제";
         $option_item.append(removeBtn);
