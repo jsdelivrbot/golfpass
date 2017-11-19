@@ -16,7 +16,7 @@ class Main extends Base_Controller
         header("content-type:application/json");
         $email = $this->input->post("email");
         $this->db->set("email",$email);
-        $this->db->insert("newsletter");
+        $this->db->insert("newsLetter");
         
         $data['email'] = $email;
         echo json_encode($data);
