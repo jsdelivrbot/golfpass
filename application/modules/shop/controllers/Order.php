@@ -267,13 +267,17 @@ class Order extends Base_Controller {
     
             $product_id=$this->input->post('product_id');
             $names_with =$this->input->post("name_with[]");
-            $visas =$this->input->post("visa[]");
+            $eng_names =$this->input->post("eng_name_with[]");
+            $phones =$this->input->post("phone_with[]");
+            $emails =$this->input->post("email_with[]");
             for($i =0 ; $i < count($names_with) ; $i++){
                 $this->db->set('merchant_uid',$merchant_uid);
                 $this->db->set('product_id',$product_id);
                 $this->db->set('created',"NOW()",false);
 
-                $this->db->set('visa',$visas[$i]);
+                $this->db->set('phone_with',$phones[$i]);
+                $this->db->set('email_with',$emails[$i]);
+                $this->db->set('eng_name_with',$eng_names[$i]);
                 $this->db->set('name_with',$names_with[$i]);
                 $this->db->insert('p_order_infos');
             }

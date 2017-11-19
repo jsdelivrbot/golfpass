@@ -23,11 +23,14 @@
         <option value="<?=$options[$i]->id?>"><?=$options[$i]->name?><?=$options[$i]->price?></option>
         <?php }?>
     </select>
+    <button id="add_option">추가</button>
     <br>
     동행자 정보 입력(<?=$num_people-1?>명)
     <?php for($i = 0 ; $i < $num_people-1; $i++){ ?>
     <br><input type="text" name="name_with[]" placeholder="이름">
-    <br><input type="text" name="visa[]" placeholder="비자번호">
+    <br><input type="text" name="eng_name_with[]" placeholder="영문이름">
+    <br><input type="text" name="email_with[]" placeholder="이메일">
+    <br><input type="text" name="phone_with[]" placeholder="연락처">
     <?php }?>
     <br>
 <!-- <input type="submit" value="예약"> -->
@@ -81,7 +84,12 @@
 //아이엠포트 초기화
 $(document).ready(function(){
     
+    $("#add_option").click(function()
+    {
+        
+    });
 
+});
 
    
 
