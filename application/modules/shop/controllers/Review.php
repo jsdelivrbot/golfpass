@@ -76,18 +76,31 @@ class Review extends Base_Controller {
             alert("상품을 구매하신 회원만 후기를 작성할 수 있습니다.");
             my_redirect($_SERVER['HTTP_REFERER']);
             return; 
-        }else if(($orders = is_can_product_review($product_id)) === false){
+        }
+        
+        $this->load->model("product_orders_model");
+        $this->db->where("product_id",$product_id);
+        $this->db->where("user_id",$this->user->id);
+        $this->db->where("is_review_write","0");
+        $this->db->where("status","paid");
+        $orders = $this->product_orders_model->_gets();
+        if(count($orders) === 0 ){
             alert("상품을 구매하셔야 후기를 작성할 수 있습니다.");
             my_redirect($_SERVER['HTTP_REFERER']);
             return ;
         }
+        // if(($orders = is_can_product_review($product_id)) === false){
+        //     alert("상품을 구매하셔야 후기를 작성할 수 있습니다.");
+        //     my_redirect($_SERVER['HTTP_REFERER']);
+        //     return ;
+        // }
         
         $this->_set_rules();
         if(!$this->fv->run()){
             $content= (object)array();
             $data = array('mode'=>"add/$product_id",'content'=>$content);
              
-             $this->_template("$this->view_dir/addUpdate",$data);
+             $this->_template("review/golfpass/addUpdate",$data,"golfpass2");
              
         }else{
             if(!is_guest()){ //회원일떄
@@ -108,6 +121,7 @@ class Review extends Base_Controller {
             
             //후기 추가
             $this->_dbSet_addUpdate();
+            $this->db->set("is_secret","0");
             $insert_id =$this->product_reviews_model->add(array('product_id'=>$product_id));
 
             //p_order_products에서  is_review_write 업데이트.
@@ -115,7 +129,7 @@ class Review extends Base_Controller {
             for($i=0;$i<count($orders);$i++){
                 $this->db->or_where('id',$orders[$i]->id);
             }
-            $this->db->update('p_order_products');
+            $this->db->update('product_orders');
             
             my_redirect(shop_product_uri."/get/$product_id");
             return;
@@ -124,12 +138,20 @@ class Review extends Base_Controller {
     }
     public function _dbSet_addUpdate(){
         $this->product_reviews_model->_set_by_obj(array(
-          "title"=> $this->input->post('title'),
-           "desc"=> $this->input->post('desc')
+        //   "title"=> $this->input->post('title'),
+           "desc"=> $this->input->post('desc'),
+           "score_1"=> $this->input->post('score_1'),
+           "score_2"=> $this->input->post('score_2'),
+           "score_3"=> $this->input->post('score_3'),
+           "score_4"=> $this->input->post('score_4'),
+           "score_5"=> $this->input->post('score_5'),
+           "score_6"=> $this->input->post('score_6'),
+           "score_7"=> $this->input->post('score_7'),
+           "score_8"=> $this->input->post('score_8')
         ));
     }
     public function _set_rules(){
-        $this->fv->set_rules('title','제목','required');
+        // $this->fv->set_rules('title','제목','required');
         $this->fv->set_rules('desc','내용','required');
         
     }

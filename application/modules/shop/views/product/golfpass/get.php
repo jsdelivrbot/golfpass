@@ -591,6 +591,16 @@
                 </div>
                 </a>
             </section>
+          
+        </section>
+        <section id="section4" class='row no-gutters justify-content-center'>
+            <section id='all' class='pl-0 d-flex justify-content-center'>
+                <a href="<?=site_url(shop_review_uri."/add/{$product->id}")?>">
+                <div id='circle' class='d-flex justify-content-center align-items-center'>
+                     <span>리뷰쓰러가기</span>
+                </div>
+                </a>
+            </section>
         </section>
     <footer id='tp-footer' class='main-footer container-fluid'>
         <div id="tp-partner">
