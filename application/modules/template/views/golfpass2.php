@@ -15,6 +15,8 @@
     <!-- <link rel="stylesheet" href="/public/css/main.css"> -->
     <link rel="stylesheet" href="/public/css/tp-main.css">
     <link rel="stylesheet" href="/public/css/bootstrap.css">
+    <script src="/public/sangmin/js/jquery-3.2.1.min.js">
+    </script> 
     <style>::-webkit-scrollbar{
       display:none}
       a{
@@ -352,8 +354,7 @@
         </p>
       </div>
     </footer> 
-    <script src="/public/sangmin/js/jquery-3.2.1.min.js">
-    </script> 
+  
     <script>
     </script> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous">

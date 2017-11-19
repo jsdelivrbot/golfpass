@@ -1,3 +1,10 @@
+<?php if(is_semantic_dev) {?>
+    <link rel="stylesheet/less" type="text/css" href="/public/framework/semantic/src/semantic.less">
+<script src="/public/framework/semantic/src/less.min.js"></script>
+<?php }else{?>
+<link rel="stylesheet" type="text/css" href="/public/framework/semantic/out/semantic.css">
+<?php }?>
+
 <div id="tp-panel-wrap">
 	<article id="tp-panel-article" class="tp-container-fluid">
 					 <div class="tp-row tp-text-center">

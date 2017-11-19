@@ -60,19 +60,19 @@
 </button>
 </a>
 </div> 
-<style>.content-box:first-child a .content{
+<style>.tp-content-box:first-child a .tp-content{
 height:250px}
-.content-box .new_position{
+.tp-content-box .tp-new_position{
   position:absolute;
   left:40px;
   margin:0 !important;
   bottom:30px}
-.content-box .new_position2{
+.tp-content-box .tp-new_position2{
   position:absolute;
   left:95px;
   margin:0 !important;
   bottom:25px}
-.content-box .new_position3{
+.tp-content-box .tp-new_position3{
   position:absolute;
   right:40px;
   margin:0 !important;
@@ -143,21 +143,7 @@ height:250px}
 </div>
 <?= $this->pagination->create_links();?>
 </div> 
-<script>$('.btn.btn-outline-light.btn-sm').click(function() {
-  var rankingType=$(this).data('rankingtype');
-  $.ajax({
-    method:"POST",url:"<?=site_url(main_uri.'/ajax_gets_by_ranking')?>",data:{
-      rankingType:rankingType}
-    ,beforeSend:function(){
-    }
-    ,success:function(data){
-      $("#section5").html(data);
-    }
-  }
-        );
-}
-                                              );
-</script> 
+
 <script>$(function(){
   $(".content-box:nth-child(2) a .content, .content-box:nth-child(3) a .content").hover(function(){
     $(".content-box:first-child a .content").css("height","100px");
@@ -169,15 +155,15 @@ height:250px}
 }
        );
 </script> 
-<script src="/public/sangmin/js/jquery-3.2.1.min.js">
-</script> 
-<script>$('#jssor_1').width($('#section2').width()).children('div').width($('#section2').width());
+<!-- <script src="/public/sangmin/js/jquery-3.2.1.min.js">
+</script>  -->
+<!-- <script>$('#jssor_1').width($('#section2').width()).children('div').width($('#section2').width());
 $(window).resize(function(){
   $('#jssor_1').width($('#section2').width()).children('div').width($('#section2').width());
 }
                 );
-</script> 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" 		integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" 		crossorigin="anonymous">
+</script>  -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" 		integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" 		crossorigin="anonymous">
 </script> 
 <script src="/public/sangmin/dist/bootstrap/bootstrap.bundle.min.js">
 </script> 
@@ -188,5 +174,5 @@ $(window).resize(function(){
 <script src="public/sangmin/js/custom/navAction.js">
 </script> 
 <script src="public/sangmin/js/main_section2.js">
-</script> 
+</script>  -->
 </div>
