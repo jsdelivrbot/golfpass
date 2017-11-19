@@ -106,7 +106,7 @@ $(function() {
 					input += '<img class="tp-rounded-circle" src="' + data[i].imagePath + '" alt="검색이미지" width="100%;" height="100%;">'
 					input += '</div>'
 					input += '<div class="tp-content">'
-					input += '<div class="tp-title tp-d-flex tp-align-items-center">' + data[i].title + '<span class="pl-2 score-icon d-flex">' + printStar(parseFloat(data[i].score)) + '</span><span tp-class="pl-2 tp-score-text">(종합 점수 ' + parseFloat(data[i].score) + ')</span></div>'
+					input += '<div class="tp-title tp-d-flex tp-align-items-center">' + data[i].title + '<span class="tp-pl-2 tp-score-icon tp-d-flex">' + printStar(parseFloat(data[i].score)) + '</span><span class="tp-pl-2 tp-score-text">(종합 점수 ' + parseFloat(data[i].score) + ')</span></div>'
 					input += '<div class="tp-article">' + data[i].article + '</div>';
 					input += '</li>';
 					input += '</a>';
