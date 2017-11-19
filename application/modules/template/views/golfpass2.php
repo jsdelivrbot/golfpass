@@ -264,7 +264,7 @@
                 </div>
                 <?php }else{?>
                 <div style="margin-top:25px;">
-                    <a href="<?=site_url(shop_mypage_uri." /gets_wishlist ")?>">
+                    <a href="<?=site_url(shop_mypage_uri."/gets_wishlist")?>">
               <img src="<?=$user->profilePhoto?>" alt="">
             </a>
                 </div>

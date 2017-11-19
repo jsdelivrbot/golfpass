@@ -8,6 +8,8 @@
 <?php }?>
 
 
+<div class="ui grid container">
+    <div class="sixteen wide column">
 총금액<div id="total_price"><?=$total_price?></div>
 <form  class="ui form" id="form_order" onsubmit="alert_payment_window(this); return false;"  action="<?=site_url(shop_order_uri."/golfpass_ajax_add")?>"method ="post">
 
@@ -25,34 +27,62 @@
         <option value="">2인</option>
     </select> -->
 
-    <br>
-    기타옵션 추가
-    <select name="" id="options">
-        <option>선택</option>
-    <?php for($i=0; $i<count($options) ; $i++){?>
-        <option data-name="<?=$options[$i]->name?>" data-price="<?=$options[$i]->price?>" value="<?=$options[$i]->id?>"><?=$options[$i]->name?>(<?=$options[$i]->price?>)</option>
-        <?php }?>
-    </select>
-    <button type="button" id="add_option">추가</button>
-    <div id="added_option_list">
+    <div class="three fields">
+        <div class="field">
+        <label>기타옵션 추가</label>
+            <select class="ui fluid dropdown" name="" id="options">
+                <option>선택</option>
+            <?php for($i=0; $i<count($options) ; $i++){?>
+                <option data-name="<?=$options[$i]->name?>" data-price="<?=$options[$i]->price?>" value="<?=$options[$i]->id?>"><?=$options[$i]->name?>(<?=$options[$i]->price?>)</option>
+                <?php }?>
+            </select>
+        </div>
     </div>
-    <br>
+        <button class="ui button basic" type="button" id="add_option">추가</button>
+    <div class="field"id="added_option_list">
+    </div>
+
     동행자 정보 입력(<?=$num_people-1?>명)
-    <?php for($i = 0 ; $i < $num_people-1; $i++){ ?>
-    <br><input type="text" name="name_with[]" placeholder="이름">
-    <br><input type="text" name="eng_name_with[]" placeholder="영문이름">
-    <br><input type="text" name="email_with[]" placeholder="이메일">
-    <br><input type="text" name="phone_with[]" placeholder="연락처">
-    <?php }?>
-    <br>
+    <div class="four fields">
+        <?php for($i = 0 ; $i < $num_people-1; $i++){ ?>
+        <div class="field">
+            <input type="text" name="name_with[]" placeholder="이름">
+        </div>
+        <div class="field">
+            <input type="text" name="eng_name_with[]" placeholder="영문이름">
+        </div>
+        <div class="field">
+            <input type="text" name="email_with[]" placeholder="이메일">
+        </div>
+        <div class="field">
+           <input type="text" name="phone_with[]" placeholder="연락처">
+        </div>
+        <?php }?>        
+    </div>
+    
+
 <!-- <input type="submit" value="예약"> -->
 
-
-
- 주문자이름<input type="text" name="user_name" value="<?=set_value_data($user,'name')?>"><br>
- 휴대폰번호<input type="text" name="phone" value="<?=set_value_data($user,'phone')?>"><br>
- 주소<input type="text" name="address" value="<?=set_value_data($user,'address')?>"><br>
- 이메일<input type="text" name="email" value="<?=set_value_data($user,'email')?>"><br>
+<!-- <div class="two fields"> -->
+    <div class="field">
+        <label>주문자이름</label>
+        <input type="text" name="user_name" value="<?=set_value_data($user,'name')?>"><br>
+    </div>
+    <div class="field">
+        <label>휴대폰번호</label>
+        <input type="text" name="phone" value="<?=set_value_data($user,'phone')?>"><br>
+    </div>
+<!-- </div> -->
+<!-- <div class="two fields"> -->
+    <div class="field">
+        <label>주소</label>
+        <input type="text" name="address" value="<?=set_value_data($user,'address')?>"><br>
+    </div>
+    <div class="field">
+        <label>이메일</label>
+        <input type="text" name="email" value="<?=set_value_data($user,'email')?>"><br>
+    </div>
+<!-- </div> -->
  <input type="hidden" name="product_id" value="<?=$product_id?>">
  <input type="hidden" name="merchant_uid">
     <input type="hidden" name="start_date" value="<?=$start_date?>">
@@ -86,8 +116,8 @@
 <!-- <input type="submit"> -->
 
 </form>
-
-</article>
+</div>
+</div>
 <script src="https://service.iamport.kr/js/iamport.payment-1.1.5.js" type="text/javascript"></script>
 
 
