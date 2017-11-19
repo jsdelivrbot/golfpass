@@ -237,7 +237,9 @@
                                                 <p class="hotelcard-maintext-setting"><?=$products[$i]->hotel_id !== null ? "골프장+호텔" : "골프장"?></p>
                                                 <h3 class="hotelcard-maintext-smithextralabel">소개&nbsp;</h3>
                                                 <div class="hotelcard-smithextracntnt">
-                                                <?=$products[$i]->desc?>
+                                                <?php 
+                                                echo mb_substr($products[$i]->desc,0,135);
+                                                if(mb_strlen($products[$i]->desc) > 135) echo "..."?>
                                                     <a href="<?=site_url(shop_product_uri."/get/{$products[$i]->id}")?>" class="more-smith-extra mock-link tc-modal" data-hotelname="la-posta-vecchia">&#x203a; More</a> 
                                                     <article aria-hidden="true" id="modal-smith-extra-5638" class="mfp-hide white-popup-block">
                                                         <span class="mfp-close modal-dismiss"></span>
