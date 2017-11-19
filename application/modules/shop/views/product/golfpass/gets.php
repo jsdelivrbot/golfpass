@@ -277,7 +277,9 @@
                                             <div class="hotelcard-bttns S-4_4 M-12_12 L-12_12 XL-12_12 XXL-12_12">
                                                 <div class="hotelcard-bttns-wrapper hotelcard-quickview S-4_4 M-6_12 L-6_12 XL-6_12 XXL-6_12">
                                                     <a class="hotelcard-bttns-rates" href="<?=site_url(shop_product_uri."/get/{$products[$i]->id}")?>" data-slug="la-posta-vecchia">상품 보기</a>
+                                                    <p onclick="ajax_a(this); return false;" data-action="<?=site_url(shop_wishlist_uri."/ajax_add/{$products[$i]->id}")?>" class='hotelcard-bttns-highlights'>위시리스트에 추가</p>
                                                 </div>
+
                                                 <div class="hotelcard-bookandrates open"></div>
                                             </div>
                                         </article>
@@ -426,5 +428,7 @@
         <script src="/public/etc/hotel/js/5bbac5b4.36.vendor.js" defer></script>
         <script src="/public/etc/hotel/js/75ef551b.10.common.js" defer></script>
         <script type="text/javascript" src="/public/etc/hotel/js/4083ea42.20.hotelsearch.js" defer></script>
+        
     <!-- </body> -->
 </html>
+

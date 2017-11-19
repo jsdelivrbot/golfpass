@@ -206,7 +206,7 @@ class Init_Controller extends MX_Controller{
              `id` INT UNSIGNED NULL AUTO_INCREMENT, 
              `auth` INT NOT NULL DEFAULT '1',
              `kind` varchar(50) NOT NULL DEFAULT 'general',
-             `profilePhoto` varchar(255) DEFAULT '/public/images/noimg.png',
+             `profilePhoto` varchar(255) DEFAULT '/public/images/ico_my.png',
              `intro` varchar(255) DEFAULT '',
              `userName` varchar(10), 
              `password` varchar(255), 

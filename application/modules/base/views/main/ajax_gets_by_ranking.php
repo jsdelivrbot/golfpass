@@ -36,11 +36,11 @@
 									</div>
 									<div class="d-flex flex-column ml-4 text-light new_position2">
 										<h1><?=$products_avgScore[$i]->name?></h1>
-										<p class="mb-0"> <?=$products_avgScore[$i]->eng_name?> - <?=$products_avgScore[$i]->nation?>, <?=$products_avgScore[$i]->city?></p>
+										<p class="mb-0"> <?=$products_avgScore[$i]->eng_name?> - <?=$products_avgScore[$i]->region?></p>
 									</div>
                                     <div class="new_position3">
                                         <span><i class="xi-star" style="color:#fcbf3f;"></i></span>
-                                        <span style="color:#fff; font-family: 'notokr-demilight', sans-serif; font-size: 18px;">4.7</span>
+                                        <span style="color:#fff; font-family: 'notokr-demilight', sans-serif; font-size: 18px;"><?php $score = (ceil($products_avgScore[$i]->$rankingType *10))/10; echo (strlen($score) === 1) ? "{$score}.0" : "{$score}"?></span>
                                     </div>
 								</div>
 							</a>

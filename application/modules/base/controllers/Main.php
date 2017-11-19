@@ -53,6 +53,7 @@ class Main extends Base_Controller
     }
     function index()
     {
+        $data['user'] = $this->user;
         //메인 상품
         $this->load->model("shop/products_model");
         $this->load->model("shop/product_option_model");

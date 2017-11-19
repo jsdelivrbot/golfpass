@@ -37,6 +37,7 @@ class Product extends Base_Controller {
         
         // $this->_view("gets",$data);
         $this->_template("gets",$data,'golfpass');
+        // $this->_view("gets",$data);
          
     }
 

@@ -108,7 +108,7 @@
                     </a>
                 </div>
                 <?php }else{?>
-               <div style="margin-top:25px;"><a href="#none"><img src="/public/images/ico_my.png" alt=""></a></div>
+               <div style="margin-top:25px;"><a href="<?=site_url(shop_mypage_uri."/gets_wishlist")?>"><img src="<?=$user->profilePhoto?>" alt=""></a></div>
                 <?php }?>
             </div>
             <div class="col-2 ml-auto toggle"
@@ -147,7 +147,7 @@
                     <p class="mb-0"><a style="color: white; font-family: 'notokr-regular', sans-serif; font-size: 12px; text-shadow: 0 0 7px rgba(0,0,0,1);" href="<?=site_url(user_uri.'/register_agree_1')?>">회원가입</a></p>
                 </div>
             <?php }else{?>
-               <div style="margin-top:25px;"><a href="#none"><img src="/public/images/ico_my.png" alt=""></a></div>
+               <div style="margin-top:25px;"><a href="<?=site_url(shop_mypage_uri."/gets_wishlist")?>"><img src="<?=$user->profilePhoto?>" alt=""></a></div>
                 <div id="logout" class="d-flex align-items-center">
                     <span><i class="xi-log-out xi-x" style="text-shadow: 0 0 7px rgba(0,0,0,1);"></i></span>
                     <p class="mb-0"><a style="color: white; font-family: 'notokr-regular', sans-serif; font-size: 12px; text-shadow: 0 0 7px rgba(0,0,0,1);" href="<?=site_url(user_uri.'/logout')?>">로그아웃</a></p>
@@ -174,7 +174,7 @@
                     <div class="content-box d-flex flex-column align-items-start justify-content-center justify-content-lg-end">
                         <div class='title'>
                             <h1><?=$product_main[0]->name?></h1>
-                            <p>eng name form</p>
+                            <p><?=$product_main[0]->eng_name?></p>
                             <p><?=$product_main[0]->region?> - <?=$product_main[0]->hole_count?> / <?=$product_main[0]->distance?></p>
                         </div>
                         <div class="content">
@@ -467,11 +467,11 @@
 									</div>
 									<div class="d-flex flex-column ml-4 text-light new_position2">
 										<h1><?=$products_avgScore[$i]->name?></h1>
-										<p class="mb-0"> <?=$products_avgScore[$i]->eng_name?> - <?=$products_avgScore[$i]->nation?>, <?=$products_avgScore[$i]->city?></p>
+										<p class="mb-0"> <?=$products_avgScore[$i]->eng_name?> - <?=$products_avgScore[$i]->region?></p>
 									</div>
                                     <div class="new_position3">
                                         <span><i class="xi-star" style="color:#fcbf3f;"></i></span>
-                                        <span style="color:#fff; font-family: 'notokr-demilight', sans-serif; font-size: 18px;">4.7</span>
+                                        <span style="color:#fff; font-family: 'notokr-demilight', sans-serif; font-size: 18px;"> <?=(ceil($products_avgScore[$i]->avg_score *10))/10?></p></span>
                                     </div>
 								</div>
 							</a>
