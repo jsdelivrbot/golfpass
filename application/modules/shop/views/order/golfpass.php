@@ -55,9 +55,9 @@
     <div class="field"id="added_option_list">
     </div>
 
-    동행자 정보 입력(<?=$num_people-1?>명)
+    <label><b> 동행자 정보 입력(<?=$num_people-1?>명)</b></label>
+    <?php for($i = 0 ; $i < $num_people-1; $i++){ ?>
     <div class="four fields">
-        <?php for($i = 0 ; $i < $num_people-1; $i++){ ?>
         <div class="field">
             <input type="text" name="name_with[]" placeholder="이름">
         </div>
@@ -70,8 +70,8 @@
         <div class="field">
            <input type="text" name="phone_with[]" placeholder="연락처">
         </div>
-        <?php }?>        
     </div>
+    <?php }?>        
     
 
 <!-- <input type="submit" value="예약"> -->
