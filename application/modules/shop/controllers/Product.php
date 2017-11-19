@@ -94,6 +94,7 @@ class Product extends Base_Controller {
          $data['rankingType'] = $rankingType;
          $data['products_avgScore'] = $products;
         $this->_template("gets_by_ranking",$data,'golfpass2');
+        // $this->_view("gets_by_ranking",$data);
     }
     
 	public function get($id =1){

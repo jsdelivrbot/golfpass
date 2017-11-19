@@ -109,7 +109,7 @@ class MY_Pagination extends CI_Pagination {
 
         function style_golfpass($config){
 
-            $config [ 'full_tag_open'] = '<ul class="d-flex list-unstyled justify-content-center mb-0">';
+            $config [ 'full_tag_open'] = '<ul class="tp-d-flex tp-list-unstyled tp-justify-content-center tp-mb-0">';
             $config [ 'full_tag_close'] = '</ul>';
             
             $config['first_link'] = "";

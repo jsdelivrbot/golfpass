@@ -60,6 +60,24 @@
 </button>
 </a>
 </div> 
+<!-- 추가한부분 -->
+<style>
+#tp-bg-div{ background-image:url(<?=$product_main[0]->photo?>) !important}
+.tp-content-box{ position:relative}
+.tp-content-box:first-child a .tp-content{ height:250px}
+.tp-content-box a .tp-content{ height: 100px; transition:0.8s; background-repeat:no-repeat; background-position:center; background-size:cover}
+.tp-content-box a:hover .tp-content{height:250px !important}
+.tp-content-box .tp-new_position{ position:absolute; left:40px; margin:0 !important; bottom:30px}
+.tp-content-box .tp-new_position2{ position:absolute; left:95px; margin:0 !important; bottom:25px}
+.tp-content-box .tp-new_position3{ position:absolute; right:40px; margin:0 !important; bottom:30px}
+.tp-blank_img{ max-width:438px; width:100%}
+@media (max-width:767px){.tp-blank_img{ max-width:100%;}}
+@media (max-width:450px){
+#tp-main-wrap #tp-section5 .tp-content-box .tp-content h1{ font-size:24px}
+.tp-content-box .tp-new_position{left:30px;}
+.tp-content-box .tp-new_position2{left:80px;}
+}
+</style>
 <style>.tp-content-box:first-child a .tp-content{
 height:250px}
 .tp-content-box .tp-new_position{
@@ -78,6 +96,7 @@ height:250px}
   margin:0 !important;
   bottom:30px}
 </style>
+<!-- 추가한부분 -->
 <div class="tp-row tp-no-gutters">
 <div class="tp-col-12 tp-col-lg-12"> 
   <?php $count = (count($products_avgScore) > 3) ? 3 : count($products_avgScore); for($i=0 ; $i < $count; $i++){?>
@@ -143,18 +162,23 @@ height:250px}
 </div>
 <?= $this->pagination->create_links();?>
 </div> 
+<!-- 추가한 부분 -->
+<script>
+$(function(){
+	$(".tp-content-box:nth-child(2) a .tp-content, .tp-content-box:nth-child(3) a .tp-content").hover(
+		function() {
 
-<!-- <script>$(function(){
-  $(".content-box:nth-child(2) a .content, .content-box:nth-child(3) a .content").hover(function(){
-    $(".content-box:first-child a .content").css("height","100px");
-  }
-                                                                                        ,function(){
-    $(".content-box:first-child a .content").css("height","250px");
-  }
-                                                                                       );
-}
-       );
-</script>  -->
+			$(".tp-content-box:first-child a .tp-content").css("height","100px");
+		}, 
+		function() {
+
+			$(".tp-content-box:first-child a .tp-content").css("height","250px");	
+		}
+	);
+});
+</script>
+<!-- // 추가한 부분 -->
+
 <!-- <script src="/public/sangmin/js/jquery-3.2.1.min.js">
 </script>  -->
 <!-- <script>$('#jssor_1').width($('#section2').width()).children('div').width($('#section2').width());
@@ -169,10 +193,10 @@ $(window).resize(function(){
 </script> 
 <script src="/public/sangmin/js/jssor.slider-26.5.0.min.js">
 </script> 
-<script src="public/sangmin/js/custom/main.js">
+<script src="/public/sangmin/js/custom/main.js">
 </script> 
-<script src="public/sangmin/js/custom/navAction.js">
+<script src="/public/sangmin/js/custom/navAction.js">
 </script> 
-<script src="public/sangmin/js/main_section2.js">
+<script src="/public/sangmin/js/main_section2.js">
 </script>  -->
 </div>

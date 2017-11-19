@@ -369,17 +369,7 @@
     <!-- <script src="/public/sangmin/js/mobile_search.js"></script>  -->
     <script src="/public/sangmin/js/tp-mobile_search.js"></script> 
  
-    <script>$(function(){
-        $(".tp-content-box:nth-child(2) a .tp-content, .tp-content-box:nth-child(3) a .tp-content").hover(function(){
-          $(".tp-content-box:first-child a .tp-content").css("height","100px");
-        }
-                                                                                              ,function(){
-          $(".tp-content-box:first-child a .tp-content").css("height","250px");
-        }
-                                                                                             );
-      }
-             );
-    </script> 
+
     <script>$("#newsLetter").keypress(function(e){
         var key=e.which;
         if(key==13) {
