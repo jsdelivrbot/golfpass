@@ -119,7 +119,7 @@ height:250px}
         </div>
         <div class="tp-new_position3"> 
           <span>
-            <i class="tp-xi-star" style="color:#fcbf3f;">
+            <i class="xi-star" style="color:#fcbf3f;">
             </i>
           </span> 
           <span style="color:#fff; font-family: 'notokr-demilight', sans-serif; font-size: 18px;">
