@@ -291,8 +291,9 @@
     <div id="tp-bg-div" style="">
     </div>
 
-    <div style="margin-top:100px;"></div>
+    <div style="margin-top:180px;"></div>
     <?php load_view($content_view)?>
+    <div style="margin-bottom:100px;"></div>
     <footer id='tp-footer' class='tp-main-footer tp-container-fluid'>
         <div id="tp-partner">
             <div class="tp-row" style="width:100%;">
