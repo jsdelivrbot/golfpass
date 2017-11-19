@@ -24,6 +24,11 @@
     .fa-coffee {
         font-size: 200px
     }
+    
+    .w3-twothird p img {
+        width: 100% !important;
+        height: auto !important;
+    }
 
 </style>
 
