@@ -10,9 +10,9 @@
     <tbody>
 <?php for($i=0 ; $i<count($rows) ; $i++){?>
     <tr>
-        <td class="selectable"><?=$rows[$i]->id?></td>
-        <td class="selectable"><?=$rows[$i]->email?></td>
-        <td class="selectable"><?=$rows[$i]->created?></td>
+        <td class=""><?=$rows[$i]->id?></td>
+        <td class=""><?=$rows[$i]->email?></td>
+        <td class=""><?=$rows[$i]->created?></td>
         
     </tr>
 <?php }?>
