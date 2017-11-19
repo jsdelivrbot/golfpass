@@ -1,21 +1,3 @@
-<!DOCTYPE html>
-<html lang="en" class="no-js">
-    <!-- <head>
-        <title>Search for Hotels in the Mr &amp; Mrs Smith Collection</title> -->
-
-        <!-- <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="description" content="From Luxury City Hotel stays to Boutique Bed and Breakfasts, use our search to find your perfect getaway or family holiday">
-        <meta name="keywords" content="Search, hotels, advanced search">
-        <meta name="sailthru.tags" content="">
-        <meta name="author" content="Mr &amp; Mrs Smith">
-        <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" />
-        <meta name="HandheldFriendly" content="True" /> 		<meta name="MobileOptimized" content="320" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-        <meta name="robots" content="index,follow,noodp,noydir" />
-        <meta name="sailthru.image.thumb" content="" />
-        <meta name="apple-itunes-app" content="app-id=445834586"> -->
-
         <link rel="canonical" href="https://www.mrandmrssmith.com/hotel-search" />
         <link rel="next" href="https://www.mrandmrssmith.com/hotel-search?page=2" />
         <link rel="preload" href="/public/etc/hotel/bundles/familysystem/fonts/proximanova-regular-webfont.woff2" as="font" type="font/woff2" crossorigin>
@@ -24,10 +6,8 @@
         <link rel="preload" href="/public/etc/hotel/bundles/familysystem/fonts/proximanova-lightit-webfont.woff2" as="font" type="font/woff2" crossorigin>
         <link rel="stylesheet" type="text/css" href="/public/etc/hotel/css/SearchBundle/css.css" />
         <link rel="stylesheet" type="text/css" href="/public/etc/hotel/css/SystemBundle/css.css" />
-        <!-- <link rel="stylesheet" type="text/css" href="/public/etc/hotel/css/css2.css" /> -->
         <link rel="dns-prefetch" href="https://cdn.polyfill.io">
         <link rel="dns-prefetch" href="https://code.jquery.com">
-        <!-- <link rel="stylesheet" type="text/css" href="/public/etc/hotel/css/css1.css" /> -->
 
         <noscript>
             <style type="text/css">
