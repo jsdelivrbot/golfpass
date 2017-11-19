@@ -44,7 +44,8 @@ class Main extends Base_Controller
                 'title'=>$product->name,
                 'imagePath'=>$photo,
                 'score' => $product->avg_score,
-                "article"=>$product->desc
+                "article"=>$product->desc,
+                "href" =>site_url(shop_product_uri."/get/{$product->id}")
             ));
         } 
 

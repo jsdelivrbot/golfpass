@@ -100,7 +100,7 @@ $(function() {
 				input += '<div>'
 				input += '<ul class="search-items">'
 				for (var i = 0; i < data.length; i++) {
-					input += '<a href="' + data[i].경로 + '">';
+					input += '<a href="' + data[i].href + '">';
 					input += '<li class="search-item d-flex align-items-strech">'
 					input += '<div class="image d-flex align-items-center justify-content-center">'
 					input += '<img class="rounded-circle" src="' + data[i].imagePath + '" alt="검색이미지" width="100%;" height="100%;">'
