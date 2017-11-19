@@ -12,7 +12,37 @@ class Product extends Base_Controller {
     {
         
     }
+    function gets_by_hash($where)
+    {
 
+        $where = urldecode($where);
+        $this->load->model("shop/products_model");
+        $this->db->or_like("p.hashtag",$where);
+        $this->db->or_like("p.name",$where);
+        $products=$this->products_model->gets_by_ranking('avg_score');
+        // var_dump($products);
+        $this->products_model->_gets_with_pgi_func(
+            "style_hotel",
+            function() use($products)
+            {
+                return count($products);
+            },
+            function($offset,$per_page) use($products)
+            {
+                return array_slice($products,$offset,$per_page);
+            },
+            null,
+            array("per_page"=>10,"is_numrow"=>false)
+        );
+       
+        $data['category']= (object)array("name"=>$where);
+        $data['parent_categories']= (object)array("name"=>"");
+      
+        $data['products'] =$products;
+           // $this->_view("gets",$data);
+           $this->_template("gets",$data,'golfpass2');
+           // $this->_view("gets",$data);
+    }
 	public function gets($id =1){
         
         // $products =$this->products_model->gets_by_category_id_recursive_tree($id);        

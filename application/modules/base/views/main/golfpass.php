@@ -129,7 +129,7 @@
                 </figure></a>
                 <div class="search-container d-flex align-items-center position-relative">
                                     <i class="xi xi-search"></i>
-                                    <input type="text" placeholder="관심있는 나라나 골프장을 검색해보세요!">
+                                    <input id="serach"type="text" placeholder="관심있는 나라나 골프장을 검색해보세요!">
                                     <!--NOTE 검색결과 창-->
                                     <div class="search-content-container position-absolute w-100">
 
@@ -721,6 +721,18 @@ $(function(){
 </script>
 
 <!-- 뉴스레터 끝-->
+<!-- 검색창 엔터치면 결과창으로 시작 -->
+<script>
+ $("#serach").keypress(function (e) {
+        var key = e.which;
+        if(key == 13)  // the enter key code
+        {
+            var value =$(this).val();
+            window.location.href="<?=site_url(shop_product_uri."/gets_by_hash/")?>"+value; 
+        }
+    });     
+</script>
+<!-- 검색창 엔터치면 결과창으로 끝 -->
 </body>
 
 </html>

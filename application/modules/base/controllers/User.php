@@ -101,6 +101,7 @@ class User extends Base_Controller
                             {
                                 $hash =password_hash($password, PASSWORD_BCRYPT);
                                 $this->db->set("password",$hash);
+                                $this->db->where("userName",$this->session->userdata("auth_userName"));
                                 $this->db->update("users");
                                 alert("비밀번호가 변경되었습니다.");
                                 my_redirect(user_uri."/login");

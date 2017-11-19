@@ -94,6 +94,9 @@ class Products_Model extends Board_Model{
         //product_option 사진들
         $sub_query = "SELECT group_concat(o.name) FROM `product_option` AS `o` WHERE o.product_id= p.id AND o.kind = 'photo'";
         $query .= ",($sub_query) as photos";
+        //호텔
+        $sub_query = "SELECT p_ref_h.hotel_id FROM `p_ref_hotel` as p_ref_h WHERE p_ref_h.product_id = p.id LIMIT 0,1";
+        $query .= ",($sub_query) as hotel_id";
         
         $this->db->select("p.*".$query);
         $this->db->from("products as p");
