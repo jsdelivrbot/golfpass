@@ -106,8 +106,17 @@
                 left: 80px
             }
         }
-
+        
     </style>
+
+    <!-- 검색창 고치기시작 -->
+    <!-- <style>
+        nav > div
+        {
+            width :10px;
+        }
+    </style> -->
+    <!-- 검색창 고치기시작 -->
 </head>
 
 <body>
@@ -228,14 +237,14 @@
                     <img src="/public/sangmin/img/icon/logo_mobile.png" class="" alt="">
                 </figure>
                 <a href="<?=site_url()?>">
-                    <figure class="tp-mb-0 tp-align-items-center tp-d-none tp-d-lg-flex">
+                    <figure style="margin:0px;"class="tp-mb-0 tp-align-items-center tp-d-none tp-d-lg-flex">
                         <img src="/public/sangmin/img/icon/logo.png" class="" alt="">
                     </figure>
                 </a>
-                <div class="tp-search-container tp-d-flex tp-align-items-center tp-position-relative">
+                <div style="<?php if(strpos(current_url(),"category/gets")>-1 || strpos(current_url(),"product/gets")>-1) echo "margin-left:42px;"?>width:81%; height:43px; padding:10px;"class="tp-search-container tp-d-flex tp-align-items-center tp-position-relative">
                     <i class="xi xi-search">
             </i>
-                    <input id="tp-serach" type="text" placeholder="관심있는 나라나 골프장을 검색해보세요!">
+                    <input style="width:71%; height:41px; padding:1px;" id="tp-serach" type="text" placeholder="관심있는 나라나 골프장을 검색해보세요!">
                     <div class="tp-search-content-container tp-position-absolute tp-w-100">
                     </div>
                 </div>
