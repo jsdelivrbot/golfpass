@@ -67,7 +67,7 @@ class Mypage extends Base_Controller {
         $this->load->model('product_orders_model');
         $data['user'] = $this->user;
         $data['page_name'] ="주문내역";         
-        $data['ths'] = array("번호","주문명","주문금액","결제방식","후기작성여부");
+        $data['ths'] = array("번호","주문명","주문금액","결제방식","후기작성 여부");
         $rows =$this->product_orders_model->gets_with_pgi();
         foreach($rows as $key=>$row)
         {
