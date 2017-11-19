@@ -17,6 +17,7 @@
     <script src="/public/framework/semantic/src/less.min.js"></script>
     <?php }else{?>
     <link rel="stylesheet" type="text/css" href="/public/framework/semantic/out/semantic.css">
+    <link rel="stylesheet" type="text/css" href="/public/framework/semantic/out/semantic.js">
     <?php }?>
     <link rel="stylesheet" href="/public/css/bootstrap.css">
     <script src="/public/tmp/sangmin/js/jquery-3.2.1.min.js"></script>

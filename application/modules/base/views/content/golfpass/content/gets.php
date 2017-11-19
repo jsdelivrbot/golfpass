@@ -3,6 +3,7 @@
 <script src="/public/framework/semantic/src/less.min.js"></script>
 <?php }else{?>
 <link rel="stylesheet" type="text/css" href="/public/framework/semantic/out/semantic.css">
+<link rel="stylesheet" type="text/css" href="/public/framework/semantic/out/semantic.js">
 <?php }?>
 
 <div id="tp-panel-wrap">

@@ -1,5 +1,15 @@
+<?php if(is_semantic_dev) {?>
+    <link rel="stylesheet/less" type="text/css" href="/public/framework/semantic/src/semantic.less">
+<script src="/public/framework/semantic/src/less.min.js"></script>
+<?php }else{?>
+<link rel="stylesheet" type="text/css" href="/public/framework/semantic/out/semantic.css">
+<link rel="stylesheet" type="text/css" href="/public/framework/semantic/out/semantic.js">
+
+<?php }?>
+
+
 총금액<div id="total_price"><?=$total_price?></div>
-<form  id="form_order" onsubmit="alert_payment_window(this); return false;"  action="<?=site_url(shop_order_uri."/golfpass_ajax_add")?>"method ="post">
+<form  class="ui form" id="form_order" onsubmit="alert_payment_window(this); return false;"  action="<?=site_url(shop_order_uri."/golfpass_ajax_add")?>"method ="post">
 
 
     <!-- 홀수 추가

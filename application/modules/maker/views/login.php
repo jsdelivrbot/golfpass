@@ -8,6 +8,7 @@
 
 
 <link rel="stylesheet" type="text/css" href="/public/framework/semantic/out/semantic.css">
+<link rel="stylesheet" type="text/css" href="/public/framework/semantic/out/semantic.js">
 
 <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/semantic.min.css"> -->
 <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/semantic.min.js"></script>

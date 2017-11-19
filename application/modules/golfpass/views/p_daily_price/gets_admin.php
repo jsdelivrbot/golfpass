@@ -6,6 +6,7 @@
 <script src="/public/framework/semantic/src/less.min.js"></script>
 <?php }else{?>
 <link rel="stylesheet" type="text/css" href="/public/framework/semantic/out/semantic.css">
+<link rel="stylesheet" type="text/css" href="/public/framework/semantic/out/semantic.js">
 <?php }?>
 <!-- 아일론 슬라이더 -->
 <script src="<?=domain_url("/public/lib/ion.rangeSlider/js/ion-rangeSlider/ion.rangeSlider.min.js")?>"></script>
