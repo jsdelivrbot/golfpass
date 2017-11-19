@@ -73,6 +73,7 @@
     </style>
   </head>
   <body>
+    
     <div class="tp-menu-container tp-position-fixed">
       <div class="tp-menu-sliders">
       </div>
@@ -251,6 +252,8 @@
     </header>
     <div id="tp-bg-div" style="">
     </div> 
+
+    <div style="margin-top:100px;"></div>
     <?php load_view($content_view)?>
     <footer id='tp-footer' class='tp-main-footer tp-container-fluid'>
       <div id="tp-partner">
