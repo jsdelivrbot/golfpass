@@ -17,7 +17,7 @@
                 <style>
                 .content-box:first-child a .content{ height:250px}
 				.content-box .new_position{ position:absolute; left:40px; margin:0 !important; bottom:30px}
-				.content-box .new_position2{ position:absolute; left:110px; margin:0 !important; bottom:19px}
+				.content-box .new_position2{ position:absolute; left:95px; margin:0 !important; bottom:25px}
 				.content-box .new_position3{ position:absolute; right:40px; margin:0 !important; bottom:30px}
 				</style>
                 <!-- //추가한 부분 -->

@@ -471,7 +471,7 @@
 									</div>
                                     <div class="new_position3">
                                         <span><i class="xi-star" style="color:#fcbf3f;"></i></span>
-                                        <span style="color:#fff; font-family: 'notokr-demilight', sans-serif; font-size: 18px;"> <?=(ceil($products_avgScore[$i]->avg_score *10))/10?></p></span>
+                                        <span style="color:#fff; font-family: 'notokr-demilight', sans-serif; font-size: 18px;"> <?=(ceil($products_avgScore[$i]->avg_score *10))/10?></span>
                                     </div>
 								</div>
 							</a>
