@@ -137,7 +137,7 @@ $(function() {
 
 	function loadingPrint() {
 		//로딩 모양 주입용 메소드
-		return '<div class="sk-fading-circle"><div class="sk-circle1 sk-circle"></div><div class="sk-circle2 sk-circle"></div><div class="sk-circle3 sk-circle"></div><div class="sk-circle4 sk-circle"></div><div class="sk-circle5 sk-circle"></div><div class="sk-circle6 sk-circle"></div><div class="sk-circle7 sk-circle"></div><div class="sk-circle8 sk-circle"></div><div class="sk-circle9 sk-circle"></div><div class="sk-circle10 sk-circle"></div><div class="sk-circle11 sk-circle"></div><div class="sk-circle12 sk-circle"></div></div>'
+		return '<div class="tp-sk-fading-circle"><div class="tp-sk-circle1 tp-sk-circle"></div><div class="tp-sk-circle2 tp-sk-circle"></div><div class="tp-sk-circle3 tp-sk-circle"></div><div class="tp-sk-circle4 tp-sk-circle"></div><div class="tp-sk-circle5 tp-sk-circle"></div><div class="tp-sk-circle6 tp-sk-circle"></div><div class="tp-sk-circle7 tp-sk-circle"></div><div class="tp-sk-circle8 tp-sk-circle"></div><div class="tp-sk-circle9 tp-sk-circle"></div><div class="tp-sk-circle10 tp-sk-circle"></div><div class="tp-sk-circle11 tp-sk-circle"></div><div class="tp-sk-circle12 tp-sk-circle"></div></div>'
 	}
 
 });
