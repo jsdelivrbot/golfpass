@@ -419,7 +419,7 @@ class User extends Base_Controller
         {
             if ($this->input->post('auth_key') === null) 
             {
-                $this->_view('phone_auth',array("msg"=>"해당 휴대폰으로 인증키를 보냈습니다. 확인해주세요.",'phone'=>$phone));
+                $this->_view('phone_auth',array("msg"=>"인증키를 보냈습니다. 확인해주세요.",'phone'=>$phone));
                 $auth_key= rand(1000, 9999);
                 $expried_sec = 300;
                 $expried_min = 300/5;
