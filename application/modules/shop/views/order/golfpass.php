@@ -10,7 +10,20 @@
 
 <div class="ui grid container">
     <div class="sixteen wide column">
-총금액<div id="total_price"><?=$total_price?></div>
+
+    
+
+    <div class="ui horizontal statistic">
+  <div class="value">
+  총금액
+  <div id="total_price"><?=number_format($total_price)?></div>
+  </div>
+  <div class="label">
+  </div>
+</div>
+
+
+<!-- <div class="ui header"> </div> -->
 <form  class="ui form" id="form_order" onsubmit="alert_payment_window(this); return false;"  action="<?=site_url(shop_order_uri."/golfpass_ajax_add")?>"method ="post">
 
 
@@ -27,7 +40,7 @@
         <option value="">2인</option>
     </select> -->
 
-    <div class="three fields">
+    <div class="four fields">
         <div class="field">
         <label>기타옵션 추가</label>
             <select class="ui fluid dropdown" name="" id="options">
@@ -63,7 +76,7 @@
 
 <!-- <input type="submit" value="예약"> -->
 
-<!-- <div class="two fields"> -->
+<div class="two fields">
     <div class="field">
         <label>주문자이름</label>
         <input type="text" name="user_name" value="<?=set_value_data($user,'name')?>"><br>
@@ -72,8 +85,8 @@
         <label>휴대폰번호</label>
         <input type="text" name="phone" value="<?=set_value_data($user,'phone')?>"><br>
     </div>
-<!-- </div> -->
-<!-- <div class="two fields"> -->
+</div>
+<div class="two fields">
     <div class="field">
         <label>주소</label>
         <input type="text" name="address" value="<?=set_value_data($user,'address')?>"><br>
@@ -82,7 +95,7 @@
         <label>이메일</label>
         <input type="text" name="email" value="<?=set_value_data($user,'email')?>"><br>
     </div>
-<!-- </div> -->
+</div>
  <input type="hidden" name="product_id" value="<?=$product_id?>">
  <input type="hidden" name="merchant_uid">
     <input type="hidden" name="start_date" value="<?=$start_date?>">
@@ -91,26 +104,29 @@
     <input type="hidden" name="total_price" value="<?=$total_price?>">
     <input type="hidden" name="order_name" value="<?=$product->name?>">
 
- <select name="pay_method" id="">
-    <option value="bank">무통장</option>
-    <option value="card">신용카드</option>
-    <option value="trans">실시간계좌이체</option>
-    <option value="vbank">가상계좌</option>
-    <option value="phone">휴대폰소액결제</option>
-    <!-- 이니시스 전용 -->
-    <option value="samsung">삼성페이</option> 
-    <!-- 이니시스 전용 -->
-    <option value="kpay">KPay앱 직접호출</option>
-    <!-- 이니시스, LGU+ 전용 -->
-    <option value="cultureland">문화상품권</option>
-    <!-- 이니시스, LGU+ 전용 -->
-    <option value="smartculture">스마트문상</option> 
-    <option value="happymoney">해피머니</option> 이니시스 전용
- <!-- LGU+전용 -->
- <!-- <option value="booknlife">도서문화상품권</option> -->
- </select>
-
-<input type="submit" value="주문하기">
+    <div class="four fields">
+    <div class="field">
+        <select class="ui fluid dropdown"name="pay_method" id="">
+            <option value="bank">무통장</option>
+            <option value="card">신용카드</option>
+            <option value="trans">실시간계좌이체</option>
+            <option value="vbank">가상계좌</option>
+            <option value="phone">휴대폰소액결제</option>
+            <!-- 이니시스 전용 -->
+            <option value="samsung">삼성페이</option> 
+            <!-- 이니시스 전용 -->
+            <option value="kpay">KPay앱 직접호출</option>
+            <!-- 이니시스, LGU+ 전용 -->
+            <option value="cultureland">문화상품권</option>
+            <!-- 이니시스, LGU+ 전용 -->
+            <option value="smartculture">스마트문상</option> 
+            <option value="happymoney">해피머니</option> 이니시스 전용
+        <!-- LGU+전용 -->
+        <!-- <option value="booknlife">도서문화상품권</option> -->
+        </select>
+    </div>
+    </div>
+<input class="ui button basic positive" type="submit" value="주문하기">
 
 
 <!-- <input type="submit"> -->
@@ -163,7 +179,7 @@ $(document).ready(function(){
 
 //총금액 변경
         g_totalPrice  += option_price;
-        $("#total_price").text(g_totalPrice);
+        $("#total_price").text(g_totalPrice.toLocaleString('en'));
 
 
         // console.log(option_id);
