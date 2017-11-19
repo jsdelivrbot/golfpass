@@ -93,7 +93,7 @@ class Order extends Base_Controller {
         ->order_by("sort","asc")
         ->get()->result();
 
-        $this->_template("golfpass",$data,"golfpass");
+        $this->_template("golfpass",$data,"golfpass2");
 
     }
     public function index($product_id){
@@ -226,6 +226,9 @@ class Order extends Base_Controller {
     {
         header("content-type:application/json");
 
+        //계산 === 총합계 맞는지 체크 시작
+
+        //시작~끝 날자 , 인수 계산
         $product_id = $this->input->post('product_id');
         $start_date = $this->input->post('start_date');
         $end_date = $this->input->post('end_date');
@@ -236,12 +239,24 @@ class Order extends Base_Controller {
             "end_date"=>$end_date,
             "num_people"=>$num_people
         ));        
+        //총합계애 옵션가격더하기
+        $options = $this->input->post("options[]");
+        $this->load->model("product_option_model");
+        for($i=0; $i < count($options); $i++)
+        {
+            $option_price =$this->product_option_model->_get($options[$i])->price;
+            $total_price += $option_price;
+        }
+
         if((string)$total_price !== (string)$this->input->post('total_price'))
         {
             $data["is_check"] =  false;
             echo json_encode($data);
             return;
         }
+        //계산 === 총합계 맞는지 체크 끝
+
+        //product_orders테이블에 order정보 추가
         $pay_method =$this->input->post('pay_method');
             $status = ($pay_method === 'bank') ? "ready" : "try";
 
@@ -264,12 +279,23 @@ class Order extends Base_Controller {
             $this->db->set('num_people',$num_people);
             $this->db->set('created',"NOW()",false);
             $this->db->insert($this->table);
-    
+            //p_order_options테이브렝 옵션정보 추가시작
+            for($i=0; $i < count($options); $i++)
+            {
+
+                $this->db->set("merchant_uid",$merchant_uid);
+                $this->db->set("option_id",$options[$i]);
+                $option_price =$this->db->insert("p_order_options");
+            }
+            //p_order_options테이브렝 옵션정보 추가끝
+            
+            //p_order_infos 테이블에 동행자정보 추가 시작
             $product_id=$this->input->post('product_id');
             $names_with =$this->input->post("name_with[]");
             $eng_names =$this->input->post("eng_name_with[]");
             $phones =$this->input->post("phone_with[]");
             $emails =$this->input->post("email_with[]");
+
             for($i =0 ; $i < count($names_with) ; $i++){
                 $this->db->set('merchant_uid',$merchant_uid);
                 $this->db->set('product_id',$product_id);
@@ -281,7 +307,7 @@ class Order extends Base_Controller {
                 $this->db->set('name_with',$names_with[$i]);
                 $this->db->insert('p_order_infos');
             }
-
+            //동행자정보 추가 끝
 
             $data["is_check"] =  true;
             echo json_encode($data);

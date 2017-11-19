@@ -1,4 +1,4 @@
-총금액<?=$total_price?>
+총금액<div id="total_price"><?=$total_price?></div>
 <form  id="form_order" onsubmit="alert_payment_window(this); return false;"  action="<?=site_url(shop_order_uri."/golfpass_ajax_add")?>"method ="post">
 
 
@@ -17,13 +17,15 @@
 
     <br>
     기타옵션 추가
-    <select name="" id="">
+    <select name="" id="options">
         <option>선택</option>
     <?php for($i=0; $i<count($options) ; $i++){?>
-        <option value="<?=$options[$i]->id?>"><?=$options[$i]->name?><?=$options[$i]->price?></option>
+        <option data-name="<?=$options[$i]->name?>" data-price="<?=$options[$i]->price?>" value="<?=$options[$i]->id?>"><?=$options[$i]->name?>(<?=$options[$i]->price?>)</option>
         <?php }?>
     </select>
-    <button id="add_option">추가</button>
+    <button type="button" id="add_option">추가</button>
+    <div id="added_option_list">
+    </div>
     <br>
     동행자 정보 입력(<?=$num_people-1?>명)
     <?php for($i = 0 ; $i < $num_people-1; $i++){ ?>
@@ -82,18 +84,71 @@
 <script>
 
 //아이엠포트 초기화
+var g_totalPrice = <?=$total_price?>;
 $(document).ready(function(){
-    
     $("#add_option").click(function()
     {
-        
+        $options =$("#options");
+        $selected =  $options.find("option:selected");
+        var option_id= $selected.val();
+        var option_price = $selected.data('price');
+        var option_name = $selected.data('name');
+        var option_text = $selected.text();
+//옵션 리스트에 추가
+        $list =$("#added_option_list");
+
+        var option_item = document.createElement("div");
+        option_item.setAttribute("class","optionItem");
+        option_item.setAttribute("data-price",option_price);
+        $option_item = $(option_item);
+        $list.append(option_item);
+    //히든태그추가 시작
+        var input = document.createElement("input");
+        input.setAttribute("type","hidden");
+        input.setAttribute("value",option_id);
+        input.setAttribute("name","options[]");
+        $option_item.append(input);
+    //히든태그추가 끝
+    //옵션추가 시작
+        var option = document.createElement("div");
+        option.innerHTML = option_text;
+        $option_item.append(option);
+    //옵션추가 끝
+        var removeBtn = document.createElement("button");
+        removeBtn.setAttribute("type","button");
+        removeBtn.setAttribute("onclick","  g_totalPrice-= $(this).parent('.optionItem').data('price');$('#total_price').text(g_totalPrice); $(this).parent('.optionItem').remove();");
+        removeBtn.innerHTML = "삭제";
+        $option_item.append(removeBtn);
+//옵션 리스트에 추가 끝
+
+//총금액 변경
+        g_totalPrice  += option_price;
+        $("#total_price").text(g_totalPrice);
+
+
+        // console.log(option_id);
+        // console.log(option_price);
+        // console.log(option_name);
+        // $.ajax({
+        //     type:"post",
+        //     dataType:"json",
+        //     url : "",
+        //     data:{
+        //         option_id:option_id
+        //     },
+        //     success:function(data)
+        //     {
+
+        //     }
+        // });
+        // console.log(2);
     });
 
 });
 
    
 
-})
+
 
 IMP.init('imp52394971'); // 아임포트 관리자 페이지의 "시스템 설정" > "내 정보" 에서 확인 가능
 
@@ -114,12 +169,15 @@ function validation(e){
 //결제 ajax로 총가격 체크후 iamport api 불러오기
 function alert_payment_window(e)
 {
+    
     $form =$(e);
+    $form.find("input[name=total_price]").val(g_totalPrice);
     var pay_method = $form.find("select[name=pay_method] option:selected").val();
     var merchant_uid = 'merchant_' + new Date().getTime(); //고유주문번호 merchant_uid
+    // console.log(merchant_uid);
     $form.find("input[name=merchant_uid]").val(merchant_uid);
     var name = $form.find("input[name=user_name]").val(); //유저정보
-    var totalPrice = $form.find("input[name=total_price]").val();
+    var totalPrice = g_totalPrice;
     var startDate = $form.find("input[name=start_date]").val();
     var endDate = $form.find("input[name=end_date]").val();
     var product_id = $form.find("input[name=product_id]").val();

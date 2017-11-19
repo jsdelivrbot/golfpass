@@ -2,7 +2,9 @@
 <?php for($i=0;$i < count($order_infos) ;$i++){   ?>
 <ul>
 <li>동행자이름 <?=$order_infos[$i]->name_with?></li>
-<li>비자 <?=$order_infos[$i]->visa?></li>
+<li>영어이름 <?=$order_infos[$i]->eng_name_with?></li>
+<li>휴대폰 <?=$order_infos[$i]->phone_with?></li>
+<li>이메일 <?=$order_infos[$i]->email_with?></li>
 </ul>
 <?php }?>
 

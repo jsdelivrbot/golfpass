@@ -31,7 +31,7 @@ class Init extends Init_Controller {
         }
         $this->p_daily_price();
         $this->p_order_infos();
-
+        $this->p_order_options();
         
         // $sample_product_id =$this->products_model->_add(array("name"=>"222 C.C","eng_name"=>"product_name","desc"=>"샘플내용",'hole_count'=>'18'));
         // $this->product_reviews_model->_add(array(
@@ -319,6 +319,30 @@ class Init extends Init_Controller {
              return false;
          }
         
+    }
+    function p_order_options()
+    {
+        //p_order_options 테이블 만들기
+        $tb_name = 'p_order_options';
+        if(!$this->db->table_exists($tb_name)){
+            $result = $this->db->query("CREATE TABLE `$tb_name`(
+            `id` INT UNSIGNED NULL AUTO_INCREMENT, 
+            `merchant_uid` varchar(100) NOT NULL,
+            `option_id` INT UNSIGNED NOT NULL, 
+            `created` datetime NOT NULL DEFAULT NOW(),
+            PRIMARY KEY (`id`),
+            KEY `idx_merchant_uid` (`merchant_uid`),
+            KEY `idx_option_id` (`option_id`),
+            KEY `idx_merchant_uid_option_id` (`option_id`,`merchant_uid`)
+             ) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
+                
+            if($result) echo("success create $tb_name ");
+            else echo("failed create $tb_name");
+        }else{
+            echo "already table $tb_name exists";
+        }
+        echo "<br>";
+
     }
     function p_order_infos()
     {
