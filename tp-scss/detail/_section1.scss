@@ -1,14 +1,14 @@
 @charset "UTF-8";
 
-#detail-wrap {
-    #section1 {
+#tp-detail-wrap {
+    #tp-section1 {
         color: white;
         @include backcover('../sangmin/img/background/bg2.jpg');
         background-repeat: no-repeat;
         position: relative;
         padding: 0;
 
-        #section1-wrap {
+        #tp-section1-wrap {
             color: white;
             position: relative;
             padding: 120px 0 40px;
@@ -18,7 +18,7 @@
                 z-index: 2;
             }
 
-            #detail_slide {
+            #tp-detail_slide {
                 max-width: 574px;
                 margin: 0 auto;
                 padding: 10px;
@@ -29,7 +29,7 @@
                 }
             }
 
-            #detail {
+            #tp-detail {
                 position: relative;
                 box-sizing: border-box;
                 line-height: 1.2;
@@ -38,12 +38,12 @@
                     padding: 0 30px 0 0;
                 }
 
-                #regine {
+                #tp-regine {
                     font-family: 'notokr-regular', sans-serif;
                     font-size: 16px;
                 }
 
-                #title {
+                #tp-title {
                     margin-top: 12px;
                     font-family: 'TmonMonsori';
                     font-size: 40px;
@@ -53,19 +53,19 @@
                     }
                 }
 
-                #title-en {
+                #tp-title-en {
                     font-family: 'notokr-regular', sans-serif;
                     font-size: 16px;
                     margin-bottom: 0;
                 }
 
-                #content {
+                #tp-content {
                     margin-top: 30px;
                     font-size: 14px;
                     line-height: 1.6;
                     font-family: 'Noto Sans', sans-serif;
 
-                    #sub-title {
+                    #tp-sub-title {
                         font-family: 'notokr-medium', sans-serif;
                         color: $sub-title-color;
                         margin-bottom: 5px;
@@ -77,7 +77,7 @@
                     }
                 }
 
-                #score {
+                #tp-score {
                     //작은별
                     position: absolute;
                     right: 10%;
@@ -107,7 +107,7 @@
                 }
             }
 
-            #chart {
+            #tp-chart {
                 display: none;
                 @media (min-width: 1200px) {
                     display: flex;
@@ -115,7 +115,7 @@
             }
         }
 
-        #shadow {
+        #tp-shadow {
             z-index: 1;
             position: absolute;
             width: 100%;
@@ -128,18 +128,18 @@
     }
 }
 
-#chart {
+#tp-chart {
     width: 400px;
     height: 400px;
 }
 
-#chart-canvas {
+#tp-chart-canvas {
     width: 80% !important;
     height: auto !important;
     position: relative
 }
 
-#chart-score {
+#tp-chart-score {
     position: absolute;
     width: 100px;
     height: 80px;
@@ -161,48 +161,48 @@
     }
 }
 
-#score .score_num {
+#tp-score .score_num {
     vertical-align: super
 }
 
 @media (min-width:1200px) {
-    #chart {
+    #tp-chart {
         display: block !important
     }
-    #score .score_num {
+    #tp-score .score_num {
         display: none
     }
 }
 
 @media (min-width:1024px) and (max-width:1735px) {
-    #detail_slide {
+    #tp-detail_slide {
         width: 459px;
         max-width: 459px !important;
     }
-    #detail_slide .slick-slide img {
+    #tp-detail_slide .slick-slide img {
         width: 100%;
         max-width: 459px;
         max-height: 302px
     }
-    #detail_slide .slider-nav {
+    #tp-detail_slide .slider-nav {
         width: 459px;
     }
-    #chart-canvas {
+    #tp-chart-canvas {
         width: 65% !important
     }
 }
 
 @media (min-width:768px) and (max-width:1023px) {
-    #detail_slide {
+    #tp-detail_slide {
         width: 402px;
         max-width: 402px !important
     }
-    #detail_slide .slick-slide img {
+    #tp-detail_slide .slick-slide img {
         width: 100%;
         max-width: 402px;
         max-height: 265px
     }
-    #detail_slide .slider-nav {
+    #tp-detail_slide .slider-nav {
         width: 402px;
     }
 }

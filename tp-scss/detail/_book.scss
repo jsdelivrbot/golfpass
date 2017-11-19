@@ -1,13 +1,13 @@
 @charset "utf-8";
 
-#book-box-wrap {
+#tp-book-box-wrap {
 	z-index: 999;
     top: -80px;
 		@media (max-width: 991px) {
 			top: 0;
 		}
 
-	#book-box {
+	#tp-book-box {
 		font-family: 'Noto Sans', sans-serif;
 		color: #fff;
 		z-index: 1200;
@@ -15,18 +15,18 @@
 			width: 100%;
 		}
 
-		#personnel {
+		#tp-personnel {
 			//인원 박스
 			background-color: #71b051;
 			padding: 15px;
 			height: 80px;
 
-			.box-title {
+			.tp-box-title {
 				font-family: 'notokr-regular', sans-serif;
 				font-size: 16px;
 				display: block;
 			}
-			#count-box{
+			#tp-count-box{
 				select{
 					padding: 0 10px 0 15px;
 					width: 90px;
@@ -43,11 +43,11 @@
 
 		}
 
-		#dateBox {
+		#tp-dateBox {
 			padding: 20px;
 			background-color: black;
             
-            .custom-select {
+            .tp-custom-select {
 					box-sizing: border-box;
 					padding: 0 15px 0 15px;
 					width: 45%;
@@ -59,7 +59,7 @@
 					color: #b2b2b2;
             }
             
-			.form-group {
+			.tp-form-group {
 				background-color: white;
 				color: black;
 				width: 45%;
@@ -132,7 +132,7 @@
 	}
 }
 
-.wishlist {
+.tp-wishlist {
     font-family: 'notokr-regular', sans-serif;
     font-size: 14px;
     color: #4c4c4c;

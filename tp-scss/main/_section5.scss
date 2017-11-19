@@ -1,11 +1,11 @@
 @charset "utf-8";
 
-#main-wrap {
-	#section5 {
+#tp-main-wrap {
+	#tp-section5 {
         padding-top: 100px !important;
 		font-family: 'notokr-medium', sans-serif;
 
-		.category {
+		.tp-category {
 			//카테고리 버튼 컨테이너
 
 			button {
@@ -27,9 +27,9 @@
 			}
 		}
 
-		.content-box {
+		.tp-content-box {
 			//1~3위까지
-			.content {
+			.tp-content {
 				border-radius: 10px;
 				span {
 					//동그란 순위 1,2,3
@@ -70,7 +70,7 @@
 			}
 		}
 
-		.list-after-four {
+		.tp-list-after-four {
 			//4위부터~
 			font-family: 'notokr-medium', sans-serif;
 
@@ -100,13 +100,13 @@
 	}
 }
 
-.ranking_ghost {
+.tp-ranking_ghost {
     @media (max-width: 575px) {
         display: none;
     }
 }
 
-.justify-content-center {
+.tp-justify-content-center {
     a {
         p {
             font-family: 'notokr-demilight', sans-serif;
@@ -116,11 +116,11 @@
     }
 }
 
-.new_position2 {
+.tp-new_position2 {
     width:50%;
 }
 
-.new_position3 {
+.tp-new_position3 {
     @media (max-width: 440px) {
         display: none;
     }

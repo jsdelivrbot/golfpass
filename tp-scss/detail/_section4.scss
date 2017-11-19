@@ -1,5 +1,5 @@
-#detail-wrap {
-	#section4 {
+#tp-detail-wrap {
+	#tp-section4 {
 		p {
 			margin-bottom: 0;
 		}
@@ -7,7 +7,7 @@
 		width: 100%;
 		margin-top: 95px;
 
-		.review-warning-text {
+		.tp-review-warning-text {
 			width: 100%;
 			max-width: 500px;
 			height: 100px;
@@ -32,18 +32,18 @@
 			}
 		}
 
-		#review-box {
+		#tp-review-box {
 			font-size: 0.8rem;
 			width: 100%;
-			.review {
+			.tp-review {
         margin-top: 60px;
 				background-color: #fcfcfc;
 				border: 1px solid #e6e6e6;
 				color: #bfc5cb;
 				border-radius: 8px;
         width: 99%;
-				.profile {
-					.proflie-img {
+				.tp-profile {
+					.tp-proflie-img {
 						padding: 15px;
 
 						img {
@@ -52,7 +52,7 @@
 						}
 					}
 
-					.proflie-name {
+					.tp-proflie-name {
 						font-family: 'notokr-regular', sans-serif;
 						font-size: 14px;
 
@@ -62,7 +62,7 @@
 					}
 				}
 
-				.content {
+				.tp-content {
 					font-family: 'notokr-regular', sans-serif;
 					font-size: 14px;
 					color: #868e93;
@@ -70,10 +70,10 @@
           width: 82%;
 				}
 
-				.score-box {
+				.tp-score-box {
 					margin-top: 50px;
 
-					.score {
+					.tp-score {
 						font-family: 'notokr-thin', sans-serif;
 						font-size: 65px;
 						color: #1ba545;
@@ -101,7 +101,7 @@
 								color: #868e93;
 							}
 
-							.line {
+							.tp-line {
 								box-sizing: border-box;
 								margin: 0 20px;
 								flex-grow: 1;
@@ -111,7 +111,7 @@
 					}
 				}
 
-				.date {
+				.tp-date {
 					font-family: 'notokr-regular', sans-serif;
 					font-size: 14px;
 					color: #868e93;
@@ -121,13 +121,13 @@
 			}
 		}
 
-		#all {
+		#tp-all {
 			margin: 60px auto 80px;
 			position: relative;
 			width: 25%;
 			border-top: 1px solid #ebebeb;
 
-			#circle {
+			#tp-circle {
 				cursor: pointer;
 				margin-top: 40px;
 				min-width: 100px;

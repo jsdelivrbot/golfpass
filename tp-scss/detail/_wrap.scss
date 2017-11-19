@@ -1,12 +1,12 @@
-#detail-wrap {
+#tp-detail-wrap {
 	width: 100%;
 	height: 100%;
 	position: relative;
 	@media (min-width: 1440px) {
-		#section1-wrap,
-		#section2,
-		#section4,
-		#section5 {
+		#tp-section1-wrap,
+		#tp-section2,
+		#tp-section4,
+		#tp-section5 {
 			max-width: 80%;
 			margin: 0 auto;
 		}

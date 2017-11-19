@@ -1,9 +1,9 @@
 @charset "utf-8";
-#main-wrap {
-    #section6 {
+#tp-main-wrap {
+    #tp-section6 {
                 padding-top: 100px !important;
         font-family: 'notokr-medium', sans-serif;
-        .trans-box {
+        .tp-trans-box {
             /*말꼬리..*/
             -ms-transform: rotate(45deg);
             /* IE 9 */
@@ -15,7 +15,7 @@
             left: 0;
             z-index: -1;
         }
-        .review-box {
+        .tp-review-box {
             /*연필 리뷰 컨테이너*/
             top: 20%;
             right: 5%;
@@ -25,12 +25,12 @@
                 font-size: 12px;
             }
         }
-        .panel-item {
+        .tp-panel-item {
             img {
                 margin: 0 20px;
             }
         }
-        .panel-content {
+        .tp-panel-content {
             padding: 15px;
             h4 {
                 font-family: 'notokr-regular', sans-serif;

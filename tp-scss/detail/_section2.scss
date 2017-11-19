@@ -1,7 +1,7 @@
 @charset "utf-8";
 
-#detail-wrap {
-	#section2 {
+#tp-detail-wrap {
+	#tp-section2 {
 		position: relative;
         max-width: 1440px;
 		font-family: 'Noto Sans', sans-serif;
@@ -10,7 +10,7 @@
 			/*width: 75%;*/
 		}
 
-		#section2-wrap {
+		#tp-section2-wrap {
 			position: relative;
 			&> section {
 				@media (min-width: 768px) {
@@ -22,7 +22,7 @@
 				//리스트간 여백
 				margin-top: 100px;
 
-				.title-box {
+				.tp-title-box {
 					padding: 30px 0;
 					margin-right: 80px;
 
@@ -52,7 +52,7 @@
 				}
 			}
 
-			.list-content {
+			.tp-list-content {
 				//리스트!
 				margin-left: 10%;
 				//10px위여백
@@ -83,7 +83,7 @@
 				}
 			}
 
-			#section-5-list-content {
+			#tp-section-5-list-content {
 				margin-left: 10%;
 				margin-top: 10px;
 

@@ -14,29 +14,29 @@ a:hover{
   text-decoration: none;
 }
 @for $i from 1 through 80 {
-    .mt-#{$i} {
+    .tp-mt-#{$i} {
         margin-top: #{$i}px;
     }
-    .mb-#{$i} {
+    .tp-mb-#{$i} {
         margin-bottom: #{$i}px;
     }
-    .ml-#{$i} {
+    .tp-ml-#{$i} {
         margin-left:#{$i}px;
     }
-    .mr-#{$i} {
+    .tp-mr-#{$i} {
         margin-right: #{$i}px;
     }
     //패딩
-    .pt-#{$i} {
+    .tp-pt-#{$i} {
         padding-top: #{$i}px;
     }
-    .pb-#{$i} {
+    .tp-pb-#{$i} {
         padding-bottom: #{$i}px;
     }
-    .pl-#{$i} {
+    .tp-pl-#{$i} {
         padding-left: #{$i}px;
     }
-    .pr-#{$i} {
+    .tp-pr-#{$i} {
         padding-right: #{$i}px;
     }
 }

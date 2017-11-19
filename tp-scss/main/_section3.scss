@@ -1,6 +1,6 @@
 @charset "utf-8";
-#main-wrap {
-  #section3 {
+#tp-main-wrap {
+  #tp-section3 {
       padding-top: 100px !important;
 	.item {
 	  //item 4개부터 display-none
@@ -15,7 +15,7 @@
 	  figure {
 		width: 100%;
 		font-family: "notokr-regular";
-		.content {
+		.tp-content {
 		  //파란색 바탕
 		  background-color: #06adef;
 		  p, i {
@@ -24,7 +24,7 @@
 			font-size: 12px;
 		  }
 		}
-		.price {
+		.tp-price {
 		  //가격
 		  bottom: 20px;
 		  left: 20px;

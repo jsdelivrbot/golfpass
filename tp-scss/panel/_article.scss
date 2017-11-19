@@ -1,10 +1,10 @@
 @charset "utf-8";
-#panel-wrap{
-	#panel-article {
+#tp-panel-wrap{
+	#tp-panel-article {
 		margin-top: 100px;
 		width: 100%;
 		font-family: 'Noto Sans', sans-serif;
-		#panel-title {
+		#tp-panel-title {
 			//h1 "골프패스 패널 소개" 부분
                 font-family: 'notokr-demilight', sans-serif;
                 font-size: 32px;
@@ -27,10 +27,10 @@
 				}
 			}
 		}
-		section#panel-section {
+		section#tp-panel-section {
 			position: relative;
 			padding: 80px 0;
-			article#panel-box {
+			article#tp-panel-box {
 				//패널 프로필 컨테이너
 				position: static;
 				max-width: 960px;
@@ -46,13 +46,13 @@
 					padding: 30px;
 					border-bottom: 1px solid #e1e4e6;
 				}
-				.panel {
+				.tp-panel {
 					//패널 프로필
 					margin-bottom: 40px;
 					@media (min-width: 992px) {
 						max-width: 20%;
 					}
-					.panel-content {
+					.tp-panel-content {
 						width: 140px;
 						overflow: hidden;
 						margin-top: 20px;
@@ -63,7 +63,7 @@
                             color: #4d5256;
 							margin-bottom: 10px;
 						}
-						.intro {
+						.tp-intro {
 							//패널 소개
                             font-family: 'notokr-regular', sans-serif;
                             font-size: 14px;
@@ -81,7 +81,7 @@
 				}
 			}
 		}
-		.pagination {
+		.tp-pagination {
 			//페이지네이션
 			a {
 				margin: 10px;
@@ -93,25 +93,25 @@
 					color: black;
 				}
 			}
-			li.current {
+			li.tp-current {
 				a {
 					color: black;
 				}
 			}
 		}
-                .post_write {
+                .tp-post_write {
                     width: 100%;
                     text-align: right;
                     font-family: 'notokr-medium', sans-serif;
                     font-size: 14px;
                     color: #000;
                 }
-		section#content-boxs {
+		section#tp-content-boxs {
 			//아래 컨텐츠 컨테이너
 			margin: 0 auto 60px;
 			margin-top: 30px;
 			max-width: 960px;
-			.content-box {
+			.tp-content-box {
 				//컨텐츠
 				box-sizing: border-box;
 				line-height: 2;
@@ -133,7 +133,7 @@
 				p {
 					//내용
 				}
-				.content {
+				.tp-content {
 					//내용이 길어지면 ....
 					overflow: hidden;
                     font-family: 'notokr-light', sans-serif;
@@ -153,7 +153,7 @@
 						}
 					}
 				}
-				.date {
+				.tp-date {
 					//컨텐츠 날짜
                     font-family: 'notokr-light', sans-serif;
                     font-size: 17px;
