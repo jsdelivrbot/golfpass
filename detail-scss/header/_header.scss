@@ -1,0 +1,259 @@
+@charset "utf-8";
+
+#header {
+	position: absolute;
+
+	nav {
+		width: inherit;
+		height: 80px;
+		position: absolute;
+		background-color: transparent;
+		top: 0;
+		left: 0;
+		color: white;
+		z-index: 9999;
+	}
+
+	nav#sm-nav {
+		//모바일 경우
+		#nav-icon-box {
+			padding-right: 16px;
+            max-width: 41%;
+            margin-left: 8%;
+
+			div:not(:last-child) {
+				&::after {
+					content: '|';
+					display: inline-block;
+					margin: 0 20px;
+				}
+			}
+		}
+
+		.toggle {
+			cursor: pointer;
+			max-width: 80px !important;
+			position: relative;
+			right: 0;
+			background-color: transparent;
+
+			i {
+				cursor: pointer;
+				padding: 25px;
+                font-size: 30px;
+			}
+		}
+	}
+
+	nav#md-nav {
+		//테블릿 부터
+		font-size: 0.8rem;
+
+		.xi {
+			font-size: 1.2rem;
+		}
+
+		#logo {
+			padding-left: 15px;
+
+			figure::after {
+				content: '';
+				display: inline-block;
+				height: 15px;
+				border-left: 2px solid white;
+				margin: 0 20px;
+			}
+
+			.search-container {
+				padding: 10px;
+				width: 100%;
+				background: white;
+
+				i {
+					font-size: 1rem;
+					color: #4b4b4b;
+				}
+
+				input {
+					width: 100%;
+					background-color: inherit;
+					border: 0;
+					font-size: 14px;
+					opacity: 0.5;
+					outline: 0;
+					color: #4b4b4b;
+					padding-left: 5px;
+
+				}
+			}
+
+			.search-container.focus {
+				//input 포커스 됐을때
+
+				i,
+				input,
+				input::placeholder {
+					color: #4b4b4b;
+				}
+			}
+		}
+
+		#nav-icon-box {
+			padding-right: 20px;
+
+			div {
+				cursor: pointer;
+			}
+
+			div:not(:last-child) {
+				&::after {
+					content: '|';
+					display: inline-block;
+					margin: 0 20px;
+				}
+			}
+
+			p {
+				margin-left: 10px;
+			}
+		}
+
+		.toggle {
+			cursor: pointer;
+			position: relative;
+			right: 0;
+			max-width: 80px;
+			@media (min-width: 992px) {
+				max-width: 80px;
+			}
+			background-color: transparent;
+
+			i {
+				cursor: pointer;
+				padding: 25px;
+                font-size: 30px;
+			}
+
+			p {
+				font-weight: 600;
+				font-size: 1.3rem;
+				padding-right: 15px;
+				text-align: right;
+			}
+		}
+	}
+
+	.search-content-container {
+		display: none;
+		background-color: white;
+		left: 0;
+		width: 70%;
+		max-width: 800px;
+		min-width: 400px;
+		top: 65px;
+		color: #bbbcbd;
+		min-height: 100px;
+		border-radius: 5px;
+
+		&::before {
+			content: '';
+			min-width: 15px;
+			left: 35px;
+			top: -7.5px;
+			min-height: 15px;
+			transform: rotate(45deg);
+			position: absolute;
+			background-color: white;
+		}
+
+		p {
+			font-family: 'notokr-demilight';
+            font-size: 12px;
+			color: #737f86;
+            letter-spacing: 2px;
+			//NOTE <p> 검색결과/총 ~~개
+			padding: 20px;
+			margin: 0;
+			border-bottom: 1px solid #d9d9d9;
+
+			span {
+				font-family: 'notokr-regular';
+			}
+		}
+
+		.search-items {
+			padding: 10px;
+			height: 330px;
+			overflow-y: scroll;
+
+			.search-item {
+				box-sizing: border-box;
+				width: 100%;
+				height: 90px;
+				overflow: hidden;
+				padding-bottom: 10px;
+                padding-top: 10px;
+				border-bottom: 1px solid #d9d9d9;
+
+				&:not(:first-child) {
+					padding-top: 15px;
+				}
+
+				.image {
+					width: 15%;
+
+					img {
+						max-width: 50px;
+						max-height: 50px;
+						min-width: 45px;
+						min-height: 45px;
+					}
+				}
+
+				.content {
+					width: 85%;
+					font-size: 16px;
+
+					.title {
+						font-family: 'notokr-regular';
+						color: #4c4c4c;
+						font-size: 16px;
+						margin-bottom: 5px;
+
+						.score-icon {
+							i {
+								color: #fcbf3f !important;
+							}
+						}
+
+						.score-text {
+                            font-family: 'notokr-demilight';
+                            color: #808080;
+                            font-size: 12px;
+                            padding-top: 6px;
+						}
+					}
+
+					.article {
+						height: 37px;
+						overflow: hidden;
+                        font-family: 'notokr-demilight';
+                        color: #849096;
+                        font-size: 12px;
+						white-space: normal;
+						line-height: 1.5;
+						text-align: left;
+						word-wrap: break-word;
+						display: -webkit-box;
+						-webkit-line-clamp: 2;
+						-webkit-box-orient: vertical;
+					}
+				}
+			}
+		}
+	}
+}
+
+.search_data_num {
+    color: #b9c3c5;
+}
