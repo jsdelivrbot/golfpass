@@ -47,7 +47,7 @@ class Public_Controller extends MX_Controller{
         }
 
         $this->setting= $this->db->where('id','1')->get("setting")->row();
-
+        
     }
 
     function _template($view,$data=array() , $template_kind = null)

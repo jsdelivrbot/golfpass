@@ -1,36 +1,37 @@
+<?php
+$ci = &Public_Controller::$instance;
+$user = $ci->user;
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>골프패스</title>
-    <script src="/public/sangmin/js/prefixfree.min.js"></script>
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
-    <link rel="stylesheet" href="/public/sangmin/dist/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="/public/css/tp-main.css">
+<meta charset="utf-8">
+<meta name="viewport"
+    content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>골프패스</title>
+<!-- Bootstrap core CSS -->
+<script src="/public/sangmin/js/prefixfree.min.js"></script>
+<link rel="stylesheet" href="/public/sangmin/dist/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+<link rel="stylesheet" href="/public/css/main.css">
+<style>
+  ::-webkit-scrollbar {
+      display: none;
+  }
+  a {
+      text-decoration: none !important;
+      color: inherit;
+  }
+  a:hover{
+              color: inherit;
+      text-decoration: none !important;
+  }
+</style>
 
-    <?php if(is_semantic_dev) {?>
-    <link rel="stylesheet/less" type="text/css" href="/public/framework/semantic/src/semantic.less">
-    <script src="/public/framework/semantic/src/less.min.js"></script>
-    <?php }else{?>
-    <link rel="stylesheet" type="text/css" href="/public/framework/semantic/out/semantic.css">
-    <?php }?>
-    <link rel="stylesheet" href="/public/css/bootstrap.css">
-    <script src="/public/tmp/sangmin/js/jquery-3.2.1.min.js"></script>
-    <style>
-        ::-webkit-scrollbar {
-            display: none;
-        }
-
-        a {
-            text-decoration: none !important;
-        }
-
-    </style>
-    
 <!-- 추가한 부분 -->
 <style>
 #bg-div{ background-image:url(<?=$product_main[0]->photo?>) !important}
@@ -50,209 +51,216 @@
 }
 </style>
 <!-- // 추가한 부분 -->
-        
+
 </head>
 
-<body class="">
-    <div class="menu-container position-fixed">
-        <div class="menu-sliders"></div>
-        <div class="menu-sliders"></div>
-        <div class="menu-sliders"></div>
-        <div class="menu">
-            <ul class="list-unstyled">
-                <?php if(is_admin()){?>
-                    <li><a style="color:white;" href="<?=site_url(admin_home_uri.'')?>">관리자 페이지</a></li>
-                <?php }?>
-                    <li><a style="color:white;" href="<?=site_url(shop_category_uri.'/gets_by_name/나라별')?>">나라별 골프장</a></li>
-                    <li><a style="color:white;" href="<?=site_url(golfpass_panel_uri.'/gets')?>">그늘집 by GOLFPASS</a></li>
-                    <li><a style="color:white;" href="<?=site_url(content_uri.'/gets?board_id=4')?>">고객센터</a></li>
-                <?php if(!is_login()){?>
-                    <li><a style="color:white;" href="<?=site_url(user_uri.'/login')?>">로그인</a></li>
-                    <li><a style="color:white;" href="<?=site_url(user_uri.'/register_agree_1')?>">회원가입</a></li>
-                <?php }?>
-                <?php if(is_login()){?>
-                    <li><a style="color:white;" href="<?=site_url(shop_mypage_uri.'/gets_wishlist')?>">마이페이지</a></li>
-                    <li><a style="color:white;" href="<?=site_url(user_uri.'/logout')?>">로그아웃</a></li>
-                <?php }?>
-            </ul>
-        </div>
-    </div>
-    <header id="header" class="black-bg-header container-fluid panel-header">
-        <nav id='sm-nav' class="row no-gutters justify-content align-items-stretch d-sm-none panel-nav">
-            <div id="logo" class='col-3 justify-content-center d-flex align-self-center align-items-center'>
-                <img src="/public/sangmin/img/icon/logo_mobile.png" class="d-md-none" alt="">
-            </div>
-            <div id='nav-icon-box' class="offset-2 col-5 d-flex align-items-stretch justify-content-end">
-                <div id="search" class="d-flex align-items-center">
-                    <a class="mk-search-trigger mk-fullscreen-trigger" href="#" id="search-button-listener">
-                        <span><i class="xi xi-search" id="search-button" style="text-shadow: 0 0 7px rgba(0,0,0,1);"></i></span>
-                    </a>
-                    <div class="mk-fullscreen-search-overlay" id="mk-search-overlay">
-                        <a href="#" class="mk-fullscreen-close" id="mk-fullscreen-close-button"><i class="xi xi-close"></i></a>
-                        <div id="mk-fullscreen-search-wrapper">
-                            <form method="get" id="mk-fullscreen-searchform" action="">
-                                <input type="text" value="" placeholder="Search..." id="mk-fullscreen-search-input">
-                                <i class="xi xi-search fullscreen-search-icon"><input value="" type="submit"></i>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <?php if(!is_login()){?>
-                <div id="login" class="d-flex align-items-center">
-                    <a href="<?=site_url(user_uri.'/login')?>" style="color:white;">
-                        <span><i class="xi-log-in xi-x" style="text-shadow: 0 0 7px rgba(0,0,0,1);"></i></span>
-                    </a>
-                </div>
-                <div id="join" class="d-flex align-items-center">
-                    <a href="<?=site_url(user_uri.'/register_agree_1')?>" style="color:white;">
-                        <span><i class="xi xi-user-plus" style="text-shadow: 0 0 7px rgba(0,0,0,1);"></i></span>
-                    </a>
-                </div>
-                <?php }else{?>
-               <div style="margin-top:25px;"><a href="#none"><img src="/public/images/ico_my.png" alt=""></a></div>
-                <?php }?>
-            </div>
-            <div class="col-2 ml-auto toggle"
-                 onclick="$('body').toggleClass('menu-open'); $('.carousel-indicators').toggleClass('d-none d-flex');">
-                <span>
-                    <i class="xi xi-bars"></i>
-                </span>
-            </div>
-        </nav>
-        <nav id='md-nav' class="row no-gutters justify-content align-items-stretch d-none d-sm-flex">
-            <div id="logo" class='col-6 d-flex align-items-center'>
-                <figure class="mb-0 d-flex align-items-center d-lg-none">
-                    <img src="/public/sangmin/img/icon/logo_mobile.png" class="" alt="">
-                </figure>
-                <a href="<?=site_url()?>"><figure class="mb-0 align-items-center d-none d-lg-flex">
-                    <img src="/public/sangmin/img/icon/logo.png" class="" alt="">
-                </figure></a>
-                <div class="search-container d-flex align-items-center position-relative">
-                                    <i class="xi xi-search"></i>
-                                    <input type="text" placeholder="관심있는 나라나 골프장을 검색해보세요!">
-                                    <!--NOTE 검색결과 창-->
-                                    <div class="search-content-container position-absolute w-100">
+<body>
+<!-- <div id="main-wrap"> -->
+  <div class="menu-container position-fixed">
+      <div class="menu-sliders"></div>
+      <div class="menu-sliders"></div>
+      <div class="menu-sliders"></div>
+      <div class="menu">
+          <ul class="list-unstyled">
+              <?php if(is_admin()){?>
+                  <li><a style="color:white;" href="<?=site_url(admin_home_uri.'')?>">관리자 페이지</a></li>
+              <?php }?>
+                  <li><a style="color:white;" href="<?=site_url(shop_category_uri.'/gets_by_name/나라별')?>">나라별 골프장</a></li>
+                  <li><a style="color:white;" href="<?=site_url(golfpass_panel_uri.'/gets')?>">그늘집 by GOLFPASS</a></li>
+                  <li><a style="color:white;" href="<?=site_url(content_uri.'/gets?board_id=4')?>">고객센터</a></li>
+              <?php if(!is_login()){?>
+                  <li><a style="color:white;" href="<?=site_url(user_uri.'/login')?>">로그인</a></li>
+                  <li><a style="color:white;" href="<?=site_url(user_uri.'/register_agree_1')?>">회원가입</a></li>
+              <?php }?>
+              <?php if(is_login()){?>
+                  <li><a style="color:white;" href="<?=site_url(shop_mypage_uri.'/gets_wishlist')?>">마이페이지</a></li>
+                  <li><a style="color:white;" href="<?=site_url(user_uri.'/logout')?>">로그아웃</a></li>
+              <?php }?>
+          </ul>
+      </div>
+  </div>
 
-                                    </div>
-                            </div>
-            </div>
-            <div id='nav-icon-box' class="col  d-flex justify-content-end">
-            <?php if(!is_login()){?>
-                <div id="login" class="d-flex align-items-center">
-                    <span><i class="xi-log-in xi-x" style="text-shadow: 0 0 7px rgba(0,0,0,1);"></i></span>
-                    <p class="mb-0"><a style="color: white; font-family: 'notokr-regular', sans-serif; font-size: 12px; text-shadow: 0 0 7px rgba(0,0,0,1);" href="<?=site_url(user_uri.'/login')?>">로그인</a></p>
-                </div>
-                <div id="join" class="d-flex align-items-center">
-                    <span><i class="xi xi-user-plus" style="text-shadow: 0 0 7px rgba(0,0,0,1);"></i></span>
-                    <p class="mb-0"><a style="color: white; font-family: 'notokr-regular', sans-serif; font-size: 12px; text-shadow: 0 0 7px rgba(0,0,0,1);" href="<?=site_url(user_uri.'/register_agree_1')?>">회원가입</a></p>
-                </div>
-            <?php }else{?>
-               <div style="margin-top:25px;"><a href="#none"><img src="/public/images/ico_my.png" alt=""></a></div>
-                <div id="logout" class="d-flex align-items-center">
-                    <span><i class="xi-log-out xi-x" style="text-shadow: 0 0 7px rgba(0,0,0,1);"></i></span>
-                    <p class="mb-0"><a style="color: white; font-family: 'notokr-regular', sans-serif; font-size: 12px; text-shadow: 0 0 7px rgba(0,0,0,1);" href="<?=site_url(user_uri.'/logout')?>">로그아웃</a></p>
-                </div>
-            <?php }?>
-            </div>
-            <div class="col ml-auto toggle"
-                 onclick="$('body').toggleClass('menu-open'); $('.carousel-indicators').toggleClass('d-none d-flex');">
-                <span>
-                    <i class="xi xi-bars"></i>
-                </span>
-            </div>
-        </nav>
-    </header>
-    <div style="margin-top: 180px;"></div>
-    <?php load_view($content_view)?>
-    <div style="margin-top: 100px;"></div>
-    <footer id='tp-footer' class='main-footer container-fluid'>
-        <div id="tp-partner">
-            <div class="row" style="width:100%;">
-                <div class="w-100">
-                    <h6>PARTNERS</h6>
-                </div>
-                <div class="d-flex flex-wrap">
-                    <figure>
-                        <img src="/public/sangmin/img/partner/b_partner_google.png" alt="">
-                    </figure>
-                    <figure>
-                        <img src="/public/sangmin/img/partner/b_partner_facebook.png" alt="">
-                    </figure>
+  <!-- <header id="header" class="container-fluid"> -->
+  <header id="header" class="black-bg-header container-fluid panel-header">
+      <!--  NOTE mobile -->
+      <nav id='sm-nav' class="row no-gutters justify-content align-items-stretch d-sm-none panel-nav">
+          <div id="logo" class='col-3 justify-content-center d-flex align-self-center align-items-center'>
+              <img src="/public/sangmin/img/icon/logo_mobile.png" class="d-md-none" alt="">
+          </div>
+          <div id='nav-icon-box' class="offset-2 col-5 d-flex align-items-stretch justify-content-end">
+              <div id="search" class="d-flex align-items-center">
+                  <a class="mk-search-trigger mk-fullscreen-trigger" href="#" id="search-button-listener">
+                      <span><i class="xi xi-search" id="search-button" style="text-shadow: 0 0 7px rgba(0,0,0,1);"></i></span>
+                  </a>
+                  <div class="mk-fullscreen-search-overlay" id="mk-search-overlay">
+                      <a href="#" class="mk-fullscreen-close" id="mk-fullscreen-close-button"><i class="xi xi-close"></i></a>
+                      <div id="mk-fullscreen-search-wrapper">
+                          <form method="get" id="mk-fullscreen-searchform" action="">
+                              <input type="text" value="" placeholder="Search..." id="mk-fullscreen-search-input">
+                              <i class="xi xi-search fullscreen-search-icon"><input value="" type="submit"></i>
+                          </form>
+                      </div>
+                  </div>
+              </div>
+              <?php if(!is_login()){?>
+              <div id="login" class="d-flex align-items-center">
+                  <a href="<?=site_url(user_uri.'/login')?>" style="color:white;">
+                      <span><i class="xi-log-in xi-x" style="text-shadow: 0 0 7px rgba(0,0,0,1);"></i></span>
+                  </a>
+              </div>
+              <div id="join" class="d-flex align-items-center">
+                  <a href="<?=site_url(user_uri.'/register_agree_1')?>" style="color:white;">
+                      <span><i class="xi xi-user-plus" style="text-shadow: 0 0 7px rgba(0,0,0,1);"></i></span>
+                  </a>
+              </div>
+              <?php }else{?>
+             <div style="margin-top:25px;"><a href="<?=site_url(shop_mypage_uri."/gets_wishlist")?>"><img src="<?=$user->profilePhoto?>" alt=""></a></div>
+              <?php }?>
+          </div>
+          <div class="col-2 ml-auto toggle"
+               onclick="$('body').toggleClass('menu-open'); $('.carousel-indicators').toggleClass('d-none d-flex');">
+              <span>
+                  <i class="xi xi-bars"></i>
+              </span>
+          </div>
+      </nav>
+      <!--NOTE desktop,tablet nav-->
+      <nav id='md-nav' class="row no-gutters justify-content align-items-stretch d-none d-sm-flex">
+          <div id="logo" class='col-6 d-flex align-items-center'>
+              <figure class="mb-0 d-flex align-items-center d-lg-none">
+                  <img src="/public/sangmin/img/icon/logo_mobile.png" class="" alt="">
+              </figure>
+              <a href="<?=site_url()?>"><figure class="mb-0 align-items-center d-none d-lg-flex">
+                  <img src="/public/sangmin/img/icon/logo.png" class="" alt="">
+              </figure></a>
+              <div class="search-container d-flex align-items-center position-relative">
+                                  <i class="xi xi-search"></i>
+                                  <input id="serach"type="text" placeholder="관심있는 나라나 골프장을 검색해보세요!">
+                                  <!--NOTE 검색결과 창-->
+                                  <div class="search-content-container position-absolute w-100">
 
-                    <figure>
-                        <img src="/public/sangmin/img/partner/b_partner_instar.png" alt="">
-                    </figure>
-                    <figure>
-                        <img src="/public/sangmin/img/partner/b_partner_naver.png" alt="">
-                    </figure>
-                    <figure>
-                        <img src="/public/sangmin/img/partner/b_partner_daum.png" alt="">
-                    </figure>
-                </div>
-            </div>
+                                  </div>
+                          </div>
+          </div>
+          <div id='nav-icon-box' class="col  d-flex justify-content-end">
+          <?php if(!is_login()){?>
+              <div id="login" class="d-flex align-items-center">
+                  <span><i class="xi-log-in xi-x" style="text-shadow: 0 0 7px rgba(0,0,0,1);"></i></span>
+                  <p class="mb-0"><a style="color: white; font-family: 'notokr-regular', sans-serif; font-size: 12px; text-shadow: 0 0 7px rgba(0,0,0,1);" href="<?=site_url(user_uri.'/login')?>">로그인</a></p>
+              </div>
+              <div id="join" class="d-flex align-items-center">
+                  <span><i class="xi xi-user-plus" style="text-shadow: 0 0 7px rgba(0,0,0,1);"></i></span>
+                  <p class="mb-0"><a style="color: white; font-family: 'notokr-regular', sans-serif; font-size: 12px; text-shadow: 0 0 7px rgba(0,0,0,1);" href="<?=site_url(user_uri.'/register_agree_1')?>">회원가입</a></p>
+              </div>
+          <?php }else{?>
+             <div style="margin-top:25px;"><a href="<?=site_url(shop_mypage_uri."/gets_wishlist")?>"><img src="<?=$user->profilePhoto?>" alt=""></a></div>
+              <div id="logout" class="d-flex align-items-center">
+                  <span><i class="xi-log-out xi-x" style="text-shadow: 0 0 7px rgba(0,0,0,1);"></i></span>
+                  <p class="mb-0"><a style="color: white; font-family: 'notokr-regular', sans-serif; font-size: 12px; text-shadow: 0 0 7px rgba(0,0,0,1);" href="<?=site_url(user_uri.'/logout')?>">로그아웃</a></p>
+              </div>
+          <?php }?>
+          </div>
+          <div class="col ml-auto toggle"
+               onclick="$('body').toggleClass('menu-open'); $('.carousel-indicators').toggleClass('d-none d-flex');">
+              <span>
+                  <i class="xi xi-bars"></i>
+              </span>
+          </div>
+      </nav>
+  </header>
 
-        </div>
+  <div id="bg-div" style=""></div>
+  <?php load_view($content_view)?>
 
-        <div class="row d-flex" style="width:100%;">
-            <ul>
-                <li class="tp-title">ABOUT US</li>
-                <li><a href="#">회사 소개</a></li>
-                <li><a href="#">이용약관</a></li>
-                <li><a href="#">개인 정보 취급 방침</a></li>
-            </ul>
-            <ul>
-                <li class="tp-title">OFFICE</li>
-                <li><span>TEL</span>
-                    <p>02-6959-5454</p>
-                </li>
-            </ul>
-            <ul>
-                <li class="tp-title">CONTACT US</li>
-                <li><span>상호</span>
-                    <p>PLAYSEVEN</p>
-                </li>
-                <li><span>대표</span>
-                    <p>황현철</p>
-                </li>
-                <li><span>사업자등록번호</span>
-                    <p>280-81-00963</p>
-                </li>
-                <li><span>등록판매업신고번호</span>
-                    <p>2017-서울강서-1545호</p>
-                </li>
-            </ul>
-            <ul>
-                <li class="tp-title">NEWS LETTER</li>
-                <li class="mb-20"><input type="text" placeholder="E-mail을 입력해주세요"></li>
-                <li><strong>골프패스</strong>
-                    <p style="margin-bottom: 0;">에서 제공하는 유용한 소식</p>
-                </li>
-            </ul>
-        </div>
-        <div class="row d-flex" style="width:100%; margin:0;">
-            <p class='align-self-end mr-auto ml-auto'>© 2017 <strong>GOLFPASS.</strong> All Rights Reserved.</p>
-        </div>
+  <footer id='footer' class='main-footer container-fluid'>
+  <div id="partner">
+      <div class="row" style="width:100%;">
+          <div class="w-100">
+              <h6 >PARTNERS</h6>
+          </div>
+          <div class="d-flex flex-wrap">
+              <figure>
+                  <img src="/public/sangmin/img/partner/partner_google.png" alt="">
+              </figure>
+              <figure>
+                  <img src="/public/sangmin/img/partner/partner_facebook.png" alt="">
+              </figure>
 
-    </footer>
+              <figure>
+                  <img src="/public/sangmin/img/partner/partner_instar.png" alt="">
+              </figure>
+              <figure>
+                  <img src="/public/sangmin/img/partner/partner_naver.png" alt="">
+              </figure>
+              <figure>
+                  <img src="/public/sangmin/img/partner/partner_daum.png" alt="">
+              </figure>
+          </div>
+      </div>
+
+  </div>
+
+   <div class="row d-flex" style="width:100%;">
+           <ul>
+                   <li class="title">ABOUT US</li>
+                   <li><a href="#">회사 소개</a></li>
+                   <li><a href="#">이용약관</a></li>
+                   <li><a href="#">개인 정보 취급 방침</a></li>
+           </ul>
+           <ul>
+                   <li class="title">OFFICE</li>
+                   <li><span>TEL</span>
+                           <p>02-6959-5454</p>
+                   </li>
+           </ul>
+           <ul>
+                   <li class="title">CONTACT US</li>
+                   <li><span>상호</span>
+                          <p>PLAYSEVEN</p>
+                   </li>
+                   <li><span>대표</span>
+                          <p>황현철</p>
+                   </li>
+                   <li><span>사업자등록번호</span>
+                           <p>280-81-00963</p>
+                   </li>
+                   <li><span>등록판매업신고번호</span>
+                              <p>2017-서울강서-1545호</p>
+                   </li>
+           </ul>
+           <ul>
+                   <li class="title">NEWS LETTER</li>
+                   <li class="mb-20"><input type="text" id="newsLetter" placeholder="E-mail을 입력해주세요"></li>
+                   <li><strong>골프패스</strong>
+                           <p style="margin-bottom: 0;">에서 제공하는 유용한 소식</p>
+                   </li>
+           </ul>
+   </div>
+   <div class="row d-flex" style="width:100%; margin:0;">
+           <p class='align-self-end mr-auto ml-auto'>© 2017 <strong>GOLFPASS.</strong> All Rights Reserved.</p>
+   </div>
+
+</footer>
+
+<!-- </div> -->
 
 
 <script src="/public/sangmin/js/jquery-3.2.1.min.js"></script>
 <script>
-$('#jssor_1').width($('#section2').width()).children('div').width($('#section2').width());
-$(window).resize(function () {
-    $('#jssor_1').width($('#section2').width()).children('div').width($('#section2').width());
-});
+// $('#jssor_1').width($('#section2').width()).children('div').width($('#section2').width());
+// $(window).resize(function () {
+// $('#jssor_1').width($('#section2').width()).children('div').width($('#section2').width());
+// });
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
-    integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
-    crossorigin="anonymous"></script>
+integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+crossorigin="anonymous"></script>
 <script src="/public/sangmin/dist/bootstrap/bootstrap.bundle.min.js"></script>
-<script src="/public/sangmin/js/jssor.slider-26.5.0.min.js"></script>
-<script src="public/sangmin/js/custom/main.js"></script>
-<script src="public/sangmin/js/custom/navAction.js"></script>
-<script src="public/sangmin/js/custom/main_section2.js"></script>
-<script src="public/sangmin/js/custom/search.js"></script>
-<script src="public/sangmin/js/mobile_search.js"></script>
+<!-- <script src="/public/sangmin/js/jssor.slider-26.5.0.min.js"></script> -->
+<script src="/public/sangmin/js/custom/navAction.js"></script>
+<!-- <script src="/public/sangmin/js/custom/main_section2.js"></script> -->
+<script src="/public/sangmin/js/custom/search.js"></script>
+<script src="/public/sangmin/js/mobile_search.js"></script>
 <script>
 $('.btn.btn-outline-light.btn-sm').click(function()
 {
@@ -265,7 +273,7 @@ data: { rankingType: rankingType },
 beforeSend: function(){
 },
 success: function(data){
-    $("#section5").html(data);
+$("#section5").html(data);
 }
 });
 
@@ -275,31 +283,59 @@ success: function(data){
 <!-- 추가한 부분 -->
 <script>
 $(function(){
-	$(".content-box:nth-child(2) a .content, .content-box:nth-child(3) a .content").hover(
-		function() {
+$(".content-box:nth-child(2) a .content, .content-box:nth-child(3) a .content").hover(
+  function() {
 
-			$(".content-box:first-child a .content").css("height","100px");
-		}, 
-		function() {
+      $(".content-box:first-child a .content").css("height","100px");
+  }, 
+  function() {
 
-			$(".content-box:first-child a .content").css("height","250px");	
-		}
-	);
+      $(".content-box:first-child a .content").css("height","250px");	
+  }
+);
 });
 </script>
 <!-- // 추가한 부분 -->
+<!-- 뉴스레터 시작-->
+<script>
+$("#newsLetter").keypress(function (e) {
+  var key = e.which;
+  if(key == 13)  // the enter key code
+  {
+      var email =$(this).val();
+      var url = "<?=site_url(main_uri."/add_newslatter")?>";
+    
+      $.ajax({
+          type:"post",
+          dataType:"json",
+          url : url,
+          data: { email : email},
+          success : function(data){
+              alert(data.email + "이(가) 뉴스레터에 등록되었습니다.");
+          },
+          error: function(xhr, textStatus, errorThrown){
+              alert('에러...');
+              $('.loading').fadeOut(500);
+              console.log('code: '+request.status+"\n"+'message: '+request.responseText+"\n"+'error: '+error);
+              console.log(errorThrown);
+          }
+      });
+      return false;  
+  }
+});     
+</script>
 
 <!-- 뉴스레터 끝-->
 <!-- 검색창 엔터치면 결과창으로 시작 -->
 <script>
- $("#serach").keypress(function (e) {
-        var key = e.which;
-        if(key == 13)  // the enter key code
-        {
-            var value =$(this).val();
-            window.location.href="<?=site_url(shop_product_uri."/gets_by_hash/")?>"+value; 
-        }
-    });     
+$("#serach").keypress(function (e) {
+  var key = e.which;
+  if(key == 13)  // the enter key code
+  {
+      var value =$(this).val();
+      window.location.href="<?=site_url(shop_product_uri."/gets_by_hash/")?>"+value; 
+  }
+});     
 </script>
 <!-- 검색창 엔터치면 결과창으로 끝 -->
 </body>
