@@ -67,8 +67,8 @@ class Wishlist extends Base_Controller {
     {
         header("content-type:application/json");
         $this->{$this->model}->_delete($id);
-      
-        $data['redirect'] = site_url( shop_wishlist_uri."/gets");
+      $data['reload'] = true;
+        // $data['redirect'] = site_url( shop_wishlist_uri."/gets");
         echo json_encode($data);
     }
 }
