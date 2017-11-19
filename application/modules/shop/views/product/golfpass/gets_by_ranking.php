@@ -144,7 +144,7 @@ height:250px}
 <?= $this->pagination->create_links();?>
 </div> 
 
-<script>$(function(){
+<!-- <script>$(function(){
   $(".content-box:nth-child(2) a .content, .content-box:nth-child(3) a .content").hover(function(){
     $(".content-box:first-child a .content").css("height","100px");
   }
@@ -154,7 +154,7 @@ height:250px}
                                                                                        );
 }
        );
-</script> 
+</script>  -->
 <!-- <script src="/public/sangmin/js/jquery-3.2.1.min.js">
 </script>  -->
 <!-- <script>$('#jssor_1').width($('#section2').width()).children('div').width($('#section2').width());
