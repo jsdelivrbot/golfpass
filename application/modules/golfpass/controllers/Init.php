@@ -32,7 +32,7 @@ class Init extends Init_Controller {
         $this->p_daily_price();
         $this->p_order_infos();
         $this->p_order_options();
-        
+        $this->newsLetter();        
         // $sample_product_id =$this->products_model->_add(array("name"=>"222 C.C","eng_name"=>"product_name","desc"=>"샘플내용",'hole_count'=>'18'));
         // $this->product_reviews_model->_add(array(
         //     "product_id"=>$sample_product_id,
@@ -318,6 +318,39 @@ class Init extends Init_Controller {
              echo "<br>";
              return false;
          }
+        
+    }
+    function newsLetter()
+    {
+        //newsLetter 테이블 만들기
+        $tb_name = 'newsLetter';
+        if(!$this->db->table_exists($tb_name)){
+            $result = $this->db->query("CREATE TABLE `$tb_name`(
+            `id` INT UNSIGNED NULL AUTO_INCREMENT, 
+            `email` varchar(255) NOT NULL,
+            `created` datetime NOT NULL DEFAULT NOW(),
+            PRIMARY KEY (`id`),
+            KEY `idx_email` (`email`)
+             ) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
+                
+            if($result)
+            {
+                echo("success create $tb_name ");
+                echo "<br>";
+                return true;
+            }
+            else
+            {
+                echo("failed create $tb_name");
+                echo "<br>";
+                return false;
+            }
+                
+        }else{
+            echo "already table $tb_name exists";
+            echo "<br>";
+            return false;
+        }
         
     }
     function p_order_options()

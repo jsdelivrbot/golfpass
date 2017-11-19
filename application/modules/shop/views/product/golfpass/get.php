@@ -10,7 +10,7 @@
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="/public/sangmin/dist/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
-    <link rel="stylesheet" href="/public/css/tp-main.css">
+    <link rel="stylesheet" href="/public/css/main.css">
     <link rel="stylesheet" href="/public/sangmin/css/xeicon.min.css">
     <link rel="stylesheet" href="/public/sangmin/dist/Nwagon/Nwagon.css" type="text/css">
 
