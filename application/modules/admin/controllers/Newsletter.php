@@ -10,7 +10,7 @@ class Newsletter extends Admin_Controller {
     }
   
     public function gets(){
-        $this->db->from("newsletter");
+        $this->db->from("newsLetter");
         $data['rows']=$this->db->get()->result();
 
         $this->_template("gets",$data);
