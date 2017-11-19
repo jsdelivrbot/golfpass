@@ -865,7 +865,7 @@
         new Chart(document.getElementById("chart-canvas"), {
             type: 'radar',
             data: {
-                labels: ["옵션1", "옵션2", "옵션3", "옵션4", "옵션5", "옵션6", "옵션7", "옵션8"],
+                labels: ["전략성이 높은", "페어웨이가 넓은", "코스 전장이 긴", "그린의 난이도가 높은", "가성비가 우수한", "시설이 좋은", "식사가 맛있는", "스탭 서비스가 좋은"],
                 datasets: [{
                     //   label: "2050",
                     //   label:false,
