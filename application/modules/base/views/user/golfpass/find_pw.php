@@ -8,17 +8,35 @@
                     <div class="text-center">
                         <h3><i class="fa fa-lock fa-4x"></i></h3>
                         <h2 class="text-center">비밀번호 재설정</h2>
-                        <p>가입 시 작성한 아이디를 작성해주세요!</p>
+                        <p>
+                        <?php if($mode === "userName"){?>
+                            가입 시 작성한 아이디를 작성해주세요!
+                        <?php }else if($mode === "auth_code"){?>
+                            인증코드를 입력해주세요.
+                        <?php }?>
+                        </p>
                         <div class="panel-body">
 
                             <form action="<?=site_url(user_uri."/find_pw")?>" id="register-form" role="form" autocomplete="off" class="form" method="post">
 
                                 <div class="form-group">
                                     <div class="input-group">
-                                        <span class="input-group-addon">TEL</span>
+                                    <?php if($mode === "userName"){?>
                                         <input id="email" name="userName" placeholder="아이디를 입력해주세요." class="form-control" type="TEL">
+                                    <?php }else if($mode === "auth_code"){?>
+                                        <input id="email" name="auth_code" placeholder="인증코드를 입력해주세요." class="form-control" type="TEL">
+                                    <?php }else if($mode ==="password"){?>
+                                        <input id="email"type="password"  name="password" placeholder="패스워드를 입력해주세요" class="form-control" type="TEL">
+                                        <?php }?>
                                     </div>
                                 </div>
+                                <?php if($mode ==="password"){?>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                    <input id="email" type="password" name="re_password" placeholder="패스워드를 재입력해주세요" class="form-control" type="TEL">
+                                    </div>
+                                </div>
+                                <?php }?>
                                 <div class="form-group">
                                     <input name="recover-submit" class="btn btn-lg btn-primary btn-block" value="확인" type="submit" style="background-color: #79b754; border: 0px;">
                                 </div>

@@ -24,52 +24,98 @@ class User extends Base_Controller
     function find_pw(){
 
         $this->fv->set_rules("userName","아이디","required");
-        if($this->fv->run() === false)
+        if($this->fv->run() === false && $this->session->userdata("auth_userName") === null)
         {
-            $this->_template("user/golfpass/find_pw",array(),'golfpass2');
+            $data['mode'] = "userName";
+            $this->_template("user/golfpass/find_pw",$data,'golfpass2');
         }
         else//input userName 값 존재
         {
             $userName =$this->input->post("userName");
             $user =$this->users_model->_get(array("userName"=>$userName));
 
-            if($user === null)//--아이디 존재하지 않음
+            if($user === null && $this->session->userdata("auth_userName") === null)//--아이디 존재하지 않음
             {
                 //아이디 입력 view
+                alert("해당 아이디가 존재하지 않습니다.");
+                $data['mode'] = "userName";
+                $this->_template("user/golfpass/find_pw",$data,'golfpass2');
+                return;
             }
             else//--아이디존재
             {
-                $auth_code = $this->input->post("auth_code");
-                if($auth_code === null)//--인증코드 데이터 없을때  //input userName 값 존재
+                $in_auth_code = $this->input->post("auth_code");
+                if($in_auth_code === null && $this->session->userdata("auth_userName") === null)//--인증코드 데이터 없을때  //input userName 값 존재
                 {
+                    $auth_code =rand(1000,9999); 
                     //인증코드 플래시세션 등록
+                    $this->session->set_flashdata("auth_code", $auth_code);
+                    $this->session->set_flashdata("auth_userName", $user->userName);
                     //인증코드 보내기
+                    $this->load->library("sms_cafe24");
+                    $this->sms_cafe24->secure = $this->setting->cafe24_sms_api_key;
+                    $this->sms_cafe24->user_id = $this->setting->cafe24_userName;
+                    $from =$this->setting->cafe24_sms_number;
+                    $to = $user->phone;
+                    $desc = "[{$auth_code}] 골프패스 비밀번호 재설정 인증 코드입니다.";
+                    $this->sms_cafe24->send($from,$to,$desc);
                     //인증코드 입력 view
+                    $data['mode'] = "auth_code";
+                    $this->_template("user/golfpass/find_pw",$data,'golfpass2');
                 }
                 else //--인증코드 데이터 있을떄 //input userName,auth_code 값 존재
                 {
-                    if($auth_code === $this->session->userdata("auth_code")) //--인증코드 일치할떄 //input userName,auth_code 값 존재
+                    $this->session->set_flashdata("auth_code", $this->session->userdata("auth_code"));
+                    $this->session->set_flashdata("auth_userName", $this->session->userdata("auth_userName"));
+                    if((string)$in_auth_code === (string)$this->session->userdata("auth_code") ||  $this->session->userdata("auth_phone") === true) //--인증코드 일치할떄 //input userName,auth_code 값 존재
                     {
+                        $this->session->set_flashdata("auth_phone", true);
                         $password = $this->input->post("password");
                         $re_password = $this->input->post("re_password");
                         if($password === null || $re_password === null)//--패스워드 빈값  //input userName,auth_code 값 존재
                         {
                             //패스워드 입력 view
+                            $data['mode'] = "password";
+                            $this->_template("user/golfpass/find_pw",$data,'golfpass2');
                         }
-                        else if($password !== $repassword)//-- 패스워드 서로  불일치  //input userName,auth_code,password,re_password 값 존재
+                        else if($password !== $re_password)//-- 패스워드 서로  불일치  //input userName,auth_code,password,re_password 값 존재
                         {
-
+                                //패스워드 입력 view
+                                alert("비밀번호가 일치하지 않습니다.");
+                                $data['mode'] = "password";
+                                $this->_template("user/golfpass/find_pw",$data,'golfpass2');
                         }
                         else //--패스워드 일치 //input userName,auth_code,password,re_password 값 존재
                         {
-                            //패스워드 변경
+                            $vali_pw = true;
+                            if(strlen($password) < 4 || strlen($password) >20){
+                                $vali_pw = false;
+                            }
+                            if($vali_pw === false )//유효성검사
+                            {
+                                alert("비밀번호는 4글자 이상 20글자 이하이여야 합니다.");
+                                $data['mode'] = "password";
+                                $this->_template("user/golfpass/find_pw",$data,'golfpass2');
+                            }
+                            else //패스워드 변경
+                            {
+                                $hash =password_hash($password, PASSWORD_BCRYPT);
+                                $this->db->set("password",$hash);
+                                $this->db->update("users");
+                                alert("비밀번호가 변경되었습니다.");
+                                my_redirect(user_uri."/login");
+                            }
                         }
                         
                     }
                     else //--인증코드 불일치
                     {
+                        //인증코드 세션다시
                         //인증코드 다시보내기 버튼
                         //인증코드 입력 view
+                        alert("인증코드 불일치");
+                        $data['mode'] = "auth_code";
+                        $this->_template("user/golfpass/find_pw",$data,'golfpass2');
                     }
                 }
             }
@@ -116,7 +162,7 @@ class User extends Base_Controller
     function login()
     {
         $this->fv->set_rules('userName', '아이디', 'required|min_length[2]|max_length[20]');
-        $this->fv->set_rules('password', '비밀번호', 'required|min_length[2]|max_length[20]');
+        $this->fv->set_rules('password', '비밀번호', 'required|min_length[4]|max_length[20]');
         $data['return_url'] =  $this->input->get("return_url");
 
         if ($this->fv->run() === false) { // fail post
