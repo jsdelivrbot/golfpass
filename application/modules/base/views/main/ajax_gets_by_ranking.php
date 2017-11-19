@@ -58,7 +58,7 @@
 								<a href="<?=site_url(shop_product_uri."/get/{$products_avgScore[$i]->id}")?>">
 									<div class="d-flex justify-content-between align-items-center">
 										<div>
-											<p class='mb-0'><span class='mr-3 ml-2'><?=$i?></span><?=$products_avgScore[$i]->name?></p>
+											<p class='mb-0'><span class='mr-3 ml-2'><?=$i+1?></span><?=$products_avgScore[$i]->name?></p>
 										</div>
 										<div class="ranking_ghost">
 											<span><?=$products_avgScore[$i]->nation?>, <?=$products_avgScore[$i]->city?></span>
