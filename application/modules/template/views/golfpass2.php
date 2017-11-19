@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
     <!-- <link rel="stylesheet" href="/public/css/main.css"> -->
     <link rel="stylesheet" href="/public/css/tp-main.css">
+    <link rel="stylesheet" href="/public/css/bootstrap.css">
     <style>::-webkit-scrollbar{
       display:none}
       a{
@@ -173,7 +174,7 @@
           </div> 
           <?php }?>
         </div>
-        <div class="tp-col-2 tp-ml-auto tp-toggle" onclick="$('body').toggleClass('menu-open'); $('.carousel-indicators').toggleClass('d-none d-flex');"> 
+        <div class="tp-col-2 tp-ml-auto tp-toggle" onclick="$('body').toggleClass('tp-menu-open'); $('.tp-carousel-indicators').toggleClass('tp-d-none tp-d-flex');"> 
           <span> 
             <i class="tp-xi tp-xi-bars">
             </i> 
@@ -238,7 +239,7 @@
           </div> 
           <?php }?>
         </div>
-        <div class="tp-col tp-ml-auto tp-toggle" onclick="$('body').toggleClass('menu-open'); $('.carousel-indicators').toggleClass('d-none d-flex');"> 
+        <div class="tp-col tp-ml-auto tp-toggle" onclick="$('body').toggleClass('tp-menu-open'); $('.tp-carousel-indicators').toggleClass('tp-d-none tp-d-flex');"> 
           <span> 
             <i class="tp-xi tp-xi-bars">
             </i> 
