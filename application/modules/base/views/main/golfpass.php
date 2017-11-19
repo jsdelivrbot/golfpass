@@ -492,7 +492,7 @@
 											<p class='mb-0'><span class='mr-3 ml-2'><?=$i+1?></span><?=$products_avgScore[$i]->name?></p>
 										</div>
 										<div class="ranking_ghost">
-											<span><?=$products_avgScore[$i]->nation?>, <?=$products_avgScore[$i]->city?></span>
+											<span><?=$products_avgScore[$i]->region?></span>
 										</div>
 									</div>
 								</a>

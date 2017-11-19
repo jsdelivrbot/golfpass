@@ -70,7 +70,7 @@
                                         <p class='mb-0' style="color:#333;"><span class='mr-3 ml-2'><?=$products_avgScore[$i]->numrow2?></span><?=$products_avgScore[$i]->name?></p>
                                     </div>
                                     <div>
-                                    <span><?=$products_avgScore[$i]->nation?>, <?=$products_avgScore[$i]->city?></span>
+                                    <span><?=$products_avgScore[$i]->region?></span>
                                     </div>
                                 </div>
                             </a>
