@@ -180,7 +180,7 @@
                 <div id="tp-search" class="tp-d-flex tp-align-items-center">
                     <a class="tp-mk-search-trigger tp-mk-fullscreen-trigger" href="#" id="tp-search-button-listener"> 
               <span>
-                <i class="xi xi-search" id="tp-search-button" style="text-shadow: 0 0 7px rgba(0,0,0,1);">
+                <i class="xi xi-search" id="tp-search-button" style="color:#fff;">
                 </i>
               </span> 
             </a>
@@ -203,7 +203,7 @@
                 <div id="tp-login" class="tp-d-flex tp-align-items-center">
                     <a href="<?=site_url(user_uri.'/login')?>" style="color:white;"> 
               <span>
-                <i class="xi-log-in xi-x" style="text-shadow: 0 0 7px rgba(0,0,0,1);">
+                <i class="xi-log-in xi-x">
                 </i>
               </span> 
             </a>
@@ -211,17 +211,13 @@
                 <div id="tp-join" class="tp-d-flex tp-align-items-center">
                     <a href="<?=site_url(user_uri.'/register_agree_1')?>" style="color:white;"> 
               <span>
-                <i class="xi xi-user-plus" style="text-shadow: 0 0 7px rgba(0,0,0,1);">
+                <i class="xi xi-user-plus">
                 </i>
               </span> 
             </a>
                 </div>
                 <?php }else{?>
-                <div style="margin-top:25px;">
-                    <a href="<?=site_url(shop_mypage_uri." /gets_wishlist ")?>">
-              <img src="<?=$user->profilePhoto?>" alt="">
-            </a>
-                </div>
+               <div style="margin-top:25px;"><a href="<?=site_url(shop_mypage_uri."/gets_wishlist")?>"><img src="<?=$user->profilePhoto?>" alt="" style="width:30px; height:30px; border-radius: 15px;"></a></div>
                 <?php }?>
             </div>
             <div class="tp-col-2 tp-ml-auto tp-toggle" onclick="$('body').toggleClass('tp-menu-open'); $('.tp-carousel-indicators').toggleClass('tp-d-none tp-d-flex');">
@@ -253,37 +249,33 @@
                 <?php if(!is_login()){?>
                 <div id="tp-login" class="tp-d-flex tp-align-items-center">
                     <span>
-              <i class="xi-log-in xi-x" style="text-shadow: 0 0 7px rgba(0,0,0,1);">
+              <i class="xi-log-in xi-x">
               </i>
             </span>
                     <p class="tp-mb-0">
-                        <a style="color: white; font-family: 'notokr-regular', sans-serif; font-size: 12px; text-shadow: 0 0 7px rgba(0,0,0,1);" href="<?=site_url(user_uri.'/login')?>">로그인
+                        <a style="color: white; font-family: 'notokr-regular', sans-serif; font-size: 12px;" href="<?=site_url(user_uri.'/login')?>">로그인
               </a>
                     </p>
                 </div>
                 <div id="tp-join" class="tp-d-flex tp-align-items-center">
                     <span>
-              <i class="xi xi-user-plus" style="text-shadow: 0 0 7px rgba(0,0,0,1);">
+              <i class="xi xi-user-plus">
               </i>
             </span>
                     <p class="tp-mb-0">
-                        <a style="color: white; font-family: 'notokr-regular', sans-serif; font-size: 12px; text-shadow: 0 0 7px rgba(0,0,0,1);" href="<?=site_url(user_uri.'/register_agree_1')?>">회원가입
+                        <a style="color: white; font-family: 'notokr-regular', sans-serif; font-size: 12px;" href="<?=site_url(user_uri.'/register_agree_1')?>">회원가입
               </a>
                     </p>
                 </div>
                 <?php }else{?>
-                <div style="margin-top:25px;">
-                    <a href="<?=site_url(shop_mypage_uri."/gets_wishlist")?>">
-              <img src="<?=$user->profilePhoto?>" alt="">
-            </a>
-                </div>
+                <div style="margin-top:25px;"><a href="<?=site_url(shop_mypage_uri."/gets_wishlist")?>"><img src="<?=$user->profilePhoto?>" alt="" style="width:30px; height:30px; border-radius: 15px;"></a></div>
                 <div id="tp-logout" class="tp-d-flex tp-align-items-center">
                     <span>
-              <i class="xi-log-out xi-x" style="text-shadow: 0 0 7px rgba(0,0,0,1);">
+              <i class="xi-log-out xi-x">
               </i>
             </span>
                     <p class="tp-mb-0">
-                        <a style="color: white; font-family: 'notokr-regular', sans-serif; font-size: 12px; text-shadow: 0 0 7px rgba(0,0,0,1);" href="<?=site_url(user_uri.'/logout')?>">로그아웃
+                        <a style="color: white; font-family: 'notokr-regular', sans-serif; font-size: 12px;" href="<?=site_url(user_uri.'/logout')?>">로그아웃
               </a>
                     </p>
                 </div>
