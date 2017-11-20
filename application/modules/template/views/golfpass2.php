@@ -304,19 +304,25 @@
                 </div>
                 <div class="tp-d-flex tp-flex-wrap">
                     <figure>
-                        <img src="/public/sangmin/img/partner/b_partner_google.png" alt="">
+                        <img src="/public/sangmin/img/partner/b_partner_accordiagolf.png" alt="">
                     </figure>
                     <figure>
-                        <img src="/public/sangmin/img/partner/b_partner_facebook.png" alt="">
+                        <img src="/public/sangmin/img/partner/b_partner_orixgolf.png" alt="">
                     </figure>
                     <figure>
-                        <img src="/public/sangmin/img/partner/b_partner_instar.png" alt="">
+                        <img src="/public/sangmin/img/partner/b_partner_PGM.png" alt="">
                     </figure>
                     <figure>
-                        <img src="/public/sangmin/img/partner/b_partner_naver.png" alt="">
+                        <img src="/public/sangmin/img/partner/b_partner_princehotel.png" alt="">
                     </figure>
                     <figure>
-                        <img src="/public/sangmin/img/partner/b_partner_daum.png" alt="">
+                        <img src="/public/sangmin/img/partner/b_partner_timescar.png" alt="">
+                    </figure>
+                    <figure>
+                        <img src="/public/sangmin/img/partner/b_partner_hiltonhotel.png" alt="">
+                    </figure>
+                    <figure>
+                        <img src="/public/sangmin/img/partner/b_partner_bookingdotcom.png" alt="">
                     </figure>
                 </div>
             </div>
