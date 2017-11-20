@@ -629,12 +629,12 @@
             </article>
             <section id='all' class='pl-0 d-flex justify-content-center'>
                 <a href="<?=site_url(shop_review_uri."/gets/{$product->id}")?>">
-                <div id='circle' class='d-flex justify-content-center align-items-center' style="margin-right:15px;">
+                <div id='circle' class='d-flex justify-content-center align-items-center' style="margin-right:10px;">
                      <span>모두보기</span>
                 </div>
                 </a>
                 <a href="<?=site_url(shop_review_uri."/add/{$product->id}")?>">
-                <div id='circle' class='d-flex justify-content-center align-items-center' style="margin-left:15px;">
+                <div id='circle' class='d-flex justify-content-center align-items-center' style="margin-left:10px;">
                      <span>리뷰 쓰러가기</span>
                 </div>
                 </a>
