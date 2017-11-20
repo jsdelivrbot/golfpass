@@ -332,7 +332,7 @@
                 <li class="tp-title"  style="color:#ababab;">ABOUT US
                 </li>
                 <li>
-                    <a href="#" style="color:#ababab;">회사 소개
+                    <li><a href="http://www.playseven.co.kr">회사 소개</a></li>
             </a>
                 </li>
                 <li>
