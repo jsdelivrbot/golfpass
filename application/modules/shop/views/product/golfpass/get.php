@@ -94,7 +94,7 @@
                 <div id='nav-icon-box' class="offset-2 col-5 d-flex align-items-stretch justify-content-end">
                     <div id="search" class="d-flex align-items-center">
                         <a class="mk-search-trigger mk-fullscreen-trigger" href="#" id="search-button-listener">
-                        <span><i class="xi xi-search" id="search-button" style="text-shadow: 0 0 7px rgba(0,0,0,1);"></i></span>
+                        <span><i class="xi xi-search" id="search-button"></i></span>
                     </a>
                         <div class="mk-fullscreen-search-overlay" id="mk-search-overlay">
                             <a href="#" class="mk-fullscreen-close" id="mk-fullscreen-close-button"><i class="xi xi-close"></i></a>
@@ -109,16 +109,16 @@
                     <?php if(!is_login()){?>
                     <div id="login" class="d-flex align-items-center">
                         <a href="<?=site_url(user_uri.'/login')?>" style="color:white;">
-                        <span><i class="xi-log-in xi-x" style="text-shadow: 0 0 7px rgba(0,0,0,1);"></i></span>
+                        <span><i class="xi-log-in xi-x"></i></span>
                     </a>
                     </div>
                     <div id="join" class="d-flex align-items-center">
                         <a href="<?=site_url(user_uri.'/register_agree_1')?>" style="color:white;">
-                        <span><i class="xi xi-user-plus" style="text-shadow: 0 0 7px rgba(0,0,0,1);"></i></span>
+                        <span><i class="xi xi-user-plus"></i></span>
                     </a>
                     </div>
                     <?php }else{?>
-                    <div style="margin-top:25px;"><a href="<?=site_url(shop_mypage_uri."/gets_wishlist")?>"><img src="<?=$user->profilePhoto?>" alt=""></a></div>
+                    <div style="margin-top:25px;"><a href="<?=site_url(shop_mypage_uri."/gets_wishlist")?>"><img src="<?=$user->profilePhoto?>" alt="" style="width:30px; height:30px; border-radius: 15px;"></a></div>
                     <?php }?>
                 </div>
                 <div class="col-2 ml-auto toggle" onclick="$('body').toggleClass('menu-open'); $('.carousel-indicators').toggleClass('d-none d-flex');">
@@ -150,18 +150,18 @@
                 <div id='nav-icon-box' class="col  d-flex justify-content-end">
                     <?php if(!is_login()){?>
                     <div id="login" class="d-flex align-items-center">
-                        <span><i class="xi-log-in xi-x" style="text-shadow: 0 0 7px rgba(0,0,0,1);"></i></span>
-                        <p class="mb-0"><a style="color: white; font-family: 'notokr-regular', sans-serif; font-size: 12px; text-shadow: 0 0 7px rgba(0,0,0,1);" href="<?=site_url(user_uri.'/login')?>">로그인</a></p>
+                        <span><i class="xi-log-in xi-x"></i></span>
+                        <p class="mb-0"><a style="color: white; font-family: 'notokr-regular', sans-serif; font-size: 12px;" href="<?=site_url(user_uri.'/login')?>">로그인</a></p>
                     </div>
                     <div id="join" class="d-flex align-items-center">
-                        <span><i class="xi xi-user-plus" style="text-shadow: 0 0 7px rgba(0,0,0,1);"></i></span>
-                        <p class="mb-0"><a style="color: white; font-family: 'notokr-regular', sans-serif; font-size: 12px; text-shadow: 0 0 7px rgba(0,0,0,1);" href="<?=site_url(user_uri.'/register_agree_1')?>">회원가입</a></p>
+                        <span><i class="xi xi-user-plus"></i></span>
+                        <p class="mb-0"><a style="color: white; font-family: 'notokr-regular', sans-serif; font-size: 12px;" href="<?=site_url(user_uri.'/register_agree_1')?>">회원가입</a></p>
                     </div>
                     <?php }else{?>
-                    <div style="margin-top:25px;"><a href="<?=site_url(shop_mypage_uri."/gets_wishlist")?>"><img src="<?=$user->profilePhoto?>" alt=""></a></div>
+                    <div style="margin-top:25px;"><a href="<?=site_url(shop_mypage_uri."/gets_wishlist")?>"><img src="<?=$user->profilePhoto?>" alt="" style="width:30px; height:30px; border-radius: 15px;"></a></div>
                     <div id="logout" class="d-flex align-items-center">
-                        <span><i class="xi-log-out xi-x" style="text-shadow: 0 0 7px rgba(0,0,0,1);"></i></span>
-                        <p class="mb-0"><a style="color: white; font-family: 'notokr-regular', sans-serif; font-size: 12px; text-shadow: 0 0 7px rgba(0,0,0,1);" href="<?=site_url(user_uri.'/logout')?>">로그아웃</a></p>
+                        <span><i class="xi-log-out xi-x"></i></span>
+                        <p class="mb-0"><a style="color: white; font-family: 'notokr-regular', sans-serif; font-size: 12px;" href="<?=site_url(user_uri.'/logout')?>">로그아웃</a></p>
                     </div>
                     <?php }?>
                 </div>
