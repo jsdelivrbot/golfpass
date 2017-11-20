@@ -56,6 +56,16 @@
             $(".jy-dim").fadeOut(500);
         })
     </script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-82379730-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-82379730-2');
+</script>
+
 <div class="jy-dim">
     <div class="jy-loader"></div>
 </div>
