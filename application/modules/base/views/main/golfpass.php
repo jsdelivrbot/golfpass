@@ -5,9 +5,15 @@
 <meta charset="utf-8">
 <meta name="viewport"
       content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
-<meta name="description" content="">
 <meta name="author" content="">
 <title>골프패스</title>
+<link rel="canonical" href="http://golfpass.net">
+<meta name="description" content="나만의 스타일, 나만의 골프! 일본, 태국, 필리핀, 중국 등 해외 골프 여행 맞춤 플래너">
+<meta property="og:type" content="website">
+<meta property="og:title" content="골프패스">
+<meta property="og:description" content="나만의 스타일, 나만의 골프! 일본, 태국, 필리핀, 중국 등 해외 골프 여행 맞춤 플래너">
+<meta property="og:image" content="http://golfpass.net/image/001.png">
+<meta property="og:url" content="http://golfpass.net">
 <!-- Bootstrap core CSS -->
 <script src="/public/sangmin/js/prefixfree.min.js"></script>
 <link rel="stylesheet" href="/public/sangmin/dist/bootstrap/bootstrap.min.css">
