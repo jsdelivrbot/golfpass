@@ -301,15 +301,13 @@
     <div id="tp-bg-div" style="">
     </div>
 
-    <div style="margin-top:180px;"></div>
     <?php load_view($content_view)?>
-    <div style="margin-bottom:100px;"></div>
+
     <footer id='tp-footer' class='tp-main-footer tp-container-fluid'>
         <div id="tp-partner">
             <div class="tp-row" style="width:100%;">
                 <div class="tp-w-100">
-                    <h6 style="color:#ababab;">PARTNERS
-                    </h6>
+                    <h6 style="color:#ababab;">PARTNERS</h6>
                 </div>
                 <div class="tp-d-flex tp-flex-wrap">
                     <figure>
