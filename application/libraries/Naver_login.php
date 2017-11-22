@@ -9,7 +9,6 @@ class Naver_login
     private $state;
     private $code;
     public $client_secret = null;
-    
     private $user_profile_url ="https://openapi.naver.com/v1/nid/me";
     function __construct()
     {
@@ -48,6 +47,7 @@ class Naver_login
         redirect($url);
         
     }
+    
     function login_callback()
     {
         $ci = &get_instance();
@@ -61,7 +61,8 @@ class Naver_login
             
             $this->accsess_token =$result->access_token;
             $this->refresh_token= $result->refresh_token;
-            return $result;
+            var_dump($result);
+            return $this->accsess_token;
         }
         else
         {
@@ -71,10 +72,11 @@ class Naver_login
     }
     function get_user_profile()
     {
+        $accsess_token =$this->login_callback();
         $ch = curl_init();
-        $auth = array("Authorization: Bearer {$this->accsess_token}");
+        $auth = array("Authorization: Bearer {$accsess_token}");
         curl_setopt($ch, CURLOPT_URL, $this->user_profile_url );
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $this -> tokenArr );
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $auth );
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true );
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false );
         curl_setopt($ch, CURLOPT_COOKIE, '' );
@@ -84,9 +86,13 @@ class Naver_login
         $result = json_decode($result);
         return $result;
     }
+    // function delete_token()
+    // {
+    //     $this->curl("https://nid.naver.com/oauth2.0/token?grant_type=delete&client_id={$this->client_id}&client_secret={$this->client_secret}&access_token={$this->accsess_token}&service_provider=NAVER");
+        
+    // }
     private function curl($url)
     {
-
         $ch = curl_init(); 
         curl_setopt ($ch, CURLOPT_URL,$url); //접속할 URL 주소 
         curl_setopt ($ch, CURLOPT_SSL_VERIFYPEER, false); // 인증서 체크같은데 true 시 안되는 경우가 많다. 

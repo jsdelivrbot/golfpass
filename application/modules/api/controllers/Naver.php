@@ -11,8 +11,8 @@ class Naver extends Public_Controller {
     function login_callback()
     {
        $this->load->library("naver_login");
-       $result=$this->naver_login->login_callback();
-
+       $result=$this->naver_login->get_user_profile();
+        var_dump($result);
     // $result->access_token;
     //    $result->refresh_token;
     }
