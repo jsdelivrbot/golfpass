@@ -46,7 +46,7 @@ class Panel extends Base_Controller {
         
         $this->db->where("kind","panel");
         $num_rows = $this->db->count_all_results("users");
-        $config['target']      = '.ajax_taget_panel_list';
+        $config['target']      = '.tp-ajax_taget_panel_list';
         $config['base_url']    =site_url(golfpass_panel_uri.'/ajax_pgi_panels');
         $config['total_rows']  =$num_rows;
         $config['per_page']    = $this->panel_per_page;
@@ -60,7 +60,7 @@ class Panel extends Base_Controller {
         }
         $this->db->where("board_id","1");
         $num_rows = $this->db->count_all_results("board_contents");
-        $config['target']      = '.ajax_taget_content_list';
+        $config['target']      = '.tp-ajax_taget_content_list';
         $config['base_url']    =site_url(golfpass_panel_uri.'/ajax_pgi_contents');
         $config['total_rows']  =$num_rows;
         $config['per_page']    = $this->content_per_page;
@@ -84,7 +84,7 @@ class Panel extends Base_Controller {
             $offset= 0;
         $this->db->where("kind","panel");
         $num_rows = $this->db->count_all_results("users");
-        $config['target']      = '.ajax_taget_panel_list';
+        $config['target']      = '.tp-ajax_taget_panel_list';
         $config['base_url']    =site_url(golfpass_panel_uri.'/ajax_pgi_panels');
         $config['total_rows']  =$num_rows;
         $config['per_page']    = $this->panel_per_page;
@@ -107,7 +107,7 @@ class Panel extends Base_Controller {
         $num_rows = $this->db->count_all_results("board_contents");
 
         $config['id'] = $panel_id;
-        $config['target']      = '.ajax_taget_content_list';
+        $config['target']      = '.tp-ajax_taget_content_list';
         $config['base_url']    =site_url(golfpass_panel_uri.'/ajax_pgi_contents');
         $config['total_rows']  =$num_rows;
         $config['per_page']    = $this->content_per_page;

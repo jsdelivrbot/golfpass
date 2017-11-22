@@ -714,7 +714,7 @@
             </ul>
             <ul>
                 <li class="tp-title">NEWS LETTER</li>
-                <li class="mb-20"><input type="text" placeholder="E-mail을 입력해주세요"></li>
+                <li class="mb-20"><input type="text" id="newsLetter" placeholder="E-mail을 입력해주세요"></li>
                 <li><strong>골프패스</strong>
                     <p style="margin-bottom: 0;">에서 제공하는 유용한 소식</p>
                 </li>
@@ -952,3 +952,34 @@
 </body>
 
 </html>
+
+<!-- 뉴스레터 시작-->
+<script>
+    $("#newsLetter").keypress(function (e) {
+        var key = e.which;
+        if(key == 13)  // the enter key code
+        {
+            var email =$(this).val();
+            var url = "<?=site_url(main_uri."/add_newslatter")?>";
+          
+            $.ajax({
+                type:"post",
+                dataType:"json",
+                url : url,
+                data: { email : email},
+                success : function(data){
+                    alert(data.email + "이(가) 뉴스레터에 등록되었습니다.");
+                },
+                error: function(xhr, textStatus, errorThrown){
+                    alert('에러...');
+                    $('.loading').fadeOut(500);
+                    console.log('code: '+request.status+"\n"+'message: '+request.responseText+"\n"+'error: '+error);
+                    console.log(errorThrown);
+                }
+            });
+            return false;  
+        }
+    });     
+</script>
+
+<!-- 뉴스레터 끝-->

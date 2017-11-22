@@ -60,6 +60,64 @@ class Mypage extends Base_Controller {
         $views = array("container_h","table","container_f");
         $this->_template($views,$data,'golfpass2');
     }
+    function get_order($order_id)
+    {
+
+        $data=$this->_get_container_data();
+        //로그인한 회원 주문정보
+        $this->load->model('product_orders_model');
+        $data['user'] = $this->user;
+        $data['page_name'] ="주문내역";         
+        $data['ths'] = array("번호","주문명","주문금액","결제방식","후기작성 여부");
+        $rows =$this->product_orders_model->gets_with_pgi();
+        foreach($rows as $key=>$row)
+        {
+            $href =my_site_url(shop_mypage_uri."/get_order/{$row->id}");
+            $text =$row->주문명;
+             $row->주문명 = "<a href='{$href}'>{$text}</a>"; 
+        }
+        $data['rows'] =$rows;
+
+        //주문정보 시작
+        $order =$this->db->select("*")->from("product_orders")->where("id",$order_id)->get()->row();
+        $merchant_uid = $order->merchant_uid;
+        
+        $order_products = $this->db->select("op.*, (op.price * op.count) 'p_total_price' , p.name 'p_name' ")
+        ->from("p_order_products as op")
+        ->join("products as p","op.product_id = p.id","INNER")
+        ->where("merchant_uid", $merchant_uid)
+        ->get()->result();
+        
+
+        if($order->pay_method === 'card')
+            $order->pay_method_enum = "카드";
+        else if($order->pay_method === 'vbank')
+            $order->pay_method_enum = "가상은행";            
+        else if($order->pay_method === 'bank')
+            $order->pay_method_enum = "무통장입금";            
+        else 
+            $order->pay_method_enum = "알수없음";            
+
+        if($order->status === 'ready' || $order->status === 'try')
+            $order->status_enum = '미결제';
+        else if($order->status === 'paid')            
+            $order->status_enum = '결제완료';
+        else
+            $order->status_enum = '알수없음';
+
+        // var_dump($order_products);
+        $data['order_infos'] =$this->db->where("merchant_uid",$merchant_uid)->from("p_order_infos")->get()->result();
+        $data['order']= $order;
+        $data['order_products'] = $order_products;
+        $data['setting'] =$this->setting;      
+        $data['photo'] = $this->db->where("product_id",$order->product_id)
+        ->where("kind","photo")->limit(1,0)->order_by("sort","asc")->get("product_option")->row()->name;   
+        $data['product'] =$this->db->where("id",$order->product_id)->get("products")->row();
+        //주문정보 끝
+        $views = array("container_h","get_order","table","container_f");
+        $this->_template($views,$data,'golfpass2');
+
+    }
     public function gets_order()
     {
         $data=$this->_get_container_data();
@@ -71,7 +129,10 @@ class Mypage extends Base_Controller {
         $rows =$this->product_orders_model->gets_with_pgi();
         foreach($rows as $key=>$row)
         {
-             $row->주문명 = anchor(site_url(shop_mypage_uri."/get_order/{$row->id}"),$row->주문명);
+            $href =my_site_url(shop_mypage_uri."/get_order/{$row->id}");
+            $text =$row->주문명;
+            //  $row->주문명 = anchor(my_site_url(shop_mypage_uri."/get_order/{$row->id}"),$row->주문명);
+             $row->주문명 = "<a href='{$href}'>{$text}</a>"; 
             //  $row->후기작성여부 = anchor(site_url(shop_mypage_uri."/get_order/{$row->id}"),$row->후기작성여부);//후기쓰러가기 url
         }
         $data['rows'] =$rows;

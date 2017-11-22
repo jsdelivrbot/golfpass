@@ -471,7 +471,7 @@ class Init extends Init_Controller {
             `reviews_count` int UNSIGNED NOT NULL DEFAULT '0',
             `name` varchar(30) NOT NULL DEFAULT '샘플상품',
             `eng_name` varchar(255) DEFAULT 'sample product', 
-            `desc` varchar(255) DEFAULT '샘플설명', 
+            `desc` TEXT,
             `region` varchar(255)DEFAULT '샘플지역',
             `hole_count` varchar(255)NOT NULL, 
             `course_type` varchar(255) NOT NULL, 

@@ -33,20 +33,20 @@ class Ajax_pagination{
     var $full_tag_close  = '';
 
     //처음으로
-    var $first_tag_open  = '<div class="first">';
+    var $first_tag_open  = '<div class="tp-first">';
     var $first_tag_close = '</div>&nbsp;';
     //끝으로
     var $last_tag_open   = '&nbsp;';
     var $last_tag_close  = '';
 
     //현재 페이지부터 각페이지 전체 감싸기;
-    var $num_link_tag_open = '<ul class="d-flex list-unstyled justify-content-center mb-0">';
+    var $num_link_tag_open = '<ul class="tp-d-flex tp-list-unstyled tp-justify-content-center tp-mb-0">';
     var $num_link_tag_close ='</ul>';
 
     //현재 페이지
     // var $cur_tag_open    = '&nbsp;<b>';
     // var $cur_tag_close   = '</b>';
-    var $cur_tag_open    = ' <li class="current"><a>';
+    var $cur_tag_open    = ' <li class="tp-current"><a>';
     var $cur_tag_close   = '</a></li>';
 
     //각 페이지
@@ -61,7 +61,7 @@ class Ajax_pagination{
     
     // 이전링크
     var $prev_link       = '<i class="xi xi-angle-left-min"></i>';
-    var $prev_tag_open   = '<div class="prev">';
+    var $prev_tag_open   = '<div class="tp-prev">';
     var $prev_tag_close  = '</div>';
 
 
