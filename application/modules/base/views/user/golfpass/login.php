@@ -51,7 +51,7 @@
                 Or
             </div>
             <a href="" class="ui fluid large google plus button" style="margin-bottom:10px;"><i class="google plus icon"></i>구글로 로그인</a>
-            <a class="ui naver fluid large submit button" style="margin-bottom:10px;">네이버로 로그인</a>
+            <a href="javascript:open_popup('<?=site_url(api_naver_uri."/requset_auth")?>','naver');" class="ui naver fluid large submit button" style="margin-bottom:10px;">네이버로 로그인</a>
             <a class="ui facebook fluid large submit button" style="margin-bottom:10px;"><i class="facebook icon"></i>페이스북으로 로그인</a>
             <a class="ui kakao fluid large submit button"><i class="kakao icon"></i>카카오로 로그인</a>
 

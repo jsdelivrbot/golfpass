@@ -159,7 +159,7 @@
                 </li>
                 <?php if(!is_login()){?>
                 <li>
-                    <a style="color:white;" href="<?=site_url(user_uri.'/login')?>">로그인
+                    <a style="color:white;"href="<?=site_url(user_uri."/login?return_url=".rawurlencode(my_current_url()))?>">로그인
             </a>
                 </li>
                 <li>
@@ -262,7 +262,7 @@
               </i>
             </span>
                     <p class="tp-mb-0">
-                        <a style="color: white; font-family: 'notokr-regular', sans-serif; font-size: 12px;" href="<?=site_url(user_uri.'/login')?>">로그인
+                        <a style="color: white; font-family: 'notokr-regular', sans-serif; font-size: 12px;" href="<?=site_url(user_uri."/login?return_url=".rawurlencode(my_current_url()))?>">로그인
               </a>
                     </p>
                 </div>

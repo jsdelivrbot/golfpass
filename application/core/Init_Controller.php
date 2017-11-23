@@ -53,7 +53,7 @@ class Init_Controller extends MX_Controller{
         $this->pages();
         $this->product_cartlist();
         $this->hashtag();
-
+        $this->sns_info();
       
     }
     function test_setting_update()
@@ -113,6 +113,42 @@ class Init_Controller extends MX_Controller{
             return false;
          }
         
+    }
+    function sns_info()
+    {
+          // setting 테이블 만들기
+          $tb_name = 'sns_info';
+          if(!$this->db->table_exists($tb_name)){
+          
+              $result = $this->db->query("CREATE TABLE `{$tb_name}` (
+                `id` INT UNSIGNED NULL AUTO_INCREMENT, 
+                `user_id` int(11) NOT NULL,
+                `sns_id` varchar(255) NOT NULL,
+                `sns_type` varchar(10)  NULL,
+                `sns_name` varchar(255)  NULL,
+                `sns_profile` varchar(255)  NULL,
+                `refresh_token` varchar(255)  NULL,
+                `created` datetime NOT NULL DEFAULT NOW(),
+                KEY `idx01_id` (`user_id`),
+                KEY `idx02_sns_id` (`sns_id`),
+                PRIMARY KEY (`id`)
+              ) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
+                  
+              if($result){
+                  echo("success create $tb_name ");
+                  echo "<br>";
+                  return true;
+              }else{
+                  echo("failed create $tb_name");
+                  echo "<br>";
+                  return false;
+              } 
+  
+          }else{
+              echo "already table $tb_name exists";
+              echo "<br>";
+             return false;
+          }
     }
     function map_markers()
     {
@@ -205,19 +241,20 @@ class Init_Controller extends MX_Controller{
              $result = $this->db->query("CREATE TABLE `$tb_name`(
              `id` INT UNSIGNED NULL AUTO_INCREMENT, 
              `auth` INT NOT NULL DEFAULT '1',
-             `kind` varchar(50) NOT NULL DEFAULT 'general',
+             `kind` varchar(255) NOT NULL DEFAULT 'general',
              `profilePhoto` varchar(255) DEFAULT '/public/images/ico_my.png',
              `intro` varchar(255) DEFAULT '',
-             `userName` varchar(10), 
+             `userName` varchar(255), 
              `password` varchar(255), 
-             `name` varchar(10),
-             `sex` varchar(10),
-             `birth` varchar(30),
-             `phone` varchar(20),
-             `email` varchar(40),
+             `name` varchar(255),
+             `sex` varchar(255),
+             `birth` varchar(255),
+             `phone` varchar(255),
+             `email` varchar(255),
              `address` varchar(255) ,
              `postal_number` INT UNSIGNED, 
              `address_more` varchar(255),
+             `sns_type` varchar(255) NOT NULL DEFAULT 'general',
              `option_1` varchar(255),
              `option_2` varchar(255),
              `option_3` varchar(255),

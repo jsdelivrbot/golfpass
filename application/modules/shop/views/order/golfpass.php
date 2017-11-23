@@ -163,7 +163,7 @@
         var total_price =base_totalPrice;
 
         var singleroom_price = $("select[name=singleroom] option:selected").data("price");
-        console.log(singleroom_price);
+        // console.log(singleroom_price);
         total_price += singleroom_price;
         var hole_option_price = $("select[name=hole_option] option:selected").data("price");
         // console.log(hole_option_price);
@@ -359,7 +359,7 @@ function alert_payment_window(e)
                             payment_check = data['payment_check'];
                         }
                     }).done(function(data) {
-                        console.log(data);
+                        // console.log(data);
                         //[2] 서버에서 REST API로 결제정보확인 및 서비스루틴이 정상적인 경우
                         if ( payment_check ==='paid' || payment_check === 'vbank' ) {
 

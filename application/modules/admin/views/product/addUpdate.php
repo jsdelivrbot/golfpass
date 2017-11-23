@@ -525,7 +525,7 @@ $('#navi_btn').click(function(){
 
     <div id="map" style="width:100%;height:500px;"></div>
 
-    <form  style="margin-top:20px;"class="ui form"onsubmit="ajax_submit(this); return false;" action="<?=site_url(api_google_map."/ajax_get_marker_by_address")?>" method="post">
+    <form  style="margin-top:20px;"class="ui form"onsubmit="ajax_submit(this); return false;" action="<?=site_url(api_google_map_uri."/ajax_get_marker_by_address")?>" method="post">
         <div class="field">
                 <!-- <label >이미지</label> -->
             <input type="text"placeholder="주소" name="search">
