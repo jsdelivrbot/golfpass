@@ -537,8 +537,7 @@
             <div class="row no-gutters main-section-title" style="margin-bottom: 20px !important">
                 <h4 class="main_sub_title">그늘집 by GOLFPASS</h4>
             </div>
-            <div class="row no-gutters justify-content-start">
-                <!--패널 반복 아래 div.panel-item-->
+            <!-- <div class="row no-gutters justify-content-start">
                 <?php for($i=0 ; $i < count($panels); $i++){?>
                 <div class="col-12 col-lg-6 mb-4 d-flex panel-item">
                     <div class="d-none d-md-block">
@@ -560,10 +559,13 @@
                     </div>
                 </div>
                 <?php }?>
-
-
-
-        </div>
+            </div> -->
+            <div style="background-image:url(/public/images/panel_background.jpg); background-repeat:no-repeat; background-position:center; background-size:cover; padding-top:150px; padding-bottom:150px; margin-bottom:30px;">
+                <div style="width:300px; margin:0 auto;">
+                    <h1 style="color:#fff; text-shadow: 0 0 7px rgba(0,0,0,1); text-align:center; font-family:serif; font-size:50px;">그늘집</h1>
+                    <p style="color:#fff; font-size:12px; text-shadow: 0 0 7px rgba(0,0,0,1); text-align:center; margin:0; padding:0;">일본 골프 전문가의 여행기를 열람하세요!</p>
+                </div>
+            </div>
         <div class="row justify-content-center align-items-center">
             <a href="<?=site_url(golfpass_panel_uri."/gets")?>" class="d-flex justify-content-center align-items-center" style='text-decoration: none'>
                 <p class="mb-0 text-light mr-3">
