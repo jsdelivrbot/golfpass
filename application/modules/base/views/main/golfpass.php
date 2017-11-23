@@ -560,10 +560,10 @@
                 </div>
                 <?php }?>
             </div> -->
-            <div style="background-image:url(/public/images/panel_background.jpg); background-repeat:no-repeat; background-position:center; background-size:cover; padding-top:150px; padding-bottom:150px; margin-bottom:30px;">
-                <div style="width:300px; margin:0 auto;">
-                    <h1 style="color:#fff; text-shadow: 0 0 7px rgba(0,0,0,1); text-align:center; font-family:serif; font-size:50px;">그늘집</h1>
-                    <p style="color:#fff; font-size:12px; text-shadow: 0 0 7px rgba(0,0,0,1); text-align:center; margin:0; padding:0;">일본 골프 전문가의 여행기를 열람하세요!</p>
+            <div class="panel_redesign" style="background-image:url(/public/images/panel_background.jpg); background-repeat:no-repeat; background-position:center; background-size:cover; padding-top:150px; padding-bottom:150px; margin-bottom:30px;">
+                <div class="panel_text"style="width:50%; margin:0 auto;">
+                    <h1>그늘집</h1>
+                    <p>일본 골프 전문가의 여행기를 열람하세요!</p>
                 </div>
             </div>
         <div class="row justify-content-center align-items-center">

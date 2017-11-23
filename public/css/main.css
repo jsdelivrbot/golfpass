@@ -2796,6 +2796,27 @@ body.menu-open .plus-btn .r2 {
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical; }
 
+.panel_redesign .panel_text h1 {
+  font-family: serif;
+  font-size: 60px;
+  color: #fff;
+  text-shadow: 0 0 7px black;
+  text-align: center; }
+  @media (max-width: 575px) {
+    .panel_redesign .panel_text h1 {
+      font-size: 45px; } }
+.panel_redesign .panel_text p {
+  color: #fff;
+  font-size: 16px;
+  text-shadow: 0 0 7px black;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  font-family: 'notokr-demilight', sans-serif; }
+  @media (max-width: 575px) {
+    .panel_redesign .panel_text p {
+      font-size: 12px; } }
+
 #main-wrap #footer {
   background-color: transparent !important;
   color: #fff !important; }

@@ -54,3 +54,29 @@
         }
     }
 }
+
+
+.panel_redesign .panel_text {
+    h1 {
+        font-family: serif;
+        font-size: 60px;
+        color: #fff;
+        text-shadow: 0 0 7px rgba(0,0,0,1);
+        text-align: center;
+        @media (max-width:575px) {
+            font-size: 45px;
+        }
+    }
+    p {
+        color:#fff;
+        font-size:16px;
+        text-shadow: 0 0 7px rgba(0,0,0,1);
+        text-align:center;
+        margin:0;
+        padding:0;
+        font-family: 'notokr-demilight', sans-serif;
+        @media (max-width:575px) {
+            font-size: 12px;
+        }
+    }
+}
