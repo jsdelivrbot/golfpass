@@ -1,3 +1,7 @@
+<!-- FontsOnline -->
+<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Crimson+Text:400,400italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
+
 <!-- StyleSheets -->
 <link rel="stylesheet" href="/public/etc/list/css/ionicons.min.css">
 <link rel="stylesheet" href="/public/etc/list/css/bootstrap/bootstrap.min.css">
@@ -35,9 +39,9 @@
         <section class="sub-banner" style="background:url(/public/etc/list/images/golfpass/hero_img.png) fixed no-repeat">
             <div class="container">
                 <div class="position-center-center">
-                    <h2><?php for($j=count($parent_categories)-2; $j >= 1; $j--){?><?=$parent_categories[$j]->name?><?php }?></h2>
+                    <h2 style="font-family: 'notokr-regular', sans-serif; font-weight: normal;"><?php for($j=count($parent_categories)-2; $j >= 1; $j--){?><?=$parent_categories[$j]->name?><?php }?></h2>
                     <ol class="breadcrumb">
-                        <li class="active">일본열도를 구성하는 4대 섬 중 가장 남쪽에 있는 섬, 또는 그 섬을 중심으로 하는 지방. 전근대 시기에는 사이카이도(서해도, 西海道)라 불리웠으며, 옛날에 9개의 번국(구니, 国=州)가 있었다고 해서 규슈라고 하며 번국(구니)이란 일본 고대의 행정구역이다.</li>
+                        <li class="active" style="font-family: 'notokr-regular', sans-serif; font-weight: normal;">일본열도를 구성하는 4대 섬 중 가장 남쪽에 있는 섬, 또는 그 섬을 중심으로 하는 지방. 전근대 시기에는 사이카이도(서해도, 西海道)라 불리웠으며, 옛날에 9개의 번국(구니, 国=州)가 있었다고 해서 규슈라고 하며 번국(구니)이란 일본 고대의 행정구역이다.</li>
                     </ol>
                 </div>
             </div>
@@ -46,16 +50,16 @@
         <section class="blog style-2 padding-bottom-80">
             <div class="container">
                 <div class="heading-block style-3 text-center margin-top-100 margin-bottom-50">
-                    <h3>상품 목록</h3>
+                    <h3 style="font-family: 'notokr-regular', sans-serif; font-weight: normal;">상품 목록</h3>
                     <hr class="color">
                 </div>
 
                 <ul class="tabs portfolio-filter text-center margin-bottom-80">
-                    <li class="tab-title filter-item"><a class="active" href="#" data-filter="*">ALL</a></li>
-                    <li class="tab-title filter-item"><a href="#" data-filter=".pf-branding-design" class="">후쿠오카</a></li>
-                    <li class="tab-title filter-item"><a href="#" data-filter=".pf-photography" class="">구마모토</a></li>
-                    <li class="tab-title filter-item"><a href="#" data-filter=".pf-web-design" class="">동경</a></li>
-                    <li class="tab-title filter-item"><a href="#" data-filter=".pf-digital-art" class="">오사카</a></li>
+                    <li class="tab-title filter-item"><a class="active" href="#" data-filter="*" style="font-family: 'notokr-regular', sans-serif; font-size: 12px; font-weight: normal;">ALL</a></li>
+                    <li class="tab-title filter-item"><a href="#" data-filter=".pf-branding-design" class="" style="font-family: 'notokr-regular', sans-serif; font-size: 12px; font-weight: normal;">후쿠오카</a></li>
+                    <li class="tab-title filter-item"><a href="#" data-filter=".pf-photography" class="" style="font-family: 'notokr-regular', sans-serif; font-size: 12px; font-weight: normal;">구마모토</a></li>
+                    <li class="tab-title filter-item"><a href="#" data-filter=".pf-web-design" class="" style="font-family: 'notokr-regular', sans-serif; font-size: 12px; font-weight: normal;">동경</a></li>
+                    <li class="tab-title filter-item"><a href="#" data-filter=".pf-digital-art" class="" style="font-family: 'notokr-regular', sans-serif; font-size: 12px; font-weight: normal;">오사카</a></li>
                 </ul>
 
                 <div class="row">
@@ -64,12 +68,12 @@
                             <article class="blog-post">
                                 <div class="post-img position-relative rounded-top" style="background-image:url(<?=$products[$i]->photos[0]?>); background-repeat:no-repeat; background-position:center; background-size:cover">
                                     <img src="/public/etc/list/images/golfpass/list-blank.png" class="blank_img">
-                                    <span class="date font-crimson"><?=$products[$i]->price?>원</span>
-                                    <span class="date font-crimson" style="bottom: 20px; background-color: #383838;"><?=$products[$i]->hotel_id !== null ? "숙박 포함" : "숙박 미포함"?></span>
+                                    <span class="date font-crimson" style="font-family: 'notokr-regular', sans-serif; font-weight: normal;"><?=$products[$i]->price?>원</span>
+                                    <span class="date font-crimson" style="bottom: 20px; background-color: #383838; font-family: 'notokr-regular', sans-serif; font-weight: normal;"><?=$products[$i]->hotel_id !== null ? "숙박 포함" : "숙박 미포함"?></span>
                                 </div>
-                                <a href="#" class="tittle-post"> <?=$products[$i]->name?> </a>
-                                <span class="post-bt"><span class="text-color-primary"><?=$products[$i]->eng_name?></span></span>
-                                <p>
+                                <a href="#" class="tittle-post" style="font-family: 'notokr-regular', sans-serif; font-weight: normal;"> <?=$products[$i]->name?> </a>
+                                <span class="post-bt"><span class="text-color-primary" style="font-family: 'notokr-demilight', sans-serif; font-weight: normal;"><?=$products[$i]->eng_name?></span></span>
+                                <p style="font-family: 'notokr-demilight', sans-serif; font-weight: normal;">
                                     <?php 
                                         echo $products[$i]->desc;
                                     ?>

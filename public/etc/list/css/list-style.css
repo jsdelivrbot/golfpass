@@ -5540,9 +5540,8 @@ blockquote cite {
 	line-height: 42px;
 	color: #272727;
 	margin: 0 5px;
-	font-style: italic;
-	font-size: 18px;
-	font-family: 'Crimson Text', serif;
+	font-size: 16px;
+	font-family: 'Montserrat', serif;
 }
 .pagination>li>a:hover {
 	background: #6eae4a;
@@ -5648,7 +5647,7 @@ blockquote cite {
 	margin-top: 20px;
     white-space: normal;
     overflow: hidden;
-    height: 28px;
+    height: 22px;
     word-wrap: break-word;
     display: -webkit-box;
     -webkit-line-clamp: 1;

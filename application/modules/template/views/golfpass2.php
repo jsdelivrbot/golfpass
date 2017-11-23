@@ -247,9 +247,9 @@
                     </figure>
                 </a>
                 <div style="<?php if(strpos(current_url(),"category/gets")>-1 || strpos(current_url(),"product/gets")>-1) echo "margin-left:42px;"?>width:81%; height:43px; padding:10px;"class="tp-search-container tp-d-flex tp-align-items-center tp-position-relative">
-                    <i class="xi xi-search">
+                    <i class="xi xi-search" style="font-size: 16px;">
             </i>
-                    <input style="width:71%; height:41px; padding:1px;" id="tp-serach" type="text" placeholder="관심있는 나라나 골프장을 검색해보세요!">
+                    <input style="width:71%; height:41px; padding:1px 1px 1px 5px;" id="tp-serach" type="text" placeholder="관심있는 나라나 골프장을 검색해보세요!">
                     <div class="tp-search-content-container tp-position-absolute tp-w-100">
                     </div>
                 </div>
@@ -258,7 +258,7 @@
                 <?php if(!is_login()){?>
                 <div id="tp-login" class="tp-d-flex tp-align-items-center">
                     <span>
-              <i class="xi-log-in xi-x">
+              <i class="xi-log-in xi-x" style="font-size: 17px;">
               </i>
             </span>
                     <p class="tp-mb-0">
@@ -268,7 +268,7 @@
                 </div>
                 <div id="tp-join" class="tp-d-flex tp-align-items-center">
                     <span>
-              <i class="xi xi-user-plus">
+              <i class="xi xi-user-plus" style="font-size: 17px;">
               </i>
             </span>
                     <p class="tp-mb-0">
@@ -334,21 +334,17 @@
                 </div>
             </div>
         </div>
+        
         <div class="tp-row tp-d-flex" style="width:100%;">
             <ul>
                 <li class="tp-title"  style="color:#ababab;">ABOUT US
                 </li>
-                <li>
                     <li><a href="http://www.playseven.co.kr">회사 소개</a></li>
-            </a>
+                <li>
+                    <a href="#" style="color:#ababab;">이용약관</a>
                 </li>
                 <li>
-                    <a href="#" style="color:#ababab;">이용약관
-            </a>
-                </li>
-                <li>
-                    <a href="#" style="color:#ababab;">개인 정보 취급 방침
-            </a>
+                    <a href="#" style="color:#ababab;">개인 정보 취급 방침</a>
                 </li>
             </ul>
             <ul>
