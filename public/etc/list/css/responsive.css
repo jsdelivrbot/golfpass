@@ -365,9 +365,9 @@ list-header nav .ownmenu li.search-nav a {
 .blog-posts .info {
 	margin-bottom: 30px;
 }
-footer .f-links {
+#list-footer .f-links {
 }
-footer .footer-link h5 {
+#list-footer .footer-link h5 {
 	margin-bottom: 0px;
 	margin-top: 30px;
 	margin-bottom: 20px;

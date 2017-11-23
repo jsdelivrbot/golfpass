@@ -4651,42 +4651,42 @@ input:focus, textarea:focus, keygen:focus, select:focus {
 /*=======================================================
 			FOOTER
 ========================================================*/
-#footer {
+#list-footer {
 	background-color: #202020;
 	color: #636363;
 	font-size: 12px;
 }
-#footer li {
+#list-footer li {
 	line-height: 36px;
 }
-#footer a {
+#list-footer a {
 	color: #636363;
 }
-#footer a:hover {
+#list-footer a:hover {
 	color: #f6b138;
 }
-#footer p {
+#list-footer p {
 	line-height: 24px;
 }
-#footer .footer-top {
+#list-footer .footer-top {
 	padding-top: 50px;
 }
-#footer .footer-top .columns {
+#list-footer .footer-top .columns {
 	border-left: 1px solid #2e2e2e;
 }
-#footer .footer-top .columns:first-child {
+#list-footer .footer-top .columns:first-child {
 	border: none;
 }
-#footer .footer-bottom {
+#list-footer .footer-bottom {
 	margin-top: 20px;
 }
-#footer .block {
+#list-footer .block {
 	margin-bottom: 20px;
 }
-#footer .text-primary {
+#list-footer .text-primary {
 	color: #f6b138 !important;
 }
-#footer .block .block-title {
+#list-footer .block .block-title {
 	color: #ffffff;
 	font-size: 12px;
 	letter-spacing: 1px;
@@ -4696,10 +4696,10 @@ input:focus, textarea:focus, keygen:focus, select:focus {
 	position: relative;
 	text-transform: uppercase;
 }
-#footer .block-content img {
+#list-footer .block-content img {
 	margin-top: 20px;
 }
-#footer .block .block-title:not(.no-underline):before {
+#list-footer .block .block-title:not(.no-underline):before {
 	background: #f6b138;
 	bottom: 0;
 	content: "";
@@ -4707,10 +4707,10 @@ input:focus, textarea:focus, keygen:focus, select:focus {
 	position: absolute;
 	width: 20px;
 }
-#footer .copyright {
+#list-footer .copyright {
 	text-transform: uppercase;
 }
-#footer .copyright p {
+#list-footer .copyright p {
 	font-size: 11px;
 	letter-spacing: 1px;
 }
