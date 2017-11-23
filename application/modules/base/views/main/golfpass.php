@@ -560,8 +560,8 @@
                 </div>
                 <?php }?>
             </div> -->
-            <div class="panel_redesign" style="background-image:url(/public/images/panel_background.jpg); background-repeat:no-repeat; background-position:center; background-size:cover; padding-top:150px; padding-bottom:150px; margin-bottom:30px;">
-                <div class="panel_text"style="width:50%; margin:0 auto;">
+            <div class="panel_redesign" style="cursor: pointer;" onclick="location.href='<?=site_url(golfpass_panel_uri."/gets")?>';">
+                <div class="panel_text" style="width: 50%; margin: 0 auto;">
                     <h1>그늘집</h1>
                     <p>일본 골프 전문가의 여행기를 열람하세요!</p>
                 </div>
@@ -571,9 +571,7 @@
                 <p class="mb-0 text-light mr-3">
                     전체 패널 보러가기
                 </p>
-                <span style='width: 30px;height: 30px'
-                        class="rounded-circle bg-light d-flex align-items-center justify-content-center"><i
-                        class="xi xi-angle-right text-dark"></i></span>
+                <span style='width: 30px;height: 30px' class="rounded-circle bg-light d-flex align-items-center justify-content-center"><i class="xi xi-angle-right text-dark"></i></span>
             </a>
         </div>
         </article>

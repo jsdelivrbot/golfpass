@@ -2796,6 +2796,15 @@ body.menu-open .plus-btn .r2 {
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical; }
 
+.panel_redesign {
+  background-image: url(/public/images/panel_background.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding-top: 150px;
+  padding-bottom: 150px;
+  margin-bottom: 30px; }
+
 .panel_redesign .panel_text h1 {
   font-family: serif;
   font-size: 60px;
