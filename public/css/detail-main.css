@@ -2866,7 +2866,7 @@ body.menu-open .plus-btn .r2 {
         font-size: 16px; }
       #detail-wrap #section1 #section1-wrap #detail #title {
         margin-top: 12px;
-        font-family: 'TmonMonsori';
+        font-family: 'TmonMonsori', 'notokr-medium', sans-serif;;
         font-size: 40px; }
         @media (min-width: 992px) {
           #detail-wrap #section1 #section1-wrap #detail #title {
