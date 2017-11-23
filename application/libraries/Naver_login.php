@@ -12,8 +12,11 @@ class Naver_login
     private $user_profile_url ="https://openapi.naver.com/v1/nid/me";
     function __construct()
     {
+        $ci = &get_instance();
+        $ci->load->helper("url");
+        $return_url = rawurldecode(current_url());
         $this->client_id = "desGiq4LhD6U7f_oSZdR";
-        $this->redirect_uri = "http://localhost/index.php/api/naver/login_callback";
+        $this->redirect_uri = "http://localhost/index.php/api/naver/login_callback?return_url={$return_url}";
         $this->client_secret= "VTc_AV7Ta4";
     }
     private function generate_state()
@@ -61,8 +64,8 @@ class Naver_login
             
             $this->accsess_token =$result->access_token;
             $this->refresh_token= $result->refresh_token;
-            var_dump($result);
-            return $this->accsess_token;
+            // var_dump($result);
+            return $result;
         }
         else
         {
@@ -70,9 +73,9 @@ class Naver_login
             return false;
         }
     }
-    function get_user_profile()
+    function get_user_profile($accsess_token)
     {
-        $accsess_token =$this->login_callback();
+        // $accsess_token =$this->login_callback();
         $ch = curl_init();
         $auth = array("Authorization: Bearer {$accsess_token}");
         curl_setopt($ch, CURLOPT_URL, $this->user_profile_url );
