@@ -3035,10 +3035,12 @@ body.menu-open .plus-btn .r2 {
         padding-left: 30px; }
         #detail-wrap #section2 #section2-wrap .list-content ul li {
           color: #4d4d4d;
-          width: 33%; }
+          width: 45%;
+            margin-right: 5%;}
           @media (min-width: 960px) {
             #detail-wrap #section2 #section2-wrap .list-content ul li {
-              width: 25%; } }
+              width: 20%;
+              margin-right: 5%;} }
           #detail-wrap #section2 #section2-wrap .list-content ul li span {
             font-family: 'notokr-regular', sans-serif;
             color: #9fa0a1;
@@ -3195,7 +3197,7 @@ body.menu-open .plus-btn .r2 {
         display: block; }
       #book-box-wrap #book-box #personnel #count-box select {
         padding: 0 10px 0 15px;
-        width: 90px;
+        width: 135px;
         border: 0;
         border-radius: 0;
         height: 40px;

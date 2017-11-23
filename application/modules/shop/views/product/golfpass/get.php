@@ -296,7 +296,7 @@
                         <div id='count-box' class='d-flex align-items-stretch justify-content-end'>
                             <form class="" action="index.html" method="post">
                                 <select name="num_people" class="custom-select" id="">
-                    <option>선택</option>
+                    <option>인원 선택</option>
                         <?php for($i =  $product->min_people; $i<=$product->max_people; $i++){?>
                       <option value="<?=$i?>"><?=$i?>명</option>
                         <?php }?>
