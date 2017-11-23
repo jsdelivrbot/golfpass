@@ -64,7 +64,7 @@
 
                 <div class="row">
                     <?php for($i=0; $i< count($products); $i++){?>
-                        <div class="col-md-4 margin-bottom-80" style=" cursor: pointer;" onclick="location.href='<?=site_url(shop_product_uri."/get/{$products[$i]->id}")?>';">
+                        <div class="col-md-4 margin-bottom-80" style="cursor: pointer;" onclick="location.href='<?=site_url(shop_product_uri."/get/{$products[$i]->id}")?>';">
                             <article class="blog-post">
                                 <div class="post-img position-relative rounded-top" style="background-image:url(<?=$products[$i]->photos[0]?>); background-repeat:no-repeat; background-position:center; background-size:cover">
                                     <img src="/public/etc/list/images/golfpass/list-blank.png" class="blank_img">

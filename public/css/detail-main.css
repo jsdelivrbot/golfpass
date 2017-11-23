@@ -3244,6 +3244,12 @@ body.menu-open .plus-btn .r2 {
       font-size: 1em;
       border: 1px solid #e6e6e6;
       border-top: 0; }
+        @media (max-width:991px) {
+            #book-box-wrap #book-box #info {
+                border-right: 0;
+                border-left: 0;
+            }
+        }
       #book-box-wrap #book-box #info li {
         margin-bottom: 5px;
         box-sizing: border-box; }
