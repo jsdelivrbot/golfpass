@@ -32,7 +32,7 @@
 .in-the-look li {
 	width: 33.3333%;
 }
-header {
+list-header {
 	margin-top: 40px;
 }
 .single-pages .ownmenu{
@@ -41,7 +41,7 @@ header {
 .single-pages .ownmenu li{
 	padding:0 7px;
 }
-header nav .ownmenu li {
+list-header nav .ownmenu li {
 	padding: 0 10px;
 }
 .in-the-look li .inn-look {
@@ -78,7 +78,7 @@ header nav .ownmenu li {
 .furniture .items-fer li {
 	width: 33.3333%;
 }
-header .search-nav ul.dropdown {
+list-header .search-nav ul.dropdown {
 	width: 100% !important;
 }
 .header-style-2.header-style-3 .logo {
@@ -107,7 +107,7 @@ header .search-nav ul.dropdown {
 .single-pages .ownmenu li{
 	padding:0 7px;
 }
-header .logo {
+list-header .logo {
 	width: 100%;
 	position: relative;
 	text-align: center;
@@ -116,7 +116,7 @@ header .logo {
 .ownmenu {
 	width: 100%;
 }
-header {
+list-header {
 	margin-top: 2px;
 }
 .ownmenu ul.dropdown, .ownmenu ul.dropdown li ul.dropdown {
@@ -125,10 +125,10 @@ header {
 .ownmenu ul.dropdown, .ownmenu ul.dropdown li ul.dropdown {
 	padding: 20px;
 }
-header .ownmenu ul.dropdown {
+list-header .ownmenu ul.dropdown {
 	padding: 20px;
 }
-header nav .ownmenu li {
+list-header nav .ownmenu li {
 	padding: 0 10px;
 }
 .popurlar_product .details-sec a {
@@ -161,38 +161,38 @@ header nav .ownmenu li {
 .furniture .items-fer li {
 	width: 33.3333%;
 }
-header nav .ownmenu li {
+list-header nav .ownmenu li {
 	float: left;
 }
-header .search-nav ul.dropdown {
+list-header .search-nav ul.dropdown {
 	width: 100% !important;
 }
-header .ownmenu .look-book .nav-img {
+list-header .ownmenu .look-book .nav-img {
 	width: 70px;
 	margin-right: 10px;
 }
-header .ownmenu .look-book .media-heading {
+list-header .ownmenu .look-book .media-heading {
 	margin-top: 0px;
 	margin-bottom: 10px;
 }
-header .ownmenu li > .megamenu li a {
+list-header .ownmenu li > .megamenu li a {
 	padding: 5px 0
 }
-header .ownmenu .look-book p {
+list-header .ownmenu .look-book p {
 }
-header .ownmenu > li > .megamenu.full-width {
+list-header .ownmenu > li > .megamenu.full-width {
 	padding: 30px;
 }
-header .ownmenu .look-book .media-body a {
+list-header .ownmenu .look-book .media-body a {
 	padding: 5px 0 0 0px;
 }
-header .ownmenu > li > .megamenu.full-width .nav-post .col-sm-3 {
+list-header .ownmenu > li > .megamenu.full-width .nav-post .col-sm-3 {
 	width: 50%;
 }
-header .ownmenu .megamenu h6 {
+list-header .ownmenu .megamenu h6 {
 	margin-top: 20px;
 }
-header .ownmenu ul.dropdown li a {
+list-header .ownmenu ul.dropdown li a {
 	letter-spacing: 1px;
 }
 .ownmenu ul.dropdown, .ownmenu ul.dropdown li ul.dropdown {
@@ -201,7 +201,7 @@ header .ownmenu ul.dropdown li a {
 .ownmenu ul.dropdown li a {
 	padding-left: 20px;
 }
-header .ownmenu .look-book .media {
+list-header .ownmenu .look-book .media {
 	padding-bottom: 10px;
 }
 .header-style-2.header-style-3 .logo {
@@ -256,14 +256,14 @@ header .ownmenu .look-book .media {
 	padding: 0px;
 	margin: 0px;
 }
-header nav li a {
+list-header nav li a {
 }
-header.header-2 nav {
+list-header.header-2 nav {
 	padding-top: 0px;
 	text-align: left;
 	background: #fff;
 }
-header {
+list-header {
 	margin-top: 0px;
 	padding: 20px 0;
 	background: rgba(0,0,0,0.8);
@@ -271,26 +271,26 @@ header {
 .is-sticky .sticky {
 	position: relative !important;
 }
-header .logo {
+list-header .logo {
 	position: relative;
 	float:left;
 	text-align: center;
 }
-header nav{
+list-header nav{
 	min-height:inherit;
 }
-header nav {
+list-header nav {
 	width: 100%;
 }
-header nav .ownmenu .indicator {
+list-header nav .ownmenu .indicator {
 	display: block;
 }
-header nav li a {
+list-header nav li a {
 	display: inline-block;
 	width: 100%;
 	float: none;
 }
-header .nav-img {
+list-header .nav-img {
 	display: none !important;
 }
 .ownmenu > li.showhide span {
@@ -307,7 +307,7 @@ header .nav-img {
     width: 50px;
     right: 0;
 }
-header .logo{
+list-header .logo{
 	margin-top:0px;
 }
 .ownmenu > li.showhide {
@@ -341,17 +341,17 @@ header .logo{
 	padding-left:0px;
 	
 }
-header .ownmenu ul.dropdown {
+list-header .ownmenu ul.dropdown {
 }
-header .ownmenu > li.shop-cart {
+list-header .ownmenu > li.shop-cart {
 }
-header .ownmenu > li.shop-cart a {
+list-header .ownmenu > li.shop-cart a {
 	display: none;
 }
-header .ownmenu > li.shop-cart .numb {
+list-header .ownmenu > li.shop-cart .numb {
 	display: none;
 }
-header nav .ownmenu li.search-nav a {
+list-header nav .ownmenu li.search-nav a {
 	display: none;
 }
 .collection-adds li {
@@ -550,26 +550,26 @@ p.intro-small {
 	width: 50%;
 	float: left;
 }
-header.coporate-header {
+list-header.coporate-header {
 	background: #fff;
 }
-header.coporate-header .ownmenu > li.showhide span.icon {
+list-header.coporate-header .ownmenu > li.showhide span.icon {
 	color: #141414;
 }
-header .is-sticky .sticky {
+list-header .is-sticky .sticky {
 	padding: 0px;
 }
-header.coporate-header .ownmenu ul.dropdown {
+list-header.coporate-header .ownmenu ul.dropdown {
 	background: none;
 	padding: 10px 0px;
 }
-header.coporate-header .is-sticky .sticky {
+list-header.coporate-header .is-sticky .sticky {
 	position: relative !important;
 }
-header.dark-text {
+list-header.dark-text {
 	background: rgba(255,255,255,0.9);
 }
-header.dark-text .ownmenu > li.showhide span.icon {
+list-header.dark-text .ownmenu > li.showhide span.icon {
 	color: #141414;
 }
 .services-coporate li i {
@@ -703,20 +703,20 @@ header.dark-text .ownmenu > li.showhide span.icon {
 	width: 50%;
 	float: left;
 }
-header .ownmenu > li > .megamenu.full-width .col-sm-3 {
+list-header .ownmenu > li > .megamenu.full-width .col-sm-3 {
 	width: 100%;
 	float: none;
 	margin-bottom: 30px;
 	display: inline-block;
 }
-header .ownmenu li > .megamenu li a {
+list-header .ownmenu li > .megamenu li a {
 	line-height: 32px;
 }
 .ownmenu li {
 	float: none;
 	padding-left:0px  !important;
 }
-header .ownmenu ul.dropdown li a {
+list-header .ownmenu ul.dropdown li a {
 	padding-left: 0px !important;
 }
 .social-icons-large li {
@@ -739,10 +739,10 @@ header .ownmenu ul.dropdown li a {
 	display: inline-block;
 	text-align: center;
 }
-header .ownmenu > li > .megamenu.full-width {
+list-header .ownmenu > li > .megamenu.full-width {
 	padding: 20px;
 }
-header .ownmenu ul.dropdown {
+list-header .ownmenu ul.dropdown {
 	padding: 10px 30px;
 }
 .ownmenu > li > ul.dropdown > li > ul.dropdown > li > a {
@@ -751,7 +751,7 @@ header .ownmenu ul.dropdown {
 .ownmenu ul.dropdown, .ownmenu ul.dropdown li ul.dropdown {
 	padding: 10px 30px;
 }
-header nav li a:after {
+list-header nav li a:after {
 	height: 1px;
 }
 .ownmenu ul.dropdown, .ownmenu ul.dropdown li ul.dropdown {
@@ -778,7 +778,7 @@ header nav li a:after {
 .top-bar {
 	height: auto;
 }
-header .language {
+list-header .language {
 	width: 100%;
 	display: inline-block;
 	text-align: left;
