@@ -7,6 +7,7 @@
 
 <?php }?>
 
+<div style="margin-top:150px;"></div>
 
 <div class="ui grid container">
     <div class="sixteen wide column">
@@ -26,27 +27,46 @@
 <!-- <div class="ui header"> </div> -->
 <form  class="ui form" id="form_order" onsubmit="alert_payment_window(this); return false;"  action="<?=site_url(shop_order_uri."/golfpass_ajax_add")?>"method ="post">
 
+    <div class="four fields">
+        <div class="field">
+            <label for="">싱글룸추가</label>
+            <select name="singleroom" id="">
+                <option  value="" data-price="0">선택안함</option>
+                <?php 
+                $i =($num_people %2 ===0) ? 2 :1 ;
+                for(; $i <= $num_people; $i=$i+2){
+                    $added_singleroom_price =$i*($product->singleroom_price);
+                    ?>
+                <option value="<?=$i?>" data-price="<?=$added_singleroom_price?>"><?="{$i}인(".$added_singleroom_price."원 추가)"?></option>
+                <?php }?>
+            </select>
+        </div>
+    </div>
 
-    <!-- 홀수 추가
-    <select name="" id="">
-        <option value="">8홀</option>
-        <option value="">16홀</option>
-    </select>
+    <!-- 홀옵션추가 -->
+    <div class="four fields">
+        <div class="field">
+        <label>홀 추가</label>
+            <select class="ui fluid dropdown" name="hole_option">
+                <option value="" data-price="0">선택</option>
+                <?php for($i=0; $i<count($hole_options) ; $i++){
+                    $added_hole_price =  $hole_options[$i]->price * $num_people;
+                    ?>
+                <option data-name="<?=$hole_options[$i]->name?>" data-price="<?=$added_hole_price?>" value="<?=$hole_options[$i]->id?>"><?=$hole_options[$i]->name?>(<?=$added_hole_price?>원 추가)</option>
+                <?php }?>
+            </select>
+        </div>
+    </div>
+    <!-- 홀옵션추가 -->
 
-    <br>
-    싱글룸추가
-    <select name="" id="">
-        <option value="">1인</option>
-        <option value="">2인</option>
-    </select> -->
-
+    <!-- 기타옵션추가 -->
     <div class="four fields">
         <div class="field">
         <label>기타옵션 추가</label>
             <select class="ui fluid dropdown" name="" id="options">
-                <option>선택</option>
+                <option data-price="0">선택</option>
             <?php for($i=0; $i<count($options) ; $i++){?>
-                <option data-name="<?=$options[$i]->name?>" data-price="<?=$options[$i]->price?>" value="<?=$options[$i]->id?>"><?=$options[$i]->name?>(<?=$options[$i]->price?>)</option>
+                <option data-name="<?=$options[$i]->name?>" data-price="<?=$options[$i]->price?>" value="<?=$options[$i]->id?>"><?=$options[$i]->name?>(<?=$options[$i]->price?>원 추가)</option>
                 <?php }?>
             </select>
         </div>
@@ -54,9 +74,9 @@
         <button class="ui button basic" type="button" id="add_option">추가</button>
     <div class="field"id="added_option_list">
     </div>
-
-    <label><b> 동행자 정보 입력(<?=$num_people-1?>명)</b></label>
-    <?php for($i = 0 ; $i < $num_people-1; $i++){ ?>
+                <!-- 기타옵션추가 -->
+    <label><b> 동행자 정보 입력(<?=$num_people?>명)</b></label>
+    <?php for($i = 0 ; $i < $num_people; $i++){ ?>
     <div class="four fields">
         <div class="field">
             <input type="text" name="name_with[]" placeholder="이름">
@@ -138,8 +158,31 @@
 
 
 <script>
+ function cal_totalPrice()
+    {
+        var total_price =base_totalPrice;
 
+        var singleroom_price = $("select[name=singleroom] option:selected").data("price");
+        console.log(singleroom_price);
+        total_price += singleroom_price;
+        var hole_option_price = $("select[name=hole_option] option:selected").data("price");
+        // console.log(hole_option_price);
+        total_price += hole_option_price;
+        var $option_input =$("#added_option_list input");
+        // console.log($option_input);
+        // console.log($option_input.length);
+        for(var i=0 ; i < $option_input.length ; i++)
+        {
+            var option_price =$($option_input[i]).data('price');
+            total_price += option_price;
+        }
+        // console.log(total_price);
+        $("#total_price").text(total_price.toLocaleString('en'));
+        $("input[name=total_price]").val(total_price);
+        return total_price;
+    }
 //아이엠포트 초기화
+var base_totalPrice  = <?=$total_price?>;
 var g_totalPrice = <?=$total_price?>;
 $(document).ready(function(){
     $("#add_option").click(function()
@@ -163,6 +206,7 @@ $(document).ready(function(){
         var input = document.createElement("input");
         input.setAttribute("type","hidden");
         input.setAttribute("value",option_id);
+        input.setAttribute("data-price",option_price);
         input.setAttribute("name","options[]");
         $option_item.append(input);
     //히든태그추가 끝
@@ -174,34 +218,35 @@ $(document).ready(function(){
         var removeBtn = document.createElement("button");
         removeBtn.setAttribute("type","button");
         removeBtn.setAttribute("class","ui button basic");
-        removeBtn.setAttribute("onclick","  g_totalPrice-= $(this).parent('.optionItem').data('price');$('#total_price').text(g_totalPrice); $(this).parent('.optionItem').remove();");
+        removeBtn.setAttribute("onclick","  $(this).parent('.optionItem').remove();cal_totalPrice();");
         removeBtn.innerHTML = "삭제";
         $option_item.append(removeBtn);
 //옵션 리스트에 추가 끝
 
 //총금액 변경
-        g_totalPrice  += option_price;
-        $("#total_price").text(g_totalPrice.toLocaleString('en'));
-
-
-        // console.log(option_id);
-        // console.log(option_price);
-        // console.log(option_name);
-        // $.ajax({
-        //     type:"post",
-        //     dataType:"json",
-        //     url : "",
-        //     data:{
-        //         option_id:option_id
-        //     },
-        //     success:function(data)
-        //     {
-
-        //     }
-        // });
-        // console.log(2);
+        cal_totalPrice();
+        // g_totalPrice  += option_price;
+        // $("#total_price").text(g_totalPrice.toLocaleString('en'));
+    
     });
 
+//싱글룸 변경시 총금액 변경
+    $("select[name=singleroom]").change(function(){
+        // var $this =$(this);
+        // var price = $this.find("option:selected").data('price');
+        // console.log(price);
+        // g_totalPrice  += price;
+        // $("#total_price").text(g_totalPrice.toLocaleString('en'));
+
+        cal_totalPrice();
+    });
+    //홀추가 옵션 변경시 총금액 변경
+    $("select[name=hole_option]").change(function(){
+
+        cal_totalPrice();
+    });
+
+   
 });
 
    
@@ -229,7 +274,7 @@ function alert_payment_window(e)
 {
     
     $form =$(e);
-    $form.find("input[name=total_price]").val(g_totalPrice);
+    // $form.find("input[name=total_price]").val(g_totalPrice);
     var pay_method = $form.find("select[name=pay_method] option:selected").val();
     var merchant_uid = 'merchant_' + new Date().getTime(); //고유주문번호 merchant_uid
     // console.log(merchant_uid);

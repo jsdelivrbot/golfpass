@@ -45,8 +45,8 @@ a{
   </a> -->
   <div>
   <?php 
-    $v_menus = array("수정","메인옵션","분류","호텔","설명","상품옵션","이미지","위치");
-    $v_icons = array("edit","options","list layout","h","remove from calendar","options","image","map outline");
+    $v_menus = array("수정","홀 추가가격","메인옵션","분류","호텔","설명","상품옵션","이미지","위치");
+    $v_icons = array("edit","options","options","list layout","h","remove from calendar","options","image","map outline");
     for($i = 0; $i<count($v_menus); $i++){
     ?>
      <a class="item" id="<?=$v_menus[$i]?>">
@@ -100,7 +100,8 @@ $('#navi_btn').click(function(){
     <?php }?>
 </div>
 
-<div id="target_<?=$v_menus[0]?>"class="sixteen wide column" style="margin-top:50px;">
+<?php $v_menu_id = 0;?>
+<div id="target_<?=$v_menus[$v_menu_id++]?>"class="sixteen wide column" style="margin-top:50px;">
     <h1 class="ui horizontal divider header">
         <i class="plus icon"></i>
         상품 추가/수정
@@ -167,6 +168,10 @@ $('#navi_btn').click(function(){
             <label>최대 인(명)</label>
             <input type="text" name="max_people" value="<?=set_value_data($product,'max_people')?>"> <?=form_error('max_people',false,false)?><br>
         </div>
+        <div class="field">
+            <label>싱글룸가격</label>
+            <input type="text" name="singleroom_price" value="<?=set_value_data($product,'singleroom_price')?>"> <?=form_error('singleroom_price',false,false)?><br>
+        </div>
         <!-- <div class="field">
             <label>가격</label>
             가격<input type="text" name="price" value="<?=set_value_data($product,'price')?>"> <?=form_error('price',false,false)?><br>
@@ -194,9 +199,59 @@ $('#navi_btn').click(function(){
 
 
 <?php if(strpos($mode, "update") >-1 ){?>
+
+<!-- 상품 홀추가 옵션 -->
+
+<div id="target_<?=$v_menus[$v_menu_id++]?>" class="sixteen wide column" style="margin-top:50px;">
+    <h1 class="ui horizontal divider header">
+        <i class="plus icon"></i>
+        상품 홀 추가 가격
+    </h1>
+
+    <form onsubmit="ajax_submit(this); return false;" class="ui form" action="<?=my_site_url(admin_product_uri."/ajax_option_add/hole_option")?>" method="post">
+        <input type="hidden" name="product_id" value="<?=$product->id?>">
+        <div class="field">
+            <label>이름</label>
+            <input type="text" name="name" value="" placeholder="이름" > <?=form_error('name',false,false)?><br> 
+        </div>
+        <div class="two fields">
+            <div class="field">
+                <label>가격</label>
+                <input type="text" name="price" value="0" > <?=form_error('eng_name',false,false)?><br>
+            </div>
+            <div class="field">
+                <label>순서</label>
+                <input type="text" name="sort" value="0" > <?=form_error('sort',false,false)?><br> 
+            </div>
+        </div>
+        <input class="ui button positive" type="submit" value="추가">
+    </form>
+
+    <br>
+    <h3 class="ui left floated header">추가된 홀 추가 리스트</h3>
+    <div class="ui clearing divider"></div>
+
+    <ol class="ui list">
+        <?php for($i=0 ; $i < count($hole_options); $i++){?>
+            <div style="display:block">
+           
+            <form  onsubmit="ajax_submit(this); return false;" style="display:inline-block" class="ui form" style="display:inline-block;" action="<?=my_site_url(admin_product_uri."/ajax_option_update/{$hole_options[$i]->id}")?>" method="post">
+            이름     <input value="<?=set_value_data($hole_options[$i],'name')?>" type="text" name="name" style="display:inline-block; width:120px;">
+            가격  <input value="<?=set_value_data($hole_options[$i],'price')?>" type="text" name="price" style="display:inline-block; width:120px;">
+            순서  <input value="<?=set_value_data($hole_options[$i],'sort')?>" type="text" name="sort" style="display:inline-block; width:50px;">
+                <input class="ui button basic positive" type="submit" value="수정">
+            </form>
+            <a onclick="confirm_callback(this,ajax_a,'복구할 방법이 없습니다. 삭제하시겠습니까?'); return false;" data-action="<?=site_url(admin_product_uri."/ajax_option_delete/{$hole_options[$i]->id}/hole_option")?>" href="#" class="ui button basic positive" style="display:inline-block">삭제</a>
+            </div>
+        <?php }?>
+    </ol>
+
+
+</div>   
+<!-- 상품 홀추가 옵션 -->
 <!-- 상품메인옵션 -->
 
-<div id="target_<?=$v_menus[1]?>" class="sixteen wide column" style="margin-top:50px;">
+<div id="target_<?=$v_menus[$v_menu_id++]?>" class="sixteen wide column" style="margin-top:50px;">
     <h1 class="ui horizontal divider header">
         <i class="plus icon"></i>
         상품메인 옵션 추가
@@ -215,7 +270,7 @@ $('#navi_btn').click(function(){
             </div>
             <div class="field">
                 <label>순서</label>
-                <input type="text" name="sort" value="0" > <?=form_error('name',false,false)?><br> 
+                <input type="text" name="sort" value="0" > <?=form_error('sort',false,false)?><br> 
             </div>
         </div>
         <input class="ui button positive" type="submit" value="추가">
@@ -245,7 +300,7 @@ $('#navi_btn').click(function(){
 <!-- 상품메인옵션 -->
 
 <!-- 분류 추가 시작 -->
-<div id="target_<?=$v_menus[2]?>" class="sixteen wide column" style="margin-top:50px;">
+<div id="target_<?=$v_menus[$v_menu_id++]?>" class="sixteen wide column" style="margin-top:50px;">
     <h1 class="ui horizontal divider header">
         <i class="plus icon"></i>
         분류추가
@@ -294,7 +349,7 @@ $('#navi_btn').click(function(){
 
 <!-- 호텔 추가 시작 -->
 <?php if(strpos($mode, "update") >-1 ){?>
-<div id="target_<?=$v_menus[3]?>" class="sixteen wide column" style="margin-top:50px;">
+<div id="target_<?=$v_menus[$v_menu_id++]?>" class="sixteen wide column" style="margin-top:50px;">
     <h1 class="ui horizontal divider header">
     <i class="plus icon"></i>
     호텔 추가
@@ -341,7 +396,7 @@ $('#navi_btn').click(function(){
 
 <!-- 상품서브설명  시작 -->
 <?php if(strpos($mode, "update") >-1 ){?>
-<div id="target_<?=$v_menus[4]?>" class="sixteen wide column" style="margin-top:50px;">
+<div id="target_<?=$v_menus[$v_menu_id++]?>" class="sixteen wide column" style="margin-top:50px;">
     <h1 class="ui horizontal divider header">
     <i class="plus icon"></i>
     추가설명 
@@ -384,7 +439,7 @@ $('#navi_btn').click(function(){
 
 <!-- 상품옵션 시작 -->
 <?php if(strpos($mode, "update") >-1 ){?>
-<div id="target_<?=$v_menus[5]?>" class="sixteen wide column" style="margin-top:50px;">
+<div id="target_<?=$v_menus[$v_menu_id++]?>" class="sixteen wide column" style="margin-top:50px;">
     <h1 class="ui horizontal divider header">
     <i class="plus icon"></i>
     상품옵션
@@ -417,7 +472,7 @@ $('#navi_btn').click(function(){
 <br>
 <!-- 이미지 업로드폼 시작 -->
 <?php if(strpos($mode, "update") >-1 ){?>
-<div id="target_<?=$v_menus[6]?>" class="sixteen wide column" style="margin-top:50px;">
+<div id="target_<?=$v_menus[$v_menu_id++]?>" class="sixteen wide column" style="margin-top:50px;">
     <h1 class="ui horizontal divider header">
     <i class="plus icon"></i>
     이미지 추가
@@ -462,7 +517,7 @@ $('#navi_btn').click(function(){
 </div>
 
 <!-- 위치  설정가기 -->
-<div id="target_<?=$v_menus[7]?>" class="sixteen wide column">
+<div id="target_<?=$v_menus[$v_menu_id++]?>" class="sixteen wide column">
 <h1 class="ui horizontal divider header">
     <i class="plus icon"></i>
     위치 추가하기

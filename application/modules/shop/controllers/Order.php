@@ -92,6 +92,10 @@ class Order extends Base_Controller {
         ->where("product_id",$product_id)->from("product_option")
         ->order_by("sort","asc")
         ->get()->result();
+        $data["hole_options"] = $this->db->where("kind","hole_option")
+        ->where("product_id",$product_id)->from("product_option")
+        ->order_by("sort","asc")
+        ->get()->result();
 
         $this->_template("golfpass",$data,"golfpass2");
 
@@ -247,14 +251,36 @@ class Order extends Base_Controller {
             $option_price =$this->product_option_model->_get($options[$i])->price;
             $total_price += $option_price;
         }
-
+        
+        //홀추가 가격 더하기
+        $hole_option_id = $this->input->post("hole_option");
+       
+        if($hole_option_id !== null &&  $hole_option_id !== ""){
+            $hole_option_price = $this->product_option_model->_get($hole_option_id)->price;
+            $added_hole_price = $hole_option_price * $num_people;
+            $total_price += $added_hole_price;
+        }
+        
+    
+        //싱글룸 가격 더하기
+        $this->load->model("products_model");
+        $num_singlerooms = $this->input->post("singleroom");
+        if($num_singlerooms !== null &&  $num_singlerooms !== ""){
+            $singleroom_price = $this->products_model->_get($this->input->post('product_id'))->singleroom_price;
+            $added_singleroom_price = $singleroom_price * $num_singlerooms;
+            $total_price += $added_singleroom_price;
+        }
+      
+        // $data["is_check"] =  false;
+        // echo json_encode($data);
+        // return;
         if((string)$total_price !== (string)$this->input->post('total_price'))
         {
             $data["is_check"] =  false;
             echo json_encode($data);
             return;
         }
-        //계산 === 총합계 맞는지 체크 끝
+        //-------------------------------계산 === 총합계 맞는지 체크 끝
 
         //product_orders테이블에 order정보 추가
         $pay_method =$this->input->post('pay_method');
@@ -264,6 +290,7 @@ class Order extends Base_Controller {
             $merchant_uid = $this->input->post("merchant_uid");
             $merchant_uid = get_merchant_code($merchant_uid);
             $this->db->set('merchant_uid',$merchant_uid);
+            $this->db->set('num_singleroom',$this->input->post('singleroom'));
             $this->db->set('order_name',$this->input->post('order_name'));
             $this->db->set('user_id',$this->user->id);
             $this->db->set('user_name',$this->input->post("user_name"));
@@ -279,16 +306,20 @@ class Order extends Base_Controller {
             $this->db->set('num_people',$num_people);
             $this->db->set('created',"NOW()",false);
             $this->db->insert($this->table);
-            //p_order_options테이브렝 옵션정보 추가시작
+            //p_order_options테이블에 옵션정보 추가
             for($i=0; $i < count($options); $i++)
             {
-
                 $this->db->set("merchant_uid",$merchant_uid);
                 $this->db->set("option_id",$options[$i]);
+                $this->db->set("option_kind","main_option");
                 $option_price =$this->db->insert("p_order_options");
             }
-            //p_order_options테이브렝 옵션정보 추가끝
-            
+            //p_order_options테이블에 홀추가 옵션정보 추가
+            $this->db->set("merchant_uid",$merchant_uid);
+            $this->db->set("option_id",$hole_option_id);
+            $this->db->set("option_kind","hole_option");
+            $option_price =$this->db->insert("p_order_options");
+
             //p_order_infos 테이블에 동행자정보 추가 시작
             $product_id=$this->input->post('product_id');
             $names_with =$this->input->post("name_with[]");

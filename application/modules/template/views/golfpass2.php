@@ -298,9 +298,9 @@
             </div>
         </nav>
     </header>
+    
     <div id="tp-bg-div" style="">
     </div>
-
     <?php load_view($content_view)?>
 
     <footer id='tp-footer' class='tp-main-footer tp-container-fluid'>

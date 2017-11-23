@@ -19,11 +19,21 @@ class Product extends Admin_Controller {
     function ajax_option_update($id)
     {
         header("content-type:application/json");
-        parent::_dbset_addUpdate();
-        $this->db->where("id",$id);
-        $this->db->update("product_option");
-        $data['reload'] =true;
-        echo json_encode($data);
+        $row =$this->db->from("product_option")->where("id",$id)->get()->row();
+        if($row === null)
+        {
+            parent::_dbset_addUpdate();
+            $this->db->insert("product_option");
+            $data['alert'] = "추가되었습니다";
+        }
+        else
+        {
+            parent::_dbset_addUpdate();
+            $this->db->where("id",$id);
+            $this->db->update("product_option");
+        }
+            $data['reload'] =true;
+            echo json_encode($data);
         return ;
     }
   
@@ -299,6 +309,7 @@ class Product extends Admin_Controller {
             $data['p_ref_hotel'] = $this->p_hotel_model->gets_by_product_id($id);
             $data['hotels'] = $this->p_hotel_model->_gets();
             $data['main_options'] = $this->db->query("SELECT * FROM product_option WHERE product_id = $id AND kind = 'main_option' ORDER BY sort ASC")->result();
+            $data['hole_options'] = $this->db->query("SELECT * FROM product_option WHERE product_id = $id AND kind = 'hole_option' ORDER BY sort ASC")->result();
             $data['options'] = $this->db->query("SELECT * FROM product_option WHERE product_id = $id AND kind = 'option'")->result();
             $data['descs'] = $this->db->query("SELECT * FROM product_option WHERE product_id = $id AND kind = 'desc' ORDER BY sort ASC")->result();
             $data['photos'] = $this->db->query("SELECT * FROM product_option WHERE product_id = $id AND kind = 'photo' ORDER BY sort ASC")->result();

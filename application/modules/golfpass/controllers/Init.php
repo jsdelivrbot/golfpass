@@ -362,6 +362,7 @@ class Init extends Init_Controller {
             `id` INT UNSIGNED NULL AUTO_INCREMENT, 
             `merchant_uid` varchar(100) NOT NULL,
             `option_id` INT UNSIGNED NOT NULL, 
+            `option_kind` varchar(255) NOT NULL, 
             `created` datetime NOT NULL DEFAULT NOW(),
             PRIMARY KEY (`id`),
             KEY `idx_merchant_uid` (`merchant_uid`),
@@ -416,6 +417,7 @@ class Init extends Init_Controller {
             `product_id` INT NOT NULL,
             `start_date` varchar(100),
             `end_date` varchar(100),
+            `num_singleroom` int,
             `num_people` varchar(100),
             `merchant_uid` varchar(100) NOT NULL,
             `order_name` varchar(100),
@@ -460,6 +462,7 @@ class Init extends Init_Controller {
             $result = $this->db->query("CREATE TABLE `$tb_name`(
             `id` INT UNSIGNED NULL AUTO_INCREMENT, 
             `hashtag` varchar(255) DEFAULT '', 
+            `singleroom_price` int,
             -- 위치정보 
             `map_name` VARCHAR( 60 ) NOT NULL ,
             `address` VARCHAR( 80 ) NOT NULL ,
