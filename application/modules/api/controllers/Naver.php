@@ -32,8 +32,8 @@ class Naver extends Public_Controller {
        $auth_result=$this->naver_login->login_callback();
 
        $result=$this->naver_login->get_user_profile($auth_result->access_token);
-       var_dump($auth_result);
-       var_dump($result);
+    //    var_dump($auth_result);
+    //    var_dump($result);
        if($result->message === "success") //프로필 받아오기 성공이라면
        {
 
@@ -41,8 +41,8 @@ class Naver extends Public_Controller {
            $this->load->model("sns_info_model");
            $this->load->model("base/users_model");
            $sns_info =$this->sns_info_model->_get(array("sns_id"=>$info->id));
-           var_dump($info->id);
-           var_dump($sns_info);
+        //    var_dump($info->id);
+        //    var_dump($sns_info);
            if($sns_info === null) //해당 프로필이 로컬 db에 존재하지 않는다면
            {
                
@@ -77,9 +77,13 @@ class Naver extends Public_Controller {
            //로그인 시키고 리다이렉트
            $user_id =  $this->sns_info_model->_get(array("sns_id"=>$info->id))->user_id;
            $user = $this->users_model->_get($user_id);
-           var_dump($user);
+        //    var_dump($user);
           
            $this->session->set_userdata(array('is_login'=>'true','user_id'=>$user->id,'userName'=>$user->userName,'auth'=> $user->auth));
+        //    $url = site_url("/");
+           $url = $this->input->get("return_url");
+           echo "<script>window.opener.location.href='{$url}';</script>";
+           echo "<script>window.close();</script>";
         //    redirect_return_url("/");
        }
     //    var_dump($result);

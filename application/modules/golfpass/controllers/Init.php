@@ -324,7 +324,7 @@ class Init extends Init_Controller {
     {
         //newsLetter 테이블 만들기
         $tb_name = 'newsLetter';
-        if(!$this->db->table_exists("newsletter")){
+        if(!$this->db->table_exists("newsletter") && !$this->db->table_exists($tb_name)){
             $result = $this->db->query("CREATE TABLE `$tb_name`(
             `id` INT UNSIGNED NULL AUTO_INCREMENT, 
             `email` varchar(255) NOT NULL,

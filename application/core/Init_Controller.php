@@ -261,7 +261,7 @@ class Init_Controller extends MX_Controller{
              `option_4` varchar(255),
              `option_5` varchar(255),
              `created` datetime NOT NULL DEFAULT NOW(),
-             UNIQUE KEY (`userName`),
+             UNIQUE KEY (`userName`,`sns_type`),
              UNIQUE KEY (`phone`),
              PRIMARY KEY (`id`),
              UNIQUE KEY `idx_userName`(`userName`)

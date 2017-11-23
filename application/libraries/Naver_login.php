@@ -13,11 +13,17 @@ class Naver_login
     function __construct()
     {
         $ci = &get_instance();
-        $ci->load->helper("url");
-        $return_url = rawurldecode(current_url());
-        $this->client_id = "desGiq4LhD6U7f_oSZdR";
-        $this->redirect_uri = "http://localhost/index.php/api/naver/login_callback?return_url={$return_url}";
-        $this->client_secret= "VTc_AV7Ta4";
+        // $ci->load->helper("url");
+        $return_url = $ci->input->get("return_url");
+        // $this->client_id = "desGiq4LhD6U7f_oSZdR";
+        $this->client_id = "1Vg1odukcxMCxqqwG6yO";
+        // $this->redirect_uri = "http://localhost/index.php/api/naver/login_callback";
+        $this->redirect_uri = domain_url()."/index.php/api/naver/login_callback";
+        if($return_url !== null)
+        {
+            $this->redirect_uri .= "?return_url={$return_url}";
+        }
+        $this->client_secret= "pHcmzNO92i";
     }
     private function generate_state()
     {
@@ -47,6 +53,8 @@ class Naver_login
         $url .= "&redirect_uri={$redirect_uri}";
         $url .= "&state={$state}";
 
+        // var_dump($state);
+        // var_dump($ci->session->userdata("state"));
         redirect($url);
         
     }
@@ -58,7 +66,9 @@ class Naver_login
         $this->code = $ci->input->get("code");
         $this->state = $ci->input->get("state");
 
-        if($this->state === $ci->session->userdata("state"))
+        // var_dump($this->state);
+        // var_dump($ci->session->userdata("state"));
+        if((string)$this->state === (string)$ci->session->userdata("state"))
         {
             $result = $this->curl("https://nid.naver.com/oauth2.0/token?client_id={$this->client_id}&client_secret={$this->client_secret}&grant_type=authorization_code&state={$this->state}&code={$this->code}");
             

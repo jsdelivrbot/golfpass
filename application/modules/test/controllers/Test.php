@@ -12,11 +12,9 @@ class Test extends Public_Controller
     }
     function index()
     {
-        $this->load->library("naver_login");
-        // $this->naver_login->client_id = "desGiq4LhD6U7f_oSZdR";
-        // $this->naver->redirect_uri = "http://golfpass.net/index.php/api/naver/login_callback";
-        // $this->naver_login->redirect_uri = "http://localhost/index.php/api/naver/login_callback";
-        $this->naver_login->requset_auth();
+        var_dump(domain_url());
+        // $this->load->library("naver_login");
+        // $this->naver_login->requset_auth();
     }    
   
     
