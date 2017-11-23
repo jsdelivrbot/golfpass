@@ -49,7 +49,7 @@
     <section class="sub-banner" style="background:url(/public/etc/list/images/golfpass/hero_img.png) fixed no-repeat">
       <div class="container">
         <div class="position-center-center">
-          <h2><?=$category->name?></h2>
+          <h2><?php for($j=count($parent_categories)-2; $j >= 1; $j--){?><?=$parent_categories[$j]->name?><?php }?></h2>
           <ol class="breadcrumb">
             <li class="active">일본열도를 구성하는 4대 섬 중 가장 남쪽에 있는 섬, 또는 그 섬을 중심으로 하는 지방. 전근대 시기에는 사이카이도(서해도, 西海道)라 불리웠으며, 옛날에 9개의 번국(구니, 国=州)가 있었다고 해서 규슈라고 하며 번국(구니)이란 일본 고대의 행정구역이다.</li>
           </ol>
@@ -79,21 +79,29 @@
             <div class="row">
 
               <!-- BLOG POST -->
-              <div class="col-md-4 margin-bottom-80" style=" cursor: pointer;" onclick="location.href='#';">
+              <?php for($i=0; $i< count($products); $i++){?>
+              <div class="col-md-4 margin-bottom-80" style=" cursor: pointer;" onclick="location.href='<?=site_url(shop_product_uri."/get/{$products[$i]->id}")?>';">
                 <article class="blog-post">
-                 <div class="post-img position-relative rounded-top" style="background-image:url(/public/etc/list/images/golfpass/test_img_001.png); background-repeat:no-repeat; background-position:center; background-size:cover">
-                <img src="/public/etc/list/images/golfpass/list-blank.png" class="blank_img"> <span class="date font-crimson">100,160원</span>
+                 <div class="post-img position-relative rounded-top" style="background-image:url(<?=$products[$i]->photos[0]?>); background-repeat:no-repeat; background-position:center; background-size:cover">
+                <img src="/public/etc/list/images/golfpass/list-blank.png" class="blank_img">
+                    <span class="date font-crimson"><?=$products[$i]->price?>원</span>
+                 <span class="date font-crimson" style="bottom: 20px; background-color: #383838;"><?=$products[$i]->hotel_id !== null ? "숙박 포함" : "숙박 미포함"?></span>
                   </div>
-                  <a href="#." class="tittle-post"> 니조 컨트리 클럽 </a> <span class="post-bt"><span class="text-color-primary">NIJO COUNTRY CLUB</span></span>
-                  <p>거의 모든 홀에서 바다를 바라볼 수 있는 로케이션을 자랑하며, 현해탄을 향해 날려보내는 티샷은 니죠만의 절경. 전체적으로 업다운이 심하지는 않으나 은근하게 전략성이 요구되는 설계로서 플레이어의 도전정신을 필요로 하는 코스이다. 접객 서비스와 레스토랑 음식에 대해서도 특히나 호평을 받고있고, 플레이 후 바다가 보이는 파노라마 대욕탕에서 느긋하게 휴식을 취할 수 있다.</p>
+                  <a href="#." class="tittle-post"> <?=$products[$i]->name?> </a> <span class="post-bt"><span class="text-color-primary"><?=$products[$i]->eng_name?></span></span>
+                  <p>
+                    <?php 
+                        echo $products[$i]->desc;
+                    ?>
+                  </p>
                   <ul class="post-info margin-bottom-0">
                     <li> <i class="fa fa-star" style="color: #fcbf3f;"></i>4.7 </li>
-                    <li> <i class="fa fa-map-o"></i>큐슈 </li>
-                    <li> <i class="fa fa-map"></i>후쿠오카 </li>
-                    <li class="pull-right no-margin"> <a href="#.">자세히 <i class="fa fa-angle-right margin-left-10"></i></a></li>
+                    <li> <i class="fa fa-map-o"></i><?php for($j=count($parent_categories)-2; $j >= 1; $j--){?><?=$parent_categories[$j]->name?><?php }?> </li>
+                    <li> <i class="fa fa-map"></i><?=$category->name?> </li>
+                    <li class="pull-right no-margin last-li"> <a href="#.">자세히 <i class="fa fa-angle-right margin-left-10"></i></a></li>
                   </ul>
                 </article>
               </div>
+              <?php }?>
 
             </div>
 
