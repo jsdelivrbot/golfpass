@@ -31,12 +31,13 @@
                     <a class="computer only item">
                         <!-- <h3 class="ui header"><i class="diamond icon"></i>다이아몬드</h3> -->
                     </a>
-
-                    <a href="<?=site_url(user_uri."/check_pssword_forUpdate")?>"class="right float item active">
+                    
+                    <div class="right float item active">
                         <h3 class="ui header">
-                        내 정보 수정
+                            <a href="<?=site_url(user_uri."/check_pssword_forUpdate")?>">내 정보 수정</a>
+                            <a href="<?=site_url(shop_mypage_uri."/delete_user")?>">/회원탈퇴</a>
                         </h3>
-                    </a>
+                </div>
                 </div>
 
             </div>

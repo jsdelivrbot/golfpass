@@ -60,6 +60,37 @@ class Mypage extends Base_Controller {
         $views = array("container_h","table","container_f");
         $this->_template($views,$data,'golfpass2');
     }
+    function delete_user()
+    {
+        $data=$this->_get_container_data();
+        $this->load->model("shop/product_cartlist_model");
+        $data['user'] =$this->user;
+        $data['page_name'] ="회원탈퇴";            
+
+        $this->fv->set_rules("userName","아이디","required");
+        if($this->fv->run() === false)
+        {
+            $views = array("container_h","delete_user","container_f");
+            $this->_template($views,$data,'golfpass2');
+
+        }
+        else
+        {
+            if($this->user->userName !== $this->input->post("userName"))
+            {
+                alert("잘못 입력하셨습니다.");
+                my_redirect(shop_mypage_uri."/delete_user");
+            }
+            else
+            {
+                alert("탈퇴 성공.");
+                $this->db->where("id",$this->user->id);
+                $this->db->delete("users");
+                $this->session->sess_destroy();
+                my_redirect("");
+            }
+        }
+    }
     function get_order($order_id)
     {
 
