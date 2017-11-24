@@ -78,7 +78,7 @@
                 <?php if(is_admin()){?>
                     <li><a style="color:white;" href="<?=site_url(admin_home_uri.'')?>">관리자 페이지</a></li>
                 <?php }?>
-                    <li><a style="color:white;" href="<?=site_url(shop_category_uri.'/gets_by_name/나라별')?>">나라별 골프장</a></li>
+                    <li><a style="color:white;" href="<?=site_url(shop_category_uri.'/gets_by_name/나라별')?>">지역별 골프장</a></li>
                     <li><a style="color:white;" href="<?=site_url(golfpass_panel_uri.'/gets')?>">그늘집 by GOLFPASS</a></li>
                     <li><a style="color:white;" href="<?=site_url(content_uri.'/gets?board_id=4')?>">고객센터</a></li>
                 <?php if(!is_login()){?>
@@ -267,7 +267,7 @@
     <section id="section2" class="mb-5 main-section scroll-smooth container-fluid d-flex align-items-center">
                  <article class="w-100 p-xl-4">
                          <div class="row no-gutters main-section-title" style="margin-bottom:20px !important;">
-                                 <h4 class="main_sub_title">나라별 골프장</h4>
+                                 <h4 class="main_sub_title">지역별 골프장</h4>
                          </div>
 <!--NOTE 나라별 모바일 구간 -->
 <div class="row no-gutters flex-column d-md-none" style="padding-top: 0 !important;">
