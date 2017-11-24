@@ -99,7 +99,7 @@
             <!--  NOTE mobile -->
             <nav id='sm-nav' class="row no-gutters justify-content align-items-stretch d-sm-none panel-nav">
                 <div id="logo" class='col-3 justify-content-center d-flex align-self-center align-items-center'>
-                    <img src="/public/sangmin/img/icon/logo_mobile.png" class="d-md-none" alt="">
+                   <a href="<?=site_url()?>"> <img src="/public/sangmin/img/icon/logo_mobile.png" class="d-md-none" alt=""></a>
                 </div>
                 <div id='nav-icon-box' class="offset-2 col-5 d-flex align-items-stretch justify-content-end">
                     <div id="search" class="d-flex align-items-center">
@@ -109,10 +109,10 @@
                         <div class="mk-fullscreen-search-overlay" id="mk-search-overlay">
                             <a href="#" class="mk-fullscreen-close" id="mk-fullscreen-close-button"><i class="xi xi-close"></i></a>
                             <div id="mk-fullscreen-search-wrapper">
-                                <form method="get" id="mk-fullscreen-searchform" action="">
+                                <div method="get" id="mk-fullscreen-searchform" action="">
                                     <input type="text" value="" placeholder="Search..." id="mk-fullscreen-search-input">
-                                    <i class="xi xi-search fullscreen-search-icon"><input value="" type="submit"></i>
-                                </form>
+                                    <i class="xi xi-search fullscreen-search-icon"><input value="" id="mobile_search_btn" type="submit"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -141,7 +141,7 @@
             <nav id='md-nav' class="row no-gutters justify-content align-items-stretch d-none d-sm-flex">
                 <div id="logo" class='col-6 d-flex align-items-center'>
                     <figure class="mb-0 d-flex align-items-center d-lg-none">
-                        <img src="/public/sangmin/img/icon/logo_mobile.png" class="" alt="">
+                       <img src="/public/sangmin/img/icon/logo_mobile.png" class="" alt="">
                     </figure>
                     <a href="<?=site_url()?>">
                         <figure class="mb-0 align-items-center d-none d-lg-flex">
@@ -150,7 +150,7 @@
                     </a>
                     <div class="search-container d-flex align-items-center position-relative">
                         <i class="xi xi-search"></i>
-                        <input type="text" placeholder="관심있는 나라나 골프장을 검색해보세요!">
+                        <input id="input_search"type="text" placeholder="관심있는 나라나 골프장을 검색해보세요!">
                         <!--NOTE 검색결과 창-->
                         <div class="search-content-container position-absolute w-100">
 
@@ -953,6 +953,38 @@
 
 </html>
 
+<!-- 검색기능 시작 -->
+<script>
+ $("#input_search").keypress(function (e) {
+        var key = e.which;
+        console.log(1);
+        if(key == 13)  // the enter key code
+        {
+            console.log(2);
+            var value =$(this).val();
+            if(value === "") return false;
+            window.location.href="<?=site_url(shop_product_uri."/gets_by_hash/")?>"+value; 
+        }
+    });     
+
+$("#mk-fullscreen-search-input").keypress(function (e) {
+   
+        var key = e.which;
+        if(key == 13)  // the enter key code
+        {
+            var value =$(this).val();
+            
+            window.location.href="<?=site_url(shop_product_uri."/gets_by_hash/")?>"+value; 
+        }
+    });     
+    $("#mobile_search_btn").click(function()
+    {
+        var value =$("#mk-fullscreen-search-input").val();
+            
+        window.location.href="<?=site_url(shop_product_uri."/gets_by_hash/")?>"+value; 
+    });
+</script>
+<!-- 검색기능 끝 -->
 <!-- 뉴스레터 시작-->
 <script>
     $("#newsLetter").keypress(function (e) {
