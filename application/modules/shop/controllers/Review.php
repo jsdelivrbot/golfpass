@@ -85,9 +85,9 @@ class Review extends Base_Controller {
         $this->db->where("status","paid");
         $orders = $this->product_orders_model->_gets();
         if(count($orders) === 0 ){
-            // alert("상품을 구매하셔야 후기를 작성할 수 있습니다.");
-            // my_redirect($_SERVER['HTTP_REFERER']);
-            // return ;
+            alert("상품을 구매하셔야 후기를 작성할 수 있습니다.");
+            my_redirect($_SERVER['HTTP_REFERER']);
+            return ;
         }
         // if(($orders = is_can_product_review($product_id)) === false){
         //     alert("상품을 구매하셔야 후기를 작성할 수 있습니다.");
