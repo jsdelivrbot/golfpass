@@ -85,7 +85,7 @@
                             <article class="blog-post">
                                 <div class="post-img position-relative rounded-top" style="background-image:url(<?=$products[$i]->photos[0]?>); background-repeat:no-repeat; background-position:center; background-size:cover">
                                     <img src="/public/etc/list/images/golfpass/list-blank.png" class="blank_img">
-                                    <span class="date font-crimson" style="font-family: 'notokr-regular', sans-serif; font-weight: normal;"><?=$products[$i]->price?>원</span>
+                                    <span class="date font-crimson" style="font-family: 'notokr-regular', sans-serif; font-weight: normal;"><?=number_format($products[$i]->price)?>원</span>
                                     <span class="date font-crimson" style="bottom: 20px; background-color: #383838; font-family: 'notokr-regular', sans-serif; font-weight: normal;"><?=$products[$i]->hotel_id !== null ? "숙박 포함" : "숙박 미포함"?></span>
                                 </div>
                                 <a href="#" class="tittle-post" style="font-family: 'notokr-regular', sans-serif; font-weight: normal;"> <?=$products[$i]->name?> </a>
