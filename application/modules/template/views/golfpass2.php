@@ -183,7 +183,7 @@
     <header id="tp-header" class="tp-black-bg-header tp-container-fluid tp-panel-header">
         <nav id='tp-sm-nav' class="tp-row tp-no-gutters tp-justify-content tp-align-items-stretch tp-d-sm-none tp-panel-nav">
             <div id="tp-logo" class='tp-col-3 tp-justify-content-center tp-d-flex tp-align-self-center tp-align-items-center'>
-                <img src="/public/sangmin/img/icon/logo_mobile.png" class="tp-d-md-none" alt="">
+                <a href="<?=site_url("")?>"><img src="/public/sangmin/img/icon/logo_mobile.png" class="tp-d-md-none" alt=""></a>
             </div>
             <div id='tp-nav-icon-box' class="tp-offset-2 tp-col-5 tp-d-flex tp-align-items-stretch tp-justify-content-end">
                 <div id="tp-search" class="tp-d-flex tp-align-items-center">
@@ -199,12 +199,12 @@
                 </i>
               </a>
                         <div id="tp-mk-fullscreen-search-wrapper">
-                            <form method="get" id="tp-mk-fullscreen-searchform" action="">
+                            <div method="get" id="tp-mk-fullscreen-searchform" action="">
                                 <input type="text" value="" placeholder="Search..." id="tp-mk-fullscreen-search-input">
                                 <i class="xi xi-search fullscreen-search-icon">
-                    <input value="" type="submit">
+                    <input value="" type="submit" id="tp-mobile_search_btn">
                   </i>
-                            </form>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -238,9 +238,11 @@
         </nav>
         <nav id='tp-md-nav' class="tp-row tp-no-gutters tp-justify-content tp-align-items-stretch tp-d-none tp-d-sm-flex">
             <div id="tp-logo" class='tp-col-6 tp-d-flex tp-align-items-center'>
+                <a href="<?=site_url("")?>">
                 <figure class="tp-mb-0 tp-d-flex tp-align-items-center tp-d-lg-none">
                     <img src="/public/sangmin/img/icon/logo_mobile.png" class="" alt="">
                 </figure>
+                </a>
                 <a href="<?=site_url()?>">
                     <figure style="margin:0px;"class="tp-mb-0 tp-align-items-center tp-d-none tp-d-lg-flex">
                         <img src="/public/sangmin/img/icon/logo.png" class="" alt="">
@@ -459,16 +461,35 @@
         });
 
     </script>
+
+    <!-- 검색기능 시작 -->
     <script>
         $("#tp-serach").keypress(function(e) {
             var key = e.which;
             if (key == 13) {
                 var value = $(this).val();
-                window.location.href = "<?=site_url(shop_product_uri." / gets_by_hash / ")?>" + value;
+                window.location.href = "<?=site_url(shop_product_uri."/gets_by_hash/")?>" + value;
             }
         });
 
+        $("#tp-mk-fullscreen-search-input").keypress(function (e) {
+   
+        var key = e.which;
+        if(key == 13)  // the enter key code
+        {
+            var value =$(this).val();
+            
+            window.location.href="<?=site_url(shop_product_uri."/gets_by_hash/")?>"+value; 
+        }
+    });     
+    $("#tp-mobile_search_btn").click(function()
+    {
+        var value =$("#tp-mk-fullscreen-search-input").val();
+            
+        window.location.href="<?=site_url(shop_product_uri."/gets_by_hash/")?>"+value; 
+    });
     </script>
+    <!-- 검색기능끝 -->
 </body>
 
 </html>

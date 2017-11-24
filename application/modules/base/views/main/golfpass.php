@@ -107,10 +107,10 @@
                     <div class="mk-fullscreen-search-overlay" id="mk-search-overlay">
                         <a href="#" class="mk-fullscreen-close" id="mk-fullscreen-close-button"><i class="xi xi-close"></i></a>
                         <div id="mk-fullscreen-search-wrapper">
-                            <form method="get" id="mk-fullscreen-searchform" action="">
+                            <div method="get" id="mk-fullscreen-searchform" action="">
                                 <input type="text" value="" placeholder="Search..." id="mk-fullscreen-search-input">
-                                <i class="xi xi-search fullscreen-search-icon"><input value="" type="submit"></i>
-                            </form>
+                                <i class="xi xi-search fullscreen-search-icon"><input value="" type="submit" id="mobile_search_btn"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -751,9 +751,27 @@ $(function(){
         if(key == 13)  // the enter key code
         {
             var value =$(this).val();
+            if(value === "") return false;
             window.location.href="<?=site_url(shop_product_uri."/gets_by_hash/")?>"+value; 
         }
     });     
+
+$("#mk-fullscreen-search-input").keypress(function (e) {
+   
+        var key = e.which;
+        if(key == 13)  // the enter key code
+        {
+            var value =$(this).val();
+            
+            window.location.href="<?=site_url(shop_product_uri."/gets_by_hash/")?>"+value; 
+        }
+    });     
+    $("#mobile_search_btn").click(function()
+    {
+        var value =$("#mk-fullscreen-search-input").val();
+            
+        window.location.href="<?=site_url(shop_product_uri."/gets_by_hash/")?>"+value; 
+    });
 </script>
 <!-- 검색창 엔터치면 결과창으로 끝 -->
 </body>
