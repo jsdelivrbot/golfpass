@@ -81,7 +81,7 @@
                     <?php if(is_admin()){?>
                     <li><a style="color:white;" href="<?=site_url(admin_home_uri.'')?>">관리자 페이지</a></li>
                     <?php }?>
-                    <li><a style="color:white;" href="<?=site_url(shop_category_uri.'/gets_by_name/나라별')?>">나라별 골프장</a></li>
+                    <li><a style="color:white;" href="<?=site_url(shop_category_uri.'/gets_by_name/나라별')?>">지역별 골프장</a></li>
                     <li><a style="color:white;" href="<?=site_url(golfpass_panel_uri.'/gets')?>">그늘집 by GOLFPASS</a></li>
                     <li><a style="color:white;" href="<?=site_url(content_uri.'/gets?board_id=4')?>">고객센터</a></li>
                     <?php if(!is_login()){?>

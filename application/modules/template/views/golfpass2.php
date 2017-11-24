@@ -146,7 +146,7 @@
                 </li>
                 <?php }?>
                 <li>
-                    <a style="color:white;" href="<?=site_url(shop_category_uri.'/gets_by_name/나라별')?>">나라별 골프장
+                    <a style="color:white;" href="<?=site_url(shop_category_uri.'/gets_by_name/나라별')?>">지역별 골프장
             </a>
                 </li>
                 <li>
