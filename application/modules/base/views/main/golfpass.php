@@ -15,7 +15,6 @@
 <meta property="og:image" content="http://golfpass.net/image/001.png">
 <meta property="og:url" content="http://golfpass.net">
 <!-- Bootstrap core CSS -->
-<script src="/public/sangmin/js/prefixfree.min.js"></script>
 <link rel="stylesheet" href="/public/sangmin/dist/bootstrap/bootstrap.min.css">
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
 <link rel="stylesheet" href="/public/css/main.css">
@@ -769,6 +768,7 @@ $("#mk-fullscreen-search-input").keypress(function (e) {
     });
 </script>
 <!-- 검색창 엔터치면 결과창으로 끝 -->
+<script async src="/public/sangmin/js/prefixfree.min.js"></script>
 </body>
 
 </html>
