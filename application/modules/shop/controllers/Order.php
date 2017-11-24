@@ -97,6 +97,7 @@ class Order extends Base_Controller {
         ->order_by("sort","asc")
         ->get()->result();
 
+        $data['imp_franchises_code'] = $this->setting->imp_franchises_code;
         $this->_template("golfpass",$data,"golfpass2");
 
     }

@@ -253,7 +253,7 @@ $(document).ready(function(){
 
 
 
-IMP.init('imp52394971'); // 아임포트 관리자 페이지의 "시스템 설정" > "내 정보" 에서 확인 가능
+IMP.init('<?=$imp_franchises_code?>'); // 아임포트 관리자 페이지의 "시스템 설정" > "내 정보" 에서 확인 가능
 
 
 function validation(e){
