@@ -604,22 +604,27 @@ class CI_Pagination {
 
 				if ($i >= $base_page)
 				{
+					$prefix_loop = ""; 
+					if($loop < 10)
+					{
+						$prefix_loop = "0";
+					}
 					if ($this->cur_page === $loop)
 					{
 						// Current page
-						$output .= $this->cur_tag_open.$loop.$this->cur_tag_close;
+						$output .= $this->cur_tag_open.$prefix_loop.$loop.$this->cur_tag_close;
 					}
 					elseif ($i === $base_page)
 					{
 						// First page
 						$output .= $this->num_tag_open.'<a href="'.$first_url.'"'.$attributes.$this->_attr_rel('start').'>'
-							.$loop.'</a>'.$this->num_tag_close;
+							.$prefix_loop.$loop.'</a>'.$this->num_tag_close;
 					}
 					else
 					{
 						$append = $this->prefix.$i.$this->suffix;
 						$output .= $this->num_tag_open.'<a href="'.$base_url.$append.'"'.$attributes.'>'
-							.$loop.'</a>'.$this->num_tag_close;
+							.$prefix_loop.$loop.'</a>'.$this->num_tag_close;
 					}
 				}
 			}

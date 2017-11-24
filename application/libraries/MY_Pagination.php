@@ -137,24 +137,29 @@ class MY_Pagination extends CI_Pagination {
         }
         function style_golfpass($config){
 
-            $config [ 'full_tag_open'] = '<ul class="tp-d-flex tp-list-unstyled tp-justify-content-center tp-mb-0">';
-            $config [ 'full_tag_close'] = '</ul>';
+            $config [ 'full_tag_open'] = '<article id="tp-panel-article" class="tp-container-fluid"><section id="tp-content-boxs" class="tp-ajax_taget_content_list tp-row tp-justify-content-center"><div class="tp-col-12 tp-d-flex tp-justify-content-center tp-align-items-center tp-pagination" style="padding:0;">';
+            $config [ 'full_tag_close'] = '</div></section></article>';
             
-            $config['first_link'] = "";
-            $config [ 'first_tag_open'] = '<li id="">';
-            $config [ 'first_tag_close'] = '</li>';
+            $config['first_link'] = false;
+            // $config [ 'first_tag_open'] = '<div class="test">';
+            // $config [ 'first_tag_close'] = '</div>';
     
-            $config [ 'last_link'] = "";
-            // $config [ 'last_link'] =false;
-            $config [ 'last_tag_open'] = '<li id="hotel-results-pagination-next">';
-            $config [ 'last_tag_close'] = '</li>';
+            // $config [ 'last_link'] = "";
+            $config [ 'last_link'] =false;
+            // $config [ 'last_tag_open'] = '<li id="hotel-results-pagination-next">';
+            // $config [ 'last_tag_close'] = '</li>';
     
-            $config [ 'prev_link'] = false;
-            $config [ 'next_link'] = false;
     
-            $config [ 'cur_tag_open'] = '&nbsp&nbsp&nbsp<li class="current">';
-            $config [ 'cur_tag_close'] = '</li>';
-            $config [ 'num_tag_open'] = '&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<li>';
+            $config [ 'prev_link'] = '<i class="xi xi-angle-left-min"></i> ';
+            $config['prev_tag_open'] = '<div class="next">';
+            $config['prev_tag_close'] = '</div><ul class="tp-d-flex tp-list-unstyled tp-justify-content-center tp-mb-0">';
+            $config [ 'next_link'] = ' <i class="xi xi-angle-right-min"></i> ';
+            $config['next_tag_open'] = '</ul> <div class="next">';
+            $config['next_tag_close'] = '</div>';
+    
+            $config [ 'cur_tag_open'] = '<li class="tp-current"><a>';
+            $config [ 'cur_tag_close'] = '</a></li>';
+            $config [ 'num_tag_open'] = '<li>';
             $config [ 'num_tag_close'] = '</li>'; 
             return $config;
         }
