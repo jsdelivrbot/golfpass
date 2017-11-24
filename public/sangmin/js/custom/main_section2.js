@@ -6,7 +6,7 @@ jQuery(document).ready(function ($) {
 		$SlideEasing: $Jease$.$Linear,
 		$PauseOnHover: 4,
 		$SlideWidth: 240,
-		$Cols: 8,
+		$Cols: 6,
 		$Align: 0
 	};
 	var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
