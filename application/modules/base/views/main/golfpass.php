@@ -563,13 +563,13 @@
             <div class="panel_redesign" style="cursor: pointer;" onclick="location.href='<?=site_url(golfpass_panel_uri."/gets")?>';">
                 <div class="panel_text" style="width: 50%; margin: 0 auto;">
                     <h1>그늘집</h1>
-                    <p>일본 골프 전문가의 여행기를 열람하세요!</p>
+                    <p>전문 패널들의 생생한 골프 여행기를 열람하세요!</p>
                 </div>
             </div>
         <div class="row justify-content-center align-items-center">
             <a href="<?=site_url(golfpass_panel_uri."/gets")?>" class="d-flex justify-content-center align-items-center" style='text-decoration: none'>
                 <p class="mb-0 text-light mr-3">
-                    전체 패널 보러가기
+                    그늘집 가기
                 </p>
                 <span style='width: 30px;height: 30px' class="rounded-circle bg-light d-flex align-items-center justify-content-center"><i class="xi xi-angle-right text-dark"></i></span>
             </a>
