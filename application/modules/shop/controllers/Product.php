@@ -63,12 +63,16 @@ class Product extends Base_Controller {
 
         $category= $this->product_categories_model->_get($id);
         $data['category'] = $category;
-
         $parent_category = $this->product_categories_model->_get($category->parent_id);
-        if($parent_category->name === "나라별")
+        if($category->parent_id ==="0")
         {
             $parent_category = $category;
         }
+        else if($parent_category->name === "나라별")
+        {
+            $parent_category = $category;
+        }
+     
         $data['parent_category'] = $parent_category;
         $data['child_categories'] = $this->product_categories_model->_gets(array("parent_id"=>$parent_category->id));
         $data['parent_categories']= $this->product_categories_model->revert_recursive($id);
