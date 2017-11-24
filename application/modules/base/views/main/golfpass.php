@@ -369,14 +369,19 @@
             <div class="row no-gutters main-section-title mb-5" style="margin-bottom: 20px !important;">
                 <h4 class="main_sub_title">테마별 골프장</h4>
             </div>
+
             <div class="row no-gutters flex-column d-sm-none">
+                <?php for($i=0 ; $i<5; $i++){?>
+                <a href="<?=site_url(shop_product_uri."/gets/{$thema_list[$i]->id}")?>">
                 <div class="col-12 d-flex justify-content-center mb-2 bg-dark" style="height: 180px;">
-                    <!--	<img class="w-100" src="/public/sangmin/img/golf_course_1.jpg" alt="">-->
+                    	<img class="w-100" src="<?=$thema_list[$i]->photo?>" alt="">
                     <div class="mobile-content position-absolute d-flex flex-column align-items-center justify-content-end">
-                        <h1 style="text-shadow: 0 0 7px rgba(0,0,0,1);">이달의 인기 코스</h1>
-                        <p style="text-shadow: 0 0 7px rgba(0,0,0,1);">트렌디한 코스를 경험하고 싶다면</p>
+                        <h1 style="text-shadow: 0 0 7px rgba(0,0,0,1);"><?=$thema_list[$i]->name?></h1>
+                        <p style="text-shadow: 0 0 7px rgba(0,0,0,1);"><?=$thema_list[$i]->desc?></p>
                     </div>
                 </div>
+                </a>
+                <?php }?>
             </div>
             <div class="row no-gutters d-none d-sm-flex">
                 <div class="col-12 col-lg-6 position-relative ">
