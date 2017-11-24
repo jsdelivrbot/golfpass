@@ -273,13 +273,8 @@
 <div class="row no-gutters flex-column d-md-none" style="padding-top: 0 !important;">
     <?php for($i=0;$i < count($nation_list)	;$i++){
         
-    //도시카테고리 존재하는지 ? 도시리스트 : 상품리스트
-    $sub_cate =$this->db->query("SELECT id FROM product_categories as c WHERE c.parent_id = {$nation_list[$i]->id}")->row();
-    if($sub_cate !== null){ ?>
-        <a href="<?=site_url(shop_category_uri."/gets/{$nation_list[$i]->id}")?>">
-    <?php }else{?>
+?>
         <a href="<?=site_url(shop_product_uri."/gets/{$nation_list[$i]->id}")?>">
-    <?php }?>
             <div class="col-12 d-flex justify-content-center mb-2 bg-dark" style="background-image:url(<?=$nation_list[$i]->photo?>); background-repeat:no-repeat; background-position:center; background-size:cover">
                 <img src="/public/images/blank3.png" class="blank_img">
                 <div class="mobile-content position-absolute d-flex flex-column align-items-center justify-content-end">
@@ -300,14 +295,9 @@
                                                  <?php for($i=0;$i < count($nation_list)	;$i++){?>
 
                       <div class="slide-item d-flex">
-                        <?php
-                        //도시카테고리 존재하는지 ? 도시리스트 : 상품리스트
-                        $sub_cate =$this->db->query("SELECT id FROM product_categories as c WHERE c.parent_id = {$nation_list[$i]->id}")->row();
-                        if($sub_cate !== null){ ?>
-                            <a href="<?=site_url(shop_category_uri."/gets/{$nation_list[$i]->id}")?>">
-                        <?php }else{?>
+                    
                             <a href="<?=site_url(shop_product_uri."/gets/{$nation_list[$i]->id}")?>">
-                        <?php }?>
+                    
 
                          <img src="<?=$nation_list[$i]->photo?>" class="w-100"/>
                          <div class="position-absolute content d-flex flex-column justify-content-center align-items-center">

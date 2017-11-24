@@ -46,8 +46,8 @@ class Product extends Base_Controller {
 	public function gets($id =1){
         
         // $products =$this->products_model->gets_by_category_id_recursive_tree($id);        
-        $products =$this->products_model->get_by_category_id_recursive_with_pgi($id,'style_hotel');        
-      
+        $products =$this->products_model->get_by_category_id_recursive_with_pgi($id,'style_zap');        
+        
         for($i=0 ;$i <count($products); $i++)
         {
             $photos = $products[$i]->photos;
@@ -59,12 +59,20 @@ class Product extends Base_Controller {
                 $products[$i]->photos = array('','','');
         }
         $data['products'] =$products;
-
         $this->load->model("product_categories_model");
 
-        $data['category']= $this->product_categories_model->_get($id);
+        $category= $this->product_categories_model->_get($id);
+        $data['category'] = $category;
+
+        $parent_category = $this->product_categories_model->_get($category->parent_id);
+        if($parent_category->name === "나라별")
+        {
+            $parent_category = $category;
+        }
+        $data['parent_category'] = $parent_category;
+        $data['child_categories'] = $this->product_categories_model->_gets(array("parent_id"=>$parent_category->id));
         $data['parent_categories']= $this->product_categories_model->revert_recursive($id);
-        
+        // var_dump($data['parent_categories']);
         // $this->_view("gets",$data);
         $this->_template("gets",$data,'golfpass2');
         // $this->_view("gets",$data);

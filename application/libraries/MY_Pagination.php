@@ -106,7 +106,35 @@ class MY_Pagination extends CI_Pagination {
             // $config [ 'num_tag_close'] = '</span>'; 
             return $config;
         }
+        
+        function style_zap($config){
 
+            $config [ 'full_tag_open'] = '<ul class="pagination">';
+            $config [ 'full_tag_close'] = '</ul>';
+            
+            // $config['first_link'] = "";
+            $config['first_link'] = false;
+            // $config [ 'first_tag_open'] = '<li id="">';
+            // $config [ 'first_tag_close'] = '</li>';
+    
+            // $config [ 'last_link'] = "";
+            $config [ 'last_link'] =false;
+            // $config [ 'last_tag_open'] = '<li id="hotel-results-pagination-next">';
+            // $config [ 'last_tag_close'] = '</li>';
+    
+            $config [ 'prev_link'] = "<i class='fa fa-angle-left'></i>";
+            $config['prev_tag_open'] = '<li>';
+            $config['prev_tag_close'] = '</li>';
+            $config [ 'next_link'] = "<i class='fa fa-angle-right'></i>";
+            $config['next_tag_open'] = '<li>';
+            $config['next_tag_close'] = '</li>';
+            
+            $config [ 'cur_tag_open'] = '<li><a style="background-color:#8ece6a ; border-color:#8ece6a ;color:white ">';
+            $config [ 'cur_tag_close'] = '</a></li>';
+            $config [ 'num_tag_open'] = '<li>';
+            $config [ 'num_tag_close'] = '</li>'; 
+            return $config;
+        }
         function style_golfpass($config){
 
             $config [ 'full_tag_open'] = '<ul class="tp-d-flex tp-list-unstyled tp-justify-content-center tp-mb-0">';
@@ -136,6 +164,7 @@ class MY_Pagination extends CI_Pagination {
             $config['total_rows'] = isset($in_config['total_rows']) ? $in_config['total_rows'] : null;
             $config['per_page'] = 10;
             $config['num_links'] = 3;
+            // $config['num_links'] = 1;
 
             $style_pgi = isset($in_config['style_pgi']) ? $in_config['style_pgi'] : 'style_1';
             $config +=$this->getConfig();

@@ -129,7 +129,7 @@ class Products_Model extends Board_Model{
         $date = date("Y-m-d");
         $sub_query4 = "SELECT price FROM p_daily_price as sub_dp WHERE sub_dp.product_id = r.product_id AND sub_dp.date = '{$date}' AND sub_dp.num_people = '1' AND sub_dp.period = '2' LIMIT 0, 1";
 
-        $this->db->select("p.*,r.id as ref_id,r.sort ,($sub_query) as photos, ($sub_query2) as avg_score, ($sub_query3) as hotel_id, IFNULL(($sub_query4),'0') as price");
+        $this->db->select("p.*,r.id as ref_id,r.sort ,($sub_query) as photos, IFNULL(($sub_query2),0) as avg_score, ($sub_query3) as hotel_id, IFNULL(($sub_query4),'0') as price");
         $this->db->from("ref_cate_product as r");
         $this->db->join("products as p", "p.id = r.product_id","LEFT");
         $this->db->join("product_categories as c", "c.id = r.cate_id","LEFT");

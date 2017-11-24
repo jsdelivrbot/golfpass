@@ -39,9 +39,14 @@
         <section class="sub-banner" style="background:url(/public/etc/list/images/golfpass/hero_img.png) fixed no-repeat">
             <div class="container">
                 <div class="position-center-center">
-                    <h2 style="font-family: 'notokr-regular', sans-serif; font-weight: normal;"><?php for($j=count($parent_categories)-2; $j >= 1; $j--){?><?=$parent_categories[$j]->name?><?php }?></h2>
+                    <h2 style="font-family: 'notokr-regular', sans-serif; font-weight: normal;">
+                        <?=$category->name?>
+                        <!-- <?php for($j=count($parent_categories)-2; $j >= 1; $j--){?><?=$parent_categories[$j]->name?><?php }?> -->
+                    </h2>
                     <ol class="breadcrumb">
-                        <li class="active" style="font-family: 'notokr-regular', sans-serif; font-weight: normal;">일본열도를 구성하는 4대 섬 중 가장 남쪽에 있는 섬, 또는 그 섬을 중심으로 하는 지방. 전근대 시기에는 사이카이도(서해도, 西海道)라 불리웠으며, 옛날에 9개의 번국(구니, 国=州)가 있었다고 해서 규슈라고 하며 번국(구니)이란 일본 고대의 행정구역이다.</li>
+                        <li class="active" style="font-family: 'notokr-regular', sans-serif; font-weight: normal;">
+                            <?=$category->desc?>
+                        </li>
                     </ol>
                 </div>
             </div>
@@ -55,11 +60,23 @@
                 </div>
 
                 <ul class="tabs portfolio-filter text-center margin-bottom-80">
-                    <li class="tab-title filter-item"><a class="active" href="#" data-filter="*" style="font-family: 'notokr-regular', sans-serif; font-size: 12px; font-weight: normal;">ALL</a></li>
-                    <li class="tab-title filter-item"><a href="#" data-filter=".pf-branding-design" class="" style="font-family: 'notokr-regular', sans-serif; font-size: 12px; font-weight: normal;">후쿠오카</a></li>
+                    <li class="tab-title filter-item">
+                        <a class="<?=$category->name === $parent_category->name ? "active" : ""?>" href="<?=site_url(shop_product_uri."/gets/{$parent_category->id}")?>" data-filter="*" style="font-family: 'notokr-regular', sans-serif; font-size: 12px; font-weight: normal;">
+                            ALL
+                        </a>
+                    </li>
+                    <?php for($i=0; $i<count($child_categories); $i++){?>
+                            <li class="tab-title filter-item">
+                                <a href="<?=site_url(shop_product_uri."/gets/{$child_categories[$i]->id}")?>" data-filter=".pf-branding-design" class="<?=$category->name === $child_categories[$i]->name ? "active" : ""?>" style="font-family: 'notokr-regular', sans-serif; font-size: 12px; font-weight: normal;">
+                                    <?=$child_categories[$i]->name?>
+                                </a>
+                            </li>
+
+                    <?php }?>
+                    <!-- <li class="tab-title filter-item"><a href="#" data-filter=".pf-branding-design" class="" style="font-family: 'notokr-regular', sans-serif; font-size: 12px; font-weight: normal;">후쿠오카</a></li>
                     <li class="tab-title filter-item"><a href="#" data-filter=".pf-photography" class="" style="font-family: 'notokr-regular', sans-serif; font-size: 12px; font-weight: normal;">구마모토</a></li>
                     <li class="tab-title filter-item"><a href="#" data-filter=".pf-web-design" class="" style="font-family: 'notokr-regular', sans-serif; font-size: 12px; font-weight: normal;">동경</a></li>
-                    <li class="tab-title filter-item"><a href="#" data-filter=".pf-digital-art" class="" style="font-family: 'notokr-regular', sans-serif; font-size: 12px; font-weight: normal;">오사카</a></li>
+                    <li class="tab-title filter-item"><a href="#" data-filter=".pf-digital-art" class="" style="font-family: 'notokr-regular', sans-serif; font-size: 12px; font-weight: normal;">오사카</a></li> -->
                 </ul>
 
                 <div class="row">
@@ -79,7 +96,7 @@
                                     ?>
                                 </p>
                                 <ul class="post-info margin-bottom-0">
-                                    <li> <i class="fa fa-star" style="color: #fcbf3f;"></i>4.7 </li>
+                                    <li> <i class="fa fa-star" style="color: #fcbf3f;"></i><?=ceil($products[$i]->avg_score*10)/10?> </li>
                                     <li> <i class="fa fa-map-o"></i><?php for($j=count($parent_categories)-2; $j >= 1; $j--){?><?=$parent_categories[$j]->name?><?php }?> </li>
                                     <li> <i class="fa fa-map"></i><?=$category->name?> </li>
                                     <li class="pull-right no-margin last-li"> <a href="#">자세히 <i class="fa fa-angle-right margin-left-10"></i></a></li>
@@ -90,14 +107,16 @@
                 </div>
 
                 <!-- 페이지네이션 -->
-                <ul class="pagination">
-                    <li><a href="#">1</a></li>
+                <?=$this->pagination->create_links();?>
+                <!-- <ul class="pagination">
+                    <li><a href="#"><i class="fa fa-angle-left"></i></a></li>
+                    <li ><a href="#" style="background-color:#8ece6a ; border-color:#8ece6a ;color:white ">1</a></li>
                     <li><a href="#">2</a></li>
                     <li><a href="#">3</a></li>
                     <li><a href="#">4</a></li>
                     <li><a href="#">5</a></li>
                     <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
-                </ul>
+                </ul> -->
                 <!-- /페이지네이션 -->
             </div>
         </section>
