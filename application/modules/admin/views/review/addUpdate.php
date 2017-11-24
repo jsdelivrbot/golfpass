@@ -27,7 +27,15 @@
             <input type="radio" name="is_secret" value="1" <?=my_set_checked($content,'is_secret','1')?>>아니오
         </div>
     </div>
-
+    <?php if(strpos($mode,"add") !== false){?>
+    <div class="two fields">
+        <div class="field">
+            <label>갯수</label>
+            <input type="text" name="num_reviews" value="1" >
+        </div>
+    
+    </div>
+    <?php }?>
     <div class="four fields">
 
         <div class="field">
@@ -78,7 +86,7 @@
 
 
 
-<input placeholder="제목" type="text" name="title" value="<?=set_value_data($content,'title')?>" > <?=form_error('title',false,false)?><br> 
+<!-- <input placeholder="제목" type="text" name="title" value="<?=set_value_data($content,'title')?>" > <?=form_error('title',false,false)?><br>  -->
 <textarea placeholder="내용" name="desc" rows="10" cols="80">
 <?=set_value_data($content,'desc')?>
 </textarea>

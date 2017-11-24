@@ -36,9 +36,13 @@ class Review extends Admin_Controller {
         }else
         {
             $this->load->model('product_reviews_model');
-            parent::_dbSet_addUpdate();
-            $this->db->set("user_id",$this->user->id);
-            $insert_id=$this->product_reviews_model->add();
+            for($i =0; $i<$this->input->post("num_reviews"); $i++)
+            {
+                $this->_dbSet_addUpdate();
+                $this->db->set("user_id",$this->user->id);
+                $insert_id=$this->product_reviews_model->add();
+
+            }
             // my_redirect(admin_product_review_uri."/update/$insert_id");
             my_redirect(admin_product_review_uri."/gets");
         }
@@ -59,7 +63,7 @@ class Review extends Admin_Controller {
         {
             $this->load->model('product_reviews_model');
         
-            parent::_dbSet_addUpdate();
+            $this->_dbSet_addUpdate();
             $this->product_reviews_model->update($id);
             my_redirect(admin_product_review_uri."/update/$id");
         }
@@ -71,6 +75,22 @@ class Review extends Admin_Controller {
         $data['reload'] =true;
         echo json_encode($data);
         return;
+    }
+    function _dbSet_addUpdate()
+    {
+        $this->db->set("is_display",$this->input->post("is_display"));
+        $this->db->set("is_secret",$this->input->post("is_secret"));
+        $this->db->set("product_id",$this->input->post("product_id"));
+        $this->db->set("score_1",$this->input->post("score_1"));
+        $this->db->set("score_2",$this->input->post("score_2"));
+        $this->db->set("score_3",$this->input->post("score_3"));
+        $this->db->set("score_4",$this->input->post("score_4"));
+        $this->db->set("score_5",$this->input->post("score_5"));
+        $this->db->set("score_6",$this->input->post("score_6"));
+        $this->db->set("score_7",$this->input->post("score_7"));
+        $this->db->set("score_8",$this->input->post("score_8"));
+        // $this->db->set("title",$this->input->post("title"));
+        $this->db->set("desc",$this->input->post("desc"));
     }
     function _set_rules()
     {

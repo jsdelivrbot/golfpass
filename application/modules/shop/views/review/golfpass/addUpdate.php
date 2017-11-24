@@ -46,12 +46,12 @@
             <div class="cont02">
             	<div class="selectBox">
                     <select name="score_1" id="select01">
-                        <option value="">☆☆☆☆☆&emsp;0</option>
-                        <option value="">★☆☆☆☆&emsp;1</option>
-                        <option value="">★★☆☆☆&emsp;2</option>
-                        <option value="">★★★☆☆&emsp;3</option>
-                        <option value="">★★★★☆&emsp;4</option>
-                        <option value="">★★★★★&emsp;5</option>
+                        <option value="0">☆☆☆☆☆&emsp;0</option>
+                        <option value="1">★☆☆☆☆&emsp;1</option>
+                        <option value="2">★★☆☆☆&emsp;2</option>
+                        <option value="3">★★★☆☆&emsp;3</option>
+                        <option value="4">★★★★☆&emsp;4</option>
+                        <option value="5">★★★★★&emsp;5</option>
                     </select>
                 </div>
             </div>
@@ -59,12 +59,12 @@
             <div class="cont02">
             	<div class="selectBox">
                     <select name="score_2" id="select02">
-                        <option value="">☆☆☆☆☆&emsp;0</option>
-                        <option value="">★☆☆☆☆&emsp;1</option>
-                        <option value="">★★☆☆☆&emsp;2</option>
-                        <option value="">★★★☆☆&emsp;3</option>
-                        <option value="">★★★★☆&emsp;4</option>
-                        <option value="">★★★★★&emsp;5</option>
+                        <option value="0">☆☆☆☆☆&emsp;0</option>
+                        <option value="1">★☆☆☆☆&emsp;1</option>
+                        <option value="2">★★☆☆☆&emsp;2</option>
+                        <option value="3">★★★☆☆&emsp;3</option>
+                        <option value="4">★★★★☆&emsp;4</option>
+                        <option value="5">★★★★★&emsp;5</option>
                     </select>
                 </div>
             </div>
@@ -74,12 +74,12 @@
             <div class="cont02">
             	<div class="selectBox">
                     <select name="score_3" id="select03">
-                        <option value="">☆☆☆☆☆&emsp;0</option>
-                        <option value="">★☆☆☆☆&emsp;1</option>
-                        <option value="">★★☆☆☆&emsp;2</option>
-                        <option value="">★★★☆☆&emsp;3</option>
-                        <option value="">★★★★☆&emsp;4</option>
-                        <option value="">★★★★★&emsp;5</option>
+                        <option value="0">☆☆☆☆☆&emsp;0</option>
+                        <option value="1">★☆☆☆☆&emsp;1</option>
+                        <option value="2">★★☆☆☆&emsp;2</option>
+                        <option value="3">★★★☆☆&emsp;3</option>
+                        <option value="4">★★★★☆&emsp;4</option>
+                        <option value="5">★★★★★&emsp;5</option>
                     </select>
                 </div>
             </div>
@@ -87,12 +87,12 @@
             <div class="cont02">
             	<div class="selectBox">
                     <select name="score_4" id="select04">
-                        <option value="">☆☆☆☆☆&emsp;0</option>
-                        <option value="">★☆☆☆☆&emsp;1</option>
-                        <option value="">★★☆☆☆&emsp;2</option>
-                        <option value="">★★★☆☆&emsp;3</option>
-                        <option value="">★★★★☆&emsp;4</option>
-                        <option value="">★★★★★&emsp;5</option>
+                        <option value="0">☆☆☆☆☆&emsp;0</option>
+                        <option value="1">★☆☆☆☆&emsp;1</option>
+                        <option value="2">★★☆☆☆&emsp;2</option>
+                        <option value="3">★★★☆☆&emsp;3</option>
+                        <option value="4">★★★★☆&emsp;4</option>
+                        <option value="5">★★★★★&emsp;5</option>
                     </select>
                 </div>
             </div>
@@ -102,12 +102,12 @@
             <div class="cont02">
             	<div class="selectBox">
                     <select name="score_5" id="select05">
-                        <option value="">☆☆☆☆☆&emsp;0</option>
-                        <option value="">★☆☆☆☆&emsp;1</option>
-                        <option value="">★★☆☆☆&emsp;2</option>
-                        <option value="">★★★☆☆&emsp;3</option>
-                        <option value="">★★★★☆&emsp;4</option>
-                        <option value="">★★★★★&emsp;5</option>
+                        <option value="0">☆☆☆☆☆&emsp;0</option>
+                        <option value="1">★☆☆☆☆&emsp;1</option>
+                        <option value="2">★★☆☆☆&emsp;2</option>
+                        <option value="3">★★★☆☆&emsp;3</option>
+                        <option value="4">★★★★☆&emsp;4</option>
+                        <option value="5">★★★★★&emsp;5</option>
                     </select>
                 </div>
             </div>
@@ -115,12 +115,12 @@
             <div class="cont02">
             	<div class="selectBox">
                     <select name="score_6" id="select06">
-                        <option value="">☆☆☆☆☆&emsp;0</option>
-                        <option value="">★☆☆☆☆&emsp;1</option>
-                        <option value="">★★☆☆☆&emsp;2</option>
-                        <option value="">★★★☆☆&emsp;3</option>
-                        <option value="">★★★★☆&emsp;4</option>
-                        <option value="">★★★★★&emsp;5</option>
+                        <option value="0">☆☆☆☆☆&emsp;0</option>
+                        <option value="1">★☆☆☆☆&emsp;1</option>
+                        <option value="2">★★☆☆☆&emsp;2</option>
+                        <option value="3">★★★☆☆&emsp;3</option>
+                        <option value="4">★★★★☆&emsp;4</option>
+                        <option value="5">★★★★★&emsp;5</option>
                     </select>
                 </div>
             </div>
@@ -130,12 +130,12 @@
             <div class="cont02">
             	<div class="selectBox">
                     <select name="score_7" id="select07">
-                        <option value="">☆☆☆☆☆&emsp;0</option>
-                        <option value="">★☆☆☆☆&emsp;1</option>
-                        <option value="">★★☆☆☆&emsp;2</option>
-                        <option value="">★★★☆☆&emsp;3</option>
-                        <option value="">★★★★☆&emsp;4</option>
-                        <option value="">★★★★★&emsp;5</option>
+                        <option value="0">☆☆☆☆☆&emsp;0</option>
+                        <option value="1">★☆☆☆☆&emsp;1</option>
+                        <option value="2">★★☆☆☆&emsp;2</option>
+                        <option value="3">★★★☆☆&emsp;3</option>
+                        <option value="4">★★★★☆&emsp;4</option>
+                        <option value="5">★★★★★&emsp;5</option>
                     </select>
                 </div>
             </div>
@@ -143,14 +143,20 @@
             <div class="cont02">
             	<div class="selectBox">
                     <select name="score_8" id="select08">
-                        <option value="">☆☆☆☆☆&emsp;0</option>
-                        <option value="">★☆☆☆☆&emsp;1</option>
-                        <option value="">★★☆☆☆&emsp;2</option>
-                        <option value="">★★★☆☆&emsp;3</option>
-                        <option value="">★★★★☆&emsp;4</option>
-                        <option value="">★★★★★&emsp;5</option>
+                        <option value="0">☆☆☆☆☆&emsp;0</option>
+                        <option value="1">★☆☆☆☆&emsp;1</option>
+                        <option value="2">★★☆☆☆&emsp;2</option>
+                        <option value="3">★★★☆☆&emsp;3</option>
+                        <option value="4">★★★★☆&emsp;4</option>
+                        <option value="5">★★★★★&emsp;5</option>
                     </select>
                 </div>
+            </div>
+        </li>
+        <li>
+            <div class="title">옵션</div>
+            <div class="cont03">
+            리뷰점수만<input type="checkbox" name="is_display" value="0">
             </div>
         </li>
         <li>

@@ -85,9 +85,9 @@ class Review extends Base_Controller {
         $this->db->where("status","paid");
         $orders = $this->product_orders_model->_gets();
         if(count($orders) === 0 ){
-            alert("상품을 구매하셔야 후기를 작성할 수 있습니다.");
-            my_redirect($_SERVER['HTTP_REFERER']);
-            return ;
+            // alert("상품을 구매하셔야 후기를 작성할 수 있습니다.");
+            // my_redirect($_SERVER['HTTP_REFERER']);
+            // return ;
         }
         // if(($orders = is_can_product_review($product_id)) === false){
         //     alert("상품을 구매하셔야 후기를 작성할 수 있습니다.");
@@ -115,13 +115,20 @@ class Review extends Base_Controller {
             // setting_model is_product_review_display 확인 후 is_display세팅 // default값 수정으로 변경예정
             $this->load->model('admin/setting_model');
             $is_display=$this->setting_model->_get(1,array('is_product_review_display'))->is_product_review_display;
-            if($is_display === '0'){
-                $this->db->set('is_display',$is_display);
+            if($is_display === '0')
+            {
+                $this->db->set("is_secret","1");
+                $this->db->set('is_display', '0');
+            
+            }
+            else if($this->input->post("is_display") === "0")
+            {
+                $this->db->set('is_display', '0');
             }
             
             //후기 추가
             $this->_dbSet_addUpdate();
-            $this->db->set("is_secret","0");
+           
             $insert_id =$this->product_reviews_model->add(array('product_id'=>$product_id));
 
             //p_order_products에서  is_review_write 업데이트.
@@ -137,6 +144,7 @@ class Review extends Base_Controller {
    
     }
     public function _dbSet_addUpdate(){
+      
         $this->product_reviews_model->_set_by_obj(array(
         //   "title"=> $this->input->post('title'),
            "desc"=> $this->input->post('desc'),
