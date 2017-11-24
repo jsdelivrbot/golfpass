@@ -330,7 +330,7 @@
                                                                           
                                                                          <span class="position-absolute text-light price" style="text-shadow: 0 0 7px rgba(0,0,0,1);"><?=number_format($products_panel[$i]->price)?>원</span>
                                                                  </div>
-                                                                 <div class="d-flex align-items-center p-1 text-light rounded-top content">
+                                                                 <div class="d-flex align-items-center p-1 text-light rounded-top content" style="background-color: <?=$products_panel[$i]->hotel_id !== null ? "#06adef" : "#36ddef"?>;">
                                                                          <i class="xi-marker-check ml-1 mr-1" style="padding-bottom:2px;"></i>
                                                                          <p class=" mb-0 "><?=$products_panel[$i]->hotel_id !== null ? "골프장+숙박" : "골프장"?></p>
                                                                  </div>
