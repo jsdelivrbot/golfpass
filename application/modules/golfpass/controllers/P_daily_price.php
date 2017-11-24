@@ -20,8 +20,9 @@ class P_daily_price extends Base_Controller
         $start_date = $this->input->post("start_date");
         $end_date = $this->input->post("end_date");
 
-        //설정 날자차이가 음수일때
-        if(strtotime($end_date) < strtotime($start_date))
+        
+        //설정 날자차이가 음수일때  오늘보다 시작날자가 이전일시
+        if(strtotime($end_date) < strtotime($start_date) || strtotime($start_date) < strtotime(date("Y-m-d")))
         {
             $data['total_price'] = "올바르게 설정되지 않았습니다.";
             echo json_encode($data);
@@ -58,6 +59,7 @@ class P_daily_price extends Base_Controller
         // // start date하나로 계산
       
       
+    
          //하루예약시
         if($period <= 1)
         {
@@ -65,7 +67,13 @@ class P_daily_price extends Base_Controller
             echo json_encode($data);
             return;
         }
-
+        //날자차이가 10일 이상일떄
+        if($period >= 90)
+        {
+            $data['total_price'] = "90일이상 예약은 불가능합니다.";
+            echo json_encode($data);
+            return;
+        }
         //  //날자 하나씩 계산
         // $total_price =0;
         // for($i =0 ; $i < $period ; $i++)
@@ -110,7 +118,8 @@ class P_daily_price extends Base_Controller
             if($row === null)
             {
                 // $data['total_price'] = "{$date} <br> {$num_people}인 데이터가 존재하지 않습니다. <br>예약이 불가능합니다";
-                $data['total_price'] = "(인)수를 선택해주세요.";
+                $data['total_price'] = "가격 데이터가 존재하지 않습니다. <br>예약이 불가능합니다";
+                // $data['total_price'] = "(인)수를 선택해주세요.";
                 echo json_encode($data);
                 return;
             }

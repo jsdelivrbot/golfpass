@@ -58,14 +58,30 @@
 </div>
 </div>
 <!-- <br>동행자 -->
+<form action="<?=site_url(shop_order_uri."/update_info/{$order->merchant_uid}")?>" method="post" class="ui form">
 <?php for($i=0;$i < count($order_infos) ;$i++){   ?>
-<!-- <ul>
-<li>동행자이름 <?=$order_infos[$i]->name_with?></li>
-<li>영어이름 <?=$order_infos[$i]->eng_name_with?></li>
-<li>휴대폰 <?=$order_infos[$i]->phone_with?></li>
-<li>이메일 <?=$order_infos[$i]->email_with?></li>
-</ul> -->
-<?php }?>
+    <div class="four fields">
+        <div class="field">
+            <label for="">이름</label>
+            <input type="text" name="name_with[]" value="<?=$order_infos[$i]->name_with?>">
+        </div>
+        <div class="field">
+            <label for="">영어 이름</label>
+            <input type="text" name="eng_name_with[]" value="<?=$order_infos[$i]->eng_name_with?>">
+        </div>
+        <div class="field">
+            <label for="">휴대폰</label>
+            <input type="text" name="phone_with[]" value="<?=$order_infos[$i]->phone_with?>">
+        </div>
+        <div class="field">
+            <label for="">이메일</label>
+            <input type="text" name="email_with[]" value="<?=$order_infos[$i]->email_with?>">
+        </div>
+    </div>
+    <?php }?>
+
+    <input type="submit" class="ui button baisc" value="동행자 정보 수정">
+</form>
 <div style="margin-top:-100px;"></div> 
 
 

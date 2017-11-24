@@ -14,6 +14,26 @@ class Order extends Base_Controller {
             my_redirect(user_uri."/login?return_url=".rawurlencode(my_current_url()),false);
         }
     }
+    function update_info($merchant_uid)
+    {
+        $arr_name_with = $this->input->post("name_with");
+        $arr_eng_name_with = $this->input->post("eng_name_with");
+        $arr_email_with = $this->input->post("email_with");
+        $arr_phone_with = $this->input->post("phone_with");
+        $rows =$this->db->query("SELECT id FROM p_order_infos WHERE merchant_uid = $merchant_uid")->result();
+        for($i = 0 ;$i < count($rows) ; $i++)
+        {
+            $this->db->set("name_with",$arr_name_with[$i]);
+            $this->db->set("eng_name_with",$arr_eng_name_with[$i]);
+            $this->db->set("name_with",$arr_name_with[$i]);
+            $this->db->set("email_with",$arr_email_with[$i]);
+            $this->db->set("phone_with",$arr_phone_with[$i]);
+            $this->db->where("id",$rows[$i]->id);
+            $this->db->update("p_order_infos");
+        }
+        $order_id =$this->db->query("SELECT id FROM product_orders WHERE merchant_uid = $merchant_uid")->row()->id;
+        my_redirect(shop_mypage_uri."/get_order/$order_id");
+    }
     function ajax_check_payment()
     {
         header("content-type:application/json");
