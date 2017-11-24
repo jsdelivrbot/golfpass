@@ -62,6 +62,7 @@ class Init_Controller extends MX_Controller{
         $this->db->set('cafe24_userName',"santutu6");
         $this->db->set('cafe24_sms_api_key',"1856aaacd1dee9bdb79b60c1c8746f38");
         $this->db->set('cafe24_sms_number',"01051008825");
+        $this->db->set('imp_franchises_code',"imp52394971");
         $this->db->set('imp_key',"9540423424246518");
         $this->db->set('imp_secret',"Jw97K8hHJMJbZ2BgxSIaqV1Z9qWAlIH4fRc0ZtHIfrUfuvw1ofbOadNjDKTYsB3IsfIsJqaYR4elAKnY");
 
@@ -81,6 +82,7 @@ class Init_Controller extends MX_Controller{
              `cafe24_userName` varchar(255),
              `cafe24_sms_api_key` varchar(255),
              `cafe24_sms_number` varchar(255),
+             `imp_franchises_code` varchar(255),
              `imp_key` varchar(255),
              `imp_secret` varchar(255),
              `bank_num` varchar(255),
