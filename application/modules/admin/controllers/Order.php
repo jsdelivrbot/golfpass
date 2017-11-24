@@ -55,8 +55,11 @@ class Order extends Admin_Controller {
          
     }
     public function update($id){
-         
-         
+        parent:: _dbset_addUpdate();
+        $this->product_orders_model->_update($id);       
+         $row =$this->product_orders_model->_get($id);
+        $merchant_uid = $row->merchant_uid;
+        my_redirect(admin_order_uri."/get/$merchant_uid");
     }
     
   
