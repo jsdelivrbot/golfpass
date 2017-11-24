@@ -45,7 +45,7 @@ a{
   </a> -->
   <div>
   <?php 
-    $v_menus = array("수정","홀 추가가격","메인옵션","분류","호텔","설명","상품옵션","이미지","위치");
+    $v_menus = array("수정","홀_추가가격","메인옵션","분류","호텔","설명","상품옵션","이미지","위치");
     $v_icons = array("edit","options","options","list layout","h","remove from calendar","options","image","map outline");
     for($i = 0; $i<count($v_menus); $i++){
     ?>
