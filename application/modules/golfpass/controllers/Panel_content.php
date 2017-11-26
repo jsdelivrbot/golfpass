@@ -13,8 +13,13 @@ class Panel_content extends Base_Controller {
 
     function get($id)
     {
-        $data['content'] = $this->board_contents_model->_get($id);
-       
+        $data['user'] =$this->user;
+        $data['content'] = $this->db->select("c.*,u.*, c.created,c.id,u.id 'user_id'")
+        ->from("board_contents as c")
+        ->join("users as u","c.user_id =u.id","LEFT")
+        ->where("c.id",$id)
+        ->get()->row();
+        // var_dump($data['content']);
         $this->_template("get",$data,'golfpass2');
     }
 }
