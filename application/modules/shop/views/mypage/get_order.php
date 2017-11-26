@@ -84,9 +84,9 @@
 
     <input type="submit" class="ui button baisc" value="동행자 정보 수정">
 </form>
-<?php if($order->status === "paid" && $order->status === "confirm"){?>
+<?php if($order->status === "paid" || $order->status === "confirm"){?>
 <div class="sixteen wide column">
-<a onclick="confirm_redirect('<?=my_site_url(shop_mypage_uri."/update_order_status/{$order->id}")?>','정말 환불 요청 하시겠습니까?')" href="#">환불요청</a>
+<a onclick="confirm_redirect('<?=my_site_url(shop_mypage_uri."/update_order_status/{$order->id}")?>','정말 환불 요청 하시겠습니까?'); return false;" href="#">환불요청</a>
 </div>
 <?php }?>
 <div style="margin-top:-100px;"></div> 
