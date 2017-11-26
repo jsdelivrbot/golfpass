@@ -63,9 +63,11 @@ class Order extends Base_Controller {
     
     function golfpass()
     {
-        if(true)
+        if($this->user->phone === null || $this->user->phone === "" )
         {
-            redirect("/?return_url=".rawurlencode(my_current_url()));
+            alert("고객님의 안전한 거래를 위해 휴대폰 인증을 하셔야합니다.\\n(한번만 인증하시면 다음부터는 인증없이 예약이 가능합니다.)");
+            $this->session->set_flashdata('user_update', true);
+            my_redirect(user_uri."/update_phone?return_url=".rawurlencode(my_current_url()));
         }
 
         $product_id = $this->input->get("product_id");

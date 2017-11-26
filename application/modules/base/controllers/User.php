@@ -220,6 +220,7 @@ class User extends Base_Controller
         $this->_set_rules();
        
         if ($this->fv->run()=== false) {
+            alert_validationErrors();
             $user = (object)array();
             $data = array("mode" =>"add","user"=>$user);
             $this->_template("user/golfpass/addUpdate",$data,'golfpass2');
@@ -280,22 +281,65 @@ class User extends Base_Controller
             msg_redirect("회원가입 성공", "/");
         }
     }
+    function update_phone()
+    {
+        if($this->session->userdata('phone_auth') === true)
+        {
+            $this->session->set_flashdata("phone_auth",true);
 
+        }
+        $this->fv->set_rules('phone', '연락처', 'required|min_length[1]|max_length[20]');
+        if ($this->fv->run()=== false) {
+            alert_validationErrors();
+            $data['user'] = $this->user;
+            $data['mode'] = "update_phone";
+           
+            $this->_template("user/golfpass/update_phone",$data,"golfpass2");
+            return;
+        } else {
+         
+            //폰번호 바꿀때 경우
+            if($this->user->phone !== $this->input->post("phone") && $this->session->userdata('phone_auth') === null)
+            {
+                    $data["mode"] = "update_phone";
+                    $data['user'] = $this->user;
+                    $this->session->set_flashdata('user_update', true);
+                    echo "<script>alert('휴대폰 인증이 완료되지 않았습니다.')</script>";
+                    $this->_template("user/golfpass/update_phone",$data,"golfpass2");
+                    return;
+            }
+            $this->db->set("phone",$this->input->post("phone"));
+            $this->db->where('userName',$this->session->userdata('userName'));
+            $this->db->update('users');
+            alert("휴대폰 등록 완료.");
+            my_redirect($this->input->get("return_url"));
+            // redirect_return_url(shop_mypage_uri."/gets_wishlist");
+        }
+    }
     public function update(){
+        
+        
         if(!$this->session->userdata("user_update")){
             alert("잘못된 접근!");
             my_redirect(user_uri."/check_pssword_forUpdate");
             exit;
         }
+        else if($this->session->userdata('user_update') === true)
+        {
+            $this->session->set_flashdata('user_update', true);
+        }
+        if($this->session->userdata('phone_auth') === true)
+        {
+            $this->session->set_flashdata("phone_auth",true);
 
+        }
         if($this->input->post("password") !== "" || $this->input->post("re_password") !== ""){
-            $this->fv->set_rules('password', '암호', 'required|matches[re_password]|min_length[4]|max_length[20]', array('matches'=>'비밀번호가 일치 하지 않습니다.'));
-            $this->fv->set_rules('re_password', '암호확인', 'required|min_length[4]|max_length[20]');
+            $this->fv->set_rules('password', '비밀번호', 'required|matches[re_password]|min_length[4]|max_length[20]', array('matches'=>'비밀번호가 일치 하지 않습니다.'));
+            $this->fv->set_rules('re_password', '비밀번호 재확인', 'required|min_length[4]|max_length[20]');
         }
         $this->_set_rules();
         if ($this->fv->run()=== false) {
-           
-            $this->session->set_flashdata('user_update', true);
+            alert_validationErrors();
             // $this->db->select("userName,postal_number,address,address_more,name,phone,sex,profilePhoto, substring(birth,1,4) 'year', substring(birth,6,2) 'month', substring(birth,9,2) 'day'");
             // $this->db->from($this->table);
             // $this->db->where("userName",$this->session->userdata('userName'));
@@ -304,12 +348,23 @@ class User extends Base_Controller
             $data['mode'] = "update";
            
             $this->_template("user/golfpass/addUpdate",$data,"golfpass2");
+            return;
         } else {
             if($this->input->post("password") !== "" || $this->input->post("re_password") !== ""){
                 $hash = password_hash($this->input->post('password'), PASSWORD_BCRYPT);
                 $this->db->set('password', $hash);
             }
-
+            //폰번호 바꿀때 경우
+            if($this->user->phone !== $this->input->post("phone") && $this->session->userdata('phone_auth') === null)
+            {
+                    $data["mode"] = "update";
+                    $data['user'] = $this->user;
+                    $this->session->set_flashdata('user_update', true);
+                    echo "<script>alert('휴대폰 인증이 완료되지 않았습니다.')</script>";
+                    $this->_template("user/golfpass/addUpdate",$data,"golfpass2");
+                    return;
+            }
+            $this->db->set("phone",$this->input->post("phone"));
             $this->_dbSet_addUpdate();
             $this->db->where('userName',$this->session->userdata('userName'));
             $this->db->update('users');
@@ -405,6 +460,10 @@ class User extends Base_Controller
     }
     function phone_auth()
     {
+        if($this->session->userdata('user_update') === true)
+        {
+            $this->session->set_flashdata('user_update', true);
+        }
         // $phone = $this->session->userdata("phone");
         // if($phone === null)
         $phone = $this->input->get('phone');

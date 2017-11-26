@@ -22,7 +22,7 @@
     }
 </style>
 
-<!-- <div style="margin-top:-80px;"></div> -->
+<div style="margin-top:100px;"></div>
 
 
 <div class="ui middle aligned center aligned grid">
@@ -93,19 +93,16 @@
                 <input type="text" name="birth" placeholder="생년월일" value="<?=set_value_data($user,'birth')?>">
             </div>
 
-            <?php if($mode === 'add'){?>
             <div class="two fields">
                 <div class="field">
-                    <input type="text" name="phone" placeholder="휴대폰 번호" value="<?=set_value('phone')?>">
+                    <input type="text" name="phone" placeholder="휴대폰 번호" value="<?=set_value_data($user,'phone')?>">
                     
                 </div>
                 <div class="field">
                     <a  style=""class="ui fluid positive basic button" href ="javascript:auth_popup('<?=site_url(user_uri."/phone_auth")?>','phone')">휴대폰 인증</a>
                 </div>
             </div>
-            <?php }else{?>
-               
-            <?php }?>
+         
             <div class="field">
                 <input type="text" name="email" placeholder="이메일" value="<?=set_value_data($user,'email')?>">
             </div>

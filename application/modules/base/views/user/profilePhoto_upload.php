@@ -1,3 +1,14 @@
+<?php 
+ if($this->session->userdata('user_update') === true)
+ {
+     $this->session->set_flashdata('user_update', true);
+ }
+ if($this->session->userdata('phone_auth') !== null && $this->session->userdata('phone') !== null){
+    $this->session->set_flashdata( 'phone',$this->session->userdata("phone"));
+    $this->session->set_flashdata('phone_auth',true);
+}
+?>
+
 <script
   src="https://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
