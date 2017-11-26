@@ -274,7 +274,7 @@
         
 ?>
         <a href="<?=site_url(shop_product_uri."/gets/{$nation_list[$i]->id}")?>">
-            <div class="col-12 d-flex justify-content-center mb-2 bg-dark" style="background-image:url(<?=$nation_list[$i]->photo?>); background-repeat:no-repeat; background-position:center; background-size:cover">
+            <div class="col-12 d-flex justify-content-center mb-2 bg-dark" style="background-image:url(<?=$nation_list[$i]->photo3?>); background-repeat:no-repeat; background-position:center; background-size:cover">
                 <img src="/public/images/blank3.png" class="blank_img">
                 <div class="mobile-content position-absolute d-flex flex-column align-items-center justify-content-end">
                     <h3 style="text-shadow: 0 0 7px rgba(0,0,0,1);"><?=$nation_list[$i]->name?></h3>
