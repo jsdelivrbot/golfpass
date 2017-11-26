@@ -35,6 +35,8 @@
               <li> 
                 <!-- Avatar -->
                 <div class="avatar"><img class="img-circle img-responsive" src="<?=$content->profilePhoto?>" alt=" "></div>
+
+                <div style="margin-top:-30px; margin-bottom:20px;"><?=$content->user_name?></div>
                 <div class="text-in">
                   <h6>
                   <?=$content->intro?>
@@ -57,6 +59,7 @@
               <li>
                <div style=" text-align: center;">
                 <h2 ><?=$content->title?></h2>
+                
                 <span class="font-crimson"> <em><?=$content->created?></em></span>
                 </div>
                 <div style="margin-top:50px;"></div>

@@ -14,7 +14,7 @@ class Panel_content extends Base_Controller {
     function get($id)
     {
         $data['user'] =$this->user;
-        $data['content'] = $this->db->select("c.*,u.*, c.created,c.id,u.id 'user_id'")
+        $data['content'] = $this->db->select("c.*,u.*, c.created,c.id,u.id 'user_id',u.name 'user_name'")
         ->from("board_contents as c")
         ->join("users as u","c.user_id =u.id","LEFT")
         ->where("c.id",$id)
