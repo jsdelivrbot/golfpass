@@ -83,11 +83,8 @@
                             <?php for($i=0; $i<count($categories2); $i++){?>
                             <li class="S-4_4 M-12_12 L-6_12 XL-6_12 XXL-6_12">
                                 
-                                <?php if(isset($goto_cate)){?>
-                                <a href="<?=site_url(shop_category_uri."/gets/{$categories2[$i]->id}")?>">
-                                <?php }else{?>
+                             
                                 <a href="<?=site_url(shop_product_uri."/gets/{$categories2[$i]->id}")?>">
-                                <?php }?>
                                    <div class="position-relative rounded-top" style="background-image:url(<?=$categories2[$i]->photo2?>); background-repeat:no-repeat; background-position:center; background-size:cover">
                                     <img src="/public/images/blank2.png" alt=""/>
                                     </div>

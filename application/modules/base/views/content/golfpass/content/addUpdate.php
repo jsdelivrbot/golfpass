@@ -25,7 +25,8 @@ if(!is_login() && $mode==="add"){ ?>
 <script src="<?=domain_url('/public/lib/ckeditor/ckeditor.js')?>"></script>
 <script>
  CKEDITOR.replace( 'desc',{
-    filebrowserUploadUrl: '/index.php<?=common_uri?>/upload_receive_from_ck'
+    filebrowserUploadUrl: '/index.php<?=common_uri?>/upload_receive_from_ck',
+    height : '600px'
  } );
 
 </script>

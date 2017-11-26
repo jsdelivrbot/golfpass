@@ -42,14 +42,14 @@
             <div class="container">
                 <div class="position-center-center">
                     <h2 style="font-family: 'notokr-regular', sans-serif; font-weight: normal;">
-                        <?=$category->name?>
+                        <?=$parent_category->name?>
                         <!-- <?php for($j=count($parent_categories)-2; $j >= 1; $j--){?><?=$parent_categories[$j]->name?><?php }?> -->
                     </h2>
                     <ol class="breadcrumb">
                         <li class="active" style="font-family: 'notokr-regular', sans-serif; font-weight: normal;">
                          <!-- 카테고리 설명을 검색결과 페이지에서 출력하지 않습니다.    -->
                         <?php if(strpos(current_url(),"shop/product/gets_by_hash") === false){?>
-                            <?=$category->desc?>
+                            <?=$parent_category->detail_desc?>
                         <?php }?>
                         </li>
                     </ol>
@@ -101,8 +101,9 @@
                                 </p>
                                 <ul class="post-info margin-bottom-0">
                                     <li> <i class="fa fa-star" style="color: #fcbf3f;"></i><?=ceil($products[$i]->avg_score*10)/10?> </li>
-                                    <li> <i class="fa fa-map-o"></i><?php for($j=count($parent_categories)-2; $j >= 1; $j--){?><?=$parent_categories[$j]->name?><?php }?> </li>
-                                    <li> <i class="fa fa-map"></i><?=$category->name?> </li>
+                                    <li> <i class="fa fa-map-o"></i><?=$products[$i]->parent_category_name?> </li>
+                                    <!-- <li> <i class="fa fa-map"></i><?=$category->name?> </li> -->
+                                    <li> <i class="fa fa-map"></i><?=$products[$i]->category_name?> </li>
                                     <li class="pull-right no-margin last-li"> <a href="#">자세히 <i class="fa fa-angle-right margin-left-10"></i></a></li>
                                 </ul>
                             </article>

@@ -175,12 +175,12 @@ class Content extends Base_Controller {
             my_redirect($_SERVER['HTTP_REFERER']);
             return ;
         }
-        if( !is_auth_kind($authKind))
-        {
-            alert("{$authKind} 회원만 쓸수있습니다.");
-            my_redirect($_SERVER['HTTP_REFERER'],false);
-            return ;
-        }
+        // if( !is_auth_kind($authKind))
+        // {
+        //     alert("{$authKind} 회원만 쓸수있습니다.");
+        //     my_redirect($_SERVER['HTTP_REFERER'],false);
+        //     return ;
+        // }
         //손님?
         if(is_guest()){ 
             $this->fv->set_rules('guest_name','아이디','required');

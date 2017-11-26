@@ -13,7 +13,11 @@
 
 <div class="field">
             <label>카테고리 설명</label>
-            <textarea placeholder="내용" name="desc"><?=set_value_data($category,'desc')?></textarea>
+            <input type="text" name="desc" value="<?=set_value_data($category,'desc')?>"> <?=form_error('desc',false,false)?><br> 
+        </div>
+<div class="field">
+            <label>카테고리 상세설명</label>
+            <textarea placeholder="내용" name="detail_desc"><?=set_value_data($category,'detail_desc')?></textarea>
         </div>
 
 <input class="ui button basic"type="submit" value="보내기">

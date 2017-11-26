@@ -12,9 +12,7 @@ class Test extends Public_Controller
     }
     function index()
     {
-        var_dump(domain_url());
-        // $this->load->library("naver_login");
-        // $this->naver_login->requset_auth();
+        $this->_view("test");
     }    
   
     

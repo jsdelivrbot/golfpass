@@ -38,8 +38,8 @@
 <form action="<?=my_site_url(shop_review_uri."/$mode",true)?>" method="post">
 	<ul>
     	<li>
-        	<div class="title">영화</div>
-            <div class="cont01">부라더</div>
+        	<div class="title">상품명</div>
+            <div class="cont01"><?=$product->name?></div>
         </li>
         <li>
         	<div class="title">별점</div>
