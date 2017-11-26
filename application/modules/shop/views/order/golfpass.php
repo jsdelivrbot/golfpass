@@ -27,6 +27,7 @@
 <!-- <div class="ui header"> </div> -->
 <form  class="ui form" id="form_order" onsubmit="alert_payment_window(this); return false;"  action="<?=site_url(shop_order_uri."/golfpass_ajax_add")?>"method ="post">
 
+<?php if($product->singleroom_price !== "0"){?>
     <div class="four fields">
         <div class="field">
             <label for="">싱글룸추가</label>
@@ -42,7 +43,7 @@
             </select>
         </div>
     </div>
-
+<?php }?>
     <!-- 홀옵션추가 -->
     <div class="four fields">
         <div class="field">

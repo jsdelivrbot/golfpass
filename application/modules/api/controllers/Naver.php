@@ -40,7 +40,7 @@ class Naver extends Public_Controller {
            $info = $result->response;
            $this->load->model("sns_info_model");
            $this->load->model("base/users_model");
-           $sns_info =$this->sns_info_model->_get(array("sns_id"=>$info->id));
+           $sns_info =$this->sns_info_model->_get(array("sns_email"=>$info->email,"sns_type"=>"naver"));
         //    var_dump($info->id);
         //    var_dump($sns_info);
            if($sns_info === null) //해당 프로필이 로컬 db에 존재하지 않는다면
@@ -61,16 +61,19 @@ class Naver extends Public_Controller {
                 $this->db->set("sns_id",$info->id);
                 $this->db->set("sns_type","naver");
                 $this->db->set("sns_name",$info->name);
+                $this->db->set("sns_email",$info->email);
                 $this->db->set("sns_profile",$info->profile_image);
                 $this->db->set("refresh_token",$auth_result->refresh_token);
                 $this->sns_info_model->_add();
 
                
            }
-           else if((string)$sns_info->refresh_token !== (string)$auth_result->refresh_token)//로컬디비의 refresh token 과 일치 하지않는다면
+           else if((string)$sns_info->refresh_token !== (string)$auth_result->refresh_token || (string)$sns_info->sns_id !== (string)$info->id)//로컬디비의 refresh token 과 일치 하지않는다면
            {
                 $this->db->set("refresh_token",$auth_result->refresh_token);
-                $this->db->where("sns_id",$info->id);
+                $this->db->set("sns_id",$info->id);
+                $this->db->where("sns_email",$info->email);
+                // $this->db->where("sns_id",$info->id);
                 $this->sns_info_model->_update();
            }
 
@@ -80,11 +83,9 @@ class Naver extends Public_Controller {
         //    var_dump($user);
           
            $this->session->set_userdata(array('is_login'=>'true','user_id'=>$user->id,'userName'=>$user->userName,'auth'=> $user->auth));
-        //    $url = site_url("/");
            $url = $this->input->get("return_url");
            echo "<script>window.opener.location.href='{$url}';</script>";
            echo "<script>window.close();</script>";
-        //    redirect_return_url("/");
        }
     //    var_dump($result);
     //     var_dump($info);

@@ -128,7 +128,7 @@ class Product extends Base_Controller {
         ));
         if($row !== null){
             $price=number_format($row->price);
-            $data['price'] = "{$price}원 부터 시작";
+            $data['price'] = "{$price}원 부터";
         }
         else
         {

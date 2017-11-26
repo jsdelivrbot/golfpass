@@ -735,6 +735,7 @@
     <script src="/public/sangmin/js/sticky.js"></script>
     <script src="/public/sangmin/js/custom/navAction.js"></script>
     <script src="/public/sangmin/js/custom/search.js"></script>
+    <script src="/public/sangmin/js/mobile_search.js"></script>
     <script src="/public/sangmin/js/custom/detail_slide.js"></script>
     <script src="/public/sangmin/js/custom/detail_sticky.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>

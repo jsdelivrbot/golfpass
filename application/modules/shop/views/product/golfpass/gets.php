@@ -45,7 +45,10 @@
                     </h2>
                     <ol class="breadcrumb">
                         <li class="active" style="font-family: 'notokr-regular', sans-serif; font-weight: normal;">
+                         <!-- 카테고리 설명을 검색결과 페이지에서 출력하지 않습니다.    -->
+                        <?php if(strpos(current_url(),"shop/product/gets_by_hash") === false){?>
                             <?=$category->desc?>
+                        <?php }?>
                         </li>
                     </ol>
                 </div>
@@ -59,6 +62,9 @@
                     <hr class="color">
                 </div>
 
+                <!-- 카테고리 소분류 네비게이션을 검색결과페이지에서 출력하지 않습니다. -->
+                <?php if(strpos(current_url(),"shop/product/gets_by_hash") === false){?>
+                
                 <ul class="tabs portfolio-filter text-center margin-bottom-80">
                     <li class="tab-title filter-item">
                         <a class="<?=$category->name === $parent_category->name ? "active" : ""?>" href="<?=site_url(shop_product_uri."/gets/{$parent_category->id}")?>" data-filter="*" style="font-family: 'notokr-regular', sans-serif; font-size: 12px; font-weight: normal;">
@@ -73,12 +79,8 @@
                             </li>
 
                     <?php }?>
-                    <!-- <li class="tab-title filter-item"><a href="#" data-filter=".pf-branding-design" class="" style="font-family: 'notokr-regular', sans-serif; font-size: 12px; font-weight: normal;">후쿠오카</a></li>
-                    <li class="tab-title filter-item"><a href="#" data-filter=".pf-photography" class="" style="font-family: 'notokr-regular', sans-serif; font-size: 12px; font-weight: normal;">구마모토</a></li>
-                    <li class="tab-title filter-item"><a href="#" data-filter=".pf-web-design" class="" style="font-family: 'notokr-regular', sans-serif; font-size: 12px; font-weight: normal;">동경</a></li>
-                    <li class="tab-title filter-item"><a href="#" data-filter=".pf-digital-art" class="" style="font-family: 'notokr-regular', sans-serif; font-size: 12px; font-weight: normal;">오사카</a></li> -->
                 </ul>
-
+                <?php }?>                        
                 <div class="row">
                     <?php for($i=0; $i< count($products); $i++){?>
                         <div class="col-md-4 margin-bottom-80" style="cursor: pointer;" onclick="location.href='<?=site_url(shop_product_uri."/get/{$products[$i]->id}")?>';">
@@ -129,7 +131,8 @@
 <script src="/public/etc/list/js/vendors/bootstrap.min.js"></script> 
 <script src="/public/etc/list/js/vendors/own-menu.js"></script> 
 <script src="/public/etc/list/js/vendors/flexslider/jquery.flexslider-min.js"></script> 
-<script src="/public/etc/list//public/etc/list/js/vendors/jquery.countTo.js"></script> 
+<!-- 스크립트 오류나면서 검색기능 안됨 -> 아래 js 주석처리 -->
+<!-- <script src="/public/etc/list//public/etc/list/js/vendors/jquery.countTo.js"></script>  --> 
 <script src="/public/etc/list/js/vendors/jquery.isotope.min.js"></script> 
 <script src="/public/etc/list/js/vendors/jquery.bxslider.min.js"></script> 
 <script src="/public/etc/list/js/vendors/owl.carousel.min.js"></script> 
@@ -138,4 +141,5 @@
 <!-- SLIDER REVOLUTION 4.x SCRIPTS --> 
 <script type="text/javascript" src="/public/etc/list/rs-plugin/js/jquery.themepunch.tools.min.js"></script> 
 <script type="text/javascript" src="/public/etc/list/rs-plugin/js/jquery.themepunch.revolution.min.js"></script> 
-<script src="/public/etc/list/js/zap.js"></script>
+<!-- 스크립트 오류나면서 검색기능 안됨 -> 아래 js 주석처리 -->
+<!-- <script src="/public/etc/list/js/zap.js"></script> -->
