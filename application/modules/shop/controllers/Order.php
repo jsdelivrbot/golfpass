@@ -60,9 +60,14 @@ class Order extends Base_Controller {
 
         echo json_encode($data);
     }
+    
     function golfpass()
     {
-        
+        if(true)
+        {
+            redirect("/?return_url=".rawurlencode(my_current_url()));
+        }
+
         $product_id = $this->input->get("product_id");
         $num_people = $this->input->get("num_people");
         $total_price = $this->input->get("total_price");
