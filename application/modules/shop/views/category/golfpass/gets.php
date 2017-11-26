@@ -90,7 +90,7 @@
                                     </div>
                                     <div>
                                         <div>
-                                            <h3>
+                                            <h3 style="font-family: 'notokr-medium', sans-serif; font-size: 30px; text-shadow: 0 0 7px black;">
                                             <?=$categories2[$i]->name?>
                                             </h3>
                                         </div>
