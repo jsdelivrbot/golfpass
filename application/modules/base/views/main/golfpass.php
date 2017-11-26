@@ -329,7 +329,7 @@
 
                                              <span class="position-absolute text-light price" style="text-shadow: 0 0 7px rgba(0,0,0,1);"><?=number_format($products_panel[$i]->price)?>원부터</span>
                                      </div>
-                                     <div class="d-flex align-items-center p-1 text-light rounded-top content" style="background-color: <?=$products_panel[$i]->hotel_id !== null ? "#06adef" : "#36ddef"?>;">
+                                     <div class="d-flex align-items-center p-1 text-light rounded-top content" style="background-color: <?=$products_panel[$i]->hotel_id !== null ? "#FD3365" : "#06adef"?>;">
                                              <i class="xi-marker-check ml-1 mr-1" style="padding-bottom:2px;"></i>
                                              <p class=" mb-0 "><?=$products_panel[$i]->hotel_id !== null ? "골프장+숙박" : "골프장"?></p>
                                      </div>
@@ -570,7 +570,7 @@
         </div>
         </article>
     </section>
-    <section id="section7" class="mb-lg-5 container-fluid d-flex">
+    <section id="section7" class="mb-lg-5 container-fluid d-flex" style="margin-top:150px; margin-bottom:150px !important;">
         <article class="w-100">
             <div class="row d-flex justify-content-center">
                 <iframe width="90%" height="100%" src="https://www.youtube.com/embed/GF4xrSnzNPo" frameborder="0"
