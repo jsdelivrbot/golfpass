@@ -48,9 +48,17 @@ class Order extends Admin_Controller {
          
     }
     public function get($merchant_uid){
-        $data['order'] =$this->product_orders_model->get_with_join(array('o.merchant_uid'=>$merchant_uid));
+
+        $order =$this->product_orders_model->get_with_join(array('o.merchant_uid'=>$merchant_uid));
+        $this->load->helper("enum");
+        $order->pay_method_enum =get_pay_method_enum($order->pay_method);
+        $order->status_enum  =get_status_enum($order->status);
+
+
+        $data['order'] =$order;
         $data['order_infos'] =$this->db->where("merchant_uid",$merchant_uid)->from("p_order_infos")->get()->result();
         
+
         $this->_template("get",$data);
          
     }

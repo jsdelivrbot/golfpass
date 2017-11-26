@@ -435,6 +435,7 @@ class Init extends Init_Controller {
             `vbank_num` varchar(100),
             `vbank_date` varchar(100),
             `is_review_write` varchar(10) NOT NULL DEFAULT '0',
+            `remarks` text,
             `created` datetime NOT NULL DEFAULT NOW(),
             PRIMARY KEY (`id`),
             UNIQUE KEY `idx_merchant_uid` (`merchant_uid`),

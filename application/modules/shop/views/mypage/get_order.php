@@ -23,6 +23,7 @@
         <label>주문자명 <?=$order->user_name?></label>
         <label>결제방식 <?=$order->pay_method_enum?></label>
         <label>결제상태 <?=$order->status_enum?></label>
+        <label>비고 <?=$order->remarks?></label>
     </div>
     
   <!-- </div> -->
@@ -57,6 +58,7 @@
 </div>
 </div>
 </div>
+
 <!-- <br>동행자 -->
 <form action="<?=site_url(shop_order_uri."/update_info/{$order->merchant_uid}")?>" method="post" class="ui form">
 <?php for($i=0;$i < count($order_infos) ;$i++){   ?>
@@ -82,6 +84,11 @@
 
     <input type="submit" class="ui button baisc" value="동행자 정보 수정">
 </form>
+<?php if($order->status === "paid" && $order->status === "confirm"){?>
+<div class="sixteen wide column">
+<a onclick="confirm_redirect('<?=my_site_url(shop_mypage_uri."/update_order_status/{$order->id}")?>','정말 환불 요청 하시겠습니까?')" href="#">환불요청</a>
+</div>
+<?php }?>
 <div style="margin-top:-100px;"></div> 
 
 

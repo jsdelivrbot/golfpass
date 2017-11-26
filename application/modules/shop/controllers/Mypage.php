@@ -15,6 +15,21 @@ class Mypage extends Base_Controller {
         $this->load->helper("html");
 
     }
+    function update_order_status($order_id)
+    {
+        $order = $this->db->where("id",$order_id)
+        ->from("product_orders")->get()->row();
+        if($order->status !== "paid" && $order->status !== "confirm")
+        {
+            alert("금액을 지불하셔야 환불 요청이 가능합니다.");
+            my_redirect(shop_mypage_uri."/get_order/$order_id");
+            return;    
+        }
+        $this->db->set("status","request_refend")
+        ->where("id",$order_id)
+        ->update("product_orders");
+        my_redirect(shop_mypage_uri."/get_order/$order_id");
+    }
     function _get_container_data()
     {
         $data['user'] = $this->user;
@@ -119,24 +134,11 @@ class Mypage extends Base_Controller {
         ->where("merchant_uid", $merchant_uid)
         ->get()->result();
         
+        $this->load->helper("enum");
+        $order->pay_method_enum =get_pay_method_enum($order->pay_method);
 
-        if($order->pay_method === 'card')
-            $order->pay_method_enum = "카드";
-        else if($order->pay_method === 'vbank')
-            $order->pay_method_enum = "가상은행";            
-        else if($order->pay_method === 'bank')
-            $order->pay_method_enum = "무통장입금";            
-        else 
-            $order->pay_method_enum = "알수없음";            
-
-        if($order->status === 'ready' || $order->status === 'try')
-            $order->status_enum = '미결제';
-        else if($order->status === 'paid')            
-            $order->status_enum = '결제완료';
-        else
-            $order->status_enum = '알수없음';
-
-        // var_dump($order_products);
+        $order->status_enum  =get_status_enum($order->status);
+     
         $data['order_infos'] =$this->db->where("merchant_uid",$merchant_uid)->from("p_order_infos")->get()->result();
         $data['order']= $order;
         $data['order_products'] = $order_products;

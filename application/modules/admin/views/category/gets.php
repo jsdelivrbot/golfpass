@@ -22,7 +22,7 @@
 <li>
 <form  onsubmit="ajax_submit(this);" action="<?=site_url(admin_product_category_uri."/ajax_update/{$categories[$i]->id}")?>" method="post"style="display:inline-block">
 <input type="text" name="sort" value="<?=set_value_data($categories[$i],'sort')?>" style="width:50px">
-<input type="submit" value="순서수정">
+<input class="ui button basic"type="submit" value="순서수정">
 </form>
 </li>
 <?php }?>

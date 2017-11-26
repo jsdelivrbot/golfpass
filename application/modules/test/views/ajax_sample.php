@@ -26,4 +26,4 @@
          <a onclick="confirm_callback(this,ajax_a,'복구할 방법이 없습니다. 삭제하시겠습니까?'); return false;" data-action="<?=my_site_url(admin_hotel_uri."/ajax_delete/{$rows[$i]->id}")?>" href="#">삭제</a> </li>
 
 
-         
+         <a onclick="confirm_redirect('<?=my_site_url(admin_ref_cate_product_uri."/delete/{$products_in_cate[$i]->ref_id}")?>','정말 삭제하시겠습니까? 복구 할 방법이 없습니다.')" href="#">삭제</a>

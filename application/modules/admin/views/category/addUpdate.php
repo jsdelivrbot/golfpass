@@ -1,10 +1,22 @@
 
-<?php if(strpos($mode,"update")> -1) echo "id $category->id"?>
-<form action="<?=my_site_url(admin_product_category_uri."/$mode")?>" method="post">
-<상속카테고리><input type="text" name="parent_id" value="<?=set_value_data($category,'parent_id')?>"><?=form_error('parent_id',false,false)?><br> 
-<카테고리이름><input type="text" name="name" value="<?=set_value_data($category,'name')?>"> <?=form_error('name',false,false)?><br> 
-<카테고리설명><input type="text" name="desc" value="<?=set_value_data($category,'desc')?>"> <?=form_error('desc',false,false)?><br> 
-<input type="submit" value="보내기">
+<?php if(strpos($mode,"update")> -1) ?>
+현재 카테고리 아이디 - <?=$category->id?>
+<form class="ui form"action="<?=my_site_url(admin_product_category_uri."/$mode")?>" method="post">
+<div class="field">
+            <label>상속카테고리</label>
+<input type="text" name="parent_id" value="<?=set_value_data($category,'parent_id')?>"><?=form_error('parent_id',false,false)?><br> 
+</div>
+<div class="field">
+            <label>카테고리이름</label>
+<input type="text" name="name" value="<?=set_value_data($category,'name')?>"> <?=form_error('name',false,false)?><br> 
+</div>
+
+<div class="field">
+            <label>카테고리 설명</label>
+            <textarea placeholder="내용" name="desc"><?=set_value_data($category,'desc')?></textarea>
+        </div>
+
+<input class="ui button basic"type="submit" value="보내기">
 </form>
 <!-- 이미지 업로드폼 시작 -->
 <br>
