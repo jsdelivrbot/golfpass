@@ -153,15 +153,18 @@ class Mypage extends Base_Controller {
     }
     public function gets_order()
     {
+        $this->load->helper("enum_helper");
         $data=$this->_get_container_data();
         //로그인한 회원 주문정보
         $this->load->model('product_orders_model');
         $data['user'] = $this->user;
         $data['page_name'] ="주문내역";         
-        $data['ths'] = array("번호","주문명","주문금액","결제방식","후기작성 여부");
+        $data['ths'] = array("번호","주문명","주문금액","주문상태","결제방식","후기작성 여부");
         $rows =$this->product_orders_model->gets_with_pgi();
         foreach($rows as $key=>$row)
         {
+            $row->결제방식 = get_pay_method_enum($row->결제방식);
+            $row->주문상태 = get_status_enum($row->주문상태);
             $href =my_site_url(shop_mypage_uri."/get_order/{$row->id}");
             $text =$row->주문명;
             //  $row->주문명 = anchor(my_site_url(shop_mypage_uri."/get_order/{$row->id}"),$row->주문명);
@@ -169,7 +172,6 @@ class Mypage extends Base_Controller {
             //  $row->후기작성여부 = anchor(site_url(shop_mypage_uri."/get_order/{$row->id}"),$row->후기작성여부);//후기쓰러가기 url
         }
         $data['rows'] =$rows;
-
         $views = array("container_h","table","container_f");
         $this->_template($views,$data,'golfpass2');
     }
