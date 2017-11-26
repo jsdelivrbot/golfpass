@@ -303,7 +303,7 @@
     
     <div id="tp-bg-div" style="">
     </div>
-    <!-- <div style="padding-top: 150px;"> -->
+   <div style="padding-top: 180px;">
         </div>
     <?php load_view($content_view)?>
     <footer id='tp-footer' class='tp-main-footer tp-container-fluid'>

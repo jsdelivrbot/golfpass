@@ -1,4 +1,3 @@
-<div style="margin-top:180px;"></div>
 <form action="<?=my_site_url(content_uri."/$mode",true)?>" method="post">
 <input type="hidden" name="board_id" value="<?=$board_id?>">
 <input placeholder="제목" type="text" name="title" value="<?=set_value_data($content,'title')?>" > <?=form_error('title',false,false)?><br> 
