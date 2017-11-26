@@ -248,7 +248,7 @@
                         <img src="/public/sangmin/img/icon/logo.png" class="" alt="">
                     </figure>
                 </a>
-                <div style="width:81%; height:43px; padding:10px;"class="tp-search-container tp-d-flex tp-align-items-center tp-position-relative">
+                <div  style="<?php if(strpos(current_url(),"category/gets")>-1) echo "margin-left:20px;"?>width:81%; height:43px; padding:10px;"style="width:81%; height:43px; padding:10px;"class="tp-search-container tp-d-flex tp-align-items-center tp-position-relative">
                     <i class="xi xi-search" style="font-size: 16px;">
             </i>
                     <input style="width:100%; height:41px; padding:1px 1px 1px 5px;" id="tp-serach" type="text" placeholder="관심있는 나라나 골프장을 검색해보세요!">
