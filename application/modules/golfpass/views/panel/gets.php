@@ -39,7 +39,7 @@
 	<div class="tp-content-box tp-col-12 tp-row"> 
 	  <?php $doc = new DOMDocument(); $doc->loadHTML($panel_contents[$i]->desc); $xpath = new DOMXPath($doc); $src = $xpath->evaluate("string(//img/@src)"); # "/images/image.jpg" ?>
 	  <div class="tp-d-none tp-d-md-block tp-col-md-2 tp-d-md-flex tp-align-items-md-start tp-justify-content-end"> 
-		<img src="<?=$src?>" class="tp-rounded-circle" alt="" style="width:60px; height:60px;">
+		<img src="<?=$src?>" class="tp-rounded-circle" alt="" style="width:120px; height:67px; border-radius:0 !important;">
 	  </div>
 	  <div class="tp-col-12 tp-col-md-10"> 
 		<a class="tp-w-100" href="<?=site_url(golfpass_panel_content_uri."/get/{$panel_contents[$i]->id}")?>">

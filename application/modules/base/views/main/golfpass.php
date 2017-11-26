@@ -322,29 +322,29 @@
                              <div class="col-12 col-md-6 col-lg-3 mb-3 d-flex item">
                              <a href="<?=site_url(shop_product_uri."/get/{$products_panel[$i]->id}")?>">
                                  <figure>
-                                 								<!-- 이부분 수정 : 아래 이미지 경로에서 blank2.png 파일을 받아서 똑같은 경로에 넣어줘야함 -->
-                                                                 <div class="position-relative rounded-top" style="background-image:url(<?=$products_panel[$i]->photos[0]?>); background-repeat:no-repeat; background-position:center; background-size:cover">
-                                                                         <img src="/public/images/blank2.png" class="blank_img">
-                                                                <!-- // 이부분 수정 -->
-                                                                          
-                                                                         <span class="position-absolute text-light price" style="text-shadow: 0 0 7px rgba(0,0,0,1);"><?=number_format($products_panel[$i]->price)?>원</span>
-                                                                 </div>
-                                                                 <div class="d-flex align-items-center p-1 text-light rounded-top content" style="background-color: <?=$products_panel[$i]->hotel_id !== null ? "#06adef" : "#36ddef"?>;">
-                                                                         <i class="xi-marker-check ml-1 mr-1" style="padding-bottom:2px;"></i>
-                                                                         <p class=" mb-0 "><?=$products_panel[$i]->hotel_id !== null ? "골프장+숙박" : "골프장"?></p>
-                                                                 </div>
-                                                                 <figcaption class="rounded-bottom d-flex align-items-center justify-content-between p-3 bg-light">
-                                                                         <div>
-                                                                                 <h3><?=$products_panel[$i]->name?></h3>
-                                                                                 <p class="mb-0"><?=$products_panel[$i]->eng_name?></p>
-                                                                         </div>
-                                                                         <div class="d-flex flex-column align-items-center">
-                                                                                 <?php if($products_panel[$i]->avg_score !== null){?>
-                                                                                 <span><i class="xi-star"></i></span>
-                                                                                 <span><?=(ceil(($products_panel[$i]->avg_score)*10))/10?></span>
-                                                                                 <?php }?>
-                                                                         </div>
-                                                                 </figcaption>
+                                    <!-- 이부분 수정 : 아래 이미지 경로에서 blank2.png 파일을 받아서 똑같은 경로에 넣어줘야함 -->
+                                     <div class="position-relative rounded-top" style="background-image:url(<?=$products_panel[$i]->photos[0]?>); background-repeat:no-repeat; background-position:center; background-size:cover">
+                                             <img src="/public/images/blank2.png" class="blank_img">
+                                    <!-- // 이부분 수정 -->
+
+                                             <span class="position-absolute text-light price" style="text-shadow: 0 0 7px rgba(0,0,0,1);"><?=number_format($products_panel[$i]->price)?>원부터</span>
+                                     </div>
+                                     <div class="d-flex align-items-center p-1 text-light rounded-top content" style="background-color: <?=$products_panel[$i]->hotel_id !== null ? "#06adef" : "#36ddef"?>;">
+                                             <i class="xi-marker-check ml-1 mr-1" style="padding-bottom:2px;"></i>
+                                             <p class=" mb-0 "><?=$products_panel[$i]->hotel_id !== null ? "골프장+숙박" : "골프장"?></p>
+                                     </div>
+                                     <figcaption class="rounded-bottom d-flex align-items-center justify-content-between p-3 bg-light">
+                                             <div>
+                                                     <h3><?=$products_panel[$i]->name?></h3>
+                                                     <p class="mb-0"><?=$products_panel[$i]->eng_name?></p>
+                                             </div>
+                                             <div class="d-flex flex-column align-items-center">
+                                                     <?php if($products_panel[$i]->avg_score !== null){?>
+                                                     <span><i class="xi-star"></i></span>
+                                                     <span><?=(ceil(($products_panel[$i]->avg_score)*10))/10?></span>
+                                                     <?php }?>
+                                             </div>
+                                     </figcaption>
                                     </figure>
                                                           </a>
                              </div>

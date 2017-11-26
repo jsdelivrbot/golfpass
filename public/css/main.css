@@ -3359,11 +3359,11 @@ body.menu-open .plus-btn .r2 {
             color: #bbbbbb;
             white-space: normal;
             line-height: 1.5;
-            height: 30px;
+            height: 55px;
             text-align: center;
             word-wrap: break-word;
             display: -webkit-box;
-            -webkit-line-clamp: 2;
+            -webkit-line-clamp: 3;
             -webkit-box-orient: vertical; }
   #panel-wrap #panel-article .pagination a {
     margin: 10px;
