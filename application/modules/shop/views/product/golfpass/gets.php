@@ -69,13 +69,14 @@
                 
                 <ul class="tabs portfolio-filter text-center margin-bottom-80">
                     <li class="tab-title filter-item">
-                        <a class="<?=$category->name === $parent_category->name ? "active" : ""?>" href="<?=site_url(shop_product_uri."/gets/{$parent_category->id}")?>" data-filter="*" style="font-family: 'notokr-regular', sans-serif; font-size: 12px; font-weight: normal;">
+                        <a class="<?=$category->id === $parent_category->id ? "active" : ""?>" href="<?=site_url(shop_product_uri."/gets/{$parent_category->id}")?>" data-filter="*" style="font-family: 'notokr-regular', sans-serif; font-size: 12px; font-weight: normal;">
                             ALL
                         </a>
                     </li>
                     <?php for($i=0; $i<count($child_categories); $i++){?>
+                    
                             <li class="tab-title filter-item">
-                                <a href="<?=site_url(shop_product_uri."/gets/{$child_categories[$i]->id}")?>" data-filter=".pf-branding-design" class="<?=$category->name === $child_categories[$i]->name ? "active" : ""?>" style="font-family: 'notokr-regular', sans-serif; font-size: 12px; font-weight: normal;">
+                                <a href="<?=site_url(shop_product_uri."/gets/{$child_categories[$i]->id}")?>" data-filter=".pf-branding-design" class="<?=$category->id === $child_categories[$i]->id ? "active" : ""?>" style="font-family: 'notokr-regular', sans-serif; font-size: 12px; font-weight: normal;">
                                     <?=$child_categories[$i]->name?>
                                 </a>
                             </li>
