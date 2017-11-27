@@ -1,3 +1,9 @@
+<style>
+    .testi .testi-slide-2 p img {
+        width: 100% !important;
+        height: auto !important;
+    }
+</style>
 
 <div style="margin-top: -100px;"></div>
 <!-- FontsOnline -->
@@ -57,7 +63,7 @@
               
               <!-- Slides -->
               <li>
-               <div style=" text-align: center;">
+               <div style="text-align: center;">
                 <h2 ><?=$content->title?></h2>
                 
                 <span class="font-crimson"> <em><?=$content->created?></em></span>
