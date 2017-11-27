@@ -110,7 +110,8 @@ class P_daily_price_admin extends Admin_Controller
              {
                  $cal_price_2 = function($price,$num_people) use($num_people_times)
                  {
-                     $price  =(string)round((float)$price * (float)($num_people_times[$num_people-1]) * (float)$num_people);
+                    //  $price  =(string)round((float)$price * (float)($num_people_times[$num_people-1]) * (float)$num_people);
+                     $price  =(string)round((float)$price * (float)($num_people_times[$num_people-1]));
                      return $price;
                  };
              }
@@ -226,11 +227,11 @@ class P_daily_price_admin extends Admin_Controller
             $this->db->where("d_p.product_id",$product_id);
             $maxium_num_peple = $this->db->get()->row()->maxium_num_peple;
             // $data['maxium_num_peple'] = $maxium_num_peple;
-            $data['maxium_num_peple'] = 45;
+            $data['maxium_num_peple'] = 4;
             // $data['maxium_num_peple'] = 10;
             
+            // $data['num_period'] = 0;
             $data['num_period'] = 0;
-            // $data['num_period'] = 3;
 
             $data['year'] = $year;
 
@@ -293,7 +294,8 @@ class P_daily_price_admin extends Admin_Controller
                 $cal_price = function($price,$period) use($period_times)
                 {
                     $price =(int)$price/2;
-                    $price  =(string)round((int)$price * (float)($period_times[$period-2]) * (int)$period);
+                    // $price  =(string)round((int)$price * (float)($period_times[$period-2]) * (int)$period);
+                    $price  =(string)round((int)$price * (float)($period_times[$period-2]));
                     // echo "time :{$period_times[$period-2]} price : {$price} <br>";
                     return $price;
                 };
@@ -309,8 +311,9 @@ class P_daily_price_admin extends Admin_Controller
             {
                 $cal_price_2 = function($price,$num_people) use($num_people_times)
                 {
-                    $price  =(string)round((int)$price * (float)($num_people_times[$num_people-1]) * (int)$num_people);
-                      echo "{$num_people}time :{$num_people_times[$num_people-1]} price : {$price} <br>";
+                    // $price  =(string)round((int)$price * (float)($num_people_times[$num_people-1]) * (int)$num_people);
+                    $price  =(string)round((int)$price * (float)($num_people_times[$num_people-1]));
+                    //   echo "{$num_people}time :{$num_people_times[$num_people-1]} price : {$price} <br>";
                     return $price;
                 };
             }

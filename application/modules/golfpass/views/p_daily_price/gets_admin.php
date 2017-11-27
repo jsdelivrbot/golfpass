@@ -80,15 +80,16 @@
     <!-- 시작날자: <input type="text" name="start_date" id="datepicker1" value="2017-01-01"> -->
     <!-- 끝시작: <input type="text" name="end_date" id="datepicker2" value="2017-01-09"> -->
         <bR>
-    가격<input type="text" name="price" value="2000">
+    <!-- 가격 -->
+    <input type="hidden" name="price" value="1">
         <bR>
-        배율
-            <input type="checkbox" name="period_times_sw" value="1" checked>
+        <!-- 배율 -->
+            <input style="display:none" type="checkbox" name="period_times_sw" value="1" checked>
             <br>
             <?php for($i=1;$i <= ((int)$num_period) +1 ; $i++ ){
                 ?>
-            <input  type="checkbox" name="period[]" checked value="<?=$i+1?>"><?="{$i}박".($i+1)."일"?>
-            <input type="text" name="period_times[]" value="1">
+            <input style="display:none" type="checkbox" name="period[]" checked value="<?=$i+1?>"><div style="display:none"><?="{$i}박".($i+1)."일"?></div>
+            <input style="display:none" type="text" name="period_times[]" value="1">
             <?php }?>
 
 
@@ -101,7 +102,8 @@
         <input type="checkbox" name="day[]" checked value="6">토
         <input type="checkbox" name="day[]" checked value="0">일
     <br>
-    <input type="checkbox" name="num_people_sw_times" value="1" checked>배율
+    <input  style="display:none" type="checkbox" name="num_people_sw_times" value="1" checked>
+    <!-- 배율 -->
 
     <div style="width: 400px;">
     <input type="text" id="slider_num_people" value="" />
@@ -112,8 +114,8 @@
                 if($i%10 === 1) echo "<br>";
                 ?>
                 
-            <input type="checkbox" name="num_people[]" value="<?=$i?>"><?="{$i}인"?>
-            <input type="text" name="num_people_times[]" value="1" style="width:50px;">
+            <input type="checkbox" name="num_people[]" checked value="<?=$i?>"><?="{$i}인"?>
+            <input type="text" name="num_people_times[]" value="" style="width:200px;">
             <?php }?>
 
 
@@ -123,14 +125,14 @@
         <input type="submit" value="범위 가격입력" class="ui button  positive" style="color:white">
   </form>
 <form method="post" onsubmit="ajax_submit(this); return false;" action="<?=my_site_url(golfpass_p_daily_price_admin_uri."/ajax_add/{$product->id}")?>">
-<input type="submit" value="개별 가격입력" class="ui button  positive" style="color:white">
+<input type="submit" value="개별 가격입력" class="ui button  positive" style="color:white; ">
 <input type="text" name="price" style=" width:100px">
 원
 <input type="text" name="date" value="<?=date("Y")."-01-01"?>" style=" width:100px">
 <input type="text" name="num_people" value="1" style=" width:40px">
-명
-<input type="text" name="period" value="2"style=" width:40px" >
-기간(2는 1박2일)
+인조
+<input type="text" name="period" value="2"style=" width:40px ; display:none" >
+<!-- 기간(2는 1박2일) -->
 </form>
   <!-- 해당년도로 -->
  
@@ -211,7 +213,7 @@
         </th>
         <?php for ($i=1; $i <= (int)$maxium_num_peple; $i++) {?>
         <th class="col center aligned" colspan=<?=$num_period === 0 ? "1" :"2"?>>
-            <?=$i?>인 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            <?=$i?>인조 가격 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
         </th>
     <?php }?>
     </tr>
@@ -233,14 +235,21 @@
             <?php for ($i=1; $i <= (int)$maxium_num_peple; $i++) {?>
             <!--1일 or 2일 가격 -->
             <td  class="pdate  <?="p{$date}-{$i}-".(1+$start_plus)?> <?=isset($price[$date][$i][1+$start_plus])?( $price[$date][$i][1+$start_plus] !=="0" ? "active " : "red") : "red"?>" rowspan=<?=$num_period?>>
-                <?=(0+$start_plus)."박".(1+$start_plus)."일"?><br>    
-                <?=$price[$date][$i][1+$start_plus] ?? 0?>
+                <?=(0+$start_plus)."박".(1+$start_plus)."일"?>
+                <!-- 1인조 -->
+                <br>    
+                <?=$price[$date][$i][1+$start_plus] ?? 0?>원
                 
             </td>
             <!--1일 or 2일 가격-->
                 <?php if ($num_period !== 0) {?>
                 <!-- 2일or 3일 가격 -->
-                <td  class="pdate <?="p{$date}-{$i}-".(2+$start_plus)?> <?=isset($price[$date][$i][2+$start_plus])?( $price[$date][$i][2+$start_plus] !=="0" ? "active " : "red") : "red"?>" style="width:50px;"><?=(1+$start_plus)."박".(2+$start_plus)."일"?><br><?=$price[$date][$i][2+$start_plus] ?? 0?></td>
+                <td  class="pdate <?="p{$date}-{$i}-".(2+$start_plus)?> <?=isset($price[$date][$i][2+$start_plus])?( $price[$date][$i][2+$start_plus] !=="0" ? "active " : "red") : "red"?>" style="width:50px;">
+                <?=(1+$start_plus)."박".(2+$start_plus)."일"?>
+                <!-- <?=$start_plus+1?>인조 -->
+                <br>
+                <?=$price[$date][$i][2+$start_plus] ?? 0?>
+                </td>
                 <!-- 2일or 3일 가격 -->
                 <?php }?>
             <?php }?>
@@ -251,7 +260,11 @@
         <?php for ($i=1; $i < (int)$num_period; $i++) {?>
             <tr class="">
             <?php for ($j=1; $j <= (int)$maxium_num_peple; $j++) {?>
-                <td class="pdate <?="p{$date}-{$j}-".($i+2+$start_plus)?> <?=isset($price[$date][$j][$i+2+$start_plus])?( $price[$date][$j][$i+2+$start_plus] !=="0" ? "active " : "red") : "red"?>"><?=($i+1+$start_plus)."박".($i+2+$start_plus)."일"?><br><?=$price[$date][$j][$i+2+$start_plus] ?? 0?></td>
+                <td class="pdate <?="p{$date}-{$j}-".($i+2+$start_plus)?> <?=isset($price[$date][$j][$i+2+$start_plus])?( $price[$date][$j][$i+2+$start_plus] !=="0" ? "active " : "red") : "red"?>">
+                <?=($i+1+$start_plus)."박".($i+2+$start_plus)."일"?>
+                <!-- <?=$i+2?>인조 -->
+                <br><?=$price[$date][$j][$i+2+$start_plus] ?? 0?>
+                </td>
                 <?php }?>
             </tr>
         <?php }?>
@@ -269,7 +282,7 @@ $("#slider_num_people").ionRangeSlider({
     type: "double",
     grid: true,
     min: 0,
-    max: 45,
+    max: <?=$maxium_num_peple?>,
     from: 1,
     to: 45
 });
