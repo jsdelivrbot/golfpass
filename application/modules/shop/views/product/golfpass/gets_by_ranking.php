@@ -100,13 +100,15 @@ height:250px}
 <div class="tp-row tp-no-gutters">
 <div class="tp-col-12 tp-col-lg-12"> 
   <?php $count = (count($products_avgScore) > 3) ? 3 : count($products_avgScore); for($i=0 ; $i < $count; $i++){?>
+    <!--offset이 10미만일떄 1~3위 강조  -->
+    <?php if($this->input->get("offset")<10){?>
   <div class="tp-col-12 tp-content-box"> 
     <a href="<?=site_url(shop_product_uri."/get/{$products_avgScore[$i]->id}")?>">
       <div class="tp-d-flex tp-align-items-center tp-p-4 tp-mb-3 tp-content" style="background-image: url(<?=$products_avgScore[$i]->photos[0]?>)">
         <div class='tp-d-flex tp-align-items-center tp-justify-content-center tp-bg-light tp-rounded-circle tp-new_position'> 
           <span class="tp-d-flex tp-align-items-center tp-justify-content-center">
             <?=$products_avgScore[$i]->numrow2?>
-          </span>
+          </span> 
         </div>
         <div class="tp-d-flex tp-flex-column tp-ml-4 tp-text-light tp-new_position2">
           <h1>
@@ -129,6 +131,32 @@ height:250px}
       </div> 
     </a>
   </div> 
+   <!--offset이 10미만일떄 1~3위 강조  -->
+    <?php }else{?>
+       <!--offset이 10이상일때  -->
+        <ul class="tp-list-unstyled"style="margin-bottom:0px;"> 
+      <li class='tp-p-3 tp-text-light tp-list-after-four' style="border-bottom:1px solid #818589;z`"> 
+        <a href="<?=site_url(shop_product_uri."/get/{$products_avgScore[$i]->id}")?>">
+          <div class="tp-d-flex tp-justify-content-between tp-align-items-center">
+            <div>
+              <p class='tp-mb-0' style="color:#333;">
+                <span class='tp-mr-3 tp-ml-2'>
+                  <?=$products_avgScore[$i]->numrow2?>
+                </span>
+                <?=$products_avgScore[$i]->name?>
+              </p>
+            </div>
+            <div> 
+              <span>
+                <?=$products_avgScore[$i]->region?>
+              </span>
+            </div>
+          </div> 
+        </a>
+      </li> 
+      <?php }?>
+      </ul>
+    <!--offset이 10이상일때  -->
   <?php }?>
 </div>
 <div class="tp-col-12 tp-col-lg-12">
