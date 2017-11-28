@@ -95,22 +95,43 @@ $(function() {
 				search: searchInput.val()
 			},
 			success: function(data) {
+				var products = data.products;
+				var contents = data.contents;
+				var num_data = contents.length + products.length;
 				var input = '';
-				input += "<p><span>'" + searchInput.val() + `' </span>검색결과 <span class="search_data_num"> / 총  ${data.length}  개</span></p>`
-				input += '<div>'
-				input += '<ul class="search-items">'
-				for (var i = 0; i < data.length; i++) {
-					input += '<a href="' + data[i].href + '">';
+				input += "<p><span>'" + searchInput.val() + `' </span>검색결과 <span class="search_data_num"> / 총  ${num_data}  개</span></p>`;
+				input += '<div>';
+				input += '<ul class="search-items">';
+				for (var i = 0; i < products.length; i++) {
+					input += '<a href="' + products[i].href + '">';
 					input += '<li class="search-item d-flex align-items-strech">'
 					input += '<div class="image d-flex align-items-center justify-content-center">'
-					input += '<img class="rounded-circle" src="' + data[i].imagePath + '" alt="검색이미지" width="100%;" height="100%;">'
+					input += '<img class="rounded-circle" src="' + products[i].imagePath + '" alt="검색이미지" width="100%;" height="100%;">'
 					input += '</div>'
 					input += '<div class="content">'
-					input += '<div class="title d-flex align-items-center">' + data[i].title + '<span class="pl-2 score-icon d-flex">' + printStar(parseFloat(data[i].score)) + '</span><span class="pl-2 score-text">(종합 점수 ' + parseFloat(data[i].score) + ')</span></div>'
-					input += '<div class="article">' + data[i].article + '</div>';
+					input += '<div class="title d-flex align-items-center">' + products[i].title + '<span class="pl-2 score-icon d-flex">' + printStar(parseFloat(products[i].score)) + '</span><span class="pl-2 score-text">(종합 점수 ' + parseFloat(products[i].score) + ')</span></div>'
+					input += '<div class="article">' + products[i].article + '</div>';
 					input += '</li>';
 					input += '<a/>';
 				} //loop end
+
+				input+= "<div style=' border-top:2px solid #000000'></div>"
+				for (var i = 0; i < contents.length; i++) {
+					input += '<a href="' + contents[i].href + '">';
+					input += '<li class="search-item d-flex align-items-strech">'
+					input += '<div class="image d-flex align-items-center justify-content-center">'
+					input += '<img class="rounded-circle" src="' + contents[i].imagePath + '" alt="검색이미지" width="100%;" height="100%;">'
+					input += '</div>'
+					input += '<div class="content">'
+					input += '<div class="title d-flex align-items-center">' + contents[i].title;
+					// input += '<span class="pl-2 score-icon d-flex">' + printStar(parseFloat(contents[i].score)) + '</span><span class="pl-2 score-text">(종합 점수 ' + parseFloat(contents[i].score) + ')</span>';
+					input+='</div>';
+					input += '<div class="article">' + contents[i].article + '</div>';
+					input += '</li>';
+					input += '<a/>';
+				} //loop end
+
+
 				input += '</ul>'
 				input += '</div>'
 				$(searchContentContainer).empty().append(input);

@@ -39,19 +39,19 @@ class Main extends Base_Controller
 
         $search =$this->input->post("search");
         $search = str_replace(" ","",$search);
-
+        
         $this->load->model("shop/products_model");
         $this->db->or_like("p.hashtag",$search);
         $this->db->or_like("p.name",$search);
         $this->db->limit(10,0);
          $products=$this->products_model->gets_by_ranking('avg_score');
 
-         $data =array();
+         $tmp_products =array();
     
         foreach($products as $product)
         {
             $photo = $product->photos[0] ?? '';
-            array_push($data,array(
+            array_push($tmp_products,array(
                 'title'=>$product->name,
                 'imagePath'=>$photo,
                 'score' => $product->avg_score,
@@ -68,7 +68,7 @@ class Main extends Base_Controller
 
        $contents =$this->db->get()->result();
      
-       
+       $tmp_contents =array();
         foreach($contents as $row)
         {
             $doc = new DOMDocument();
@@ -77,7 +77,7 @@ class Main extends Base_Controller
             $photo = $xpath->evaluate("string(//img/@src)"); # "/images/image.jpg"
             $desc =strip_tags($row->desc);
             $desc = mb_substr($desc,0,20); 
-            array_push($data,array(
+            array_push($tmp_contents,array(
                 'title'=>$row->title,
                 'imagePath'=>$photo,
                 'score' => "5",
@@ -85,6 +85,8 @@ class Main extends Base_Controller
                 "href" =>site_url(golfpass_panel_content_uri."/get/{$row->id}")
             ));
         } 
+        $data['products'] = $tmp_products;
+        $data['contents'] = $tmp_contents;
         echo json_encode($data);
     }
     function index()
