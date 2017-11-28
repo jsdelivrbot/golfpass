@@ -22,7 +22,7 @@ if(!is_login() && $mode==="add"){ ?>
 </form>
 
 <!-- ckeditor -->
-<script src="<?=domain_url('/public/lib/ckeditor/ckeditor.js')?>"></script>
+<script src="<?=domain_url('/public/lib/ckeditor_full/ckeditor.js')?>"></script>
 <script>
  CKEDITOR.replace( 'desc',{
     filebrowserUploadUrl: '/index.php<?=common_uri?>/upload_receive_from_ck',

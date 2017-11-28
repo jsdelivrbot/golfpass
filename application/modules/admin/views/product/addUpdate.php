@@ -122,7 +122,7 @@ $('#navi_btn').click(function(){
             <!-- <input type="text" name="desc" value="<?=set_value_data($product,'desc')?>"> <?=form_error('desc',false,false)?><br> -->
             <textarea placeholder="내용" name="desc"><?=set_value_data($product,'desc')?></textarea>
         </div>
-        <!-- <script src="<?=domain_url('/public/lib/ckeditor/ckeditor.js')?>"></script>
+        <!-- <script src="<?=domain_url('/public/lib/ckeditor_full/ckeditor.js')?>"></script>
         <script>
         CKEDITOR.replace( 'desc',{
             filebrowserUploadUrl: '/index.php<?=common_uri?>/upload_receive_from_ck'

@@ -17,7 +17,7 @@ if(!is_login() && $mode==="add"){ ?>
 </form>
 
 
-<script src="<?=domain_url('/public/lib/ckeditor/ckeditor.js')?>"></script>
+<script src="<?=domain_url('/public/lib/ckeditor_full/ckeditor.js')?>"></script>
 
 <script>
  CKEDITOR.replace( 'desc',{
