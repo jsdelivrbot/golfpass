@@ -95,12 +95,12 @@
                 <?php }else{?>
                     <li class="tab-title filter-item">
                     <a href="<?=site_url(shop_product_uri."/gets_by_hash/{$search}")?>" data-filter=".pf-branding-design" class="active" style="font-family: 'notokr-regular', sans-serif; font-size: 12px; font-weight: normal;">
-                    상품리스트<?="({$num_products})"?>
+                    상품 목록<?="({$num_products})"?>
                     </a>
                 </li>
                     <li class="tab-title filter-item">
                     <a href="<?=site_url(golfpass_panel_content_uri."/gets_by_hash/{$search}?search={$search}")?>" data-filter=".pf-branding-design" class="" style="font-family: 'notokr-regular', sans-serif; font-size: 12px; font-weight: normal;">
-                    패널글 리스트<?="({$num_panel_contents})"?>
+                    그늘집 목록<?="({$num_panel_contents})"?>
                     </a>
                 </li>
                 <?php }?>
