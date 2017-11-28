@@ -211,7 +211,7 @@ class Content extends Base_Controller {
             $this->_dbSet_addUpdate();
             $insert_id =$this->board_contents_model->add(array('board_id'=>$this->board_id));
 
-            if($this->board->skin === "panel")
+            if($this->board->name === "패널 게시판")
                 my_redirect(golfpass_panel_content_uri."/get/$insert_id");
             else
                 my_redirect(content_uri."/get/$insert_id");
@@ -282,7 +282,7 @@ class Content extends Base_Controller {
             $this->_dbSet_addUpdate();
             $this->board_contents_model->_update($id);
             
-            if($this->board->skin === "panel")
+            if($this->board->name === "패널 게시판")
                 my_redirect(golfpass_panel_content_uri."/get/$id");
             else
                 my_redirect(content_uri."/get/$id");
@@ -309,7 +309,7 @@ class Content extends Base_Controller {
         }
         //삭제
         $this->board_contents_model->delete($id,$this->board_id);
-        if($this->board->skin === "panel")
+        if($this->board->name === "패널 게시판")
             my_redirect(golfpass_panel_uri."/gets");
         else
             my_redirect(content_uri."/gets");
@@ -321,10 +321,16 @@ class Content extends Base_Controller {
     }
 
     public function _dbSet_addUpdate(){
+        $hashtag = $this->input->post('hashtag');
+        if($hashtag === null)
+        { 
+            $hashtag = "";
+        } 
         $this->board_contents_model->_set_by_obj(array(
           "title"=> $this->input->post('title'),
            "desc"=> $this->input->post('desc'),
-           "is_secret"=> $this->input->post('is_secret')
+           "is_secret"=> $this->input->post('is_secret'),
+           "hashtag"=> $hashtag
         ));
     }
 

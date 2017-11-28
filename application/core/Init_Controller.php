@@ -745,6 +745,7 @@ class Init_Controller extends MX_Controller{
              `guest_password` varchar(255) NOT NULL DEFAULT 'NULL',
              `is_secret` varchar(10) NOT NULL DEFAULT '0',
              `is_display` varchar(10) NOT NULL DEFAULT '1',
+             `hashtag` varchar(255) DEFAULT '',
              `hits` int UNSIGNED NOT NULL DEFAULT '0', 
              `created` datetime NOT NULL DEFAULT NOW(),
              PRIMARY KEY (`id`)

@@ -61,8 +61,9 @@ class Main extends Base_Controller
         } 
 
         $this->db->select("c.* ")
+        ->or_like("c.title",$search)
+        ->or_like("c.hashtag",$search)
         ->where("c.board_id","1")
-        ->like("c.title",$search)
         ->limit(10,0)
         ->from("board_contents as c");
 

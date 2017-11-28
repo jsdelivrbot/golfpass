@@ -85,11 +85,11 @@ class Products_Model extends Board_Model{
         
         //카테고리 도시
         $sub_query = "SELECT cate.name FROM ref_cate_product as ref_c_p INNER JOIN product_categories as cate ON cate.id = ref_c_p.cate_id WHERE ref_c_p.product_id = p.id ORDER BY ref_c_p.cate_id LIMIT 0,1";
-        $query .= ",($sub_query) as city";
+        $query .= ",($sub_query) as category_name";
 
         //카테고리 나라
         $sub_query = "SELECT parent_cate.name FROM product_categories as parent_cate WHERE parent_cate.id = cate_parent_id LIMIT 0,1";
-        $query .= ",($sub_query) as nation";
+        $query .= ",($sub_query) as parent_category_name";
 
         //product_option 사진들
         $sub_query = "SELECT group_concat(o.name) FROM `product_option` AS `o` WHERE o.product_id= p.id AND o.kind = 'photo'";

@@ -12,7 +12,7 @@ class Panel extends Base_Controller {
         $this->panel_per_page = 4;
         // $this->panel_per_page = 1;
         $this->content_per_page = 10;
-        $this->content_per_page = 1;
+        // $this->content_per_page = 1;
     }
   
     function get($id)

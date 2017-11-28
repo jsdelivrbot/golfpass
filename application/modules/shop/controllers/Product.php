@@ -37,8 +37,9 @@ class Product extends Base_Controller {
        
         $data['category']= (object)array("name"=>$where);
         $data['parent_categories']= (object)array("name"=>"");
-      
+        $data['parent_category'] =  (object)array("name"=>"","photo4"=>"");
         $data['products'] =$products;
+        $data['search'] = $where;
            // $this->_view("gets",$data);
            $this->_template("gets",$data,'golfpass2');
            // $this->_view("gets",$data);

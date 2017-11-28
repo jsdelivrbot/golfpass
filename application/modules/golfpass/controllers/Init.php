@@ -262,6 +262,7 @@ class Init extends Init_Controller {
                `desc` text NOT NULL,
                `is_secret` varchar(10) NOT NULL DEFAULT '0',
                `is_display` varchar(10) NOT NULL DEFAULT '1',
+               `hashtag` varchar(255),
                `score_1` int NOT NULL DEFAULT '0', 
                `score_2` int NOT NULL DEFAULT '0', 
                `score_3` int NOT NULL DEFAULT '0', 

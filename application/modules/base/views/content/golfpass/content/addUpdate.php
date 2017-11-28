@@ -1,26 +1,34 @@
 
 
+<?php if(is_semantic_dev) {?>
+    <link rel="stylesheet/less" type="text/css" href="/public/framework/semantic/src/semantic.less">
+<script src="/public/framework/semantic/src/less.min.js"></script>
+<?php }else{?>
+<link rel="stylesheet" type="text/css" href="/public/framework/semantic/out/semantic.css">
+<link rel="stylesheet" type="text/css" href="/public/framework/semantic/out/semantic.js">
+<?php }?>
 
-<form action="<?=my_site_url(content_uri."/$mode",true)?>" method="post">
+<div class="ui grid container">
+    <div class="sixteen wide column">
+<form class="ui form" action="<?=my_site_url(content_uri."/$mode",true)?>" method="post">
 <!-- <input type="hidden" name="board_id" value="<?=$board_id?>"> -->
+<div class="field">
 <input placeholder="제목" type="text" name="title" value="<?=set_value_data($content,'title')?>" > <?=form_error('title',false,false)?><br> 
-
+</div>
+<div class="field">
 <textarea placeholder="내용" name="desc" rows="10" cols="80">
 <?=set_value_data($content,'desc')?>
 </textarea>
-<?=form_error('desc',false,false)?>
+</div>
+<div class="field">
+<input type="text" name="hashtag"placeholder="태그 ex)시나이,웨이하이 (띄어쓰기 없이 쉼표로 구분)" value="<?=set_value_data($content,'hashtag')?>">
 
-<input type="submit" value="보내기">
-<?php
-if(!is_login() && $mode==="add"){ ?>
-    아이디<input type="text" name="guest_name">
-    비밀번호<input type="password" name="guest_password">
-<?php }?>
-<?php if($board_id === "2"){?>
-    <input type="hidden" name="is_secret" value="1">
-<?php }?>
+</div>
+<input class="ui button basic" type="submit" value="쓰기">
+
 </form>
-
+</div>
+</div>
 <!-- ckeditor -->
 <script src="<?=domain_url('/public/lib/ckeditor_full/ckeditor.js')?>"></script>
 <script>

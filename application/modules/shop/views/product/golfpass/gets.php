@@ -38,6 +38,8 @@
 
 <div id="wrap">
     <div id="content">
+            <!-- 검색결과 페이지에서 출력하지 않습니다.시작    -->
+        <?php if($parent_category->name !== ''){?>
         <section class="sub-banner" style="background:url(<?=$parent_category->photo4?>) fixed no-repeat">
             <div class="container">
                 <div class="position-center-center">
@@ -47,7 +49,7 @@
                     </h2>
                     <ol class="breadcrumb">
                         <li class="active" style="font-family: 'notokr-regular', sans-serif; font-weight: normal;">
-                         <!-- 카테고리 설명을 검색결과 페이지에서 출력하지 않습니다.    -->
+                     
                         <?php if(strpos(current_url(),"shop/product/gets_by_hash") === false){?>
                             <?=$parent_category->detail_desc?>
                         <?php }?>
@@ -56,18 +58,19 @@
                 </div>
             </div>
         </section>
-
+        <?php }?>
+        <!-- 검색결과 페이지에서 출력하지 않습니다. 끝   -->
         <section class="blog style-2 padding-bottom-80">
             <div class="container">
                 <div class="heading-block style-3 text-center margin-top-100 margin-bottom-50">
-                    <h3 style="font-family: 'notokr-regular', sans-serif; font-weight: normal;">상품 목록</h3>
+                    <h3 style="font-family: 'notokr-regular', sans-serif; font-weight: normal;"><?=isset($search) ? "\"{$search}\" 검색결과" : "상품 목록"?></h3>
                     <hr class="color">
                 </div>
 
-                <!-- 카테고리 소분류 네비게이션을 검색결과페이지에서 출력하지 않습니다. -->
-                <?php if(strpos(current_url(),"shop/product/gets_by_hash") === false){?>
-                
                 <ul class="tabs portfolio-filter text-center margin-bottom-80">
+                        
+                    <?php if($parent_category->name !== ''){?>
+                           <!--네비게이션 상품리스트일때 시작    -->
                     <li class="tab-title filter-item">
                         <a class="<?=$category->id === $parent_category->id ? "active" : ""?>" href="<?=site_url(shop_product_uri."/gets/{$parent_category->id}")?>" data-filter="*" style="font-family: 'notokr-regular', sans-serif; font-size: 12px; font-weight: normal;">
                             ALL
@@ -80,10 +83,26 @@
                                     <?=$child_categories[$i]->name?>
                                 </a>
                             </li>
-
+                    <!--네비게이션 상품리스트일때 끝   -->
                     <?php }?>
+
+                <?php }else{?>
+                    <li class="tab-title filter-item">
+                    <a href="<?=site_url(shop_product_uri."/gets_by_hash/{$search}")?>" data-filter=".pf-branding-design" class="active" style="font-family: 'notokr-regular', sans-serif; font-size: 12px; font-weight: normal;">
+                                    상품리스트
+                    </a>
+                </li>
+                    <li class="tab-title filter-item">
+                    <a href="<?=site_url(shop_product_uri."/gets_by_hash/{$search}")?>" data-filter=".pf-branding-design" class="" style="font-family: 'notokr-regular', sans-serif; font-size: 12px; font-weight: normal;">
+                            패널글 리스트
+                    </a>
+                </li>
+                <?php }?>
                 </ul>
-                <?php }?>                        
+                <?php ?>                
+                  
+
+
                 <div class="row">
                     <?php for($i=0; $i< count($products); $i++){?>
                         <div class="col-md-4 margin-bottom-80" style="cursor: pointer;" onclick="location.href='<?=site_url(shop_product_uri."/get/{$products[$i]->id}")?>';">
