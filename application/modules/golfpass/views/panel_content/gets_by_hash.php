@@ -1,4 +1,4 @@
-<div style="margin-top: -180px;">
+<div style="margin-top: -150px;">
         </div>
 <!-- FontsOnline -->
 <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
@@ -36,7 +36,7 @@
     }
 </style>
 
-<div id="wrap">
+<div id="wrap" >
     <div id="content">
            
         <section class="blog style-2 padding-bottom-80">

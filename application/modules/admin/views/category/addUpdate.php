@@ -47,7 +47,7 @@
 <img style="width:200px; height:auto;"  src="<?=$category->photo3?>" alt="">
 
 <br>
-카테고리 사진
+카테고리 목록에서 카테고리 사진
 <form  method="POST" action="<?=my_site_url(admin_product_category_uri."/upload_photo")?>" enctype='multipart/form-data'>
     <input type='file' name='photo'/>
     <input type="hidden" name='field_name' value="photo2"/>
@@ -58,7 +58,8 @@
 
 <?php }?>
 <!-- 이미지 업로드폼 끝 -->
-상품리스트에서 카테고리 사진
+<br>
+상품목록에서 카테고리 사진
 <form  method="POST" action="<?=my_site_url(admin_product_category_uri."/upload_photo")?>" enctype='multipart/form-data'>
     <input type='file' name='photo'/>
     <input type="hidden" name='field_name' value="photo4"/>

@@ -1,5 +1,11 @@
+<!-- 상품리스트라면 -->
+<?php if($parent_category->name !== ''){?>
 <div style="margin-top: -180px;">
+    <?php }else{?> 
+        <!-- 검색결과페이지라면 -->
+<div style="margin-top: -150px;">
         </div>
+    <?php }?>
 <!-- FontsOnline -->
 <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Crimson+Text:400,400italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
