@@ -109,6 +109,8 @@
         ?>
     </div>
     
+<?php }else{?>
+<input type="hidden" name="product_id" value="<?=$content->product_id?>">
 <?php }?>
 <input style="margin-top:10px;"class="ui button basic positive"type="submit" value="보내기">
 </form>

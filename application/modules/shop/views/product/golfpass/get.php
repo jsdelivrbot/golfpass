@@ -258,7 +258,7 @@
                     </div>
                 </div>
                 <div id="chart" class="col flex-column align-items-center justify-content-center">
-                    <canvas id="chart-canvas" class="ml-auto mr-auto">
+                    <canvas id="chart-canvas" class="ml-auto mr-auto" >
                     
                 </canvas>
                     <h1 id="chart-score" class="text-center">종합 점수
@@ -899,11 +899,12 @@
                     min: 0,
                     max: 100,
                     stepSize: 20
-                },
-                pointLabels: {
-                    fontSize: 0,
+                }
+                ,
+                pointLabels: { 
+                    fontSize: 12,
                     fontColor: "#c8c8c8",
-                    display: false,
+                    display: true,
                 }
             },
             tooltips: {
@@ -922,6 +923,14 @@
                     tooltip.displayColors = false;
                 },
             },
+            // layout: {
+            //     : {
+            //         left: -1,
+            //         right: 0,
+            //         top: 0,
+            //         bottom: 0
+            //     }
+            // },
             legend: {
                 position: 'left',
                 display: false
@@ -930,10 +939,10 @@
         new Chart(document.getElementById("chart-canvas"), {
             type: 'radar',
             data: {
-                labels: ["전략성이 높은", "페어웨이가 넓은", "코스 전장이 긴", "그린의 난이도가 높은", "가성비가 우수한", "시설이 좋은", "식사가 맛있는", "스탭 서비스가 좋은"],
+                labels: ["가성비", "시설 설비", "식사", "전략성", "페어웨이 넓이", "그린의 난이도", "전장의 길이", "코스 상태"],
                 datasets: [{
                     //   label: "2050",
-                    //   label:false,
+                    //   label:true,
                     fill: true,
                     backgroundColor: "rgba(121, 183, 84, 0.5)", //@초록색 바탕
                     borderColor: "#79b754", //@ 점수 선색
