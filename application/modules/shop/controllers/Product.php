@@ -19,13 +19,15 @@ class Product extends Base_Controller {
         $this->load->model("shop/products_model");
         $this->db->or_like("p.hashtag",$where);
         $this->db->or_like("p.name",$where);
+
         $products=$this->products_model->gets_by_ranking('avg_score');
+        $num_products =  count($products);
         // var_dump($products);
        $products= $this->products_model->_gets_with_pgi_func(
-            "style_hotel",
-            function() use($products)
+            "style_zap",
+            function() use($num_products)
             {
-                return count($products);
+                return $num_products;
             },
             function($offset,$per_page) use($products)
             {
@@ -35,11 +37,20 @@ class Product extends Base_Controller {
             array("per_page"=>10,"is_numrow"=>false)
         );
        
+        $data['num_products'] = $num_products;
         $data['category']= (object)array("name"=>$where);
         $data['parent_categories']= (object)array("name"=>"");
         $data['parent_category'] =  (object)array("name"=>"","photo4"=>"");
         $data['products'] =$products;
         $data['search'] = $where;
+
+        $this->load->model("base/board_contents_model");
+        $this->db->or_like("c.hashtag",$where);
+        $this->db->or_like("c.title",$where);
+        $contents=$this->board_contents_model->gets(array("board_id"=>"1"));
+        $num_contents =count($contents);
+        $data['num_panel_contents'] = $num_contents;
+        $data['num_total'] = $num_products+$num_contents;
            // $this->_view("gets",$data);
            $this->_template("gets",$data,'golfpass2');
            // $this->_view("gets",$data);
