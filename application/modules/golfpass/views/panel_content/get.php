@@ -70,15 +70,6 @@
                 </div>
                 <div style="margin-top:50px;"></div>
                 <p>
-                <?php 
-                 $doc = new DOMDocument();
-                 $doc->loadHTML($content->desc);
-                 $imgs = $doc->getElementsByTagName('img');
-                 foreach ($imgs as $img) {
-                    $img->setAttribute('class', 'someclass');
-                 }
-                 $article_header = $doc->saveXml();
-                ?>
                 <?=$content->desc?>
                 
                 </p>
@@ -90,18 +81,22 @@
 </section>
       <!-- <section class="welcome padding-top-80"> -->
 
-      <?php if($content->user_id === $user->id){?>
-      <div class="container">
-        <div class="row"> 
-
-
+      
+  <div class="container">
+    <div class="row"> 
+      
+      
       <div class="col-md-4">
+      <a style="background-color:#79b754"class="btn btn-default" href="<?=site_url(golfpass_panel_uri."/gets")?>">목록으로</a>
+      <!-- 글쓴이라면 수정/삭제버튼 생성 시작-->
+      <?php if($content->user_id === $user->id){?>
       <a style="background-color:#79b754"class="btn btn-default" href="<?=site_url(content_uri."/update/{$content->id}?board_id=1")?>">수정</a>
       <a style="background-color:#79b754" class="btn btn-default" onclick="confirm_redirect('<?=site_url(content_uri."/delete/{$content->id}?board_id=1")?>','정말 삭제하시겠습니까? 복구 할 방법이 없습니다.')" href="#">삭제</a>
-        </div>
-    </div>
-    </div>
       <?php }?>
+      <!-- 글쓴이라면 수정/삭제버튼 생성 끝-->
+    </div>
+</div>
+</div>
     <!-- </section> -->
      
          

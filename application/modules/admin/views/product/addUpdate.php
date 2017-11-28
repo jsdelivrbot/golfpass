@@ -210,9 +210,15 @@ $('#navi_btn').click(function(){
 
     <form onsubmit="ajax_submit(this); return false;" class="ui form" action="<?=my_site_url(admin_product_uri."/ajax_option_add/hole_option")?>" method="post">
         <input type="hidden" name="product_id" value="<?=$product->id?>">
-        <div class="field">
-            <label>이름</label>
-            <input type="text" name="name" value="" placeholder="이름" > <?=form_error('name',false,false)?><br> 
+        <div class="two fields">
+            <div class="field">
+                <label>이름</label>
+                <input type="text" name="name" value="" placeholder="이름" > <?=form_error('name',false,false)?><br> 
+            </div>
+            <div class="field">
+                <label>몇인조</label>
+                <input type="text" name="option_1" value="0" > <?=form_error('option_1',false,false)?><br> 
+            </div>
         </div>
         <div class="two fields">
             <div class="field">
@@ -237,6 +243,7 @@ $('#navi_btn').click(function(){
            
             <form  onsubmit="ajax_submit(this); return false;" style="display:inline-block" class="ui form" style="display:inline-block;" action="<?=my_site_url(admin_product_uri."/ajax_option_update/{$hole_options[$i]->id}")?>" method="post">
             이름     <input value="<?=set_value_data($hole_options[$i],'name')?>" type="text" name="name" style="display:inline-block; width:120px;">
+            몇인조<input value="<?=set_value_data($hole_options[$i],'option_1')?>" type="text" name="option_1" style="display:inline-block; width:120px;">
             가격  <input value="<?=set_value_data($hole_options[$i],'price')?>" type="text" name="price" style="display:inline-block; width:120px;">
             순서  <input value="<?=set_value_data($hole_options[$i],'sort')?>" type="text" name="sort" style="display:inline-block; width:50px;">
                 <input class="ui button basic positive" type="submit" value="수정">

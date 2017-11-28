@@ -114,6 +114,7 @@ class Product extends Admin_Controller {
         $this->db->set("name",$name);
         $this->db->set("kind",$kind);
         $this->db->set("product_id",$product_id);
+        $this->db->set("option_1",$this->input->post("option_1"));
         $this->db->set("price",$this->input->post("price"));
         $this->db->set("sort",$this->input->post("sort"));
         $this->db->insert("product_option");
