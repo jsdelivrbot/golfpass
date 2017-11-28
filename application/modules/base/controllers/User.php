@@ -163,7 +163,7 @@ class User extends Base_Controller
     function login()
     {
         $this->fv->set_rules('userName', '아이디', 'required|min_length[2]|max_length[20]');
-        $this->fv->set_rules('password', '비밀번호', 'required|min_length[4]|max_length[20]');
+        $this->fv->set_rules('password', '비밀번호', 'required|min_length[4]|max_length[40]');
         $data['return_url'] =  $this->input->get("return_url");
 
         if ($this->fv->run() === false) { // fail post
@@ -213,7 +213,7 @@ class User extends Base_Controller
         $userName = $this->input->post('userName');
         if(!$userName) $userName ='';
         // $this->fv->set_rules('userName', '아이디', 'required|is_unique[users.userName]|min_length[2]|max_length[10]', array('is_unique'=>"$userName 는(은) 이미 존재합니다"));
-        $this->fv->set_rules('userName','아이디',array('required',"min_length[2]","max_length[10]","alpha_numeric",
+        $this->fv->set_rules('userName','아이디',array('required',"min_length[2]","max_length[20]", //alpha_numeric
             array('해당 아이디는 이미존재합니다.',function($str){
                 $row=$this->db->select("u.userName")
                 ->from("users as u")
@@ -228,8 +228,8 @@ class User extends Base_Controller
             })
         ));
 
-        $this->fv->set_rules('password', '암호', 'required|matches[re_password]|min_length[4]|max_length[20]', array('matches'=>'비밀번호가 일치 하지 않습니다.'));
-        $this->fv->set_rules('re_password', '암호확인', 'required|min_length[4]|max_length[20]');
+        $this->fv->set_rules('password', '암호', 'required|matches[re_password]|min_length[4]|max_length[40]', array('matches'=>'비밀번호가 일치 하지 않습니다.'));
+        $this->fv->set_rules('re_password', '암호확인', 'required|min_length[4]|max_length[40]');
         $this->fv->set_rules('phone', '연락처', 'required|min_length[1]|max_length[20]');
         // $this->fv->set_rules('email', '이메일', 'required|valid_email|is_unique[users.email]|min_length[1]|max_length[30]', array('is_unique'=>'%s이 이미 존재합니다'));
         $this->_set_rules();

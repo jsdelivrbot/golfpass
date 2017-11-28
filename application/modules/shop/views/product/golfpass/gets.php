@@ -38,7 +38,7 @@
 
 <div id="wrap">
     <div id="content">
-        <section class="sub-banner" style="background:url(/public/etc/list/images/golfpass/hero_img.png) fixed no-repeat">
+        <section class="sub-banner" style="background:url(<?=$parent_category->photo4?>) fixed no-repeat">
             <div class="container">
                 <div class="position-center-center">
                     <h2 style="font-family: 'notokr-regular', sans-serif; font-weight: normal;">
