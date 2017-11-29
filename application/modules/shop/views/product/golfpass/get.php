@@ -1111,6 +1111,7 @@ $("#mk-fullscreen-search-input").keypress(function (e) {
     $("#jy-modal-dim").click(function(){
         $dim.css("display","none");
         $modal.css("display","none");
+        ajax_get_price();
     });
 </script>
 <!-- 조별선택 모달끝 -->
