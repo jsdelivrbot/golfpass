@@ -49,18 +49,18 @@
         <section class="sub-banner" style="background:url(<?=$parent_category->photo4?>) fixed no-repeat">
             <div class="container">
                 <div class="position-center-center">
-                    <h2 style="font-family: 'notokr-regular', sans-serif; font-weight: normal;">
+                    <h2 style="font-family: 'notokr-regular', sans-serif; font-weight: normal; text-shadow: 0 0 7px rgba(0,0,0,1);">
                         <?=$parent_category->name?>
                         <!-- <?php for($j=count($parent_categories)-2; $j >= 1; $j--){?><?=$parent_categories[$j]->name?><?php }?> -->
                     </h2>
-                    <ol class="breadcrumb">
+                    <!--<ol class="breadcrumb">
                         <li class="active" style="font-family: 'notokr-regular', sans-serif; font-weight: normal;">
                      
                         <?php if(strpos(current_url(),"shop/product/gets_by_hash") === false){?>
                             <?=$parent_category->detail_desc?>
                         <?php }?>
                         </li>
-                    </ol>
+                    </ol>-->
                 </div>
             </div>
         </section>
