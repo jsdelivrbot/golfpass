@@ -273,14 +273,7 @@
                 <div id='book-box'>
                     <div id="personnel">
                         <a id="golfpass_order" href="#"><span class="box-title" style="font-size:18px;"> 예약하기</span></a>
-                        <form id="golfpass_order_form" style="display:none" action="<?=site_url(shop_order_uri."/golfpass")?>" method="get">
-                            <input type="hidden" name="num_people">
-                            <input type="hidden" name="start_date">
-                            <input type="hidden" name="end_date">
-                            <input type="hidden" name="total_price">
-                            <input type="hidden" name="product_id" value="<?=$product->id?>">
-                            <input type="submit">
-                        </form>
+                      
                         <!--
                             <div id='count-box' class='d-flex align-items-stretch justify-content-end'>
                                 <span id='count'>1명 </span>
@@ -776,112 +769,7 @@
     </script>
     <!-- 달력 -->
 
-    <!-- 상품날자가격계산 -->
-    <script>
-        $(document).ready(function() {
-            $numPeople.change(function() {
-                // if(validationGetPrice() === 1)
-                // validationGetPrice()
-                ajax_get_price();
-
-            });
-            $startDate.change(function() {
-                // if(validationGetPrice() === 1)
-                // validationGetPrice()
-                ajax_get_price();
-            });
-            $endDate.change(function() {
-                // if(validationGetPrice() === 1)
-                // validationGetPrice()
-                ajax_get_price();
-            });
-        });
-
-        function validationGetPrice() {
-            var date = $startDate.val();
-            var dateArray = date.split("-");
-            var startDateObj = new Date(dateArray[0], Number(dateArray[1]) - 1, dateArray[2]);
-
-            var date = $endDate.val();
-            var dateArray = date.split("-");
-            var endDateObj = new Date(dateArray[0], Number(dateArray[1]) - 1, dateArray[2]);
-            var betweenDay = endDateObj.getTime() - startDateObj.getTime();
-            var betweenDay = betweenDay / 1000 / 60 / 60 / 24;
-            // if()
-            if ($startDate.val() === "" || $endDate.val() === "") {
-                return 0;
-            } else if (betweenDay === 0) {
-                alert("하루 예약은 불가능합니다.");
-                return 0;
-            } else if (betweenDay <= -1) {
-                alert("날자가 잘못 설정되었습니다.");
-                return 0;
-            }
-            return 1;
-        }
-
-        function ajax_get_price() {
-            // var num_people = $("select[name=num_people] option:selected").val();
-            var num_people = $numPeople.find("option:selected").val();
-            var product_id = "<?=$product->id?>";
-            var start_date = $startDate.val();
-            var end_date = $endDate.val();
-            var url = "<?=site_url(golfpass_p_daily_price_uri."/ajax_cal")?>"
-            $.ajax({
-                type: "POST",
-                dataType: 'json',
-                data: {
-                    product_id: product_id,
-                    num_people: num_people,
-                    start_date: start_date,
-                    end_date: end_date
-                },
-                url: url,
-                beforeSend: function() {
-                    // $('.loading').fadeIn(500);
-                },
-                success: function(data) {
-                    $total_price.val(data.total_price);
-
-                    var totalPrice = data.total_price;
-                    if (totalPrice.indexOf("원") > -1) {
-                        totalPrice = totalPrice.substr(0, totalPrice.length - 1);
-                        $total_price.val(totalPrice);
-                        totalPrice = Number(totalPrice).toLocaleString('en');
-                        totalPrice += "원";
-                    }
-                    $total_price.html(totalPrice);
-                    // console.log(data);
-                },
-                error: function(xhr, textStatus, errorThrown) {
-                    alert('에러... ');
-                    // $('.loading').fadeOut(500);
-                    console.log('code: ' + request.status + "\n" + 'message: ' + request.responseText + "\n" + 'error: ' + error);
-                    console.log(errorThrown);
-                }
-            });
-        }
-        //예약하기
-        $("#golfpass_order").click(function(event) {
-            event.preventDefault();
-            if ($numPeople.val().indexOf("선택") > -1) {
-                alert("명수를 선택해주세요.");
-                return;
-            }
-            if ($startDate.val() === "" || $endDate.val() === "" || $("#total_price").text().indexOf("원") === -1 || $("#total_price").text().indexOf("존재") > -1) {
-                alert("잘못된 주문입니다.");
-                return false;
-            }
-            $order_form = $("#golfpass_order_form");
-            $order_form.find("input[name=num_people]").val($numPeople.val());
-            $order_form.find("input[name=start_date]").val($startDate.val());
-            $order_form.find("input[name=end_date]").val($endDate.val());
-            $order_form.find("input[name=total_price]").val($total_price.val());
-            $order_form.submit();
-        });
-    </script>
-
-    <!-- 상품날자가격계산 -->
+  
 
     <!-- 차트 -->
 
@@ -1040,8 +928,126 @@ $("#mk-fullscreen-search-input").keypress(function (e) {
 </script>
 
 <!-- 뉴스레터 끝-->
+ <!-- 상품날자가격계산 -->
+ <script>
+        $(document).ready(function() {
+            $numPeople.change(function() {
+                // if(validationGetPrice() === 1)
+                // validationGetPrice()
+                ajax_get_price();
+
+            });
+            $startDate.change(function() {
+                // if(validationGetPrice() === 1)
+                // validationGetPrice()
+                ajax_get_price();
+            });
+            $endDate.change(function() {
+                // if(validationGetPrice() === 1)
+                // validationGetPrice()
+                ajax_get_price();
+            });
+        });
+
+        function validationGetPrice() {
+            var date = $startDate.val();
+            var dateArray = date.split("-");
+            var startDateObj = new Date(dateArray[0], Number(dateArray[1]) - 1, dateArray[2]);
+
+            var date = $endDate.val();
+            var dateArray = date.split("-");
+            var endDateObj = new Date(dateArray[0], Number(dateArray[1]) - 1, dateArray[2]);
+            var betweenDay = endDateObj.getTime() - startDateObj.getTime();
+            var betweenDay = betweenDay / 1000 / 60 / 60 / 24;
+            // if()
+            if ($startDate.val() === "" || $endDate.val() === "") {
+                return 0;
+            } else if (betweenDay === 0) {
+                alert("하루 예약은 불가능합니다.");
+                return 0;
+            } else if (betweenDay <= -1) {
+                alert("날자가 잘못 설정되었습니다.");
+                return 0;
+            }
+            return 1;
+        }
+
+        function ajax_get_price() {
+            // var num_people = $("select[name=num_people] option:selected").val();
+            var num_people = $numPeople.find("option:selected").val();
+            var product_id = "<?=$product->id?>";
+            var start_date = $startDate.val();
+            var end_date = $endDate.val();
+            var $groups = $("select[name='groups[]']");
+            var groups = [];
+            for(var i = 0 ; i < $groups.length ; i++)
+            {
+                groups.push($groups[i].value);
+            }
+            console.log(groups);
+
+            var url = "<?=site_url(golfpass_p_daily_price_uri."/ajax_cal")?>"
+            $.ajax({
+                type: "POST",
+                dataType: 'json',
+                data: {
+                    product_id: product_id,
+                    num_people: num_people,
+                    start_date: start_date,
+                    end_date: end_date,
+                    groups: groups 
+                },
+                url: url,
+                beforeSend: function() {
+                    // $('.loading').fadeIn(500);
+                },
+                success: function(data) {
+                    console.log(data);
+                    $total_price.val(data.total_price);
+
+                    var totalPrice = data.total_price;
+                    if (totalPrice.indexOf("원") > -1) {
+                        totalPrice = totalPrice.substr(0, totalPrice.length - 1);
+                        $total_price.val(totalPrice);
+                        totalPrice = Number(totalPrice).toLocaleString('en');
+                        totalPrice += "원";
+                    }
+                    $total_price.html(totalPrice);
+                    // console.log(data);
+                },
+                error: function(xhr, textStatus, errorThrown) {
+                    alert('에러... ');
+                    // $('.loading').fadeOut(500);
+                    console.log('code: ' + request.status + "\n" + 'message: ' + request.responseText + "\n" + 'error: ' + error);
+                    console.log(errorThrown);
+                }
+            });
+        }
+        //예약하기
+        $("#golfpass_order").click(function(event) {
+            event.preventDefault();
+            if ($numPeople.val().indexOf("선택") > -1) {
+                alert("명수를 선택해주세요.");
+                return;
+            }
+            if ($startDate.val() === "" || $endDate.val() === "" || $("#total_price").text().indexOf("원") === -1 || $("#total_price").text().indexOf("존재") > -1) {
+                alert("잘못된 주문입니다.");
+                return false;
+            }
+            $order_form = $("#golfpass_order_form");
+            $order_form.find("input[name=num_people]").val($numPeople.val());
+            $order_form.find("input[name=start_date]").val($startDate.val());
+            $order_form.find("input[name=end_date]").val($endDate.val());
+            $order_form.find("input[name=total_price]").val($total_price.val());
+            $order_form.submit();
+        });
+    </script>
+
+    <!-- 상품날자가격계산 -->
+
+
 <!-- 조별선택 모달시작 -->
-<!-- <style>
+<style>
     #jy-groups-selection-modal
     {
         background-color:#ffffff;
@@ -1049,31 +1055,45 @@ $("#mk-fullscreen-search-input").keypress(function (e) {
         position: fixed;
         top: 50%;
         left: 50%;
-        /* margin-top: -150px;
-        margin-left: -60px;  */
+        margin-top: -150px;
+        /* margin-left: -60px;  */
     }
 </style>
+
 <div id="jy-groups-selection-modal">
-    <a id="jy-add-group-selection-button"href="">조별추가</a>
-    <div class="jy-group-selection">
-        <form action="">
-            <select name="groups[]" id="">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
+    <a id="jy-add-group-selection-button"href="#">조별추가</a>
+    <div id="jy-groups-selection-wrapper">
+        <form action="<?=site_url(shop_order_uri."/golfpass")?>" method="get" id="golfpass_order_form">
+            <select name="groups[]" class="">
+                <option value="1">1인조</option>
+                <option value="2">2인조</option>
+                <option value="3">3인조</option>
+                <option value="4">4인조</option>
             </select>
+
+        <input type="hidden" name="num_people">
+        <input type="hidden" name="start_date">
+        <input type="hidden" name="end_date">
+        <input type="hidden" name="total_price">
+        <input type="hidden" name="product_id" value="<?=$product->id?>">
+        <!-- <input type="submit"> -->
         </form>
     </div>
 </div>
 <script>
     $("#jy-add-group-selection-button").click(function(){
-        console.log(2);
+        var $groups=$("#golfpass_order_form select[name='groups[]'");
+        var $clone = $($groups[0]).clone();
+        console.log($clone);
+        $form=$("#golfpass_order_form"); 
+
+        $form.append($clone);
+
     });
     $("#jy-groups-selection-modal-button").click(function()
     {
         console.log(1);
     });
 
-</script> -->
+</script>
 <!-- 조별선택 모달끝 -->
