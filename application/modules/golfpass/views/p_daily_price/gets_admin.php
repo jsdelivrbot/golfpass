@@ -75,24 +75,27 @@
 <div id="fixed_menu" style="margin-left:200px;position:fixed; background-color: rgba(0,0,0,0.5);" >
 <!-- <form method="post" action="<?=my_site_url(golfpass_p_daily_price_admin_uri."/add/{$product->id}")?>"> -->
     <form id="fixed_menu_form" method="post" onsubmit="ajax_submit(this); return false;" action="<?=my_site_url(golfpass_p_daily_price_admin_uri."/ajax_add_all/{$product->id}")?>">
-    시작날자: <input type="text" name="start_date" id="datepicker1" value="<?=set_value('start_date')?>">
-    끝시작: <input type="text" name="end_date" id="datepicker2" value="<?=set_value('end_date')?>">
-    <!-- 시작날자: <input type="text" name="start_date" id="datepicker1" value="2017-01-01"> -->
-    <!-- 끝시작: <input type="text" name="end_date" id="datepicker2" value="2017-01-09"> -->
+    <!-- 시작날자: <input type="text" name="start_date" id="datepicker1" value="<?=set_value('start_date')?>"> -->
+    <!-- 끝시작: <input type="text" name="end_date" id="datepicker2" value="<?=set_value('end_date')?>"> -->
+    시작날자: <input type="text" name="start_date" id="datepicker1" value="2017-01-01">
+    끝시작: <input type="text" name="end_date" id="datepicker2" value="2017-01-03">
         <bR>
     <!-- 가격 -->
+
     <input type="hidden" name="price" value="1">
+    <input type="hidden" name="start_plus" value="<?=$start_plus?>">
         <bR>
         <!-- 배율 -->
-            <input style="display:none" type="checkbox" name="period_times_sw" value="1" checked>
+        <!-- <div style="display:none;"> -->
+            배율<input type="checkbox" name="period_times_sw" value="1" checked>
             <br>
-            <?php for($i=1;$i <= ((int)$num_period) +1 ; $i++ ){
+            <?php for($i=1;$i <= ((int)$num_period ) ; $i++ ){
                 ?>
-            <input style="display:none" type="checkbox" name="period[]" checked value="<?=$i+1?>"><div style="display:none"><?="{$i}박".($i+1)."일"?></div>
-            <input style="display:none" type="text" name="period_times[]" value="1">
+            <input  type="checkbox" name="period[]" checked value="<?=$i+$start_plus?>"><?=($i-1+$start_plus)."박".($i+$start_plus)."일"?>
+            <input  type="text" name="period_times[]" value="1">
             <?php }?>
 
-
+            <!-- </div> -->
         <bR>
         <input type="checkbox" name="day[]" checked value="1">월
         <input type="checkbox" name="day[]" checked value="2">화
@@ -115,7 +118,7 @@
                 ?>
                 
             <input type="checkbox" name="num_people[]" checked value="<?=$i?>"><?="{$i}인"?>
-            <input type="text" name="num_people_times[]" value="" style="width:200px;">
+            <input type="text" name="num_people_times[]" value="<?=$i*1000?>" style="width:200px;" >원
             <?php }?>
 
 
@@ -212,7 +215,7 @@
         <?="{$m}월"?>
         </th>
         <?php for ($i=1; $i <= (int)$maxium_num_peple; $i++) {?>
-        <th class="col center aligned" colspan=<?=$num_period === 0 ? "1" :"2"?>>
+        <th class="col center aligned" colspan=<?=$num_period === 1 ? "1" :"2"?>>
             <?=$i?>인조 가격 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
         </th>
     <?php }?>
@@ -228,13 +231,13 @@
     ?>
     <tr class="">
             <!-- 날짜 -->
-            <td class="" rowspan=<?=$num_period?>><?=$date?><?="({$day})"?></td> 
+            <td class="" rowspan=<?=$num_period-1?>><?=$date?><?="({$day})"?></td> 
             <!-- 날짜 -->
 
             <!-- 명당 가격 시작 -->
             <?php for ($i=1; $i <= (int)$maxium_num_peple; $i++) {?>
             <!--1일 or 2일 가격 -->
-            <td  class="pdate  <?="p{$date}-{$i}-".(1+$start_plus)?> <?=isset($price[$date][$i][1+$start_plus])?( $price[$date][$i][1+$start_plus] !=="0" ? "active " : "red") : "red"?>" rowspan=<?=$num_period?>>
+            <td  class="pdate  <?="p{$date}-{$i}-".(1+$start_plus)?> <?=isset($price[$date][$i][1+$start_plus])?( $price[$date][$i][1+$start_plus] !=="0" ? "active " : "red") : "red"?>" rowspan=<?=$num_period-1?>>
                 <?=(0+$start_plus)."박".(1+$start_plus)."일"?>
                 <!-- 1인조 -->
                 <br>    
@@ -242,7 +245,7 @@
                 
             </td>
             <!--1일 or 2일 가격-->
-                <?php if ($num_period !== 0) {?>
+                <?php if ($num_period !== 1) {?>
                 <!-- 2일or 3일 가격 -->
                 <td  class="pdate <?="p{$date}-{$i}-".(2+$start_plus)?> <?=isset($price[$date][$i][2+$start_plus])?( $price[$date][$i][2+$start_plus] !=="0" ? "active " : "red") : "red"?>" style="width:50px;">
                 <?=(1+$start_plus)."박".(2+$start_plus)."일"?>
@@ -257,7 +260,7 @@
         </tr>
 
         <!-- 기간별/명당 가격 -->
-        <?php for ($i=1; $i < (int)$num_period; $i++) {?>
+        <?php for ($i=1; $i < (int)$num_period-1; $i++) {?>
             <tr class="">
             <?php for ($j=1; $j <= (int)$maxium_num_peple; $j++) {?>
                 <td class="pdate <?="p{$date}-{$j}-".($i+2+$start_plus)?> <?=isset($price[$date][$j][$i+2+$start_plus])?( $price[$date][$j][$i+2+$start_plus] !=="0" ? "active " : "red") : "red"?>">
