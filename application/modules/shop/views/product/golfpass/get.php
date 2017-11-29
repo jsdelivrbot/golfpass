@@ -15,8 +15,8 @@
     <link rel="stylesheet" href="/public/sangmin/dist/Nwagon/Nwagon.css" type="text/css">
     <script src="/public/sangmin/js/jquery-3.2.1.min.js"></script>
 </head>
-
 <body>
+     
 <!-- 로딩딤시작 -->
 <style>
     .jy-dim
@@ -1058,9 +1058,18 @@ $("#mk-fullscreen-search-input").keypress(function (e) {
         margin-top: -150px;
         /* margin-left: -60px;  */
     }
+    #jy-modal-dim
+    {
+        z-index :10001;
+        position: fixed;
+        background-color : rgba(0,0,0,0.8);
+        height:100%;
+        width:100%;
+        display:none;
+    }
 </style>
-
-<div id="jy-groups-selection-modal">
+   <div id="jy-modal-dim"></div>
+<div id="jy-groups-selection-modal" style="display:none">
     <a id="jy-add-group-selection-button"href="#">조별추가</a>
     <div id="jy-groups-selection-wrapper">
         <form action="<?=site_url(shop_order_uri."/golfpass")?>" method="get" id="golfpass_order_form">
@@ -1081,19 +1090,27 @@ $("#mk-fullscreen-search-input").keypress(function (e) {
     </div>
 </div>
 <script>
+      var $modal = $("#jy-groups-selection-modal");
+      var $dim = $("#jy-modal-dim");
+      var $groups=$("#golfpass_order_form select[name='groups[]'");
     $("#jy-add-group-selection-button").click(function(){
-        var $groups=$("#golfpass_order_form select[name='groups[]'");
         var $clone = $($groups[0]).clone();
-        console.log($clone);
         $form=$("#golfpass_order_form"); 
 
         $form.append($clone);
-
+        return false;
     });
     $("#jy-groups-selection-modal-button").click(function()
     {
-        console.log(1);
+      
+        $modal.css("display","block");
+        
+        $("body").prepend($dim);
+        $dim.css("display","block");
     });
-
+    $("#jy-modal-dim").click(function(){
+        $dim.css("display","none");
+        $modal.css("display","none");
+    });
 </script>
 <!-- 조별선택 모달끝 -->
