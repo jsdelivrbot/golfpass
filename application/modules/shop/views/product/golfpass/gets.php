@@ -120,11 +120,11 @@
                                 </div>
                                 <a href="#" class="tittle-post" style="font-family: 'notokr-regular', sans-serif; font-weight: normal;"> <?=$products[$i]->name?> </a>
                                 <span class="post-bt"><span class="text-color-primary" style="font-family: 'notokr-demilight', sans-serif; font-weight: normal;"><?=$products[$i]->eng_name?></span></span>
-                                <p style="font-family: 'notokr-demilight', sans-serif; font-weight: normal;">
+                                <!--<p style="font-family: 'notokr-demilight', sans-serif; font-weight: normal;">
                                     <?php 
                                         echo $products[$i]->desc;
                                     ?>
-                                </p>
+                                </p>-->
                                 <ul class="post-info margin-bottom-0">
                                     <li> <i class="fa fa-star" style="color: #fcbf3f;"></i><?=ceil($products[$i]->avg_score*10)/10?> </li>
                                     <li> <i class="fa fa-map-o"></i><?=$products[$i]->parent_category_name?> </li>
