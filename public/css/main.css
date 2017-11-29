@@ -2930,7 +2930,7 @@ body.menu-open .plus-btn .r2 {
               display: none; } }
         #detail-wrap #section1 #section1-wrap #detail #score span {
           font-family: 'notokr-medium', sans-serif;
-          font-size: 14px;
+          font-size: 13px;
           color: #fff; }
         @media (min-width: 768px) {
           #detail-wrap #section1 #section1-wrap #detail #score {
@@ -2969,15 +2969,15 @@ body.menu-open .plus-btn .r2 {
   width: 100px;
   height: 80px;
   top: 50%;
-  margin-top: -14%;
-  left: 50%;
+  margin-top: -16%;
+  left: 53%;
   margin-left: -50px;
   font-family: 'notokr-demilight', sans-serif;
   font-size: 14px;
   color: #ffffff; }
   @media (max-width: 1440px) {
     #chart-score {
-      margin-top: -90px; } }
+      margin-top: -110px; } }
   #chart-score p {
     font-family: 'notokr-medium', sans-serif;
     font-size: 20px;
