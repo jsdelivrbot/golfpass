@@ -362,8 +362,9 @@ class Init extends Init_Controller {
             $result = $this->db->query("CREATE TABLE `$tb_name`(
             `id` INT UNSIGNED NULL AUTO_INCREMENT, 
             `merchant_uid` varchar(100) NOT NULL,
-            `option_id` INT UNSIGNED NOT NULL, 
+            `option_id` INT UNSIGNED, 
             `option_kind` varchar(255) NOT NULL, 
+            `value` varchar(255), 
             `created` datetime NOT NULL DEFAULT NOW(),
             PRIMARY KEY (`id`),
             KEY `idx_merchant_uid` (`merchant_uid`),

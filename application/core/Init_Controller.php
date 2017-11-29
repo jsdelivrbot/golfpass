@@ -382,8 +382,7 @@ class Init_Controller extends MX_Controller{
              `sort` int NOT NULL DEFAULT '0', 
              `created` datetime NOT NULL DEFAULT NOW(),
              PRIMARY KEY (`id`),
-             KEY `idx_product_id_kind`(`product_id`,`kind`),
-             UNIQUE KEY (`product_id`,`name`,`kind`)
+             KEY `idx_product_id_kind`(`product_id`,`kind`)
               ) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
                  
              if($result) echo("success create $tb_name ");

@@ -26,7 +26,9 @@
 
 <!-- <div class="ui header"> </div> -->
 <form  class="ui form" id="form_order" onsubmit="alert_payment_window(this); return false;"  action="<?=site_url(shop_order_uri."/golfpass_ajax_add")?>"method ="post">
-
+    <?php for($i=0 ; $i < count($groups) ; $i++){?>
+        <input type="hidden" name="groups[]" value="<?=$groups[$i]?>">
+    <?php }?>
 <?php if($product->singleroom_price !== "0"){?>
     <div class="four fields">
         <div class="field">
@@ -53,7 +55,10 @@
                 <?php for($i=0; $i<count($hole_options) ; $i++){
                     $added_hole_price =  $hole_options[$i]->price * $num_people;
                     ?>
-                <option data-name="<?=$hole_options[$i]->name?>" data-price="<?=$added_hole_price?>" value="<?=$hole_options[$i]->id?>"><?=$hole_options[$i]->name?>(<?=$added_hole_price?>원 추가)</option>
+                <option data-name="<?=$hole_options[$i]->name?>" data-price="<?=$added_hole_price?>" value="<?=$hole_options[$i]->id?>"><?=$hole_options[$i]->name?>
+
+                <!-- (<?=$added_hole_price?>원 추가) -->
+                </option>
                 <?php }?>
             </select>
         </div>
@@ -161,30 +166,29 @@
 <script>
  function cal_totalPrice()
     {
-        var total_price =base_totalPrice;
+        var $form =$("#form_order");
+         var queryString = $form.serialize();
+        var url = "<?=site_url(shop_order_uri."/cal_total_price_ajax")?>";
+        $.ajax({
+            type: "POST",
+            dataType : 'json',
+            data: queryString,
+            url: url,
+            beforeSend: function(){
+                $('.loading').fadeIn(500);
+            },
+            success:function(data){
+                console.log(data);
+                var total_price= data.total_price;
+                 $("#total_price").text(total_price.toLocaleString('en'));
+                $("input[name=total_price]").val(total_price);
+            }
+        });
 
-        var singleroom_price = $("select[name=singleroom] option:selected").data("price");
-        // console.log(singleroom_price);
-        total_price += singleroom_price;
-        var hole_option_price = $("select[name=hole_option] option:selected").data("price");
-        // console.log(hole_option_price);
-        total_price += hole_option_price;
-        var $option_input =$("#added_option_list input");
-        // console.log($option_input);
-        // console.log($option_input.length);
-        for(var i=0 ; i < $option_input.length ; i++)
-        {
-            var option_price =$($option_input[i]).data('price');
-            total_price += option_price;
-        }
-        // console.log(total_price);
-        $("#total_price").text(total_price.toLocaleString('en'));
-        $("input[name=total_price]").val(total_price);
-        return total_price;
     }
 //아이엠포트 초기화
-var base_totalPrice  = <?=$total_price?>;
-var g_totalPrice = <?=$total_price?>;
+// var base_totalPrice  = <?=$total_price?>;
+// var g_totalPrice = <?=$total_price?>;
 $(document).ready(function(){
     $("#add_option").click(function()
     {
@@ -272,8 +276,8 @@ function validation(e){
 
 //결제 ajax로 총가격 체크후 iamport api 불러오기
 function alert_payment_window(e)
-{
-    
+{   
+    var totalPrice =$("input[name=total_price]").val();
     $form =$(e);
     // $form.find("input[name=total_price]").val(g_totalPrice);
     var pay_method = $form.find("select[name=pay_method] option:selected").val();
@@ -281,7 +285,6 @@ function alert_payment_window(e)
     // console.log(merchant_uid);
     $form.find("input[name=merchant_uid]").val(merchant_uid);
     var name = $form.find("input[name=user_name]").val(); //유저정보
-    var totalPrice = g_totalPrice;
     var startDate = $form.find("input[name=start_date]").val();
     var endDate = $form.find("input[name=end_date]").val();
     var product_id = $form.find("input[name=product_id]").val();
@@ -305,6 +308,8 @@ function alert_payment_window(e)
             $('.loading').fadeIn(500);
         },
         success:function(data){
+            // console.log(data);
+            // return;
             if(data.is_check === false)
             {
                 alert("정상적인 경로로 이용해주세요");

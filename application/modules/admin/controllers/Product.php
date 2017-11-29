@@ -104,12 +104,12 @@ class Product extends Admin_Controller {
         $this->db->where("kind", $kind);
         $row = $this->db->get("product_option")->row();
 
-        if($row !== null){
-            $data['alert'] = "이미존재합니다";
-            $data['reload'] =true;
-            echo json_encode($data);
-            return;
-        }
+        // if($row !== null){
+        //     $data['alert'] = "이미존재합니다";
+        //     $data['reload'] =true;
+        //     echo json_encode($data);
+        //     return;
+        // }
 
         $this->db->set("name",$name);
         $this->db->set("kind",$kind);

@@ -14,6 +14,31 @@ class Order extends Base_Controller {
             my_redirect(user_uri."/login?return_url=".rawurlencode(my_current_url()),false);
         }
     }
+    function cal_total_price_ajax()
+    {
+        header("content-type:application/json");
+        $product_id = $this->input->post('product_id');
+        $start_date = $this->input->post('start_date');
+        $end_date = $this->input->post('end_date');
+        $num_people = $this->input->post('num_people');
+        $groups = $this->input->post('groups');
+        $options = $this->input->post("options[]");
+        $hole_option_id = $this->input->post("hole_option");
+        $num_singleroom = $this->input->post("singleroom");
+        $total_price =$this->_golfpass_cal_total_price((object)array(
+            "product_id"=>$product_id,
+            "start_date"=>$start_date,
+            "end_date"=>$end_date,
+            "num_people"=>$num_people,
+            "groups"=>$groups,
+            "options"=>$options,
+            "hole_option_id"=>$hole_option_id,
+            "num_singleroom" =>$num_singleroom
+        ));        
+
+        $data['total_price'] = $total_price;
+        echo json_encode($data);
+    }
     function update_info($merchant_uid)
     {
         $arr_name_with = $this->input->post("name_with");
@@ -75,6 +100,7 @@ class Order extends Base_Controller {
         $total_price = $this->input->get("total_price");
         $start_date = $this->input->get("start_date");
         $end_date = $this->input->get("end_date");
+        $groups = $this->input->get("groups");
 
         //5개값 유효성 체크 시작
         if(is_numeric($num_people) === false)
@@ -110,6 +136,7 @@ class Order extends Base_Controller {
         $data['user'] = $this->user;
         $data['product'] =$this->products_model->_get(array("id"=>$product_id));
 
+        $data["groups"] = $groups;
         $data["start_date"] = $start_date;
         $data["end_date"] = $end_date;
         $data["num_people"] = $num_people;
@@ -122,6 +149,7 @@ class Order extends Base_Controller {
         $data["hole_options"] = $this->db->where("kind","hole_option")
         ->where("product_id",$product_id)->from("product_option")
         ->order_by("sort","asc")
+        ->group_by("name")
         ->get()->result();
 
         $data['imp_franchises_code'] = $this->setting->imp_franchises_code;
@@ -265,51 +293,36 @@ class Order extends Base_Controller {
         $start_date = $this->input->post('start_date');
         $end_date = $this->input->post('end_date');
         $num_people = $this->input->post('num_people');
+        $groups = $this->input->post('groups');
+        $options = $this->input->post("options[]");
+        $hole_option_id = $this->input->post("hole_option");
+        $num_singleroom = $this->input->post("singleroom");
         $total_price =$this->_golfpass_cal_total_price((object)array(
             "product_id"=>$product_id,
             "start_date"=>$start_date,
             "end_date"=>$end_date,
-            "num_people"=>$num_people
+            "num_people"=>$num_people,
+            "groups"=>$groups,
+            "options"=>$options,
+            "hole_option_id"=>$hole_option_id,
+            "num_singleroom" =>$num_singleroom
         ));        
-        //총합계애 옵션가격더하기
-        $options = $this->input->post("options[]");
-        $this->load->model("product_option_model");
-        for($i=0; $i < count($options); $i++)
-        {
-            $option_price =$this->product_option_model->_get($options[$i])->price;
-            $total_price += $option_price;
-        }
-        
-        //홀추가 가격 더하기
-        $hole_option_id = $this->input->post("hole_option");
-       
-        if($hole_option_id !== null &&  $hole_option_id !== ""){
-            $hole_option_price = $this->product_option_model->_get($hole_option_id)->price;
-            $added_hole_price = $hole_option_price * $num_people;
-            $total_price += $added_hole_price;
-        }
-        
-    
-        //싱글룸 가격 더하기
-        $this->load->model("products_model");
-        $num_singlerooms = $this->input->post("singleroom");
-        if($num_singlerooms !== null &&  $num_singlerooms !== ""){
-            $singleroom_price = $this->products_model->_get($this->input->post('product_id'))->singleroom_price;
-            $added_singleroom_price = $singleroom_price * $num_singlerooms;
-            $total_price += $added_singleroom_price;
-        }
+//     $data["is_check"] =  $total_price;
+//     // $data["is_check"] =  $num_people;
+//     echo json_encode($data);
+//    return;
       
-        // $data["is_check"] =  false;
-        // echo json_encode($data);
-        // return;
+        
         if((string)$total_price !== (string)$this->input->post('total_price'))
         {
             $data["is_check"] =  false;
-            echo json_encode($data);
+             echo json_encode($data);
             return;
         }
         //-------------------------------계산 === 총합계 맞는지 체크 끝
-
+        // $data["is_check"] =  $total_price;
+        //     echo json_encode($data);
+        //    return;
         //product_orders테이블에 order정보 추가
         $pay_method =$this->input->post('pay_method');
             $status = ($pay_method === 'bank') ? "ready" : "try";
@@ -368,41 +381,113 @@ class Order extends Base_Controller {
             }
             //동행자정보 추가 끝
 
+            //p_order_options테이블에 그룹 옵션정보 추가
+            for($i=0; $i <count($groups) ;$i++)
+            {
+                $this->db->set("merchant_uid",$merchant_uid);
+                $this->db->set("value",$groups[$i]);
+                $this->db->set("option_kind","group_option");
+                $this->db->insert("p_order_options");
+            }
+            // $data["is_check"] =  $groups;
+            // echo json_encode($data);
+            // return;
             $data["is_check"] =  true;
             echo json_encode($data);
     }
     function _golfpass_cal_total_price($order)
     {
+        //groups start_date end_date product_id options hole_option_id num_singleroom
+        $out_total_price = 0;
          //시작 날자 ~끝날자 * 인 === 총가격 변조 있는지 체크 시작
-         $product_id = $order->product_id;
-         $start_date = $order->start_date;
-         $num_people = $order->num_people;
-         $end_date = $order->end_date;
-         $end_date =date("Y-m-d",strtotime("{$end_date} +1 days"));
-         $obj_start_date = date_create($start_date);
-         $obj_end_date = date_create($end_date);
-         $period = date_diff($obj_start_date, $obj_end_date)->days;
-         $total_price =0;
-         $this->load->model("golfpass/p_daily_price_model");
-         for($i =0 ; $i < $period ; $i++)
+         $product =$this->db->where("id",$order->product_id)->from("products")->get()->row();
+         if(true)
          {
-             $date = date("Y-m-d",strtotime("{$start_date} +{$i} days"));
-             $row=$this->p_daily_price_model->_get(array(
-                 'product_id'=>$product_id,
-                 'date'=>$date,
-                 'period'=>"2",
-                 'num_people'=>$num_people
-             ));
-             //해당 날자데이터가 없을때
-             if($row === null)
-             {
-                  return "{$date}날자 {$num_people}명에 가격 데이터가 존재하지 않습니다.";
-             }
-             $tmp_price =$row->price;
-             $total_price += (int)$tmp_price/2;
+            $config['groups']= $order->groups;
+            $config['start_date']= $order->start_date;
+            $config['end_date']= $order->end_date;
+            $config['product_id']= $order->product_id;
+            $config['num_people']= $order->num_people;
+            $out_total_price += modules::run("golfpass/p_daily_price/_cal_by_group",$config);
          }
- 
-         return $total_price;
+         //옵션가격 추가시작
+         foreach($order as $key=>$val)
+         {
+             $$key= $val;
+         }
+       
+         //총합계애 옵션가격더하기
+        $this->load->model("product_option_model");
+        for($i=0; $i < count($options); $i++)
+        {
+            $option_price =$this->product_option_model->_get($options[$i])->price;
+            $out_total_price += $option_price;
+           
+        }
+        
+        //홀추가 가격 더하기
+        if($hole_option_id !== null &&  $hole_option_id !== ""){
+            $hole_option_name = $this->product_option_model->_get($hole_option_id)->name;
+            for($i=0;$i<count($groups);$i++)
+            {
+                
+                $row=$this->db->select("*")
+                ->where("product_id",$product_id)
+                ->where("kind","hole_option")
+                ->where("name",$hole_option_name)
+                ->where("option_1",$groups[$i])
+                ->from("product_option")->get()->row();
+                $out_total_price += $row->price;
+            }
+            // $hole_option_price = $this->product_option_model->_get($hole_option_id)->price;
+            //  $added_hole_price = $hole_option_price * $num_people;
+            // $out_total_price += $added_hole_price;
+        }
+    
+        //싱글룸 가격 더하기
+        $this->load->model("products_model");
+      
+        if($num_singleroom !== null &&  $num_singleroom !== ""){
+            $singleroom_price = $this->products_model->_get($product_id)->singleroom_price;
+            $added_singleroom_price = $singleroom_price * $num_singleroom;
+            $out_total_price += $added_singleroom_price;
+        }
+        return $out_total_price;
+         //옵션가격 추가끝
+
+
+    }
+    function test()
+    {
+        $merchant_uid =$this->input->get('merchant_uid');
+        $merchant_uid =get_merchant_code($merchant_uid);
+        $this->load->model('p_order_products_model');
+        $order = $this->product_orders_model->_get(array("merchant_uid"=>$merchant_uid));
+        $amount_to_be_paid =  $order->total_price;
+
+        $rows =$this->db->select("*")->where("merchant_uid",$merchant_uid)->where("option_kind","main_option")->from("p_order_options")->get()->result();
+        $arr_tmp = array();
+        foreach($rows as $row)
+        {
+            array_push($arr_tmp, $row->option_id);
+        }
+        $order->options = $arr_tmp;
+
+        $row =$this->db->select("*")->where("merchant_uid",$merchant_uid)->where("option_kind","hole_option")->from("p_order_options")->get()->row();
+        $order->hole_option_id =$row->option_id;
+        $rows =$this->db->select("*")->where("merchant_uid",$merchant_uid)->where("option_kind","group_option")->from("p_order_options")->get()->result();
+        $arr_tmp = array();
+        foreach($rows as $row)
+        {
+            array_push($arr_tmp, $row->value);
+        }
+        $order->groups = $arr_tmp;
+
+         //num_singleroom  start_date end_date product_id
+         // options hole_option_id  groups
+        //시작 날자 ~끝날자 * 인 === 총가격 변조 있는지 체크 시작
+        $total_price = $this->_golfpass_cal_total_price($order);
+        echo $total_price;
     }
     public function golfpass_ajax_payment_check_update()
     {
@@ -417,6 +502,26 @@ class Order extends Base_Controller {
         $order = $this->product_orders_model->_get(array("merchant_uid"=>$merchant_uid));
         $amount_to_be_paid =  $order->total_price;
 
+        $rows =$this->db->select("*")->where("merchant_uid",$merchant_uid)->where("option_kind","main_option")->from("p_order_options")->get()->result();
+        $arr_tmp = array();
+        foreach($rows as $row)
+        {
+            array_push($arr_tmp, $row->option_id);
+        }
+        $order->options = $arr_tmp;
+
+        $rows =$this->db->select("*")->where("merchant_uid",$merchant_uid)->where("option_kind","hole_option")->from("p_order_options")->get()->row();
+        $order->hole_option_id =$row->option_id;
+
+        $rows =$this->db->select("*")->where("merchant_uid",$merchant_uid)->where("option_kind","group_option")->from("p_order_options")->get()->result();
+        $arr_tmp = array();
+        foreach($rows as $row)
+        {
+            array_push($arr_tmp, $row->value);
+        }
+        $order->groups = $arr_tmp;
+         //num_singleroom  start_date end_date product_id
+         // options hole_option_id  groups
         //시작 날자 ~끝날자 * 인 === 총가격 변조 있는지 체크 시작
         $total_price = $this->_golfpass_cal_total_price($order);
 
@@ -481,113 +586,10 @@ class Order extends Base_Controller {
         echo json_encode($data);
    
     }
-    public function ajax_add(){
-        header("content-type:application/json");
-    
-        //table insert product_orders
-        $merchant_uid = $this->input->post("merchant_uid");
-        $merchant_uid = get_merchant_code($merchant_uid);
-        $status ='try';
-        $this->db->set('merchant_uid',$merchant_uid);
-        $this->db->set('order_name',$this->input->post('order_name'));
-        $this->db->set('user_id',$this->user->id);
-        $this->db->set('user_name',$this->input->post("user_name"));
-        $this->db->set('phone',$this->input->post("phone"));
-        $this->db->set('status',$status);
-        $this->db->set('pay_method',$this->input->post('pay_method'));
-     
-       
-        $this->db->set('created',"NOW()",false);
-        $this->db->insert($this->table);
-
-        $product_ids = $this->input->post("product_id[]");
-        $counts = $this->input->post("count[]");
-        $prices = $this->input->post("price[]");
-
-        //table insert p_order_products
-        for($i =0 ; $i < count($product_ids) ; $i++){
-            $product_id = $product_ids[$i];
-            $count  = $counts[$i];
-            $price = $prices[$i];
-
-            $this->db->set('merchant_uid',$merchant_uid);
-            $this->db->set('product_id',$product_id);
-            $this->db->set('count',$count);
-            $this->db->set('price',$price);
-            $this->db->set('created',"NOW()",false);
-            $this->db->insert('p_order_products');
-        }
-        $data = array("temp"=>'temp');
-        echo json_encode($data);
-    }
    
 
 
-    public function ajax_payment_check_update()
-    {
-
-        header("content-type:application/json");
-
-        $imp_key = $this->setting->imp_key;
-        $imp_secret = $this->setting->imp_secret;
-        $this->load->library("Iamport",array("imp_key"=>$imp_key, "imp_secret"=>$imp_secret));
-
-        $imp_uid =$this->input->post('imp_uid');
-        $result =$this->iamport->findByImpUID($imp_uid);
-
-        $merchant_uid =$this->input->post('merchant_uid');
-        $merchant_uid =get_merchant_code($merchant_uid);
-
-        $this->load->model('p_order_products_model');
-        $amount_to_be_paid = $this->p_order_products_model->get_total_price($merchant_uid);
-
-        // var_dump($amount_to_be_paid);
-        if(!$result->success){
-            $data = array("payment_check"=>'fail_1');
-            echo json_encode($data);
-            return;
-        }else{
-            $result = $result->data;
-        }
-        
-       
-        if($result->status === 'paid' && (string)$result->amount === (string)$amount_to_be_paid )
-        {
-            $payment_check = 'paid';
-            $this->db->set("status",$this->input->post("status"));
-            //success_post_process(payment_result) 결제까지 성공적으로 완료
-        }
-        else if($result->status === 'ready' && $result->pay_method === 'vbank' && (string)$result->amount === (string)$amount_to_be_paid)
-        {
-            $payment_check = "vbank";
-            $this->db->set("status",$this->input->post("status"));
-            //  vbank_number_assigned(payment_result) 가상계좌 발급성공
-        }
-        else
-        {
-            $payment_check = "error";
-            $this->db->set("status","error");
-            //fail_post_process(payment_result) 결제실패 처리
-        }
-        // var_dump($result);
-
-        //update
-
-        $this->db->set('total_price',$amount_to_be_paid);
-        $this->db->set("apply_num",$this->input->post("apply_num"));
-        $this->db->set("vbank_num",$this->input->post("vbank_num"));
-        $this->db->set("vbank_name",$this->input->post("vbank_name"));
-        $this->db->set("vbank_holder",$this->input->post("vbank_holder"));
-        $this->db->set("vbank_date",$this->input->post("vbank_date"));
-        $this->db->where("merchant_uid",$merchant_uid);
-        $this->db->update($this->table);
-
-        $data = array("payment_check"=>$payment_check);
-        echo json_encode($data);
-        //  
-        // $this->load->view("{$this->view_dir}/complete",$data);
-        //  
-    }
+   
     
    
     public function complete($merchant_uid){

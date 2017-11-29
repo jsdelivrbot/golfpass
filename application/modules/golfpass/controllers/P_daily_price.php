@@ -140,41 +140,62 @@ class P_daily_price extends Base_Controller
 
 
     //임시방편
-    $groups =array();
-    while($num_people !== 0) 
-    {
-        if($num_people >=4)
-        {
-            $n=4;
-        }
-        else
-        {
-            $n =$num_people;
-        }
-        $num_people=$num_people -$n;
-        array_push($groups,$n);
-    }   
+    // $groups =array();
+    // while($num_people !== 0) 
+    // {
+    //     if($num_people >=4)
+    //     {
+    //         $n=4;
+    //     }
+    //     else
+    //     {
+    //         $n =$num_people;
+    //     }
+    //     $num_people=$num_people -$n;
+    //     array_push($groups,$n);
+    // }   
     //임시방편
-        $this->groups = $this->input->post("group");
-        $this->groups = $groups;
-        $total_price= $this->_cal_by_group();
+
+        $this->groups = $this->input->post("groups");
+        // $data['total_price'] = $this->groups;
+        // echo json_encode($data);
+        // return;
+
+        // $this->groups = $groups;
+        $config['groups']= $this->input->post("groups");
+        $config['num_people']= $num_people;
+        $config['start_date']= $start_date;
+        $config['end_date']=  $this->input->post("end_date");;
+        $config['product_id']= $product_id;
+        // $config['period']= $period;
+        $total_price= $this->_cal_by_group($config);
         $data['total_price'] = $total_price;
         // $data['total_price'] = $total_price."원";
         echo json_encode($data);
-        
         return;
      
  //    1박 2일 데이터로만 계산
 
     }
-    function _cal_by_group()
+    function test()
     {
-        $groups = $this->groups;
-        $num_people = $this->num_people;
-        $start_date = $this->start_date;
-        $end_date = $this->end_date;
-        $product_id = $this->product_id;
-        $period = $this->period;
+        return 1;
+    }
+    function _cal_by_group($config)
+    {
+        foreach($config as $key=>$val)
+        {
+            $$key = $val;
+        }
+        // $groups = $this->groups;
+        // $num_people = $this->num_people;
+        // $start_date = $this->start_date;
+        // $end_date = $this->end_date;
+        // $product_id = $this->product_id;
+        $end_date =date("Y-m-d",strtotime("{$end_date} +1 days"));
+        $obj_start_date = date_create($start_date);
+        $obj_end_date = date_create($end_date);
+        $period = date_diff($obj_start_date, $obj_end_date)->days;
         //조별 가격으로 계산
         $total_price =0;
         //전체 그룹 인원수와 num_people 수 같은지 체크
@@ -183,6 +204,8 @@ class P_daily_price extends Base_Controller
         {
             $tmp_total_num_people += (int)$groups[$i];
         }
+        // return $groups;
+        // return $tmp_total_num_people;
         if((string)$tmp_total_num_people !== (string)$num_people)
         {
             return "group와 num_people이 일치하지 않습니다.";
