@@ -34,7 +34,7 @@
             </span>
             <ul class="tp-list-unstyled">
               <li class="tp-d-flex tp-align-items-center tp-justify-content-between">
-                <p>코스 전체 전략성
+                <p>가성비
                 </p> 
                 <span class="tp-line">
                 </span> 
@@ -43,7 +43,7 @@
                 </span>
               </li>
               <li class="tp-d-flex tp-align-items-center tp-justify-content-between">
-                <p>페어웨이 넓이
+                <p>시설 설비
                 </p> 
                 <span class="tp-line">
                 </span> 
@@ -52,7 +52,7 @@
                 </span>
               </li>
               <li class="tp-d-flex tp-align-items-center tp-justify-content-between ">
-                <p>코스 천장 길이
+                <p>식사
                 </p> 
                 <span class="tp-line">
                 </span> 
@@ -61,7 +61,7 @@
                 </span>
               </li>
               <li class="tp-d-flex tp-align-items-center tp-justify-content-between">
-                <p>그린의 난이도
+                <p>전략성
                 </p> 
                 <span class="tp-line">
                 </span> 
@@ -70,7 +70,7 @@
                 </span>
               </li>
               <li class="tp-d-flex tp-align-items-center tp-justify-content-between ">
-                <p>코스트 퍼포먼스
+                <p>페어웨이 넓이
                 </p> 
                 <span class="tp-line">
                 </span> 
@@ -79,7 +79,7 @@
                 </span>
               </li>
               <li class="tp-d-flex tp-align-items-center tp-justify-content-between ">
-                <p>시설 설비가 좋다
+                <p>그린의 난이도
                 </p> 
                 <span class="tp-line">
                 </span> 
@@ -88,7 +88,7 @@
                 </span>
               </li>
               <li class="tp-d-flex tp-align-items-center tp-justify-content-between">
-                <p>식사가 맛있다.
+                <p>전장의 길이
                 </p> 
                 <span class="tp-line">
                 </span> 
@@ -97,7 +97,7 @@
                 </span>
               </li>
               <li class="tp-d-flex tp-align-items-center tp-justify-content-between">
-                <p>스태프 서비스
+                <p>코스 상태
                 </p> 
                 <span class="tp-line">
                 </span> 

@@ -325,9 +325,9 @@
                     <figure>
                         <img src="/public/sangmin/img/partner/b_partner_princehotel.png" alt="">
                     </figure>
-                    <figure>
+                    <!--<figure>
                         <img src="/public/sangmin/img/partner/b_partner_timescar.png" alt="">
-                    </figure>
+                    </figure>-->
                     <figure>
                         <img src="/public/sangmin/img/partner/b_partner_hiltonhotel.png" alt="">
                     </figure>
@@ -344,7 +344,7 @@
                 </li>
                     <li><a href="http://www.playseven.co.kr">회사 소개</a></li>
                 <li>
-                    <a href="#" style="color:#ababab;">이용약관</a>
+                    <a href="#" style="color:#ababab;">이용 약관</a>
                 </li>
                 <li>
                     <a href="#" style="color:#ababab;">개인 정보 취급 방침</a>
@@ -376,13 +376,13 @@
                     </p>
                 </li>
                 <li>
-                    <span style="color:#ababab;">사업자등록번호
+                    <span style="color:#ababab;">사업자 등록 번호
             </span>
                     <p style="color:#ababab;">280-81-00963
                     </p>
                 </li>
                 <li>
-                    <span style="color:#ababab;">등록판매업신고번호
+                    <span style="color:#ababab;">등록 판매업 신고 번호
             </span>
                     <p style="color:#ababab;">2017-서울강서-1545호
                     </p>

@@ -597,9 +597,9 @@
                     <figure>
                         <img src="/public/sangmin/img/partner/partner_princehotel.png" alt="">
                     </figure>
-                    <figure>
+                    <!--<figure>
                         <img src="/public/sangmin/img/partner/partner_timescar.png" alt="">
-                    </figure>
+                    </figure>-->
                     <figure>
                         <img src="/public/sangmin/img/partner/partner_hiltonhotel.png" alt="">
                     </figure>
@@ -615,7 +615,7 @@
                  <ul>
                          <li class="title">ABOUT US</li>
                          <li><a href="http://www.playseven.co.kr">회사 소개</a></li>
-                         <li><a href="#">이용약관</a></li>
+                         <li><a href="#">이용 약관</a></li>
                          <li><a href="#">개인 정보 취급 방침</a></li>
                  </ul>
                  <ul>
@@ -632,11 +632,11 @@
                          <li><span>대표</span>
                                 <p>황현철</p>
                          </li>
-                         <li><span>사업자등록번호</span>
+                         <li><span>사업자 등록 번호</span>
                                  <p>280-81-00963</p>
                          </li>
-                         <li><span>등록판매업신고번호</span>
-                                    <p>2017-서울강서-1545호</p>
+                         <li><span>등록 판매업 신고 번호</span>
+                                <p>2017-서울강서-1545호</p>
                          </li>
                  </ul>
                  <ul>

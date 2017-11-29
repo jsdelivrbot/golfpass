@@ -589,35 +589,35 @@
                                 <span class='score'><?=ceil($reviews[$i]->avg_score*10)/10?></span>
                                 <ul class="list-unstyled">
                                     <li class="d-flex align-items-center justify-content-between">
-                                        <p>코스 전체 전략성</p>
+                                        <p>가성비</p>
                                         <span class="line"></span>
                                         <span><?=$reviews[$i]->score_1?>.0</span></li>
                                     <li class="d-flex align-items-center justify-content-between">
-                                        <p>페어웨이 넓이</p>
+                                        <p>시설 설비</p>
                                         <span class="line"></span>
                                         <span><?=$reviews[$i]->score_2?>.0</span></li>
                                     <li class="d-flex align-items-center justify-content-between ">
-                                        <p>코스 천장 길이</p>
+                                        <p>식사</p>
                                         <span class="line"></span>
                                         <span><?=$reviews[$i]->score_3?>.0</span></li>
                                     <li class="d-flex align-items-center justify-content-between">
-                                        <p>그린의 난이도</p>
+                                        <p>전략성</p>
                                         <span class="line"></span>
                                         <span><?=$reviews[$i]->score_4?>.0</span></li>
                                     <li class="d-flex align-items-center justify-content-between ">
-                                        <p>코스트 퍼포먼스</p>
+                                        <p>페어웨이 넓이</p>
                                         <span class="line"></span>
                                         <span><?=$reviews[$i]->score_5?>.0</span></li>
                                     <li class="d-flex align-items-center justify-content-between ">
-                                        <p>시설 설비가 좋다</p>
+                                        <p>그린의 난이도</p>
                                         <span class="line"></span>
                                         <span><?=$reviews[$i]->score_6?>.0</span></li>
                                     <li class="d-flex align-items-center justify-content-between">
-                                        <p>식사가 맛있다.</p>
+                                        <p>전장의 길이</p>
                                         <span class="line"></span>
                                         <span><?=$reviews[$i]->score_7?>.0</span></li>
                                     <li class="d-flex align-items-center justify-content-between">
-                                        <p>스태프 서비스</p>
+                                        <p>코스 상태</p>
                                         <span class="line"></span>
                                         <span><?=$reviews[$i]->score_8?>.0</span></li>
                                 </ul>
@@ -670,9 +670,9 @@
                     <figure>
                         <img src="/public/sangmin/img/partner/b_partner_princehotel.png" alt="">
                     </figure>
-                    <figure>
+                    <!--<figure>
                         <img src="/public/sangmin/img/partner/b_partner_timescar.png" alt="">
-                    </figure>
+                    </figure>-->
                     <figure>
                         <img src="/public/sangmin/img/partner/b_partner_hiltonhotel.png" alt="">
                     </figure>
@@ -688,7 +688,7 @@
             <ul>
                 <li class="tp-title">ABOUT US</li>
                 <li><a href="http://www.playseven.co.kr">회사 소개</a></li>
-                <li><a href="#">이용약관</a></li>
+                <li><a href="#">이용 약관</a></li>
                 <li><a href="#">개인 정보 취급 방침</a></li>
             </ul>
             <ul>
@@ -705,10 +705,10 @@
                 <li><span>대표</span>
                     <p>황현철</p>
                 </li>
-                <li><span>사업자등록번호</span>
+                <li><span>사업자 등록 번호</span>
                     <p>280-81-00963</p>
                 </li>
-                <li><span>등록판매업신고번호</span>
+                <li><span>등록 판매업 신고 번호</span>
                     <p>2017-서울강서-1545호</p>
                 </li>
             </ul>
