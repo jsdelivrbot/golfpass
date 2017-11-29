@@ -2735,7 +2735,6 @@ list-header.coporate-header .is-sticky .sticky .ownmenu > li > .megamenu {
 }
 input:focus, textarea:focus, keygen:focus, select:focus {
 	outline: none !important;
-	border: 1px solid #141414 !important;
 }
 .order-place .btn {
 	width: 100%;
