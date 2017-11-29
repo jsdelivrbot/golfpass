@@ -293,7 +293,9 @@
                               </span>
                             </div>
                           -->
+                       
                         <div id='count-box' class='d-flex align-items-stretch justify-content-end'>
+                        <a id="jy-groups-selection-modal-button">조별선택</a> 
                             <form class="" action="index.html" method="post">
                                 <select name="num_people" class="custom-select" id="">
                     <option>인원 선택</option>
@@ -1038,3 +1040,40 @@ $("#mk-fullscreen-search-input").keypress(function (e) {
 </script>
 
 <!-- 뉴스레터 끝-->
+<!-- 조별선택 모달시작 -->
+<!-- <style>
+    #jy-groups-selection-modal
+    {
+        background-color:#ffffff;
+        z-index :10001;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        /* margin-top: -150px;
+        margin-left: -60px;  */
+    }
+</style>
+<div id="jy-groups-selection-modal">
+    <a id="jy-add-group-selection-button"href="">조별추가</a>
+    <div class="jy-group-selection">
+        <form action="">
+            <select name="groups[]" id="">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+        </form>
+    </div>
+</div>
+<script>
+    $("#jy-add-group-selection-button").click(function(){
+        console.log(2);
+    });
+    $("#jy-groups-selection-modal-button").click(function()
+    {
+        console.log(1);
+    });
+
+</script> -->
+<!-- 조별선택 모달끝 -->

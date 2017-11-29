@@ -75,10 +75,10 @@
 <div id="fixed_menu" style="margin-left:200px;position:fixed; background-color: rgba(0,0,0,0.5);" >
 <!-- <form method="post" action="<?=my_site_url(golfpass_p_daily_price_admin_uri."/add/{$product->id}")?>"> -->
     <form id="fixed_menu_form" method="post" onsubmit="ajax_submit(this); return false;" action="<?=my_site_url(golfpass_p_daily_price_admin_uri."/ajax_add_all/{$product->id}")?>">
-    <!-- 시작날자: <input type="text" name="start_date" id="datepicker1" value="<?=set_value('start_date')?>"> -->
-    <!-- 끝시작: <input type="text" name="end_date" id="datepicker2" value="<?=set_value('end_date')?>"> -->
-    시작날자: <input type="text" name="start_date" id="datepicker1" value="2017-01-01">
-    끝시작: <input type="text" name="end_date" id="datepicker2" value="2017-01-03">
+    시작날자: <input type="text" name="start_date" id="datepicker1" value="<?=date("Y-m-d")?>">
+    끝시작: <input type="text" name="end_date" id="datepicker2" value="<?=date("Y-m-d")?>">
+    <!-- 시작날자: <input type="text" name="start_date" id="datepicker1" value="2017-01-01"> -->
+    <!-- 끝시작: <input type="text" name="end_date" id="datepicker2" value="2017-01-03"> -->
         <bR>
     <!-- 가격 -->
 
@@ -86,7 +86,7 @@
     <input type="hidden" name="start_plus" value="<?=$start_plus?>">
         <bR>
         <!-- 배율 -->
-        <!-- <div style="display:none;"> -->
+        <div style="display:none;">
             배율<input type="checkbox" name="period_times_sw" value="1" checked>
             <br>
             <?php for($i=1;$i <= ((int)$num_period ) ; $i++ ){
@@ -95,7 +95,7 @@
             <input  type="text" name="period_times[]" value="1">
             <?php }?>
 
-            <!-- </div> -->
+            </div>
         <bR>
         <input type="checkbox" name="day[]" checked value="1">월
         <input type="checkbox" name="day[]" checked value="2">화
