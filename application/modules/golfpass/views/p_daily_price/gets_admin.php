@@ -134,8 +134,8 @@
 <input type="text" name="date" value="<?=date("Y")."-01-01"?>" style=" width:100px">
 <input type="text" name="num_people" value="1" style=" width:40px">
 인조
-<input type="text" name="period" value="2"style=" width:40px ; display:none" >
-<!-- 기간(2는 1박2일) -->
+<input type="text" name="period" value="1"style=" width:40px ; " >
+일
 </form>
   <!-- 해당년도로 -->
  
