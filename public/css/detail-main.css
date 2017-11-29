@@ -3406,7 +3406,7 @@ body.menu-open .plus-btn .r2 {
   bottom: 0;
   width: 100%;
   background-color: #f0f0f0;
-  padding: 10px;
+  padding: 50px 10px 50px 10px;
   color: #ababab;
   font-family: notokr-medium; }
   @media (min-width: 992px) {

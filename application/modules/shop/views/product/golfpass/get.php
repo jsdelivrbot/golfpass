@@ -499,7 +499,7 @@
                 <section class="col-12" id="article-section-5">
                     <div class='d-flex flex-column title-box'>
                         <span>0<?=$number++?></span>
-                        <h1 class="mt-13">취소/환불</h1>
+                        <h1 class="mt-13">주의사항</h1>
                     </div>
                     <div id="section-5-list-content">
                         <ul class="d-flex flex-wrap flex-column list-unstyled">

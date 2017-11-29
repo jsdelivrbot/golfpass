@@ -21,42 +21,42 @@
           </a> 
         <a href="<?=site_url(shop_product_uri."/gets_by_ranking/score_1")?>">
           <button class="tp-btn tp-btn-outline-light tp-btn-sm" 
-                  <?=$rankingType==='score_1' ? 'style="background-color: #79b754 !important; color:#fff;"' : 'style="border: 1px solid #333; color:#333;"'?>>#전략성이 요구되는 코스
+                  <?=$rankingType==='score_1' ? 'style="background-color: #79b754 !important; color:#fff;"' : 'style="border: 1px solid #333; color:#333;"'?>>#가성비가 우수한
           </button>
         </a> 
       <a href="<?=site_url(shop_product_uri."/gets_by_ranking/score_2")?>">
         <button class="tp-btn tp-btn-outline-light tp-btn-sm" 
-                <?=$rankingType==='score_2' ? 'style="background-color: #79b754 !important; color:#fff;"' : 'style="border: 1px solid #333; color:#333;"'?>>#식사가 맛있는 코스
+                <?=$rankingType==='score_2' ? 'style="background-color: #79b754 !important; color:#fff;"' : 'style="border: 1px solid #333; color:#333;"'?>>#시설이 좋은
         </button>
       </a> 
     <a href="<?=site_url(shop_product_uri."/gets_by_ranking/score_3")?>">
       <button class="tp-btn tp-btn-outline-light tp-btn-sm" 
-              <?=$rankingType==='score_3' ? 'style="background-color: #79b754 !important; color:#fff;"' : 'style="border: 1px solid #333; color:#333;"'?>>#가성비 좋은 코스
+              <?=$rankingType==='score_3' ? 'style="background-color: #79b754 !important; color:#fff;"' : 'style="border: 1px solid #333; color:#333;"'?>>#식사가 맛있는
       </button>
     </a> 
   <a href="<?=site_url(shop_product_uri."/gets_by_ranking/score_4")?>">
     <button class="tp-btn tp-btn-outline-light tp-btn-sm" 
-            <?=$rankingType==='score_4' ? 'style="background-color: #79b754 !important; color:#fff;"' : 'style="border: 1px solid #333; color:#333;"'?>>#시설이 화려한 코스
+            <?=$rankingType==='score_4' ? 'style="background-color: #79b754 !important; color:#fff;"' : 'style="border: 1px solid #333; color:#333;"'?>>#전략성이 높은
     </button>
   </a> 
 <a href="<?=site_url(shop_product_uri."/gets_by_ranking/score_5")?>">
   <button class="tp-btn tp-btn-outline-light tp-btn-sm" 
-          <?=$rankingType==='score_5' ? 'style="background-color: #79b754 !important; color:#fff;"' : 'style="border: 1px solid #333; color:#333;"'?>>#시설이 화려한 코스
+          <?=$rankingType==='score_5' ? 'style="background-color: #79b754 !important; color:#fff;"' : 'style="border: 1px solid #333; color:#333;"'?>>#페어웨이가 넓은
   </button>
 </a> 
 <a href="<?=site_url(shop_product_uri."/gets_by_ranking/score_6")?>">
 <button class="tp-btn tp-btn-outline-light tp-btn-sm" 
-        <?=$rankingType==='score_6' ? 'style="background-color: #79b754 !important; color:#fff;"' : 'style="border: 1px solid #333; color:#333;"'?>>#시설이 화려한 코스
+        <?=$rankingType==='score_6' ? 'style="background-color: #79b754 !important; color:#fff;"' : 'style="border: 1px solid #333; color:#333;"'?>>#그린의 난이도가 높은
 </button>
 </a> 
 <a href="<?=site_url(shop_product_uri."/gets_by_ranking/score_7")?>">
 <button class="tp-btn tp-btn-outline-light tp-btn-sm" 
-        <?=$rankingType==='score_7' ? 'style="background-color: #79b754 !important; color:#fff;"' : 'style="border: 1px solid #333; color:#333;"'?>>#시설이 화려한 코스
+        <?=$rankingType==='score_7' ? 'style="background-color: #79b754 !important; color:#fff;"' : 'style="border: 1px solid #333; color:#333;"'?>>#코스 전장이 긴
 </button>
 </a> 
 <a href="<?=site_url(shop_product_uri."/gets_by_ranking/score_8")?>">
 <button class="tp-btn tp-btn-outline-light tp-btn-sm" 
-        <?=$rankingType==='score_8' ? 'style="background-color: #79b754 !important; color:#fff;"' : 'style="border: 1px solid #333; color:#333;"'?>>#시설이 화려한 코스
+        <?=$rankingType==='score_8' ? 'style="background-color: #79b754 !important; color:#fff;"' : 'style="border: 1px solid #333; color:#333;"'?>>#코스 상태가 좋은
 </button>
 </a>
 </div> 
