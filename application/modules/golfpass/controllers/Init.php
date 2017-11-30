@@ -71,7 +71,7 @@ class Init extends Init_Controller {
     function add_panel_data()
     {
         // $this->boards_model->_add(array("name"=>"패널 게시판",'skin'=>'panel','auth_r_board'=>'0','auth_r_content'=>'0','auth_w_content'=>'999','auth_w_review'=>'999'));
-        $board_id =$this->boards_model->_add(array("name"=>"패널 게시판",'skin'=>'panel','auth_kind_w_content'=>'panel'));
+        $board_id =$this->boards_model->_add(array("name"=>"패널 게시판",'skin'=>'golfpass','auth_kind_w_content'=>'panel'));
         
         $password =password_hash("1234",PASSWORD_BCRYPT);
         $this->db->set("auth","1");
