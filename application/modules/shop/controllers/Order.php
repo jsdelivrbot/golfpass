@@ -8,11 +8,48 @@ class Order extends Base_Controller {
             'view_dir'=>"order"
         ));
         $this->load->helper('enum');
-        if(!is_login())
+        if(!is_login() && strpos(current_url(),"notification_url") === false)
         {
             alert("로그인해주세요.");
             my_redirect(user_uri."/login?return_url=".rawurlencode(my_current_url()),false);
         }
+    }
+
+    function notification_url()
+    {
+        header("content-type:application/json");
+        
+        $imp_uid = $this->input->post("imp_uid");
+        $merchant_uid =$this->input->post("merchant_uid");
+        $merchant_uid = get_merchant_code($merchant_uid);  
+        //아이엠포트시작
+        $imp_key = $this->setting->imp_key;
+        $imp_secret = $this->setting->imp_secret;
+        $this->load->library("Iamport",array("imp_key"=>$imp_key, "imp_secret"=>$imp_secret));
+        $result =$this->iamport->findByImpUID($imp_uid);
+
+
+        if(!$result->success){
+            $data['payment_check'] ='fail_1';
+            echo json_encode($data);
+            return;
+        }else{
+            $result = $result->data;
+        }
+
+        $order=$this->db->where("merchant_uid",$merchant_uid)->from("product_orders")->get()->row();
+        if((string)$order->total_price !== (string)$result->amount)
+        {
+            $this->db->set("status","아이엠포트 금액과다릅니다.");
+        }
+        else
+        {
+            $this->db->set("status",$result->status);
+        }
+        $this->db->where("merchant_uid",$merchant_uid);
+        $this->db->update("product_orders");
+        $data['payment_check'] = true;
+        echo json_encode($data);
     }
     function cal_total_price_ajax()
     {
