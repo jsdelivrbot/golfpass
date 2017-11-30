@@ -375,8 +375,8 @@ class Order extends Base_Controller {
             $this->db->set('phone',$this->input->post("phone"));
             $this->db->set('status',$status);
             $this->db->set('email',$this->input->post('email'));
+            $this->db->set('address',$this->input->post('address'));
             $this->db->set('product_id',$product_id);
-            $this->db->set('address',$this->user->address);
             $this->db->set('pay_method',$pay_method);
             $this->db->set('total_price',$this->input->post('total_price'));
             $this->db->set('start_date',$start_date);
