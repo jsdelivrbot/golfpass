@@ -26,8 +26,10 @@ if(!function_exists('get_pay_method_enum')){
             $result = '카드';
         else if($data === 'bank')
             $result = '무통장';
+        else if($data === 'trans')
+        $result = '실시간 계좌이체';
         else
-            $result = '알수없음';
+            $result = $data;
         
         return $result;
     }
@@ -54,8 +56,7 @@ if(!function_exists('get_status_enum')){
             $result = '환불 완료';
         else if($data === 'reject_refend')
             $result = '환불 요청 실패';
-        else if($data === 'trans')
-            $result = '실시간 계좌이체';
+  
         else
             $result = $data;
         return $result;
