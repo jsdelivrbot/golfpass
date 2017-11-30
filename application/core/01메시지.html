@@ -1,15 +1,6 @@
 
 
 실서버 변경할부분
-<!-- p_order_options  value  null허용 varchar(255) -->
-<!-- option_id null허용 -->
-<!-- board_contents hashtag varchar(255) default '' -->
-<!-- 패널 보드 스킨 바꾸기 golfpass로 -->
-<!-- 회원가입할때 userName 유효성검사 - sns-type + userName 유니크로 -->
-<!-- -sns로그인 상태에서 상품주문시 휴대폰번호 인증 요구 -->
-<!-- -환불시스템 -->
-<!-- -리뷰 모두보기 푸터 마진탑 현+상 -->
-<!-- product_option테이블에 option_1 ~3까지 필드 추가 -null허용 -->
 
  - SNS 로그인 API+
  - INTERCOM CHAT BOT API
@@ -17,9 +8,19 @@
  - PG사 연동
  - 네이버 검색 최적화 작업
  
- 
+ 홀가격 추가할떄 1~4인조 한꺼번에
+  enum_pay_method 추가 - trans =실시간 계좌이체
+가상계좌 입금시 입금완료url 페이지만들기
 
- 가격계산
+주문완료페이지정보
+관리자페이지에서 주문관리페이지 정보
+관리자페이지에서 아이엠포트, tawk 관리자페이지 이동링크 만들기
+입금시 sms?
+뉴스레터 삭제기능
+뉴스레터 크론기능?큐?
+
+
+ <!-- 가격계산 -->
  - 공지사항/FAQ/Q&A 게시판 글 템플릿 변경
  주문페이지  -file:///C:/Users/korea/Desktop/main-file/html/check_out.html
  - 리뷰 평가 명칭 통일

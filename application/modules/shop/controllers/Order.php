@@ -475,6 +475,7 @@ class Order extends Base_Controller {
 
         $row =$this->db->select("*")->where("merchant_uid",$merchant_uid)->where("option_kind","hole_option")->from("p_order_options")->get()->row();
         $order->hole_option_id =$row->option_id;
+
         $rows =$this->db->select("*")->where("merchant_uid",$merchant_uid)->where("option_kind","group_option")->from("p_order_options")->get()->result();
         $arr_tmp = array();
         foreach($rows as $row)
@@ -482,11 +483,11 @@ class Order extends Base_Controller {
             array_push($arr_tmp, $row->value);
         }
         $order->groups = $arr_tmp;
-
          //num_singleroom  start_date end_date product_id
          // options hole_option_id  groups
         //시작 날자 ~끝날자 * 인 === 총가격 변조 있는지 체크 시작
         $total_price = $this->_golfpass_cal_total_price($order);
+
         echo $total_price;
     }
     public function golfpass_ajax_payment_check_update()
@@ -510,7 +511,7 @@ class Order extends Base_Controller {
         }
         $order->options = $arr_tmp;
 
-        $rows =$this->db->select("*")->where("merchant_uid",$merchant_uid)->where("option_kind","hole_option")->from("p_order_options")->get()->row();
+        $row =$this->db->select("*")->where("merchant_uid",$merchant_uid)->where("option_kind","hole_option")->from("p_order_options")->get()->row();
         $order->hole_option_id =$row->option_id;
 
         $rows =$this->db->select("*")->where("merchant_uid",$merchant_uid)->where("option_kind","group_option")->from("p_order_options")->get()->result();
