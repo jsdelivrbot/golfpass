@@ -54,8 +54,10 @@ if(!function_exists('get_status_enum')){
             $result = '환불 완료';
         else if($data === 'reject_refend')
             $result = '환불 요청 실패';
+        else if($data === 'trans')
+            $result = '실시간 계좌이체';
         else
-            $result = "알수없음";
+            $result = $data;
         return $result;
     }
 }

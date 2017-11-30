@@ -53,11 +53,49 @@ class Order extends Admin_Controller {
         $this->load->helper("enum");
         $order->pay_method_enum =get_pay_method_enum($order->pay_method);
         $order->status_enum  =get_status_enum($order->status);
+        $product = $this->db->from("products")->where("id",$order->product_id)->get()->row();
 
-
-        $data['order'] =$order;
-        $data['order_infos'] =$this->db->where("merchant_uid",$merchant_uid)->from("p_order_infos")->get()->result();
         
+        $data['order'] =$order;
+        //동행자정보
+        $infos =$this->db->where("merchant_uid",$merchant_uid)->from("p_order_infos")->get()->result();
+        $data['order_infos'] = $infos;
+        //그룹
+        $groups =$this->db
+        ->where("merchant_uid",$merchant_uid)
+        ->where("option_kind","group_option")
+        ->from("p_order_options")->get()->result();
+
+        $data['order_groups'] = $groups;
+        //메인옵션
+        $options =$this->db
+        ->select("po.*")
+        ->where("merchant_uid",$merchant_uid)
+        ->where("option_kind","main_option")
+        ->from("p_order_options as oo")
+        ->join("product_option as po","po.id = oo.option_id")
+        ->get()->result();
+        $data['order_options'] = $options;
+        //홀추가옵션
+        $hole_option =$this->db
+        ->where("merchant_uid",$merchant_uid)
+        ->where("option_kind","hole_option")
+        ->from("p_order_options")->get()->row();
+        $hole_option=$this->db->from("product_option")
+        ->where("id",$hole_option->option_id)->get()->row();
+        
+        $hole_options =array();
+        for($i=0;$i<count($groups);$i++)
+        {
+            $row=$this->db
+            ->where("product_id",$order->product_id)
+            ->where("kind","hole_option")
+            ->where("name",$hole_option->name)
+            ->where("option_1",$groups[$i]->value)
+            ->from("product_option as o")
+            ->get()->row();
+             array_push($hole_options,$row);
+        }
 
         $this->_template("get",$data);
          

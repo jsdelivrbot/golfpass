@@ -29,7 +29,7 @@
         <a href="<?=site_url('')?>" class="header item"> golfpass</a>
           <?php for($i=0 ; $i < count($main_menus) ; $i++){?>
 
-            <a href="<?=$main_menus[$i]->uri?>" class="item <?=($menu_name === $main_menus[$i]->name) ?  'active' : ''?>"><?=$main_menus[$i]->name?></a>
+            <a href="<?=$main_menus[$i]->uri?>" target="<?=$main_menus[$i]->target?>" class="item <?=($menu_name === $main_menus[$i]->name) ?  'active' : ''?>"><?=$main_menus[$i]->name?></a>
 
             <?php }?>
 

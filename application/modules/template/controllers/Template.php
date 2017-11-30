@@ -60,7 +60,9 @@ class Template extends MX_Controller
             array('name'=>'상품','uri'=> site_url(admin_setting_product_uri."/get_product")),
             array('name'=>'주문','uri'=> site_url(admin_order_uri."/gets")),
             array('name'=>'SMS','uri'=> site_url(admin_setting_sms_uri."/get_sms")),
-            array('name'=>'뉴스레터','uri'=> site_url(admin_newsletter_uri."/gets"))
+            array('name'=>'뉴스레터','uri'=> site_url(admin_newsletter_uri."/gets")),
+            array('name'=>'iamport','uri'=> "https://admin.iamport.kr/payments",'target'=>"_blank"),
+            array('name'=>'tawk','uri'=> "https://dashboard.tawk.to/",'target'=>"_blank")
         ));
         $sub_menus = $this->_create_data_sub_menus(array(
             '홈' => array(
@@ -100,6 +102,7 @@ class Template extends MX_Controller
             '뉴스레터' => array(
                array('name'=>'구독자','uri'=> site_url(admin_newsletter_uri.'/gets'))
             )
+          
            
         ));
         //golf pass
@@ -129,7 +132,8 @@ class Template extends MX_Controller
         {
             $name =$val['name'];
             $uri = "{$val['uri']}?menu_name={$val['name']}";
-            $arr_tmp= (object)array('name'=> $name, 'uri'=>$uri);
+            $target = $val['target'] ?? '';
+            $arr_tmp= (object)array('name'=> $name, 'uri'=>$uri,'target'=>$target);
             array_push($out_data,$arr_tmp);
 
         }
