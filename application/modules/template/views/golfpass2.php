@@ -141,39 +141,39 @@
             <ul class="tp-list-unstyled">
                 <?php if(is_admin()){?>
                 <li>
-                    <a style="color:white;" href="<?=site_url(admin_home_uri.'')?>">관리자 페이지
+                    <a style="font-family: 'notokr-regular', sans-serif; font-size: 25px; font-weight: normal; color: #fff;" href="<?=site_url(admin_home_uri.'')?>">관리자 페이지
             </a>
                 </li>
                 <?php }?>
                 <li>
-                    <a style="color:white;" href="<?=site_url(shop_category_uri.'/gets_by_name/나라별')?>">지역별 골프장
+                    <a style="font-family: 'notokr-regular', sans-serif; font-size: 25px; font-weight: normal; color: #fff;" href="<?=site_url(shop_category_uri.'/gets_by_name/나라별')?>">지역별 골프장
             </a>
                 </li>
                 <li>
-                    <a style="color:white;" href="<?=site_url(golfpass_panel_uri.'/gets')?>">그늘집 by GOLFPASS
+                    <a style="font-family: 'notokr-regular', sans-serif; font-size: 25px; font-weight: normal; color: #fff;" href="<?=site_url(golfpass_panel_uri.'/gets')?>">그늘집 by GOLFPASS
             </a>
                 </li>
                 <li>
-                    <a style="color:white;" href="<?=site_url(content_uri.'/gets?board_id=4')?>">고객센터
+                    <a style="font-family: 'notokr-regular', sans-serif; font-size: 25px; font-weight: normal; color: #fff;" href="<?=site_url(content_uri.'/gets?board_id=4')?>">고객센터
             </a>
                 </li>
                 <?php if(!is_login()){?>
                 <li>
-                    <a style="color:white;"href="<?=site_url(user_uri."/login?return_url=".rawurlencode(my_current_url()))?>">로그인
+                    <a style="font-family: 'notokr-regular', sans-serif; font-size: 25px; font-weight: normal; color: #fff;"href="<?=site_url(user_uri."/login?return_url=".rawurlencode(my_current_url()))?>">로그인
             </a>
                 </li>
                 <li>
-                    <a style="color:white;" href="<?=site_url(user_uri.'/register_agree_1')?>">회원가입
+                    <a style="font-family: 'notokr-regular', sans-serif; font-size: 25px; font-weight: normal; color: #fff;" href="<?=site_url(user_uri.'/register_agree_1')?>">회원가입
             </a>
                 </li>
                 <?php }?>
                 <?php if(is_login()){?>
                 <li>
-                    <a style="color:white;" href="<?=site_url(shop_mypage_uri.'/gets_wishlist')?>">마이페이지
+                    <a style="font-family: 'notokr-regular', sans-serif; font-size: 25px; font-weight: normal; color: #fff;" href="<?=site_url(shop_mypage_uri.'/gets_wishlist')?>">마이페이지
             </a>
                 </li>
                 <li>
-                    <a style="color:white;" href="<?=site_url(user_uri.'/logout')?>">로그아웃
+                    <a style="font-family: 'notokr-regular', sans-serif; font-size: 25px; font-weight: normal; color: #fff;" href="<?=site_url(user_uri.'/logout')?>">로그아웃
             </a>
                 </li>
                 <?php }?>
