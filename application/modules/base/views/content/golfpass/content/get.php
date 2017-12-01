@@ -43,7 +43,33 @@
         color: #4d5256;
     }
 </style>
+<div id="tp-panel-wrap">
+	<article id="tp-panel-article" class="tp-container-fluid">
+					 <div class="tp-row tp-text-center">
+							 <div class="tp-col-12">
+								 
+									 <h1 id='tp-panel-title' class="tp-text-center">
+							
+							
+										 <span>골프패스</span> <?=$board->name?></h1>
 
+											
+<div class="ui centered grid container">
+<div class="row"  style="max-width:700px;">
+<div class="ui four item stackable tabs menu">
+    <a class="<?=$board->id==="4" ? "active" : ""?> item" href="<?=site_url(content_uri."/gets?board_id=4")?>">공지사항</a>
+    <a class="<?=$board->id==="3" ? "active" : ""?> item"  href="<?=site_url(content_uri."/gets?board_id=3")?>">FAQ</a>
+    <a class="<?=$board->id==="2" ? "active" : ""?> item"  href="<?=my_site_url(content_uri."/gets?board_id=2&is_user=true")?>">1:1문의</a>
+    <a class="item"  href="<?=my_site_url(shop_mypage_uri."/gets_wishlist")?>">마이페이지로</a>
+    </div>
+</div>
+</div>
+								 
+                             </div>
+                             
+                            </div>
+</article>
+</div>
     <!-- First Grid -->
     <div class="w3-row-padding w3-padding-64 w3-container">
        
