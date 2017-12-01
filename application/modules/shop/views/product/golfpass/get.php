@@ -299,16 +299,28 @@
                         <ul class="list-unstyled" style="margin-bottom:0;">
                             <li style="font-family: 'notokr-medium', sans-serif;">조 상황</li>
                             <li class='d-flex align-items-center'>
-                                <span class="mr-2 align-self-baseline"><i class='xi-users'></i></span>
-                                <p>A조</p>
-                                <p>2명</p>
-                                <span class="mr-2 align-self-baseline"><i class='xi-close' style="color:#ce0202;"></i></span>
+                                <div style="width:50%;">
+                                    <p><i class='xi-users' style="margin-right:8px;"></i>A조</p>
+                                </div>
+                                <div style="width:50%;">
+                                    <p style="text-align:right;">2명<a href="#"><i class='xi-close' style="color:#ce0202; margin-left:10px;"></i></a></p>
+                                </div>
                             </li>
                             <li class='d-flex align-items-center'>
-                                <span class="mr-2 align-self-baseline"><i class='xi-users'></i></span>
-                                <p>B조</p>
-                                <p>4명</p>
-                                <span class="mr-2 align-self-baseline"><i class='xi-close' style="color:#ce0202;"></i></span>
+                                <div style="width:50%;">
+                                    <p><i class='xi-users' style="margin-right:8px;"></i>B조</p>
+                                </div>
+                                <div style="width:50%;">
+                                    <p style="text-align:right;">2명<a href="#"><i class='xi-close' style="color:#ce0202; margin-left:10px;"></i></a></p>
+                                </div>
+                            </li>
+                            <li class='d-flex align-items-center'>
+                                <div style="width:50%;">
+                                    <p><i class='xi-users' style="margin-right:8px;"></i>C조</p>
+                                </div>
+                                <div style="width:50%;">
+                                    <p style="text-align:right;">2명<a href="#"><i class='xi-close' style="color:#ce0202; margin-left:10px;"></i></a></p>
+                                </div>
                             </li>
                         </ul>
                     </div>
