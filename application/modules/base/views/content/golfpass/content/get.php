@@ -1,4 +1,13 @@
 
+<?php if(is_semantic_dev) {?>
+    <link rel="stylesheet/less" type="text/css" href="/public/framework/semantic/src/semantic.less">
+<script src="/public/framework/semantic/src/less.min.js"></script>
+<?php }else{?>
+<link rel="stylesheet" type="text/css" href="/public/framework/semantic/out/semantic.css">
+<link rel="stylesheet" type="text/css" href="/public/framework/semantic/out/semantic.js">
+<?php }?>
+
+
  
 <div style="margin-top:50px;"></div>
 
@@ -26,16 +35,21 @@
     .fa-coffee {
         font-size: 200px
     }
-
+    .j-title
+    {
+        font-family:'notokr-medium', sans-serif;
+        font-size:32px;
+        font-weight:800;
+        color: #4d5256;
+    }
 </style>
 
     <!-- First Grid -->
     <div class="w3-row-padding w3-padding-64 w3-container">
-        <a href="<?=site_url(content_uri."/update/{$content->id}?board_id={$board->id}")?>">수정</a>
-        <a onclick="confirm_redirect('<?=site_url(content_uri."/delete/{$content->id}?board_id={$board->id}")?>','정말 삭제하시겠습니까? 복구 할 방법이 없습니다.')" href="#">삭제</a>
+       
         <div class="w3-content">
             <div class="w3-twothird">
-                <h1><?=$content->title?></h1>
+                <h1 class="j-title"><?=$content->title?></h1>
                 <p class="w3-text-grey"><?=$content->desc?></p>
             </div>
         </div>
@@ -43,7 +57,7 @@
 
 
 <?php if($board->id === "2"){?>
-
+    
 <div class="ui grid container">
     <div class="sixteen wide column">
 <!-- 코멘트시작 -->
@@ -54,7 +68,7 @@
 
     <div class="comment" style="margin-left:<?=50*(int)$replys[$i]->deep?>px;">
         <a class="avatar">
-        <img src="<?=$replys[$i]->profilePhoto?>">
+        <img src="/public/images/ico_my.png">
         </a>
         <div class="content">
         <a class="author"><?=$replys[$i]->user_name?></a>
@@ -109,11 +123,18 @@
     </div>
 <?php }?>
     
+    
+<div class="ui grid container">
 
 
-
-
-
+<div class="sixteen wide column">
+<a class="ui button basic"href="<?=site_url(content_uri."/gets?board_id={$content->board_id}&is_user=".$this->input->get("is_user")."&offset=".$this->input->get("offset"))?>">목록으로</a>
+<?php if($user->id === $content->user_id){?>
+<a class="ui button basic" href="<?=site_url(content_uri."/update/{$content->id}?board_id={$board->id}")?>">수정</a>
+        <a class="ui button basic" onclick="confirm_redirect('<?=site_url(content_uri."/delete/{$content->id}?board_id={$board->id}")?>','정말 삭제하시겠습니까? 복구 할 방법이 없습니다.')" href="#">삭제</a>
+<?php }?>
+   </div>
+    </div>
 
 
 

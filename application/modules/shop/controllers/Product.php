@@ -34,7 +34,7 @@ class Product extends Base_Controller {
                 return array_slice($products,$offset,$per_page);
             },
             null,
-            array("per_page"=>10,"is_numrow"=>false)
+            array("per_page"=>12,"is_numrow"=>false)
         );
        
         $data['num_products'] = $num_products;

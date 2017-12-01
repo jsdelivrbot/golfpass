@@ -20,8 +20,8 @@
 <div class="ui centered grid container">
 <div class="row"  style="max-width:700px;">
 <div class="ui four item stackable tabs menu">
-    <a class="<?=$board->id==="4" ? "active" : ""?> item" href="<?=my_site_url(content_uri."/gets?board_id=4")?>">공지사항</a>
-    <a class="<?=$board->id==="3" ? "active" : ""?> item"  href="<?=my_site_url(content_uri."/gets?board_id=3")?>">FAQ</a>
+    <a class="<?=$board->id==="4" ? "active" : ""?> item" href="<?=site_url(content_uri."/gets?board_id=4")?>">공지사항</a>
+    <a class="<?=$board->id==="3" ? "active" : ""?> item"  href="<?=site_url(content_uri."/gets?board_id=3")?>">FAQ</a>
     <a class="<?=$board->id==="2" ? "active" : ""?> item"  href="<?=my_site_url(content_uri."/gets?board_id=2&is_user=true")?>">1:1문의</a>
     <a class="item"  href="<?=my_site_url(shop_mypage_uri."/gets_wishlist")?>">마이페이지로</a>
     </div>
