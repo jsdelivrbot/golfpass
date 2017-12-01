@@ -557,6 +557,7 @@ class Init extends Init_Controller {
             `id` INT UNSIGNED NULL AUTO_INCREMENT, 
             `name` varchar(255) NOT NULL, 
             `desc` varchar(255) NOT NULL, 
+            `number` varchar(255),
             `room_count` varchar(255)NOT NULL, 
             `room_type` varchar(255)NOT NULL, 
             `bedroom` varchar(255)NOT NULL, 
