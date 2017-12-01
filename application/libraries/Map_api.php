@@ -43,7 +43,7 @@ class Map_api
             }
 
          
-            function addMarker(map,lat,lng,address=null,name=null,type=null)
+            function addMarker(map,lat,lng,address=null,name=null,type=null,latlngSw= true)
             {
                 var location=new google.maps.LatLng(lat,lng);
                 var marker = new google.maps.Marker({
@@ -69,7 +69,11 @@ class Map_api
                 {
                     content += `${address}<br>`;
                 }
-                content += 'Latitude: ' + location.lat() + '<br>Longitude: ' + location.lng();
+                if(latlngSw === true)
+                {
+                    content += 'Latitude: ' + location.lat() + '<br>Longitude: ' + location.lng();
+                }
+
                 var infowindow = new google.maps.InfoWindow({
                     content: content
                 });
@@ -119,11 +123,11 @@ class Map_api
         </script>
         <?php
     }
-    function add_marker($lat,$lng,$address =null,$name =null,$type =null )
+    function add_marker($lat=null,$lng=null,$address =null,$name =null,$type =null,$lnglatSw="true" )
     {
         ?>
         <script>
-        addMarker(map,<?=$lat?>,<?=$lng?>,'<?=$address?>','<?=$name?>','<?=$type?>');
+        addMarker(map,<?=$lat?>,<?=$lng?>,'<?=$address?>','<?=$name?>','<?=$type?>',<?=$lnglatSw?>);
         </script>
         <?php
     }

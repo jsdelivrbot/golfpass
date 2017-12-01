@@ -388,6 +388,11 @@
                                     <?=$product->open_day?>
                                 </p>
                             </li>
+                            <li class='d-flex flex-column'><span>전화번호</span>
+                                <p class='mt-2'>
+                                    <?=$product->number?>
+                                </p>
+                            </li>
                         </ul>
                     </div>
                 </section>
@@ -438,6 +443,11 @@
                             <li class='d-flex flex-column'><span>체크 인/체크 아웃</span>
                                 <p class='mt-2'>
                                     <?=$hotel->check_in_out?>
+                                </p>
+                            </li>
+                            <li class='d-flex flex-column'><span>전화번호</span>
+                                <p class='mt-2'>
+                                    <?=$hotel->number?>
                                 </p>
                             </li>
                         </ul>
@@ -543,7 +553,7 @@
 
             <?=$this->map_api->create_script()?>
                 <?php if($product->address !== ''){
-            $this->map_api->add_marker($product->lat,$product->lng,$product->address,$product->map_name,$product->map_type);
+            $this->map_api->add_marker($product->lat,$product->lng,$product->address,$product->map_name,$product->map_type,"false");
             $this->map_api->move_to_location($product->lat,$product->lng);
         } ?>
 
