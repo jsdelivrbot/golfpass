@@ -331,8 +331,8 @@
                         <p class="wishlist"><a onclick="ajax_a(this); return false;" data-action="<?=site_url(shop_wishlist_uri."/ajax_add/{$product->id}")?>"href="#">위시리스트에 추가하기</a></p>
                     </div>
                     <div id='book_ok' style="width:100%; height:70px; background:#fff; border: 1px solid #e5e5e5; border-top:0; padding:10px; cursor: pointer;" onclick="location.href='#';">
-                        <div id="book_ok_button" style="width:100%; height:100%; background:#79b754; border-radius:25px; padding:15px 0 15px 0;">
-                            <p style="font-family: 'notokr-reglur', sans-serif; font-size: 16px; color: #fff; text-align:center;">예약하기</p>
+                        <div id="book_ok_button" style="width:100%; height:100%; background:#79b754; border-radius:25px;">
+                            <p style="font-family: 'notokr-reglur', sans-serif; font-size: 16px; color: #fff; text-align:center; line-height: 49px;">예약하기</p>
                         </div>
                     </div>
                 </div>
