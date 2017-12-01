@@ -296,7 +296,7 @@
                         <span style="font-family: 'notokr-reglur', sans-serif; font-size: 16px; color: #808080; line-height: 34px;">
                             조 편성
                         </span>
-                        <div style="display:inline-block; margin-right:5px; float:right">
+                        <div style="display:inline-block; margin-right:0px; float:right">
                             <input style="display:inline-block" id="j-group-value" class="form-control" type="number" value="1" min="1" max="10" />
                         </div>
                         
@@ -1137,10 +1137,10 @@ $("[name='checkbox2']").change(function() {
 	}
 });
 
-$('#j-group-value').bootstrapNumber();
-$('#colorful').bootstrapNumber({
-	upClass: 'success',
-	downClass: 'danger'
+// $('#j-group-value').bootstrapNumber();
+$('#j-group-value').bootstrapNumber({
+	upClass: 'up',
+	downClass: 'down'
 });
 </script>
 
@@ -1164,6 +1164,31 @@ $('#colorful').bootstrapNumber({
     }
 </script>
 <style>
+    .btn-up
+    {
+        font-size:20px;
+        /* padding-bottom:10px; */
+        background-color:white;
+        font-family: 'notokr-medium', sans-serif;
+        line-height:0px;
+        border-radius: 0px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    }
+   
+    .btn-down
+    {
+        font-size:27px;
+        padding-bottom:10px;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+
+        background-color:white;
+        font-family: 'notokr-medium', sans-serif;
+        line-height:0px;
+    }
     .input-group
     {
         width:145px;
@@ -1172,16 +1197,25 @@ $('#colorful').bootstrapNumber({
     }
     #j-group-add-btn
     {
-        height:30px;
+        background-color: #71b051;
+        color:white;
+        border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+
+        font-family: 'notokr-medium', sans-serif;
+        line-height:0px;
+    }
+    #j-group-value
+    {
+        
+        border: 0px solid;
+        /* border-left: 1px solid; */
+        /* border-right: 1px solid; */
+        font-family: 'notokr-medium', sans-serif;
     }
     .btn-default
     {
-        line-height:0px;
-        border-radius: 0px;
-    border-top-left-radius: 0px;
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px;
-    border-bottom-left-radius: 0px;
+      
     }
   
 </style>
