@@ -293,7 +293,7 @@
                         </form>
                     </div>
                     <div id='add_people' style="width:100%; height:60px; background:#e6e6e6; padding:15px;">
-                        <span style="font-family: 'notokr-reglur', sans-serif; font-size: 16px; color: #808080;">조 편성</span>
+                        <span style="font-family: 'notokr-reglur', sans-serif; font-size: 16px; color: #808080; line-height: 34px;">조 편성</span>
                     </div>
                     <div id="info" class="pt-20">
                         <ul class="list-unstyled" style="margin-bottom:0;">
