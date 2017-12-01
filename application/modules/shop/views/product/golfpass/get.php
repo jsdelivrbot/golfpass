@@ -293,35 +293,23 @@
                         </form>
                     </div>
                     <div id='add_people' style="width:100%; height:60px; background:#e6e6e6; padding:15px;">
-                        <span style="font-family: 'notokr-reglur', sans-serif; font-size: 16px; color: #808080; line-height: 34px;">조 편성</span>
+                        <span style="font-family: 'notokr-reglur', sans-serif; font-size: 16px; color: #808080; line-height: 34px;">
+                            조 편성
+                        </span>
+                        <div style="display:inline-block; margin-right:5px; float:right">
+                            <input style="display:inline-block" id="j-group-value" class="form-control" type="number" value="1" min="1" max="10" />
+                        </div>
+                        
                     </div>
                     <div id="info" class="pt-20">
                         <ul class="list-unstyled" style="margin-bottom:0;">
                             <li style="font-family: 'notokr-medium', sans-serif;">조 상황</li>
-                            <li class='d-flex align-items-center'>
-                                <div style="width:50%;">
-                                    <p><i class='xi-users' style="margin-right:8px;"></i>A조</p>
-                                </div>
-                                <div style="width:50%;">
-                                    <p style="text-align:right;">2명<a href="#"><i class='xi-close' style="color:#ce0202; margin-left:10px;"></i></a></p>
-                                </div>
-                            </li>
-                            <li class='d-flex align-items-center'>
-                                <div style="width:50%;">
-                                    <p><i class='xi-users' style="margin-right:8px;"></i>B조</p>
-                                </div>
-                                <div style="width:50%;">
-                                    <p style="text-align:right;">2명<a href="#"><i class='xi-close' style="color:#ce0202; margin-left:10px;"></i></a></p>
-                                </div>
-                            </li>
-                            <li class='d-flex align-items-center'>
-                                <div style="width:50%;">
-                                    <p><i class='xi-users' style="margin-right:8px;"></i>C조</p>
-                                </div>
-                                <div style="width:50%;">
-                                    <p style="text-align:right;">2명<a href="#"><i class='xi-close' style="color:#ce0202; margin-left:10px;"></i></a></p>
-                                </div>
-                            </li>
+                            <!-- 조리스트 시작 -->
+                            <form action="<?=site_url(shop_order_uri."/golfpass")?>" method="get" id="golfpass_order_form">
+                           
+          
+                            </form>
+                            <!-- 조리스트 끝 -->
                         </ul>
                     </div>
                     <div id="info" class="pt-20">
@@ -1079,7 +1067,7 @@ $("#mk-fullscreen-search-input").keypress(function (e) {
 <div id="jy-groups-selection-modal" style="display:none">
     <a id="jy-add-group-selection-button"href="#">조별추가</a>
     <div id="jy-groups-selection-wrapper">
-        <form action="<?=site_url(shop_order_uri."/golfpass")?>" method="get" id="golfpass_order_form">
+        <form action="<?=site_url(shop_order_uri."/golfpass")?>" method="get" id="tmp_golfpass_order_form">
             <select name="groups[]" class="">
                 <option value="1">1인조</option>
                 <option value="2">2인조</option>
@@ -1122,80 +1110,80 @@ $("#mk-fullscreen-search-input").keypress(function (e) {
     });
 </script>
 <!-- 조별선택 모달끝 -->
+				
+                       
+				
+<!-- 조별추가하기 시작 -->
 
+<li class='d-flex align-items-center j-group-item' id="j-group-item" style="display:none">
+        <div style="width:50%;">
+            <p><i class='xi-users' style="margin-right:8px;"></i>A조</p>
+        </div>
+        <div style="width:50%;">
+            <input type="hidden" name="" id="">  
+            <p style="text-align:right;" ><span class="j-group-item-value"></span><a onclick="deleteGroupItem(this);return false;" href="#"><i class='xi-close' style="color:#ce0202; margin-left:10px;"></i></a></p>
+        </div>
+</li>
+
+
+<!-- <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js" ></script> -->
+<!-- <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script> -->
+<script src="<?=domain_url("/public/lib/bootstrap-number-input.js")?>"></script>
+<script>
+// Remember set you events before call bootstrapSwitch or they will fire after bootstrapSwitch's events
+$("[name='checkbox2']").change(function() {
+	if(!confirm('Do you wanna cancel me!')) {
+		this.checked = true;
+	}
+});
+
+$('#j-group-value').bootstrapNumber();
+$('#colorful').bootstrapNumber({
+	upClass: 'success',
+	downClass: 'danger'
+});
+</script>
 
 <script>
-//plugin bootstrap minus and plus
-//http://jsfiddle.net/laelitenetwork/puJ6G/
-$('.btn-number').click(function(e){
-    e.preventDefault();
-    
-    fieldName = $(this).attr('data-field');
-    type      = $(this).attr('data-type');
-    var input = $("input[name='"+fieldName+"']");
-    var currentVal = parseInt(input.val());
-    if (!isNaN(currentVal)) {
-        if(type == 'minus') {
-            
-            if(currentVal > input.attr('min')) {
-                input.val(currentVal - 1).change();
-            } 
-            if(parseInt(input.val()) == input.attr('min')) {
-                $(this).attr('disabled', true);
-            }
+    $("#j-group-add-btn").click(function(){
+        $val =$("#j-group-value");
+        var val =$val.val();
+        $form = $("#golfpass_order_form");
+        $item = $("#j-group-item")
+        $item = $item.clone();
+        $item.attr("id","");
+        $item.css("display","block");
+        $item.find(".j-group-item-value").text(val+"명");
 
-        } else if(type == 'plus') {
 
-            if(currentVal < input.attr('max')) {
-                input.val(currentVal + 1).change();
-            }
-            if(parseInt(input.val()) == input.attr('max')) {
-                $(this).attr('disabled', true);
-            }
-
-        }
-    } else {
-        input.val(0);
-    }
-});
-$('.input-number').focusin(function(){
-   $(this).data('oldValue', $(this).val());
-});
-$('.input-number').change(function() {
-    
-    minValue =  parseInt($(this).attr('min'));
-    maxValue =  parseInt($(this).attr('max'));
-    valueCurrent = parseInt($(this).val());
-    
-    name = $(this).attr('name');
-    if(valueCurrent >= minValue) {
-        $(".btn-number[data-type='minus'][data-field='"+name+"']").removeAttr('disabled')
-    } else {
-        alert('Sorry, the minimum value was reached');
-        $(this).val($(this).data('oldValue'));
-    }
-    if(valueCurrent <= maxValue) {
-        $(".btn-number[data-type='plus'][data-field='"+name+"']").removeAttr('disabled')
-    } else {
-        alert('Sorry, the maximum value was reached');
-        $(this).val($(this).data('oldValue'));
-    }
-    
-    
-});
-$(".input-number").keydown(function (e) {
-        // Allow: backspace, delete, tab, escape, enter and .
-        if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 190]) !== -1 ||
-             // Allow: Ctrl+A
-            (e.keyCode == 65 && e.ctrlKey === true) || 
-             // Allow: home, end, left, right
-            (e.keyCode >= 35 && e.keyCode <= 39)) {
-                 // let it happen, don't do anything
-                 return;
-        }
-        // Ensure that it is a number and stop the keypress
-        if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
-            e.preventDefault();
-        }
+        $form.append($item);
     });
+    function deleteGroupItem(e)
+    {
+        $($(e).parents(".j-group-item")[0]).remove();
+    }
 </script>
+<style>
+    .input-group
+    {
+        width:145px;
+        height:30px;
+        /* display:inline-block; */
+    }
+    #j-group-add-btn
+    {
+        height:30px;
+    }
+    .btn-default
+    {
+        line-height:0px;
+        border-radius: 0px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    }
+  
+</style>
+
+<!-- 조별추가하기 끝 -->

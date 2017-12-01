@@ -12,12 +12,31 @@
 </head>
 <body>
 
-<input id="j-group-value" class="form-control" type="number" value="1" min="1" max="10" />
-
-</style>
+<div class="container">
+	<div class="row">
+		<div class="col-md-3">
+			<form>
+				<fieldset>
+					<div class="form-group">
+						<label class="control-label">Before:</label>
+						<input class="form-control" type="number" value="1" min="1" max="10" />
+					</div>
+					<div class="form-group">
+						<label class="control-label">After:</label>
+						<input id="after" class="form-control" type="number" value="1" min="1" max="10" />
+					</div>
+					<div class="form-group">
+						<label class="control-label">Colorful:</label>
+						<input id="colorful" class="form-control" type="number" value="1" min="1" max="10" />
+					</div>
+				</fieldset>
+			</form>
+		</div>
+	</div>
+</div>
 <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js" ></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
-<script src="<?=domain_url("/public/lib/bootstrap-number-input.js")?>"></script>
+<script src="bootstrap-number-input.js" ></script>
 <script>
 // Remember set you events before call bootstrapSwitch or they will fire after bootstrapSwitch's events
 $("[name='checkbox2']").change(function() {
@@ -26,37 +45,14 @@ $("[name='checkbox2']").change(function() {
 	}
 });
 
-$('#j-group-value').bootstrapNumber();
+$('#after').bootstrapNumber();
 $('#colorful').bootstrapNumber({
 	upClass: 'success',
 	downClass: 'danger'
 });
 </script>
 
-<script>
-    $("#j-group-add-btn").click(function(){
-        $val =$("#j-group-value");
-        console.log($val.val());
-    });
-
-</script>
-<style>
-    .input-group
-    {
-        width:50%;
-        /* display:inline-block; */
-    }
-    .btn-default
-    {
-        border-radius: 0px;
-    border-top-left-radius: 0px;
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px;
-    border-bottom-left-radius: 0px;
-    }
-  
-</style>
-
 
 </body>
 </html>
+
