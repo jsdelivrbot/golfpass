@@ -1115,7 +1115,7 @@ $("#mk-fullscreen-search-input").keypress(function (e) {
 				
 <!-- 조별추가하기 시작 -->
 
-<li class='d-flex align-items-center j-group-item' id="j-group-item" style="display:none">
+<li class='d-flex align-items-center j-group-item' id="j-group-item" style="display:none !important">
         <div style="width:50%;">
             <p><i class='xi-users' style="margin-right:8px;"></i>A조</p>
         </div>
