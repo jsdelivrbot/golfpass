@@ -3274,6 +3274,10 @@ body.menu-open .plus-btn .r2 {
         color: #4c4c4c;
         margin-bottom: 0; }
 
+#book-box-wrap #book-box #info li:last-child {
+    margin-bottom: 0;
+}
+
 .wishlist {
   font-family: 'notokr-regular', sans-serif;
   font-size: 14px;

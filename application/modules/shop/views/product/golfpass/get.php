@@ -292,7 +292,25 @@
                             </div>
                         </form>
                     </div>
-                    <div id='add_people' style="width:100%; height:60px; background:#e6e6e6;">
+                    <div id='add_people' style="width:100%; height:60px; background:#e6e6e6; padding:15px;">
+                        <span style="font-family: 'notokr-reglur', sans-serif; font-size: 16px; color: #808080;">조 편성</span>
+                    </div>
+                    <div id="info" class="pt-20">
+                        <ul class="list-unstyled" style="margin-bottom:0;">
+                            <li style="font-family: 'notokr-medium', sans-serif;">조 상황</li>
+                            <li class='d-flex align-items-center'>
+                                <span class="mr-2 align-self-baseline"><i class='xi-users'></i></span>
+                                <p>A조</p>
+                                <p>2명</p>
+                                <span class="mr-2 align-self-baseline"><i class='xi-close' style="color:#ce0202;"></i></span>
+                            </li>
+                            <li class='d-flex align-items-center'>
+                                <span class="mr-2 align-self-baseline"><i class='xi-users'></i></span>
+                                <p>B조</p>
+                                <p>4명</p>
+                                <span class="mr-2 align-self-baseline"><i class='xi-close' style="color:#ce0202;"></i></span>
+                            </li>
+                        </ul>
                     </div>
                     <div id="info" class="pt-20">
                         <ul class="list-unstyled">
@@ -312,8 +330,8 @@
                         </ul>
                         <p class="wishlist"><a onclick="ajax_a(this); return false;" data-action="<?=site_url(shop_wishlist_uri."/ajax_add/{$product->id}")?>"href="#">위시리스트에 추가하기</a></p>
                     </div>
-                    <div id='book_ok' style="width:100%; height:60px; background:#fff; border: 1px solid #e5e5e5; border-top:0; padding:10px;">
-                        <div id="book_ok_button" style="width:100%; height:100%; background:#79b754; border-radius:20px; padding:10px 0 10px 0;">
+                    <div id='book_ok' style="width:100%; height:70px; background:#fff; border: 1px solid #e5e5e5; border-top:0; padding:10px; cursor: pointer;" onclick="location.href='#';">
+                        <div id="book_ok_button" style="width:100%; height:100%; background:#79b754; border-radius:25px; padding:15px 0 15px 0;">
                             <p style="font-family: 'notokr-reglur', sans-serif; font-size: 16px; color: #fff; text-align:center;">예약하기</p>
                         </div>
                     </div>
