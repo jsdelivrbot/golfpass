@@ -129,6 +129,11 @@ class Hotel extends Admin_Controller {
         $data['options'] = $this->db->query("SELECT * FROM hotel_option WHERE hotel_id = $id AND kind = 'option'")->result();
         $data['products'] =$this->db->get("products")->result();
 
+        $setting =$this->db->from("setting")->where("id","1")->get()->row();
+        $h_options = $setting->h_options;
+        $h_options =explode(",",$h_options); 
+        $data['h_options'] = $h_options;
+
 
         $this->db->select("*, p.id 'p_id' , r.id 'id'");
         $this->db->from("p_ref_hotel as r");

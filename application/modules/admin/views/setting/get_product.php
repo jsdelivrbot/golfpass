@@ -118,3 +118,28 @@
 
 
 </div>
+
+<div class="sixteen wide column" style="margin-top:50px;">
+<h1 class="ui horizontal divider header">
+    <i class="plus icon"></i>
+    옵션 관리
+    </h1>
+
+    <form class="ui form"onsubmit="ajax_submit(this);return false;"action="<?=my_site_url(admin_setting_product_uri."/ajax_update")?>" method="post">
+        <div class="field">
+            <label>상품 옵션들</label>
+            <textarea cols="30" rows="10"  type="text" name="p_options" placeholder="와이파이,라디오,TV"><?=set_value_data($row,'p_options')?></textarea>
+        </div>
+        <div class="field">
+            <label>호텔 옵션들</label>
+            <textarea cols="30" rows="10"  type="text" name="h_options" placeholder="와이파이,라디오,TV"><?=set_value_data($row,'h_options')?></textarea>
+        </div>
+
+        <input class="ui button positive" type="submit" value="추가">
+    </form>
+
+ 
+
+
+
+</div>

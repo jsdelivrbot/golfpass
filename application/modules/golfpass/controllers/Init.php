@@ -479,6 +479,7 @@ class Init extends Init_Controller {
             `eng_name` varchar(255) DEFAULT 'sample product', 
             `desc` TEXT,
             `region` varchar(255)DEFAULT '샘플지역',
+            `number` varchar(255),
             `hole_count` varchar(255)NOT NULL, 
             `course_type` varchar(255) NOT NULL, 
             `pa` varchar(255) NOT NULL, 

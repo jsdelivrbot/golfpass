@@ -315,8 +315,11 @@ class Product extends Admin_Controller {
             $data['descs'] = $this->db->query("SELECT * FROM product_option WHERE product_id = $id AND kind = 'desc' ORDER BY sort ASC")->result();
             $data['photos'] = $this->db->query("SELECT * FROM product_option WHERE product_id = $id AND kind = 'photo' ORDER BY sort ASC")->result();
             $data['mode'] = "update/$id";
-
             
+            $setting =$this->db->from("setting")->where("id","1")->get()->row();
+            $p_options = $setting->p_options;
+            $p_options =explode(",",$p_options); 
+            $data['p_options'] = $p_options;
             $this->load->library("map_api");
             $this->map_api->api_key = $this->setting->google_map_api_key;
 

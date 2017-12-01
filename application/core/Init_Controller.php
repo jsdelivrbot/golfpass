@@ -90,6 +90,8 @@ class Init_Controller extends MX_Controller{
              `bank_name` varchar(255),
              `site_title` varchar(255),
              `site_brand` varchar(255),
+             `h_options` text,
+             `p_options` text,
              `site_representative` varchar(255),
              `site_phone` varchar(255),
 

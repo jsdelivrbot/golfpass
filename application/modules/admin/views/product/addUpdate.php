@@ -172,6 +172,10 @@ $('#navi_btn').click(function(){
             <label>싱글룸가격</label>
             <input type="text" name="singleroom_price" value="<?=set_value_data($product,'singleroom_price')?>"> <?=form_error('singleroom_price',false,false)?><br>
         </div>
+        <div class="field">
+            <label>전화번호</label>
+            <input type="text" name="number" value="<?=set_value_data($product,'number')?>"> <?=form_error('number',false,false)?><br>
+        </div>
         <!-- <div class="field">
             <label>가격</label>
             가격<input type="text" name="price" value="<?=set_value_data($product,'price')?>"> <?=form_error('price',false,false)?><br>
@@ -456,14 +460,11 @@ $('#navi_btn').click(function(){
         </div>
     <form class="ui form"   onsubmit="ajax_submit(this); return false;"  action="<?=my_site_url(admin_product_uri."/ajax_options_reset")?>" method ="post">
         <?php 
-        $v_options=array("한국스태프","와이파이(로비)","와이파이(룸)","공항 셔틀 버스","수영장","피트니스 센터","사우나",
-        "마사지 샵","커피숍","레스토랑","바","룸 서비스","+24시간 룸 서비스","24시간 체크인"
-        ,"레이트 체크 아웃","금고","헤어 드라이기","비데","생수","노래방","편의점","편의점","택시대기","환전","냉난방",
-        "흡연가능");
-        for($i=0 ; $i < count($v_options); $i++){?>
+   
+        for($i=0 ; $i < count($p_options); $i++){?>
         <div class="ui checkbox">
-          <input type="checkbox" tabindex="0" class="hidden" name="option[]" value="<?=$v_options[$i]?>" <?=my_set_checked_arr($options,'name',$v_options[$i])?>>
-          <label><?=$v_options[$i]?></label>
+          <input type="checkbox" tabindex="0" class="hidden" name="option[]" value="<?=$p_options[$i]?>" <?=my_set_checked_arr($options,'name',$p_options[$i])?>>
+          <label><?=$p_options[$i]?></label>
         </div>
         <?php }?>
     

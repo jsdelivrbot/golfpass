@@ -18,6 +18,7 @@
 평일 가격<input type="text" name="weekday_price" value="<?=set_value_data($row,'weekday_price')?>"> <?=form_error('weekday_price',false,false)?><br>
 주말 가격<input type="text" name="weekend_price" value="<?=set_value_data($row,'weekend_price')?>"> <?=form_error('weekend_price',false,false)?><br>
 공휴일 가격<input type="text" name="holiday_price" value="<?=set_value_data($row,'holiday_price')?>"> <?=form_error('holiday_price',false,false)?><br>
+전화번호<input type="text" name="number" value="<?=set_value_data($row,'number')?>"> <?=form_error('number',false,false)?><br>
 <input type="submit" value="보내기">
 </form>
 <br>
@@ -28,14 +29,11 @@
 <!-- 호텔옵션 시작 -->
 <form   action="<?=my_site_url(admin_hotel_uri."/options_reset")?>" method ="post">
 <?php 
-        $v_options=array("한국스태프","와이파이(로비)","와이파이(룸)","공항 셔틀 버스","수영장","피트니스 센터","사우나",
-        "마사지 샵","커피숍","레스토랑","바","룸 서비스","+24시간 룸 서비스","24시간 체크인"
-        ,"레이트 체크 아웃","금고","헤어 드라이기","비데","생수","노래방","편의점","편의점","택시대기","환전","냉난방",
-        "흡연가능");
-        for($i=0 ; $i < count($v_options); $i++){?>
+       
+        for($i=0 ; $i < count($h_options); $i++){?>
         <div class="ui checkbox">
-          <input type="checkbox" tabindex="0" class="hidden" name="option[]" value="<?=$v_options[$i]?>" <?=my_set_checked_arr($options,'name',$v_options[$i])?>>
-          <label><?=$v_options[$i]?></label>
+          <input type="checkbox" tabindex="0" class="hidden" name="option[]" value="<?=$h_options[$i]?>" <?=my_set_checked_arr($options,'name',$h_options[$i])?>>
+          <label><?=$h_options[$i]?></label>
         </div>
         <?php }?>
 
