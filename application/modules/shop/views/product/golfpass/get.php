@@ -318,7 +318,7 @@
                       <option value="4">4박 5일</option>
                       <option value="5">5박 6일</option>
                     </select> -->
-                            <span>·</span>
+                            <span>~</span>
                             <!-- <input type="text" id="e-day" placeholder="출발 일정"> -->
 
                             <div class="form-group d-flex align-items-center mb-0">
@@ -705,6 +705,9 @@
                 </li>
                 <li><span>등록 판매업 신고 번호</span>
                     <p>2017-서울강서-1545호</p>
+                </li>
+                <li><span>주소</span>
+                    <p>서울특별시 강서구 공항대로 227, 마곡 센트럴 타워 1차 1112호~1113호</p>
                 </li>
             </ul>
             <ul>
