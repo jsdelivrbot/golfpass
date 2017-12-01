@@ -272,86 +272,50 @@
             <div id="book-box-wrap" class="order-1 order-lg-3 col-12 col-lg-3">
                 <div id='book-box'>
                     <div id="personnel">
-                        <a id="golfpass_order" href="#"><span class="box-title" style="font-size:18px;"> 예약하기</span></a>
-                      
-                        <!--
-                            <div id='count-box' class='d-flex align-items-stretch justify-content-end'>
-                                <span id='count'>1명 </span>
-                                <div id="icon-box" class="mr-3">
-                                    <span><i class="xi-angle-up-min"></i></span><span><i class="xi-angle-down-min"></i></span>
-                                </div>
-                                <span class="d-flex align-items-end">
-                                  <i id='clock-icon' class="xi-time-o">
-                                  </i>
-                              </span>
-                            </div>
-                          -->
-                       
+                        <span class="box-title" style="font-size:16px;">주문 정보</span>
                         <div id='count-box' class='d-flex align-items-stretch justify-content-end'>
-                        <a id="jy-groups-selection-modal-button">조별선택</a> 
-                            <form class="" action="index.html" method="post">
-                                <select name="num_people" class="custom-select" id="">
-                    <option>인원 선택</option>
-                        <?php for($i =  $product->min_people; $i<=$product->max_people; $i++){?>
-                      <option value="<?=$i?>"><?=$i?>명</option>
-                        <?php }?>
-                    </select>
-                            </form>
+                            <p style="font-family: 'notokr-medium', sans-serif; font-size: 24px; color: #fff; margin: 0; padding: 0;">총 6명</p>
+                            <div style="width:1px; height:12px; background: #fff; margin:10px 15px 10px 15px;"></div>
+                            <p style="font-family: 'notokr-medium', sans-serif; font-size: 24px; color: #fff; margin: 0; padding: 0;">770,300원</p>
                         </div>
                     </div>
                     <div id='dateBox'>
                         <form action="#" class="d-flex align-items-center justify-content-between">
                             <div class="form-group d-flex align-items-center mb-0">
-                                <input type="text" id="s-day" placeholder="출발 일정" value="<?=$current_date?>">
+                                <input type="text" id="s-day" placeholder="시작 일정" value="<?=$current_date?>">
                                 <i class="xi-calendar-check"></i>
                             </div>
-                            <!-- <select class="" id="s-day" placeholder="출발 일정">
-    									<option value="" disabled selected>선택주세요</option>
-    									<option value="">옵션1</option>
-    									<option value="">옵션2</option>
-    								</select> -->
-                            <!-- <select class="custom-select" id="s-day">
-                      <option selected disabled>여행 일정</option>
-                      <option value="1">1박 2일</option>
-                      <option value="2">2박 3일</option>
-                      <option value="3">3박 4일</option>
-                      <option value="4">4박 5일</option>
-                      <option value="5">5박 6일</option>
-                    </select> -->
                             <span>~</span>
-                            <!-- <input type="text" id="e-day" placeholder="출발 일정"> -->
-
                             <div class="form-group d-flex align-items-center mb-0">
-                                <input type="text" id="e-day" placeholder="도착 일정" value="<?=$current_date_plus?>">
+                                <input type="text" id="e-day" placeholder="종료 일정" value="<?=$current_date_plus?>">
                                 <i class="xi-calendar-check"></i>
                             </div>
                         </form>
-
-
-                        <!-- <form action="<?=site_url(golfpass_p_daily_price_uri."/ajax_cal")?>" method="post">
-
-                    <input type="text" value="1" name="product_id">
-                    <input type="text" value="1" name="num_people">
-                    <input type="submit">
-                </form> -->
+                    </div>
+                    <div id='add_people' style="width:100%; height:60px; background:#e6e6e6;">
                     </div>
                     <div id="info" class="pt-20">
                         <ul class="list-unstyled">
-                            <?php for($i=0;$i<count($product_sub_desc);$i++){?>
-                            <li class='d-flex align-items-center'><span class="mr-2 align-self-baseline"><i class='xi-radiobox-checked'></i></span>
-                                <p>
-                                    <?=$product_sub_desc[$i]->name?>
-                                </p>
+                            <li style="font-family: 'notokr-medium', sans-serif;">비고</li>
+                            <li class='d-flex align-items-center'>
+                                <span class="mr-2 align-self-baseline"><i class='xi-radiobox-checked'></i></span>
+                                <p>스마트스코어 탑재 카트 보유</p>
                             </li>
-                            <?php }?>
+                            <li class='d-flex align-items-center'>
+                                <span class="mr-2 align-self-baseline"><i class='xi-radiobox-checked'></i></span>
+                                <p>미슐랭 2스타 레스토랑 보유</p>
+                            </li>
+                            <li class='d-flex align-items-center'>
+                                <span class="mr-2 align-self-baseline"><i class='xi-radiobox-checked'></i></span>
+                                <p>사계절 내내 골프가 가능한 지역</p>
+                            </li>
                         </ul>
-                        <div id='price' class="mt-20 mb-20">
-                            <h3 class='mb-3'>가격</h3>
-                            <p id="total_price">
-                                <?=$price?>
-                            </p>
-                        </div>
                         <p class="wishlist"><a onclick="ajax_a(this); return false;" data-action="<?=site_url(shop_wishlist_uri."/ajax_add/{$product->id}")?>"href="#">위시리스트에 추가하기</a></p>
+                    </div>
+                    <div id='book_ok' style="width:100%; height:60px; background:#fff; border: 1px solid #e5e5e5; border-top:0; padding:10px;">
+                        <div id="book_ok_button" style="width:100%; height:100%; background:#79b754; border-radius:20px; padding:10px 0 10px 0;">
+                            <p style="font-family: 'notokr-reglur', sans-serif; font-size: 16px; color: #fff; text-align:center;">예약하기</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1118,3 +1082,80 @@ $("#mk-fullscreen-search-input").keypress(function (e) {
     });
 </script>
 <!-- 조별선택 모달끝 -->
+
+
+<script>
+//plugin bootstrap minus and plus
+//http://jsfiddle.net/laelitenetwork/puJ6G/
+$('.btn-number').click(function(e){
+    e.preventDefault();
+    
+    fieldName = $(this).attr('data-field');
+    type      = $(this).attr('data-type');
+    var input = $("input[name='"+fieldName+"']");
+    var currentVal = parseInt(input.val());
+    if (!isNaN(currentVal)) {
+        if(type == 'minus') {
+            
+            if(currentVal > input.attr('min')) {
+                input.val(currentVal - 1).change();
+            } 
+            if(parseInt(input.val()) == input.attr('min')) {
+                $(this).attr('disabled', true);
+            }
+
+        } else if(type == 'plus') {
+
+            if(currentVal < input.attr('max')) {
+                input.val(currentVal + 1).change();
+            }
+            if(parseInt(input.val()) == input.attr('max')) {
+                $(this).attr('disabled', true);
+            }
+
+        }
+    } else {
+        input.val(0);
+    }
+});
+$('.input-number').focusin(function(){
+   $(this).data('oldValue', $(this).val());
+});
+$('.input-number').change(function() {
+    
+    minValue =  parseInt($(this).attr('min'));
+    maxValue =  parseInt($(this).attr('max'));
+    valueCurrent = parseInt($(this).val());
+    
+    name = $(this).attr('name');
+    if(valueCurrent >= minValue) {
+        $(".btn-number[data-type='minus'][data-field='"+name+"']").removeAttr('disabled')
+    } else {
+        alert('Sorry, the minimum value was reached');
+        $(this).val($(this).data('oldValue'));
+    }
+    if(valueCurrent <= maxValue) {
+        $(".btn-number[data-type='plus'][data-field='"+name+"']").removeAttr('disabled')
+    } else {
+        alert('Sorry, the maximum value was reached');
+        $(this).val($(this).data('oldValue'));
+    }
+    
+    
+});
+$(".input-number").keydown(function (e) {
+        // Allow: backspace, delete, tab, escape, enter and .
+        if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 190]) !== -1 ||
+             // Allow: Ctrl+A
+            (e.keyCode == 65 && e.ctrlKey === true) || 
+             // Allow: home, end, left, right
+            (e.keyCode >= 35 && e.keyCode <= 39)) {
+                 // let it happen, don't do anything
+                 return;
+        }
+        // Ensure that it is a number and stop the keypress
+        if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+            e.preventDefault();
+        }
+    });
+</script>
