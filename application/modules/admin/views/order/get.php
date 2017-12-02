@@ -15,6 +15,7 @@
         <a href="<?=my_site_url(admin_product_uri."/update/{$product->id}?menu_name=상품&sub_name=상품관리")?>"> 
             <?=$order->order_name?>
         </a>
+        (<?=$order->status_enum?>,<?=$order->pay_method_enum?>)
     </h1>
     <h1 style="margin-bottom:0px; margin-top:10px;">총결제금액 : <?=number_format($order->total_price)?>원(총 <?=$order->num_people?>명) 
         
