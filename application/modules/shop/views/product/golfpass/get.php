@@ -308,7 +308,7 @@
                             <form action="<?=site_url(shop_order_uri."/golfpass")?>" method="get" id="golfpass_order_form">
                            
           
-                            <input type="hidden" name="num_people">
+                            <input type="hidden" name="num_people" value="0">
                             <input type="hidden" name="start_date">
                             <input type="hidden" name="end_date">
                             <input type="hidden" name="total_price">

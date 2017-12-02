@@ -208,7 +208,7 @@ class P_daily_price extends Base_Controller
         // return $tmp_total_num_people;
         if((string)$tmp_total_num_people !== (string)$num_people)
         {
-            return "group와 num_people이 일치하지 않습니다.";
+            return "조를 편성해주세요.";
         }
         for($i =0 ; $i < $period ; $i++)
         {

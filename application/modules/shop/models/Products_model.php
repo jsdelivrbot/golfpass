@@ -127,10 +127,10 @@ class Products_Model extends Board_Model{
         $sub_query3 = "SELECT p_ref_h.hotel_id FROM `p_ref_hotel` as p_ref_h WHERE p_ref_h.product_id = p.id LIMIT 0,1";
         //오늘날자 1박2일 1인가격
         $date = date("Y-m-d");
-        $sub_query4 = "SELECT price FROM p_daily_price as sub_dp WHERE sub_dp.product_id = r.product_id AND sub_dp.date = '{$date}' AND sub_dp.num_people = '1' AND sub_dp.period = '2' LIMIT 0, 1";
+        $sub_query4 = "SELECT price FROM p_daily_price as sub_dp WHERE sub_dp.product_id = r.product_id AND sub_dp.date = '{$date}' AND sub_dp.num_people = '1' AND sub_dp.period = '1' LIMIT 0, 1";
         //1차 카테고리
         $sub_query5 = "SELECT name FROM product_categories as sub_c WHERE c.parent_id = sub_c.id LIMIT 0, 1";
-        $this->db->select("p.*,r.id as ref_id,r.sort ,($sub_query) as photos, IFNULL(($sub_query2),0) as avg_score, ($sub_query3) as hotel_id, IFNULL(($sub_query4),'0') as price,c.name as category_name, ($sub_query5) as parent_category_name");
+        $this->db->select("p.*,r.id as ref_id,r.sort ,($sub_query) as photos, IFNULL(($sub_query2),0) as avg_score, ($sub_query3) as hotel_id, IFNULL(($sub_query4)*2,'0') as price,c.name as category_name, ($sub_query5) as parent_category_name");
         $this->db->from("ref_cate_product as r");
         $this->db->join("products as p", "p.id = r.product_id","LEFT");
         $this->db->join("product_categories as c", "c.id = r.cate_id","LEFT");
