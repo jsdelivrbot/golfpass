@@ -224,7 +224,7 @@ class P_daily_price extends Base_Controller
             //해당 날자데이터가 없을때
             if($row === null)
             {
-                  return "가격 데이터없음";
+                  return "데이터값 없음";
             }
 
             $tmp_price =$row->price;
