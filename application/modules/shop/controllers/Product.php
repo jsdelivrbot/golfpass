@@ -135,11 +135,12 @@ class Product extends Base_Controller {
         $row=$this->p_daily_price_model->_get(array(
             'product_id'=>$id,
             'date'=>date("Y-m-d"),
-            'period'=>"2",
+            'period'=>"1",
             'num_people'=>"1"
         ));
         if($row !== null){
-            $price=number_format($row->price);
+            $price = $row->price;
+            $price=number_format($price *2);
             $data['price'] = "{$price}원 부터";
         }
         else

@@ -24,7 +24,7 @@ class P_daily_price extends Base_Controller
         //설정 날자차이가 음수일때  오늘보다 시작날자가 이전일시
         if(strtotime($end_date) < strtotime($start_date) || strtotime($start_date) < strtotime(date("Y-m-d")))
         {
-            $data['total_price'] = "올바르게 설정되지 않았습니다.";
+            $data['total_price'] = "잘못된 날짜";
             echo json_encode($data);
             return;
         }
@@ -47,14 +47,14 @@ class P_daily_price extends Base_Controller
          //하루예약시
         if($period <= 1)
         {
-            $data['total_price'] = "1일 예약은 불가능합니다.";
+            $data['total_price'] = "1일 예약 불가";
             echo json_encode($data);
             return;
         }
         //날자차이가 10일 이상일떄
         if($period >= 90)
         {
-            $data['total_price'] = "90일이상 예약은 불가능합니다.";
+            $data['total_price'] = "90일이상 예약 불가";
             echo json_encode($data);
             return;
         }
@@ -224,7 +224,7 @@ class P_daily_price extends Base_Controller
             //해당 날자데이터가 없을때
             if($row === null)
             {
-                  return "가격 데이터가 존재하지 않습니다. <br>예약이 불가능합니다";
+                  return "가격 데이터없음";
             }
 
             $tmp_price =$row->price;

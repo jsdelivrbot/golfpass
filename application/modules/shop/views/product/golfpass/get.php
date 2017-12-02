@@ -274,9 +274,9 @@
                     <div id="personnel">
                         <span class="box-title" style="font-size:16px;">주문 정보</span>
                         <div id='count-box' class='d-flex align-items-stretch justify-content-end'>
-                            <p style="font-family: 'notokr-medium', sans-serif; font-size: 24px; color: #fff; margin: 0; padding: 0;">총 6명</p>
+                            <p style="font-family: 'notokr-medium', sans-serif; font-size: 24px; color: #fff; margin: 0; padding: 0;"><span id="j-v-num-people"></span>    </p>
                             <div style="width:1px; height:12px; background: #fff; margin:10px 15px 10px 15px;"></div>
-                            <p style="font-family: 'notokr-medium', sans-serif; font-size: 24px; color: #fff; margin: 0; padding: 0;">770,300원</p>
+                            <p  id="total_price" style="font-family: 'notokr-medium', sans-serif; font-size: 24px; color: #fff; margin: 0; padding: 0;"><?=$price?></p>
                         </div>
                     </div>
                     <div id='dateBox'>
@@ -297,7 +297,7 @@
                             조 편성
                         </span>
                         <div style="display:inline-block; margin-right:0px; float:right">
-                            <input style="display:inline-block" id="j-group-value" class="form-control" type="number" value="1" min="1" max="10" />
+                            <input style="display:inline-block" id="j-group-value" class="form-control" type="number" value="1" min="1" max="4" />
                         </div>
                         
                     </div>
@@ -308,6 +308,11 @@
                             <form action="<?=site_url(shop_order_uri."/golfpass")?>" method="get" id="golfpass_order_form">
                            
           
+                            <input type="hidden" name="num_people">
+                            <input type="hidden" name="start_date">
+                            <input type="hidden" name="end_date">
+                            <input type="hidden" name="total_price">
+                            <input type="hidden" name="product_id" value="<?=$product->id?>">
                             </form>
                             <!-- 조리스트 끝 -->
                         </ul>
@@ -332,7 +337,7 @@
                     </div>
                     <div id='book_ok' style="width:100%; height:70px; background:#fff; border: 1px solid #e5e5e5; border-top:0; padding:10px; cursor: pointer;" onclick="location.href='#';">
                         <div id="book_ok_button" style="width:100%; height:100%; background:#79b754; border-radius:25px;">
-                            <p style="font-family: 'notokr-reglur', sans-serif; font-size: 16px; color: #fff; text-align:center; line-height: 49px;">예약하기</p>
+                            <p id="golfpass_order" style="font-family: 'notokr-reglur', sans-serif; font-size: 16px; color: #fff; text-align:center; line-height: 49px;">예약하기</p>
                         </div>
                     </div>
                 </div>
@@ -750,8 +755,9 @@
 
         var $startDate = $("#s-day");
         var $endDate = $("#e-day");
-        var $numPeople = $("select[name=num_people]");
+        // var $numPeople = $("select[name=num_people]");
         var $total_price = $("#total_price");
+        var $numPeople = $("#j-v-num-people");
         $(document).ready(function() {
             $startDate.datepicker({
                 dateFormat: 'yy-mm-dd'
@@ -926,12 +932,12 @@ $("#mk-fullscreen-search-input").keypress(function (e) {
  <!-- 상품날자가격계산 -->
  <script>
         $(document).ready(function() {
-            $numPeople.change(function() {
-                // if(validationGetPrice() === 1)
-                // validationGetPrice()
-                ajax_get_price();
+            // $numPeople.change(function() {
+            //     // if(validationGetPrice() === 1)
+            //     // validationGetPrice()
+            //     ajax_get_price();
 
-            });
+            // });
             $startDate.change(function() {
                 // if(validationGetPrice() === 1)
                 // validationGetPrice()
@@ -968,30 +974,19 @@ $("#mk-fullscreen-search-input").keypress(function (e) {
         }
 
         function ajax_get_price() {
-            // var num_people = $("select[name=num_people] option:selected").val();
-            var num_people = $numPeople.find("option:selected").val();
-            var product_id = "<?=$product->id?>";
-            var start_date = $startDate.val();
-            var end_date = $endDate.val();
-            var $groups = $("select[name='groups[]']");
-            var groups = [];
-            for(var i = 0 ; i < $groups.length ; i++)
-            {
-                groups.push($groups[i].value);
-            }
-            console.log(groups);
-
+            
+            $form = $("#golfpass_order_form");
+            $form.find("input[name=start_date]").val($startDate.val());
+            $form.find("input[name=end_date]").val($endDate.val());
+            $form.find("input[name=num_people]").val($numPeople.data('value'));
+            $form.find("input[name=product_id]").val("<?=$product->id?>");
+            var queryString = $form.serialize();
+            console.log(queryString);
             var url = "<?=site_url(golfpass_p_daily_price_uri."/ajax_cal")?>"
             $.ajax({
                 type: "POST",
                 dataType: 'json',
-                data: {
-                    product_id: product_id,
-                    num_people: num_people,
-                    start_date: start_date,
-                    end_date: end_date,
-                    groups: groups 
-                },
+                data: queryString,
                 url: url,
                 beforeSend: function() {
                     // $('.loading').fadeIn(500);
@@ -1003,7 +998,8 @@ $("#mk-fullscreen-search-input").keypress(function (e) {
                     var totalPrice = data.total_price;
                     if (totalPrice.indexOf("원") > -1) {
                         totalPrice = totalPrice.substr(0, totalPrice.length - 1);
-                        $total_price.val(totalPrice);
+                        // $total_price.val(totalPrice);
+                        $form.find("input[name=total_price]").val(totalPrice);
                         totalPrice = Number(totalPrice).toLocaleString('en');
                         totalPrice += "원";
                     }
@@ -1021,7 +1017,10 @@ $("#mk-fullscreen-search-input").keypress(function (e) {
         //예약하기
         $("#golfpass_order").click(function(event) {
             event.preventDefault();
-            if ($numPeople.val().indexOf("선택") > -1) {
+            $order_form = $("#golfpass_order_form");
+            $input_numPeople=$order_form.find("input[name=num_people]");
+            var numPeople =$input_numPeople.val();
+            if (numPeople === "0" || typeof numPeople === "undefined" || numPeople === "") {
                 alert("명수를 선택해주세요.");
                 return;
             }
@@ -1029,11 +1028,11 @@ $("#mk-fullscreen-search-input").keypress(function (e) {
                 alert("잘못된 주문입니다.");
                 return false;
             }
-            $order_form = $("#golfpass_order_form");
-            $order_form.find("input[name=num_people]").val($numPeople.val());
-            $order_form.find("input[name=start_date]").val($startDate.val());
-            $order_form.find("input[name=end_date]").val($endDate.val());
-            $order_form.find("input[name=total_price]").val($total_price.val());
+          
+            // $order_form.find("input[name=num_people]").val($numPeople.val());
+            // $order_form.find("input[name=start_date]").val($startDate.val());
+            // $order_form.find("input[name=end_date]").val($endDate.val());
+            // $order_form.find("input[name=total_price]").val($total_price.val());
             $order_form.submit();
         });
     </script>
@@ -1041,101 +1040,26 @@ $("#mk-fullscreen-search-input").keypress(function (e) {
     <!-- 상품날자가격계산 -->
 
 
-<!-- 조별선택 모달시작 -->
-<style>
-    #jy-groups-selection-modal
-    {
-        background-color:#ffffff;
-        z-index :10001;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        margin-top: -150px;
-        /* margin-left: -60px;  */
-    }
-    #jy-modal-dim
-    {
-        z-index :10001;
-        position: fixed;
-        background-color : rgba(0,0,0,0.8);
-        height:100%;
-        width:100%;
-        display:none;
-    }
-</style>
-   <div id="jy-modal-dim"></div>
-<div id="jy-groups-selection-modal" style="display:none">
-    <a id="jy-add-group-selection-button"href="#">조별추가</a>
-    <div id="jy-groups-selection-wrapper">
-        <form action="<?=site_url(shop_order_uri."/golfpass")?>" method="get" id="tmp_golfpass_order_form">
-            <select name="groups[]" class="">
-                <option value="1">1인조</option>
-                <option value="2">2인조</option>
-                <option value="3">3인조</option>
-                <option value="4">4인조</option>
-            </select>
-
-        <input type="hidden" name="num_people">
-        <input type="hidden" name="start_date">
-        <input type="hidden" name="end_date">
-        <input type="hidden" name="total_price">
-        <input type="hidden" name="product_id" value="<?=$product->id?>">
-        <!-- <input type="submit"> -->
-        </form>
-    </div>
-</div>
-<script>
-      var $modal = $("#jy-groups-selection-modal");
-      var $dim = $("#jy-modal-dim");
-      var $groups=$("#golfpass_order_form select[name='groups[]'");
-    $("#jy-add-group-selection-button").click(function(){
-        var $clone = $($groups[0]).clone();
-        $form=$("#golfpass_order_form"); 
-
-        $form.append($clone);
-        return false;
-    });
-    $("#jy-groups-selection-modal-button").click(function()
-    {
-      
-        $modal.css("display","block");
-        
-        $("body").prepend($dim);
-        $dim.css("display","block");
-    });
-    $("#jy-modal-dim").click(function(){
-        $dim.css("display","none");
-        $modal.css("display","none");
-        ajax_get_price();
-    });
-</script>
-<!-- 조별선택 모달끝 -->
-				
                        
 				
 <!-- 조별추가하기 시작 -->
 
+<!-- 아이템 복제용 -->
 <li class='d-flex align-items-center j-group-item' id="j-group-item" style="display:none !important">
         <div style="width:50%;">
             <p><i class='xi-users' style="margin-right:8px;"></i>A조</p>
         </div>
         <div style="width:50%;">
-            <input type="hidden" name="" id="">  
+            <input  type="hidden" name="groups[]" id="">  
             <p style="text-align:right;" ><span class="j-group-item-value"></span><a onclick="deleteGroupItem(this);return false;" href="#"><i class='xi-close' style="color:#ce0202; margin-left:10px;"></i></a></p>
         </div>
 </li>
+<!-- 아이템 복제용 -->
 
-
-<!-- <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js" ></script> -->
-<!-- <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script> -->
+<!-- lib -->
 <script src="<?=domain_url("/public/lib/bootstrap-number-input.js")?>"></script>
 <script>
-// Remember set you events before call bootstrapSwitch or they will fire after bootstrapSwitch's events
-$("[name='checkbox2']").change(function() {
-	if(!confirm('Do you wanna cancel me!')) {
-		this.checked = true;
-	}
-});
+
 
 // $('#j-group-value').bootstrapNumber();
 $('#j-group-value').bootstrapNumber({
@@ -1143,9 +1067,9 @@ $('#j-group-value').bootstrapNumber({
 	downClass: 'down'
 });
 </script>
-
+<!-- lib -->
 <script>
-    $("#j-group-add-btn").click(function(){
+    $("#j-group-add-btn").click(function(){ //아이템추가
         $val =$("#j-group-value");
         var val =$val.val();
         $form = $("#golfpass_order_form");
@@ -1154,13 +1078,29 @@ $('#j-group-value').bootstrapNumber({
         $item.attr("id","");
         $item.css("display","block");
         $item.find(".j-group-item-value").text(val+"명");
-
+        $item.find("input[name='groups[]']").val(val);
 
         $form.append($item);
+        cal_numPeople();
+        ajax_get_price();
     });
-    function deleteGroupItem(e)
+    function deleteGroupItem(e) //아이템 삭제
     {
         $($(e).parents(".j-group-item")[0]).remove();
+        cal_numPeople();
+        ajax_get_price();
+    }
+    function cal_numPeople() //총명수 계산
+    {
+        $items =$("#golfpass_order_form").find(".j-group-item");
+        var numPeople = 0;
+        for(var i =0 ; i < $items.length ; i++)
+        {
+             numPeople += parseInt($($items[i]).find("input[name='groups[]']").val());
+        }
+        $("#j-v-num-people").text(`총 ${numPeople}명`);
+        $("#j-v-num-people").data("value",numPeople);
+        
     }
 </script>
 <style>
