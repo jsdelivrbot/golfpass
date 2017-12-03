@@ -314,36 +314,36 @@
                     <h6 style="color:#ababab;">PARTNERS</h6>
                 </div>
                 <div class="tp-d-flex tp-flex-wrap">
-                    <figure>
+                    <figure style="margin-bottom: 16px;">
                         <img src="/public/sangmin/img/partner/b_partner_accordiagolf.png" alt="">
                     </figure>
-                    <figure>
+                    <figure style="margin-bottom: 16px;">
                         <img src="/public/sangmin/img/partner/b_partner_orixgolf.png" alt="">
                     </figure>
-                    <figure>
+                    <figure style="margin-bottom: 16px;">
                         <img src="/public/sangmin/img/partner/b_partner_PGM.png" alt="">
                     </figure>
-                    <figure>
+                    <figure style="margin-bottom: 16px;">
                         <img src="/public/sangmin/img/partner/b_partner_princehotel.png" alt="">
                     </figure>
-                    <!--<figure>
+                    <!--<figure style="margin-bottom: 16px;">
                         <img src="/public/sangmin/img/partner/b_partner_timescar.png" alt="">
                     </figure>-->
-                    <figure>
+                    <figure style="margin-bottom: 16px;">
                         <img src="/public/sangmin/img/partner/b_partner_hiltonhotel.png" alt="">
                     </figure>
-                    <figure>
+                    <figure style="margin-bottom: 16px;">
                         <img src="/public/sangmin/img/partner/b_partner_bookingdotcom.png" alt="">
                     </figure>
                 </div>
             </div>
         </div>
         
-        <div class="tp-row tp-d-flex" style="width:100%;">
+        <div class="tp-row tp-d-flex" style="width:100%; margin-bottom:16px;">
             <ul>
                 <li class="tp-title"  style="color:#ababab;">ABOUT US
                 </li>
-                    <li><a href="http://www.playseven.co.kr">회사 소개</a></li>
+                    <li><a href="http://www.playseven.co.kr" style="color:#ababab;">회사 소개</a></li>
                 <li>
                     <a href="#" style="color:#ababab;">이용 약관</a>
                 </li>
@@ -389,7 +389,7 @@
                     </p>
                 </li>
                 <li><span style="color:#ababab;">주소</span>
-                    <p style="color:#ababab;">서울특별시 강서구 공항대로 227, 마곡 센트럴 타워 1차 1112호~1113호</p>
+                    <p style="color:#ababab;">서울특별시 강서구 공항대로 227,<br>마곡 센트럴 타워 1차 1112호~1113호</p>
                 </li>
             </ul>
             <ul>

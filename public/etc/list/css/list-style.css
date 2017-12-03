@@ -27,21 +27,21 @@ body
 /*=======================================================
       IMPORT FILE
 ========================================================*/
-@import url("../fonts/montserrat-fonts.css");
+@import url("../fonts/notokr-demilight-fonts.css");
 @import url("animate.css");
 /*=======================================================
       THEME STYLING START
 ========================================================*/
-* {
+/* * {
 	margin: 0px;
 	padding: 0px;
-}
+} */
 body {
 	background: #FFF;
-	font-weight: normal;
+	/* font-weight: normal; */
 	position: relative;
-	font-size: 14px;
-	font-family: 'Montserrat', sans-serif;
+	/* font-size: 14px;
+	font-family: 'notokr-demilight', sans-serif; */
 }
 /*=======================================================
       WRAPPER
@@ -54,10 +54,10 @@ body {
 /*=======================================================
       HEADINGS
 ========================================================*/
-h1, h2, h3, h4, h5, h6 {
+/* h1, h2, h3, h4, h5, h6 {
 	font-weight: normal;
 	color: #141414;
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'notokr-demilight', sans-serif;
 	font-weight: bold;
 }
 h1 {
@@ -94,7 +94,7 @@ a {
 	-ms-transition: all 0.4s ease-in-out;
 	transition: all 0.4s ease-in-out;
 	text-decoration: none !important;
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'notokr-demilight', sans-serif;
 }
 img {
 	-webkit-transition: 0.4s ease-in-out;
@@ -113,27 +113,27 @@ li {
 a {
 	text-decoration: none;
 	color: #141414;
-}
-.font-montserrat {
-	font-family: 'Montserrat', sans-serif;
+} */
+.font-notokr-demilight {
+	font-family: 'notokr-demilight', sans-serif;
 }
 .font-crimson {
 	font-family: 'Crimson Text', serif;
 }
-.font-montserrat {
-	font-family: 'Montserrat', sans-serif;
+.font-notokr-demilight {
+	font-family: 'notokr-demilight', sans-serif;
 }
 .font-hair-line {
-	font-family: 'montserrathairline';
+	font-family: 'notokr-demilighthairline';
 }
 .font-light {
-	font-family: 'montserratlight';
+	font-family: 'notokr-demilightlight';
 }
 .font-regular {
-	font-family: 'montserratregular';
+	font-family: 'notokr-demilightregular';
 }
 .font-extra-bold {
-	font-family: 'montserratbold';
+	font-family: 'notokr-demilightbold';
 }
 p.intro-small {
 	font-style: italic;
@@ -972,7 +972,7 @@ list-header .language a {
 }
 list-header .search-nav {
 	float: right !important;
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'notokr-demilight', sans-serif;
 }
 list-header .search-nav ul.dropdown {
 	padding: 20px;
@@ -1126,7 +1126,7 @@ list-header .shop-cart .numb {
 }
 list-header .shop-cart {
 	float: right !important;
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'notokr-demilight', sans-serif;
 	text-align: left;
 }
 list-header .shop-cart span {
@@ -1563,7 +1563,7 @@ list-header.coporate-header .is-sticky .sticky .ownmenu > li > .megamenu {
 .why-choose .ultra-ser .name {
 	font-weight: 700;
 	font-size: 10px;
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'notokr-demilight', sans-serif;
 	font-style: normal;
 	text-transform: uppercase;
 }
@@ -2629,11 +2629,11 @@ list-header.coporate-header .is-sticky .sticky .ownmenu > li > .megamenu {
 	margin: 0px;
 }
 .shopping-cart .order-place .pay-meth label {
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'notokr-demilight', sans-serif;
 	font-style: normal;
 }
 .shopping-cart .cart-ship-info .checkbox label {
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'notokr-demilight', sans-serif;
 	font-style: normal;
 	font-weight: normal;
 	font-size: 10px;
@@ -2702,7 +2702,7 @@ list-header.coporate-header .is-sticky .sticky .ownmenu > li > .megamenu {
 	color: #141414;
 }
 .grand-total .radio label {
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'notokr-demilight', sans-serif;
 	font-style: normal;
 	color: #6f6f6f;
 	font-weight: normal;
@@ -3254,14 +3254,14 @@ input:focus, textarea:focus, keygen:focus, select:focus {
 }
 .breadcrumb a {
 	color: #ffffff;
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'notokr-demilight', sans-serif;
 	font-size: 13px;
 }
 .breadcrumb>.active {
 	color: #ffffff;
 	font-size: 13px;
 	font-weight: normal;
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'notokr-demilight', sans-serif;
 }
 .breadcrumb>li+li:before {
 	content: "\f105";
@@ -4038,7 +4038,7 @@ input:focus, textarea:focus, keygen:focus, select:focus {
 .pricing-table .title {
 	background-color: transparent;
 	color: #303438;
-	font-family: "Montserrat", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+	font-family: "notokr-demilight", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
 	font-weight: 700;
 	font-size: 14px;
 	padding: 25px 0;
@@ -4047,7 +4047,7 @@ input:focus, textarea:focus, keygen:focus, select:focus {
 .pricing-table .price {
 	background-color: transparent;
 	color: #141414;
-	font-family: "Montserrat", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+	font-family: "notokr-demilight", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
 	font-size: 50px;
 	font-weight: 400;
 	padding: 20px 0;
@@ -4113,7 +4113,7 @@ input:focus, textarea:focus, keygen:focus, select:focus {
 	text-transform: uppercase;
 }
 .pricing-table .price .currency {
-	font-family: "Montserrat", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+	font-family: "notokr-demilight", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
 	font-size: 18px;
 	padding-right: 5px;
 	vertical-align: top;
@@ -4391,7 +4391,7 @@ input:focus, textarea:focus, keygen:focus, select:focus {
 	margin-bottom: 0px;
 }
 .facts.style-3 .c-style-6 h5 {
-	font-family: "Montserrat", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+	font-family: "notokr-demilight", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
 	font-weight: normal;
 	font-size: 14px;
 	color: #fff;
@@ -4567,7 +4567,7 @@ input:focus, textarea:focus, keygen:focus, select:focus {
 	line-height: 24px;
 }
 .counter .c-style-4 {
-	font-family: "Montserrat", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+	font-family: "notokr-demilight", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
 	font-weight: 400;
 	position: relative;
 	text-align: center;
@@ -4838,7 +4838,7 @@ input:focus, textarea:focus, keygen:focus, select:focus {
 ========================================================*/
 .team-title h4 {
 	color: #fff;
-	font-family: "Montserrat", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+	font-family: "notokr-demilight", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
 	font-size: 14px;
 	font-weight: 700;
 	letter-spacing: 1px;
@@ -5540,7 +5540,7 @@ blockquote cite {
 	color: #272727;
 	margin: 0 5px;
 	font-size: 16px;
-	font-family: 'Montserrat', serif;
+	font-family: 'notokr-demilight', serif;
 }
 .pagination>li>a:hover {
 	background: #6eae4a;
@@ -6028,7 +6028,7 @@ blockquote cite {
 			According
 ========================================================*/
 .accordion {
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'notokr-demilight', sans-serif;
 }
 .accordion.gray-bg {
 	background: #f3f3f3;
@@ -6302,7 +6302,7 @@ blockquote cite {
 	color: #6f6f6f;
 	text-align: left;
 	margin-bottom: 10px;
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'notokr-demilight', sans-serif;
 	text-transform: uppercase;
 	margin-bottom: 0px;
 	line-height: 24px;
@@ -6339,7 +6339,7 @@ blockquote cite {
 	right: 0px;
 	top: 0px;
 	color: #141414;
-	font-family: 'Montserrat';
+	font-family: 'notokr-demilight';
 	font-size: 12px;
 	line-height: 30px;
 	font-weight: bold;
@@ -6494,7 +6494,7 @@ blockquote cite {
 .coming-soon.style-2 .countdown li span {
 	font-size: 48px;
 	font-style: italic;
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'notokr-demilight', sans-serif;
 	color: #fff;
 	font-weight: bold;
 	padding-bottom: 10px;
@@ -6513,7 +6513,7 @@ blockquote cite {
 }
 .coming-soon.style-2 .countdown li p {
 	font-size: 16px;
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'notokr-demilight', sans-serif;
 	font-style: normal;
 	color: #fff;
 	margin-top: 30px;
@@ -6540,7 +6540,7 @@ blockquote cite {
 .coming-soon.style-3 .countdown li span {
 	font-size: 48px;
 	font-style: italic;
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'notokr-demilight', sans-serif;
 	color: #141414 !important;
 	font-weight: bold;
 	letter-spacing: -5px;
@@ -6559,7 +6559,7 @@ blockquote cite {
 }
 .coming-soon.style-3 .countdown li p {
 	font-size: 18px;
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'notokr-demilight', sans-serif;
 	font-style: normal;
 	color: #141414;
 	font-weight: bold;
@@ -6591,7 +6591,7 @@ blockquote cite {
 	background: none;
 	color: #fff;
 	color: #fff;
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'notokr-demilight', sans-serif;
 	letter-spacing: 3px;
 	font-size: 12px;
 	border-left: 1px solid rgba(255,255,255,0.2);

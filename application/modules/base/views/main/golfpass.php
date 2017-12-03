@@ -611,7 +611,7 @@
 
         </div>
 
-         <div class="row d-flex" style="width:100%;">
+         <div class="row d-flex" style="width:100%; margin-bottom: 16px;">
                  <ul>
                          <li class="title">ABOUT US</li>
                          <li><a href="http://www.playseven.co.kr">회사 소개</a></li>
@@ -639,7 +639,7 @@
                                 <p>2017-서울강서-1545호</p>
                          </li>
                         <li><span>주소</span>
-                            <p>서울특별시 강서구 공항대로 227, 마곡 센트럴 타워 1차 1112호~1113호</p>
+                            <p>서울특별시 강서구 공항대로 227,<br>마곡 센트럴 타워 1차 1112호~1113호</p>
                         </li>
                  </ul>
                  <ul>
