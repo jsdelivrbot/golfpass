@@ -44,7 +44,7 @@
                 <!-- <div class="ui four statistics"> -->
 
                 <div class="ui grid">
-                    <div class="ui three statistics doubling four column row">
+                    <div class="ui two statistics doubling four column row">
                         <!-- <div class="statistic column">
 
                             <div class="value">
@@ -64,14 +64,14 @@
                                 위시리스트
                             </div>
                         </div>
-                        <div class="statistic column">
+                     <!--    <div class="statistic column">
                             <div class="value">
                                 <i class="plane icon"></i> 0
                             </div>
                             <div class="label">
                                 라운드
                             </div>
-                        </div>
+                        </div> -->
                         <div class="statistic column">
                             <div class="value">
                             <?=$num_orders?>
