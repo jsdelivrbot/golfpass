@@ -183,11 +183,29 @@ class Order extends Base_Controller {
         ->where("product_id",$product_id)->from("product_option")
         ->order_by("sort","asc")
         ->get()->result();
-        $data["hole_options"] = $this->db->where("kind","hole_option")
+        $hole_options = $this->db->where("kind","hole_option")
         ->where("product_id",$product_id)->from("product_option")
         ->order_by("sort","asc")
         ->group_by("name")
         ->get()->result();
+
+        $hole_options_price= array();
+        for ($i=0; $i < count($hole_options) ; $i++) { 
+            $tmp_price = 0;
+            for ($j=0; $j < count($groups); $j++) { 
+                $row=$this->db->select("*")
+                ->from("product_option")
+                ->where("product_id",$product_id)
+                ->where("name",$hole_options[$i]->name)
+                ->where("option_1",$groups[$j])
+                ->get()->row();
+                if($row !== null)
+                    $tmp_price+=$row->price;
+            }
+            array_push($hole_options_price, $tmp_price);
+        }
+        $data['hole_options'] =$hole_options;
+        $data['hole_options_price'] = $hole_options_price;
 
         $data['imp_franchises_code'] = $this->setting->imp_franchises_code;
         $this->_template("golfpass",$data,"golfpass2");

@@ -57,7 +57,7 @@
                     ?>
                 <option data-name="<?=$hole_options[$i]->name?>" data-price="<?=$added_hole_price?>" value="<?=$hole_options[$i]->id?>"><?=$hole_options[$i]->name?>
 
-                <!-- (<?=$added_hole_price?>원 추가) -->
+                (<?=$hole_options_price[$i]?>원 추가)
                 </option>
                 <?php }?>
             </select>
