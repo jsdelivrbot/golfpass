@@ -137,16 +137,16 @@
             <option value="card">신용카드</option>
             <option value="trans">실시간계좌이체</option>
             <option value="vbank">가상계좌</option>
-            <option value="phone">휴대폰소액결제</option>
+            <!-- <option value="phone">휴대폰소액결제</option> -->
             <!-- 이니시스 전용 -->
             <option value="samsung">삼성페이</option> 
             <!-- 이니시스 전용 -->
             <option value="kpay">KPay앱 직접호출</option>
             <!-- 이니시스, LGU+ 전용 -->
-            <option value="cultureland">문화상품권</option>
+            <!-- <option value="cultureland">문화상품권</option> -->
             <!-- 이니시스, LGU+ 전용 -->
-            <option value="smartculture">스마트문상</option> 
-            <option value="happymoney">해피머니</option> 이니시스 전용
+            <!-- <option value="smartculture">스마트문상</option>  -->
+            <!-- <option value="happymoney">해피머니</option> 이니시스 전용 -->
         <!-- LGU+전용 -->
         <!-- <option value="booknlife">도서문화상품권</option> -->
         </select>
