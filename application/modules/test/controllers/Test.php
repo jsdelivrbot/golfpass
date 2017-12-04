@@ -16,7 +16,7 @@ class Test extends Public_Controller
         // return "1";
         // echo $p_daily_price->test();
         // echo modules::run("golfpass/P_daily_price/test");
-        $this->_view("login");
+        $this->_view("google");
     }    
     function login_success()
     {
