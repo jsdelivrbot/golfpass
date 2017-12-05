@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -16,9 +16,9 @@
     <script src="/public/sangmin/js/jquery-3.2.1.min.js"></script>
 </head>
 <body>
-     
-<!-- 로딩딤시작 -->
-<style>
+
+    <!-- 로딩딤시작 -->
+    <style>
     .jy-dim
     {
         position: fixed;
@@ -50,12 +50,12 @@
         0% { transform: rotate(0deg); }
         100% { transform: rotate(360deg); }
     }
-    </style>
-    <script>
-        $(document).ready(function(){
-            $(".jy-dim").fadeOut(500);
-        })
-    </script>
+</style>
+<script>
+    $(document).ready(function(){
+        $(".jy-dim").fadeOut(500);
+    })
+</script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-82379730-2"></script>
 <script>
@@ -70,260 +70,260 @@
     <div class="jy-loader"></div>
 </div>
 <!-- 로딩딤끝 -->
-    <div id='detail-wrap'>
-        <!--숨겨진 nav-->
-        <div class="menu-container position-fixed">
-            <div class="menu-sliders"></div>
-            <div class="menu-sliders"></div>
-            <div class="menu-sliders"></div>
-            <div class="menu">
-                <ul class="list-unstyled">
-                    <?php if(is_admin()){?>
-                    <li><a style="font-family: 'notokr-light', sans-serif; font-size: 20px; font-weight: normal; color: #fff;" href="<?=site_url(admin_home_uri.'')?>">관리자 페이지</a></li>
-                    <?php }?>
-                    <li><a style="font-family: 'notokr-light', sans-serif; font-size: 20px; font-weight: normal; color: #fff;" href="<?=site_url(shop_category_uri.'/gets_by_name/나라별')?>">지역별 골프장</a></li>
-                    <li><a style="font-family: 'notokr-light', sans-serif; font-size: 20px; font-weight: normal; color: #fff;" href="<?=site_url(golfpass_panel_uri.'/gets')?>">그늘집 by GOLFPASS</a></li>
-                    <li><a style="font-family: 'notokr-light', sans-serif; font-size: 20px; font-weight: normal; color: #fff;" href="<?=site_url(content_uri.'/gets?board_id=4')?>">고객센터</a></li>
-                    <?php if(!is_login()){?>
-                    <li><a style="font-family: 'notokr-light', sans-serif; font-size: 20px; font-weight: normal; color: #fff;" href="<?=site_url(user_uri.'/login')?>">로그인</a></li>
-                    <li><a style="font-family: 'notokr-light', sans-serif; font-size: 20px; font-weight: normal; color: #fff;" href="<?=site_url(user_uri.'/register_agree_1')?>">회원가입</a></li>
-                    <?php }?>
-                    <?php if(is_login()){?>
-                    <li><a style="font-family: 'notokr-light', sans-serif; font-size: 20px; font-weight: normal; color: #fff;" href="<?=site_url(shop_mypage_uri.'/gets_wishlist')?>">마이페이지</a></li>
-                    <li><a style="font-family: 'notokr-light', sans-serif; font-size: 20px; font-weight: normal; color: #fff;" href="<?=site_url(user_uri.'/logout')?>">로그아웃</a></li>
-                    <?php }?>
-                </ul>
+<div id='detail-wrap'>
+    <!--숨겨진 nav-->
+    <div class="menu-container position-fixed">
+        <div class="menu-sliders"></div>
+        <div class="menu-sliders"></div>
+        <div class="menu-sliders"></div>
+        <div class="menu">
+            <ul class="list-unstyled">
+                <?php if(is_admin()){?>
+                <li><a style="font-family: 'notokr-light', sans-serif; font-size: 20px; font-weight: normal; color: #fff;" href="<?=site_url(admin_home_uri.'')?>">관리자 페이지</a></li>
+                <?php }?>
+                <li><a style="font-family: 'notokr-light', sans-serif; font-size: 20px; font-weight: normal; color: #fff;" href="<?=site_url(shop_category_uri.'/gets_by_name/나라별')?>">지역별 골프장</a></li>
+                <li><a style="font-family: 'notokr-light', sans-serif; font-size: 20px; font-weight: normal; color: #fff;" href="<?=site_url(golfpass_panel_uri.'/gets')?>">그늘집 by GOLFPASS</a></li>
+                <li><a style="font-family: 'notokr-light', sans-serif; font-size: 20px; font-weight: normal; color: #fff;" href="<?=site_url(content_uri.'/gets?board_id=4')?>">고객센터</a></li>
+                <?php if(!is_login()){?>
+                <li><a style="font-family: 'notokr-light', sans-serif; font-size: 20px; font-weight: normal; color: #fff;" href="<?=site_url(user_uri.'/login')?>">로그인</a></li>
+                <li><a style="font-family: 'notokr-light', sans-serif; font-size: 20px; font-weight: normal; color: #fff;" href="<?=site_url(user_uri.'/register_agree_1')?>">회원가입</a></li>
+                <?php }?>
+                <?php if(is_login()){?>
+                <li><a style="font-family: 'notokr-light', sans-serif; font-size: 20px; font-weight: normal; color: #fff;" href="<?=site_url(shop_mypage_uri.'/gets_wishlist')?>">마이페이지</a></li>
+                <li><a style="font-family: 'notokr-light', sans-serif; font-size: 20px; font-weight: normal; color: #fff;" href="<?=site_url(user_uri.'/logout')?>">로그아웃</a></li>
+                <?php }?>
+            </ul>
+        </div>
+    </div>
+    <header id="header" class="container-fluid">
+        <!--  NOTE mobile -->
+        <nav id='sm-nav' class="row no-gutters justify-content align-items-stretch d-sm-none panel-nav">
+            <div id="logo" class='col-3 justify-content-center d-flex align-self-center align-items-center'>
+               <a href="<?=site_url()?>"> <img src="/public/sangmin/img/icon/logo_mobile.png" class="d-md-none" alt=""></a>
+           </div>
+           <div id='nav-icon-box' class="offset-2 col-5 d-flex align-items-stretch justify-content-end">
+            <div id="search" class="d-flex align-items-center">
+                <a class="mk-search-trigger mk-fullscreen-trigger" href="#" id="search-button-listener">
+                    <span><i class="xi xi-search" id="search-button"></i></span>
+                </a>
+                <div class="mk-fullscreen-search-overlay" id="mk-search-overlay">
+                    <a href="#" class="mk-fullscreen-close" id="mk-fullscreen-close-button"><i class="xi xi-close"></i></a>
+                    <div id="mk-fullscreen-search-wrapper">
+                        <div method="get" id="mk-fullscreen-searchform" action="">
+                            <input type="text" value="" placeholder="Search..." id="mk-fullscreen-search-input">
+                            <i class="xi xi-search fullscreen-search-icon"><input value="" id="mobile_search_btn" type="submit"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <?php if(!is_login()){?>
+            <div id="login" class="d-flex align-items-center">
+                <a href="<?=site_url(user_uri.'/login')?>" style="color:white;">
+                    <span><i class="xi-log-in xi-x"></i></span>
+                </a>
+            </div>
+            <div id="join" class="d-flex align-items-center">
+                <a href="<?=site_url(user_uri.'/register_agree_1')?>" style="color:white;">
+                    <span><i class="xi xi-user-plus"></i></span>
+                </a>
+            </div>
+            <?php }else{?>
+            <div style="margin-top:25px;"><a href="<?=site_url(shop_mypage_uri."/gets_wishlist")?>"><img src="<?=$user->profilePhoto?>" alt="" style="width:30px; height:30px; border-radius: 15px;"></a></div>
+            <?php }?>
+        </div>
+        <div class="col-2 ml-auto toggle" onclick="$('body').toggleClass('menu-open'); $('.carousel-indicators').toggleClass('d-none d-flex');">
+            <span>
+                <i class="xi xi-bars"></i>
+            </span>
+        </div>
+    </nav>
+    <!--NOTE desktop,tablet nav-->
+    <nav id='md-nav' class="row no-gutters justify-content align-items-stretch d-none d-sm-flex">
+        <div id="logo" class='col-6 d-flex align-items-center'>
+            <figure class="mb-0 d-flex align-items-center d-lg-none">
+               <img src="/public/sangmin/img/icon/logo_mobile.png" class="" alt="">
+           </figure>
+           <a href="<?=site_url()?>">
+            <figure class="mb-0 align-items-center d-none d-lg-flex">
+                <img src="/public/sangmin/img/icon/logo.png" class="" alt="">
+            </figure>
+        </a>
+        <div class="search-container d-flex align-items-center position-relative">
+            <i class="xi xi-search"></i>
+            <input id="input_search"type="text" placeholder="관심있는 나라나 골프장을 검색해보세요!">
+            <!--NOTE 검색결과 창-->
+            <div class="search-content-container position-absolute w-100">
+
             </div>
         </div>
-        <header id="header" class="container-fluid">
-            <!--  NOTE mobile -->
-            <nav id='sm-nav' class="row no-gutters justify-content align-items-stretch d-sm-none panel-nav">
-                <div id="logo" class='col-3 justify-content-center d-flex align-self-center align-items-center'>
-                   <a href="<?=site_url()?>"> <img src="/public/sangmin/img/icon/logo_mobile.png" class="d-md-none" alt=""></a>
-                </div>
-                <div id='nav-icon-box' class="offset-2 col-5 d-flex align-items-stretch justify-content-end">
-                    <div id="search" class="d-flex align-items-center">
-                        <a class="mk-search-trigger mk-fullscreen-trigger" href="#" id="search-button-listener">
-                        <span><i class="xi xi-search" id="search-button"></i></span>
-                    </a>
-                        <div class="mk-fullscreen-search-overlay" id="mk-search-overlay">
-                            <a href="#" class="mk-fullscreen-close" id="mk-fullscreen-close-button"><i class="xi xi-close"></i></a>
-                            <div id="mk-fullscreen-search-wrapper">
-                                <div method="get" id="mk-fullscreen-searchform" action="">
-                                    <input type="text" value="" placeholder="Search..." id="mk-fullscreen-search-input">
-                                    <i class="xi xi-search fullscreen-search-icon"><input value="" id="mobile_search_btn" type="submit"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <?php if(!is_login()){?>
-                    <div id="login" class="d-flex align-items-center">
-                        <a href="<?=site_url(user_uri.'/login')?>" style="color:white;">
-                        <span><i class="xi-log-in xi-x"></i></span>
-                    </a>
-                    </div>
-                    <div id="join" class="d-flex align-items-center">
-                        <a href="<?=site_url(user_uri.'/register_agree_1')?>" style="color:white;">
-                        <span><i class="xi xi-user-plus"></i></span>
-                    </a>
-                    </div>
-                    <?php }else{?>
-                    <div style="margin-top:25px;"><a href="<?=site_url(shop_mypage_uri."/gets_wishlist")?>"><img src="<?=$user->profilePhoto?>" alt="" style="width:30px; height:30px; border-radius: 15px;"></a></div>
-                    <?php }?>
-                </div>
-                <div class="col-2 ml-auto toggle" onclick="$('body').toggleClass('menu-open'); $('.carousel-indicators').toggleClass('d-none d-flex');">
-                    <span>
-                    <i class="xi xi-bars"></i>
-                </span>
-                </div>
-            </nav>
-            <!--NOTE desktop,tablet nav-->
-            <nav id='md-nav' class="row no-gutters justify-content align-items-stretch d-none d-sm-flex">
-                <div id="logo" class='col-6 d-flex align-items-center'>
-                    <figure class="mb-0 d-flex align-items-center d-lg-none">
-                       <img src="/public/sangmin/img/icon/logo_mobile.png" class="" alt="">
-                    </figure>
-                    <a href="<?=site_url()?>">
-                        <figure class="mb-0 align-items-center d-none d-lg-flex">
-                            <img src="/public/sangmin/img/icon/logo.png" class="" alt="">
-                        </figure>
-                    </a>
-                    <div class="search-container d-flex align-items-center position-relative">
-                        <i class="xi xi-search"></i>
-                        <input id="input_search"type="text" placeholder="관심있는 나라나 골프장을 검색해보세요!">
-                        <!--NOTE 검색결과 창-->
-                        <div class="search-content-container position-absolute w-100">
+    </div>
+    <div id='nav-icon-box' class="col  d-flex justify-content-end">
+        <?php if(!is_login()){?>
+        <div id="login" class="d-flex align-items-center">
+            <span><i class="xi-log-in xi-x"></i></span>
+            <p class="mb-0"><a style="color: white; font-family: 'notokr-regular', sans-serif; font-size: 12px;" href="<?=site_url(user_uri.'/login')?>">로그인</a></p>
+        </div>
+        <div id="join" class="d-flex align-items-center">
+            <span><i class="xi xi-user-plus"></i></span>
+            <p class="mb-0"><a style="color: white; font-family: 'notokr-regular', sans-serif; font-size: 12px;" href="<?=site_url(user_uri.'/register_agree_1')?>">회원가입</a></p>
+        </div>
+        <?php }else{?>
+        <div style="margin-top:25px;"><a href="<?=site_url(shop_mypage_uri."/gets_wishlist")?>"><img src="<?=$user->profilePhoto?>" alt="" style="width:30px; height:30px; border-radius: 15px;"></a></div>
+        <div id="logout" class="d-flex align-items-center">
+            <span><i class="xi-log-out xi-x"></i></span>
+            <p class="mb-0"><a style="color: white; font-family: 'notokr-regular', sans-serif; font-size: 12px;" href="<?=site_url(user_uri.'/logout')?>">로그아웃</a></p>
+        </div>
+        <?php }?>
+    </div>
+    <div class="col ml-auto toggle" onclick="$('body').toggleClass('menu-open'); $('.carousel-indicators').toggleClass('d-none d-flex');">
+        <span>
+            <i class="xi xi-bars"></i>
+        </span>
+    </div>
+</nav>
+</header>
+<!--NOTE 상단 슬라이드 + 내용 + chart-->
 
-                        </div>
-                    </div>
+<section class="container-fluid" id="section1" style="background-image:url('<?=$product_photos[0]->name ?? ''?>') ;">
+    <!--NOTE 화면 어둡게-->
+    <div id="shadow"></div>
+    <article id="section1-wrap" class="row no-gutters justify-content-center justify-content-lg-start">
+        <div id='detail_slide' class="col">
+            <div class="slider-for">
+                <!--NOTE 슬라이드 큰화면-->
+                <?php for($i = 0 ;$i < count($product_photos);$i++){?>
+                <div>
+                    <img src="<?=$product_photos[$i]->name?>" alt="">
                 </div>
-                <div id='nav-icon-box' class="col  d-flex justify-content-end">
-                    <?php if(!is_login()){?>
-                    <div id="login" class="d-flex align-items-center">
-                        <span><i class="xi-log-in xi-x"></i></span>
-                        <p class="mb-0"><a style="color: white; font-family: 'notokr-regular', sans-serif; font-size: 12px;" href="<?=site_url(user_uri.'/login')?>">로그인</a></p>
-                    </div>
-                    <div id="join" class="d-flex align-items-center">
-                        <span><i class="xi xi-user-plus"></i></span>
-                        <p class="mb-0"><a style="color: white; font-family: 'notokr-regular', sans-serif; font-size: 12px;" href="<?=site_url(user_uri.'/register_agree_1')?>">회원가입</a></p>
-                    </div>
-                    <?php }else{?>
-                    <div style="margin-top:25px;"><a href="<?=site_url(shop_mypage_uri."/gets_wishlist")?>"><img src="<?=$user->profilePhoto?>" alt="" style="width:30px; height:30px; border-radius: 15px;"></a></div>
-                    <div id="logout" class="d-flex align-items-center">
-                        <span><i class="xi-log-out xi-x"></i></span>
-                        <p class="mb-0"><a style="color: white; font-family: 'notokr-regular', sans-serif; font-size: 12px;" href="<?=site_url(user_uri.'/logout')?>">로그아웃</a></p>
-                    </div>
-                    <?php }?>
+                <?php }?>
+                <?php for($i = 0 ;$i < count($product_photos);$i++){?>
+                <div>
+                    <img src="<?=$product_photos[$i]->name?>" alt="">
                 </div>
-                <div class="col ml-auto toggle" onclick="$('body').toggleClass('menu-open'); $('.carousel-indicators').toggleClass('d-none d-flex');">
-                    <span>
-                    <i class="xi xi-bars"></i>
-                </span>
+                <?php }?>
+                <?php for($i = 0 ;$i < count($product_photos);$i++){?>
+                <div>
+                    <img src="<?=$product_photos[$i]->name?>" alt="">
                 </div>
-            </nav>
-        </header>
-        <!--NOTE 상단 슬라이드 + 내용 + chart-->
+                <?php }?>
+                <?php for($i = 0 ;$i < count($product_photos);$i++){?>
+                <div>
+                    <img src="<?=$product_photos[$i]->name?>" alt="">
+                </div>
+                <?php }?>
+            </div>
+            <div class="slider-nav">
+                <!--NOTE 슬라이드 하단 이미지 네비게이션-->
+                <?php for($i = 0 ;$i < count($product_photos);$i++){?>
+                <div>
+                    <img src="<?=$product_photos[$i]->name?>" alt="">
+                </div>
+                <?php }?>
+                <?php for($i = 0 ;$i < count($product_photos);$i++){?>
+                <div>
+                    <img src="<?=$product_photos[$i]->name?>" alt="">
+                </div>
+                <?php }?>
+                <?php for($i = 0 ;$i < count($product_photos);$i++){?>
+                <div>
+                    <img src="<?=$product_photos[$i]->name?>" alt="">
+                </div>
+                <?php }?>
+                <?php for($i = 0 ;$i < count($product_photos);$i++){?>
+                <div>
+                    <img src="<?=$product_photos[$i]->name?>" alt="">
+                </div>
+                <?php }?>
+            </div>
+        </div>
+        <div id="detail" class='col'>
+            <div id="score" class="flex-column align-items-center">
+                <i class="xi xi-star xi-2x"></i>
+                <span class="score_num">종합 점수 <?=ceil(($product->avg_score)*10)/10?>점</span>
+            </div>
+            <p id="regine">
+                <?=$product->region?>
+            </p>
+            <h1 id="title">
+                <?=$product->name?>
+            </h1>
+            <p id="title-en">
+                <?=$product->eng_name?>
+            </p>
+            <div id="content">
+                <p id='sub-title'>소개</p>
+                <p>
+                    <?=$product->desc?>
+                </p>
+            </div>
+        </div>
+        <div id="chart" class="col flex-column align-items-center justify-content-center">
+            <canvas id="chart-canvas" class="ml-auto mr-auto" >
 
-        <section class="container-fluid" id="section1" style="background-image:url('<?=$product_photos[0]->name ?? ''?>') ;">
-            <!--NOTE 화면 어둡게-->
-            <div id="shadow"></div>
-            <article id="section1-wrap" class="row no-gutters justify-content-center justify-content-lg-start">
-                <div id='detail_slide' class="col">
-                    <div class="slider-for">
-                        <!--NOTE 슬라이드 큰화면-->
-                        <?php for($i = 0 ;$i < count($product_photos);$i++){?>
-                        <div>
-                            <img src="<?=$product_photos[$i]->name?>" alt="">
-                        </div>
-                        <?php }?>
-                        <?php for($i = 0 ;$i < count($product_photos);$i++){?>
-                        <div>
-                            <img src="<?=$product_photos[$i]->name?>" alt="">
-                        </div>
-                        <?php }?>
-                        <?php for($i = 0 ;$i < count($product_photos);$i++){?>
-                        <div>
-                            <img src="<?=$product_photos[$i]->name?>" alt="">
-                        </div>
-                        <?php }?>
-                        <?php for($i = 0 ;$i < count($product_photos);$i++){?>
-                        <div>
-                            <img src="<?=$product_photos[$i]->name?>" alt="">
-                        </div>
-                        <?php }?>
-                    </div>
-                    <div class="slider-nav">
-                        <!--NOTE 슬라이드 하단 이미지 네비게이션-->
-                        <?php for($i = 0 ;$i < count($product_photos);$i++){?>
-                        <div>
-                            <img src="<?=$product_photos[$i]->name?>" alt="">
-                        </div>
-                        <?php }?>
-                        <?php for($i = 0 ;$i < count($product_photos);$i++){?>
-                        <div>
-                            <img src="<?=$product_photos[$i]->name?>" alt="">
-                        </div>
-                        <?php }?>
-                        <?php for($i = 0 ;$i < count($product_photos);$i++){?>
-                        <div>
-                            <img src="<?=$product_photos[$i]->name?>" alt="">
-                        </div>
-                        <?php }?>
-                        <?php for($i = 0 ;$i < count($product_photos);$i++){?>
-                        <div>
-                            <img src="<?=$product_photos[$i]->name?>" alt="">
-                        </div>
-                        <?php }?>
-                    </div>
-                </div>
-                <div id="detail" class='col'>
-                    <div id="score" class="flex-column align-items-center">
-                        <i class="xi xi-star xi-2x"></i>
-                        <span class="score_num">종합 점수 <?=ceil(($product->avg_score)*10)/10?>점</span>
-                    </div>
-                    <p id="regine">
-                        <?=$product->region?>
-                    </p>
-                    <h1 id="title">
-                        <?=$product->name?>
-                    </h1>
-                    <p id="title-en">
-                        <?=$product->eng_name?>
-                    </p>
-                    <div id="content">
-                        <p id='sub-title'>소개</p>
-                        <p>
-                            <?=$product->desc?>
-                        </p>
-                    </div>
-                </div>
-                <div id="chart" class="col flex-column align-items-center justify-content-center">
-                    <canvas id="chart-canvas" class="ml-auto mr-auto" >
-                    
-                </canvas>
-                    <h1 id="chart-score" class="text-center">종합 점수
-                        <p><?=ceil(($product->avg_score)*10)/10?>점</p>
-                    </h1>
-                </div>
+            </canvas>
+            <h1 id="chart-score" class="text-center">종합 점수
+                <p><?=ceil(($product->avg_score)*10)/10?>점</p>
+            </h1>
+        </div>
 
-            </article>
-        </section>
-        <article id='section2' class='row no-gutters'>
-           <!-- book start -->
-            <div id="book-box-wrap" class="order-1 order-lg-3 col-12 col-lg-3">
-                <div id='book-box'>
-                    <div id="personnel">
-                        <span class="box-title" style="font-size:16px;">예약 인원</span>
-                        <div id='count-box' class='d-flex align-items-stretch justify-content-end'>
-                        <div style="display:inline-block; margin-right:0px; float:right">
-                            <input style="display:inline-block" id="j-group-value" class="form-control" type="number" value="1" min="1" max="12" />
-                        </div>
-                        </div>
+    </article>
+</section>
+<article id='section2' class='row no-gutters'>
+   <!-- book start -->
+   <div id="book-box-wrap" class="order-1 order-lg-3 col-12 col-lg-3">
+    <div id='book-box'>
+        <div id="personnel">
+            <span class="box-title" style="font-size:16px;">예약 인원</span>
+            <div id='count-box' class='d-flex align-items-stretch justify-content-end'>
+                <div style="display:inline-block; margin-right:0px; float:right">
+                    <input style="display:inline-block" id="j-group-value" class="form-control" type="number" value="1" min="1" max="12" />
+                </div>
+            </div>
+        </div>
+        <div id='dateBox'>
+            <form action="#" class="d-flex align-items-center justify-content-between">
+                <div class="form-group d-flex align-items-center mb-0">
+                    <input type="text" id="s-day" placeholder="시작 일정" value="<?=$current_date?>">
+                    <i class="xi-calendar-check"></i>
+                </div>
+                <span>~</span>
+                <div class="form-group d-flex align-items-center mb-0">
+                    <input type="text" id="e-day" placeholder="종료 일정" value="<?=$current_date_plus?>">
+                    <i class="xi-calendar-check"></i>
+                </div>
+            </form>
+        </div>
+        <div id="info" class="pt-20">
+            <ul class="list-unstyled" style="margin-bottom:0;">
+                <li style="font-family: 'notokr-medium', sans-serif;">조 정보</li>
+                <li class='d-flex align-items-center j-group-item'- id="j-group-item">
+                    <div style="width:50%;">
+                        <p><i class='xi-radiobox-checked' style="margin-right:8px;"></i>A조</p>
                     </div>
-                    <div id='dateBox'>
-                        <form action="#" class="d-flex align-items-center justify-content-between">
-                            <div class="form-group d-flex align-items-center mb-0">
-                                <input type="text" id="s-day" placeholder="시작 일정" value="<?=$current_date?>">
-                                <i class="xi-calendar-check"></i>
-                            </div>
-                            <span>~</span>
-                            <div class="form-group d-flex align-items-center mb-0">
-                                <input type="text" id="e-day" placeholder="종료 일정" value="<?=$current_date_plus?>">
-                                <i class="xi-calendar-check"></i>
-                            </div>
-                        </form>
+                    <div style="width:50%;">
+                        <input  type="hidden" name="groups[]" id="">  
+                        <p style="text-align:right;" ><i class='xi-users' style="color: #202020 !important; margin-right:3px;"></i><i class='xi-users' style="color: #202020 !important; margin-right:10px;"></i> 2명</p>
                     </div>
-                    <div id="info" class="pt-20">
-                        <ul class="list-unstyled" style="margin-bottom:0;">
-                            <li style="font-family: 'notokr-medium', sans-serif;">조 정보</li>
-                            <li class='d-flex align-items-center j-group-item'- id="j-group-item">
-                                <div style="width:50%;">
-                                    <p><i class='xi-radiobox-checked' style="margin-right:8px;"></i>A조</p>
-                                </div>
-                                <div style="width:50%;">
-                                    <input  type="hidden" name="groups[]" id="">  
-                                    <p style="text-align:right;" ><i class='xi-users' style="color: #202020 !important; margin-right:3px;"></i><i class='xi-users' style="color: #202020 !important; margin-right:10px;"></i> 2명</p>
-                                </div>
-                            </li>
-                            <li class='d-flex align-items-center j-group-item'- id="j-group-item">
-                                <div style="width:50%;">
-                                    <p><i class='xi-radiobox-checked' style="margin-right:8px;"></i>B조</p>
-                                </div>
-                                <div style="width:50%;">
-                                    <input  type="hidden" name="groups[]" id="">  
-                                    <p style="text-align:right;" ><i class='xi-users' style="color: #202020 !important; margin-right:3px;"></i><i class='xi-users' style="color: #202020 !important; margin-right:3px;"></i><i class='xi-users' style="color: #202020 !important; margin-right:3px;"></i><i class='xi-users' style="color: #202020 !important; margin-right:10px;"></i> 4명</p>
-                                </div>
-                            </li>
-                            <li class='d-flex align-items-center j-group-item'- id="j-group-item">
-                                <div style="width:50%;">
-                                    <p><i class='xi-radiobox-checked' style="margin-right:8px;"></i>C조</p>
-                                </div>
-                                <div style="width:50%;">
-                                    <input  type="hidden" name="groups[]" id="">  
-                                    <p style="text-align:right;" ><i class='xi-users' style="color: #202020 !important; margin-right:3px;"></i><i class='xi-users' style="color: #202020 !important; margin-right:3px;"></i><i class='xi-users' style="color: #202020 !important; margin-right:10px;"></i> 3명</p>
-                                </div>
-                            </li>
-                            <!-- 조리스트 시작 -->
+                </li>
+                <li class='d-flex align-items-center j-group-item'- id="j-group-item">
+                    <div style="width:50%;">
+                        <p><i class='xi-radiobox-checked' style="margin-right:8px;"></i>B조</p>
+                    </div>
+                    <div style="width:50%;">
+                        <input  type="hidden" name="groups[]" id="">  
+                        <p style="text-align:right;" ><i class='xi-users' style="color: #202020 !important; margin-right:3px;"></i><i class='xi-users' style="color: #202020 !important; margin-right:3px;"></i><i class='xi-users' style="color: #202020 !important; margin-right:3px;"></i><i class='xi-users' style="color: #202020 !important; margin-right:10px;"></i> 4명</p>
+                    </div>
+                </li>
+                <li class='d-flex align-items-center j-group-item'- id="j-group-item">
+                    <div style="width:50%;">
+                        <p><i class='xi-radiobox-checked' style="margin-right:8px;"></i>C조</p>
+                    </div>
+                    <div style="width:50%;">
+                        <input  type="hidden" name="groups[]" id="">  
+                        <p style="text-align:right;" ><i class='xi-users' style="color: #202020 !important; margin-right:3px;"></i><i class='xi-users' style="color: #202020 !important; margin-right:3px;"></i><i class='xi-users' style="color: #202020 !important; margin-right:10px;"></i> 3명</p>
+                    </div>
+                </li>
+                <!-- 조리스트 시작 -->
                             <!--<form action="<?=site_url(shop_order_uri."/golfpass")?>" method="get" id="golfpass_order_form">
                            
           
@@ -332,378 +332,378 @@
                             <input type="hidden" name="end_date">
                             <input type="hidden" name="total_price">
                             <input type="hidden" name="product_id" value="<?=$product->id?>">
-                            </form>-->
-                            <!-- 조리스트 끝 -->
-                        </ul>
+                        </form>-->
+                        <!-- 조리스트 끝 -->
+                    </ul>
+                </div>
+                <div id="info" class="pt-20">
+                    <ul class="list-unstyled">
+                        <li style="font-family: 'notokr-medium', sans-serif;">비고</li>
+                        <li class='d-flex align-items-center'>
+                            <span class="mr-2 align-self-baseline"><i class='xi-radiobox-checked'></i></span>
+                            <p>스마트스코어 탑재 카트 보유</p>
+                        </li>
+                        <li class='d-flex align-items-center'>
+                            <span class="mr-2 align-self-baseline"><i class='xi-radiobox-checked'></i></span>
+                            <p>미슐랭 2스타 레스토랑 보유</p>
+                        </li>
+                        <li class='d-flex align-items-center'>
+                            <span class="mr-2 align-self-baseline"><i class='xi-radiobox-checked'></i></span>
+                            <p>사계절 내내 골프가 가능한 지역</p>
+                        </li>
+                        <li class='d-flex align-items-center'>
+                            <span class="mr-2 align-self-baseline"><i class='xi-radiobox-checked'></i></span>
+                            <p>스마트스코어 탑재 카트 보유</p>
+                        </li>
+                        <li class='d-flex align-items-center'>
+                            <span class="mr-2 align-self-baseline"><i class='xi-radiobox-checked'></i></span>
+                            <p>미슐랭 2스타 레스토랑 보유</p>
+                        </li>
+                        <li class='d-flex align-items-center'>
+                            <span class="mr-2 align-self-baseline"><i class='xi-radiobox-checked'></i></span>
+                            <p>사계절 내내 골프가 가능한 지역</p>
+                        </li>
+                    </ul>
+                    <div id='price' class="mt-20 mb-20">
+                        <h3 class='mb-3' style="font-size:16px; margin-bottom:5px !important;">가격</h3>
+                        <p id="total_price">
+                            <?=$price?>
+                        </p>
                     </div>
-                    <div id="info" class="pt-20">
-                        <ul class="list-unstyled">
-                            <li style="font-family: 'notokr-medium', sans-serif;">비고</li>
-                            <li class='d-flex align-items-center'>
-                                <span class="mr-2 align-self-baseline"><i class='xi-radiobox-checked'></i></span>
-                                <p>스마트스코어 탑재 카트 보유</p>
-                            </li>
-                            <li class='d-flex align-items-center'>
-                                <span class="mr-2 align-self-baseline"><i class='xi-radiobox-checked'></i></span>
-                                <p>미슐랭 2스타 레스토랑 보유</p>
-                            </li>
-                            <li class='d-flex align-items-center'>
-                                <span class="mr-2 align-self-baseline"><i class='xi-radiobox-checked'></i></span>
-                                <p>사계절 내내 골프가 가능한 지역</p>
-                            </li>
-                            <li class='d-flex align-items-center'>
-                                <span class="mr-2 align-self-baseline"><i class='xi-radiobox-checked'></i></span>
-                                <p>스마트스코어 탑재 카트 보유</p>
-                            </li>
-                            <li class='d-flex align-items-center'>
-                                <span class="mr-2 align-self-baseline"><i class='xi-radiobox-checked'></i></span>
-                                <p>미슐랭 2스타 레스토랑 보유</p>
-                            </li>
-                            <li class='d-flex align-items-center'>
-                                <span class="mr-2 align-self-baseline"><i class='xi-radiobox-checked'></i></span>
-                                <p>사계절 내내 골프가 가능한 지역</p>
-                            </li>
-                        </ul>
-                        <div id='price' class="mt-20 mb-20">
-                            <h3 class='mb-3' style="font-size:16px; margin-bottom:5px !important;">가격</h3>
-                            <p id="total_price">
-                                <?=$price?>
-                            </p>
-                        </div>
-                        <p class="wishlist"><a onclick="ajax_a(this); return false;" data-action="<?=site_url(shop_wishlist_uri."/ajax_add/{$product->id}")?>"href="#">위시리스트에 추가하기</a></p>
-                    </div>
-                    <div id='book_ok' style="width:100%; height:70px; background:#fff; border: 1px solid #e5e5e5; border-top:0; padding:10px; cursor: pointer;" onclick="location.href='#';">
-                        <div id="book_ok_button" style="width:100%; height:100%; background:#79b754; border-radius:25px;">
-                            <p id="golfpass_order" style="font-family: 'notokr-reglur', sans-serif; font-size: 16px; color: #fff; text-align:center; line-height: 49px;">예약하기</p>
-                        </div>
+                    <p class="wishlist"><a onclick="ajax_a(this); return false;" data-action="<?=site_url(shop_wishlist_uri."/ajax_add/{$product->id}")?>"href="#">위시리스트에 추가하기</a></p>
+                </div>
+                <div id='book_ok' style="width:100%; height:70px; background:#fff; border: 1px solid #e5e5e5; border-top:0; padding:10px; cursor: pointer;" onclick="location.href='#';">
+                    <div id="book_ok_button" style="width:100%; height:100%; background:#79b754; border-radius:25px;">
+                        <p id="golfpass_order" style="font-family: 'notokr-reglur', sans-serif; font-size: 16px; color: #fff; text-align:center; line-height: 49px;">예약하기</p>
                     </div>
                 </div>
             </div>
-            <!-- /book end -->
-            <article id="section2-wrap" class="order-2 col-12  col-lg-9 ">
-                <section class="col-12" id="article-section-1">
-                    <div class='d-flex flex-column title-box'>
-                        <span>0<?=$number++?></span>
-                        <h1 class="mt-13">골프장</h1>
-                    </div>
-                    <div class="list-content">
-                        <ul class="d-flex flex-wrap">
-                            <li class='d-flex flex-column'><span>홀수</span>
-                                <p class='mt-2'>
-                                    <?=$product->hole_count?>
-                                </p>
-                            </li>
-                            <li class='d-flex flex-column'><span>파</span>
-                                <p class='mt-2'>
-                                    <?=$product->pa?>
-                                </p>
-                            </li>
-                            <li class='d-flex flex-column'><span>길이</span>
-                                <p class='mt-2'>
-                                    <?=$product->distance?>
-                                </p>
-                            </li>
-                            <li class='d-flex flex-column'><span>잔디 타입</span>
-                                <p class='mt-2'>
-                                    <?=$product->grass_type?>
-                                </p>
-                            </li>
-                            <li class='d-flex flex-column'><span>코스 타입</span>
-                                <p class='mt-2'>
-                                    <?=$product->course_type?>
-                                </p>
-                            </li>
-                            <li class='d-flex flex-column'><span>코스 구성</span>
-                                <p class='mt-2'>
-                                    <?=$product->course_type?>
-                                </p>
-                            </li>
-                            <li class='d-flex flex-column'><span>개장연도</span>
-                                <p class='mt-2'>
-                                    <?=$product->open_day?>
-                                </p>
-                            </li>
-                            <li class='d-flex flex-column'><span>전화번호</span>
-                                <p class='mt-2'>
-                                    <?=$product->number?>
-                                </p>
-                            </li>
-                        </ul>
-                    </div>
-                </section>
-                <?php if(isset($hotel)){?>
-                <section class="col-12" id="article-section-2">
-                    <div class='d-flex flex-column title-box'>
-                        <span>0<?=$number++?></span>
-                        <h1 class="mt-13">숙박</h1>
-                    </div>
-                    <div class="list-content">
-                        <ul class="d-flex flex-wrap">
-                            <li class='d-flex flex-column'><span>업체명</span>
-                                <p class='mt-2'>
-                                    <?=$hotel->name?>
-                                </p>
-                            </li>
-                            <li class='d-flex flex-column'><span>객실수</span>
-                                <p class='mt-2'>
-                                    <?=$hotel->room_count?>
-                                </p>
-                            </li>
-                            <li class='d-flex flex-column'><span>객실 타입</span>
-                                <p class='mt-2'>
-                                    <?=$hotel->room_type?>
-                                </p>
-                            </li>
-                            <li class='d-flex flex-column'><span>침실</span>
-                                <p class='mt-2'>
-                                    <?=$hotel->bedroom?>
-                                </p>
-                            </li>
+        </div>
+        <!-- /book end -->
+        <article id="section2-wrap" class="order-2 col-12  col-lg-9 ">
+            <section class="col-12" id="article-section-1">
+                <div class='d-flex flex-column title-box'>
+                    <span>0<?=$number++?></span>
+                    <h1 class="mt-13">골프장</h1>
+                </div>
+                <div class="list-content">
+                    <ul class="d-flex flex-wrap">
+                        <li class='d-flex flex-column'><span>홀수</span>
+                            <p class='mt-2'>
+                                <?=$product->hole_count?>
+                            </p>
+                        </li>
+                        <li class='d-flex flex-column'><span>파</span>
+                            <p class='mt-2'>
+                                <?=$product->pa?>
+                            </p>
+                        </li>
+                        <li class='d-flex flex-column'><span>길이</span>
+                            <p class='mt-2'>
+                                <?=$product->distance?>
+                            </p>
+                        </li>
+                        <li class='d-flex flex-column'><span>잔디 타입</span>
+                            <p class='mt-2'>
+                                <?=$product->grass_type?>
+                            </p>
+                        </li>
+                        <li class='d-flex flex-column'><span>코스 타입</span>
+                            <p class='mt-2'>
+                                <?=$product->course_type?>
+                            </p>
+                        </li>
+                        <li class='d-flex flex-column'><span>코스 구성</span>
+                            <p class='mt-2'>
+                                <?=$product->course_type?>
+                            </p>
+                        </li>
+                        <li class='d-flex flex-column'><span>개장연도</span>
+                            <p class='mt-2'>
+                                <?=$product->open_day?>
+                            </p>
+                        </li>
+                        <li class='d-flex flex-column'><span>전화번호</span>
+                            <p class='mt-2'>
+                                <?=$product->number?>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <?php if(isset($hotel)){?>
+            <section class="col-12" id="article-section-2">
+                <div class='d-flex flex-column title-box'>
+                    <span>0<?=$number++?></span>
+                    <h1 class="mt-13">숙박</h1>
+                </div>
+                <div class="list-content">
+                    <ul class="d-flex flex-wrap">
+                        <li class='d-flex flex-column'><span>업체명</span>
+                            <p class='mt-2'>
+                                <?=$hotel->name?>
+                            </p>
+                        </li>
+                        <li class='d-flex flex-column'><span>객실수</span>
+                            <p class='mt-2'>
+                                <?=$hotel->room_count?>
+                            </p>
+                        </li>
+                        <li class='d-flex flex-column'><span>객실 타입</span>
+                            <p class='mt-2'>
+                                <?=$hotel->room_type?>
+                            </p>
+                        </li>
+                        <li class='d-flex flex-column'><span>침실</span>
+                            <p class='mt-2'>
+                                <?=$hotel->bedroom?>
+                            </p>
+                        </li>
 
-                            <li class='d-flex flex-column'><span>화장실</span>
-                                <p class='mt-2'>
-                                    <?=$hotel->bathroom?>
-                                </p>
-                            </li>
-                            <li class='d-flex flex-column'><span>최대 인원</span>
-                                <p class='mt-2'>
-                                    <?=$hotel->maxium_number_of_people?>
-                                </p>
-                            </li>
-                            <li class='d-flex flex-column'><span>침대</span>
-                                <p class='mt-2'>
-                                    <?=$hotel->bed?>
-                                </p>
-                            </li>
-                            <li class='d-flex flex-column'><span>체크 인/체크 아웃</span>
-                                <p class='mt-2'>
-                                    <?=$hotel->check_in_out?>
-                                </p>
-                            </li>
-                            <li class='d-flex flex-column'><span>전화번호</span>
-                                <p class='mt-2'>
-                                    <?=$hotel->number?>
-                                </p>
-                            </li>
-                        </ul>
-                    </div>
-                </section>
-                <?php }?>
-                <?php if(count($product_options) !== 0) {?>
-                <section class="col-12" id="article-section-3">
-                    <div class='d-flex flex-column title-box'>
-                        <span>0<?=$number++?></span>
-                        <h1 class="mt-13">골프장 시설</h1>
-                    </div>
-                    <div class="list-content">
-                        <ul class="d-flex flex-wrap">
-                            <?php for($i=0 ; $i < count($product_options); $i++ ){?>
-                            <li class='d-flex flex-column'>
-                                <p>
-                                    <?=$product_options[$i]->name?>
-                                </p>
-                            </li>
-                            <?php }?>
-                        </ul>
-                    </div>
-                </section>
-                <?php }?>
+                        <li class='d-flex flex-column'><span>화장실</span>
+                            <p class='mt-2'>
+                                <?=$hotel->bathroom?>
+                            </p>
+                        </li>
+                        <li class='d-flex flex-column'><span>최대 인원</span>
+                            <p class='mt-2'>
+                                <?=$hotel->maxium_number_of_people?>
+                            </p>
+                        </li>
+                        <li class='d-flex flex-column'><span>침대</span>
+                            <p class='mt-2'>
+                                <?=$hotel->bed?>
+                            </p>
+                        </li>
+                        <li class='d-flex flex-column'><span>체크 인/체크 아웃</span>
+                            <p class='mt-2'>
+                                <?=$hotel->check_in_out?>
+                            </p>
+                        </li>
+                        <li class='d-flex flex-column'><span>전화번호</span>
+                            <p class='mt-2'>
+                                <?=$hotel->number?>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <?php }?>
+            <?php if(count($product_options) !== 0) {?>
+            <section class="col-12" id="article-section-3">
+                <div class='d-flex flex-column title-box'>
+                    <span>0<?=$number++?></span>
+                    <h1 class="mt-13">골프장 시설</h1>
+                </div>
+                <div class="list-content">
+                    <ul class="d-flex flex-wrap">
+                        <?php for($i=0 ; $i < count($product_options); $i++ ){?>
+                        <li class='d-flex flex-column'>
+                            <p>
+                                <?=$product_options[$i]->name?>
+                            </p>
+                        </li>
+                        <?php }?>
+                    </ul>
+                </div>
+            </section>
+            <?php }?>
 
-                <?php if(isset($hotel_options) &&  count($hotel_options) !== 0) {?>
-                <section class="col-12" id="article-section-4">
-                    <div class='d-flex flex-column title-box'>
-                        <span>0<?=$number++?></span>
-                        <h1 class="mt-13">숙박 시설</h1>
-                    </div>
-                    <div class="list-content">
-                        <ul class="d-flex flex-wrap">
-                            <?php for($i=0 ; $i < count($hotel_options); $i++ ){?>
-                            <li class='d-flex flex-column'>
-                                <p>
-                                    <?=$hotel_options[$i]->name?>
-                                </p>
-                            </li>
-                            <?php }?>
-                        </ul>
-                    </div>
-                </section>
-                <?php }?>
-                <section class="col-12" id="article-section-5">
-                    <div class='d-flex flex-column title-box'>
-                        <span>0<?=$number++?></span>
-                        <h1 class="mt-13">주의사항</h1>
-                    </div>
-                    <div id="section-5-list-content">
-                        <ul class="d-flex flex-wrap flex-column list-unstyled">
-                            <li>
-                                <p>
-                                    출발 7일 전까지 예약 취소 시 전액 환불됩니다.
-                                </p>
-                            </li>
-                            <li>
-                                <p>
-                                    * 출발 6일 전~1일 전 취소 시 위약금은 결제 금액의 50% 입니다.
-                                </p>
-                            </li>
-                            <li>
-                                <p>
-                                    * 게스트가 체크인 하지 않은 경우 고객의 변심으로 간주되어 환불이 불가합니다.
-                                </p>
-                            </li>
-                            <li>
-                                <p>
-                                    * 게스트 또는 호스트에게 불만이 생길 경우, 체크인 이후 24시간 내에 골프패스측에 알려야 합니다.
-                                </p>
-                            </li>
-                            <li>
-                                <p>
-                                    * 분쟁 발생 시 골프패스는 중재를 위해 개입할 수 있으며 이 경우 골프패스가 최종 결정을 내리게 됩니다.
-                                </p>
-                            </li>
-                            <li>
-                                <p>
-                                    * 예약 취소 확인 화면에서 예약 취소 버튼을 클릭해야 예약이 정식으로 취소됩니다.
-                                </p>
-                            </li>
-                            <li>
-                                <p>
-                                    * 게스트 환불 정책, 안전 문제로 인한 예약 취소, 또는 정상참작 가능한 상황에 해당되는 경우 숙소의 환불 정책 대신 관련 정책이 적용될 수 있습니다.
-                                </p>
-                            </li>
-                            <li>
-                                <p>
-                                    * 관련 세금액은 차감 및 징수됩니다.
-                                </p>
-                            </li>
-                        </ul>
-                    </div>
-                </section>
-
-            </article>
+            <?php if(isset($hotel_options) &&  count($hotel_options) !== 0) {?>
+            <section class="col-12" id="article-section-4">
+                <div class='d-flex flex-column title-box'>
+                    <span>0<?=$number++?></span>
+                    <h1 class="mt-13">숙박 시설</h1>
+                </div>
+                <div class="list-content">
+                    <ul class="d-flex flex-wrap">
+                        <?php for($i=0 ; $i < count($hotel_options); $i++ ){?>
+                        <li class='d-flex flex-column'>
+                            <p>
+                                <?=$hotel_options[$i]->name?>
+                            </p>
+                        </li>
+                        <?php }?>
+                    </ul>
+                </div>
+            </section>
+            <?php }?>
+            <section class="col-12" id="article-section-5">
+                <div class='d-flex flex-column title-box'>
+                    <span>0<?=$number++?></span>
+                    <h1 class="mt-13">주의사항</h1>
+                </div>
+                <div id="section-5-list-content">
+                    <ul class="d-flex flex-wrap flex-column list-unstyled">
+                        <li>
+                            <p>
+                                출발 7일 전까지 예약 취소 시 전액 환불됩니다.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                * 출발 6일 전~1일 전 취소 시 위약금은 결제 금액의 50% 입니다.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                * 게스트가 체크인 하지 않은 경우 고객의 변심으로 간주되어 환불이 불가합니다.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                * 게스트 또는 호스트에게 불만이 생길 경우, 체크인 이후 24시간 내에 골프패스측에 알려야 합니다.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                * 분쟁 발생 시 골프패스는 중재를 위해 개입할 수 있으며 이 경우 골프패스가 최종 결정을 내리게 됩니다.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                * 예약 취소 확인 화면에서 예약 취소 버튼을 클릭해야 예약이 정식으로 취소됩니다.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                * 게스트 환불 정책, 안전 문제로 인한 예약 취소, 또는 정상참작 가능한 상황에 해당되는 경우 숙소의 환불 정책 대신 관련 정책이 적용될 수 있습니다.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                * 관련 세금액은 차감 및 징수됩니다.
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
 
         </article>
-        <section id="section3" class="position-relative" style="width: 100%; padding-left: 0; height: 500px; background-color: #4d4d4d; margin-top: 100px; margin-bottom: 100px;">
-            <!--TODO 구글맵-->
-            <div id="map" style="width:100%;height:100%;"></div>
 
-            <?=$this->map_api->create_script()?>
-                <?php if($product->address !== ''){
+    </article>
+    <section id="section3" class="position-relative" style="width: 100%; padding-left: 0; height: 500px; background-color: #4d4d4d; margin-top: 100px; margin-bottom: 100px;">
+        <!--TODO 구글맵-->
+        <div id="map" style="width:100%;height:100%;"></div>
+
+        <?=$this->map_api->create_script()?>
+        <?php if($product->address !== ''){
             $this->map_api->add_marker($product->lat,$product->lng,$product->address,$product->map_name,$product->map_type,"false");
             $this->map_api->move_to_location($product->lat,$product->lng);
         } ?>
 
 
-        </section>
-        <!--TODO 리뷰  데이터 X-->
-        <section id="section4" class='row no-gutters justify-content-center'>
-            <div class="row review-warning-text d-flex justify-content-center">
-                <div class="d-flex flex-column align-items-center">
-                    <span class="mt-20 mb-10">리뷰</span>
-                    <p class='mb-20'>타인에게 불쾌감을 주는 리뷰는 동의없이 삭제될 수 있습니다.</p>
-                </div>
+    </section>
+    <!--TODO 리뷰  데이터 X-->
+    <section id="section4" class='row no-gutters justify-content-center'>
+        <div class="row review-warning-text d-flex justify-content-center">
+            <div class="d-flex flex-column align-items-center">
+                <span class="mt-20 mb-10">리뷰</span>
+                <p class='mb-20'>타인에게 불쾌감을 주는 리뷰는 동의없이 삭제될 수 있습니다.</p>
             </div>
-            <article id="review-box" class="row no-gutters">
-                <?php for($i = 0 ; $i < count ($reviews) ; $i++){?>
-                <div class="col-lg-12 col-xl-6 ">
-                    <article class="review d-flex flex-column">
-                        <div class="profile d-flex align-items-center">
-                            <div class="proflie-img">
-                                <img src="/public/sangmin/img/icon/noimage.png">
-                            </div>
-                            <div class='proflie-name'>
-                                <span><?=$reviews[$i]->user_name?></span>님의
-                                <span>리뷰</span>
-                            </div>
+        </div>
+        <article id="review-box" class="row no-gutters">
+            <?php for($i = 0 ; $i < count ($reviews) ; $i++){?>
+            <div class="col-lg-12 col-xl-6 ">
+                <article class="review d-flex flex-column">
+                    <div class="profile d-flex align-items-center">
+                        <div class="proflie-img">
+                            <img src="/public/sangmin/img/icon/noimage.png">
                         </div>
-                        <div class="content">
-                            <p>
-                                <?=$reviews[$i]->desc?>
-                            </p>
-                            <div class="score-box d-flex align-items-center">
-                                <span class='score'><?=ceil($reviews[$i]->avg_score*10)/10?></span>
-                                <ul class="list-unstyled">
-                                    <li class="d-flex align-items-center justify-content-between">
-                                        <p>가성비</p>
-                                        <span class="line"></span>
-                                        <span><?=$reviews[$i]->score_1?>.0</span></li>
+                        <div class='proflie-name'>
+                            <span><?=$reviews[$i]->user_name?></span>님의
+                            <span>리뷰</span>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <p>
+                            <?=$reviews[$i]->desc?>
+                        </p>
+                        <div class="score-box d-flex align-items-center">
+                            <span class='score'><?=ceil($reviews[$i]->avg_score*10)/10?></span>
+                            <ul class="list-unstyled">
+                                <li class="d-flex align-items-center justify-content-between">
+                                    <p>가성비</p>
+                                    <span class="line"></span>
+                                    <span><?=$reviews[$i]->score_1?>.0</span></li>
                                     <li class="d-flex align-items-center justify-content-between">
                                         <p>시설 설비</p>
                                         <span class="line"></span>
                                         <span><?=$reviews[$i]->score_2?>.0</span></li>
-                                    <li class="d-flex align-items-center justify-content-between ">
-                                        <p>식사</p>
-                                        <span class="line"></span>
-                                        <span><?=$reviews[$i]->score_3?>.0</span></li>
-                                    <li class="d-flex align-items-center justify-content-between">
-                                        <p>전략성</p>
-                                        <span class="line"></span>
-                                        <span><?=$reviews[$i]->score_4?>.0</span></li>
-                                    <li class="d-flex align-items-center justify-content-between ">
-                                        <p>페어웨이 넓이</p>
-                                        <span class="line"></span>
-                                        <span><?=$reviews[$i]->score_5?>.0</span></li>
-                                    <li class="d-flex align-items-center justify-content-between ">
-                                        <p>그린의 난이도</p>
-                                        <span class="line"></span>
-                                        <span><?=$reviews[$i]->score_6?>.0</span></li>
-                                    <li class="d-flex align-items-center justify-content-between">
-                                        <p>전장의 길이</p>
-                                        <span class="line"></span>
-                                        <span><?=$reviews[$i]->score_7?>.0</span></li>
-                                    <li class="d-flex align-items-center justify-content-between">
-                                        <p>코스 상태</p>
-                                        <span class="line"></span>
-                                        <span><?=$reviews[$i]->score_8?>.0</span></li>
-                                </ul>
-                            </div>
-                            <div class="date">
-                                <p>
-                                    <?=$reviews[$i]->year?>년
-                                        <?=$reviews[$i]->month?>월
-                                            <?=$reviews[$i]->day?>일
-                                                <?=$reviews[$i]->ampm?>
-                                                    <?=strlen($reviews[$i]->hour) === 1 ? "0{$reviews[$i]->hour}" : "{$reviews[$i]->hour}"?>시
-                                                        <?=$reviews[$i]->min?>분</p>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-                <?php }?>
+                                        <li class="d-flex align-items-center justify-content-between ">
+                                            <p>식사</p>
+                                            <span class="line"></span>
+                                            <span><?=$reviews[$i]->score_3?>.0</span></li>
+                                            <li class="d-flex align-items-center justify-content-between">
+                                                <p>전략성</p>
+                                                <span class="line"></span>
+                                                <span><?=$reviews[$i]->score_4?>.0</span></li>
+                                                <li class="d-flex align-items-center justify-content-between ">
+                                                    <p>페어웨이 넓이</p>
+                                                    <span class="line"></span>
+                                                    <span><?=$reviews[$i]->score_5?>.0</span></li>
+                                                    <li class="d-flex align-items-center justify-content-between ">
+                                                        <p>그린의 난이도</p>
+                                                        <span class="line"></span>
+                                                        <span><?=$reviews[$i]->score_6?>.0</span></li>
+                                                        <li class="d-flex align-items-center justify-content-between">
+                                                            <p>전장의 길이</p>
+                                                            <span class="line"></span>
+                                                            <span><?=$reviews[$i]->score_7?>.0</span></li>
+                                                            <li class="d-flex align-items-center justify-content-between">
+                                                                <p>코스 상태</p>
+                                                                <span class="line"></span>
+                                                                <span><?=$reviews[$i]->score_8?>.0</span></li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="date">
+                                                            <p>
+                                                                <?=$reviews[$i]->year?>년
+                                                                <?=$reviews[$i]->month?>월
+                                                                <?=$reviews[$i]->day?>일
+                                                                <?=$reviews[$i]->ampm?>
+                                                                <?=strlen($reviews[$i]->hour) === 1 ? "0{$reviews[$i]->hour}" : "{$reviews[$i]->hour}"?>시
+                                                                <?=$reviews[$i]->min?>분</p>
+                                                            </div>
+                                                        </div>
+                                                    </article>
+                                                </div>
+                                                <?php }?>
 
-            </article>
-            <section id='all' class='pl-0 d-flex justify-content-center'>
-                <a href="<?=site_url(shop_review_uri."/gets/{$product->id}")?>">
-                <div id='circle' class='d-flex justify-content-center align-items-center' style="margin-right:10px;">
-                     <span>모두보기</span>
-                </div>
-                </a>
-                <a href="<?=site_url(shop_review_uri."/add/{$product->id}")?>">
-                <div id='circle' class='d-flex justify-content-center align-items-center' style="margin-left:10px;">
-                     <span>리뷰 쓰러가기</span>
-                </div>
-                </a>
-            </section>
-          
-        </section>
-    <footer id='tp-footer' class='main-footer container-fluid'>
-        <div id="tp-partner">
-            <div class="row" style="width:100%;">
-                <div class="w-100">
-                    <h6>PARTNERS</h6>
-                </div>
-                <div class="d-flex flex-wrap">
-                    <figure>
-                        <img src="/public/sangmin/img/partner/b_partner_accordiagolf.png" alt="">
-                    </figure>
-                    <figure>
-                        <img src="/public/sangmin/img/partner/b_partner_orixgolf.png" alt="">
-                    </figure>
-                    <figure>
-                        <img src="/public/sangmin/img/partner/b_partner_PGM.png" alt="">
-                    </figure>
-                    <figure>
-                        <img src="/public/sangmin/img/partner/b_partner_princehotel.png" alt="">
-                    </figure>
+                                            </article>
+                                            <section id='all' class='pl-0 d-flex justify-content-center'>
+                                                <a href="<?=site_url(shop_review_uri."/gets/{$product->id}")?>">
+                                                    <div id='circle' class='d-flex justify-content-center align-items-center' style="margin-right:10px;">
+                                                     <span>모두보기</span>
+                                                 </div>
+                                             </a>
+                                             <a href="<?=site_url(shop_review_uri."/add/{$product->id}")?>">
+                                                <div id='circle' class='d-flex justify-content-center align-items-center' style="margin-left:10px;">
+                                                 <span>리뷰 쓰러가기</span>
+                                             </div>
+                                         </a>
+                                     </section>
+
+                                 </section>
+                                 <footer id='tp-footer' class='main-footer container-fluid'>
+                                    <div id="tp-partner">
+                                        <div class="row" style="width:100%;">
+                                            <div class="w-100">
+                                                <h6>PARTNERS</h6>
+                                            </div>
+                                            <div class="d-flex flex-wrap">
+                                                <figure>
+                                                    <img src="/public/sangmin/img/partner/b_partner_accordiagolf.png" alt="">
+                                                </figure>
+                                                <figure>
+                                                    <img src="/public/sangmin/img/partner/b_partner_orixgolf.png" alt="">
+                                                </figure>
+                                                <figure>
+                                                    <img src="/public/sangmin/img/partner/b_partner_PGM.png" alt="">
+                                                </figure>
+                                                <figure>
+                                                    <img src="/public/sangmin/img/partner/b_partner_princehotel.png" alt="">
+                                                </figure>
                     <!--<figure>
                         <img src="/public/sangmin/img/partner/b_partner_timescar.png" alt="">
                     </figure>-->
@@ -762,41 +762,41 @@
         </div>
 
     </footer>
-    </div>
-   
-    <script src="/public/sangmin/js/slick.js" type="text/javascript" charset="utf-8"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-    <script src="/public/sangmin/dist/bootstrap/bootstrap.bundle.min.js"></script>
-    <script src="/public/sangmin/dist/Nwagon/Nwagon.js"></script>
-    <!-- <script src="/public/sangmin/js/chart.js"></script> -->
-    <script src="/public/sangmin/js/sticky.js"></script>
-    <script src="/public/sangmin/js/custom/navAction.js"></script>
-    <script src="/public/sangmin/js/custom/search.js"></script>
-    <script src="/public/sangmin/js/mobile_search.js"></script>
-    <script src="/public/sangmin/js/custom/detail_slide.js"></script>
-    <script src="/public/sangmin/js/custom/detail_sticky.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-    <script src="<?=domain_url('/public/js/common.js')?>"></script>
+</div>
 
-    <!-- 달력 -->
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
-    <script>
-        $.datepicker.setDefaults({
-            dateFormat: 'yy-mm-dd',
-            prevText: '이전 달',
-            nextText: '다음 달',
-            monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
-            monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
-            dayNames: ['일', '월', '화', '수', '목', '금', '토'],
-            dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
-            dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
-            showMonthAfterYear: true,
-            yearSuffix: '년'
-        });
+<script src="/public/sangmin/js/slick.js" type="text/javascript" charset="utf-8"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+<script src="/public/sangmin/dist/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="/public/sangmin/dist/Nwagon/Nwagon.js"></script>
+<!-- <script src="/public/sangmin/js/chart.js"></script> -->
+<script src="/public/sangmin/js/sticky.js"></script>
+<script src="/public/sangmin/js/custom/navAction.js"></script>
+<script src="/public/sangmin/js/custom/search.js"></script>
+<script src="/public/sangmin/js/mobile_search.js"></script>
+<script src="/public/sangmin/js/custom/detail_slide.js"></script>
+<script src="/public/sangmin/js/custom/detail_sticky.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+<script src="<?=domain_url('/public/js/common.js')?>"></script>
 
-        var $startDate = $("#s-day");
-        var $endDate = $("#e-day");
+<!-- 달력 -->
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+<script>
+    $.datepicker.setDefaults({
+        dateFormat: 'yy-mm-dd',
+        prevText: '이전 달',
+        nextText: '다음 달',
+        monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+        monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+        dayNames: ['일', '월', '화', '수', '목', '금', '토'],
+        dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
+        dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+        showMonthAfterYear: true,
+        yearSuffix: '년'
+    });
+
+    var $startDate = $("#s-day");
+    var $endDate = $("#e-day");
         // var $numPeople = $("select[name=num_people]");
         var $total_price = $("#total_price");
         var $numPeople = $("#j-v-num-people");
@@ -812,7 +812,7 @@
     </script>
     <!-- 달력 -->
 
-  
+
 
     <!-- 차트 -->
 
@@ -893,18 +893,18 @@
     </script>
     <!-- 차트 -->
     <!--Start of Tawk.to Script-->
-<script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/5a1bd9e1198bd56b8c03d88a/default';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
-</script>
-<!--End of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+        (function(){
+            var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+            s1.async=true;
+            s1.src='https://embed.tawk.to/5a1bd9e1198bd56b8c03d88a/default';
+            s1.charset='UTF-8';
+            s1.setAttribute('crossorigin','*');
+            s0.parentNode.insertBefore(s1,s0);
+        })();
+    </script>
+    <!--End of Tawk.to Script-->
 </body>
 
 </html>
@@ -912,8 +912,8 @@ s0.parentNode.insertBefore(s1,s0);
 <!-- 검색기능 시작 -->
 <script>
  $("#input_search").keypress(function (e) {
-        var key = e.which;
-        console.log(1);
+    var key = e.which;
+    console.log(1);
         if(key == 13)  // the enter key code
         {
             console.log(2);
@@ -923,9 +923,9 @@ s0.parentNode.insertBefore(s1,s0);
         }
     });     
 
-$("#mk-fullscreen-search-input").keypress(function (e) {
-   
-        var key = e.which;
+ $("#mk-fullscreen-search-input").keypress(function (e) {
+
+    var key = e.which;
         if(key == 13)  // the enter key code
         {
             var value =$(this).val();
@@ -933,12 +933,12 @@ $("#mk-fullscreen-search-input").keypress(function (e) {
             window.location.href="<?=site_url(shop_product_uri."/gets_by_hash/")?>"+value; 
         }
     });     
-    $("#mobile_search_btn").click(function()
-    {
-        var value =$("#mk-fullscreen-search-input").val();
-            
-        window.location.href="<?=site_url(shop_product_uri."/gets_by_hash/")?>"+value; 
-    });
+ $("#mobile_search_btn").click(function()
+ {
+    var value =$("#mk-fullscreen-search-input").val();
+
+    window.location.href="<?=site_url(shop_product_uri."/gets_by_hash/")?>"+value; 
+});
 </script>
 <!-- 검색기능 끝 -->
 <!-- 뉴스레터 시작-->
@@ -949,7 +949,7 @@ $("#mk-fullscreen-search-input").keypress(function (e) {
         {
             var email =$(this).val();
             var url = "<?=site_url(main_uri."/add_newslatter")?>";
-          
+
             $.ajax({
                 type:"post",
                 dataType:"json",
@@ -971,9 +971,9 @@ $("#mk-fullscreen-search-input").keypress(function (e) {
 </script>
 
 <!-- 뉴스레터 끝-->
- <!-- 상품날자가격계산 -->
- <script>
-        $(document).ready(function() {
+<!-- 상품날자가격계산 -->
+<script>
+    $(document).ready(function() {
             // $numPeople.change(function() {
             //     // if(validationGetPrice() === 1)
             //     // validationGetPrice()
@@ -992,16 +992,16 @@ $("#mk-fullscreen-search-input").keypress(function (e) {
             });
         });
 
-        function validationGetPrice() {
-            var date = $startDate.val();
-            var dateArray = date.split("-");
-            var startDateObj = new Date(dateArray[0], Number(dateArray[1]) - 1, dateArray[2]);
+    function validationGetPrice() {
+        var date = $startDate.val();
+        var dateArray = date.split("-");
+        var startDateObj = new Date(dateArray[0], Number(dateArray[1]) - 1, dateArray[2]);
 
-            var date = $endDate.val();
-            var dateArray = date.split("-");
-            var endDateObj = new Date(dateArray[0], Number(dateArray[1]) - 1, dateArray[2]);
-            var betweenDay = endDateObj.getTime() - startDateObj.getTime();
-            var betweenDay = betweenDay / 1000 / 60 / 60 / 24;
+        var date = $endDate.val();
+        var dateArray = date.split("-");
+        var endDateObj = new Date(dateArray[0], Number(dateArray[1]) - 1, dateArray[2]);
+        var betweenDay = endDateObj.getTime() - startDateObj.getTime();
+        var betweenDay = betweenDay / 1000 / 60 / 60 / 24;
             // if()
             if ($startDate.val() === "" || $endDate.val() === "") {
                 return 0;
@@ -1016,7 +1016,7 @@ $("#mk-fullscreen-search-input").keypress(function (e) {
         }
 
         function ajax_get_price() {
-            
+
             $form = $("#golfpass_order_form");
             $form.find("input[name=start_date]").val($startDate.val());
             $form.find("input[name=end_date]").val($endDate.val());
@@ -1070,7 +1070,7 @@ $("#mk-fullscreen-search-input").keypress(function (e) {
                 alert("잘못된 주문입니다.");
                 return false;
             }
-          
+
             // $order_form.find("input[name=num_people]").val($numPeople.val());
             // $order_form.find("input[name=start_date]").val($startDate.val());
             // $order_form.find("input[name=end_date]").val($endDate.val());
@@ -1082,11 +1082,11 @@ $("#mk-fullscreen-search-input").keypress(function (e) {
     <!-- 상품날자가격계산 -->
 
 
-                       
-				
-<!-- 조별추가하기 시작 -->
 
-<!-- 아이템 복제용 -->
+
+    <!-- 조별추가하기 시작 -->
+
+    <!-- 아이템 복제용 -->
 <!-- <li class='d-flex align-items-center j-group-item'- id="j-group-item" style="display:none !important">
     <div style="width:50%;">
         <p><i class='xi-radiobox-checked' style="margin-right:8px;"></i>A조</p>
@@ -1140,7 +1140,7 @@ $('#j-group-value').bootstrapNumber({
 <div id="j-dim"></div>
 <div id="j-modal">
     총인원 <div>5</div>
-        <div id="j-group-wapper"></div>
+    <div id="j-group-wapper"></div>
 </div>
 
 <!-- 그룹 복사용 아이템 -->
@@ -1148,39 +1148,192 @@ $('#j-group-value').bootstrapNumber({
 
 <!-- 모달 , 딤 끝 -->
 <script>
+    var $withoutLastChildItems;
+    var $lastItem;
+    var $lastItemInput;
+    // var $lastSecontItem;
+    // var $lastSecontItemInput;
+    
+
+
     var $j_dim =$("#j-dim");
     var $j_modal= $("#j-modal");
     var $j_group_wapper= $("#j-group-wapper");
     var $j_group_modal_item =$("#j-group-modal-item");
+    $("#j-group-value").change(function(){ //아이템추가
+        $this = $(this);
+        initGroupList($this.val());
+        getVariableItems();
+        addEventItems();
+    });
+
     $("#j-group-add-btn").click(function(){ //아이템추가
+
         $j_dim.css("display","block");
         $j_modal.css("display","block");
         $("body").prepend($j_dim);
-       
+
     });
     $("#j-dim").click(function(){
-            $j_dim.css("display","none");
-            $j_modal.css("display","none");
+        $j_dim.css("display","none");
+        $j_modal.css("display","none");
     });
+
     //--규칙
     ////공통
     //각 그룹은 2~4
     //총합이 총인원수랑 같아야됌
     //차감과 덧셈은 무조건 맨밑에 걸로
     ////+했을때
+    //4일떄 return false
     //마지막이 1이면 없애고 위에꺼 +1
     //5가디면 4가되고 위에꺼 +1
     //맽밑이 2이고 3하나 4조합일떄 +불가능
     ////-했을떄
+    //2일떄 return false
     //마지막이 5가되면 3이되고 2추가
-    ////마지막은 +- 불가능
+    ////마지막 +-규칙
+    
+    
+    function getVariableItems()
+    {
+        $withoutLastChildItems =$('#j-group-wapper .input-group:not(:last-child)');
+        $lastItem = $('#j-group-wapper .input-group:last-child');
+        $lastItemInput=$lastItem.find(".j-group-modal-item");   
+        console.log($withoutLastChildItems);
+        // $lastSecontItem=$($withoutLastChildItems[$withoutLastChildItems.length-1]);
+        // $lastSecontItemInput=$lastSecontItem.find(".j-group-modal-item");
+    }
+    function addEventItems(){
+        //+했을떄
+        $withoutLastChildItems.find(".btn-item-up").click(function(){
+            eventAdd(this);
+        }); 
+        //-했을떄
+        $withoutLastChildItems.find(".btn-item-down").click(function(){
 
-     
-    initGroupList(2);
+          eventMius(this);
+      });
 
+    }
+    function eventMius(e)
+    {
+          //2일떄 return false
+          $thisBtn = $(e);
+          $thisItem = $($thisBtn.parents(".input-group")[0]);
+          $thisItemInput =$thisItem.find(".j-group-modal-item");
+          var thisVal = $thisItemInput.val();
+          if(thisVal=== "2")
+          {
+            return false;
+        }
+        $thisItemInput.val(parseInt(thisVal)-1);
+
+        //마지막 +1
+
+        var val =$lastItemInput.val();
+        val =parseInt(val);
+        $lastItemInput.val(val+1);
+        val =$lastItemInput.val();
+        //마지막이 5가되면 3이되고 2추가
+        if(val === "5")
+        {
+            $lastItemInput.val(3);
+            // $item=addModalGroupItem(2);
+             var $item =$j_group_modal_item.clone();
+        $item.css("display","inline-block");
+        $item.val(2);
+        $j_group_wapper.append($item);
+        $item.bootstrapNumber({
+            upClass: 'item-up',
+            downClass: 'item-down',
+            event: false,
+            groupEvent : true
+        });
+            console.log($item);
+            $btn=$($item.parents(".input-group")[0]);
+            console.log($btn);
+            // $($item.parents(".input-group")[0]).find(".btn-item-up").click(function(){
+            //      eventAdd(this);        
+            // });
+        }
+        getVariableItems();
+    }
+    function eventAdd(e)
+    {
+        console.log("add");
+       var val =$lastItemInput.val();
+        //맽밑이 2이고 3하나 4조합일떄 +불가능
+        var num_val_3 = 0;
+        var sw_val_3_or_4 =true;
+        if(val === "2")
+        {
+            for(var i =0 ; i<$withoutLastChildItems.length; i++)
+            {
+                $input= $($withoutLastChildItems[i]).find(".j-group-modal-item");
+                if($input.val() !== "3" && $input.val() !== "4")
+                {
+                    sw_val_3_or_4 = false;
+                }
+                if($input.val() === "3")
+                {
+                    num_val_3 += 1;
+                }
+            }
+            if(sw_val_3_or_4 === true && num_val_3 === 1)
+            {
+                return false;
+            }
+        }
+        //4일떄 return false
+        $thisBtn = $(e);
+        $thisItem = $($thisBtn.parents(".input-group")[0]);
+        $thisItemInput =$thisItem.find(".j-group-modal-item");
+        var thisVal = $thisItemInput.val();
+        if(thisVal=== "4")
+        {
+            return false;
+        }
+        $thisItemInput.val(parseInt(thisVal)+1);
+
+        //마지막 -
+        
+        $lastItemInput.val(val-1);
+        val =$lastItemInput.val();
+        //마지막이 1이면 없애고 위에꺼 +1
+        if(val === "1")
+        {
+            $prevItem =$lastItem.prev();
+            $prevItemInput = $prevItem.find(".j-group-modal-item");
+            $lastItem.remove();
+            var tmpVal =$prevItemInput.val();
+            tmpVal = parseInt(tmpVal);
+            $prevItemInput.val(tmpVal+1);
+        }
+
+        //5가되면 4가되고 위에꺼 +1
+        for(var i = $withoutLastChildItems.length-1 ;i >= 0  ; i--)
+        {
+            $item =$($withoutLastChildItems[i]);
+            $itemInput =$item.find(".j-group-modal-item");
+            if($itemInput.val() === "5")
+            {
+                $itemInput.val(4);
+                $prevItem =$item.prev();
+                $prevItemInput = $prevItem.find(".j-group-modal-item");
+                var tmpVal =$prevItemInput.val();
+                tmpVal = parseInt(tmpVal);
+                $prevItemInput.val(tmpVal+1);
+
+            }
+        }
+        getVariableItems();
+    }
     function initGroupList(num_people)
     {
-       
+
+        $items=$j_group_wapper.find(".input-group");
+        $items.remove();
         if(num_people <2)
         {
             return false;
@@ -1189,7 +1342,7 @@ $('#j-group-value').bootstrapNumber({
         var val;
         while(tmp_num !== 0)
         {
-            
+
             if(tmp_num - 3 !== 0)
             {
                 val = 2;
@@ -1200,18 +1353,27 @@ $('#j-group-value').bootstrapNumber({
                 val = 3;
                 tmp_num -=3;   
             }
-            var $item =$j_group_modal_item.clone();
-            $item.css("display","inline-block");
-            $item.val(val);
-            $j_group_wapper.append($item);
+            addModalGroupItem(val);
+
         }
         
-        $('.j-group-modal-item').bootstrapNumber({
-            upClass: 'item-up',
-            downClass: 'item-down'
-        });
 
     }
+    function addModalGroupItem(val)
+    {
+        var $item =$j_group_modal_item.clone();
+        $item.data("val",val);
+        $item.css("display","inline-block");
+        $item.val(val);
+        $j_group_wapper.append($item);
+        $item.bootstrapNumber({
+            upClass: 'item-up',
+            downClass: 'item-down',
+            event: false
+        });
+        return $item;
+    }
+
     // $("#j-group-add-btn").click(function(){ //아이템추가
     //     $val =$("#j-group-value");
     //     var val =$val.val();
@@ -1239,68 +1401,68 @@ $('#j-group-value').bootstrapNumber({
         var numPeople = 0;
         for(var i =0 ; i < $items.length ; i++)
         {
-             numPeople += parseInt($($items[i]).find("input[name='groups[]']").val());
-        }
-        $("#j-v-num-people").text(`총 ${numPeople}명`);
-        $("#j-v-num-people").data("value",numPeople);
-        
-    }
+         numPeople += parseInt($($items[i]).find("input[name='groups[]']").val());
+     }
+     $("#j-v-num-people").text(`총 ${numPeople}명`);
+     $("#j-v-num-people").data("value",numPeople);
+
+ }
 </script>
 <style>
-    .btn-up
-    {
-        font-size:20px;
-        /* padding-bottom:10px; */
-        background-color:white;
-        font-family: 'notokr-medium', sans-serif;
-        line-height:0px;
-        border-radius: 0px;
+.btn-up
+{
+    font-size:20px;
+    /* padding-bottom:10px; */
+    background-color:white;
+    font-family: 'notokr-medium', sans-serif;
+    line-height:0px;
+    border-radius: 0px;
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
     border-bottom-left-radius: 0px;
-    }
-   
-    .btn-down
-    {
-        font-size:27px;
-        padding-bottom:10px;
-        border-top-left-radius: 5px;
-        border-bottom-left-radius: 5px;
+}
 
-        background-color:white;
-        font-family: 'notokr-medium', sans-serif;
-        line-height:0px;
-    }
-    .input-group
-    {
-        width:145px;
-        height:30px;
-        /* display:inline-block; */
-    }
-    #j-group-add-btn
-    {
-        background-color: #487830;
-        color:white;
-        border-top-right-radius: 5px;
+.btn-down
+{
+    font-size:27px;
+    padding-bottom:10px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+
+    background-color:white;
+    font-family: 'notokr-medium', sans-serif;
+    line-height:0px;
+}
+.input-group
+{
+    width:145px;
+    height:30px;
+    /* display:inline-block; */
+}
+#j-group-add-btn
+{
+    background-color: #487830;
+    color:white;
+    border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
 
-        font-family: 'notokr-medium', sans-serif;
-        line-height:0px;
-    }
-    #j-group-value
-    {
-        
-        border: 0px solid;
-        /* border-left: 1px solid; */
-        /* border-right: 1px solid; */
-        font-family: 'notokr-medium', sans-serif;
-    }
-    .btn-default
-    {
-      
-    }
-  
+    font-family: 'notokr-medium', sans-serif;
+    line-height:0px;
+}
+#j-group-value
+{
+
+    border: 0px solid;
+    /* border-left: 1px solid; */
+    /* border-right: 1px solid; */
+    font-family: 'notokr-medium', sans-serif;
+}
+.btn-default
+{
+
+}
+
 </style>
 
 <!-- 조별추가하기 끝 -->
