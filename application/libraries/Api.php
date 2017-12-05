@@ -15,7 +15,7 @@ abstract class  Api
 	protected function curl_bearer($url,$access_token)
 	{
 		$ch = curl_init();
-        $auth = array("Authorization: Bearer {$accsess_token}");
+        $auth = array("Authorization: Bearer {$access_token}");
         curl_setopt($ch, CURLOPT_URL, $url );
         curl_setopt($ch, CURLOPT_HTTPHEADER, $auth );
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true );
