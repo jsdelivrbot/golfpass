@@ -1179,7 +1179,7 @@ $('#j-group-value').bootstrapNumber({
     }
     #j-group-add-btn
     {
-        background-color: #E35354;
+        background-color: #487830;
         color:white;
         border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
