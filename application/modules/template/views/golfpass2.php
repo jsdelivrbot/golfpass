@@ -352,13 +352,10 @@
                 </li>
             </ul>
             <ul>
-                <li class="tp-title" style="color:#ababab;">OFFICE
-                </li>
+                <li class="tp-title" style="color:#ababab;">OFFICE</li>
                 <li>
-                    <span style="color:#ababab;">TEL
-            </span>
-                    <p style="color:#ababab;">02-6959-5454
-                    </p>
+                    <span style="color:#ababab;">TEL</span>
+                    <p style="color:#ababab;">0507-1390-5454</p>
                 </li>
             </ul>
             <ul>

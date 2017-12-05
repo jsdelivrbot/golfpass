@@ -686,7 +686,7 @@
             <ul>
                 <li class="tp-title">OFFICE</li>
                 <li><span>TEL</span>
-                    <p>02-6959-5454</p>
+                    <p>0507-1390-5454</p>
                 </li>
             </ul>
             <ul>
