@@ -16,7 +16,10 @@ class Google extends Public_Controller {
 	{
 		$result =$this->google_api->login_callback();
 		$access_token=$result->access_token;
-		$this->google_api->get_user_profile($access_token);
+		$info=$this->google_api->get_user_profile($access_token);
+
+		var_dump($info->names[0]->displayName);
+		
 	}
 
 }

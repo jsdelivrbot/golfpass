@@ -28,7 +28,43 @@ class Google_api extends Api
 
 	function requset_auth()
 	{
-		$url ="https://accounts.google.com/o/oauth2/v2/auth?scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fdrive.metadata.readonly&access_type=offline&include_granted_scopes=true&state=state_parameter_passthrough_value&redirect_uri={$this->redirect_uri}&response_type=code&client_id={$this->client_id}";
+		$scope = "";
+		// Know the list of people in your circles, your age range, and language
+		$scope .="https://www.googleapis.com/auth/plus.login";
+		$scope .= " ";
+		// View your basic profile info
+		$scope .= "https://www.googleapis.com/auth/userinfo.profile";
+		$scope .= " ";
+		// View your street addresses
+		$scope .= "https://www.googleapis.com/auth/user.addresses.read";
+		$scope .= " ";
+		// Manage your contacts
+		$scope .= "https://www.googleapis.com/auth/contacts";
+		$scope .= " ";
+		// View your email addresses
+		$scope .= "https://www.googleapis.com/auth/user.emails.read";
+		$scope .= " ";
+		// View your phone numbers
+		$scope .= "https://www.googleapis.com/auth/user.phonenumbers.read";
+		$scope .= " ";
+		// View your email address
+		$scope .= "https://www.googleapis.com/auth/userinfo.email";
+		$scope .= " ";
+		// View your contacts
+		$scope .= "https://www.googleapis.com/auth/contacts.readonly";
+		$scope .= " ";
+		// View your complete date of birth
+		$scope .= "https://www.googleapis.com/auth/user.birthday.read";
+		$scope =rawurlencode($scope);
+		$queryString = "?";
+		$queryString .= "scope={$scope}";
+		$queryString .= "&access_type=offline";
+		$queryString .= "&include_granted_scopes=true";
+		$queryString .= "&state=state_parameter_passthrough_value";
+		$queryString .= "&redirect_uri={$this->redirect_uri}";
+		$queryString .= "&response_type=code";
+		$queryString .= "&client_id={$this->client_id}";
+		$url ="https://accounts.google.com/o/oauth2/v2/auth".$queryString;
 
 		redirect($url);
 	}
@@ -51,10 +87,23 @@ class Google_api extends Api
 
 	
 	}
-
 	function get_user_profile($accsess_token)
     {
-        // $accsess_token =$this->login_callback();
+		$fieldName =  "personFields";
+		$personFields ="?";
+		$personFields .= "{$fieldName}=addresses";
+		// $personFields .= "&{$fieldName}=ageRanges";
+		// $personFields .= "&{$fieldName}=biographies";
+		$personFields .= "&{$fieldName}=birthdays";
+		// $personFields .= "&{$fieldName}=braggingRights";
+		// $personFields .= "&{$fieldName}=coverPhotos";
+		$personFields .= "&{$fieldName}=emailAddresses";
+		$personFields .= "&{$fieldName}=genders";
+		$personFields .= "&{$fieldName}=names";
+		//more personFields info  https://developers.google.com/people/api/rest/v1/people/get
+
+		$this->user_profile_url = "https://people.googleapis.com/v1/people/me".$personFields;
+
         $ch = curl_init();
         $auth = array("Authorization: Bearer {$accsess_token}");
         curl_setopt($ch, CURLOPT_URL, $this->user_profile_url );
@@ -64,12 +113,12 @@ class Google_api extends Api
         curl_setopt($ch, CURLOPT_COOKIE, '' );
         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 300);
         $result = curl_exec($ch);
-        curl_close($ch);
+		curl_close($ch);
         $result = json_decode($result);
         return $result;
 	}
 	
-	
+
 }
 
 /* End of file Google.php */

@@ -85,7 +85,7 @@ class Naver_login extends Api
     }
     function get_user_profile($accsess_token)
     {
-        // $accsess_token =$this->login_callback();
+        
         $ch = curl_init();
         $auth = array("Authorization: Bearer {$accsess_token}");
         curl_setopt($ch, CURLOPT_URL, $this->user_profile_url );
