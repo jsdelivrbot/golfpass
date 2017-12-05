@@ -11,6 +11,21 @@ abstract class  Api
 	}
 	public abstract function requset_auth();
 	public abstract function login_callback();
+
+	protected function curl_bearer($url,$access_token)
+	{
+		$ch = curl_init();
+        $auth = array("Authorization: Bearer {$accsess_token}");
+        curl_setopt($ch, CURLOPT_URL, $url );
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $auth );
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true );
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false );
+        curl_setopt($ch, CURLOPT_COOKIE, '' );
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 300);
+        $result = curl_exec($ch);
+		curl_close($ch);
+		return $result;
+	}
 	protected function curl($url,$post=null)
     {
         $ch = curl_init(); 

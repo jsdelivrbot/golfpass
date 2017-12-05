@@ -86,16 +86,7 @@ class Naver_login extends Api
     function get_user_profile($accsess_token)
     {
         
-        $ch = curl_init();
-        $auth = array("Authorization: Bearer {$accsess_token}");
-        curl_setopt($ch, CURLOPT_URL, $this->user_profile_url );
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $auth );
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true );
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false );
-        curl_setopt($ch, CURLOPT_COOKIE, '' );
-        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 300);
-        $result = curl_exec($ch);
-        curl_close($ch);
+        $result=$this->curl_bearer($this->user_profile_url,$accsess_token);
         $result = json_decode($result);
         return $result;
     }
