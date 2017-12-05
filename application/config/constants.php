@@ -66,6 +66,7 @@ define("shop_user_uri","/shop/user");
 //api
 define("api_google_map_uri","/api/google_map");
 define("api_naver_uri","/api/naver");
+define("api_google_uri","/api/google");
 
 //golfpass
 define("golfpass_panel_uri","/golfpass/panel");

@@ -6,15 +6,17 @@ class Google extends Public_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-	//Do your magic here
+		$this->load->library('google_api');
 	}
-	public function index()
+	function request_auth()
 	{
-		
+		$this->google_api->requset_auth();
 	}
 	function redirect_url()
 	{
-		
+		$result =$this->google_api->login_callback();
+		$access_token=$result->access_token;
+		$this->google_api->get_user_profile($access_token);
 	}
 
 }
