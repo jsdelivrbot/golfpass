@@ -269,14 +269,15 @@
             </article>
         </section>
         <article id='section2' class='row no-gutters'>
+           <!-- book start -->
             <div id="book-box-wrap" class="order-1 order-lg-3 col-12 col-lg-3">
                 <div id='book-box'>
                     <div id="personnel">
-                        <span class="box-title" style="font-size:16px;">주문 정보</span>
+                        <span class="box-title" style="font-size:16px;">예약 인원</span>
                         <div id='count-box' class='d-flex align-items-stretch justify-content-end'>
-                            <p style="font-family: 'notokr-medium', sans-serif; font-size: 24px; color: #fff; margin: 0; padding: 0;"><span id="j-v-num-people"></span>    </p>
-                            <div style="width:1px; height:12px; background: #fff; margin:10px 15px 10px 15px;"></div>
-                            <p  id="total_price" style="font-family: 'notokr-medium', sans-serif; font-size: 24px; color: #fff; margin: 0; padding: 0;"><?=$price?></p>
+                        <div style="display:inline-block; margin-right:0px; float:right">
+                            <input style="display:inline-block" id="j-group-value" class="form-control" type="number" value="1" min="1" max="12" />
+                        </div>
                         </div>
                     </div>
                     <div id='dateBox'>
@@ -292,20 +293,38 @@
                             </div>
                         </form>
                     </div>
-                    <div id='add_people' style="width:100%; height:60px; background:#e6e6e6; padding:15px;">
-                        <span style="font-family: 'notokr-reglur', sans-serif; font-size: 16px; color: #808080; line-height: 34px;">
-                            조 편성
-                        </span>
-                        <div style="display:inline-block; margin-right:0px; float:right">
-                            <input style="display:inline-block" id="j-group-value" class="form-control" type="number" value="1" min="1" max="4" />
-                        </div>
-                        
-                    </div>
                     <div id="info" class="pt-20">
                         <ul class="list-unstyled" style="margin-bottom:0;">
-                            <li style="font-family: 'notokr-medium', sans-serif;">조 상황</li>
+                            <li style="font-family: 'notokr-medium', sans-serif;">조 정보</li>
+                            <li class='d-flex align-items-center j-group-item'- id="j-group-item">
+                                <div style="width:50%;">
+                                    <p><i class='xi-radiobox-checked' style="margin-right:8px;"></i>A조</p>
+                                </div>
+                                <div style="width:50%;">
+                                    <input  type="hidden" name="groups[]" id="">  
+                                    <p style="text-align:right;" ><i class='xi-users' style="color: #202020 !important; margin-right:3px;"></i><i class='xi-users' style="color: #202020 !important; margin-right:10px;"></i> 2명</p>
+                                </div>
+                            </li>
+                            <li class='d-flex align-items-center j-group-item'- id="j-group-item">
+                                <div style="width:50%;">
+                                    <p><i class='xi-radiobox-checked' style="margin-right:8px;"></i>B조</p>
+                                </div>
+                                <div style="width:50%;">
+                                    <input  type="hidden" name="groups[]" id="">  
+                                    <p style="text-align:right;" ><i class='xi-users' style="color: #202020 !important; margin-right:3px;"></i><i class='xi-users' style="color: #202020 !important; margin-right:3px;"></i><i class='xi-users' style="color: #202020 !important; margin-right:3px;"></i><i class='xi-users' style="color: #202020 !important; margin-right:10px;"></i> 4명</p>
+                                </div>
+                            </li>
+                            <li class='d-flex align-items-center j-group-item'- id="j-group-item">
+                                <div style="width:50%;">
+                                    <p><i class='xi-radiobox-checked' style="margin-right:8px;"></i>C조</p>
+                                </div>
+                                <div style="width:50%;">
+                                    <input  type="hidden" name="groups[]" id="">  
+                                    <p style="text-align:right;" ><i class='xi-users' style="color: #202020 !important; margin-right:3px;"></i><i class='xi-users' style="color: #202020 !important; margin-right:3px;"></i><i class='xi-users' style="color: #202020 !important; margin-right:10px;"></i> 3명</p>
+                                </div>
+                            </li>
                             <!-- 조리스트 시작 -->
-                            <form action="<?=site_url(shop_order_uri."/golfpass")?>" method="get" id="golfpass_order_form">
+                            <!--<form action="<?=site_url(shop_order_uri."/golfpass")?>" method="get" id="golfpass_order_form">
                            
           
                             <input type="hidden" name="num_people" value="0">
@@ -313,7 +332,7 @@
                             <input type="hidden" name="end_date">
                             <input type="hidden" name="total_price">
                             <input type="hidden" name="product_id" value="<?=$product->id?>">
-                            </form>
+                            </form>-->
                             <!-- 조리스트 끝 -->
                         </ul>
                     </div>
@@ -332,7 +351,25 @@
                                 <span class="mr-2 align-self-baseline"><i class='xi-radiobox-checked'></i></span>
                                 <p>사계절 내내 골프가 가능한 지역</p>
                             </li>
+                            <li class='d-flex align-items-center'>
+                                <span class="mr-2 align-self-baseline"><i class='xi-radiobox-checked'></i></span>
+                                <p>스마트스코어 탑재 카트 보유</p>
+                            </li>
+                            <li class='d-flex align-items-center'>
+                                <span class="mr-2 align-self-baseline"><i class='xi-radiobox-checked'></i></span>
+                                <p>미슐랭 2스타 레스토랑 보유</p>
+                            </li>
+                            <li class='d-flex align-items-center'>
+                                <span class="mr-2 align-self-baseline"><i class='xi-radiobox-checked'></i></span>
+                                <p>사계절 내내 골프가 가능한 지역</p>
+                            </li>
                         </ul>
+                        <div id='price' class="mt-20 mb-20">
+                            <h3 class='mb-3' style="font-size:16px; margin-bottom:5px !important;">가격</h3>
+                            <p id="total_price">
+                                <?=$price?>
+                            </p>
+                        </div>
                         <p class="wishlist"><a onclick="ajax_a(this); return false;" data-action="<?=site_url(shop_wishlist_uri."/ajax_add/{$product->id}")?>"href="#">위시리스트에 추가하기</a></p>
                     </div>
                     <div id='book_ok' style="width:100%; height:70px; background:#fff; border: 1px solid #e5e5e5; border-top:0; padding:10px; cursor: pointer;" onclick="location.href='#';">
@@ -342,6 +379,7 @@
                     </div>
                 </div>
             </div>
+            <!-- /book end -->
             <article id="section2-wrap" class="order-2 col-12  col-lg-9 ">
                 <section class="col-12" id="article-section-1">
                     <div class='d-flex flex-column title-box'>
@@ -355,11 +393,6 @@
                                     <?=$product->hole_count?>
                                 </p>
                             </li>
-                            <li class='d-flex flex-column'><span>코스 타입</span>
-                                <p class='mt-2'>
-                                    <?=$product->course_type?>
-                                </p>
-                            </li>
                             <li class='d-flex flex-column'><span>파</span>
                                 <p class='mt-2'>
                                     <?=$product->pa?>
@@ -370,10 +403,19 @@
                                     <?=$product->distance?>
                                 </p>
                             </li>
-
                             <li class='d-flex flex-column'><span>잔디 타입</span>
                                 <p class='mt-2'>
                                     <?=$product->grass_type?>
+                                </p>
+                            </li>
+                            <li class='d-flex flex-column'><span>코스 타입</span>
+                                <p class='mt-2'>
+                                    <?=$product->course_type?>
+                                </p>
+                            </li>
+                            <li class='d-flex flex-column'><span>코스 구성</span>
+                                <p class='mt-2'>
+                                    <?=$product->course_type?>
                                 </p>
                             </li>
                             <li class='d-flex flex-column'><span>개장연도</span>
@@ -495,22 +537,22 @@
                         <ul class="d-flex flex-wrap flex-column list-unstyled">
                             <li>
                                 <p>
-                                    출발일 7일 전까지 예약 취소시 전액 환불됩니다.
+                                    출발 7일 전까지 예약 취소 시 전액 환불됩니다.
                                 </p>
                             </li>
                             <li>
                                 <p>
-                                    * 출발일 6일전~1일전 취소시 위약금은 결제금액의 50% 입니다.
+                                    * 출발 6일 전~1일 전 취소 시 위약금은 결제 금액의 50% 입니다.
                                 </p>
                             </li>
                             <li>
                                 <p>
-                                    * 게스트가 체크인하지 않은 경우 고객의 변심으로 간주되어 환불이 불가합니다.
+                                    * 게스트가 체크인 하지 않은 경우 고객의 변심으로 간주되어 환불이 불가합니다.
                                 </p>
                             </li>
                             <li>
                                 <p>
-                                    * 게스트 또는 호스트에게 불만이 생길 경우, 체크인 이후 24시간 내에 골프패스 측에 알려야 합니다.
+                                    * 게스트 또는 호스트에게 불만이 생길 경우, 체크인 이후 24시간 내에 골프패스측에 알려야 합니다.
                                 </p>
                             </li>
                             <li>
@@ -525,7 +567,7 @@
                             </li>
                             <li>
                                 <p>
-                                    * 게스트 환불 정책, 안전문제로 인한 예약취소, 또는 정상참작 가능한 상황에 해당되는 경우 숙소의 환불 정책 대신 관련 정책이 적용될 수 있습니다.
+                                    * 게스트 환불 정책, 안전 문제로 인한 예약 취소, 또는 정상참작 가능한 상황에 해당되는 경우 숙소의 환불 정책 대신 관련 정책이 적용될 수 있습니다.
                                 </p>
                             </li>
                             <li>
@@ -1045,15 +1087,15 @@ $("#mk-fullscreen-search-input").keypress(function (e) {
 <!-- 조별추가하기 시작 -->
 
 <!-- 아이템 복제용 -->
-<li class='d-flex align-items-center j-group-item' id="j-group-item" style="display:none !important">
-        <div style="width:50%;">
-            <p><i class='xi-users' style="margin-right:8px;"></i>A조</p>
-        </div>
-        <div style="width:50%;">
-            <input  type="hidden" name="groups[]" id="">  
-            <p style="text-align:right;" ><span class="j-group-item-value"></span><a onclick="deleteGroupItem(this);return false;" href="#"><i class='xi-close' style="color:#ce0202; margin-left:10px;"></i></a></p>
-        </div>
-</li>
+<!-- <li class='d-flex align-items-center j-group-item'- id="j-group-item" style="display:none !important">
+    <div style="width:50%;">
+        <p><i class='xi-radiobox-checked' style="margin-right:8px;"></i>A조</p>
+    </div>
+    <div style="width:50%;">
+        <input  type="hidden" name="groups[]" id="">  
+        <p style="text-align:right;" ><i class='xi-users' style="color: #202020 !important; margin-right:3px;"></i><a onclick="deleteGroupItem(this);return false;" href="#"><i class='xi-close' style="color:#ce0202; margin-left:10px;"></i></a></p>
+    </div>
+</li> -->
 <!-- 아이템 복제용 -->
 
 <!-- lib -->
@@ -1137,7 +1179,7 @@ $('#j-group-value').bootstrapNumber({
     }
     #j-group-add-btn
     {
-        background-color: #71b051;
+        background-color: #E35354;
         color:white;
         border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
