@@ -63,7 +63,11 @@
 				clone.css('text-align', 'center');
 			}
 			$("<span class='input-group-btn' style='board-radius:0px;'></span>").append(up).appendTo(group);
-			$("<span class='input-group-btn' style='display:table-cell;border-left: 0px solid'><button id='j-group-add-btn' style='border-left: 0px solid;'class='btn btn-default'><sapn class='xi-check'></span></button id='j-group-add-btn'></sapn>").appendTo(group);
+			if(options.checkBtn === true)
+			{
+					$("<span class='input-group-btn' style='display:table-cell;border-left: 0px solid'><button id='j-group-add-btn' style='border-left: 0px solid;'class='btn btn-default'><sapn class='xi-check'></span></button id='j-group-add-btn'></sapn>").appendTo(group);	
+			}
+			
 			// remove spins from original
 			clone.prop('type', 'text').keydown(function(e) {
 				if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||

@@ -1106,26 +1106,127 @@ $("#mk-fullscreen-search-input").keypress(function (e) {
 // $('#j-group-value').bootstrapNumber();
 $('#j-group-value').bootstrapNumber({
 	upClass: 'up',
-	downClass: 'down'
+	downClass: 'down',
+    checkBtn : true
 });
 </script>
 <!-- lib -->
-<script>
-    $("#j-group-add-btn").click(function(){ //아이템추가
-        $val =$("#j-group-value");
-        var val =$val.val();
-        $form = $("#golfpass_order_form");
-        $item = $("#j-group-item")
-        $item = $item.clone();
-        $item.attr("id","");
-        $item.css("display","block");
-        $item.find(".j-group-item-value").text(val+"명");
-        $item.find("input[name='groups[]']").val(val);
 
-        $form.append($item);
-        cal_numPeople();
-        ajax_get_price();
+<!-- 모달 , 딤 시작 -->
+<style> 
+#j-dim
+{
+    z-index: 9999;
+    background-color: rgba(0,0,0,0.5);
+    position:fixed;
+    width :100%;
+    height: 100%;
+
+}
+#j-modal
+{
+    /*display:none;*/
+    z-index: 9999;
+    position: fixed;
+    top :50%;
+    left : 50%;
+    margin-left : -250px;
+    margin-top : -250px;
+    width: 500px;
+    height: 500px;
+    background-color: white;
+}
+</style>
+<div id="j-dim"></div>
+<div id="j-modal">
+    총인원 <div>5</div>
+        <div id="j-group-wapper"></div>
+</div>
+
+<!-- 그룹 복사용 아이템 -->
+<input id="j-group-modal-item" class="j-group-modal-item" style="display:none" class="form-control" type="number" value="1" min="2" max="4" />
+
+<!-- 모달 , 딤 끝 -->
+<script>
+    var $j_dim =$("#j-dim");
+    var $j_modal= $("#j-modal");
+    var $j_group_wapper= $("#j-group-wapper");
+    var $j_group_modal_item =$("#j-group-modal-item");
+    $("#j-group-add-btn").click(function(){ //아이템추가
+        $j_dim.css("display","block");
+        $j_modal.css("display","block");
+        $("body").prepend($j_dim);
+       
     });
+    $("#j-dim").click(function(){
+            $j_dim.css("display","none");
+            $j_modal.css("display","none");
+    });
+    //--규칙
+    ////공통
+    //각 그룹은 2~4
+    //총합이 총인원수랑 같아야됌
+    //차감과 덧셈은 무조건 맨밑에 걸로
+    ////+했을때
+    //마지막이 1이면 없애고 위에꺼 +1
+    //5가디면 4가되고 위에꺼 +1
+    //맽밑이 2이고 3하나 4조합일떄 +불가능
+    ////-했을떄
+    //마지막이 5가되면 3이되고 2추가
+    ////마지막은 +- 불가능
+
+     
+    initGroupList(2);
+
+    function initGroupList(num_people)
+    {
+       
+        if(num_people <2)
+        {
+            return false;
+        }
+        var tmp_num = parseInt(num_people);
+        var val;
+        while(tmp_num !== 0)
+        {
+            
+            if(tmp_num - 3 !== 0)
+            {
+                val = 2;
+                tmp_num -=2;
+            }
+            else
+            {
+                val = 3;
+                tmp_num -=3;   
+            }
+            var $item =$j_group_modal_item.clone();
+            $item.css("display","inline-block");
+            $item.val(val);
+            $j_group_wapper.append($item);
+        }
+        
+        $('.j-group-modal-item').bootstrapNumber({
+            upClass: 'item-up',
+            downClass: 'item-down'
+        });
+
+    }
+    // $("#j-group-add-btn").click(function(){ //아이템추가
+    //     $val =$("#j-group-value");
+    //     var val =$val.val();
+    //     $form = $("#golfpass_order_form");
+    //     $item = $("#j-group-item")
+    //     $item = $item.clone();
+    //     $item.attr("id","");
+    //     $item.css("display","block");
+    //     $item.find(".j-group-item-value").text(val+"명");
+    //     $item.find("input[name='groups[]']").val(val);
+
+    //     $form.append($item);
+    //     cal_numPeople();
+    //     ajax_get_price();
+    // });
     function deleteGroupItem(e) //아이템 삭제
     {
         $($(e).parents(".j-group-item")[0]).remove();
