@@ -1185,7 +1185,7 @@ $('#j-group-value').bootstrapNumber({
 
 <!--  input 복사용  -->
 <input id="j-group-modal-item" class="j-group-modal-item" style="display:none" class="form-control" type="number" value="1" min="2" max="4" />
-
+<!--  input 복사용  -->
 <script>
     var $allItems;
     var $withoutLastChildItems;
