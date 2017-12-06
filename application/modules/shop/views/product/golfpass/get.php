@@ -1125,7 +1125,7 @@ $('#j-group-value').bootstrapNumber({
 }
 #j-modal
 {
-    /*display:none;*/
+    display:none;
     z-index: 9999;
     position: fixed;
     top :50%;
@@ -1136,6 +1136,7 @@ $('#j-group-value').bootstrapNumber({
     height: 500px;
     background-color: white;
 }
+
 </style>
 <div id="j-dim"></div>
 <div id="j-modal">
@@ -1143,10 +1144,11 @@ $('#j-group-value').bootstrapNumber({
     <div id="j-group-wapper"></div>
 </div>
 
-<!-- 그룹 복사용 아이템 -->
+<!-- 모달 , 딤 끝 -->
+
+<!--  input 복사용  -->
 <input id="j-group-modal-item" class="j-group-modal-item" style="display:none" class="form-control" type="number" value="1" min="2" max="4" />
 
-<!-- 모달 , 딤 끝 -->
 <script>
     var $allItems;
     var $withoutLastChildItems;
@@ -1154,31 +1156,29 @@ $('#j-group-value').bootstrapNumber({
     var $lastItemInput;
     var $lastSecontItem;
     var $lastSecontItemInput;
-    
-
 
     var $j_dim =$("#j-dim");
     var $j_modal= $("#j-modal");
     var $j_group_wapper= $("#j-group-wapper");
     var $j_group_modal_item =$("#j-group-modal-item");
-    $("#j-group-value").change(function(){ 
+    $("#j-group-value").change(function(){  //인원수 변경시
         $this = $(this);
-        initGroupList($this.val());
-        getVariableItems();
+     settingGroupList($this.val());
+        settingVariableItems();
         addEventItemsUp();
         addEventItemsDown();
         addEventLastItemUp();
         addEventLastItemDown();
     });
 
-    $("#j-group-add-btn").click(function(){ 
+    $("#j-group-add-btn").click(function(){  //모달 보이게
 
         $j_dim.css("display","block");
         $j_modal.css("display","block");
         $("body").prepend($j_dim);
 
     });
-    $("#j-dim").click(function(){
+    $("#j-dim").click(function(){ //모달 안보이게
         $j_dim.css("display","none");
         $j_modal.css("display","none");
     });
@@ -1206,7 +1206,7 @@ $('#j-group-value').bootstrapNumber({
     //+1하고 위에꺼 -1
     //1이 있을때 0이 되고 위에꺼 +1(역방향)
     //[0] ~ [last-2]가 모두 4이고 [last-1]가  2일때 return false;
-    function getVariableItems()
+    function settingVariableItems() //모달 전역변수 세팅
     {
         $allItems = $("#j-group-wapper .input-group");
         $withoutLastChildItems =$('#j-group-wapper .input-group:not(:last-child)');
@@ -1216,23 +1216,23 @@ $('#j-group-value').bootstrapNumber({
         $lastSecontItemInput=$lastSecontItem.find(".j-group-modal-item");
     }
 
-    function addEventItemsUp(){
+    function addEventItemsUp(){  //+버튼이벤트 추가
         //+했을떄
         $upBtns=$withoutLastChildItems.find(".btn-item-up");
         $upBtns.click(function(){
             eventActionAdd(this); //이벤트 액션
-            getVariableItems(); //이벤트 변수 초기화
+            settingVariableItems(); //모달 변수 세팅
             resetAllEvent(); //이벤트 초기화
            
         }); 
     }
-    function addEventItemsDown() //
+    function addEventItemsDown() // - 버튼이벤트 추가
     {
         //-했을떄
         $downBtns=$withoutLastChildItems.find(".btn-item-down");
         $downBtns.click(function(){
           eventActionMius(this); //이벤트 액션
-          getVariableItems(); //이벤트 변수 초기화
+          settingVariableItems(); //모달 변수 세팅
           resetAllEvent();  //이벤트 초기화
       });
 
@@ -1242,12 +1242,36 @@ $('#j-group-value').bootstrapNumber({
         $upBtn = $lastItem.find(".btn-item-up");
         $upBtn.click(function(){
             eventActionLastItemUp(this); //이벤트 액션
-            getVariableItems(); //이벤트 변수 초기화
+            settingVariableItems(); //모달 변수 세팅
             resetAllEvent();  //이벤트 초기화
         });
     }
   
-    function eventActionLastItemUp(e)
+    
+    function addEventLastItemDown() //마지막 아이템에 - 이벤트 추가
+    {
+        $downBtn = $lastItem.find(".btn-item-down");
+        $downBtn.click(function(){
+            eventActionLastItemMius(this); //이벤트 액션
+            settingVariableItems(); //모달 변수 세팅
+          resetAllEvent();  //이벤트 초기화
+        });
+        
+    }
+    function resetAllEvent() //이벤트 초기화 후 재설정
+    {
+        $upBtns=$allItems.find(".btn-item-up");
+        $downBtns=$allItems.find(".btn-item-down");
+        $upBtns.off();
+        $downBtns.off();
+        addEventItemsDown(); 
+        addEventItemsUp();
+        addEventLastItemUp();
+        addEventLastItemDown();
+
+    }
+
+    function eventActionLastItemUp(e) //마지막 아이템 +버튼 액션
     {
           ////+일떄
           var $this = $(this);
@@ -1289,7 +1313,7 @@ $('#j-group-value').bootstrapNumber({
             var prevItemInputVal = $prevItemInput.val();
             $prevItemInput.val(parseInt(prevItemInputVal) +1);
             $lastSecontItem.remove();
-            getVariableItems();
+            settingVariableItems();
              //+1했을떄 5가있으면 4가되고 위에꺼 +1(역방향)
             for(var i = $withoutLastChildItems.length - 1 ; i >= 0 ; i--)
             {
@@ -1309,17 +1333,7 @@ $('#j-group-value').bootstrapNumber({
     
 
     }
-    function addEventLastItemDown() //마지막 아이템에 - 이벤트 추가
-    {
-        $downBtn = $lastItem.find(".btn-item-down");
-        $downBtn.click(function(){
-            eventActionLastItemMius(this); //이벤트 액션
-            getVariableItems(); //이벤트 변수 초기화
-          resetAllEvent();  //이벤트 초기화
-        });
-        
-    }
-    function eventActionLastItemMius(e)
+    function eventActionLastItemMius(e) //마지막 아이템 -버튼 액션
     {
          ////-일떄
          var $this = $(this);
@@ -1376,19 +1390,8 @@ $('#j-group-value').bootstrapNumber({
          }
 
     }
-    function resetAllEvent()
-    {
-        $upBtns=$allItems.find(".btn-item-up");
-        $downBtns=$allItems.find(".btn-item-down");
-        $upBtns.off();
-        $downBtns.off();
-        addEventItemsDown(); 
-        addEventItemsUp();
-        addEventLastItemUp();
-        addEventLastItemDown();
-
-    }
-    function eventActionMius(e)
+    
+    function eventActionMius(e) // -버튼 이벤트 액션
     {
           //2일떄 return false
           $thisBtn = $(e);
@@ -1430,7 +1433,7 @@ $('#j-group-value').bootstrapNumber({
             // });
         }
     }
-    function eventActionAdd(e)
+    function eventActionAdd(e) //+버튼 이벤트액션
     {
        var val =$lastItemInput.val();
         //맽밑이 2이고 3하나 4조합일떄 +불가능
@@ -1499,7 +1502,7 @@ $('#j-group-value').bootstrapNumber({
         }
       
     }
-    function initGroupList(num_people)
+    function settingGroupList(num_people) //모달 리스트 세팅
     {
 
         $items=$j_group_wapper.find(".input-group");
@@ -1529,7 +1532,7 @@ $('#j-group-value').bootstrapNumber({
         
 
     }
-    function addModalGroupItem(val)
+    function addModalGroupItem(val) //모달에 아이템 추가함수
     {
         var $item =$j_group_modal_item.clone();
         $item.data("val",val);
@@ -1544,39 +1547,7 @@ $('#j-group-value').bootstrapNumber({
         return $item;
     }
 
-    // $("#j-group-add-btn").click(function(){ //아이템추가
-    //     $val =$("#j-group-value");
-    //     var val =$val.val();
-    //     $form = $("#golfpass_order_form");
-    //     $item = $("#j-group-item")
-    //     $item = $item.clone();
-    //     $item.attr("id","");
-    //     $item.css("display","block");
-    //     $item.find(".j-group-item-value").text(val+"명");
-    //     $item.find("input[name='groups[]']").val(val);
-
-    //     $form.append($item);
-    //     cal_numPeople();
-    //     ajax_get_price();
-    // });
-    function deleteGroupItem(e) //아이템 삭제
-    {
-        $($(e).parents(".j-group-item")[0]).remove();
-        cal_numPeople();
-        ajax_get_price();
-    }
-    function cal_numPeople() //총명수 계산
-    {
-        $items =$("#golfpass_order_form").find(".j-group-item");
-        var numPeople = 0;
-        for(var i =0 ; i < $items.length ; i++)
-        {
-         numPeople += parseInt($($items[i]).find("input[name='groups[]']").val());
-     }
-     $("#j-v-num-people").text(`총 ${numPeople}명`);
-     $("#j-v-num-people").data("value",numPeople);
-
- }
+ 
 </script>
 <style>
 .btn-up
