@@ -1135,15 +1135,52 @@ $('#j-group-value').bootstrapNumber({
     width: 500px;
     height: 500px;
     background-color: white;
+    overflow:auto;
+    /* overflow-x: scroll; */
 }
 
 </style>
 <div id="j-dim"></div>
 <div id="j-modal">
-    총인원 <div>5</div>
+총인원총인원총인원총인원총인원총인원총인원총인원총인원총인원총인원총인원총인원총인원총인원총인원총인원 <div>5</div>
     <div id="j-group-wapper"></div>
 </div>
+    <!-- 모달 반응형 스크립트시작 -->
+<script>
+    $(window).resize(function(){
+        settingModalSize();
+    });
+    function settingModalSize()
+    {
+        var minWidth = 400; //모달 가로 최소크기
+        var minHeight = 200; //모달 세로 최소크기
+        var marginWidth = 300; //반응형 모달 가로 마진
+        var marginHeight = 300;  //반응형 모달 세로 마진
 
+        var winWidth =window.innerWidth;
+        var winHeight =window.innerHeight;
+       
+        $j_modal=$("#j-modal");
+
+        var modalWidth = winWidth-marginWidth;
+        if(modalWidth < minWidth ) 
+        {
+            modalWidth= minWidth;
+        }
+     
+        $j_modal.css("width",modalWidth);
+        $j_modal.css("margin-left",modalWidth/2*-1);
+        var modalHeight = winHeight-marginHeight;
+        
+        if(modalHeight < minHeight )
+        {
+            modalHeight= minHeight;
+        }
+        $j_modal.css("height",modalHeight);
+        $j_modal.css("margin-top",modalHeight/2*-1);
+    }
+</script>
+    <!-- 모달 반응형 스크립트끝 -->
 <!-- 모달 , 딤 끝 -->
 
 <!--  input 복사용  -->
@@ -1172,13 +1209,15 @@ $('#j-group-value').bootstrapNumber({
     });
 
     $("#j-group-add-btn").click(function(){  //모달 보이게
-
+        $("body").css("overflow","hidden")
+        settingModalSize();
         $j_dim.css("display","block");
         $j_modal.css("display","block");
         $("body").prepend($j_dim);
 
     });
     $("#j-dim").click(function(){ //모달 안보이게
+        $("body").css("overflow","visible")
         $j_dim.css("display","none");
         $j_modal.css("display","none");
     });
@@ -1252,6 +1291,7 @@ $('#j-group-value').bootstrapNumber({
     {
         $downBtn = $lastItem.find(".btn-item-down");
         $downBtn.click(function(){
+          
             eventActionLastItemMius(this); //이벤트 액션
             settingVariableItems(); //모달 변수 세팅
           resetAllEvent();  //이벤트 초기화
@@ -1333,6 +1373,7 @@ $('#j-group-value').bootstrapNumber({
     
 
     }
+   
     function eventActionLastItemMius(e) //마지막 아이템 -버튼 액션
     {
          ////-일떄
@@ -1342,19 +1383,48 @@ $('#j-group-value').bootstrapNumber({
          {
              return false;
          }
-        //마지막거 제외하고 모두 4이면 return false
+        //마지막거 제외하고 모두 4이고  마지막이 4가아닐떄 return false 시작
         var sw = true;
         for(var i = 0 ; i < $withoutLastChildItems.length ; i++)
         {
-            if($($withoutLastChildItems[i]).val() !== "4")
+            var $itemInput=$($withoutLastChildItems[i]).find(".j-group-modal-item");
+            if($itemInput.val() !== "4")
             {
                 sw = false;
             }
         }
-        if(sw === true)
+        if(sw === true && $withoutLastChildItems.length !== 0 && val !== "4")
         {
+           
+              //마지막이 3일때 -하면 2가되고 위에중하나 -1되고 // 2추가 시작
+            if(val === "3")
+            {
+                //마지막 위에것들이 모두 2이면 return false
+                var sw = true;
+                for(var i = $withoutLastChildItems.length-1 ; i >= 0  ; i--)
+                {
+                    var $itemInput=$($withoutLastChildItems[i]).find(".j-group-modal-item");
+                    if($itemInput.val() !== "2")
+                    {
+                        sw = false;
+                        var itemInputVal =$itemInput.val();
+                        $itemInput.val(parseInt(itemInputVal)-1);
+                        break;
+                    }
+                }
+                if(sw === true)
+                {
+                    return false;
+                }
+                //
+                $lastItemInput.val(2);
+                addModalGroupItem(2);
+                return true;
+            }
+           //마지막이 3일때 -하면 2가되고 위에중하나 -1되고 // 2추가 끝
             return false;
         }
+        //마지막거 제외하고 모두 4이고  마지막이 4가아닐떄 return false 끝
         //마지막이 4인데 -하면  2가되고 2추가
         if(val === "4")
         {
@@ -1362,6 +1432,7 @@ $('#j-group-value').bootstrapNumber({
             addModalGroupItem(2);
             return true;
         }
+      
 
         //-하면 바로위에꺼 +1
         $lastItemInput.val(parseInt(val) -1);
