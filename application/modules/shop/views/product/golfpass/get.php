@@ -1160,14 +1160,15 @@ $('#j-group-value').bootstrapNumber({
     var $j_modal= $("#j-modal");
     var $j_group_wapper= $("#j-group-wapper");
     var $j_group_modal_item =$("#j-group-modal-item");
-    $("#j-group-value").change(function(){ //아이템추가
+    $("#j-group-value").change(function(){ 
         $this = $(this);
         initGroupList($this.val());
         getVariableItems();
-        addEventItems();
+        addUpEventItems();
+        addDownEventItems();
     });
 
-    $("#j-group-add-btn").click(function(){ //아이템추가
+    $("#j-group-add-btn").click(function(){ 
 
         $j_dim.css("display","block");
         $j_modal.css("display","block");
@@ -1204,19 +1205,38 @@ $('#j-group-value').bootstrapNumber({
         // $lastSecontItem=$($withoutLastChildItems[$withoutLastChildItems.length-1]);
         // $lastSecontItemInput=$lastSecontItem.find(".j-group-modal-item");
     }
-    function addEventItems(){
+    function addUpEventItems(){
         //+했을떄
-        $withoutLastChildItems.find(".btn-item-up").click(function(){
-            eventAdd(this);
+        $upBtns=$withoutLastChildItems.find(".btn-item-up");
+        $upBtns.click(function(){
+            eventActionAdd(this); //이벤트 액션
+            getVariableItems(); //이벤트 변수 초기화
+            resetAllEvent(); //이벤트 초기화
+           
         }); 
+    }
+    function addDownEventItems()
+    {
         //-했을떄
-        $withoutLastChildItems.find(".btn-item-down").click(function(){
-
-          eventMius(this);
+        $upBtns=$withoutLastChildItems.find(".btn-item-up");
+        $downBtns=$withoutLastChildItems.find(".btn-item-down");
+        $downBtns.click(function(){
+          eventActionMius(this); //이벤트 액션
+          getVariableItems(); //이벤트 변수 초기화
+          resetAllEvent();  //이벤트 초기화
       });
 
     }
-    function eventMius(e)
+    function resetAllEvent()
+    {
+        $upBtns=$withoutLastChildItems.find(".btn-item-up");
+        $downBtns=$withoutLastChildItems.find(".btn-item-down");
+        $upBtns.off();
+        $downBtns.off();
+        addDownEventItems(); 
+        addUpEventItems();
+    }
+    function eventActionMius(e)
     {
           //2일떄 return false
           $thisBtn = $(e);
@@ -1254,12 +1274,12 @@ $('#j-group-value').bootstrapNumber({
             $btn=$($item.parents(".input-group")[0]);
             console.log($btn);
             // $($item.parents(".input-group")[0]).find(".btn-item-up").click(function(){
-            //      eventAdd(this);        
+            //      eventActionAdd(this);        
             // });
         }
         getVariableItems();
     }
-    function eventAdd(e)
+    function eventActionAdd(e)
     {
         console.log("add");
        var val =$lastItemInput.val();
@@ -1327,7 +1347,7 @@ $('#j-group-value').bootstrapNumber({
 
             }
         }
-        getVariableItems();
+      
     }
     function initGroupList(num_people)
     {

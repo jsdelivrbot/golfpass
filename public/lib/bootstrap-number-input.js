@@ -57,7 +57,7 @@
  					setText(parseInt(clone.val() || clone.attr('value')) - step);
  				}
  				if(options.groupEvent === true){
- 						eventMius(this);
+ 						// eventMius(this);
  				}
 
  			});
@@ -67,7 +67,7 @@
  					setText(parseInt(clone.val() || clone.attr('value')) + step);
  				}
  				if(options.groupEvent === true){
- 						eventAdd(this);
+ 						// eventAdd(this);
  				}
  			});
  			$("<span class='input-group-btn'></span>").append(down).appendTo(group);
