@@ -10,6 +10,10 @@ class Test extends Public_Controller
         
         
     }
+    function test2()
+    {
+      $this->load->view("test/test2");
+    }
     function index()
     {
         // $p_daily_price =$this->load->modules("golfpass");

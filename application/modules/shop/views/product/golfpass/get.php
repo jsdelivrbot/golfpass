@@ -1114,72 +1114,33 @@ $('#j-group-value').bootstrapNumber({
 
 <!-- 모달 , 딤 시작 -->
 <style> 
-    #j-dim {
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 9992;
-        overflow: hidden;
-        position: fixed;
-        background: #0b0b0b;
-        opacity: .8;
-    }
-    #j-modal {
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 9993;
-        position: fixed;
-        outline: 0 !important;
-        overflow-x: hidden;
-        overflow-y: auto;
-    }
-    #j-modal-detail {
-        text-align: center;
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        left: 0;
-        top: 0;
-        padding: 0 8px;
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-    }
-    #j-modal-detail-2 {
-        cursor: auto;
-        width: 100%;
-        position: relative;
-        display: inline-block;
-        vertical-align: middle;
-        margin: 0 auto;
-        text-align: left;
-        z-index: 9995;
-    }
-    #j-modal-detail::before {
-        content: '';
-        display: inline-block;
-        height: 100%;
-        vertical-align: middle;
-    }
-    #j-modal-detail-3 {
-        background: #FFF;
-        padding: 20px 30px;
-        text-align: left;
-        max-width: 650px;
-        margin: 40px auto;
-        position: relative;
-    }
+#j-dim
+{
+    z-index: 9999;
+    background-color: rgba(0,0,0,0.5);
+    position:fixed;
+    width :100%;
+    height: 100%;
+
+}
+#j-modal
+{
+    /*display:none;*/
+    z-index: 9999;
+    position: fixed;
+    top :50%;
+    left : 50%;
+    margin-left : -250px;
+    margin-top : -250px;
+    width: 500px;
+    height: 500px;
+    background-color: white;
+}
 </style>
 <div id="j-dim"></div>
 <div id="j-modal">
-    <div id="j-modal-detail">
-        <div id="j-modal-detail-2">
-            <div id="j-modal-detail-3">ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ</div>
-        </div>
-    </div>
+    총인원 <div>5</div>
+    <div id="j-group-wapper"></div>
 </div>
 
 <!-- 그룹 복사용 아이템 -->
