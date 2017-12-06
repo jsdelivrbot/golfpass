@@ -1246,10 +1246,7 @@ $('#j-group-value').bootstrapNumber({
             resetAllEvent();  //이벤트 초기화
         });
     }
-    4
-    4
-    2
-    2
+  
     function eventActionLastItemUp(e)
     {
           ////+일떄
