@@ -1280,40 +1280,33 @@ $('#j-group-value').bootstrapNumber({
         var prevItemInputVal =$prevItemInput.val();
         $prevItemInput.val(parseInt(prevItemInputVal) -1);
 
-        
-        //1이 있을때 0이 되고 위에꺼 +1(역방향) 
-        for(var i = $withoutLastChildItems.length - 1 ; i >= 0 ; i--)
-         {
-            var $item =$($withoutLastChildItems[i]);
-            var $itemInput = $item.find(".j-group-modal-item");
-
-            var $prevItem =$item.prev();
+      
+        //마지막에서 2번쨰것이 1일떄 0이 되고 위에꺼 +1(역방향) 
+        if($lastSecontItemInput.val() === "1")
+        {
+            var $prevItem =$lastSecontItem.prev();
             var $prevItemInput = $prevItem.find(".j-group-modal-item");
             var prevItemInputVal = $prevItemInput.val();
-
-            if($itemInput.val() === "1")
+            $prevItemInput.val(parseInt(prevItemInputVal) +1);
+            $lastSecontItem.remove();
+            getVariableItems();
+             //+1했을떄 5가있으면 4가되고 위에꺼 +1(역방향)
+            for(var i = $withoutLastChildItems.length - 1 ; i >= 0 ; i--)
             {
-                $prevItemInput.val(parseInt(prevItemInputVal)+1);
-                $item.remove();
-                //+1했을떄 5가있으면 4가되고 위에꺼 +1(역방향)
-                for(var j = $withoutLastChildItems.length - 1 ; j >= 0 ; j--)
-                {
-                    var $item =$($withoutLastChildItems[j]);
-                    var $itemInput = $item.find(".j-group-modal-item");
+                var $item =$($withoutLastChildItems[i]);
+                var $itemInput = $item.find(".j-group-modal-item");
 
-                    var $prevItem =$item.prev();
-                    var $prevItemInput = $prevItem.find(".j-group-modal-item");
-                    var prevItemInputVal = $prevItemInput.val();
-                    if($itemInput.val() === "5")
-                    {
-                        $itemInput.val(4);
-                        $prevItemInput.val(parseInt(prevItemInputVal)+1);
-                    }
+                var $prevItem =$item.prev();
+                var $prevItemInput = $prevItem.find(".j-group-modal-item");
+                var prevItemInputVal = $prevItemInput.val();
+                if($itemInput.val() === "5")
+                {
+                    $itemInput.val(4);
+                    $prevItemInput.val(parseInt(prevItemInputVal)+1);
                 }
             }
-            
-         }
-
+        }
+    
 
     }
     function addEventLastItemDown() //마지막 아이템에 - 이벤트 추가
@@ -1368,14 +1361,17 @@ $('#j-group-value').bootstrapNumber({
          {
             var $item =$($withoutLastChildItems[i]);
             var $itemInput = $item.find(".j-group-modal-item");
-            if($itemInput.val() === "5")
-            {
-                $itemInput.val(4);
-            }
+
             var $prevItem =$item.prev();
             var $prevItemInput = $prevItem.find(".j-group-modal-item");
             var prevItemInputVal = $prevItemInput.val();
-            $prevItemInput.val(parseInt(prevItemInputVal)+1);
+            if($itemInput.val() === "5")
+            {
+                $itemInput.val(4);
+                $prevItemInput.val(parseInt(prevItemInputVal)+1);
+            }
+          
+          
 
          }
 
