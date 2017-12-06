@@ -913,7 +913,7 @@
 <script>
  $("#input_search").keypress(function (e) {
     var key = e.which;
-    console.log(1);
+    // console.log(1);
         if(key == 13)  // the enter key code
         {
             console.log(2);
@@ -1148,11 +1148,12 @@ $('#j-group-value').bootstrapNumber({
 
 <!-- 모달 , 딤 끝 -->
 <script>
+    var $allItems;
     var $withoutLastChildItems;
     var $lastItem;
     var $lastItemInput;
-    // var $lastSecontItem;
-    // var $lastSecontItemInput;
+    var $lastSecontItem;
+    var $lastSecontItemInput;
     
 
 
@@ -1164,8 +1165,10 @@ $('#j-group-value').bootstrapNumber({
         $this = $(this);
         initGroupList($this.val());
         getVariableItems();
-        addUpEventItems();
-        addDownEventItems();
+        addEventItemsUp();
+        addEventItemsDown();
+        addEventLastItemUp();
+        addEventLastItemDown();
     });
 
     $("#j-group-add-btn").click(function(){ 
@@ -1194,18 +1197,26 @@ $('#j-group-value').bootstrapNumber({
     //2일떄 return false
     //마지막이 5가되면 3이되고 2추가
     ////마지막 +-규칙
-    
-    
+    ////-일떄
+    //마지막이 4인데 -하면  2가되고 2추가
+    //-하면 바로위에꺼 +1
+    //-했을때 5가있는지 체크, 5는 4가되고 바로위에꺼 +1 (역방향으로)
+    //마지막거 제외하고 모두 4이면 return false
+    ////+일떄
+    //+1하고 위에꺼 -1
+    //1이 있을때 0이 되고 위에꺼 +1(역방향)
+    //[0] ~ [last-2]가 모두 4이고 [last-1]가  2일때 return false;
     function getVariableItems()
     {
+        $allItems = $("#j-group-wapper .input-group");
         $withoutLastChildItems =$('#j-group-wapper .input-group:not(:last-child)');
         $lastItem = $('#j-group-wapper .input-group:last-child');
         $lastItemInput=$lastItem.find(".j-group-modal-item");   
-        console.log($withoutLastChildItems);
-        // $lastSecontItem=$($withoutLastChildItems[$withoutLastChildItems.length-1]);
-        // $lastSecontItemInput=$lastSecontItem.find(".j-group-modal-item");
+        $lastSecontItem=$($withoutLastChildItems[$withoutLastChildItems.length-1]);
+        $lastSecontItemInput=$lastSecontItem.find(".j-group-modal-item");
     }
-    function addUpEventItems(){
+
+    function addEventItemsUp(){
         //+했을떄
         $upBtns=$withoutLastChildItems.find(".btn-item-up");
         $upBtns.click(function(){
@@ -1215,10 +1226,9 @@ $('#j-group-value').bootstrapNumber({
            
         }); 
     }
-    function addDownEventItems()
+    function addEventItemsDown() //
     {
         //-했을떄
-        $upBtns=$withoutLastChildItems.find(".btn-item-up");
         $downBtns=$withoutLastChildItems.find(".btn-item-down");
         $downBtns.click(function(){
           eventActionMius(this); //이벤트 액션
@@ -1227,14 +1237,163 @@ $('#j-group-value').bootstrapNumber({
       });
 
     }
+    function addEventLastItemUp() //마지막 아이템에 + 이벤트 추가
+    {
+        $upBtn = $lastItem.find(".btn-item-up");
+        $upBtn.click(function(){
+            eventActionLastItemUp(this); //이벤트 액션
+            getVariableItems(); //이벤트 변수 초기화
+            resetAllEvent();  //이벤트 초기화
+        });
+    }
+    4
+    4
+    2
+    2
+    function eventActionLastItemUp(e)
+    {
+          ////+일떄
+          var $this = $(this);
+         var val =$lastItemInput.val();
+         if(val === "4")
+         {
+             return false;
+         }
+
+        //[0] ~ [last-2]가 모두 4이고 [last-1]가  2일때 return false;
+        var sw = true;
+        for(var i=0; i< $withoutLastChildItems.length -2; i++)
+        {
+            var $itemInput =$($withoutLastChildItems[i]).find(".j-group-modal-item");
+            if($itemInput.val() !== "4")
+            {
+                sw = false;
+                break;
+            }
+          
+        }
+        if(sw === true && $lastSecontItemInput.val() === "2")
+        {
+            return false;
+        }
+        //+1하고 위에꺼 -1
+         $lastItemInput.val(parseInt(val)+1);
+         var $prevItem = $lastItem.prev();
+        var $prevItemInput =$prevItem.find(".j-group-modal-item");
+        var prevItemInputVal =$prevItemInput.val();
+        $prevItemInput.val(parseInt(prevItemInputVal) -1);
+
+        
+        //1이 있을때 0이 되고 위에꺼 +1(역방향) 
+        for(var i = $withoutLastChildItems.length - 1 ; i >= 0 ; i--)
+         {
+            var $item =$($withoutLastChildItems[i]);
+            var $itemInput = $item.find(".j-group-modal-item");
+
+            var $prevItem =$item.prev();
+            var $prevItemInput = $prevItem.find(".j-group-modal-item");
+            var prevItemInputVal = $prevItemInput.val();
+
+            if($itemInput.val() === "1")
+            {
+                $prevItemInput.val(parseInt(prevItemInputVal)+1);
+                $item.remove();
+                //+1했을떄 5가있으면 4가되고 위에꺼 +1(역방향)
+                for(var j = $withoutLastChildItems.length - 1 ; j >= 0 ; j--)
+                {
+                    var $item =$($withoutLastChildItems[j]);
+                    var $itemInput = $item.find(".j-group-modal-item");
+
+                    var $prevItem =$item.prev();
+                    var $prevItemInput = $prevItem.find(".j-group-modal-item");
+                    var prevItemInputVal = $prevItemInput.val();
+                    if($itemInput.val() === "5")
+                    {
+                        $itemInput.val(4);
+                        $prevItemInput.val(parseInt(prevItemInputVal)+1);
+                    }
+                }
+            }
+            
+         }
+
+
+    }
+    function addEventLastItemDown() //마지막 아이템에 - 이벤트 추가
+    {
+        $downBtn = $lastItem.find(".btn-item-down");
+        $downBtn.click(function(){
+            eventActionLastItemMius(this); //이벤트 액션
+            getVariableItems(); //이벤트 변수 초기화
+          resetAllEvent();  //이벤트 초기화
+        });
+        
+    }
+    function eventActionLastItemMius(e)
+    {
+         ////-일떄
+         var $this = $(this);
+         var val =$lastItemInput.val();
+         if(val === "2")
+         {
+             return false;
+         }
+        //마지막거 제외하고 모두 4이면 return false
+        var sw = true;
+        for(var i = 0 ; i < $withoutLastChildItems.length ; i++)
+        {
+            if($($withoutLastChildItems[i]).val() !== "4")
+            {
+                sw = false;
+            }
+        }
+        if(sw === true)
+        {
+            return false;
+        }
+        //마지막이 4인데 -하면  2가되고 2추가
+        if(val === "4")
+        {
+            $lastItemInput.val(2);
+            addModalGroupItem(2);
+            return true;
+        }
+
+        //-하면 바로위에꺼 +1
+        $lastItemInput.val(parseInt(val) -1);
+        var $prevItem = $lastItem.prev();
+        var $prevItemInput =$prevItem.find(".j-group-modal-item");
+        var prevItemInputVal =$prevItemInput.val();
+        $prevItemInput.val(parseInt(prevItemInputVal) +1);
+
+         //-했을때 5가있는지 체크, 5는 4가되고 바로위에꺼 +1 (역방향으로)
+         for(var i = $withoutLastChildItems.length - 1 ; i >= 0 ; i--)
+         {
+            var $item =$($withoutLastChildItems[i]);
+            var $itemInput = $item.find(".j-group-modal-item");
+            if($itemInput.val() === "5")
+            {
+                $itemInput.val(4);
+            }
+            var $prevItem =$item.prev();
+            var $prevItemInput = $prevItem.find(".j-group-modal-item");
+            var prevItemInputVal = $prevItemInput.val();
+            $prevItemInput.val(parseInt(prevItemInputVal)+1);
+
+         }
+
+    }
     function resetAllEvent()
     {
-        $upBtns=$withoutLastChildItems.find(".btn-item-up");
-        $downBtns=$withoutLastChildItems.find(".btn-item-down");
+        $upBtns=$allItems.find(".btn-item-up");
+        $downBtns=$allItems.find(".btn-item-down");
         $upBtns.off();
         $downBtns.off();
-        addDownEventItems(); 
-        addUpEventItems();
+        addEventItemsDown(); 
+        addEventItemsUp();
+        addEventLastItemUp();
+        addEventLastItemDown();
+
     }
     function eventActionMius(e)
     {
@@ -1270,18 +1429,16 @@ $('#j-group-value').bootstrapNumber({
             event: false,
             groupEvent : true
         });
-            console.log($item);
+            // console.log($item);
             $btn=$($item.parents(".input-group")[0]);
-            console.log($btn);
+            // console.log($btn);
             // $($item.parents(".input-group")[0]).find(".btn-item-up").click(function(){
             //      eventActionAdd(this);        
             // });
         }
-        getVariableItems();
     }
     function eventActionAdd(e)
     {
-        console.log("add");
        var val =$lastItemInput.val();
         //맽밑이 2이고 3하나 4조합일떄 +불가능
         var num_val_3 = 0;
