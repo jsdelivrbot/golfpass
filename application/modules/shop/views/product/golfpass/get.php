@@ -1193,14 +1193,15 @@ $('#j-group-value').bootstrapNumber({
     var $lastItemInput;
     var $lastSecontItem;
     var $lastSecontItemInput;
-
+    var num_people;
     var $j_dim =$("#j-dim");
     var $j_modal= $("#j-modal");
     var $j_group_wapper= $("#j-group-wapper");
     var $j_group_modal_item =$("#j-group-modal-item");
     $("#j-group-value").change(function(){  //인원수 변경시
         $this = $(this);
-     settingGroupList($this.val());
+        num_people = $this.val();
+        settingGroupList(num_people);
         settingVariableItems();
         addEventItemsUp();
         addEventItemsDown();
@@ -1313,6 +1314,10 @@ $('#j-group-value').bootstrapNumber({
 
     function eventActionLastItemUp(e) //마지막 아이템 +버튼 액션
     {
+        if(num_people === "2" || num_people === "3")
+        {
+            return false;
+        }
           ////+일떄
           var $this = $(this);
          var val =$lastItemInput.val();
@@ -1376,6 +1381,10 @@ $('#j-group-value').bootstrapNumber({
    
     function eventActionLastItemMius(e) //마지막 아이템 -버튼 액션
     {
+        if(num_people === "2" || num_people === "3")
+        {
+            return false;
+        }
          ////-일떄
          var $this = $(this);
          var val =$lastItemInput.val();
@@ -1575,7 +1584,7 @@ $('#j-group-value').bootstrapNumber({
     }
     function settingGroupList(num_people) //모달 리스트 세팅
     {
-
+        
         $items=$j_group_wapper.find(".input-group");
         $items.remove();
         if(num_people <2)
