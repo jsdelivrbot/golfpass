@@ -1326,9 +1326,11 @@ $('#j-group-value').bootstrapNumber({
              return false;
          }
 
+         
+
         //[0] ~ [last-2]가 모두 4이고 [last-1]가  2일때 return false;
         var sw = true;
-        for(var i=0; i< $withoutLastChildItems.length -2; i++)
+        for(var i=0; i< $withoutLastChildItems.length -1; i++)
         {
             var $itemInput =$($withoutLastChildItems[i]).find(".j-group-modal-item");
             if($itemInput.val() !== "4")
