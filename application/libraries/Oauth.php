@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-abstract class  Api
+abstract class  Oauth
 {
 	protected $ci;
 

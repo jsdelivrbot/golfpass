@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Google_api extends Api
+class Google_api extends Oauth
 {
 	protected $ci;
 	public $client_id =null;

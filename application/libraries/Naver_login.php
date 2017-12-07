@@ -1,7 +1,7 @@
 <?php 
 if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-class Naver_login extends Api
+class Naver_login extends Oauth
 {
     public $client_id =null;
     // public $response_type;

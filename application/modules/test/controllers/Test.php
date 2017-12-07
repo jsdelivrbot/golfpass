@@ -10,7 +10,7 @@ class Test extends Public_Controller
     }
     function test2()
     {
-        $this->load->view("te44444st/test2");
+        $this->load->view("test2");
     }
     function index()
     {
