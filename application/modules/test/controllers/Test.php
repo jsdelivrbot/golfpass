@@ -7,12 +7,10 @@ class Test extends Public_Controller
     function __construct()
     {
         parent::__construct();
-        
-        
     }
     function test2()
     {
-      $this->load->view("test/test2");
+        $this->load->view("te44444st/test2");
     }
     function index()
     {
@@ -21,7 +19,7 @@ class Test extends Public_Controller
         // echo $p_daily_price->test();
         // echo modules::run("golfpass/P_daily_price/test");
         $this->_view("google");
-    }    
+    }
     function login_success()
     {
           // Initialize variables
@@ -52,12 +50,11 @@ class Test extends Public_Controller
     
     function doCurl($url)
     {
-      $ch = curl_init();
-      curl_setopt($ch, CURLOPT_URL, $url);
-      curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-      $data = json_decode(curl_exec($ch), true);
-      curl_close($ch);
-      return $data;
-  }
-    
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $data = json_decode(curl_exec($ch), true);
+        curl_close($ch);
+        return $data;
+    }
 }

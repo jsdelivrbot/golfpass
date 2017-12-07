@@ -1444,7 +1444,7 @@ $('#j-group-value').bootstrapNumber({
             return true;
         }
       
-
+        
         //-하면 바로위에꺼 +1
         $lastItemInput.val(parseInt(val) -1);
         var $prevItem = $lastItem.prev();
@@ -1594,22 +1594,40 @@ $('#j-group-value').bootstrapNumber({
             return false;
         }
         var tmp_num = parseInt(num_people);
-        var val;
-        while(tmp_num !== 0)
-        {
+        var count =tmp_num/4;
+        count = Math.floor(count);
+        console.log(count);        
 
-            if(tmp_num - 3 !== 0)
+        var remainder = tmp_num%4;
+        for (var i = 0; i < count; i++)
+        {
+             
+             if(i !== count -1)
+             {
+                addModalGroupItem(4);
+             }
+             else
+             {
+                 if(remainder === 1)
+                 {
+                    addModalGroupItem(3);
+                 }
+                 else
+                 {
+                    addModalGroupItem(4);
+                 }
+             }
+        }
+        if(remainder !== 0)
+        {
+            if(remainder === 1)
             {
-                val = 2;
-                tmp_num -=2;
+                addModalGroupItem(2);
             }
             else
             {
-                val = 3;
-                tmp_num -=3;   
+                addModalGroupItem(remainder);
             }
-            addModalGroupItem(val);
-
         }
         
 
