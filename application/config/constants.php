@@ -68,6 +68,7 @@ define("api_google_map_uri","/api/google_map");
 define("api_naver_uri","/api/naver");
 define("api_google_uri","/api/google");
 define("api_kakao_uri","/api/kakao");
+define("api_facebook_uri","/api/facebook");
 
 //golfpass
 define("golfpass_panel_uri","/golfpass/panel");
