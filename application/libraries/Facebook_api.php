@@ -3,31 +3,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Facebook_api extends Oauth
 {
-	protected $ci;
-	public $client_id =null;
-    // public $response_type;
-	public $redirect_uri =null;
-	private $state;
-	private $code;
-	public $client_secret = null;
-	private $user_profile_url ="https://openapi.naver.com/v1/nid/me";
+
 	public function __construct()
 	{
-		$this->ci =& get_instance();
+		parent::__construct();
         $return_url = $this->ci->input->get("return_url");
         //설정
 		$this->client_id = "412089359205918";
         $this->redirect_uri = domain_url()."/index.php/api/facebook/redirect_url";
         $this->client_secret= "f80bc29dcdb2830b800ac987e8bd2d36";
         //
-		if($return_url !== null)
-		{
-			$this->redirect_uri .= "?return_url={$return_url}";
-		}
+		// if($return_url !== null)
+		// {
+			// $this->redirect_uri .= "?return_url={$return_url}";
+		// }
 
 	}
 
-	function requset_auth()
+	function request_auth()
 	{
 		$scope = "email";
 		$queryString = "?";

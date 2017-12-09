@@ -132,6 +132,8 @@ class Init_Controller extends MX_Controller{
                 `sns_name` varchar(255)  NULL,
                 `sns_profile` varchar(255)  NULL,
                 `refresh_token` varchar(255)  NULL,
+                `sns_email` varchar(255)  NULL,
+                `sns_nickName` varchar(255)  NULL,
                 `created` datetime NOT NULL DEFAULT NOW(),
                 KEY `idx01_id` (`user_id`),
                 KEY `idx02_sns_id` (`sns_id`),

@@ -7,7 +7,7 @@ class Naver extends Public_Controller {
         parent::__construct();
     }
     
-    function requset_auth()
+    function request_auth()
     {
         if(is_login())
         {
@@ -17,7 +17,7 @@ class Naver extends Public_Controller {
         }
 
         $this->load->library("naver_login");
-        $this->naver_login->requset_auth();
+        $this->naver_login->request_auth();
     }
     function login_callback()
     {

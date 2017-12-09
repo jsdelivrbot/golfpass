@@ -3,30 +3,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Google_api extends Oauth
 {
-	protected $ci;
-	public $client_id =null;
-    // public $response_type;
-	public $redirect_uri =null;
-	private $state;
-	private $code;
-	public $client_secret = null;
-	private $user_profile_url ="https://openapi.naver.com/v1/nid/me";
+
 	public function __construct()
 	{
-
-		$this->ci =& get_instance();
+		parent::__construct();
+	
 		$return_url = $this->ci->input->get("return_url");
 		$this->client_id = "391805447121-4o2t2ubu1luibsup3kbjq79p5nujtqmq.apps.googleusercontent.com";
 		$this->redirect_uri = domain_url()."/index.php/api/google/redirect_url";
-		if($return_url !== null)
-		{
-			$this->redirect_uri .= "?return_url={$return_url}";
-		}
 		$this->client_secret= "52jtyRRpKIKdg33kKeCVFron";
+		// if($return_url !== null)
+		// {
+			// $this->redirect_uri .= "?return_url={$return_url}";
+		// }
 
 	}
 
-	function requset_auth()
+	function request_auth()
 	{
 		$scope = "";
 		// Know the list of people in your circles, your age range, and language

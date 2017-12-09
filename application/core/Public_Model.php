@@ -16,7 +16,7 @@ class Public_Model extends CI_Model{
         $id =$this->db->insert_id();
         return $id;
     }
-    public function _update($where_obj,$set_obj =null,$escape = true)
+    public function _update($where_obj=null,$set_obj =null,$escape = true)
     {
         if($set_obj !== null)
         {

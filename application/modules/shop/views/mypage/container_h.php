@@ -25,7 +25,7 @@
                         <img style="width:40px;"src="<?=domain_url("/public/icon/golfman.png")?>" alt=""/>
                         <h1 class="ui header" style="margin-top:0px;">
                             <!-- <i style="display:inline-block" class="user icon"></i> -->
-                            <span ><?="{$user->name}($user->userName)"?></span> </h1>
+                            <span ><?="{$user->name}"?><?=($user->userName !== null) ? "({$user->userName})" : ""?></span> </h1>
                     </div>
                     <a class="computer only item">
                         <!-- <h3 class="ui header"><i class="diamond icon"></i>다이아몬드</h3> -->

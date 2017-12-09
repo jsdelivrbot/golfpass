@@ -12,6 +12,12 @@ class Test extends Public_Controller
     {
         $this->load->view("test2");
     }
+    public function test3($var = null)
+    {
+        $data['tmp']= 1234;
+        $this->load->view('test3', $data, FALSE);
+        
+    }
     function index()
     {
         // $p_daily_price =$this->load->modules("golfpass");

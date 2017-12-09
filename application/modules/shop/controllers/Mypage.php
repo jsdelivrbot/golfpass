@@ -79,7 +79,8 @@ class Mypage extends Base_Controller {
     {
         $data=$this->_get_container_data();
         $this->load->model("shop/product_cartlist_model");
-        $data['user'] =$this->user;
+        $user = $this->user;
+        $data['user'] =$user;
         $data['page_name'] ="회원탈퇴";            
 
         $this->fv->set_rules("userName","아이디","required");
@@ -98,10 +99,15 @@ class Mypage extends Base_Controller {
             }
             else
             {
-                alert("탈퇴 성공.");
+                if($user->sns_type !== "general")
+                {
+                    $this->db->where("user_id",$this->user->id);
+                    $this->db->delete("sns_info");                        
+                }
                 $this->db->where("id",$this->user->id);
                 $this->db->delete("users");
                 $this->session->sess_destroy();
+                alert("탈퇴 성공.");
                 my_redirect("");
             }
         }

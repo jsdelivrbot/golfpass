@@ -3,31 +3,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Kakao_api extends Oauth
 {
-	protected $ci;
-	public $client_id =null;
-    // public $response_type;
-	public $redirect_uri =null;
-	private $state;
-	private $code;
-	public $client_secret = null;
-	private $user_profile_url ="https://openapi.naver.com/v1/nid/me";
+
 	public function __construct()
 	{
-		$this->ci =& get_instance();
+		parent::__construct();
         $return_url = $this->ci->input->get("return_url");
-        //설정
 		$this->client_id = "eb6f30a5bc2e6e019faed8dbf16a5bcd";
         $this->redirect_uri = domain_url()."/index.php/api/kakao/redirect_url";
         $this->client_secret= "NQbXPSqE6xbBFDq7CM9wSmMyUYIuZOX5";
         //
-		if($return_url !== null)
-		{
-			$this->redirect_uri .= "?return_url={$return_url}";
-		}
+		// if($return_url !== null)
+		// {
+			// $this->redirect_uri .= "?return_url={$return_url}";
+		// }
 
 	}
 
-	function requset_auth()
+	function request_auth()
 	{
         $host ="https://kauth.kakao.com";
         $url ="/oauth/authorize?client_id={$this->client_id}&redirect_uri={$this->redirect_uri}&response_type=code";

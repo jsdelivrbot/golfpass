@@ -4,12 +4,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 abstract class  Oauth
 {
 	protected $ci;
+    public $client_id =null;
+    public $redirect_uri =null;
+    public $client_secret = null;
 
+    protected $state;
+    protected $code;
+    protected $user_profile_url;
 	public function __construct()
 	{
         $this->ci =& get_instance();
 	}
-	public abstract function requset_auth();
+	public abstract function request_auth();
 	public abstract function login_callback();
 
 	protected function curl_bearer($url,$access_token)

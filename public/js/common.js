@@ -163,8 +163,8 @@ function ajax_a(e,validation= function(){return true;}){
     
 // });
 
-function open_popup(url,name){
-    var option = "width=400,height=500";
+function open_popup(url,name,width = 400, height =500){
+    var option = `width=${width},height=${height}`;
     // var input = document.querySelector("input[name="+name+"]");
 
     // console.log(input.value);
