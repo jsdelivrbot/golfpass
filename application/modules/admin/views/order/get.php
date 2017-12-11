@@ -15,7 +15,7 @@
         <a href="<?=my_site_url(admin_product_uri."/update/{$product->id}?menu_name=상품&sub_name=상품관리")?>"> 
             <?=$order->order_name?>
         </a>
-        (<?=$order->status_enum?>,<?=$order->pay_method_enum?>)
+        (<?=$order->status?>-<?=$order->status_enum?>,<?=$order->pay_method?>-<?=$order->pay_method_enum?>)
     </h1>
     <h1 style="margin-bottom:0px; margin-top:10px;">총결제금액 : <?=number_format($order->total_price)?>원(총 <?=$order->num_people?>명) 
         
@@ -36,9 +36,9 @@
     <br>
     <div class="j-text"> 주문자 : <?=$order->user_name?>(<?=$order->userName?>)</div>
     <br>
-    <div class="j-text">결제상태 : <?=$order->status_enum?></div>
+    <div class="j-text">결제상태 : <?=$order->status?>-<?=$order->status_enum?></div>
     <br>
-    <div class="j-text">결제방식 : <?=$order->pay_method_enum?></div>
+    <div class="j-text">결제방식 : <?=$order->pay_method?>-<?=$order->pay_method_enum?></div>
     <br>
     <div class="j-text"> 싱글룸 신청개수 : <?=$order->num_singleroom?></div>
     <br>
