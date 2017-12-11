@@ -69,9 +69,15 @@ class Board_Model extends Public_Model{
         $this->load->library('pagination');
         //get totoal_rows
         $field = $this->input->get('field');
+        if($field === null || $field === '')
+            $field = $this->input->post('field');
+       $value =null;
         if($field !== null && $field !== '')//검색 true
         {
-            $this->_like_or_by_split($field,$this->input->get('value'));
+            $value =$this->input->get('value');
+            if($value === null || $value === "")
+                $value =$this->input->post('value');
+            $this->_like_or_by_split($field,$value);
             $total_rows = $get_num_rows_func();
         }
         else if($is_count_field === null)
@@ -91,15 +97,14 @@ class Board_Model extends Public_Model{
         $offset = $pgiData['offset'];
         $per_page = $pgiData['per_page'];
         
-        //select from board_$id's contents
-        $this->_like_or_by_split($field,$this->input->get('value'));
+        $this->_like_or_by_split($field,$value);
         //is_numrow
         if($is_numrow === true)
         {
             $this->db->select("{$total_rows}-{$offset}-@count 'numrow',{$offset}+@count+1 'numrow2', @count:=@count+1 'none'");
             $this->db->from("(SELECT @count:=0) der_tap");
         }
-
+       
         $rows =$get_rows_func($offset,$per_page);
         return $rows;
     }

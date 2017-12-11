@@ -23,9 +23,8 @@ class Product_orders_Model extends Board_Model{
         $this->db->select("u.userName,o.*, o.order_name '주문명',o.total_price '주문금액',o.pay_method '결제방식', is_review_write as '후기작성 여부',o.status '주문상태'");
         $this->db->from("$this->table AS o");
         $this->db->join("users AS u","o.user_id = u.id", "INNER");
-        $this->db->where("o.user_id = {$ci->user->id} AND (o.status != 'try' AND o.status != 'fail' AND o.status != 'user_cancel')");
+        // $this->db->where("o.user_id = {$ci->user->id} AND (o.status != 'try' AND o.status != 'fail' AND o.status != 'user_cancel')");
         $this->db->order_by("o.id","desc");
-        // $this->db->where("o.user_id = {$ci->user->id} AND (o.status = 'paid' OR o.status = 'ready')");
         $orders  =$this->db->get()->result();
         return $orders;
     }
