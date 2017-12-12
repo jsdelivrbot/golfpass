@@ -75,9 +75,10 @@
        
         <div class="w3-content">
             <div class="w3-twothird">
-                <h1 class="j-title"><?=$content->title?></h1>
+                <h1 class="j-title" style="text-align:center"><?=$content->title?></h1>
                 <div style="margin-top:80px;"></div>
-                <p class="w3-text-grey"><?=$content->desc?></p>
+             
+                <div id="desc" class="w3-text-grey"style="text-align:center; color:black"><?=$content->desc?></div>
             </div>
         </div>
     </div>
