@@ -228,6 +228,7 @@ class P_daily_price extends Base_Controller
             }
 
             $tmp_price =$row->price;
+            $tmp_price =modules::run("golfpass/p_daily_price_admin/_cal_apply_exchangeRate_and_margin_to_price",$tmp_price);
             $total_price += (int)$tmp_price;
             }
         }

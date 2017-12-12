@@ -14,8 +14,13 @@ class Test extends Public_Controller
     }
     public function test3($var = null)
     {
-        $data['tmp']= 1234;
-        $this->load->view('test3', $data, FALSE);
+        $x= 11 ;
+        $y= 10.1;
+        $z =round($x * $y);
+        // $z =$x * $y;
+        var_dump($z);
+        // $data['tmp']= 1234;
+        // $this->load->view('test3', $data, FALSE);
         
     }
     function index()

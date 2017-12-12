@@ -94,6 +94,8 @@ class Init_Controller extends MX_Controller{
              `p_options` text,
              `site_representative` varchar(255),
              `site_phone` varchar(255),
+             `exchange_rate` float UNSIGNED,
+             `margin` int UNSIGNED,
 
              `created` datetime NOT NULL DEFAULT NOW(),
              PRIMARY KEY (`id`)

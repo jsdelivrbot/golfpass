@@ -61,16 +61,21 @@
             </div>
         </div>           
 
-
-    <!-- 메인상품 설정
-    <?php for($i=0; $i < count($products) ; $i++){
-        if($i%5 === 0) echo "<br>"    ;
-        ?>
-    <input type='radio' name='representative_product' value='<?=$products[$i]->id?>' <?=my_set_checked($row,'representative_product',"{$products[$i]->id}")?>/><?=$products[$i]->name?></label>
-    <?php }?> -->
-
-
     <input class="ui button positive" type="submit" value="수정">
+    </form>
+
+
+    <form class="ui form"onsubmit="ajax_submit(this);return false;"action="<?=my_site_url(admin_setting_product_uri."/ajax_update")?>" method="post">
+        <div class="field">
+            <label>환율</label>
+            <input type="text" name="exchange_rate" placeholder="*" value="<?=set_value_data($row,'exchange_rate')?>" >
+        </div>
+        <div class="field">
+            <label>상품마진</label>
+            <input type="text" name="margin" placeholder="+" value="<?=set_value_data($row,'margin')?>" >
+        </div>
+        
+        <input class="ui button positive" type="submit" value="수정">
     </form>
 </div>
 
