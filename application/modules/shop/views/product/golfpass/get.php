@@ -1142,8 +1142,9 @@ $('#j-group-value').bootstrapNumber({
 </style>
 <div id="j-dim"></div>
 <div id="j-modal">
-총인원총인원총인원총인원총인원총인원총인원총인원총인원총인원총인원총인원총인원총인원총인원총인원총인원 <div>5</div>
+    <div>조 설정</div>
     <div id="j-group-wapper"></div>
+    <div style="position:absolute; bottom:0px; width:100%; height:50px; background:#69a84e;">확인</div>
 </div>
     <!-- 모달 반응형 스크립트시작 -->
 <script>
@@ -1152,10 +1153,10 @@ $('#j-group-value').bootstrapNumber({
     });
     function settingModalSize()
     {
-        var minWidth = 400; //모달 가로 최소크기
-        var minHeight = 200; //모달 세로 최소크기
-        var marginWidth = 300; //반응형 모달 가로 마진
-        var marginHeight = 300;  //반응형 모달 세로 마진
+        var minWidth = 300; //모달 가로 최소크기
+        var minHeight = 448; //모달 세로 최소크기
+        var marginWidth = 2000; //반응형 모달 가로 마진
+        var marginHeight = 500;  //반응형 모달 세로 마진
 
         var winWidth =window.innerWidth;
         var winHeight =window.innerHeight;
