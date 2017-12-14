@@ -276,7 +276,7 @@
             <span class="box-title" style="font-size:16px;">예약 인원</span>
             <div id='count-box' class='d-flex align-items-stretch justify-content-end'>
                 <div style="display:inline-block; margin-right:0px; float:right">
-                    <input style="display:inline-block" id="j-group-value" class="form-control" type="number" value="1" min="1" max="12" />
+                    <input style="display:inline-block" id="j-group-value" class="form-control" type="number" value="4" min="2" max="12" />
                 </div>
             </div>
         </div>
@@ -296,43 +296,16 @@
         <div id="info" class="pt-20">
             <ul class="list-unstyled" style="margin-bottom:0;">
                 <li style="font-family: 'notokr-medium', sans-serif;">조 정보</li>
-                <li class='d-flex align-items-center j-group-item'- id="j-group-item">
-                    <div style="width:50%;">
-                        <p><i class='xi-radiobox-checked' style="margin-right:8px;"></i>A조</p>
-                    </div>
-                    <div style="width:50%;">
-                        <input  type="hidden" name="groups[]" id="">  
-                        <p style="text-align:right;" ><i class='xi-users' style="color: #202020 !important; margin-right:3px;"></i><i class='xi-users' style="color: #202020 !important; margin-right:10px;"></i> 2명</p>
-                    </div>
-                </li>
-                <li class='d-flex align-items-center j-group-item'- id="j-group-item">
-                    <div style="width:50%;">
-                        <p><i class='xi-radiobox-checked' style="margin-right:8px;"></i>B조</p>
-                    </div>
-                    <div style="width:50%;">
-                        <input  type="hidden" name="groups[]" id="">  
-                        <p style="text-align:right;" ><i class='xi-users' style="color: #202020 !important; margin-right:3px;"></i><i class='xi-users' style="color: #202020 !important; margin-right:3px;"></i><i class='xi-users' style="color: #202020 !important; margin-right:3px;"></i><i class='xi-users' style="color: #202020 !important; margin-right:10px;"></i> 4명</p>
-                    </div>
-                </li>
-                <li class='d-flex align-items-center j-group-item'- id="j-group-item">
-                    <div style="width:50%;">
-                        <p><i class='xi-radiobox-checked' style="margin-right:8px;"></i>C조</p>
-                    </div>
-                    <div style="width:50%;">
-                        <input  type="hidden" name="groups[]" id="">  
-                        <p style="text-align:right;" ><i class='xi-users' style="color: #202020 !important; margin-right:3px;"></i><i class='xi-users' style="color: #202020 !important; margin-right:3px;"></i><i class='xi-users' style="color: #202020 !important; margin-right:10px;"></i> 3명</p>
-                    </div>
-                </li>
-                <!-- 조리스트 시작 -->
-                            <!--<form action="<?=site_url(shop_order_uri."/golfpass")?>" method="get" id="golfpass_order_form">
-                           
-          
-                            <input type="hidden" name="num_people" value="0">
-                            <input type="hidden" name="start_date">
-                            <input type="hidden" name="end_date">
-                            <input type="hidden" name="total_price">
-                            <input type="hidden" name="product_id" value="<?=$product->id?>">
-                        </form>-->
+              
+                        <!-- 조리스트 시작 -->
+                            <form action="<?=site_url(shop_order_uri."/golfpass")?>" method="get" id="golfpass_order_form">
+
+                                <input type="hidden" name="num_people" value="0">
+                                <input type="hidden" name="start_date">
+                                <input type="hidden" name="end_date">
+                                <input type="hidden" name="total_price">
+                                <input type="hidden" name="product_id" value="<?=$product->id?>">
+                        </form>
                         <!-- 조리스트 끝 -->
                     </ul>
                 </div>
@@ -795,11 +768,11 @@
         yearSuffix: '년'
     });
 
-    var $startDate = $("#s-day");
-    var $endDate = $("#e-day");
-        // var $numPeople = $("select[name=num_people]");
-        var $total_price = $("#total_price");
-        var $numPeople = $("#j-v-num-people");
+    let $startDate = $("#s-day");
+    let $endDate = $("#e-day");
+        // let $numPeople = $("select[name=num_people]");
+        let $total_price = $("#total_price");
+        let $numPeople = $("#j-v-num-people");
         $(document).ready(function() {
             $startDate.datepicker({
                 dateFormat: 'yy-mm-dd'
@@ -973,13 +946,9 @@
 <!-- 뉴스레터 끝-->
 <!-- 상품날자가격계산 -->
 <script>
+    let $order_form = $("#golfpass_order_form");
     $(document).ready(function() {
-            // $numPeople.change(function() {
-            //     // if(validationGetPrice() === 1)
-            //     // validationGetPrice()
-            //     ajax_get_price();
-
-            // });
+        //    ajax_get_price();
             $startDate.change(function() {
                 // if(validationGetPrice() === 1)
                 // validationGetPrice()
@@ -1017,12 +986,13 @@
 
         function ajax_get_price() {
 
-            $form = $("#golfpass_order_form");
-            $form.find("input[name=start_date]").val($startDate.val());
-            $form.find("input[name=end_date]").val($endDate.val());
-            $form.find("input[name=num_people]").val($numPeople.data('value'));
-            $form.find("input[name=product_id]").val("<?=$product->id?>");
-            var queryString = $form.serialize();
+          
+            $order_form.find("input[name=start_date]").val($startDate.val());
+            $order_form.find("input[name=end_date]").val($endDate.val());
+            $order_form.find("input[name=num_people]").val(num_people);
+            // $order_form.find("input[name=num_people]").val($numPeople.data('value'));
+            $order_form.find("input[name=product_id]").val("<?=$product->id?>");
+            var queryString = $order_form.serialize();
             console.log(queryString);
             var url = "<?=site_url(golfpass_p_daily_price_uri."/ajax_cal")?>"
             $.ajax({
@@ -1041,7 +1011,7 @@
                     if (totalPrice.indexOf("원") > -1) {
                         totalPrice = totalPrice.substr(0, totalPrice.length - 1);
                         // $total_price.val(totalPrice);
-                        $form.find("input[name=total_price]").val(totalPrice);
+                        $order_form.find("input[name=total_price]").val(totalPrice);
                         totalPrice = Number(totalPrice).toLocaleString('en');
                         totalPrice += "원";
                     }
@@ -1059,7 +1029,7 @@
         //예약하기
         $("#golfpass_order").click(function(event) {
             event.preventDefault();
-            $order_form = $("#golfpass_order_form");
+            
             $input_numPeople=$order_form.find("input[name=num_people]");
             var numPeople =$input_numPeople.val();
             if (numPeople === "0" || typeof numPeople === "undefined" || numPeople === "") {
@@ -1142,8 +1112,10 @@ $('#j-group-value').bootstrapNumber({
 </style>
 <div id="j-dim"></div>
 <div id="j-modal">
-총인원총인원총인원총인원총인원총인원총인원총인원총인원총인원총인원총인원총인원총인원총인원총인원총인원 <div>5</div>
+총인원<div class="j-modal-group-numPeople"></div>
     <div id="j-group-wapper"></div>
+
+    <a href="#" id="j-modal-close">확인</a>
 </div>
     <!-- 모달 반응형 스크립트시작 -->
 <script>
@@ -1183,33 +1155,65 @@ $('#j-group-value').bootstrapNumber({
     <!-- 모달 반응형 스크립트끝 -->
 <!-- 모달 , 딤 끝 -->
 
-<!--  input 복사용  -->
+
+<!--  input 복사용  시작-->
 <input id="j-group-modal-item" class="j-group-modal-item" style="display:none" class="form-control" type="number" value="1" min="2" max="4" />
-<!--  input 복사용  -->
+<!--  input 복사용  끝-->
+
+<!-- modal form에 li복사용  시작-->
+<li class='d-flex align-items-center j-group-item'- id="j-group-item" style="display:none !important;">
+    <div style="width:50%;">
+        <p><i class='xi-radiobox-checked' style="margin-right:8px;"></i>A조</p>
+    </div>
+    <div style="width:50%;">
+        <input  class="j-group-item-input" type="hidden" name="groups[]" id="">  
+        <p class="j-group-item-txt"style="text-align:right;" ><i class='xi-users' style="color: #202020 !important; margin-right:3px;"></i><i class='xi-users' style="color: #202020 !important; margin-right:10px;"></i> 2명</p>
+    </div>
+</li>
+<!-- modal form에 li복사용  끝-->   
 <script>
-    var $allItems;
-    var $withoutLastChildItems;
-    var $lastItem;
-    var $lastItemInput;
-    var $lastSecontItem;
-    var $lastSecontItemInput;
-    var num_people;
-    var $j_dim =$("#j-dim");
-    var $j_modal= $("#j-modal");
-    var $j_group_wapper= $("#j-group-wapper");
-    var $j_group_modal_item =$("#j-group-modal-item");
-    $("#j-group-value").change(function(){  //인원수 변경시
+    let $allItems;
+    let $withoutLastChildItems;
+    let $lastItem;
+    let $lastItemInput;
+    let $lastSecontItem;
+    let $lastSecontItemInput;
+   
+    let $j_dim =$("#j-dim");
+    let $j_modal= $("#j-modal");
+    let $j_group_wapper= $("#j-group-wapper");
+    let $j_group_modal_item =$("#j-group-modal-item");
+    let $info = $("#info");
+    let $infoUl =$info.find("ul");
+    let $j_group_value = $("#j-group-value");
+    let num_people = $j_group_value.val();
+    let $j_modal_group_numPeople =$(".j-modal-group-numPeople");    
+
+    //초기화 시작
+    settingModalGroup(num_people);
+    settingFormGroupList(); 
+    //초기화 끝
+    
+    $j_group_value.change(function(){  //인원수 변경시
         $this = $(this);
         num_people = $this.val();
+        settingModalGroup(num_people);
+        $j_modal_group_numPeople.text(`${num_people}명`);
+        settingFormGroupList(); 
+
+        ajax_get_price(); //가격 계산
+    });
+    function settingModalGroup(num_people) //모달 그룹 아이템 세팅함수
+    {
         settingGroupList(num_people);
         settingVariableItems();
         addEventItemsUp();
         addEventItemsDown();
         addEventLastItemUp();
         addEventLastItemDown();
-    });
-
+    }
     $("#j-group-add-btn").click(function(){  //모달 보이게
+        
         $("body").css("overflow","hidden")
         settingModalSize();
         $j_dim.css("display","block");
@@ -1218,11 +1222,44 @@ $('#j-group-value').bootstrapNumber({
 
     });
     $("#j-dim").click(function(){ //모달 안보이게
-        $("body").css("overflow","visible")
-        $j_dim.css("display","none");
-        $j_modal.css("display","none");
+        closeModal();
     });
 
+    $("#j-modal-close").click(function(){
+        closeModal();
+    })
+    function closeModal() //모달 닫기함수
+    {
+        $("body").css("overflow","visible");
+        $j_dim.css("display","none");
+        $j_modal.css("display","none");
+        settingFormGroupList();
+        ajax_get_price();
+        return false;
+
+    }
+    function settingFormGroupList() //폼 그룹 세팅 함수
+    {
+        $order_form.find("input[name=num_people]").val(num_people);
+        $infoUl.find(".j-group-item").remove();
+        for (let i = 0; i < $allItems.length; i++) {
+            let val = $($allItems[i]).find(".j-group-modal-item").val();
+            $item =cloneElement("#j-group-item");
+            $item.find(".j-group-item-txt").text(`${val}명`);
+            $item.find(".j-group-item-input").val(val);
+            $order_form.append($item);
+            
+        }
+    }
+    
+    function cloneElement(selector) //엘레먼트 복제함수
+    {
+        let $j_group_item = $(selector);
+        $cloneItem =$j_group_item.clone();
+        $cloneItem.css("id","");
+        $cloneItem.css("display","block");
+        return $cloneItem;
+    }
     //--규칙
     ////공통
     //각 그룹은 2~4
