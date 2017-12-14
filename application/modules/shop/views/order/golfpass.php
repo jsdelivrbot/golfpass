@@ -40,7 +40,10 @@
                 for(; $i <= $num_people; $i=$i+2){
                     $added_singleroom_price =$i*($product->singleroom_price);
                     ?>
-                <option value="<?=$i?>" data-price="<?=$added_singleroom_price?>"><?="{$i}인(".$added_singleroom_price."원 추가)"?></option>
+                <option value="<?=$i?>" data-price="<?=$added_singleroom_price?>">
+                    <?="{$i}인"?>
+                    <!-- <?="{$i}인(".$added_singleroom_price."원 추가)"?> -->
+                </option>
                 <?php }?>
             </select>
         </div>
@@ -57,7 +60,7 @@
                     ?>
                 <option data-name="<?=$hole_options[$i]->name?>" data-price="<?=$added_hole_price?>" value="<?=$hole_options[$i]->id?>"><?=$hole_options[$i]->name?>
 
-                (<?=$hole_options_price[$i]?>원 추가)
+                <!-- (<?=$hole_options_price[$i]?>원 추가) -->
                 </option>
                 <?php }?>
             </select>
@@ -164,9 +167,9 @@
 
 
 <script>
+    let $form =$("#form_order");
  function cal_totalPrice()
     {
-        var $form =$("#form_order");
          var queryString = $form.serialize();
         var url = "<?=site_url(shop_order_uri."/cal_total_price_ajax")?>";
         $.ajax({
@@ -247,7 +250,7 @@ $(document).ready(function(){
     });
     //홀추가 옵션 변경시 총금액 변경
     $("select[name=hole_option]").change(function(){
-
+        console.log(1);        
         cal_totalPrice();
     });
 

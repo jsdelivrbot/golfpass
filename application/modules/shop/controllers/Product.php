@@ -140,6 +140,7 @@ class Product extends Base_Controller {
         ));
         if($row !== null){
             $price = $row->price;
+            $price = modules::run("golfpass/p_daily_price_admin/_cal_apply_exchangeRate_and_margin_to_price",$price);
             $price=number_format($price *2);
             $data['price'] = "{$price}원 부터";
         }

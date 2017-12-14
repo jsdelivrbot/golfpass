@@ -192,10 +192,11 @@ class P_daily_price extends Base_Controller
         // $start_date = $this->start_date;
         // $end_date = $this->end_date;
         // $product_id = $this->product_id;
-        $end_date =date("Y-m-d",strtotime("{$end_date} +1 days"));
+        // $end_date =date("Y-m-d",strtotime("{$end_date} +1 days"));
         $obj_start_date = date_create($start_date);
         $obj_end_date = date_create($end_date);
         $period = date_diff($obj_start_date, $obj_end_date)->days;
+        $period += 1;
         //조별 가격으로 계산
         $total_price =0;
         //전체 그룹 인원수와 num_people 수 같은지 체크
@@ -208,6 +209,8 @@ class P_daily_price extends Base_Controller
         // return $tmp_total_num_people;
         if((string)$tmp_total_num_people !== (string)$num_people)
         {
+            return "$num_people";
+            return "$tmp_total_num_people";
             return "조를 편성해주세요.";
         }
         for($i =0 ; $i < $period ; $i++)

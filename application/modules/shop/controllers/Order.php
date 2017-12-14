@@ -74,6 +74,7 @@ class Order extends Base_Controller {
         ));        
 
         $data['total_price'] = $total_price;
+        // $data['total_price'] = $hole_option_id;
         echo json_encode($data);
     }
     function update_info($merchant_uid)
@@ -454,6 +455,12 @@ class Order extends Base_Controller {
     {
         //groups start_date end_date product_id options hole_option_id num_singleroom
         $out_total_price = 0;
+
+        $obj_start_date = date_create($order->start_date);
+        $obj_end_date = date_create($order->end_date);
+        $period = date_diff($obj_start_date, $obj_end_date)->days;
+        $period += 1;
+
          //시작 날자 ~끝날자 * 인 === 총가격 변조 있는지 체크 시작
          $product =$this->db->where("id",$order->product_id)->from("products")->get()->row();
          if(true)
@@ -505,6 +512,7 @@ class Order extends Base_Controller {
         if($num_singleroom !== null &&  $num_singleroom !== ""){
             $singleroom_price = $this->products_model->_get($product_id)->singleroom_price;
             $added_singleroom_price = $singleroom_price * $num_singleroom;
+            $added_singleroom_price *=  ($period -1);
             $out_total_price += $added_singleroom_price;
         }
         return $out_total_price;
