@@ -386,7 +386,7 @@
                     </p>
                 </li>
                 <li><span style="color:#ababab;">주소</span>
-                    <p style="color:#ababab;">서울특별시 강서구 공항대로 227,<br>마곡 센트럴 타워 1차 1112호~1113호</p>
+                    <p style="color:#ababab;">서울특별시 강서구 공항대로 227</p>
                 </li>
             </ul>
             <ul>
