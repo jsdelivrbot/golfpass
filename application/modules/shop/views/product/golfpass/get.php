@@ -296,7 +296,7 @@
         <div id="info" class="pt-20">
             <ul class="list-unstyled" style="margin-bottom:0;">
                 <li style="font-family: 'notokr-medium', sans-serif;">조 정보</li>
-              
+                              
                         <!-- 조리스트 시작 -->
                             <form action="<?=site_url(shop_order_uri."/golfpass")?>" method="get" id="golfpass_order_form">
 
@@ -1029,7 +1029,7 @@
         //예약하기
         $("#golfpass_order").click(function(event) {
             event.preventDefault();
-            
+
             $input_numPeople=$order_form.find("input[name=num_people]");
             var numPeople =$input_numPeople.val();
             if (numPeople === "0" || typeof numPeople === "undefined" || numPeople === "") {
@@ -1112,16 +1112,10 @@ $('#j-group-value').bootstrapNumber({
 </style>
 <div id="j-dim"></div>
 <div id="j-modal">
-<<<<<<< HEAD
-    <div>조 설정</div>
-    <div id="j-group-wapper"></div>
-    <div style="position:absolute; bottom:0px; width:100%; height:50px; background:#69a84e;">확인</div>
-=======
-총인원<div class="j-modal-group-numPeople"></div>
+    총인원<div class="j-modal-group-numPeople"></div>
     <div id="j-group-wapper"></div>
 
     <a href="#" id="j-modal-close">확인</a>
->>>>>>> ac638066814c29d96a006129d0b1e2c3946f49fe
 </div>
     <!-- 모달 반응형 스크립트시작 -->
 <script>
@@ -1219,7 +1213,7 @@ $('#j-group-value').bootstrapNumber({
         addEventLastItemDown();
     }
     $("#j-group-add-btn").click(function(){  //모달 보이게
-        
+
         $("body").css("overflow","hidden")
         settingModalSize();
         $j_dim.css("display","block");
