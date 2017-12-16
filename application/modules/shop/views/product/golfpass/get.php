@@ -276,20 +276,20 @@
             <span class="box-title" style="font-size:16px;">예약 인원</span>
             <div id='count-box' class='d-flex align-items-stretch justify-content-end'>
                 <div style="display:inline-block; margin-right:0px; float:right">
-                    <input style="display:inline-block" id="j-group-value" class="form-control" type="number" value="4" min="<?=$product->min_people?>" max="<?=$product->max_people?>" />
+                    <input style="display:inline-block" id="j-group-value" class="form-control" type="number" value="<?=$product->min_people?>" min="<?=$product->min_people?>" max="<?=$product->max_people?>" />
                 </div>
             </div>
         </div>
         <div id='dateBox'>
             <form action="#" class="d-flex align-items-center justify-content-between">
                 <div class="form-group d-flex align-items-center mb-0" <?=(!isset($hotel)) ? "style='width:100%'" :""?>  >
-                    <input type="text" id="s-day" placeholder="시작 일정" value="" <?=(!isset($hotel)) ? "style='width:90%'" :""?>>
+                    <input type="text" id="s-day" placeholder="시작 일정" value="<?=$start_date?>" <?=(!isset($hotel)) ? "style='width:90%'" :""?>>
                     <i class="xi-calendar-check"></i>
                 </div>
                 <?php if(isset($hotel)):?>
                 <span>~</span>
                 <div class="form-group d-flex align-items-center mb-0">
-                    <input type="text" id="e-day" placeholder="종료 일정" value="">
+                    <input type="text" id="e-day" placeholder="종료 일정" value="<?=$end_date?>">
                     <i class="xi-calendar-check"></i>
                 </div>
                 <?php endif?>
@@ -778,11 +778,11 @@
         $(document).ready(function() {
             $startDate.datepicker({
                 dateFormat: 'yy-mm-dd'
-            }).datepicker("setDate", new Date().getDay+1); 
+            });
 
             $endDate.datepicker({
                 dateFormat: 'yy-mm-dd'
-            }).datepicker("setDate", new Date().getDay+2); 
+            });
         });
     </script>
     <!-- 달력 -->
@@ -1194,6 +1194,7 @@ $('#j-group-value').bootstrapNumber({
     //초기화 시작
     settingModalGroup(num_people);
     settingFormGroupList(); 
+    ajax_get_price();
     //초기화 끝
     
     $j_group_value.change(function(){  //인원수 변경시

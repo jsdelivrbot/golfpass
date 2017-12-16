@@ -151,8 +151,8 @@ class Product extends Base_Controller {
         }
 
         $current_date = date("Y-m-d");
-        $data["current_date"] = $current_date;
-        $data["current_date_plus"] = date("Y-m-d",strtotime("{$current_date} +1 days"));
+        $data["start_date"] = date("Y-m-d",strtotime("{$current_date} +1 days"));
+        $data["end_date"] = date("Y-m-d",strtotime("{$current_date} +2 days"));
 
         //product_option
         $this->load->model("product_option_model");
