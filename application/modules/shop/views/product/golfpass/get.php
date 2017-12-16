@@ -1225,10 +1225,12 @@ $('#j-group-value').bootstrapNumber({
     });
     $("#j-dim").click(function(){ //모달 안보이게
         closeModal();
+        return false;
     });
 
     $("#j-modal-close").click(function(){
         closeModal();
+        return false;
     })
     function closeModal() //모달 닫기함수
     {
