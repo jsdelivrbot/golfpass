@@ -283,13 +283,13 @@
         <div id='dateBox'>
             <form action="#" class="d-flex align-items-center justify-content-between">
                 <div class="form-group d-flex align-items-center mb-0" <?=(!isset($hotel)) ? "style='width:100%'" :""?>  >
-                    <input type="text" id="s-day" placeholder="시작 일정" value="<?=$current_date?>" <?=(!isset($hotel)) ? "style='width:90%'" :""?>>
+                    <input type="text" id="s-day" placeholder="시작 일정" value="" <?=(!isset($hotel)) ? "style='width:90%'" :""?>>
                     <i class="xi-calendar-check"></i>
                 </div>
                 <?php if(isset($hotel)):?>
                 <span>~</span>
                 <div class="form-group d-flex align-items-center mb-0">
-                    <input type="text" id="e-day" placeholder="종료 일정" value="<?=$current_date_plus?>">
+                    <input type="text" id="e-day" placeholder="종료 일정" value="">
                     <i class="xi-calendar-check"></i>
                 </div>
                 <?php endif?>
@@ -778,11 +778,11 @@
         $(document).ready(function() {
             $startDate.datepicker({
                 dateFormat: 'yy-mm-dd'
-            });
+            }).datepicker("setDate", new Date().getDay+1); 
+
             $endDate.datepicker({
                 dateFormat: 'yy-mm-dd'
-            });
-
+            }).datepicker("setDate", new Date().getDay+2); 
         });
     </script>
     <!-- 달력 -->
