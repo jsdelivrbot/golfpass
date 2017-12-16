@@ -778,10 +778,10 @@
         $(document).ready(function() {
             $startDate.datepicker({
                 dateFormat: 'yy-mm-dd'
-            }).datepicker("setDate", new Date().getDay+1); 
+            });
             $endDate.datepicker({
                 dateFormat: 'yy-mm-dd'
-            }).datepicker("setDate", new Date().getDay+2); 
+            });
 
         });
     </script>
