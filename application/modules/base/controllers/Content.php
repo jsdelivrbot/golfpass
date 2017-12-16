@@ -27,7 +27,7 @@ class Content extends Base_Controller {
     }
     
     public function _gets(){
-        $config['pgi_style'] = "style_1";
+        $config['pgi_style'] = "style_golfpass";
         $board_id = $this->board_id;
         if($this->input->get('is_user') === 'true') //로그인한 user의 글만
             $contents =$this->board_contents_model->gets_with_pgi(array(

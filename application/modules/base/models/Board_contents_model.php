@@ -56,7 +56,7 @@ class Board_contents_Model extends Board_Model{
     // }
     function gets_with_pgi($where_obj,$config)
     {
-        $pgi_style =  isset($config['pgi_style']) ?  $config['pgi_style'] : 'style_1';
+        $pgi_style =  isset($config['pgi_style']) ?  $config['pgi_style'] : 'style_golfpass';
         $board_id = $where_obj['board_id'];
         $rows=$this->_gets_with_pgi_func(
             $pgi_style,
@@ -82,7 +82,9 @@ class Board_contents_Model extends Board_Model{
                 $this->load->model("base/boards_model");
                 $total_rows =$this->boards_model->_get_count(array('id'=>$board_id),'contents_count');
                 return $total_rows;
-            });
+            },
+            array("per_page"=>10) //per_page
+            );
             return $rows;
     }
  
