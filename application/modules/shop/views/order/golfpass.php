@@ -26,13 +26,11 @@
 
 <!-- <div class="ui header"> </div> -->
 <form  class="ui form" id="form_order" onsubmit="alert_payment_window(this); return false;"  action="<?=site_url(shop_order_uri."/golfpass_ajax_add")?>"method ="post">
-    <?php for($i=0 ; $i < count($groups) ; $i++){?>
-        <input type="hidden" name="groups[]" value="<?=$groups[$i]?>">
-    <?php }?>
+  
 <?php if($product->singleroom_price !== "0"){?>
     <div class="four fields">
         <div class="field">
-            <label for="">싱글룸추가</label>
+            <label for=""><h3>싱글룸추가</h3></label>
             <select name="singleroom" id="">
                 <option  value="" data-price="0">선택안함</option>
                 <?php 
@@ -52,7 +50,7 @@
     <!-- 홀옵션추가 -->
     <div class="four fields">
         <div class="field">
-        <label>홀 추가</label>
+        <label><h3>홀 추가</h3></label>
             <select class="ui fluid dropdown" name="hole_option">
                 <option value="" data-price="0">선택</option>
                 <?php for($i=0; $i<count($hole_options) ; $i++){
@@ -71,7 +69,7 @@
     <!-- 기타옵션추가 -->
     <div class="four fields">
         <div class="field">
-        <label>기타옵션 추가</label>
+        <label><h3>기타옵션 추가</h3></label>
             <select class="ui fluid dropdown" name="" id="options">
                 <option data-price="0">선택</option>
             <?php for($i=0; $i<count($options) ; $i++){?>
@@ -90,33 +88,37 @@
     <input type="text" name="hope_date" placeholder="희망시간대">
 </div>
 <!-- 희망시간대 -->
+ <!-- 동행자정보 -->
+ <br><br>
+<label><h3> 동행자 정보 입력(<?=$num_people?>명)</h3></label>
+<br>
 
-                <!-- 동행자정보 -->
-    <label><b> 동행자 정보 입력(<?=$num_people?>명)</b></label>
-    <?php for($i = 0 ; $i < $num_people; $i++){ ?>
-        <?php if ( $i !== 0 ): ?>
-        <div class="ui divider" style="margin-top:20px;"></div>
-            
-        <?php endif; ?>
-    <div class="four fields">
-        <div class="field">
-            <input type="text" name="name_with[]" placeholder="이름">
+<?php for ( $i = 0 ; $i < count($groups) ; $i++ ): ?>
+    <input type="hidden" name="groups[]" value="<?=$groups[$i]?>">
+    <?=chr(65+$i)?>조
+    <br>
+    <?php for ($j = 0 ; $j < (int)$groups[$i] ; $j++ ): ?>
+        <div class="four fields">
+            <div class="field">
+                <input type="text" name="name_with[]" placeholder="이름">
+            </div>
+            <div class="field">
+                <input type="text" name="eng_name_with[]" placeholder="영문이름">
+            </div>
+            <div class="field">
+                <input type="text" name="email_with[]" placeholder="이메일">
+            </div>
+            <div class="field">
+            <input type="text" name="phone_with[]" placeholder="연락처">
+            </div>
         </div>
-        <div class="field">
-            <input type="text" name="eng_name_with[]" placeholder="영문이름">
-        </div>
-        <div class="field">
-            <input type="text" name="email_with[]" placeholder="이메일">
-        </div>
-        <div class="field">
-           <input type="text" name="phone_with[]" placeholder="연락처">
-        </div>
-    </div>
-    <?php }?>        
+    <?php endfor; ?>
+<?php endfor; ?>
+               
     <!-- 동행자정보 -->
-
+    <br><br>
 <!-- <input type="submit" value="예약"> -->
-
+<label><h3>주문자정보</h3></label>
 <div class="two fields">
     <div class="field">
         <label>주문자이름</label>

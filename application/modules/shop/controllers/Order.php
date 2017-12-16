@@ -401,6 +401,7 @@ class Order extends Base_Controller {
             $this->db->set('start_date',$start_date);
             $this->db->set('end_date',$end_date);
             $this->db->set('num_people',$num_people);
+            $this->db->set('hope_date',$this->input->post("hope_date"));
             $this->db->set('created',"NOW()",false);
             $this->db->insert($this->table);
             //p_order_options테이블에 옵션정보 추가
@@ -424,19 +425,25 @@ class Order extends Base_Controller {
             $phones =$this->input->post("phone_with[]");
             $emails =$this->input->post("email_with[]");
 
-            for($i =0 ; $i < count($names_with) ; $i++){
-                $this->db->set('merchant_uid',$merchant_uid);
-                $this->db->set('product_id',$product_id);
-                $this->db->set('created',"NOW()",false);
-
-                $this->db->set('phone_with',$phones[$i]);
-                $this->db->set('email_with',$emails[$i]);
-                $this->db->set('eng_name_with',$eng_names[$i]);
-                $this->db->set('name_with',$names_with[$i]);
-                $this->db->insert('p_order_infos');
+          
+            for ($i=0 ,$n=0; $i < count($groups); $i++) { 
+                for ($j=0; $j < (int)$groups[$i] ; $j++) { 
+                    $this->db->set('merchant_uid',$merchant_uid);
+                    $this->db->set('product_id',$product_id);
+                    $this->db->set('group_name',chr(65+$i));
+                    $this->db->set('created',"NOW()",false);
+    
+                    $this->db->set('phone_with',$phones[$n]);
+                    $this->db->set('email_with',$emails[$n]);
+                    $this->db->set('eng_name_with',$eng_names[$n]);
+                    $this->db->set('name_with',$names_with[$n]);
+                    $this->db->insert('p_order_infos');           
+                    $n++;
+                }
             }
+      
             //동행자정보 추가 끝
-
+            
             //p_order_options테이블에 그룹 옵션정보 추가
             for($i=0; $i <count($groups) ;$i++)
             {

@@ -46,6 +46,8 @@
     <br>
     <div class="j-text"> 예약일 : <?=$order->start_date?> ~ <?=$order->end_date?></div>
     <br>
+    <div class="j-text"> 희망시간대 : <?=$order->hope_date?></div>
+    <br>
     <div class="j-text"> 리뷰 : <?=$order->is_review_write === "1" ? "<a href='".site_url(shop_review_uri."/gets_by_user/{$user->userName}")."'>썼음</a>": "안썼음"?></div>
    
     
@@ -79,6 +81,7 @@
 <table class="ui celled table">
 <thead>
     <tr> 
+        <th>조</th>
         <th>이름</th>
         <th>영어이름</th>
         <th>이메일</th>
@@ -88,6 +91,7 @@
 <tbody>
     <?php for($i=0;$i < count($order_infos) ;$i++){   ?>
 <tr>
+<td> <?=$order_infos[$i]->group_name?></td>
 <td> <?=$order_infos[$i]->name_with?></td>
 <td> <?=$order_infos[$i]->eng_name_with?></td>
 <td> <?=$order_infos[$i]->email_with?></td>
