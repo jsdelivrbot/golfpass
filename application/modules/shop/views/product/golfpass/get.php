@@ -282,8 +282,8 @@
         </div>
         <div id='dateBox'>
             <form action="#" class="d-flex align-items-center justify-content-between">
-                <div class="form-group d-flex align-items-center mb-0">
-                    <input type="text" id="s-day" placeholder="시작 일정" value="<?=$current_date?>">
+                <div class="form-group d-flex align-items-center mb-0" <?=(!isset($hotel)) ? "style='width:100%'" :""?>  >
+                    <input type="text" id="s-day" placeholder="시작 일정" value="<?=$current_date?>" <?=(!isset($hotel)) ? "style='width:90%'" :""?>>
                     <i class="xi-calendar-check"></i>
                 </div>
                 <?php if(isset($hotel)):?>
@@ -987,16 +987,21 @@
         }
 
         function ajax_get_price() {
+            $startDate = $("#s-day");
+            $endDate = $("#e-day");
 
-          
             $order_form.find("input[name=start_date]").val($startDate.val());
+            console.log($startDate.val());
             $order_form.find("input[name=end_date]").val($endDate.val());
+            <?php if(!isset($hotel)):?> //골프장만일때 end_date = "";
+                $order_form.find("input[name=end_date]").val("");
+            <?php endif?>
             
             $order_form.find("input[name=num_people]").val(num_people);
             // $order_form.find("input[name=num_people]").val($numPeople.data('value'));
             $order_form.find("input[name=product_id]").val("<?=$product->id?>");
             var queryString = $order_form.serialize();
-            console.log(queryString);
+            // console.log(queryString);
             var url = "<?=site_url(golfpass_p_daily_price_uri."/ajax_cal")?>"
             $.ajax({
                 type: "POST",
@@ -1035,11 +1040,11 @@
             
             $input_numPeople=$order_form.find("input[name=num_people]");
             $endDate=$order_form.find("input[name=end_date]");
+            
             $startDate=$order_form.find("input[name=start_date]");
-            if($endDate.val() === "")
-            {
+            <?php if(!isset($hotel)):?> //골프장만일때 end_date = startdate
                 $endDate.val($startDate.val());
-            }
+            <?php endif?>
             var numPeople =$input_numPeople.val();
             if (numPeople === "0" || typeof numPeople === "undefined" || numPeople === "") {
                 alert("명수를 선택해주세요.");
@@ -1055,6 +1060,7 @@
             // $order_form.find("input[name=end_date]").val($endDate.val());
             // $order_form.find("input[name=total_price]").val($total_price.val());
             $order_form.submit();
+            return false;
         });
     </script>
 
