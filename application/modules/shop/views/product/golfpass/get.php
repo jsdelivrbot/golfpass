@@ -286,11 +286,13 @@
                     <input type="text" id="s-day" placeholder="시작 일정" value="<?=$current_date?>">
                     <i class="xi-calendar-check"></i>
                 </div>
+                <?php if(true):?>
                 <span>~</span>
                 <div class="form-group d-flex align-items-center mb-0">
                     <input type="text" id="e-day" placeholder="종료 일정" value="<?=$current_date_plus?>">
                     <i class="xi-calendar-check"></i>
                 </div>
+                <?php endif?>
             </form>
         </div>
         <div id="info" class="pt-20">
@@ -388,7 +390,7 @@
                         </li>
                         <li class='d-flex flex-column'><span>코스 구성</span>
                             <p class='mt-2'>
-                                <?=$product->course_type?>
+                                <?=$product->course_config?>
                             </p>
                         </li>
                         <li class='d-flex flex-column'><span>개장연도</span>

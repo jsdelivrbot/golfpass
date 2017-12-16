@@ -482,6 +482,7 @@ class Init extends Init_Controller {
             `number` varchar(255),
             `hole_count` varchar(255)NOT NULL, 
             `course_type` varchar(255) NOT NULL, 
+            `course_config` varchar(255),
             `pa` varchar(255) NOT NULL, 
             `distance` varchar(255) NOT NULL, 
             `grass_type` varchar(255) NOT NULL, 

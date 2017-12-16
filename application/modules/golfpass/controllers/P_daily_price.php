@@ -231,12 +231,19 @@ class P_daily_price extends Base_Controller
             }
 
             $tmp_price =$row->price;
-            $tmp_price =modules::run("golfpass/p_daily_price_admin/_cal_apply_exchangeRate_and_margin_to_price",$tmp_price);
+            $tmp_price =$this->_cal_apply_exchangeRate_and_margin_to_price($tmp_price);
             $total_price += (int)$tmp_price;
             }
         }
         return $total_price."원";      
         
     }
-
+    function _cal_apply_exchangeRate_and_margin_to_price($price)
+    {
+        $exchange_rate = (float)$this->setting->exchange_rate;
+        $margin = (float)$this->setting->margin;
+        $price = (float)$price;
+        $price = round(($price * $exchange_rate) + $margin);
+        return (string)$price;
+    }
 }

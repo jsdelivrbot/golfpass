@@ -203,14 +203,7 @@ class P_daily_price_admin extends Admin_Controller
         echo json_encode($data);
         return;
     }
-    function _cal_apply_exchangeRate_and_margin_to_price($price)
-    {
-        $exchange_rate = (float)$this->setting->exchange_rate;
-        $margin = (float)$this->setting->margin;
-        $price = (float)$price;
-        $price = round(($price * $exchange_rate) + $margin);
-        return (string)$price;
-    }
+    
     function add($product_id,$year=null)
     {
         
@@ -224,8 +217,8 @@ class P_daily_price_admin extends Admin_Controller
             if(count($rows) !== 0){
                 foreach($rows as $row)
                 {
-
-                    $price[$row->date][$row->num_people][$row->period] = $this->_cal_apply_exchangeRate_and_margin_to_price($row->price); 
+                    
+                    $price[$row->date][$row->num_people][$row->period] =  modules::run("golfpass/p_daily_price/_cal_apply_exchangeRate_and_margin_to_price",$price);
                 }
                 // var_dump($price);
                 $data['price'] = $price;

@@ -144,6 +144,10 @@ $('#navi_btn').click(function(){
             <input type="text" name="course_type" value="<?=set_value_data($product,'course_type')?>"> <?=form_error('course_type',false,false)?><br>
         </div>
         <div class="field">
+            <label>코스구성</label>
+            <input type="text" name="course_config" value="<?=set_value_data($product,'course_config')?>"> <?=form_error('course_config',false,false)?><br>
+        </div>
+        <div class="field">
             <label>파</label>
             <input type="text" name="pa" value="<?=set_value_data($product,'pa')?>"> <?=form_error('pa',false,false)?><br>
         </div>
