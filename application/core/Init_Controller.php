@@ -254,6 +254,7 @@ class Init_Controller extends MX_Controller{
              `intro` varchar(255) DEFAULT '',
              `userName` varchar(255), 
              `password` varchar(255), 
+             `nickName` varchar(255), 
              `name` varchar(255),
              `sex` varchar(255),
              `birth` varchar(255),

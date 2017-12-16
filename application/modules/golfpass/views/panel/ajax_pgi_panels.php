@@ -5,7 +5,7 @@
 ​​               <a href="javascript:void(0);" onclick="getData('.ajax_taget_content_list',0,'<?=site_url(golfpass_panel_uri."/ajax_pgi_contents/")?>',<?=$panels[$i]->id?>)">
 ​​                       <img src="<?=$panels[$i]->profilePhoto?>" class="tp-rounded-circle" alt="" style="width: 140px;">
 ​​                       <div class="tp-panel-content tp-text-center">
-​​                          <p><?=$panels[$i]->name?></p>
+​​                          <p><?=$panels[$i]->nickName?></p>
 ​​                       <p class="tp-intro"><?=$panels[$i]->intro?></p>
 ​​                       </div>
 ​​              </a>

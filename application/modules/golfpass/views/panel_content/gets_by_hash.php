@@ -99,7 +99,7 @@
                             <span> | 
                             </span> 
                             <span class="tp-name">
-                                <?=$panel_contents[$i]->name?>
+                                <?=$panel_contents[$i]->nickName?>
                             </span>
                             </p>
                         </div>

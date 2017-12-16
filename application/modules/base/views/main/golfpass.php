@@ -327,7 +327,7 @@
                                              <img src="/public/images/blank2.png" class="blank_img">
                                     <!-- // 이부분 수정 -->
 
-                                             <span class="position-absolute text-light price" style="text-shadow: 0 0 7px rgba(0,0,0,1);"><?=number_format($products_panel[$i]->price)?>원부터</span>
+                                             <span class="position-absolute text-light price" style="text-shadow: 0 0 7px rgba(0,0,0,1);"><?=number_format(_cal_apply_exchangeRate_and_margin_to_price($products_panel[$i]->price))?>원부터</span>
                                      </div>
                                      <div class="d-flex align-items-center p-1 text-light rounded-top content" style="background-color: <?=$products_panel[$i]->hotel_id !== null ? "#FD3365" : "#06adef"?>;">
                                              <i class="xi-marker-check ml-1 mr-1" style="padding-bottom:2px;"></i>

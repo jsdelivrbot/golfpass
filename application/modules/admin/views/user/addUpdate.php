@@ -12,9 +12,12 @@
 
 <?php if(strpos($mode,"add") !== false ){?>
     비밀번호<input placeholder="비밀번호" type="password" name="password" />
-    <?php }?>
-    <br/>
+<?php }?>
+
+<br/>
     이름<input placeholder="이름" type="text" name="name" value="<?=set_value_data($user,'name')?>"/> <?=form_error('name',false,false)?>
+    <br>
+    별명<input placeholder="별명" type="text" name="nickName" value="<?=set_value_data($user,'nickName')?>"/> <?=form_error('nickName',false,false)?>
  <br>소개<input placeholder="소개" type="text" name="intro" value="<?=set_value_data($user,'intro')?>"/>
  <br/>
 

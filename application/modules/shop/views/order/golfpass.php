@@ -84,8 +84,20 @@
     <div class="field"id="added_option_list">
     </div>
                 <!-- 기타옵션추가 -->
+
+<!-- 희망시간대 -->
+<div class="field">
+    <input type="text" name="hope_date" placeholder="희망시간대">
+</div>
+<!-- 희망시간대 -->
+
+                <!-- 동행자정보 -->
     <label><b> 동행자 정보 입력(<?=$num_people?>명)</b></label>
     <?php for($i = 0 ; $i < $num_people; $i++){ ?>
+        <?php if ( $i !== 0 ): ?>
+        <div class="ui divider" style="margin-top:20px;"></div>
+            
+        <?php endif; ?>
     <div class="four fields">
         <div class="field">
             <input type="text" name="name_with[]" placeholder="이름">
@@ -101,7 +113,7 @@
         </div>
     </div>
     <?php }?>        
-    
+    <!-- 동행자정보 -->
 
 <!-- <input type="submit" value="예약"> -->
 

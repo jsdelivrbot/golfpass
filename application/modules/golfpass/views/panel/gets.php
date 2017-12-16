@@ -19,7 +19,7 @@
 			<img src="<?=$panels[$i]->profilePhoto?>" class="tp-rounded-circle" alt="" style="width: 120px; height:120px; margin-left: 10px;">
 			<div class="tp-panel-content tp-text-center">
 			  <p>
-				<?=$panels[$i]->name?>
+				<?=$panels[$i]->nickName?>
 			  </p>
 			  <p class="tp-intro">
 				<?=$panels[$i]->intro?>
@@ -55,7 +55,7 @@
 		  <span> | 
 		  </span> 
 		  <span class="tp-name">
-			<?=$panel_contents[$i]->name?>
+			<?=$panel_contents[$i]->nickName?>
 		  </span>
 		</p>
 	  </div>

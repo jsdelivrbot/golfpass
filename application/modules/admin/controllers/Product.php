@@ -227,8 +227,10 @@ class Product extends Admin_Controller {
         $field = $this->input->post('field');
         if($field) $this->db->like($field, $this->input->post('value'));
         $this->db->order_by('id','desc');
-        $data['products'] = $this->db->select("p.* , left(p.desc,10) as 'desc'")
+        $data['products'] = $this->db->select("p.* , left(p.desc,10) as 'desc',group_concat(c.name) 'cate_name'")
         ->from("{$this->table} as p")
+        ->join("ref_cate_product as ref_c_p","ref_c_p.product_id = p.id","LEFT")
+        ->join("product_categories as c","ref_c_p.cate_id = c.id","LEFT")
         ->limit($per_page,$offset)
         ->get()
         ->result();

@@ -4,6 +4,7 @@
             <th>아이디</th>
             <th>이름</th>
             <th>설명</th>
+            <th>카테고리</th>
             <th>수정/삭제</th>
         </tr>
     </thead>
@@ -23,6 +24,11 @@
             <td class="selectable">
                 <a href="<?=my_site_url(admin_product_uri."/update/{$products[$i]->id}")?>">
                     <?=$products[$i]->desc?>
+                </a>
+            </td>
+            <td class="selectable">
+                <a href="<?=my_site_url(admin_product_uri."/update/{$products[$i]->id}")?>">
+                    <?=$products[$i]->cate_name?>
                 </a>
             </td>
             <!-- <td><?=$products[$i]->category_id?> </td> -->

@@ -19,8 +19,40 @@ class P_daily_price extends Base_Controller
 
         $start_date = $this->input->post("start_date");
         $end_date = $this->input->post("end_date");
+        $product_id = $this->input->post("product_id");
+        $num_people = $this->input->post("num_people");
+        // $start_date = "2017-11-01";
+        // $end_date  ="2017-11-02";
+        if($start_date === date("Y-m-d")) //당일예약불가능
+        {
+            $data['total_price'] = "당일 예약은 불가능합니다.";
+            echo json_encode($data);
+            return;
+        }
+        if($end_date !== "" && $end_date !== null) //시작 날자와 끝날자 있을경우 기간구하기
+        {
+            $tmp_end_date =date("Y-m-d",strtotime("{$end_date} +1 days"));
+            $obj_start_date = date_create($start_date);
+            $obj_end_date = date_create($tmp_end_date);
+            $period = date_diff($obj_start_date, $obj_end_date)->days;
+        }
+        else //시작날자만 있을경우 0박 1일
+        {
+            $period = 1;
+        }
+        //하루예약시
+        if($period <= 1 &&  ($end_date !== "" && $end_date !== null) )
+        {
+            $data['total_price'] = "1일 예약 불가";
+            echo json_encode($data);
+            return;
+        }
 
-        
+        if ($end_date === "" || $end_date === null) //시작날자만 있을경우 0박 1일로
+        {
+            $end_date = $start_date;
+        }
+
         //설정 날자차이가 음수일때  오늘보다 시작날자가 이전일시
         if(strtotime($end_date) < strtotime($start_date) || strtotime($start_date) < strtotime(date("Y-m-d")))
         {
@@ -28,29 +60,8 @@ class P_daily_price extends Base_Controller
             echo json_encode($data);
             return;
         }
-
-        $product_id = $this->input->post("product_id");
-        $num_people = $this->input->post("num_people");
-        // $start_date = "2017-11-01";
-        // $end_date  ="2017-11-02";
-      
-        $end_date =date("Y-m-d",strtotime("{$end_date} +1 days"));
-
-        $obj_start_date = date_create($start_date);
-        $obj_end_date = date_create($end_date);
-        $period = date_diff($obj_start_date, $obj_end_date)->days;
-
-     
-      
-      
     
-         //하루예약시
-        if($period <= 1)
-        {
-            $data['total_price'] = "1일 예약 불가";
-            echo json_encode($data);
-            return;
-        }
+       
         //날자차이가 10일 이상일떄
         if($period >= 90)
         {
@@ -165,7 +176,7 @@ class P_daily_price extends Base_Controller
         $config['groups']= $this->input->post("groups");
         $config['num_people']= $num_people;
         $config['start_date']= $start_date;
-        $config['end_date']=  $this->input->post("end_date");;
+        $config['end_date']=  $end_date;
         $config['product_id']= $product_id;
         // $config['period']= $period;
         $total_price= $this->_cal_by_group($config);
@@ -231,19 +242,12 @@ class P_daily_price extends Base_Controller
             }
 
             $tmp_price =$row->price;
-            $tmp_price =$this->_cal_apply_exchangeRate_and_margin_to_price($tmp_price);
+            $tmp_price =_cal_apply_exchangeRate_and_margin_to_price($tmp_price);
             $total_price += (int)$tmp_price;
             }
         }
         return $total_price."원";      
         
     }
-    function _cal_apply_exchangeRate_and_margin_to_price($price)
-    {
-        $exchange_rate = (float)$this->setting->exchange_rate;
-        $margin = (float)$this->setting->margin;
-        $price = (float)$price;
-        $price = round(($price * $exchange_rate) + $margin);
-        return (string)$price;
-    }
+   
 }

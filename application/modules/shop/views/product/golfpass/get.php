@@ -286,7 +286,7 @@
                     <input type="text" id="s-day" placeholder="시작 일정" value="<?=$current_date?>">
                     <i class="xi-calendar-check"></i>
                 </div>
-                <?php if(true):?>
+                <?php if(isset($hotel)):?>
                 <span>~</span>
                 <div class="form-group d-flex align-items-center mb-0">
                     <input type="text" id="e-day" placeholder="종료 일정" value="<?=$current_date_plus?>">
@@ -778,10 +778,10 @@
         $(document).ready(function() {
             $startDate.datepicker({
                 dateFormat: 'yy-mm-dd'
-            });
+            }).datepicker("setDate", new Date().getDay+1); 
             $endDate.datepicker({
                 dateFormat: 'yy-mm-dd'
-            });
+            }).datepicker("setDate", new Date().getDay+2); 
 
         });
     </script>
@@ -991,6 +991,7 @@
           
             $order_form.find("input[name=start_date]").val($startDate.val());
             $order_form.find("input[name=end_date]").val($endDate.val());
+            
             $order_form.find("input[name=num_people]").val(num_people);
             // $order_form.find("input[name=num_people]").val($numPeople.data('value'));
             $order_form.find("input[name=product_id]").val("<?=$product->id?>");
@@ -1031,8 +1032,14 @@
         //예약하기
         $("#golfpass_order").click(function(event) {
             event.preventDefault();
-
+            
             $input_numPeople=$order_form.find("input[name=num_people]");
+            $endDate=$order_form.find("input[name=end_date]");
+            $startDate=$order_form.find("input[name=start_date]");
+            if($endDate.val() === "")
+            {
+                $endDate.val($startDate.val());
+            }
             var numPeople =$input_numPeople.val();
             if (numPeople === "0" || typeof numPeople === "undefined" || numPeople === "") {
                 alert("명수를 선택해주세요.");
@@ -1057,19 +1064,6 @@
 
 
     <!-- 조별추가하기 시작 -->
-
-    <!-- 아이템 복제용 -->
-<!-- <li class='d-flex align-items-center j-group-item'- id="j-group-item" style="display:none !important">
-    <div style="width:50%;">
-        <p><i class='xi-radiobox-checked' style="margin-right:8px;"></i>A조</p>
-    </div>
-    <div style="width:50%;">
-        <input  type="hidden" name="groups[]" id="">  
-        <p style="text-align:right;" ><i class='xi-users' style="color: #202020 !important; margin-right:3px;"></i><a onclick="deleteGroupItem(this);return false;" href="#"><i class='xi-close' style="color:#ce0202; margin-left:10px;"></i></a></p>
-    </div>
-</li> -->
-<!-- 아이템 복제용 -->
-
 <!-- lib -->
 <script src="<?=domain_url("/public/lib/bootstrap-number-input.js")?>"></script>
 <script>
@@ -1165,7 +1159,7 @@ $('#j-group-value').bootstrapNumber({
 <!-- modal form에 li복사용  시작-->
 <li class='d-flex align-items-center j-group-item'- id="j-group-item" style="display:none !important;">
     <div style="width:50%;">
-        <p><i class='xi-radiobox-checked' style="margin-right:8px;"></i>A조</p>
+        <p><i class='xi-radiobox-checked' style="margin-right:8px;"></i><span class="j-group-name">A조</span></p>
     </div>
     <div style="width:50%;">
         <input  class="j-group-item-input" type="hidden" name="groups[]" id="">  
@@ -1247,10 +1241,14 @@ $('#j-group-value').bootstrapNumber({
         for (let i = 0; i < $allItems.length; i++) {
             let val = $($allItems[i]).find(".j-group-modal-item").val();
             $item =cloneElement("#j-group-item");
+            $groupName = $item.find(".j-group-name");
+            let groupName =  String.fromCharCode(65+i)+"조";
+            $groupName.text(groupName);
+            
             $item.find(".j-group-item-txt").text(`${val}명`);
             $item.find(".j-group-item-input").val(val);
             $order_form.append($item);
-            
+
         }
     }
     

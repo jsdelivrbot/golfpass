@@ -98,6 +98,11 @@ class Products_Model extends Board_Model{
         $sub_query = "SELECT p_ref_h.hotel_id FROM `p_ref_hotel` as p_ref_h WHERE p_ref_h.product_id = p.id LIMIT 0,1";
         $query .= ",($sub_query) as hotel_id";
         
+        //가격
+        $date = date("Y-m-d");
+        $sub_query = "SELECT price FROM p_daily_price as sub_dp WHERE sub_dp.product_id = p.id AND sub_dp.date = '{$date}' AND sub_dp.num_people = '1' AND sub_dp.period = '1' LIMIT 0, 1";
+        $query .= ", IFNULL(($sub_query)*2,'0') as price";
+
         $this->db->select("p.*".$query);
         $this->db->from("products as p");
         $this->db->order_by($rankingType,'desc');

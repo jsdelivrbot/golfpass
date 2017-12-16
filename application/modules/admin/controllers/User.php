@@ -117,6 +117,7 @@ class User extends Admin_Controller {
         $this->db->set('password',$hash);
         $this->db->set('intro',$this->input->post('intro'));
         $this->db->set('userName',$userName);
+        $this->db->set('nickName', $this->input->post('nickName'));
         $this->db->set('postal_number', $this->input->post('postal_number'));
         $this->db->set('email', $this->input->post('email'));
         $this->db->set('address', $this->input->post('address'));
