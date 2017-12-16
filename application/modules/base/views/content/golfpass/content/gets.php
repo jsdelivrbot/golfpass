@@ -91,5 +91,5 @@
 							<!-- 페이지네이션 샘플 -->
 					 </section>
 			 </article>
-
+			 <?= $this->pagination->create_links();?>
 	<!-- 변경 작업완료-->

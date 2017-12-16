@@ -276,7 +276,7 @@
             <span class="box-title" style="font-size:16px;">예약 인원</span>
             <div id='count-box' class='d-flex align-items-stretch justify-content-end'>
                 <div style="display:inline-block; margin-right:0px; float:right">
-                    <input style="display:inline-block" id="j-group-value" class="form-control" type="number" value="4" min="2" max="12" />
+                    <input style="display:inline-block" id="j-group-value" class="form-control" type="number" value="4" min="<?=$product->min_people?>" max="<?=$product->max_people?>" />
                 </div>
             </div>
         </div>
