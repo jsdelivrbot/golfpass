@@ -60,7 +60,7 @@ class Order extends Admin_Controller {
         $data['user'] = $this->db->from("users")->where("id",$order->user_id)->get()->row();
         $data['product'] =$product;
         $data['order'] =$order;
-         $data['total_price_singleroom'] = $order->num_people * $product->singleroom_price;
+         $data['total_price_singleroom'] = (int)$order->num_people * (int)$product->singleroom_price * ((int)$order->period-1);
         //동행자정보
         $infos =$this->db->where("merchant_uid",$merchant_uid)->from("p_order_infos")->get()->result();
         $data['order_infos'] = $infos;

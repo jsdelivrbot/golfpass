@@ -12,6 +12,15 @@ if(!function_exists('_cal_apply_exchangeRate_and_margin_to_price')){
         return (string)$price;
     }
 }
+if(!function_exists('get_period')){
+    function get_period($start_date,$end_date){
+        $obj_start_date = date_create($start_date);
+        $obj_end_date = date_create($end_date);
+        $period = date_diff($obj_start_date, $obj_end_date)->days;
+        $period += 1;
+        return $period;
+    }
+}
 
 
 if(!function_exists('get_file_list')){

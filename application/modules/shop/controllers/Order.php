@@ -382,11 +382,12 @@ class Order extends Base_Controller {
         //product_orders테이블에 order정보 추가
         $pay_method =$this->input->post('pay_method');
             $status = ($pay_method === 'bank') ? "ready" : "try";
-
+            $period =get_period($start_date,$end_date);
             //table insert product_orders
             $merchant_uid = $this->input->post("merchant_uid");
             $merchant_uid = get_merchant_code($merchant_uid);
             $this->db->set('merchant_uid',$merchant_uid);
+            $this->db->set('period',$period);
             $this->db->set('num_singleroom',$this->input->post('singleroom'));
             $this->db->set('order_name',$this->input->post('order_name'));
             $this->db->set('user_id',$this->user->id);
