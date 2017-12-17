@@ -147,13 +147,14 @@
         }
         ?>
         </select>
-        <a  id ="a_link_year"style="float:left;"class="ui button black" href="<?=my_site_url(golfpass_p_daily_price_admin_uri."/add/{$product->id}/".(date('Y')-3))?>">해당년도로</a>
+        <a  id ="a_link_year"style="float:left;"class="ui button black" href="<?=my_site_url(golfpass_p_daily_price_admin_uri."/add/{$product->id}/".date('Y'))?>">해당년도로</a>
         <script>
         $("#select_year").change(function(){
-            var base_url ="<?=my_site_url(golfpass_p_daily_price_admin_uri."/add/{$product->id}")?>";
+            var base_url ="<?=site_url(golfpass_p_daily_price_admin_uri."/add/{$product->id}")?>";
             var year =$(this).val();
             var $a = $("#a_link_year");
-            $a.attr("href", `${base_url}/${year}`);
+            var queryString = "<?=$this->input->server('QUERY_STRING');?>";
+            $a.attr("href", `${base_url}/${year}?${queryString}`);
         });
     </script>
 <!-- 해당년도로 -->
