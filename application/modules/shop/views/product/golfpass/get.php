@@ -398,11 +398,11 @@
                                 <?=$product->open_day?>
                             </p>
                         </li>
-                        <li class='d-flex flex-column'><span>전화번호</span>
+                        <!-- <li class='d-flex flex-column'><span>전화번호</span>
                             <p class='mt-2'>
                                 <?=$product->number?>
                             </p>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </section>
@@ -455,11 +455,11 @@
                                 <?=$hotel->check_in_out?>
                             </p>
                         </li>
-                        <li class='d-flex flex-column'><span>전화번호</span>
+                        <!-- <li class='d-flex flex-column'><span>전화번호</span>
                             <p class='mt-2'>
                                 <?=$hotel->number?>
                             </p>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </section>
