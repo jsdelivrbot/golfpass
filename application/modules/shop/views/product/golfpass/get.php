@@ -1795,7 +1795,7 @@ line-height:0px;
 }
 .input-group
 {
-width:145px;
+width:155px;
 height:30px;
 /* display:inline-block; */
 }
