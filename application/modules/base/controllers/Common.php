@@ -10,6 +10,7 @@ class Common extends Public_Controller {
     }
     
     function upload_receive_from_ck(){
+        $config['encrypt_name'] = TRUE;
         $config['upload_path'] = './public/uploads/user';
         // git,jpg,png 파일만 업로드를 허용한다.
         $config['allowed_types'] = 'gif|jpg|jpeg|png';
@@ -69,6 +70,7 @@ class Common extends Public_Controller {
         $errors ="";
 
         $config = array();
+        $config['encrypt_name'] = TRUE;
         $config['upload_path'] = "./public/uploads/{$who}/images";
         $config['allowed_types'] = 'gif|jpg|jpeg|png';
         $config['max_size'] = '500000'; //500KB
@@ -117,6 +119,7 @@ class Common extends Public_Controller {
     {
         $imgDir = "";
         if (isset($_FILES[$name])) {
+            $config['encrypt_name'] = TRUE;
             $config['upload_path'] = "./public/uploads/$who/images";
             $config['allowed_types'] = 'gif|jpg|jpeg|png';
             $config['max_size'] = '500000'; //500KB
