@@ -1,14 +1,28 @@
 <?php defined('BASEPATH') OR exit('no direct script access allrowed');
 
 
-
-if(!function_exists('_cal_apply_exchangeRate_and_margin_to_price')){
-    function _cal_apply_exchangeRate_and_margin_to_price($price){
+if(!function_exists('_cal_apply_exchangeRate_to_price')){
+    function _cal_apply_exchangeRate_to_price($price){
         $ci = &Public_Controller::$instance;
         $exchange_rate = (float)$ci->setting->exchange_rate;
+        $price = (float)$price;
+        $price = round(($price * $exchange_rate));
+        return (string)$price;
+    }
+}
+if(!function_exists('_cal_apply_margin_to_price')){
+    function _cal_apply_margin_to_price($price){
+        $ci = &Public_Controller::$instance;
         $margin = (float)$ci->setting->margin;
         $price = (float)$price;
-        $price = round(($price * $exchange_rate) + $margin);
+        $price = $price+ $margin;
+        return (string)$price;
+    }
+}
+if(!function_exists('_cal_apply_exchangeRate_and_margin_to_price')){
+    function _cal_apply_exchangeRate_and_margin_to_price($price){
+        $price = _cal_apply_exchangeRate_to_price($price);
+        $price =_cal_apply_margin_to_price($price);
         return (string)$price;
     }
 }

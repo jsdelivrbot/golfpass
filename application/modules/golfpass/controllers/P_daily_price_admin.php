@@ -218,7 +218,7 @@ class P_daily_price_admin extends Admin_Controller
                 foreach($rows as $row)
                 {
                     
-                    $price[$row->date][$row->num_people][$row->period] =  _cal_apply_exchangeRate_and_margin_to_price($row->price);
+                    $price[$row->date][$row->num_people][$row->period] =  _cal_apply_exchangeRate_to_price($row->price);
                 }
                 // var_dump($price);
                 $data['price'] = $price;
