@@ -258,7 +258,7 @@
             </div>
             <div id='tp-nav-icon-box' class="tp-col tp-d-flex tp-justify-content-end">
                 <?php if(!is_login()){?>
-                <div id="tp-login" class="tp-d-flex tp-align-items-center">
+                <div id="tp-login" class="tp-d-flex tp-align-items-center" style="cursor: pointer;" onclick="location.href='<?=site_url(user_uri."/login?return_url=".rawurlencode(my_current_url()))?>';">
                     <span>
               <i class="xi-log-in xi-x" style="font-size: 17px;">
               </i>
@@ -268,7 +268,7 @@
               </a>
                     </p>
                 </div>
-                <div id="tp-join" class="tp-d-flex tp-align-items-center">
+                <div id="tp-join" class="tp-d-flex tp-align-items-center" style="cursor: pointer;" onclick="location.href='<?=site_url(user_uri.'/register_agree_1')?>';">
                     <span>
               <i class="xi xi-user-plus" style="font-size: 17px;">
               </i>
@@ -279,8 +279,8 @@
                     </p>
                 </div>
                 <?php }else{?>
-                <div style="margin-top:25px;"><a href="<?=site_url(shop_mypage_uri."/gets_wishlist")?>"><img src="<?=$user->profilePhoto?>" alt="" style="width:30px; height:30px; border-radius: 15px;"></a></div>
-                <div id="tp-logout" class="tp-d-flex tp-align-items-center">
+                <div style="margin-top:25px; cursor: pointer;" onclick="location.href='<?=site_url(shop_mypage_uri."/gets_wishlist")?>';"><a href="<?=site_url(shop_mypage_uri."/gets_wishlist")?>"><img src="<?=$user->profilePhoto?>" alt="" style="width:30px; height:30px; border-radius: 15px;"></a></div>
+                <div id="tp-logout" class="tp-d-flex tp-align-items-center" style="cursor: pointer;" onclick="location.href='<?=site_url(user_uri.'/logout')?>';">
                     <span>
               <i class="xi-log-out xi-x">
               </i>
