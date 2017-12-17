@@ -1824,7 +1824,8 @@ font-family: 'notokr-medium', sans-serif;
 
 </style>
 
-<!-- 조별추가하기 끝 --><script>
+<!-- 조별추가하기 끝 -->
+<!-- <script>
 (function ()
 {
     $("body").css("overflow","hidden");
@@ -1833,4 +1834,4 @@ font-family: 'notokr-medium', sans-serif;
     $j_modal.css("display","block");
     $("body").prepend($j_dim);
 })();
-    </script>
+    </script> -->
