@@ -15,7 +15,7 @@ class Common extends Public_Controller {
         // git,jpg,png 파일만 업로드를 허용한다.
         $config['allowed_types'] = 'gif|jpg|jpeg|png';
         // 허용되는 파일의 최대 사이즈
-        $config['max_size'] = '2000';
+        $config['max_size'] = '10000000'; //10mg
         // 이미지인 경우 허용되는 최대 폭
         $config['max_width']  = '2048';
         // 이미지인 경우 허용되는 최대 높이
@@ -73,7 +73,7 @@ class Common extends Public_Controller {
         $config['encrypt_name'] = TRUE;
         $config['upload_path'] = "./public/uploads/{$who}/images";
         $config['allowed_types'] = 'gif|jpg|jpeg|png';
-        $config['max_size'] = '500000'; //500KB
+        $config['max_size'] = '10000000'; //10mg
         $config['max_width']  = '10240';
         $config['max_height']  = '7680';
         $config['overwrite']     = FALSE;
@@ -122,7 +122,7 @@ class Common extends Public_Controller {
             $config['encrypt_name'] = TRUE;
             $config['upload_path'] = "./public/uploads/$who/images";
             $config['allowed_types'] = 'gif|jpg|jpeg|png';
-            $config['max_size'] = '500000'; //500KB
+            $config['max_size'] = '10000000'; //10mg
             $config['max_width']  = '10240';
             $config['max_height']  = '7680';
             $this->load->library('upload', $config);

@@ -1111,14 +1111,48 @@ $('#j-group-value').bootstrapNumber({
     /* overflow-x: scroll; */
 }
 
+.j-txt-center
+{
+    text-align :center;
+}
+.j-center
+{
+    width: 200px;
+    display: block;
+    background-color: #eee;
+    margin-left: auto;
+    margin-right: auto;
+}
+.j-right
+{
+
+}   
+.j-golfpass-green{
+    background-color:#71b051;
+}
 </style>
 <div id="j-dim"></div>
 <div id="j-modal">
-    총인원<div class="j-modal-group-numPeople"></div>
-    <div id="j-group-wapper"></div>
+    <div class="j-golfpass-green">
+        <div >
+            <div>x</div>
+        </div>
+        <div class="j-txt-center">
+            총인원<span class="j-modal-group-numPeople"></span>
+        </div>
+    </div>
+    
+    
+    <div id="j-group-wapper" class="j-center" style="height:80%">
+    
+    </div>
 
-    <a href="#" id="j-modal-close">확인</a>
+    <div class ="j-txt-center">
+        <a href="#" id="j-modal-close">확인</a>
+    </div>
 </div>
+
+
     <!-- 모달 반응형 스크립트시작 -->
 <script>
     $(window).resize(function(){
@@ -1752,4 +1786,13 @@ $('#j-group-value').bootstrapNumber({
 
 </style>
 
-<!-- 조별추가하기 끝 -->
+<!-- 조별추가하기 끝 --><script>
+(function ()
+{
+        $("body").css("overflow","hidden");
+        settingModalSize();
+        $j_dim.css("display","block");
+        $j_modal.css("display","block");
+        $("body").prepend($j_dim);
+})();
+        </script>
