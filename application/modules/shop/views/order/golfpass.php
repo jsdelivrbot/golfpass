@@ -48,7 +48,7 @@
     </div>
 <?php }?>
     <!-- 홀옵션추가 -->
-    <?php if ( !isset($hotel) ): ?>
+    <!-- <?php if ( !isset($hotel) ): ?> -->
     <div class="four fields">
         <div class="field">
         <label><h3>홀 추가</h3></label>
