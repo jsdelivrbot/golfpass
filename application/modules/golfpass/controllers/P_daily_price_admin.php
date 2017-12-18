@@ -44,7 +44,7 @@ class P_daily_price_admin extends Admin_Controller
             $date = $this->input->post("date");
             $period = $this->input->post("period");
             $price = $this->input->post("price");
-    
+            $price = eval("return $price;");
             $this->db->set("product_id",$product_id);
             $sql=$this->db->insert_string($this->table,array(
                     'product_id'=>$product_id,
@@ -89,7 +89,10 @@ class P_daily_price_admin extends Admin_Controller
              $period_times = $this->input->post("period_times");
              $num_people_sw_times = $this->input->post("num_people_sw_times");
              $num_people_times = $this->input->post("num_people_times");
-         
+            
+             for ($i=0; $i < count($num_people_times); $i++) { 
+                 $num_people_times[$i] = eval("return $num_people_times[$i];");
+             }
              if($period_times_sw === '1')
              {
                  $cal_price = function($price,$period) use($period_times,$start_plus)

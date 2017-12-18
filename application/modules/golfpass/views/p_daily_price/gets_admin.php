@@ -113,6 +113,7 @@
     </div>
 
     <input id="" type="button" value="모두선택">
+    <input id="apply_japan_price_chart" type="button" value="일본가격표 적용">
     <?php for($i=1;$i <= ((int)$maxium_num_peple) ; $i++ ){
                 if($i%10 === 1) echo "<br>";
                 ?>
@@ -127,6 +128,19 @@
     <br>
         <input type="submit" value="범위 가격입력" class="ui button  positive" style="color:white">
   </form>
+  <script>
+    $num_people_times =$("input[name='num_people_times[]']");
+    
+    $("#apply_japan_price_chart").click(function()
+    {
+        var basePrice =$($num_people_times[0]).val();
+        for (let i = 1; i < $num_people_times.length; i++) {
+            const $ele = $($num_people_times[i]);
+            const eleVal =$ele.val();
+            $ele.val(`${eleVal}+${basePrice}`);
+        }
+    });
+  </script>
 <form method="post" onsubmit="ajax_submit(this); return false;" action="<?=my_site_url(golfpass_p_daily_price_admin_uri."/ajax_add/{$product->id}")?>">
 <input type="submit" value="개별 가격입력" class="ui button  positive" style="color:white; ">
 <input type="text" name="price" style=" width:100px">

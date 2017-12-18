@@ -25,11 +25,11 @@ class Test extends Public_Controller
     }
     function index()
     {
-        // $p_daily_price =$this->load->modules("golfpass");
-        // return "1";
-        // echo $p_daily_price->test();
-        // echo modules::run("golfpass/P_daily_price/test");
-        $this->_view("google");
+         $str = "return 1000*5.1;";
+        //  $str = "return 500;";
+        //  $result = 1000 + 500;
+        $result = eval($str);
+        var_dump($result);
     }
     function login_success()
     {
