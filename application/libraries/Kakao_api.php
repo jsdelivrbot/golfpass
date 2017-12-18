@@ -8,9 +8,11 @@ class Kakao_api extends Oauth
 	{
 		parent::__construct();
         $return_url = $this->ci->input->get("return_url");
-		$this->client_id = "eb6f30a5bc2e6e019faed8dbf16a5bcd";
+		// $this->client_id = "eb6f30a5bc2e6e019faed8dbf16a5bcd";
+		$this->client_id = "f8b231990d627251d1cf499af779b300";
         $this->redirect_uri = domain_url()."/index.php/api/kakao/redirect_url";
-        $this->client_secret= "NQbXPSqE6xbBFDq7CM9wSmMyUYIuZOX5";
+        // $this->client_secret= "NQbXPSqE6xbBFDq7CM9wSmMyUYIuZOX5";
+        $this->client_secret= "RQgIlFx7cT6n8P1A2bUtoU4U8d3x8AZv";
         //
 		// if($return_url !== null)
 		// {

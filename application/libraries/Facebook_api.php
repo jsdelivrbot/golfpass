@@ -9,9 +9,10 @@ class Facebook_api extends Oauth
 		parent::__construct();
         $return_url = $this->ci->input->get("return_url");
         //설정
-		$this->client_id = "412089359205918";
+		// $this->client_id = "412089359205918";
+		$this->client_id = "1924648824231920";
         $this->redirect_uri = domain_url()."/index.php/api/facebook/redirect_url";
-        $this->client_secret= "f80bc29dcdb2830b800ac987e8bd2d36";
+        $this->client_secret= "17d33df8f885bea57edbe5cb5fb42855";
         //
 		// if($return_url !== null)
 		// {

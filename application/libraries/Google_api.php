@@ -9,9 +9,9 @@ class Google_api extends Oauth
 		parent::__construct();
 	
 		$return_url = $this->ci->input->get("return_url");
-		$this->client_id = "391805447121-4o2t2ubu1luibsup3kbjq79p5nujtqmq.apps.googleusercontent.com";
+		$this->client_id = "348296456616-8p8uga1i5tnib1oq6f659b27pt3tr2nc.apps.googleusercontent.com";
 		$this->redirect_uri = domain_url()."/index.php/api/google/redirect_url";
-		$this->client_secret= "52jtyRRpKIKdg33kKeCVFron";
+		$this->client_secret= "Xpi6VVpng0f75SXbt6tvEk8B";
 		// if($return_url !== null)
 		// {
 			// $this->redirect_uri .= "?return_url={$return_url}";
