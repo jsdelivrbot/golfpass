@@ -70,12 +70,45 @@
 
 <!-- 호텔 ref 상품 끝 -->
 
+
+
+
+<!-- 이미지 업로드폼 시작 -->
+<div  class="sixteen wide column" style="margin-top:50px;">
+    <h1 class="ui horizontal divider header">
+    <i class="plus icon"></i>
+    이미지 추가
+    </h1>
+    <form class="ui form"  method="POST" action="<?=my_site_url(admin_hotel_uri."/upload_photo")?>" enctype='multipart/form-data'>
+    
+        <div class="field">
+                <label for="photo">이미지</label>
+                <input multiple="multiple" type="file" name="photo[]" />
+        </div>
+    
+        <input type="hidden" name='hotel_id' value="<?=$hotel->id?>"/>
+        <br>
+        <input class="ui button positive" type="submit" value="보내기"style="">
+    </form>
+    <br>
+    <h3 class="ui left floated header">추가된 이미지 리스트</h3>
+    <div class="ui clearing divider"></div>
+    <!-- 이미지 업로드폼 끝 -->
+    <div class="ui list">
+        <?php for($i=0 ; $i < count($photos); $i++){?>
+            <img style="width:200px; height:auto;"  src="<?=$photos[$i]->name?>" alt="">
+            <div class="item">
+                <form onsubmit="ajax_submit(this); return false;" class="ui form" style="display:inline-block;" action="<?=my_site_url(admin_hotel_uri."/ajax_option_update/{$photos[$i]->id}")?>" method="post">
+                    <input value="<?=set_value_data($photos[$i],'sort')?>" type="text" name="sort" style="display:inline-block; width:50px;">
+                    <input class="ui button basic positive" type="submit" value="순서수정">
+                    <a  onclick="confirm_callback(this,ajax_a,'복구할 방법이 없습니다. 삭제하시겠습니까?'); return false;" data-action="<?=site_url(admin_hotel_uri."/ajax_option_delete/{$photos[$i]->id}/photo")?>" href="#" class="ui button basic positive" style="float:right; clear:both;">삭제</a>
+                </form>
+            </div>
+        <?php }?>
+    </div>
+</div>
+
 <?php }?>
-
-
-
-
-
 <br>
 <a href="<?=my_site_url(admin_hotel_uri."/gets")?>">목록으로</a>
 

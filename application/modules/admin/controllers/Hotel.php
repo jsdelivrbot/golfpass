@@ -123,9 +123,67 @@ class Hotel extends Admin_Controller {
         }
         
     }
+    function ajax_option_delete($id,$kind)
+    {
+        header("content-type:application/json");
+        $row = $this->db->query("SELECT * FROM hotel_option WHERE id = $id")->row();
+        if($row->kind ==="photo")
+        {
+            $dir =$row->name;
+            $dir=substr($dir,1,strlen($dir));
+            unlink($dir);
 
+        }
+
+        $this->db->where('id',$id);
+        $this->db->where('kind',$kind);
+        $this->db->delete('hotel_option');
+        $data['reload'] =true;
+        echo json_encode($data);
+        return ;
+    }
+    function ajax_option_update($id)
+    {
+        header("content-type:application/json");
+        $row = $this->db->query("SELECT * FROM hotel_option WHERE id = $id")->row();
+        if($row === null)
+        {
+            parent::_dbset_addUpdate();
+            $this->db->insert("product_option");
+            $data['alert'] = "추가되었습니다";
+        }
+        else
+        {
+            parent::_dbset_addUpdate();
+            $this->db->where("id",$id);
+            $this->db->update("product_option");
+        }
+            $data['reload'] =true;
+            echo json_encode($data);
+        return ;
+    }
+  
+    function upload_photo()
+    {
+        $this->load->module("base/common");
+        $this->common->_multi_upload_photo('admin','photo',function($imgDir){
+            $this->db->set("hotel_id",$this->input->post('hotel_id'));
+            $this->db->set("name",$imgDir);
+            $this->db->set("kind","photo");
+            $this->db->insert("hotel_option");
+           
+        },
+        null,
+        function(){
+             my_redirect($_SERVER['HTTP_REFERER']);
+        });   
+      
+        
+    }
     function update($id)
     {
+        $data['hotel'] = $this->db->query("SELECT * FROM p_hotel WHERE id = $id")->row();
+        $data['photos'] = $this->db->query("SELECT * FROM hotel_option WHERE hotel_id = $id AND kind = 'photo' ORDER BY sort ASC")->result();
         $data['options'] = $this->db->query("SELECT * FROM hotel_option WHERE hotel_id = $id AND kind = 'option'")->result();
         $data['products'] =$this->db->get("products")->result();
 
