@@ -149,14 +149,14 @@ class Hotel extends Admin_Controller {
         if($row === null)
         {
             parent::_dbset_addUpdate();
-            $this->db->insert("product_option");
+            $this->db->insert("hotel_option");
             $data['alert'] = "추가되었습니다";
         }
         else
         {
             parent::_dbset_addUpdate();
             $this->db->where("id",$id);
-            $this->db->update("product_option");
+            $this->db->update("hotel_option");
         }
             $data['reload'] =true;
             echo json_encode($data);

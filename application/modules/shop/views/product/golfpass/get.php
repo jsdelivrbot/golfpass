@@ -196,21 +196,50 @@
                     <img src="<?=$product_photos[$i]->name?>" alt="">
                 </div>
                 <?php }?>
+                <?php if ( isset($hotel) ): ?>
+                    <?php for ( $i = 0 ; $i < count($hotel_photos) ; $i++ ): ?>
+                        <div>
+                            <img src="<?=$hotel_photos[$i]->name?>" alt="">
+                        </div>
+                    <?php endfor; ?>
+                <?php endif; ?>
+
                 <?php for($i = 0 ;$i < count($product_photos);$i++){?>
                 <div>
                     <img src="<?=$product_photos[$i]->name?>" alt="">
                 </div>
                 <?php }?>
+                <?php if ( isset($hotel) ): ?>
+                    <?php for ( $i = 0 ; $i < count($hotel_photos) ; $i++ ): ?>
+                        <div>
+                            <img src="<?=$hotel_photos[$i]->name?>" alt="">
+                        </div>
+                    <?php endfor; ?>
+                <?php endif; ?>
                 <?php for($i = 0 ;$i < count($product_photos);$i++){?>
                 <div>
                     <img src="<?=$product_photos[$i]->name?>" alt="">
                 </div>
                 <?php }?>
+                <?php if ( isset($hotel) ): ?>
+                    <?php for ( $i = 0 ; $i < count($hotel_photos) ; $i++ ): ?>
+                        <div>
+                            <img src="<?=$hotel_photos[$i]->name?>" alt="">
+                        </div>
+                    <?php endfor; ?>
+                <?php endif; ?>
                 <?php for($i = 0 ;$i < count($product_photos);$i++){?>
                 <div>
                     <img src="<?=$product_photos[$i]->name?>" alt="">
                 </div>
                 <?php }?>
+                <?php if ( isset($hotel) ): ?>
+                    <?php for ( $i = 0 ; $i < count($hotel_photos) ; $i++ ): ?>
+                        <div>
+                            <img src="<?=$hotel_photos[$i]->name?>" alt="">
+                        </div>
+                    <?php endfor; ?>
+                <?php endif; ?>
             </div>
             <div class="slider-nav">
                 <!--NOTE 슬라이드 하단 이미지 네비게이션-->
@@ -219,21 +248,49 @@
                     <img src="<?=$product_photos[$i]->name?>" alt="">
                 </div>
                 <?php }?>
+                <?php if ( isset($hotel) ): ?>
+                    <?php for ( $i = 0 ; $i < count($hotel_photos) ; $i++ ): ?>
+                        <div>
+                            <img src="<?=$hotel_photos[$i]->name?>" alt="">
+                        </div>
+                    <?php endfor; ?>
+                <?php endif; ?>
                 <?php for($i = 0 ;$i < count($product_photos);$i++){?>
                 <div>
                     <img src="<?=$product_photos[$i]->name?>" alt="">
                 </div>
                 <?php }?>
+                <?php if ( isset($hotel) ): ?>
+                    <?php for ( $i = 0 ; $i < count($hotel_photos) ; $i++ ): ?>
+                        <div>
+                            <img src="<?=$hotel_photos[$i]->name?>" alt="">
+                        </div>
+                    <?php endfor; ?>
+                <?php endif; ?>
                 <?php for($i = 0 ;$i < count($product_photos);$i++){?>
                 <div>
                     <img src="<?=$product_photos[$i]->name?>" alt="">
                 </div>
                 <?php }?>
+                <?php if ( isset($hotel) ): ?>
+                    <?php for ( $i = 0 ; $i < count($hotel_photos) ; $i++ ): ?>
+                        <div>
+                            <img src="<?=$hotel_photos[$i]->name?>" alt="">
+                        </div>
+                    <?php endfor; ?>
+                <?php endif; ?>
                 <?php for($i = 0 ;$i < count($product_photos);$i++){?>
                 <div>
                     <img src="<?=$product_photos[$i]->name?>" alt="">
                 </div>
                 <?php }?>
+                <?php if ( isset($hotel) ): ?>
+                    <?php for ( $i = 0 ; $i < count($hotel_photos) ; $i++ ): ?>
+                        <div>
+                            <img src="<?=$hotel_photos[$i]->name?>" alt="">
+                        </div>
+                    <?php endfor; ?>
+                <?php endif; ?>
             </div>
         </div>
         <div id="detail" class='col'>
@@ -314,30 +371,12 @@
             <div id="info" class="pt-20">
                 <ul class="list-unstyled">
                     <li style="font-family: 'notokr-medium', sans-serif;">비고</li>
-                    <li class='d-flex align-items-center'>
-                        <span class="mr-2 align-self-baseline"><i class='xi-radiobox-checked'></i></span>
-                        <p>스마트스코어 탑재 카트 보유</p>
-                    </li>
-                    <li class='d-flex align-items-center'>
-                        <span class="mr-2 align-self-baseline"><i class='xi-radiobox-checked'></i></span>
-                        <p>미슐랭 2스타 레스토랑 보유</p>
-                    </li>
-                    <li class='d-flex align-items-center'>
-                        <span class="mr-2 align-self-baseline"><i class='xi-radiobox-checked'></i></span>
-                        <p>사계절 내내 골프가 가능한 지역</p>
-                    </li>
-                    <li class='d-flex align-items-center'>
-                        <span class="mr-2 align-self-baseline"><i class='xi-radiobox-checked'></i></span>
-                        <p>스마트스코어 탑재 카트 보유</p>
-                    </li>
-                    <li class='d-flex align-items-center'>
-                        <span class="mr-2 align-self-baseline"><i class='xi-radiobox-checked'></i></span>
-                        <p>미슐랭 2스타 레스토랑 보유</p>
-                    </li>
-                    <li class='d-flex align-items-center'>
-                        <span class="mr-2 align-self-baseline"><i class='xi-radiobox-checked'></i></span>
-                        <p>사계절 내내 골프가 가능한 지역</p>
-                    </li>
+                    <?php for ( $i = 0 ; $i < count($product_sub_desc) ; $i++ ): ?>
+                        <li class='d-flex align-items-center'>
+                            <span class="mr-2 align-self-baseline"><i class='xi-radiobox-checked'></i></span>
+                            <p><?=$product_sub_desc[$i]->name?></p>
+                        </li>
+                    <?php endfor; ?>
                 </ul>
                 <div id='price' class="mt-20 mb-20">
                     <h3 class='mb-3' style="font-size:16px; margin-bottom:5px !important;">가격</h3>

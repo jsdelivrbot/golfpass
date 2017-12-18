@@ -170,8 +170,8 @@ class Product extends Base_Controller {
         if($data['hotel']!==null){
             $this->load->model("hotel_option_model");
             $data['hotel_options'] = $this->hotel_option_model->gets_options($data['hotel']->id,'option');
+            $data['hotel_photos'] = $this->hotel_option_model->gets_options($data['hotel']->id,'photo');
         }
-
         //review
 
         //user
