@@ -40,8 +40,8 @@ class Date
     function number_of_days($from, $to) {
         $workingDays = [1, 2, 3, 4, 5]; # date format = N (1 = Monday, ...)
         $weekendDays = [6,7]; # date format = N (1 = Monday, ...)
-        $input_holidays =['*-01-01','L01-01'];
-        // $input_holidays =['L01-01'];
+        // $input_holidays =['*-01-01','L01-01'];
+        $input_holidays =[];
         $holidayDays =array();
 
         foreach($input_holidays as $holiday)

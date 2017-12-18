@@ -209,6 +209,10 @@ class Order extends Base_Controller {
         $data['hole_options_price'] = $hole_options_price;
 
         $data['imp_franchises_code'] = $this->setting->imp_franchises_code;
+
+        //hotel
+        $this->load->model("p_hotel_model");
+        $data['hotel'] = $this->p_hotel_model->get_by_product_id($product_id);
         $this->_template("golfpass",$data,"golfpass2");
 
     }
@@ -463,12 +467,13 @@ class Order extends Base_Controller {
     {
         //groups start_date end_date product_id options hole_option_id num_singleroom
         $out_total_price = 0;
-
-        $obj_start_date = date_create($order->start_date);
-        $obj_end_date = date_create($order->end_date);
+        $start_date = $order->start_date;
+        $end_date = $order->end_date;
+        $obj_start_date = date_create($start_date);
+        $obj_end_date = date_create($end_date);
         $period = date_diff($obj_start_date, $obj_end_date)->days;
         $period += 1;
-
+        
          //시작 날자 ~끝날자 * 인 === 총가격 변조 있는지 체크 시작
          $product =$this->db->where("id",$order->product_id)->from("products")->get()->row();
          if(true)
@@ -495,8 +500,24 @@ class Order extends Base_Controller {
            
         }
         
+    
+        
+       
         //홀추가 가격 더하기
         if($hole_option_id !== null &&  $hole_option_id !== ""){
+            $this->load->library("date");
+            $result =$this->date->number_of_days($start_date,$end_date);
+            $num_workingdays=  $result->num_workingdays;
+            $num_weekenddays=  $result->num_weekenddays;
+
+            if($num_workingdays === 1)
+            {
+                $day = "work_day";
+            }
+            else if($num_weekenddays ===1)
+            {
+                $day ="week_day";
+            }
             $hole_option_name = $this->product_option_model->_get($hole_option_id)->name;
             for($i=0;$i<count($groups);$i++)
             {
@@ -506,6 +527,7 @@ class Order extends Base_Controller {
                 ->where("kind","hole_option")
                 ->where("name",$hole_option_name)
                 ->where("option_1",$groups[$i])
+                ->where("option_2",$day)
                 ->from("product_option")->get()->row();
                 $out_total_price += $row->price;
             }
