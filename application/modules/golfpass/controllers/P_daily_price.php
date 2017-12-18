@@ -220,8 +220,8 @@ class P_daily_price extends Base_Controller
         // return $tmp_total_num_people;
         if((string)$tmp_total_num_people !== (string)$num_people)
         {
-            return "$num_people";
-            return "$tmp_total_num_people";
+            // return "$num_people";
+            // return "$tmp_total_num_people";
             return "조를 편성해주세요.";
         }
         for($i =0 ; $i < $period ; $i++)
@@ -246,7 +246,7 @@ class P_daily_price extends Base_Controller
             $total_price += (int)$tmp_price;
             }
         }
-        $total_price =_cal_apply_exchangeRate_and_margin_to_price($total_price);
+        $total_price =_cal_apply_exchangeRate_and_margin_to_price($total_price,$num_people);
         return $total_price."원";      
         
     }
