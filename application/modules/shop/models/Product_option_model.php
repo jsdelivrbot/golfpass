@@ -11,7 +11,7 @@ class Product_option_Model extends Public_Model{
         $this->db->from("$this->table");
         $this->db->where("product_id",$product_id);
         $this->db->where("kind",$kind);
-        $this->db->order_by("id","asc");
+        $this->db->order_by("sort","asc");
         return $this->db->get()->result();
     }
 

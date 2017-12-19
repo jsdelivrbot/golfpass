@@ -180,9 +180,10 @@ class Order extends Base_Controller {
         $data["num_people"] = $num_people;
         $data["product_id"] = $product_id;
         $data["total_price"] = $total_price;
-        $data["options"] = $this->db->where("kind","main_option")
+        $options = $this->db->where("kind","main_option")
         ->where("product_id",$product_id)->from("product_option")
         ->order_by("sort","asc")
+        ->group_by("name")
         ->get()->result();
         $hole_options = $this->db->where("kind","hole_option")
         ->where("product_id",$product_id)->from("product_option")
@@ -205,6 +206,7 @@ class Order extends Base_Controller {
             }
             array_push($hole_options_price, $tmp_price);
         }
+        $data["options"] = $options;
         $data['hole_options'] =$hole_options;
         $data['hole_options_price'] = $hole_options_price;
 
@@ -495,8 +497,21 @@ class Order extends Base_Controller {
         $this->load->model("product_option_model");
         for($i=0; $i < count($options); $i++)
         {
-            $option_price =$this->product_option_model->_get($options[$i])->price;
-            $out_total_price += $option_price;
+          
+            $option =$this->product_option_model->_get($options[$i]);
+            $option_name = $option->name;
+
+            for($j=0;$j<count($groups);$j++)
+            {
+                
+                $row=$this->db->select("*")
+                ->where("product_id",$product_id)
+                ->where("kind","main_option")
+                ->where("name",$option_name)
+                ->where("option_1",$groups[$j])
+                ->from("product_option")->get()->row();
+                $out_total_price += $row->price;
+            }
            
         }
         

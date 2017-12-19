@@ -37,6 +37,9 @@ class Date
         
         return $arr;
     }
+    function isWeekend($date) {
+        return (date('N', strtotime($date)) >= 6);
+    }
     function number_of_days($from, $to) {
         $workingDays = [1, 2, 3, 4, 5]; # date format = N (1 = Monday, ...)
         $weekendDays = [6,7]; # date format = N (1 = Monday, ...)

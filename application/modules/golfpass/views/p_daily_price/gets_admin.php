@@ -203,8 +203,11 @@
     /* padding: 10px; */
     /* width:300px; */
   }
-  .active {
-      /* background-color:rgba(0,200,0,0.5); */
+  .green {
+    background-color:rgba(30,230,30,0.3);
+}
+.yellow {
+      background-color:rgba(200,200,0,0.5);
   }
   /* .ui.table td
   {
@@ -252,21 +255,21 @@
             <!-- 명당 가격 시작 -->
             <?php for ($i=1; $i <= (int)$maxium_num_peple; $i++) {?>
             <!--1일 or 2일 가격 -->
-            <td  class="pdate  <?="p{$date}-{$i}-".(1+$start_plus)?> <?=isset($price[$date][$i][1+$start_plus])?( $price[$date][$i][1+$start_plus] !=="0" ? "active " : "red") : "red"?>" rowspan=<?=$num_period-1?>>
+            <td  class="pdate  <?="p{$date}-{$i}-".(1+$start_plus)?> <?=isset($price[$date][$i][1+$start_plus])?( $price[$date][$i][1+$start_plus] !=="0" ? "green " : "yellow") : "red"?>" rowspan=<?=$num_period-1?>>
                 <?=(0+$start_plus)."박".(1+$start_plus)."일"?>
                 <!-- 1인조 -->
                 <br>    
-                <?=$price[$date][$i][1+$start_plus] ?? 0?>원
+                <?=$price[$date][$i][1+$start_plus] ?? "데이터없음"?>
                 
             </td>
             <!--1일 or 2일 가격-->
                 <?php if ($num_period !== 1) {?>
                 <!-- 2일or 3일 가격 -->
-                <td  class="pdate <?="p{$date}-{$i}-".(2+$start_plus)?> <?=isset($price[$date][$i][2+$start_plus])?( $price[$date][$i][2+$start_plus] !=="0" ? "active " : "red") : "red"?>" style="width:50px;">
+                <td  class="pdate <?="p{$date}-{$i}-".(2+$start_plus)?> <?=isset($price[$date][$i][2+$start_plus])?( $price[$date][$i][2+$start_plus] !=="0" ? "green " : "yellow") : "red"?>" style="width:50px;">
                 <?=(1+$start_plus)."박".(2+$start_plus)."일"?>
                 <!-- <?=$start_plus+1?>인조 -->
                 <br>
-                <?=$price[$date][$i][2+$start_plus] ?? 0?>
+                <?=$price[$date][$i][2+$start_plus] ?? "데이터없음"?>
                 </td>
                 <!-- 2일or 3일 가격 -->
                 <?php }?>
@@ -278,10 +281,10 @@
         <?php for ($i=1; $i < (int)$num_period-1; $i++) {?>
             <tr class="">
             <?php for ($j=1; $j <= (int)$maxium_num_peple; $j++) {?>
-                <td class="pdate <?="p{$date}-{$j}-".($i+2+$start_plus)?> <?=isset($price[$date][$j][$i+2+$start_plus])?( $price[$date][$j][$i+2+$start_plus] !=="0" ? "active " : "red") : "red"?>">
+                <td class="pdate <?="p{$date}-{$j}-".($i+2+$start_plus)?> <?=isset($price[$date][$j][$i+2+$start_plus])?( $price[$date][$j][$i+2+$start_plus] !=="0" ? "green " : "yellow") : "red"?>">
                 <?=($i+1+$start_plus)."박".($i+2+$start_plus)."일"?>
                 <!-- <?=$i+2?>인조 -->
-                <br><?=$price[$date][$j][$i+2+$start_plus] ?? 0?>
+                <br><?=$price[$date][$j][$i+2+$start_plus] ?? "데이터없음"?>
                 </td>
                 <?php }?>
             </tr>

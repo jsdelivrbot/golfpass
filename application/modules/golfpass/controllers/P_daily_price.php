@@ -240,6 +240,14 @@ class P_daily_price extends Base_Controller
             {
                   return "데이터값 없음";
             }
+            else if((int)$row->price === 0)
+            {
+                // $this->load->library('date');
+                // $day_kind = ($this->date->isWeekend($date)) ?  "주말/공휴일" : "평일";
+                
+                // return "{$day_kind}에 {$groups[$j]}인조 예약불가능";
+                return " {$groups[$j]}인조 예약이 불가능한 일자입니다.";
+            }
 
          $tmp_price =(int)$row->price * (int)$groups[$j];
             

@@ -48,7 +48,7 @@
     </div>
 <?php }?>
     <!-- 홀옵션추가 -->
-    <!-- <?php if ( !isset($hotel) ): ?> -->
+    <?php if ( !isset($hotel) ): ?>
     <div class="four fields">
         <div class="field">
         <label><h3>홀 추가</h3></label>
@@ -75,7 +75,10 @@
             <select class="ui fluid dropdown" name="" id="options">
                 <option data-price="0">선택</option>
             <?php for($i=0; $i<count($options) ; $i++){?>
-                <option data-name="<?=$options[$i]->name?>" data-price="<?=$options[$i]->price?>" value="<?=$options[$i]->id?>"><?=$options[$i]->name?>(<?=$options[$i]->price?>원 추가)</option>
+                <option data-name="<?=$options[$i]->name?>" data-price="<?=$options[$i]->price?>" value="<?=$options[$i]->id?>">
+                    <?=$options[$i]->name?>
+                    <!-- (<?=$options[$i]->price?>원 추가) -->
+                </option>
                 <?php }?>
             </select>
         </div>
