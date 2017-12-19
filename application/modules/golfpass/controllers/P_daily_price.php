@@ -238,17 +238,20 @@ class P_daily_price extends Base_Controller
             //해당 날자데이터가 없을때
             if($row === null)
             {
-                  return "데이터값 없음";
+                  return "가격 미정";
             }
             else if((int)$row->price === 0)
             {
-                // $this->load->library('date');
-                // $day_kind = ($this->date->isWeekend($date)) ?  "주말/공휴일" : "평일";
+                $this->load->library('date');
+                $day_kind = ($this->date->isWeekend($date)) ?  "휴일" : "평일";
                 
-                // return "{$day_kind}에 {$groups[$j]}인조 예약불가능";
-                return " {$groups[$j]}인조 예약이 불가능한 일자입니다.";
+                return "{$day_kind} {$groups[$j]}인 플레이 불가";
+                // return " {$groups[$j]}인조 예약이 불가능한 일자입니다.";
             }
-
+            else if((int)$row->price === 1)
+            {
+                return "해당 일자 예약 불가";
+            }
          $tmp_price =(int)$row->price * (int)$groups[$j];
             
             $total_price += (int)$tmp_price;
