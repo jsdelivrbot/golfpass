@@ -510,7 +510,7 @@ class Order extends Base_Controller {
                 ->where("name",$option_name)
                 ->where("option_1",$groups[$j])
                 ->from("product_option")->get()->row();
-                $out_total_price += $row->price;
+                $out_total_price += (int)$row->price*(int)$groups[$j];
             }
            
         }
@@ -544,7 +544,7 @@ class Order extends Base_Controller {
                 ->where("option_1",$groups[$i])
                 ->where("option_2",$day)
                 ->from("product_option")->get()->row();
-                $out_total_price += $row->price;
+                $out_total_price +=(int)$row->price*(int)$groups[$i];
             }
             // $hole_option_price = $this->product_option_model->_get($hole_option_id)->price;
             //  $added_hole_price = $hole_option_price * $num_people;

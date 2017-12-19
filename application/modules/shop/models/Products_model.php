@@ -92,7 +92,7 @@ class Products_Model extends Board_Model{
         $query .= ",($sub_query) as parent_category_name";
 
         //product_option 사진들
-        $sub_query = "SELECT group_concat(o.name) FROM `product_option` AS `o` WHERE o.product_id= p.id AND o.kind = 'photo'";
+        $sub_query = "SELECT group_concat(o.name ORDER BY o.sort) FROM `product_option` AS `o` WHERE o.product_id= p.id AND o.kind = 'photo'";
         $query .= ",($sub_query) as photos";
         //호텔
         $sub_query = "SELECT p_ref_h.hotel_id FROM `p_ref_hotel` as p_ref_h WHERE p_ref_h.product_id = p.id LIMIT 0,1";
@@ -125,7 +125,7 @@ class Products_Model extends Board_Model{
     function gets_by_category_id($cate_id)
     {
         //product_option 사진들
-        $sub_query = "SELECT group_concat(o.name) FROM `product_option` AS `o` WHERE o.product_id= r.product_id AND o.kind = 'photo'";
+        $sub_query = "SELECT group_concat(o.name order by o.sort) FROM `product_option` AS `o` WHERE o.product_id= r.product_id AND o.kind = 'photo'";
         //product_reviews 총 평균점수
         $sub_query2 = "SELECT (avg(score_1)+avg(score_2)+avg(score_3)+avg(score_4)+avg(score_5)+avg(score_6)+avg(score_7)+avg(score_8))/8 FROM product_reviews as r WHERE r.product_id = p.id  AND r.is_secret = 0";
         //호텔 여부
