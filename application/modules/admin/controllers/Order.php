@@ -82,7 +82,15 @@ class Order extends Admin_Controller {
         $total_price_options =0;
         for($i=0; $i< count($options);$i++)
         {
-            $total_price_options += $options[$i]->price;
+            $option_name =$options[$i]->name;
+            $tmp_option_price = 0;
+            for ($j=0; $j < count($groups); $j++) 
+            { 
+                $option = $this->db->query("SELECT * FROM product_option WHERE `name` = $option_name AND option_1 = {$groups[$j]->value}" )->row();
+                $tmp_option_price += (int)$option->price * (int)$groups[$j]->value;
+            }
+            $options[$i]->price = $tmp_option_price;
+            $total_price_options += $tmp_option_price;
         }
 
         $data['total_price_options'] = $total_price_options;

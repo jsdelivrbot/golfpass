@@ -29,6 +29,7 @@ class Public_Controller extends MX_Controller{
         $this->load->library("session");
         $this->load->helper("verify");
         $this->load->helper("base");
+        $this->load->helper("golfpass");
         $this->load->module("template");
 
         if($this->session->userdata("is_login")){

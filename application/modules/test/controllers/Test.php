@@ -25,11 +25,7 @@ class Test extends Public_Controller
     }
     function index()
     {
-         $str = "return 1000*5.1;";
-        //  $str = "return 500;";
-        //  $result = 1000 + 500;
-        $result = eval($str);
-        var_dump($result);
+       
     }
     function login_success()
     {
