@@ -61,6 +61,7 @@ class Template extends MX_Controller
             array('name'=>'주문','uri'=> site_url(admin_order_uri."/gets")),
             array('name'=>'SMS','uri'=> site_url(admin_setting_sms_uri."/get_sms")),
             array('name'=>'뉴스레터','uri'=> site_url(admin_newsletter_uri."/gets")),
+            array('name'=>'패치노트','uri'=> site_url(admin_patchNote_uri."/gets")),
             array('name'=>'iamport','uri'=> "https://admin.iamport.kr/payments",'target'=>"_blank"),
             array('name'=>'tawk','uri'=> "https://dashboard.tawk.to/",'target'=>"_blank")
         ));
@@ -101,8 +102,10 @@ class Template extends MX_Controller
             ),
             '뉴스레터' => array(
                array('name'=>'구독자','uri'=> site_url(admin_newsletter_uri.'/gets'))
-            )
-          
+            ),
+            '패치노트' => array(
+                array('name'=>'패치노트','uri'=> site_url(admin_patchNote_uri.'/gets'))
+             )
            
         ));
         //golf pass

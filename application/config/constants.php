@@ -42,6 +42,9 @@ define("admin_setting_general_uri","/admin/setting");
 define("admin_setting_sms_uri","/admin/setting");
 
 define("admin_hotel_uri","/admin/hotel");
+define("admin_patchNote_uri","/admin/patchNote");
+
+
 
 define("main_uri","/base/main");
 define("common_uri","/base/common");
