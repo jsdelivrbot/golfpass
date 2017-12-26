@@ -22,7 +22,6 @@
         <div class="sixteen wide column">
                 <div class="ui text menu">
                     <div class="header item">
-                        <img style="width:40px;"src="<?=domain_url("/public/icon/golfman.png")?>" alt=""/>
                         <h1 class="ui header" style="margin-top:0px;">
                             <!-- <i style="display:inline-block" class="user icon"></i> -->
                             <span ><?="{$user->name}"?><?=($user->userName !== null) ? "({$user->userName})" : ""?></span> </h1>
