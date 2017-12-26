@@ -73,7 +73,7 @@
                     <hr class="color">
                 </div>
 
-                <ul class="tabs portfolio-filter text-center margin-bottom-80">
+                <ul class="tabs portfolio-filter text-center margin-bottom-80" style="padding-left:0;">
                         
                     <?php if($parent_category->name !== ''){?>
                            <!--네비게이션 상품리스트일때 시작    -->

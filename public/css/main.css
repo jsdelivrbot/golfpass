@@ -3428,10 +3428,13 @@ body.menu-open .plus-btn .r2 {
   background-color: #f0f0f0;
   padding: 10px;
   color: #b2b2b2;
-  font-family: notokr-medium; }
+  font-family: 'notokr-medium', sans-serif; }
   @media (min-width: 992px) {
     #footer {
       padding: 50px 0px 50px 50px; } }
+  @media (max-width: 936px) {
+    #partner {
+      display: none; } }
   #footer #partner {
     padding-left: 40px; }
     #footer #partner h6 {

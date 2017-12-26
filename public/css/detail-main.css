@@ -3416,6 +3416,9 @@ body.menu-open .plus-btn .r2 {
   @media (min-width: 992px) {
     #tp-footer {
       padding: 50px; } }
+  @media (max-width: 936px) {
+    #tp-partner {
+      display: none; } }
   #tp-footer #tp-partner {
     padding-left: 40px; }
     #tp-footer #tp-partner h6 {
