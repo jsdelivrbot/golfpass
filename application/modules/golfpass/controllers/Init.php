@@ -427,6 +427,7 @@ class Init extends Init_Controller {
             `order_name` varchar(100),
             `user_id` INT UNSIGNED NOT NULL,
             `user_name` varchar(50),
+            `user_eng_name` varchar(255),
             `phone` varchar(50) NOT NULL,
             `email` varchar(255),
             `address` varchar(255),

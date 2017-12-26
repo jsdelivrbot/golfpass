@@ -34,7 +34,9 @@
             <!-- <td><?=$products[$i]->category_id?> </td> -->
             <!-- <td><?=$products[$i]->c_name?> </td> -->
             <td>
-                <a href="<?=my_site_url(admin_product_uri."/update/{$products[$i]->id}")?>">수정</a>
+            <a href="#" onclick="confirm_redirect('<?=my_site_url(admin_ref_cate_product_uri."/goToRecycleBin/{$products[$i]->id}")?>','휴지통으로 이동시키겠습니까? 연결된 카테고리가 모두 삭제됩니다..'); return false;">
+                휴지통으로
+            </a>
                 /
                 <a onclick="confirm_redirect('<?=my_site_url(admin_product_uri."/delete/{$products[$i]->id}")?>','정말 삭제하시겠습니까? 복구 할 방법이 없습니다.')" href="#">삭제</a>
             </td>

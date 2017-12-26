@@ -99,7 +99,7 @@ $('#navi_btn').click(function(){
         </a>
 
 
-        <a style="float:right;background-color:#aaaaaa;color:black" class="ui right labeled icon button  secondary" href="#" onclick="confirm_redirect('<?=my_site_url(admin_ref_cate_product_uri."/goToRecycleBin/{$product->id}")?>','정말 삭제하시겠습니까? 복구할 방법이없습니다.'); return false;">
+        <a style="float:right;background-color:#aaaaaa;color:black" class="ui right labeled icon button  secondary" href="#" onclick="confirm_redirect('<?=my_site_url(admin_ref_cate_product_uri."/goToRecycleBin/{$product->id}")?>','휴지통으로 이동시키겠습니까? 연결된 카테고리가 모두 삭제됩니다.'); return false;">
         휴지통으로
         </a>
     <?php }?>

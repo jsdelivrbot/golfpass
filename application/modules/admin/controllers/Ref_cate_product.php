@@ -24,8 +24,8 @@ class Ref_cate_product extends Admin_Controller {
         $this->db->set("cate_id",$cate_id);
         $this->db->set("product_id",$product_id);
         $this->db->insert("ref_cate_product");
-
-        my_redirect(admin_product_uri."/update/{$product_id}");
+  my_redirect($_SERVER['HTTP_REFERER']);
+        // my_redirect(admin_product_uri."/update/{$product_id}");
     }
     function ajax_add()
     {

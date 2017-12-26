@@ -1,195 +1,223 @@
-<?php if(is_semantic_dev) {?>
-    <link rel="stylesheet/less" type="text/css" href="/public/framework/semantic/src/semantic.less">
-<script src="/public/framework/semantic/src/less.min.js"></script>
-<?php }else{?>
-<link rel="stylesheet" type="text/css" href="/public/framework/semantic/out/semantic.css">
-<link rel="stylesheet" type="text/css" href="/public/framework/semantic/out/semantic.js">
 
-<?php }?>
+<!-- Favicon -->
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="images/favicon.ico" type="image/x-icon">
 
-<div style="margin-top:150px;"></div>
+<!-- FontsOnline -->
+<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Crimson+Text:400,400italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
 
-<div class="ui grid container">
-    <div class="sixteen wide column">
+<!-- StyleSheets -->
+<link rel="stylesheet" href="/public/etc/order/css/ionicons.min.css">
+<link rel="stylesheet" href="/public/etc/order/css/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" href="/public/etc/order/css/font-awesome.min.css">
+<link rel="stylesheet" href="/public/etc/order/css/main.css">
+<link rel="stylesheet" href="/public/etc/order/css/style.css">
+<link rel="stylesheet" href="/public/etc/order/css/responsive.css">
 
-    
+<!-- COLORS -->
+<link rel="stylesheet" id="color" href="/public/etc/order/css/default.css">
 
-    <div class="ui horizontal statistic">
-  <div class="value">
-  총금액
-  <div id="total_price"><?=number_format($total_price)?></div>
+<!-- JavaScripts -->
+<script src="js/vendors/modernizr.js"></script>
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+<!-- Page Wrapper -->
+<div id="wrap"> 
+  <!-- Content -->
+  <div id="content">
+    <!-- SHOP --> 
+    <!--======= PAGES INNER =========-->
+    <section class="padding-top-80 padding-bottom-80 pages-in chart-page">
+      <div class="container"> 
+        
+        <!-- Payments Steps -->
+        <div class="shopping-cart"> 
+          
+          <!-- SHOPPING INFORMATION -->
+          <div class="cart-ship-info">
+            <form id="form_order" onsubmit="alert_payment_window(this); return false;"  action="<?=site_url(shop_order_uri."/golfpass_ajax_add")?>"method ="post">
+                <input type="hidden" name="product_id" value="<?=$product_id?>">
+                <input type="hidden" name="merchant_uid">
+                <input type="hidden" name="start_date" value="<?=$start_date?>">
+                <input type="hidden" name="end_date" value="<?=$end_date?>">
+                <input type="hidden" name="num_people" value="<?=$num_people?>">
+                <input type="hidden" name="total_price" value="<?=$total_price?>">
+                <input type="hidden" name="order_name" value="<?=$product->name?>">
+            <div class="row"> 
+              
+              <!-- ESTIMATE SHIPPING & TAX -->
+             
+              <div class="col-sm-7">
+                 
+                <h5 class="font-20px margin-bottom-30 letter-space-2">주문자 정보</h5>
+                <div class="margin-bottom-50">
+                  <ul class="row">
+                    <li class="col-md-6">
+                      <label> 이름
+                        <input type="text"  name="user_name" value="<?=set_value_data($user,'name')?>" >
+                      </label>
+                    </li>
+                    <li class="col-md-6">
+                      <label> 영문 이름
+                        <input type="text"  name="user_eng_name" value="<?=set_value_data($user,'user_eng_name')?>" >
+                      </label>
+                    </li>
+                    <li class="col-md-6">
+                      <label> 연락처
+                        <input type="text"name="phone" value="<?=set_value_data($user,'phone')?>">
+                      </label>
+                    </li>
+                    <li class="col-md-6">
+                      <label> E-mail
+                        <input type="text" name="email" value="<?=set_value_data($user,'email')?>">
+                      </label>
+                    </li>
+                </ul>
+              </div>
+            <h5 class="font-20px margin-bottom-30 letter-space-2">동행자 정보(<?=$num_people?>명)</h5>
+            <?php for ( $i = 0 ; $i < count($groups) ; $i++ ): ?>
+                <input type="hidden" name="groups[]" value="<?=$groups[$i]?>">
+                <h5 class="font-14px margin-bottom-30 letter-space-2"><?=chr(65+$i)?>조</h5>
+                <div>
+                <?php for ($j = 0 ; $j < (int)$groups[$i] ; $j++ ): ?>
+                    <ul class="row margin-bottom-20" style="border-bottom: 1px solid #ececec;">
+                        <li class="col-md-6">
+                        <label> 이름
+                            <input type="text" name="name_with[]" placeholder="">
+                        </label>
+                        </li>
+                        <li class="col-md-6">
+                        <label> 영문 이름
+                            <input type="text" name="eng_name_with[]" placeholder="">
+                        </label>
+                        </li>
+                        <li class="col-md-6">
+                        <label> 연락처
+                            <input type="text" name="phone_with[]" placeholder="">
+                        </label>
+                        </li>
+                        <li class="col-md-6">
+                        <label> E-mail
+                            <input type="text" name="email_with[]" placeholder="">
+                        </label>
+                        </li>
+                    </ul>
+
+                    
+                <?php endfor; ?>
+                </div>
+            <?php endfor; ?>
+          </div>
+              
+              <!-- SUB TOTAL -->
+              <div class="col-sm-5">
+                <div class="order-place">
+                  <h5>가격 정보</h5>
+                  <div class="order-detail">
+                    <p><?=$product->name?>   <span> 
+                         총<span id="total_price"><?=number_format($total_price)?></span></span></p>
+                    <div class="item-order">
+                    
+                    </div>
+                  </div>
+                  <div class="pay-meth">
+                    <h5 class="text-color-primary">옵션 선택</h5>
+                    <ul>
+                      <li>
+                        <div class="checkbox">
+                          <input id="checkbox3-1" class="styled" type="checkbox" name="options[]" value="on" data-price ="<?=$caddy_price?>">
+                          <label for="checkbox3-1"> 캐디 플레이</label>
+                        </div>
+                      </li>
+                      <?php if ( $product->singleroom_price !== "0" ): ?>
+                      <li>
+                        <!-- <div class="checkbox">
+                          <input id="checkbox3-2" class="styled" type="checkbox"> -->
+                          <label for="checkbox3-2"> 싱글 룸 차지 </label>
+                              <select name="singleroom" class="">
+                                  <option value="" data-price="0">선택 안함</option>
+                                <?php foreach ( $singlerooms as $singleroom ): ?>
+                                <option value="<?=$singleroom->value?>" data-price="<?=$singleroom->price?>">
+                                <?="{$singleroom->value}인( + ".number_format($singleroom->price)."원)"?></option>
+                                <?php endforeach; ?>
+
+
+                                
+                              </select>
+                        <!-- </div> -->
+                      </li>
+                      <?php endif; ?>
+                      <li>
+                        <!-- <div class="checkbox">
+                          <input id="checkbox3-3" class="styled" type="checkbox"> -->
+                          <label for="checkbox3-3"> 희망 시간대 </label>
+                            <select name="hope_date" class="">
+                              <option>선택안함</option>
+                              <?php for ( $i = 1 ; $i <= 12 ; $i++ ): ?>
+                              <option><?=$i?></option>
+                              <?php endfor; ?>
+                            </select>
+                        <!-- </div> -->
+                      </li>
+                      </ul> </div>
+                  <div class="pay-meth margin-top-40">
+                          <label> 결제 수단
+                              <select class="" name="pay_method">
+                                  <option>무통장 입금</option>
+                                  <option>신용 카드</option>
+                                  <option>실시간 계좌 이체</option>
+                                  <option>가상 계좌</option>
+                                  <option>삼성 페이</option>
+                                  <option>KPay 앱 직접 호출</option>
+                              </select>
+                          </label>
+                    <a href="#" class="btn btn-small btn-dark pull-right">결제하기</a> </div>
+                </div>
+              </div>
+            </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
-  <div class="label">
-  </div>
 </div>
+<!-- End Content --> 
+<!-- End Page Wrapper --> 
 
+<!-- JavaScripts --> 
+<script src="/public/etc/order/js/vendors/jquery/jquery.min.js"></script> 
+<script src="/public/etc/order/js/vendors/wow.min.js"></script> 
+<script src="/public/etc/order/js/vendors/bootstrap.min.js"></script> 
+<script src="/public/etc/order/js/vendors/own-menu.js"></script> 
+<script src="/public/etc/order/js/vendors/flexslider/jquery.flexslider-min.js"></script> 
+<script src="/public/etc/order/js/vendors/jquery.countTo.js"></script> 
+<script src="/public/etc/order/js/vendors/jquery.isotope.min.js"></script> 
+<script src="/public/etc/order/js/vendors/jquery.bxslider.min.js"></script> 
+<script src="/public/etc/order/js/vendors/owl.carousel.min.js"></script> 
+<script src="/public/etc/order/js/vendors/jquery.sticky.js"></script> 
 
-<!-- <div class="ui header"> </div> -->
-<form  class="ui form" id="form_order" onsubmit="alert_payment_window(this); return false;"  action="<?=site_url(shop_order_uri."/golfpass_ajax_add")?>"method ="post">
-  
-<?php if($product->singleroom_price !== "0"){?>
-    <div class="four fields">
-        <div class="field">
-            <label for=""><h3>싱글룸추가</h3></label>
-            <select name="singleroom" id="">
-                <option  value="" data-price="0">선택안함</option>
-                <?php 
-                $i =($num_people %2 ===0) ? 2 :1 ;
-                for(; $i <= $num_people; $i=$i+2){
-                    $added_singleroom_price =$i*($product->singleroom_price);
-                    ?>
-                <option value="<?=$i?>" data-price="<?=$added_singleroom_price?>">
-                    <?="{$i}인"?>
-                    <!-- <?="{$i}인(".$added_singleroom_price."원 추가)"?> -->
-                </option>
-                <?php }?>
-            </select>
-        </div>
-    </div>
-<?php }?>
-    <!-- 홀옵션추가 -->
-    <?php if ( !isset($hotel) ): ?>
-    <div class="four fields">
-        <div class="field">
-        <label><h3>홀 추가</h3></label>
-            <select class="ui fluid dropdown" name="hole_option">
-                <option value="" data-price="0">선택</option>
-                <?php for($i=0; $i<count($hole_options) ; $i++){
-                    $added_hole_price =  $hole_options[$i]->price * $num_people;
-                    ?>
-                <option data-name="<?=$hole_options[$i]->name?>" data-price="<?=$added_hole_price?>" value="<?=$hole_options[$i]->id?>"><?=$hole_options[$i]->name?>
+<!-- SLIDER REVOLUTION 4.x SCRIPTS  --> 
+<script type="text/javascript" src="/public/etc/order/rs-plugin/js/jquery.themepunch.tools.min.js"></script> 
+<script type="text/javascript" src="/public/etc/order/rs-plugin/js/jquery.themepunch.revolution.min.js"></script> 
+<script src="/public/etc/order/js/zap.js"></script>
 
-                <!-- (<?=$hole_options_price[$i]?>원 추가) -->
-                </option>
-                <?php }?>
-            </select>
-        </div>
-    </div>
-    <?php endif; ?>
-    <!-- 홀옵션추가 -->
-
-    <!-- 기타옵션추가 -->
-    <div class="four fields">
-        <div class="field">
-        <label><h3>기타옵션 추가</h3></label>
-            <select class="ui fluid dropdown" name="" id="options">
-                <option data-price="0">선택</option>
-            <?php for($i=0; $i<count($options) ; $i++){?>
-                <option data-name="<?=$options[$i]->name?>" data-price="<?=$options[$i]->price?>" value="<?=$options[$i]->id?>">
-                    <?=$options[$i]->name?>
-                    <!-- (<?=$options[$i]->price?>원 추가) -->
-                </option>
-                <?php }?>
-            </select>
-        </div>
-    </div>
-        <button class="ui button basic" type="button" id="add_option">추가</button>
-    <div class="field"id="added_option_list">
-    </div>
-                <!-- 기타옵션추가 -->
-
-<!-- 희망시간대 -->
-<div class="field">
-    <input type="text" name="hope_date" placeholder="희망시간대">
-</div>
-<!-- 희망시간대 -->
- <!-- 동행자정보 -->
- <br><br>
-<label><h3> 동행자 정보 입력(<?=$num_people?>명)</h3></label>
-<br>
-
-<?php for ( $i = 0 ; $i < count($groups) ; $i++ ): ?>
-    <input type="hidden" name="groups[]" value="<?=$groups[$i]?>">
-    <?=chr(65+$i)?>조
-    <br>
-    <?php for ($j = 0 ; $j < (int)$groups[$i] ; $j++ ): ?>
-        <div class="four fields">
-            <div class="field">
-                <input type="text" name="name_with[]" placeholder="이름">
-            </div>
-            <div class="field">
-                <input type="text" name="eng_name_with[]" placeholder="영문이름">
-            </div>
-            <div class="field">
-                <input type="text" name="email_with[]" placeholder="이메일">
-            </div>
-            <div class="field">
-            <input type="text" name="phone_with[]" placeholder="연락처">
-            </div>
-        </div>
-    <?php endfor; ?>
-<?php endfor; ?>
-               
-    <!-- 동행자정보 -->
-    <br><br>
-<!-- <input type="submit" value="예약"> -->
-<label><h3>주문자정보</h3></label>
-<div class="two fields">
-    <div class="field">
-        <label>주문자이름</label>
-        <input type="text" name="user_name" value="<?=set_value_data($user,'name')?>"><br>
-    </div>
-    <div class="field">
-        <label>휴대폰번호</label>
-        <input type="text" name="phone" value="<?=set_value_data($user,'phone')?>"><br>
-    </div>
-</div>
-<div class="two fields">
-    <div class="field">
-        <label>주소</label>
-        <input type="text" name="address" value="<?=set_value_data($user,'address')?>"><br>
-    </div>
-    <div class="field">
-        <label>이메일</label>
-        <input type="text" name="email" value="<?=set_value_data($user,'email')?>"><br>
-    </div>
-</div>
- <input type="hidden" name="product_id" value="<?=$product_id?>">
- <input type="hidden" name="merchant_uid">
-    <input type="hidden" name="start_date" value="<?=$start_date?>">
-    <input type="hidden" name="end_date" value="<?=$end_date?>">
-    <input type="hidden" name="num_people" value="<?=$num_people?>">
-    <input type="hidden" name="total_price" value="<?=$total_price?>">
-    <input type="hidden" name="order_name" value="<?=$product->name?>">
-
-    <div class="four fields">
-    <div class="field">
-        <select class="ui fluid dropdown"name="pay_method" id="">
-            <option value="bank">무통장</option>
-            <option value="card">신용카드</option>
-            <option value="trans">실시간계좌이체</option>
-            <option value="vbank">가상계좌</option>
-            <!-- <option value="phone">휴대폰소액결제</option> -->
-            <!-- 이니시스 전용 -->
-            <option value="samsung">삼성페이</option> 
-            <!-- 이니시스 전용 -->
-            <option value="kpay">KPay앱 직접호출</option>
-            <!-- 이니시스, LGU+ 전용 -->
-            <!-- <option value="cultureland">문화상품권</option> -->
-            <!-- 이니시스, LGU+ 전용 -->
-            <!-- <option value="smartculture">스마트문상</option>  -->
-            <!-- <option value="happymoney">해피머니</option> 이니시스 전용 -->
-        <!-- LGU+전용 -->
-        <!-- <option value="booknlife">도서문화상품권</option> -->
-        </select>
-    </div>
-    </div>
-<input class="ui button basic positive" type="submit" value="주문하기">
-
-
-<!-- <input type="submit"> -->
-
-</form>
-</div>
-</div>
 <script src="https://service.iamport.kr/js/iamport.payment-1.1.5.js" type="text/javascript"></script>
 
 
 <script>
+    IMP.init('<?=$imp_franchises_code?>'); // 아임포트 관리자 페이지의 "시스템 설정" > "내 정보" 에서 확인 가능
     let $form =$("#form_order");
- function cal_totalPrice()
+
+    function cal_totalPrice()
     {
-         var queryString = $form.serialize();
+        var queryString = $form.serialize();
         var url = "<?=site_url(shop_order_uri."/cal_total_price_ajax")?>";
         $.ajax({
             type: "POST",
@@ -202,99 +230,60 @@
             success:function(data){
                 console.log(data);
                 var total_price= data.total_price;
-                 $("#total_price").text(total_price.toLocaleString('en'));
+                $("#total_price").text(total_price.toLocaleString('en'));
                 $("input[name=total_price]").val(total_price);
             }
         });
-
     }
-//아이엠포트 초기화
-// var base_totalPrice  = <?=$total_price?>;
-// var g_totalPrice = <?=$total_price?>;
-$(document).ready(function(){
-    $("#add_option").click(function()
+
+    let $inputSingleroom =$("select[name=singleroom]");
+    let $inputOptions = $("input[name='options[]']");
+    let $wrapperItemList = $(".item-order");
+    /**
+     * 옵션element를 만들어 반환합니다.
+     * 
+     * @return jquery element
+     */
+    function createOption(category,name, price)
     {
-        $options =$("#options");
-        $selected =  $options.find("option:selected");
-        if($selected.text() ==="선택") return false;
-        var option_id= $selected.val();
-        var option_price = $selected.data('price');
-        var option_name = $selected.data('name');
-        var option_text = $selected.text();
-//옵션 리스트에 추가
-        $list =$("#added_option_list");
+       let $p = $(`<p>${category} : ${name}</p>`);
+        price  = price.toLocaleString();
+        let $span= $(`<span class="color"> + ${price} 원</span>`);
+        $p.append($span);
+        return $p;
+    }
+   
+    function renderOptionlist()
+    {
+        $wrapperItemList.children().remove();
 
-        var option_item = document.createElement("div");
-        option_item.setAttribute("class","optionItem field");
-        option_item.setAttribute("data-price",option_price);
-        $option_item = $(option_item);
-        $list.append(option_item);
-    //히든태그추가 시작
-        var input = document.createElement("input");
-        input.setAttribute("type","hidden");
-        input.setAttribute("value",option_id);
-        input.setAttribute("data-price",option_price);
-        input.setAttribute("name","options[]");
-        $option_item.append(input);
-    //히든태그추가 끝
-    //옵션추가 시작
-        var option = document.createElement("div");
-        option.innerHTML = `<div class="ui header" style="margin-top:20px;">${option_text}</div>`;
-        $option_item.append(option);
-    //옵션추가 끝
-        var removeBtn = document.createElement("button");
-        removeBtn.setAttribute("type","button");
-        removeBtn.setAttribute("class","ui button basic");
-        removeBtn.setAttribute("onclick","  $(this).parent('.optionItem').remove();cal_totalPrice();");
-        removeBtn.innerHTML = "삭제";
-        $option_item.append(removeBtn);
-//옵션 리스트에 추가 끝
-
-//총금액 변경
-        cal_totalPrice();
-        // g_totalPrice  += option_price;
-        // $("#total_price").text(g_totalPrice.toLocaleString('en'));
+        if($inputOptions[0].checked === true)
+        {
+            var price = $($inputOptions[0]).data("price");
+            var $option =createOption("옵션","캐디 플레이",parseInt(price));
+            $wrapperItemList.prepend($option);
+        }
+        var $selectedSingleoom = $inputSingleroom.find(":selected");
+        if($selectedSingleoom.val() !== "")
+        {
+            var price = $selectedSingleoom.data("price");
+            var $option = createOption("옵션","싱글 룸 차지",parseInt(price));
+            $wrapperItemList.prepend($option);
+        }
     
-    });
-
-//싱글룸 변경시 총금액 변경
-    $("select[name=singleroom]").change(function(){
-        // var $this =$(this);
-        // var price = $this.find("option:selected").data('price');
-        // console.log(price);
-        // g_totalPrice  += price;
-        // $("#total_price").text(g_totalPrice.toLocaleString('en'));
-
+    }
+    //싱글룸 변경시 총금액 변경
+    $inputSingleroom.change(function(){
         cal_totalPrice();
+        renderOptionlist();
     });
-    //홀추가 옵션 변경시 총금액 변경
-    $("select[name=hole_option]").change(function(){
-        console.log(1);        
+    //캐디 변경시 총금액 변경
+    $inputOptions.click(function(){
         cal_totalPrice();
+        renderOptionlist();
     });
 
-   
-});
 
-   
-
-
-
-IMP.init('<?=$imp_franchises_code?>'); // 아임포트 관리자 페이지의 "시스템 설정" > "내 정보" 에서 확인 가능
-
-
-function validation(e){
-    
-   //유효성검사
-//    if(!name || !phone || !email || !pay_method){
-//         alert('모두 입력해주세요.');
-//         console.log(name+phone+email+pay_method);
-//         return false;
-//         }
-
-   
-    return true;
-}
 
 //결제 ajax로 총가격 체크후 iamport api 불러오기
 function alert_payment_window(e)

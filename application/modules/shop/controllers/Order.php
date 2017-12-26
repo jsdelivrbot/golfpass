@@ -170,9 +170,15 @@ class Order extends Base_Controller {
             my_redirect(shop_product_uri."/get/{$product_id}");
         }
         //5개값 유효성 체크 끝
+        $obj_start_date = date_create($start_date);
+        $obj_end_date = date_create($end_date);
+        $period = date_diff($obj_start_date, $obj_end_date)->days;
+        $period += 1;
+
+
         $this->load->model("shop/products_model");
         $data['user'] = $this->user;
-        $data['product'] =$this->products_model->_get(array("id"=>$product_id));
+        $product  =$data['product']  =$this->products_model->_get(array("id"=>$product_id));
 
         $data["groups"] = $groups;
         $data["start_date"] = $start_date;
@@ -210,12 +216,39 @@ class Order extends Base_Controller {
         $data['hole_options'] =$hole_options;
         $data['hole_options_price'] = $hole_options_price;
 
+
+        //싱글룸
+        $singlerooms=array();
+        for ($i =($num_people %2 ===0) ? 2 :1; $i <= $num_people; $i=$i+2 )
+        {
+            $singleroom["value"] = $i;
+            $singleroom["price"] = $i*($product->singleroom_price)*($period-1);
+            array_push($singlerooms,(object)$singleroom); 
+        }
+        $data["singlerooms"] = $singlerooms;
+
+        //캐디가격
+        $caddy_price= 0;
+        for($i=0;$i<count($groups);$i++)
+        {
+            $row=$this->db->select("*")
+            ->where("product_id",$product_id)
+            ->where("kind","main_option")
+            ->where("option_1",$groups[$i])
+            ->from("product_option")->get()->row();
+            if($row !== null)
+            {
+                $caddy_price += (int)$row->price*(int)$groups[$i];
+            }
+        }
+        $data['caddy_price'] = $caddy_price;
         $data['imp_franchises_code'] = $this->setting->imp_franchises_code;
 
         //hotel
         $this->load->model("p_hotel_model");
         $data['hotel'] = $this->p_hotel_model->get_by_product_id($product_id);
         $this->_template("golfpass",$data,"golfpass2");
+        // $this->_view("golfpass",$data);
 
     }
     public function index($product_id){
@@ -475,7 +508,7 @@ class Order extends Base_Controller {
         $obj_end_date = date_create($end_date);
         $period = date_diff($obj_start_date, $obj_end_date)->days;
         $period += 1;
-        
+        $num_singleroom = $order->num_singleroom;
          //시작 날자 ~끝날자 * 인 === 총가격 변조 있는지 체크 시작
          $product =$this->db->where("id",$order->product_id)->from("products")->get()->row();
          if(true)
@@ -494,27 +527,43 @@ class Order extends Base_Controller {
          }
        
          //총합계애 옵션가격더하기
-        $this->load->model("product_option_model");
-        for($i=0; $i < count($options); $i++)
-        {
+        // $this->load->model("product_option_model");
+        // for($i=0; $i < count($options); $i++)
+        // {
           
-            $option =$this->product_option_model->_get($options[$i]);
-            $option_name = $option->name;
+        //     $option =$this->product_option_model->_get($options[$i]);
+        //     $option_name = $option->name;
 
-            for($j=0;$j<count($groups);$j++)
-            {
+        //     for($j=0;$j<count($groups);$j++)
+        //     {
                 
+        //         $row=$this->db->select("*")
+        //         ->where("product_id",$product_id)
+        //         ->where("kind","main_option")
+        //         ->where("name",$option_name)
+        //         ->where("option_1",$groups[$j])
+        //         ->from("product_option")->get()->row();
+        //         $out_total_price += (int)$row->price*(int)$groups[$j];
+        //     }
+        // }
+        
+        // 캐디가격 더하기
+        $caddy=$options[0];
+        if($caddy === "on")
+        {
+            for($i=0;$i<count($groups);$i++)
+            {
                 $row=$this->db->select("*")
                 ->where("product_id",$product_id)
                 ->where("kind","main_option")
-                ->where("name",$option_name)
-                ->where("option_1",$groups[$j])
+                ->where("option_1",$groups[$i])
                 ->from("product_option")->get()->row();
-                $out_total_price += (int)$row->price*(int)$groups[$j];
+                if($row !== null)
+                {
+                    $out_total_price += (int)$row->price*(int)$groups[$i];
+                }
             }
-           
         }
-        
     
         
        
@@ -556,9 +605,7 @@ class Order extends Base_Controller {
       
         if($num_singleroom !== null &&  $num_singleroom !== ""){
             $singleroom_price = $this->products_model->_get($product_id)->singleroom_price;
-            $added_singleroom_price = $singleroom_price * $num_singleroom;
-            $added_singleroom_price *=  ($period -1);
-            $out_total_price += $added_singleroom_price;
+            $out_total_price += $singleroom_price * $num_singleroom *($period -1);
         }
         return $out_total_price;
          //옵션가격 추가끝
