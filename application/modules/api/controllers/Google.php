@@ -64,6 +64,7 @@ class Google extends Public_Controller {
 				 $this->db->set("refresh_token",$auth_result->refresh_token);
 				 $this->db->set("sns_id",$sns_id);
 				 $this->db->where("sns_email",$email);
+				 $this->db->where("sns_type",'google');
 				 $this->sns_info_model->_update();
 			}
  

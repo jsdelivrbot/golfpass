@@ -66,6 +66,7 @@ class Kakao extends Public_Controller {
 			{
 				 $this->db->set("refresh_token",$refresh_token);
 				 $this->db->where("sns_nickName",$nickName);
+				 $this->db->where("sns_type",'kakao');
 				 $this->sns_info_model->_update();
 			}
  

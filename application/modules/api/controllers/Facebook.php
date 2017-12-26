@@ -64,6 +64,7 @@ class Facebook extends Public_Controller {
 			{
 				 $this->db->set("refresh_token",$refresh_token);
 				 $this->db->where("sns_id",$sns_id);
+				 $this->db->where("sns_type",'facebook');
 				 $this->sns_info_model->_update();
 			}
  

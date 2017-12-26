@@ -577,7 +577,12 @@ class User extends Base_Controller
     public function check_pssword_forUpdate(){
         $this->fv->set_rules('password', '암호', 'required|min_length[4]|max_length[20]');
 
-
+        if($this->user->sns_type !== "general")
+        {
+            $this->session->set_flashdata('user_update', true);
+            redirect(user_uri."/update");
+            return;
+        } 
         if($this->fv->run() === false){
             $this->_template("check_pssword_forUpdate",array(),"golfpass2");
         }else{
