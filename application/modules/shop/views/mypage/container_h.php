@@ -91,11 +91,11 @@
 
                         <!-- <a class="item" data-tab="definition">프로필 관리</a> -->
 
-                        <a href="<?=site_url(shop_mypage_uri.'/gets_wishlist')?>" class="<?=$page_name==="위시리스트" ? "active" : ""?> item" data-tab="settings">
-                        위시리스트
-                        </a>
                         <a href="<?=site_url(shop_mypage_uri."/gets_order")?>" class="<?=$page_name==="주문내역" ? "active" : ""?> item" data-tab="examples">
                         주문내역
+                        </a>
+                        <a href="<?=site_url(shop_mypage_uri.'/gets_wishlist')?>" class="<?=$page_name==="위시리스트" ? "active" : ""?> item" data-tab="settings">
+                        위시리스트
                         </a>
 
 
