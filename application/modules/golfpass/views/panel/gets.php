@@ -2,7 +2,7 @@
 
 <div id="tp-panel-wrap"> 
 <article id="tp-panel-article" class="tp-container-fluid">
-  <div class="tp-row tp-text-center">
+  <!-- <div class="tp-row tp-text-center">
 	<div class="tp-col-12">
 	  <h1 id='tp-panel-title' class="tp-text-center"> 
 		<span>골프패스
@@ -33,7 +33,7 @@
 	<div class="tp-col-12 tp-d-flex tp-justify-content-center tp-align-items-center tp-pagination" style="padding:0;"> 
 	  <?php echo $this->ajax_pgi_1->create_links(); ?>
 	</div> 
-  </section> 
+  </section> -->
   <section id='tp-content-boxs' class="tp-ajax_taget_content_list tp-row tp-justify-content-center"> 
 	<?php for($i=0; $i< count($panel_contents);$i++){?>
 	<div class="tp-content-box tp-col-12 tp-row"> 

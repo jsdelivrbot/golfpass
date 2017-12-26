@@ -31,15 +31,11 @@
 <![endif]-->
 
 <!-- Testimonial Style 4 -->
-  <section class="testimonial style-4 padding-bottom-80 padding-top-80">
+  <!--<section class="testimonial style-4 padding-bottom-80 padding-top-80">
         <div class="container">
           <div class="testi"> 
-            <!-- Testi Slides With Image -->
             <ul class="testi-slide-2">
-              
-              <!-- Slides -->
               <li> 
-                <!-- Avatar -->
                 <div class="avatar"><img class="img-circle img-responsive" src="<?=$content->profilePhoto?>" alt=" "></div>
 
                 <div style="margin-top:-30px; margin-bottom:20px;"><?=$content->nickName?></div>
@@ -53,13 +49,13 @@
             </ul>
           </div>
         </div>
-      </section>
+      </section>-->
    <!-- Testimonial Style 5 -->
-   <section class=" style-5 padding-bottom-80" style="margin-top:-50px;">
+   <section class=" style-5 padding-top-80 padding-bottom-80" style="margin-top:-50px;">
         <div class="container">
           <div class="testi"> 
             <!-- Testi Slides With Image -->
-            <ul class="testi-slide-2" >
+            <ul class="testi-slide-2" style="list-style:none;">
               
               <!-- Slides -->
               <li>
