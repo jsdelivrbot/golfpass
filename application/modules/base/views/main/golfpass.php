@@ -314,7 +314,7 @@
     <section id="section3" class="pt-49 pt-xl-0 mb-5 container-fluid align-items-start align-items-md-center">
                      <article class="w-100 p-xl-4">
                          <div class="row no-gutters main-section-title" style="margin-bottom:20px !important;">
-                             <h4 class="main_sub_title">골프패스 패널이 추천하는 골프장</h4>
+                             <h4 class="main_sub_title">골프패스가 추천하는 골프장</h4>
                          </div>
                          <div class="row position-relative pt-5 items justify-content-around" style="padding-top: 0 !important;">
                                              <!-- 아래 div반복 -->
