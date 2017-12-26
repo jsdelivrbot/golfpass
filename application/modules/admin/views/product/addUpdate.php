@@ -97,6 +97,11 @@ $('#navi_btn').click(function(){
             <i class="right arrow icon"></i>
         사이트에서 보기
         </a>
+
+
+        <a style="float:right;background-color:#aaaaaa;color:black" class="ui right labeled icon button  secondary" href="#" onclick="confirm_redirect('<?=my_site_url(admin_ref_cate_product_uri."/goToRecycleBin/{$product->id}")?>','정말 삭제하시겠습니까? 복구할 방법이없습니다.'); return false;">
+        휴지통으로
+        </a>
     <?php }?>
 </div>
 
@@ -119,16 +124,14 @@ $('#navi_btn').click(function(){
         </div>
         <div class="field">
             <label>상품 설명</label>
-            <!-- <input type="text" name="desc" value="<?=set_value_data($product,'desc')?>"> <?=form_error('desc',false,false)?><br> -->
             <textarea placeholder="내용" name="desc"><?=set_value_data($product,'desc')?></textarea>
         </div>
-        <!-- <script src="<?=domain_url('/public/lib/ckeditor_full/ckeditor.js')?>"></script>
-        <script>
-        CKEDITOR.replace( 'desc',{
-            filebrowserUploadUrl: '/index.php<?=common_uri?>/upload_receive_from_ck'
-        } );
+      
+        <div class="field">
+            <label>가격</label>
+        <input type="text" name="price" value="<?=set_value_data($product,'price')?>"> <?=form_error('price',false,false)?><br>
+        </div>
 
-        </script> -->
 
         <div class="field">
             <label>지역</label>

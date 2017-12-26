@@ -203,6 +203,7 @@ class Init extends Init_Controller {
                `parent_id` INT UNSIGNED NOT NULL DEFAULT '0', 
                `name` varchar(50) NOT NULL DEFAULT '샘플상품분류', 
                `desc` varchar(255) NOT NULL DEFAULT '분류 설명', 
+               `detail_desc` text, 
                `sort` varchar(20) NOT NULL DEFAULT '0', 
                `photo` varchar(255), 
                `photo2` varchar(255), 

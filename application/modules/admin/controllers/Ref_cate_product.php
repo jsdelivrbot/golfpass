@@ -12,6 +12,21 @@ class Ref_cate_product extends Admin_Controller {
     {
      
     }
+    public function goToRecycleBin($product_id)
+    {
+        $this->db->where("product_id",$product_id);
+        $this->db->delete("ref_cate_product");
+
+        $this->db->where("name","휴지통");
+        $cate=$this->db->get("product_categories")->row();
+        $cate_id = $cate->id;
+
+        $this->db->set("cate_id",$cate_id);
+        $this->db->set("product_id",$product_id);
+        $this->db->insert("ref_cate_product");
+
+        my_redirect(admin_product_uri."/update/{$product_id}");
+    }
     function ajax_add()
     {
         header("content-type:application/json");

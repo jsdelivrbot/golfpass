@@ -1,6 +1,7 @@
 
-<?php if(strpos($mode,"update")> -1) ?>
+<?php if(strpos($mode,"update")> -1){ ?>
 현재 카테고리 아이디 - <?=$category->id?>
+<?php }?>
 <form class="ui form"action="<?=my_site_url(admin_product_category_uri."/$mode")?>" method="post">
 <div class="field">
             <label>상속카테고리</label>
@@ -56,7 +57,7 @@
 </form>
 <img style="width:200px; height:auto;"  src="<?=$category->photo2?>" alt="">
 
-<?php }?>
+
 <!-- 이미지 업로드폼 끝 -->
 <br>
 상품목록에서 카테고리 사진
@@ -69,7 +70,7 @@
 <img style="width:200px; height:auto;"  src="<?=$category->photo4?>" alt="">
 <br>
 <br>
-
+<?php }?>
 <!-- 카테고리 상품 시작 -->
 <?php if(strpos($mode, "update") >-1 ){?>
 상품 추가하기
