@@ -1182,7 +1182,7 @@ background-color:#71b051;
 color:white;
 }
 </style>
-<div id="j-dim"></div>
+<div id="j-dim" style="display: none;"></div>
 <div id="j-modal">
 <div class="j-golfpass-green" style="height:60px;">
     <div >
