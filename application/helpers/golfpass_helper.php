@@ -42,7 +42,14 @@ if(!function_exists('_cal_apply_margin_to_price')){
 }
 if(!function_exists('_cal_apply_exchangeRate_and_margin_to_price')){
     function _cal_apply_exchangeRate_and_margin_to_price($price,$num_people =1){
-        
+        if($price === "0")
+        {
+            return "2인 플레이 불가";
+        }
+        else if($price === "1")
+        {
+            return "상담 요망";
+        }
         $price = _cal_apply_exchangeRate_to_price($price);
         $price =_cal_apply_margin_to_price($price,$num_people);
         return (string)$price;
@@ -50,14 +57,11 @@ if(!function_exists('_cal_apply_exchangeRate_and_margin_to_price')){
 }
 function my_number_format($stirng)
 {
-    if($price === "0")
+    if(is_numeric( $stirng) ===false)
     {
-        return "2인 플레이 불가";
+        return $stirng;
     }
-    else if($price === "1")
-    {
-        return "상담 요망";
-    }
+
     $result =number_format($stirng)."원부터";
     return $result;
 }
