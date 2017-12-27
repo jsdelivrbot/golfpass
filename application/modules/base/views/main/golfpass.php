@@ -8,12 +8,13 @@
 <meta name="author" content="">
 <title>골프패스</title>
 <link rel="canonical" href="http://golfpass.net">
-<meta name="description" content="나만의 스타일, 나만의 골프! 일본, 태국, 필리핀, 중국 등 해외 골프 여행 맞춤 플래너">
+<meta name="description" content="나만의 스타일, 나만의 골프! 일본 골프 여행 맞춤 플래너">
 <meta property="og:type" content="website">
 <meta property="og:title" content="골프패스">
-<meta property="og:description" content="나만의 스타일, 나만의 골프! 일본, 태국, 필리핀, 중국 등 해외 골프 여행 맞춤 플래너">
+<meta property="og:description" content="나만의 스타일, 나만의 골프! 일본 골프 여행 맞춤 플래너">
 <meta property="og:image" content="http://golfpass.net/image/001.png">
 <meta property="og:url" content="http://golfpass.net">
+<meta name="B-verify" content="4642e7ee9eaf02ef633564d58dc07653c801a005" />
 <!-- Bootstrap core CSS -->
 <link rel="stylesheet" href="/public/sangmin/dist/bootstrap/bootstrap.min.css">
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
