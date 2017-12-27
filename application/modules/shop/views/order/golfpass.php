@@ -141,7 +141,7 @@
                         </div>
                       </li>
                     <?php endif; ?>
-                      <?php if ( $product->singleroom_price !== "0" ): ?>
+                      <?php if ( isset($hotel)): ?>
                       <li>
                         <!-- <div class="checkbox">
                           <input id="checkbox3-2" class="styled" type="checkbox"> -->
