@@ -266,20 +266,23 @@
 
       
         var $selectedSingleoom = $inputSingleroom.find(":selected");
-        console.log($selectedSingleoom.val() );
         if($selectedSingleoom.val() !== "" && typeof $selectedSingleoom.val() !== "undefined" )
         {
             var price = $selectedSingleoom.data("price");
             var $option = createOption("옵션","싱글 룸 차지",parseInt(price));
             $wrapperItemList.prepend($option);
         }
-        if($inputOptions[0].checked === true)
+        if(typeof $inputOptions[0] !== "undefined" )
         {
-            var price = $($inputOptions[0]).data("price");
-            var $option =createOption("옵션","캐디 플레이",parseInt(price));
-            $wrapperItemList.prepend($option);
-        }
+            if( $inputOptions[0].checked === true)
+            {
+                var price = $($inputOptions[0]).data("price");
+                var $option =createOption("옵션","캐디 플레이",parseInt(price));
+                $wrapperItemList.prepend($option);
+            }
     
+        }
+      
     }
     //싱글룸 변경시 총금액 변경
     $inputSingleroom.change(function(){
