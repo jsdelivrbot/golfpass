@@ -44,7 +44,7 @@ if(!function_exists('_cal_apply_exchangeRate_and_margin_to_price')){
     function _cal_apply_exchangeRate_and_margin_to_price($price,$num_people =1){
         if($price === "0")
         {
-            return "플레이 불가";
+            return "2인 플레이 불가";
         }
         else if($price === "1")
         {
