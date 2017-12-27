@@ -20,6 +20,7 @@
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
 <link rel="stylesheet" href="/public/css/main.css">
 <link rel="shortcut icon" href="/favicon.ico">
+<script src="/public/sangmin/js/jquery-3.2.1.min.js"></script>
 <style>
     ::-webkit-scrollbar {
         display: none;
@@ -661,7 +662,7 @@
 </div>
 
 
-<script src="/public/sangmin/js/jquery-3.2.1.min.js"></script>
+
 <script>
 $('#jssor_1').width($('#section2').width()).children('div').width($('#section2').width());
 $(window).resize(function () {
