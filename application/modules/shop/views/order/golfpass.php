@@ -1,4 +1,4 @@
-
+<div style="margin-top: -150px;">
 <!-- Favicon -->
 <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 <link rel="icon" href="images/favicon.ico" type="image/x-icon">
@@ -14,7 +14,11 @@
 <link rel="stylesheet" href="/public/etc/order/css/main.css">
 <link rel="stylesheet" href="/public/etc/order/css/style.css">
 <link rel="stylesheet" href="/public/etc/order/css/responsive.css">
-
+<style>
+    #tp-md-nav{
+        position : fixed !important;
+    }
+</style>
 <!-- COLORS -->
 <link rel="stylesheet" id="color" href="/public/etc/order/css/default.css">
 
