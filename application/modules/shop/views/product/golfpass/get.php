@@ -296,7 +296,7 @@
         <div id="detail" class='col'>
         <div id="score" class="flex-column align-items-center">
             <i class="xi xi-star xi-2x"></i>
-            <span class="score_num">종합 점수 <?=ceil(($product->avg_score)*10)/10?>점</span>
+            <span class="score_num">종합 점수 <?=round(($product->avg_score)*10)/10?>점</span>
         </div>
         <p id="regine">
             <?=$product->region?>
@@ -319,7 +319,7 @@
 
         </canvas>
         <h1 id="chart-score" class="text-center">종합 점수
-            <p><?=ceil(($product->avg_score)*10)/10?>점</p>
+            <p><?=round(($product->avg_score)*10)/10?>점</p>
         </h1>
     </div>
 
@@ -634,7 +634,7 @@
                         <?=$reviews[$i]->desc?>
                     </p>
                     <div class="score-box d-flex align-items-center">
-                        <span class='score'><?=ceil($reviews[$i]->avg_score*10)/10?></span>
+                        <span class='score'><?=round($reviews[$i]->avg_score*10)/10?></span>
                         <ul class="list-unstyled">
                             <li class="d-flex align-items-center justify-content-between">
                                 <p>가성비</p>

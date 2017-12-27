@@ -126,7 +126,7 @@
                                     ?>
                                 </p>-->
                                 <ul class="post-info margin-bottom-0">
-                                    <li> <i class="fa fa-star" style="color: #fcbf3f;"></i><?=ceil($products[$i]->avg_score*10)/10?> </li>
+                                    <li> <i class="fa fa-star" style="color: #fcbf3f;"></i><?=round($products[$i]->avg_score*10)/10?> </li>
                                     <li> <i class="fa fa-map-o"></i><?=$products[$i]->parent_category_name?> </li>
                                     <!-- <li> <i class="fa fa-map"></i><?=$category->name?> </li> -->
                                     <li> <i class="fa fa-map"></i><?=$products[$i]->category_name?> </li>

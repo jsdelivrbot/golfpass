@@ -40,7 +40,7 @@
 									</div>
                                     <div class="new_position3">
                                         <span><i class="xi-star" style="color:#fcbf3f;"></i></span>
-                                        <span style="color:#fff; font-family: 'notokr-demilight', sans-serif; font-size: 18px;"><?php $score = (ceil($products_avgScore[$i]->$rankingType *10))/10; echo (strlen($score) === 1) ? "{$score}.0" : "{$score}"?></span>
+                                        <span style="color:#fff; font-family: 'notokr-demilight', sans-serif; font-size: 18px;"><?php $score = (round($products_avgScore[$i]->$rankingType *10))/10; echo (strlen($score) === 1) ? "{$score}.0" : "{$score}"?></span>
                                     </div>
 								</div>
 							</a>

@@ -129,12 +129,14 @@
                   <div class="pay-meth">
                     <h5 class="text-color-primary">옵션 선택</h5>
                     <ul>
+                    <?php if ( isset($options[0]) ): ?>
                       <li>
                         <div class="checkbox">
-                          <input id="checkbox3-1" class="styled" type="checkbox" name="options[]" value="on" data-price ="<?=$caddy_price?>">
+                          <input id="checkbox3-1" class="styled" type="checkbox" name="options[]" value="<?=$options[0]->id?>" data-price ="<?=$caddy_price?>">
                           <label for="checkbox3-1"> 캐디 플레이</label>
                         </div>
                       </li>
+                    <?php endif; ?>
                       <?php if ( $product->singleroom_price !== "0" ): ?>
                       <li>
                         <!-- <div class="checkbox">
@@ -169,15 +171,16 @@
                   <div class="pay-meth margin-top-40">
                           <label> 결제 수단
                               <select class="" name="pay_method">
-                                  <option>무통장 입금</option>
-                                  <option>신용 카드</option>
-                                  <option>실시간 계좌 이체</option>
-                                  <option>가상 계좌</option>
-                                  <option>삼성 페이</option>
-                                  <option>KPay 앱 직접 호출</option>
+                                  <option value="bank">무통장 입금</option>
+                                  <option value="card">신용 카드</option>
+                                  <option value="trans">실시간 계좌 이체</option>
+                                  <option value="vbank">가상 계좌</option>
+                                  <option value="samsung">삼성 페이</option>
+                                  <option value="kpay">KPay 앱 직접 호출</option>
                               </select>
                           </label>
-                    <a href="#" class="btn btn-small btn-dark pull-right">결제하기</a> </div>
+                    <a id="order_submit_btn"href="#" class="btn btn-small btn-dark pull-right">결제하기</a> </div>
+                    
                 </div>
               </div>
             </div>
@@ -257,17 +260,18 @@
     {
         $wrapperItemList.children().remove();
 
-        if($inputOptions[0].checked === true)
-        {
-            var price = $($inputOptions[0]).data("price");
-            var $option =createOption("옵션","캐디 플레이",parseInt(price));
-            $wrapperItemList.prepend($option);
-        }
+      
         var $selectedSingleoom = $inputSingleroom.find(":selected");
         if($selectedSingleoom.val() !== "")
         {
             var price = $selectedSingleoom.data("price");
             var $option = createOption("옵션","싱글 룸 차지",parseInt(price));
+            $wrapperItemList.prepend($option);
+        }
+        if($inputOptions[0].checked === true)
+        {
+            var price = $($inputOptions[0]).data("price");
+            var $option =createOption("옵션","캐디 플레이",parseInt(price));
             $wrapperItemList.prepend($option);
         }
     
@@ -282,9 +286,24 @@
         cal_totalPrice();
         renderOptionlist();
     });
+    
+    let $order_btn = $("#order_submit_btn");
+    $order_btn.click(function()
+    {
+        $form.submit();
+        return false;
+    });
 
 
-
+    function validation(e){
+    //유효성검사
+    //    if(!name || !phone || !email || !pay_method){
+    //         alert('모두 입력해주세요.');
+    //         console.log(name+phone+email+pay_method);
+    //         return false;
+    //         }
+        return true;
+    }
 //결제 ajax로 총가격 체크후 iamport api 불러오기
 function alert_payment_window(e)
 {   

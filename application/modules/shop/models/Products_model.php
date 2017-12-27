@@ -22,7 +22,7 @@ class Products_Model extends Board_Model{
         $query .= ",($sub_query4) as $rankingType";
 
 
-        $sub_query = "SELECT ((avg(score_1)+avg(score_2)+avg(score_3)+avg(score_4)+avg(score_5)+avg(score_6)+avg(score_7)+avg(score_8))/8) FROM product_reviews as r WHERE r.product_id = p.id AND r.is_secret = 0";
+        $sub_query = "SELECT cast(((avg(score_1)+avg(score_2)+avg(score_3)+avg(score_4)+avg(score_5)+avg(score_6)+avg(score_7)+avg(score_8))/8) as decimal(10,1) ) FROM product_reviews as r WHERE r.product_id = p.id AND r.is_secret = 0";
         $query .= ",($sub_query) as avg_score";
         $this->db->select("p.*".$query);
         $this->db->from("$this->table as p");

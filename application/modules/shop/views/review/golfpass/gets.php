@@ -30,7 +30,7 @@
           </p>
           <div class="tp-score-box tp-d-flex tp-align-items-center"> 
             <span class='tp-score'>
-              <?=ceil($reviews[$i]->avg_score*10)/10?>
+              <?=round($reviews[$i]->avg_score*10)/10?>
             </span>
             <ul class="tp-list-unstyled">
               <li class="tp-d-flex tp-align-items-center tp-justify-content-between">

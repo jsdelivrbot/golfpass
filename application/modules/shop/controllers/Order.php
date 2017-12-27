@@ -526,44 +526,28 @@ class Order extends Base_Controller {
              $$key= $val;
          }
        
-         //총합계애 옵션가격더하기
-        // $this->load->model("product_option_model");
-        // for($i=0; $i < count($options); $i++)
-        // {
-          
-        //     $option =$this->product_option_model->_get($options[$i]);
-        //     $option_name = $option->name;
-
-        //     for($j=0;$j<count($groups);$j++)
-        //     {
-                
-        //         $row=$this->db->select("*")
-        //         ->where("product_id",$product_id)
-        //         ->where("kind","main_option")
-        //         ->where("name",$option_name)
-        //         ->where("option_1",$groups[$j])
-        //         ->from("product_option")->get()->row();
-        //         $out_total_price += (int)$row->price*(int)$groups[$j];
-        //     }
-        // }
-        
-        // 캐디가격 더하기
-        $caddy=$options[0];
-        if($caddy === "on")
+        //  총합계애 옵션가격더하기
+        $this->load->model("product_option_model");
+        for($i=0; $i < count($options); $i++)
         {
-            for($i=0;$i<count($groups);$i++)
+          
+            $option =$this->product_option_model->_get($options[$i]);
+            $option_name = $option->name;
+
+            for($j=0;$j<count($groups);$j++)
             {
+                
                 $row=$this->db->select("*")
                 ->where("product_id",$product_id)
                 ->where("kind","main_option")
-                ->where("option_1",$groups[$i])
+                ->where("name",$option_name)
+                ->where("option_1",$groups[$j])
                 ->from("product_option")->get()->row();
-                if($row !== null)
-                {
-                    $out_total_price += (int)$row->price*(int)$groups[$i];
-                }
+                $out_total_price += (int)$row->price*(int)$groups[$j];
             }
         }
+        
+      
     
         
        

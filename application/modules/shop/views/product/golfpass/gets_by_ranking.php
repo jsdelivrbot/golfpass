@@ -125,7 +125,7 @@ height:250px}
             </i>
           </span> 
           <span style="color:#fff; font-family: 'notokr-demilight', sans-serif; font-size: 18px;">
-            <?php $score = (ceil($products_avgScore[$i]->$rankingType *10))/10; echo (strlen($score) === 1) ? "{$score}.0" : "{$score}"?>
+            <?php $score = (round($products_avgScore[$i]->$rankingType *10))/10; echo (strlen($score) === 1) ? "{$score}.0" : "{$score}"?>
           </span>
         </div>
       </div> 
