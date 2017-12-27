@@ -266,7 +266,8 @@
 
       
         var $selectedSingleoom = $inputSingleroom.find(":selected");
-        if($selectedSingleoom.val() !== "")
+        console.log($selectedSingleoom.val() );
+        if($selectedSingleoom.val() !== "" && typeof $selectedSingleoom.val() !== "undefined" )
         {
             var price = $selectedSingleoom.data("price");
             var $option = createOption("옵션","싱글 룸 차지",parseInt(price));
