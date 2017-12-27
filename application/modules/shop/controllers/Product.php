@@ -140,8 +140,7 @@ class Product extends Base_Controller {
         ));
         if($row !== null){
             $price = $row->price;
-            $price = _cal_apply_exchangeRate_and_margin_to_price($price);
-            $price=number_format($price);
+            $price = my_number_format(_cal_apply_exchangeRate_and_margin_to_price($price));
             $data['price'] = "{$price}원 부터";
         }
         else
