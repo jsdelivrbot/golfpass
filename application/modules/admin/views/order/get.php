@@ -60,6 +60,7 @@
 <thead>
     <tr> 
         <th>이름</th>
+        <th>영문이름</th>
         <th>휴대폰</th>
         <th>이메일</th>
         <th>주소</th>
@@ -68,6 +69,7 @@
 <tbody>
 <tr>
     <td> <a href="<?=my_site_url(admin_user_uri."/update/{$user->id}/general?menu_name=회원")?>"> <?=$order->user_name?></a></td>
+<td> <?=$order->user_eng_name?></td>
 <td> <?=$order->phone?></td>
 <td> <?=$order->email?></td>
 <td> <?=$order->address?></td>

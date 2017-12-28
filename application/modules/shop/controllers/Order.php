@@ -431,6 +431,7 @@ class Order extends Base_Controller {
             $this->db->set('order_name',$this->input->post('order_name'));
             $this->db->set('user_id',$this->user->id);
             $this->db->set('user_name',$this->input->post("user_name"));
+            $this->db->set('user_eng_name',$this->input->post("user_eng_name"));
             $this->db->set('phone',$this->input->post("phone"));
             $this->db->set('status',$status);
             $this->db->set('email',$this->input->post('email'));
