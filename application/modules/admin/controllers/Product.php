@@ -239,7 +239,7 @@ class Product extends Admin_Controller {
         ->get()
         ->result();
         // $products = $this->db->get($this->table, $per_page, $offset)->result();
-
+        
         //view
          $this->_template("gets",$data);
          

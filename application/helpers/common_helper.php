@@ -59,6 +59,20 @@ if(!function_exists('check_auth_update_delete')){
 
 
 
+if(!function_exists('set_custom')){
+    function set_active(string $names,string $targets,string $str){
+        $ci = &get_instance();
+        $names = explode (",",$names);
+        $targets = explode (",",$targets);
+        if(count($names) !== count($targets)) return "#111";
+        for ($i=0; $i < count($names); $i++) { 
+            $value =$ci->input->get_post($names[$i]);
+            if($value === null) return "";
+            if($targets[$i] !== $value) return "#222";
+        }
+        return $str;
+    }
+}
 
 
 if(!function_exists('set_value_data')){
