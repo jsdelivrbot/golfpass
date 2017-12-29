@@ -28,7 +28,7 @@
    -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
    border: 1px solid #AAA;
    color: #333;
-   font-size: inherit;
+   font-size: 15px;
    overflow: hidden;
    padding: 5px 10px;
    text-overflow: ellipsis;
