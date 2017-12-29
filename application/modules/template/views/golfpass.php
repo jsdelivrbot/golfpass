@@ -212,7 +212,7 @@
         <div class="row d-flex" style="width:100%; margin-bottom:16px;">
             <ul>
                 <li class="tp-title">ABOUT US</li>
-                <!--<li><a href="http://www.playseven.co.kr">회사 소개</a></li>-->
+                <li><a href="#">회사 소개</a></li>
                 <li><a href="#">이용 약관</a></li>
                 <li><a href="#">개인 정보 취급 방침</a></li>
             </ul>
