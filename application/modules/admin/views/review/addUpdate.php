@@ -77,10 +77,12 @@
             <input type="text" name="score_8" value="<?=set_value_data($content,'score_8')?>">
         </div>
     </div>
-
-
-
-
+    <div class="four fields">
+       <div class="field">
+            <label>점수9</label>
+            <input type="text" name="score_9" value="<?=set_value_data($content,'score_9')?>">
+        </div>
+    </div>
 
 
 

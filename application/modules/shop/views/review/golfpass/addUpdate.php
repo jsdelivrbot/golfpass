@@ -42,7 +42,7 @@
             <div class="cont01"><?=$product->name?></div>
         </li>
         <li>
-        	<div class="title">별점</div>
+        	<div class="title">가성비가 우수한</div>
             <div class="cont02">
             	<div class="selectBox">
                     <select name="score_1" id="select01">
@@ -55,7 +55,7 @@
                     </select>
                 </div>
             </div>
-            <div class="title2">별점</div>
+            <div class="title2">시설이 좋은</div>
             <div class="cont02">
             	<div class="selectBox">
                     <select name="score_2" id="select02">
@@ -70,7 +70,7 @@
             </div>
         </li>
         <li>
-        	<div class="title">별점</div>
+        	<div class="title">식사가 맛있는</div>
             <div class="cont02">
             	<div class="selectBox">
                     <select name="score_3" id="select03">
@@ -83,7 +83,7 @@
                     </select>
                 </div>
             </div>
-            <div class="title2">별점</div>
+            <div class="title2">전략성이 높은</div>
             <div class="cont02">
             	<div class="selectBox">
                     <select name="score_4" id="select04">
@@ -98,7 +98,7 @@
             </div>
         </li>
         <li>
-        	<div class="title">별점</div>
+        	<div class="title">페어웨이가 넓은</div>
             <div class="cont02">
             	<div class="selectBox">
                     <select name="score_5" id="select05">
@@ -111,7 +111,7 @@
                     </select>
                 </div>
             </div>
-            <div class="title2">별점</div>
+            <div class="title2">그린의 난이도가 높은</div>
             <div class="cont02">
             	<div class="selectBox">
                     <select name="score_6" id="select06">
@@ -126,7 +126,7 @@
             </div>
         </li>
         <li>
-        	<div class="title">별점</div>
+        	<div class="title">코스 전장이 긴</div>
             <div class="cont02">
             	<div class="selectBox">
                     <select name="score_7" id="select07">
@@ -139,7 +139,7 @@
                     </select>
                 </div>
             </div>
-            <div class="title2">별점</div>
+            <div class="title2">코스 상태가 좋은</div>
             <div class="cont02">
             	<div class="selectBox">
                     <select name="score_8" id="select08">
@@ -152,6 +152,23 @@
                     </select>
                 </div>
             </div>
+         
+        </li>
+        <li>
+        	<div class="title">종합점수</div>
+            <div class="cont02">
+            	<div class="selectBox">
+                    <select name="score_9" id="select09">
+                        <option value="0">☆☆☆☆☆&emsp;0</option>
+                        <option value="1">★☆☆☆☆&emsp;1</option>
+                        <option value="2">★★☆☆☆&emsp;2</option>
+                        <option value="3">★★★☆☆&emsp;3</option>
+                        <option value="4">★★★★☆&emsp;4</option>
+                        <option value="5">★★★★★&emsp;5</option>
+                    </select>
+                </div>
+            </div>
+         
         </li>
         <li>
             <div class="title">옵션</div>

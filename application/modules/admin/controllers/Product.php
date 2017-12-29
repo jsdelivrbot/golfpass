@@ -283,8 +283,16 @@ class Product extends Admin_Controller {
              
         }else{
             $this->_dbSet_addUpdate();
-            $inert_id=$this->products_model->_add();
-            my_redirect(admin_product_uri."/update/$inert_id");
+            $insert_id=$this->products_model->_add();
+            $this->load->model('shop/ref_cate_product_model');
+            $this->load->model('categories_model');
+            $cateAll =$this->categories_model->_get(array("name"=>"전체"));
+            if($cateAll !== null)
+            {
+                $this->ref_cate_product_model->_add(array("product_id"=>$insert_id,"cate_id"=>$cateAll->id));
+            }
+            
+            my_redirect(admin_product_uri."/update/$insert_id");
         }
     }
 

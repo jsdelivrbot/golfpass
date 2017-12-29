@@ -89,6 +89,7 @@ class Review extends Admin_Controller {
         $this->db->set("score_6",$this->input->post("score_6"));
         $this->db->set("score_7",$this->input->post("score_7"));
         $this->db->set("score_8",$this->input->post("score_8"));
+        $this->db->set("score_9",$this->input->post("score_9"));
         // $this->db->set("title",$this->input->post("title"));
         $this->db->set("desc",$this->input->post("desc"));
     }

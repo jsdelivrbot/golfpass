@@ -196,7 +196,7 @@ class Product_reviews_Model extends Board_Model{
         $select_query.= ",IF(DATE_FORMAT(r.created,'%k')>12, DATE_FORMAT(r.created,'%k') -12 , DATE_FORMAT(r.created,'%k')) as hour";
         $select_query.= ",DATE_FORMAT(r.created,'%i') as min";
 
-        $this->db->select("r.*,r.id, r.title, r.desc, r.created , (score_1+score_2+score_3+score_4+score_5+score_6+score_7+score_8)/8 'avg_score' ,if(r.user_id = 0, r.guest_name, u.name) 'user_name', if(r.user_id = 0, '손님', u.userName) 'userName'".$select_query);
+        $this->db->select("r.*,r.id, r.title, r.desc, r.created , score_9 'avg_score' ,if(r.user_id = 0, r.guest_name, u.name) 'user_name', if(r.user_id = 0, '손님', u.userName) 'userName'".$select_query);
         
         $this->db->from('product_reviews as r');
         $this->db->join("users AS u","r.user_id = u.id","LEFT");

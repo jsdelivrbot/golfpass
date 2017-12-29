@@ -5,8 +5,8 @@ class Products_Model extends Board_Model{
         parent:: __construct('products');
     }
 
-    
-   
+    private $avg_score = "avg(r.score_9)";
+    private $avg_score2 = "avg(s_r.score_9)";
     function get($id)
     {
         $query = "";
@@ -22,7 +22,7 @@ class Products_Model extends Board_Model{
         $query .= ",($sub_query4) as $rankingType";
 
 
-        $sub_query = "SELECT cast(((avg(score_1)+avg(score_2)+avg(score_3)+avg(score_4)+avg(score_5)+avg(score_6)+avg(score_7)+avg(score_8))/8) as decimal(10,1) ) FROM product_reviews as r WHERE r.product_id = p.id AND r.is_secret = 0";
+        $sub_query = "SELECT cast({$this->avg_score} as decimal(10,1) ) FROM product_reviews as r WHERE r.product_id = p.id AND r.is_secret = 0";
         $query .= ",($sub_query) as avg_score";
         $this->db->select("p.*".$query);
         $this->db->from("$this->table as p");
@@ -73,7 +73,7 @@ class Products_Model extends Board_Model{
         if($rankingType === 'avg_score')
         {
             //product_reviews 총 평균점수
-            $sub_query3 = "SELECT IFNULL((avg(score_1)+avg(score_2)+avg(score_3)+avg(score_4)+avg(score_5)+avg(score_6)+avg(score_7)+avg(score_8))/8,0) FROM product_reviews as s_r WHERE s_r.product_id = p.id  AND s_r.is_secret = 0";
+            $sub_query3 = "SELECT IFNULL({$this->avg_score2},0) FROM product_reviews as s_r WHERE s_r.product_id = p.id  AND s_r.is_secret = 0";
             $query .= ",($sub_query3) as avg_score";
         }
         else
@@ -129,7 +129,7 @@ class Products_Model extends Board_Model{
         //product_option 사진들
         $sub_query = "SELECT group_concat(o.name order by o.sort) FROM `product_option` AS `o` WHERE o.product_id= r.product_id AND o.kind = 'photo'";
         //product_reviews 총 평균점수
-        $sub_query2 = "SELECT (avg(score_1)+avg(score_2)+avg(score_3)+avg(score_4)+avg(score_5)+avg(score_6)+avg(score_7)+avg(score_8))/8 FROM product_reviews as r WHERE r.product_id = p.id  AND r.is_secret = 0";
+        $sub_query2 = "SELECT {$this->avg_score} FROM product_reviews as r WHERE r.product_id = p.id  AND r.is_secret = 0";
         //호텔 여부
         $sub_query3 = "SELECT p_ref_h.hotel_id FROM `p_ref_hotel` as p_ref_h WHERE p_ref_h.product_id = p.id LIMIT 0,1";
         //오늘날자 1박2일 1인가격
@@ -177,12 +177,12 @@ class Products_Model extends Board_Model{
 
         $more_select = '';
         $more_select .= ", GROUP_CONCAT(o2.name) as photos";
-        $more_select .= ", (avg(r.score_1)+ avg(r.score_2) + avg(r.score_3)+ avg(r.score_4)+ avg(r.score_5)+ avg(r.score_6)+ avg(r.score_7)+ avg(r.score_8))/8 as avg_score ";
+        $more_select .= ",{$this->avg_score} as avg_score ";
         $this->db->select("o.id as option_id, o.sort,p.*". $more_select . $sub_query)
         ->from("product_option as o")
         ->join("$this->table as p","p.id = o.product_id","LEFT")
         ->join("product_option as o2","o.product_id = o2.product_id AND o2.kind = 'photo'","LEFT")
-        ->join("product_reviews as r","o.product_id = r.product_id","LEFT")
+        ->join("product_reviews as r","o.product_id = r.product_id AND r.is_secret = 0","LEFT")
         ->where("o.kind","main")
         ->order_by("o.sort","asc")
         ->group_by("o.product_id");
