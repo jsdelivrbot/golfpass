@@ -7,8 +7,8 @@ if(!function_exists('golfpass_sort')){
         $sort_value = $ci->input->get_post('sort_value');
         function my_sort($a,$b)
         { 
-            $sort_value = $_GET["sort_value"];
-            $sort_type = $_GET["sort_type"];
+            $sort_value = $_GET["sort_value"] ?? "created";
+            $sort_type = $_GET["sort_type"] ?? "desc";
          if ($a->$sort_value==$b->$sort_value) return 0;
          if($sort_type === "asc")
          {
@@ -19,10 +19,7 @@ if(!function_exists('golfpass_sort')){
             return ($a->$sort_value>$b->$sort_value)?-1:1;
          }
         }
-        if($sort_value !== null && $sort_type !== null)
-        {
-             usort($rows,"my_sort");
-        }
+        usort($rows,"my_sort");
             return $rows;
     }
 }
