@@ -15,10 +15,33 @@
 <link rel="stylesheet" href="/public/etc/order/css/style.css">
 <link rel="stylesheet" href="/public/etc/order/css/responsive.css">
 <style>
+    /* 헤더고정 */
     #tp-md-nav{
         position : fixed !important;
     }
+    /* 셀렉트폼 */
+    .j-select{
+        /* -webkit-appearance: button; */
+        /* background-image: url(http://i62.tinypic.com/15xvbd5.png), -webkit-linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5); */
+   /* background-position: 97% center; */
+   /* background-repeat: no-repeat; */
+   -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+   border: 1px solid #AAA;
+   color: #333;
+   font-size: inherit;
+   overflow: hidden;
+   padding: 5px 10px;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+   width: 100%;
+   margin:10px;
+    }
+    /* 셀렉트폼 위에 라벨 */
+    .j-label{
+        font-size : 15px !important;
+    }
 </style>
+
 <!-- COLORS -->
 <link rel="stylesheet" id="color" href="/public/etc/order/css/default.css">
 
@@ -137,7 +160,7 @@
                       <li>
                         <div class="checkbox">
                           <input id="checkbox3-1" class="styled" type="checkbox" name="options[]" value="<?=$options[0]->id?>" data-price ="<?=$caddy_price?>">
-                          <label for="checkbox3-1"> 캐디 플레이</label>
+                          <label for="checkbox3-1" class="j-label"> 캐디 플레이</label>
                         </div>
                       </li>
                     <?php endif; ?>
@@ -145,8 +168,8 @@
                       <li>
                         <!-- <div class="checkbox">
                           <input id="checkbox3-2" class="styled" type="checkbox"> -->
-                          <label for="checkbox3-2"> 싱글 룸 차지 </label>
-                              <select name="singleroom" class="">
+                          <label for="checkbox3-2" class="j-label"> 싱글 룸 차지 </label>
+                              <select name="singleroom" class="j-select">
                                   <option value="" data-price="0">선택 안함</option>
                                 <?php foreach ( $singlerooms as $singleroom ): ?>
                                 <option value="<?=$singleroom->value?>" data-price="<?=$singleroom->price?>">
@@ -162,8 +185,8 @@
                       <li>
                         <!-- <div class="checkbox">
                           <input id="checkbox3-3" class="styled" type="checkbox"> -->
-                          <label for="checkbox3-3"> 희망 시간대 </label>
-                            <select name="hope_date" class="">
+                          <label for="checkbox3-3" class="j-label"> 희망 시간대 </label>
+                            <select name="hope_date" class="j-select">
                               <option>선택안함</option>
                               <?php for ( $i = 1 ; $i <= 12 ; $i++ ): ?>
                               <option><?=$i?></option>
@@ -173,8 +196,8 @@
                       </li>
                       </ul> </div>
                   <div class="pay-meth margin-top-40">
-                          <label> 결제 수단
-                              <select class="" name="pay_method">
+                          <label class="j-label"> 결제 수단
+                              <select class="j-select" name="pay_method" >
                                   <option value="bank">무통장 입금</option>
                                   <option value="card">신용 카드</option>
                                   <option value="trans">실시간 계좌 이체</option>
