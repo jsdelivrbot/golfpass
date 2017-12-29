@@ -68,9 +68,7 @@ class Board_Model extends Public_Model{
             };
         $this->load->library('pagination');
         //get totoal_rows
-        $field = $this->input->get('field');
-        if($field === null || $field === '')
-            $field = $this->input->post('field');
+        $field=$this->input->get_post('field');
        $value =null;
         if($field !== null && $field !== '')//검색 true
         {
@@ -97,7 +95,13 @@ class Board_Model extends Public_Model{
         $offset = $pgiData['offset'];
         $per_page = $pgiData['per_page'];
         
-        $this->_like_or_by_split($field,$value);
+        $this->_like_or_by_split($field,$value); //검색
+        // $sort =$this->input->get_post('sort_value');//sort
+        // $sort_type =$this->input->get_post('sort_type');//sort
+        // if($sort !== null && $sort_type !== null)
+        // {
+        //     $this->db->order_by($sort,$sort_type); 
+        // }
         //is_numrow
         if($is_numrow === true)
         {

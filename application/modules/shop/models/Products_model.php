@@ -34,7 +34,7 @@ class Products_Model extends Board_Model{
 
         $products=$this->gets_by_category_id_recursive_tree($cate_id);
         $num_rows = count($products);
-        return parent::_gets_with_pgi_func(
+        $products= parent::_gets_with_pgi_func(
             $pgi_style,
             function() use($num_rows)
             {   
@@ -47,6 +47,8 @@ class Products_Model extends Board_Model{
             null,
             array("per_page"=>12,"is_numrow"=>false)
         );
+        $products=golfpass_sort($products);
+        return $products;
     }
 
 
@@ -135,12 +137,18 @@ class Products_Model extends Board_Model{
         $sub_query4 = "SELECT price FROM p_daily_price as sub_dp WHERE sub_dp.product_id = r.product_id AND sub_dp.date = '{$date}' AND sub_dp.num_people = '1' AND sub_dp.period = '1' LIMIT 0, 1";
         //1차 카테고리
         $sub_query5 = "SELECT name FROM product_categories as sub_c WHERE c.parent_id = sub_c.id LIMIT 0, 1";
-        $this->db->select("p.*,r.id as ref_id,r.sort ,($sub_query) as photos, IFNULL(($sub_query2),0) as avg_score, ($sub_query3) as hotel_id, IFNULL(($sub_query4),'0') as todayPrice,c.name as category_name, ($sub_query5) as parent_category_name");
+        //리뷰 갯수
+        $sub_query6 = "SELECT count(*) FROM product_reviews as sub_r WHERE r.product_id = sub_r.product_id";
+        $this->db->select("p.*,r.id as ref_id,r.sort ,($sub_query) as photos, IFNULL(($sub_query2),0) as avg_score, ($sub_query3) as hotel_id, IFNULL(($sub_query4),'0') as todayPrice,c.name as category_name, ($sub_query5) as parent_category_name, ($sub_query6) as num_reviews");
         $this->db->from("ref_cate_product as r");
         $this->db->join("products as p", "p.id = r.product_id","LEFT");
         $this->db->join("product_categories as c", "c.id = r.cate_id","LEFT");
         $this->db->where("r.cate_id",$cate_id);
-        $this->db->order_by("r.sort",'asc');
+         $sort =$this->input->get_post('sort_value');//sort
+         $sort_type =$this->input->get_post('sort_type');//sort
+       
+        
+        // $this->db->order_by("r.sort",'asc');
         $rows = $this->db->get()->result();
         return $rows;
 

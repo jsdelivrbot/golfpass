@@ -1,6 +1,5 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
-
 class Test extends Public_Controller
 {
 
@@ -10,7 +9,24 @@ class Test extends Public_Controller
     }
     function test2()
     {
-        $this->load->view("test2");
+        function my_sort($a,$b)
+        {
+        if ($a==$b) return 0;
+          return ($a<$b)?-1:1;
+        }
+        
+        $a=array(4,2,2,8,6);
+        usort($a,"my_sort");
+        
+        $arrlength=count($a);
+        for($x=0;$x<$arrlength;$x++)
+          {
+          echo $a[$x];
+          echo "<br>";
+          }
+
+          
+        // $this->load->view("test2");
     }
     public function test3($var = null)
     {

@@ -1,6 +1,31 @@
 <?php defined('BASEPATH') OR exit('no direct script access allrowed');
 
-
+if(!function_exists('golfpass_sort')){
+    function golfpass_sort($rows){
+        $ci = &Public_Controller::$instance;
+        $sort_type = $ci->input->get_post('sort_type');
+        $sort_value = $ci->input->get_post('sort_value');
+        function my_sort($a,$b)
+        { 
+            $sort_value = $_GET["sort_value"];
+            $sort_type = $_GET["sort_type"];
+         if ($a->$sort_value==$b->$sort_value) return 0;
+         if($sort_type === "asc")
+         {
+             return ($a->$sort_value<$b->$sort_value)?-1:1;
+         }
+         else if ($sort_type === "desc")
+         {
+            return ($a->$sort_value>$b->$sort_value)?-1:1;
+         }
+        }
+        if($sort_value !== null && $sort_type !== null)
+        {
+             usort($rows,"my_sort");
+        }
+            return $rows;
+    }
+}
 if(!function_exists('getClassName_inDailyPriceAdmin')){
     function getClassName_inDailyPriceAdmin($price){
         if($price === null) //값이 존재하지 않을경우

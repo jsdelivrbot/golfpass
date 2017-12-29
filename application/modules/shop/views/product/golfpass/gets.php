@@ -70,6 +70,12 @@
             <div class="container">
                 <div class="heading-block style-3 text-center margin-top-100 margin-bottom-50">
                     <h3 style="font-family: 'notokr-regular', sans-serif; font-weight: normal;"><?=isset($search) ? "\"{$search}\" 검색결과({$num_total})" : "상품 목록"?></h3>
+                            <a href="<?=current_url()."?sort_value=created&sort_type=desc"?>">최신순</a>
+                            <a href="<?=current_url()."?sort_value=price&sort_type=asc"?>">가격낮은순</a>
+                            <a href="<?=current_url()."?sort_value=price&sort_type=desc"?>">가격 높은순</a>
+                            <a href="<?=current_url()."?sort_value=avg_score&sort_type=desc"?>">평점이 높은순</a>
+                            <a href="<?=current_url()."?sort_value=num_reviews&sort_type=desc"?>">리뷰가 많은 순</a>
+                            <a href="<?=current_url()."?sort_value=num_reviews&sort_type=asc"?>">리뷰가 적은 순</a>
                     <hr class="color">
                 </div>
 

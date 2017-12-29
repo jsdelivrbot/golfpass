@@ -211,7 +211,7 @@ class Product extends Admin_Controller {
         $this->load->database();
 
         //get totoal_rows
-        $field = $this->input->post('field');
+        $field=$this->input->get_post('field');
         if($field) $this->db->like($field, $this->input->post('value'));
         $total_rows= $this->db->count_all_results($this->table);
 
