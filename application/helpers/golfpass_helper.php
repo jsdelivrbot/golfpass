@@ -84,6 +84,6 @@ function my_number_format($stirng)
         return $stirng;
     }
 
-    $result =number_format($stirng)."원부터";
+    $result =number_format($stirng)."원~";
     return $result;
 }
