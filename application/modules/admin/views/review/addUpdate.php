@@ -17,12 +17,12 @@
 
     <div class="two fields">
         <div class="field">
-            <label>상품후기 보이기</label>
+            <label>상품 후기 보이기</label>
             <input type="radio" name="is_display" value="1" <?=my_set_checked($content,'is_display','1')?>>예
             <input type="radio" name="is_display" value="0" <?=my_set_checked($content,'is_display','0')?>>아니오
         </div>
         <div class="field">
-            <label>상품 후기 점수적용 </label>
+            <label>상품 후기 점수 적용 </label>
             <input type="radio" name="is_secret" value="0" <?=my_set_checked($content,'is_secret','0')?>>예
             <input type="radio" name="is_secret" value="1" <?=my_set_checked($content,'is_secret','1')?>>아니오
         </div>
@@ -39,20 +39,20 @@
     <div class="four fields">
 
         <div class="field">
-            <label>점수1</label>
+            <label>가성비</label>
             <input type="text" name="score_1" value="<?=set_value_data($content,'score_1')?>" >
         </div>
         <div class="field">
-            <label>점수2</label>
+            <label>시설 설비</label>
             <input type="text" name="score_2" value="<?=set_value_data($content,'score_2')?>">
         </div>
         <div class="field">
-            <label>점수3</label>
+            <label>식사</label>
             <input type="text" name="score_3" value="<?=set_value_data($content,'score_3')?>">
         </div>
 
         <div class="field">
-            <label>점수4</label>
+            <label>전략성</label>
             <input type="text" name="score_4" value="<?=set_value_data($content,'score_4')?>">
         </div>
     
@@ -61,25 +61,25 @@
 
     <div class="four fields">
           <div class="field">
-            <label>점수5</label>
+            <label>페어웨이 넓이</label>
             <input type="text" name="score_5" value="<?=set_value_data($content,'score_5')?>">
         </div>
         <div class="field">
-            <label>점수6</label>
+            <label>그린의 난이도</label>
             <input type="text" name="score_6" value="<?=set_value_data($content,'score_6')?>">
         </div>
         <div class="field">
-            <label>점수7</label>
+            <label>전장의 길이</label>
             <input type="text" name="score_7" value="<?=set_value_data($content,'score_7')?>">
         </div>
         <div class="field">
-            <label>점수8</label>
+            <label>코스 상태</label>
             <input type="text" name="score_8" value="<?=set_value_data($content,'score_8')?>">
         </div>
     </div>
     <div class="four fields">
        <div class="field">
-            <label>점수9</label>
+            <label>종합 점수</label>
             <input type="text" name="score_9" value="<?=set_value_data($content,'score_9')?>">
         </div>
     </div>
