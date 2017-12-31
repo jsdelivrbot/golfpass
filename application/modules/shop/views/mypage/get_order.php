@@ -18,7 +18,7 @@
         <div class="ui header">결제정보</div>
         <label>결제일 <?=$order->created?></label>
         <label>상품이름 <?=$product->name?></label>
-        <label>총결제금액<?=$order->total_price?></label>
+        <label>총결제금액<?=number_format($order->total_price)?></label>
         <label>주문번호 <?=$order->merchant_uid?></label>
         <label>주문자명 <?=$order->user_name?></label>
         <label>결제방식 <?=$order->pay_method_enum?></label>

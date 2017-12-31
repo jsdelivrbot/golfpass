@@ -118,7 +118,7 @@
 <?php for($i=0;$i<count($hole_options);$i++){?>
     <tr>
         <td><?=$hole_options[$i]->option_1?></td>
-        <td><?=$hole_options[$i]->price?></td>
+        <td><?=number_format($hole_options[$i]->price)?></td>
     </tr>
 <?php }?>
 </tbody>
@@ -141,7 +141,7 @@
     <?php    for($i=0; $i< count($order_options);$i++){?>
         <tr>
             <td><?=$order_options[$i]->name?></td>
-            <td><?=$order_options[$i]->price?></td>
+            <td><?=number_format($order_options[$i]->price)?></td>
         </tr>
     <?php }?>
     </tbody>
@@ -160,7 +160,7 @@
     <tbody>
         <tr>
             <td><?=$order->num_people?></td>
-            <td><?=$product->singleroom_price?></td>
+            <td><?=number_format($product->singleroom_price)?></td>
         </tr>
     </tbody>
     </table>

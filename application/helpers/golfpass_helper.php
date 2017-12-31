@@ -29,7 +29,7 @@ if(!function_exists('getClassName_inDailyPriceAdmin')){
         {
             return "white";
         }
-        else if($price === 0) //주말??머였지?
+        else if($price === "0") //주말??머였지?
         {
             return "yellow";
         }
