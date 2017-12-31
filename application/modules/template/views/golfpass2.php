@@ -344,13 +344,9 @@
             <ul>
                 <li class="tp-title"  style="color:#ababab;">ABOUT US
                 </li>
-                    <li><a href="#" style="color:#ababab;">회사 소개</a></li>
-                <li>
-                    <a href="#" style="color:#ababab;">이용 약관</a>
-                </li>
-                <li>
-                    <a href="#" style="color:#ababab;">개인 정보 취급 방침</a>
-                </li>
+                <li><a style="color:#ababab;" href="<?=site_url(page_uri."/get/1")?>">회사 소개</a></li>
+                <li><a style="color:#ababab;" href="<?=site_url(page_uri."/get/2")?>">이용 약관</a></li>
+                <li><a style="color:#ababab;" href="<?=site_url(page_uri."/get/3")?>">개인 정보 취급 방침</a></li>
             </ul>
             <ul>
                 <li class="tp-title" style="color:#ababab;">OFFICE</li>

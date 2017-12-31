@@ -197,9 +197,9 @@
         <div class="row d-flex" style="width:100%;">
             <ul>
                 <li class="tp-title">ABOUT US</li>
-                <li><a href="#">회사 소개</a></li>
-                <li><a href="#">이용약관</a></li>
-                <li><a href="#">개인 정보 취급 방침</a></li>
+                <li><a href="<?=site_url(page_uri."/get/1")?>">회사 소개</a></li>
+                <li><a href="<?=site_url(page_uri."/get/2")?>">이용 약관</a></li>
+                <li><a href="<?=site_url(page_uri."/get/3")?>">개인 정보 취급 방침</a></li>
             </ul>
             <ul>
                 <li class="tp-title">OFFICE</li>

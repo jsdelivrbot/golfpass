@@ -69,7 +69,7 @@ class Public_Controller extends MX_Controller{
     public function _get($id){
         $row= $this->{$this->model}->_get($id);
         $data = array("row"=>$row);
-        $this->_template('get',$data);
+        $this->_template("get",$data,"golfpass2");
     }
 
     public function _update($id,$data=array())
@@ -105,7 +105,7 @@ class Public_Controller extends MX_Controller{
         }
         $this->{$this->model}->_set_by_obj($arr);
     }
-    public function _add($data,$set_rules=true)
+    public function _add($data=array(),$set_rules=true)
     {
         if($set_rules===true)
             $this->_set_rules();
