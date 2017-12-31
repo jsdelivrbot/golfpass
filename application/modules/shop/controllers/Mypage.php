@@ -178,6 +178,7 @@ class Mypage extends Base_Controller {
             //  $row->주문명 = anchor(my_site_url(shop_mypage_uri."/get_order/{$row->id}"),$row->주문명);
              $row->주문명 = "<a href='{$href}'>{$text}</a>"; 
             //  $row->후기작성여부 = anchor(site_url(shop_mypage_uri."/get_order/{$row->id}"),$row->후기작성여부);//후기쓰러가기 url
+            $row->주문금액 = number_format($row->주문금액);
         }
         $data['rows'] =$rows;
         $views = array("container_h","table","container_f");
