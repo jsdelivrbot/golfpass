@@ -69,7 +69,7 @@ class Mypage extends Base_Controller {
         {
              $row->상품이름 = anchor(site_url(shop_product_uri."/get/{$row->p_id}"),$row->상품이름);
              $row->옵션 =  anchor("#","삭제","style='color:black' onclick='confirm_callback(this,ajax_a,\"복구할 방법이 없습니다. 삭제하시겠습니까?\"); return false;' data-action='".site_url(shop_wishlist_uri."/ajax_delete/{$row->id}")."'");
-             $row->상품가격 = number_format($row->상품가격);
+             $row->상품가격 = number_format($row->상품가격)."원";
         }
         $data['rows'] = $rows;
         
@@ -128,7 +128,7 @@ class Mypage extends Base_Controller {
             $href =my_site_url(shop_mypage_uri."/get_order/{$row->id}");
             $text =$row->주문명;
              $row->주문명 = "<a href='{$href}'>{$text}</a>"; 
-             $row->주문금액 = number_format($row->주문금액);
+             $row->주문금액 = number_format($row->주문금액)."원";
         }
         $data['rows'] =$rows;
 
@@ -178,7 +178,7 @@ class Mypage extends Base_Controller {
             //  $row->주문명 = anchor(my_site_url(shop_mypage_uri."/get_order/{$row->id}"),$row->주문명);
              $row->주문명 = "<a href='{$href}'>{$text}</a>"; 
             //  $row->후기작성여부 = anchor(site_url(shop_mypage_uri."/get_order/{$row->id}"),$row->후기작성여부);//후기쓰러가기 url
-            $row->주문금액 = number_format($row->주문금액);
+            $row->주문금액 = number_format($row->주문금액)."원";
         }
         $data['rows'] =$rows;
         $views = array("container_h","table","container_f");
