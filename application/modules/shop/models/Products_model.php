@@ -82,7 +82,7 @@ class Products_Model extends Board_Model{
                 return $this->db->get()->result();
             },
             null,
-            array("per_page"=>3,"is_numrow"=>false)
+            array("per_page"=>9,"is_numrow"=>false)
         );
     }
 

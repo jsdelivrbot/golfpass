@@ -27,7 +27,7 @@ abstract class  Oauth
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true );
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false );
         curl_setopt($ch, CURLOPT_COOKIE, '' );
-        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 300);
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 3); //seconds
         $result = curl_exec($ch);
 		curl_close($ch);
 		return $result;

@@ -18,6 +18,11 @@ class Google extends Public_Controller {
 		$access_token=$auth_result->access_token;
 		$info=$this->google_api->get_user_profile($access_token);
 
+		if($info == null)
+		{
+			 echo "<script>window.close();</script>";
+			 return;
+		}
 		// var_dump($info);
 		// var_dump($info->names[0]->displayName);
 		if(isset($info->names[0]->displayName)) //프로필 받아오기 성공이라면

@@ -10,6 +10,13 @@ class Facebook extends Public_Controller {
 	}
 	function request_auth()
 	{
+		if(is_login())
+        {
+            alert("로그인중입니다.");
+            redirect("");    
+            exit;
+        }
+
 		$this->facebook_api->request_auth();
 	}
 	function redirect_url()
@@ -20,7 +27,11 @@ class Facebook extends Public_Controller {
         $info=$this->facebook_api->get_user_profile($access_token);
         // var_dump($auth_result);
 		
-		
+		if($info == null)
+		{
+			 echo "<script>window.close();</script>";
+			 return;
+		}
 		if(isset($info->name)) //프로필 받아오기 성공이라면
 		{
 		

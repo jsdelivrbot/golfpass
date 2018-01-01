@@ -819,8 +819,8 @@ let $endDate = $("#e-day");
                 beginAtZero: false,
                 display: false,
                 min: 0,
-                max: 100,
-                stepSize: 20
+                max: 5,
+                stepSize: 1
             }
             ,
             pointLabels: { 
@@ -831,11 +831,11 @@ let $endDate = $("#e-day");
         },
         tooltips: {
             bodyFontColor: "#000000",
-            bodyFontSize: 0,
+            bodyFontSize: 18,
             bodyFontStyle: "bold",
             bodyFontColor: '#FFFFFF',
             bodyFontFamily: "'Helvetica', 'Arial', sans-serif",
-            footerFontSize: 0,
+            // footerFontSize: 0,
             titleFontSize: 16, //툴팁 폰트크기 @
             titleFontColor: 'orange', //툴팁 옵션색깔 @
             titleFontFamily: 'Noto Sans', //툴팁 폰트 @
@@ -873,7 +873,7 @@ let $endDate = $("#e-day");
                 pointBorderColor: "#79b754", //@
                 pointRadius: 5, //포인트 두께@
                 pointHoverRadius: 7, //호버시포인트두께
-                data: [<?=$product->score_1?> * 20, <?=$product->score_2?> * 20, <?=$product->score_3?> * 20, <?=$product->score_4?> * 20, <?=$product->score_5?> * 20, <?=$product->score_6?> * 20, <?=$product->score_7?> * 20, <?=$product->score_8?> * 20]
+                data: [Math.round(<?=$product->score_1?>), Math.round(<?=$product->score_2?>), Math.round(<?=$product->score_3?>), Math.round(<?=$product->score_4?>), Math.round(<?=$product->score_5?>), Math.round(<?=$product->score_6?>), Math.round(<?=$product->score_7?>), Math.round(<?=$product->score_8?>)]
 
             }]
         },

@@ -10,11 +10,11 @@ class Test extends Public_Controller
    
     public function index()
     {
-        
-        $this->load->model('shop/products_model');
-        $result=$this->products_model->get_by_category_id_pgi(3);
+      echo domain_url()."/index.php/api/naver/login_callback";  
+        // $this->load->model('shop/products_model');
+        // $result=$this->products_model->get_by_category_id_pgi(3);
      
-        var_dump($result);
+        // var_dump($result);
     }
     public function t()
     {

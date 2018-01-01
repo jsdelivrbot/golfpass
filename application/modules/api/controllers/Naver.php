@@ -15,11 +15,10 @@ class Naver extends Public_Controller {
             redirect("");    
             exit;
         }
-
         $this->load->library("naver_login");
         $this->naver_login->request_auth();
     }
-    function login_callback()
+    function login_callback2()
     {
         if(is_login())
         {
@@ -27,13 +26,16 @@ class Naver extends Public_Controller {
             redirect("");    
             exit;
         }
-
        $this->load->library("naver_login");
        $auth_result=$this->naver_login->login_callback();
-
-       $result=$this->naver_login->get_user_profile($auth_result->access_token);
     //    var_dump($auth_result);
-    //    var_dump($result);
+       $result=$this->naver_login->get_user_profile($auth_result->access_token);
+       if($result == null)
+       {
+           echo "<script>window.opener.alert('오류. 죄송합니다. 다른 회원가입을 이용해주세요.');</script>";
+            echo "<script>window.close();</script>";
+            return;
+       }
        if($result->message === "success") //프로필 받아오기 성공이라면
        {
 
