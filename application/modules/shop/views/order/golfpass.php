@@ -148,7 +148,7 @@
                   <h5>가격 정보</h5>
                   <div class="order-detail">
                     <p><?=$product->name?>   <span> 
-                         총<span id="total_price"><?=number_format($total_price)?></span></span></p>
+                         총<span id="total_price"><?=number_format($total_price)?>원</span></span></p>
                     <div class="item-order">
                     
                     </div>
@@ -260,7 +260,7 @@
             success:function(data){
                 console.log(data);
                 var total_price= data.total_price;
-                $("#total_price").text(total_price.toLocaleString('en'));
+                $("#total_price").text(total_price.toLocaleString('en')+"원");
                 $("input[name=total_price]").val(total_price);
             }
         });

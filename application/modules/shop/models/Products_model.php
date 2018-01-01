@@ -29,26 +29,61 @@ class Products_Model extends Board_Model{
         $this->db->where("p.id",$id);
         return $this->db->get()->row();
     }
-    function get_by_category_id_recursive_with_pgi($cate_id,$pgi_style)
-    {
 
-        $products=$this->gets_by_category_id_recursive_tree($cate_id);
-        $num_rows = count($products);
-        $products= parent::_gets_with_pgi_func(
-            $pgi_style,
-            function() use($num_rows)
-            {   
-                return $num_rows;
-            },
-            function($offset,$per_page) use($products)
+    function gets_all_category_id($id)//get products
+    {
+        $result = array($id);
+        $childs = $this->db->query("SELECT id FROM product_categories WHERE parent_id = $id")->result();
+        foreach ($childs as $child) 
+        {
+             $result=array_merge($result,$this->gets_all_category_id($child->id)) ;
+        }
+        return $result;
+    }
+    function get_by_category_id_pgi($id) //get products
+    {
+        $arr_cate_id =$this->gets_all_category_id($id);
+        $set_select_from =function(){
+            $this->set_select_from();
+        
+        };
+        $gets = function() use($arr_cate_id,$set_select_from)
+        {
+
+            $set_select_from();
+            foreach ($arr_cate_id as  $cate_id)
             {
-                return array_slice($products,$offset,$per_page);
+                $this->db->or_where("cate_id",$cate_id);
+            }
+            $this->db->group_by("r.product_id");
+        };
+        $sort_type = $this->input->get_post('sort_type');
+        $sort_value = $this->input->get_post('sort_value');
+        
+        $order_by = function() use($sort_type,$sort_value)
+        {
+            if($sort_type !== null && $sort_value !== null)
+                $this->db->order_by($sort_value,$sort_type);
+            else
+                $this->db->order_by("created","desc");
+        };
+        return $products= parent::_gets_with_pgi_func(
+            "style_zap",
+            function() use($gets)
+            {   
+                $gets();
+                return $this->db->count_all_results();
+            },
+            function($offset,$per_page) use($gets,$order_by)
+            {
+                $gets();
+                $order_by();
+                $this->db->limit($per_page,$offset);
+                return $this->db->get()->result();
             },
             null,
-            array("per_page"=>12,"is_numrow"=>false)
+            array("per_page"=>3,"is_numrow"=>false)
         );
-        $products=golfpass_sort($products);
-        return $products;
     }
 
 
@@ -124,36 +159,36 @@ class Products_Model extends Board_Model{
         return $products;
     }
 
+    function set_select_from() // using when get products by_cate_id
+    {
+         //product_option 사진들
+         $sub_query = "SELECT group_concat(o.name order by o.sort) FROM `product_option` AS `o` WHERE o.product_id= r.product_id AND o.kind = 'photo'";
+         //product_reviews 총 평균점수
+         $sub_query2 = "SELECT {$this->avg_score} FROM product_reviews as r WHERE r.product_id = p.id  AND r.is_secret = 0";
+         //호텔 여부
+         $sub_query3 = "SELECT p_ref_h.hotel_id FROM `p_ref_hotel` as p_ref_h WHERE p_ref_h.product_id = p.id LIMIT 0,1";
+         //오늘날자 1박2일 1인가격
+         $date = date("Y-m-d");
+         $sub_query4 = "SELECT price FROM p_daily_price as sub_dp WHERE sub_dp.product_id = r.product_id AND sub_dp.date = '{$date}' AND sub_dp.num_people = '1' AND sub_dp.period = '1' LIMIT 0, 1";
+         //1차 카테고리
+         $sub_query5 = "SELECT name FROM product_categories as sub_c WHERE c.parent_id = sub_c.id LIMIT 0, 1";
+         //리뷰 갯수
+         $sub_query6 = "SELECT count(*) FROM product_reviews as sub_r WHERE r.product_id = sub_r.product_id";
+         $this->db->select("p.*,r.id as ref_id,r.sort ,($sub_query) as photos, IFNULL(($sub_query2),0) as avg_score, ($sub_query3) as hotel_id, IFNULL(($sub_query4),'0') as todayPrice,c.name as category_name, ($sub_query5) as parent_category_name, ($sub_query6) as num_reviews");
+         $this->db->from("ref_cate_product as r");
+         $this->db->join("products as p", "p.id = r.product_id","LEFT");
+         $this->db->join("product_categories as c", "c.id = r.cate_id","LEFT");
+    }
     function gets_by_category_id($cate_id)
     {
-        //product_option 사진들
-        $sub_query = "SELECT group_concat(o.name order by o.sort) FROM `product_option` AS `o` WHERE o.product_id= r.product_id AND o.kind = 'photo'";
-        //product_reviews 총 평균점수
-        $sub_query2 = "SELECT {$this->avg_score} FROM product_reviews as r WHERE r.product_id = p.id  AND r.is_secret = 0";
-        //호텔 여부
-        $sub_query3 = "SELECT p_ref_h.hotel_id FROM `p_ref_hotel` as p_ref_h WHERE p_ref_h.product_id = p.id LIMIT 0,1";
-        //오늘날자 1박2일 1인가격
-        $date = date("Y-m-d");
-        $sub_query4 = "SELECT price FROM p_daily_price as sub_dp WHERE sub_dp.product_id = r.product_id AND sub_dp.date = '{$date}' AND sub_dp.num_people = '1' AND sub_dp.period = '1' LIMIT 0, 1";
-        //1차 카테고리
-        $sub_query5 = "SELECT name FROM product_categories as sub_c WHERE c.parent_id = sub_c.id LIMIT 0, 1";
-        //리뷰 갯수
-        $sub_query6 = "SELECT count(*) FROM product_reviews as sub_r WHERE r.product_id = sub_r.product_id";
-        $this->db->select("p.*,r.id as ref_id,r.sort ,($sub_query) as photos, IFNULL(($sub_query2),0) as avg_score, ($sub_query3) as hotel_id, IFNULL(($sub_query4),'0') as todayPrice,c.name as category_name, ($sub_query5) as parent_category_name, ($sub_query6) as num_reviews");
-        $this->db->from("ref_cate_product as r");
-        $this->db->join("products as p", "p.id = r.product_id","LEFT");
-        $this->db->join("product_categories as c", "c.id = r.cate_id","LEFT");
+        $this->set_select_from();
         $this->db->where("r.cate_id",$cate_id);
-         $sort =$this->input->get_post('sort_value');//sort
-         $sort_type =$this->input->get_post('sort_type');//sort
-       
-        
-        // $this->db->order_by("r.sort",'asc');
+    
         $rows = $this->db->get()->result();
         return $rows;
 
     }
-    function gets_by_category_id_recursive_tree($cate_id=null)
+    function gets_by_category_id_recursive_tree($cate_id=null) //main
     {
         $this->db->select("id");
         $this->db->from("product_categories");

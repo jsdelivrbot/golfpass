@@ -7,18 +7,18 @@ class Test extends Public_Controller
     {
         parent::__construct();
     }
-    function addAll()
+   
+    public function index()
     {
-        $this->load->model('shop/ref_cate_product_model');
-        $this->load->model('admin/categories_model');
+        
         $this->load->model('shop/products_model');
-
-        $cateAll =$this->categories_model->_get(array("name"=>"전체"));
-
-        $allProducts = $this->products_model->_gets();
-        foreach ($allProducts as $product) {
-            $this->ref_cate_product_model->_add(array("product_id"=>$product->id,"cate_id"=>$cateAll->id));
-        }
+        $result=$this->products_model->get_by_category_id_pgi(3);
+     
+        var_dump($result);
+    }
+    public function t()
+    {
+        echo 1;
     }
     function test2()
     {
@@ -60,10 +60,7 @@ class Test extends Public_Controller
         // $this->load->view('test3', $data, FALSE);
         
     }
-    function index()
-    {
-       
-    }
+    
     function login_success()
     {
           // Initialize variables

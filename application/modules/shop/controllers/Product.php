@@ -57,7 +57,8 @@ class Product extends Base_Controller {
     }
 	public function gets($id =1){
         // $products =$this->products_model->gets_by_category_id_recursive_tree($id);        
-        $products =$this->products_model->get_by_category_id_recursive_with_pgi($id,'style_zap');        
+        // $products =$this->products_model->get_by_category_id_recursive_with_pgi($id,'style_zap');        
+        $products =$this->products_model->get_by_category_id_pgi($id);        
         for($i=0 ;$i <count($products); $i++)
         {
             $photos = $products[$i]->photos;

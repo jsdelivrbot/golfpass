@@ -84,16 +84,16 @@ class Review extends Base_Controller {
         $this->db->where("is_review_write","0");
         $this->db->where("status","confirm");
         $orders = $this->product_orders_model->_gets();
-        // if(count($orders) === 0 ){
-        //     alert("상품을 구매하시고, 결제가 확인되면 작성 하실수 있습니다.");
-        //     my_redirect($_SERVER['HTTP_REFERER']);
-        //     return ;
-        // }
-        // if(($orders = is_can_product_review($product_id)) === false){
-        //     alert("상품을 구매하셔야 후기를 작성할 수 있습니다.");
-        //     my_redirect($_SERVER['HTTP_REFERER']);
-        //     return ;
-        // }
+        if(count($orders) === 0 ){
+            alert("상품을 구매하시고, 결제가 확인되면 작성 하실수 있습니다.");
+            my_redirect($_SERVER['HTTP_REFERER']);
+            return ;
+        }
+        if(($orders = is_can_product_review($product_id)) === false){
+            alert("상품을 구매하셔야 후기를 작성할 수 있습니다.");
+            my_redirect($_SERVER['HTTP_REFERER']);
+            return ;
+        }
         
         $this->_set_rules();
         if(!$this->fv->run()){
