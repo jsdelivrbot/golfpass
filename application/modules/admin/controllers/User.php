@@ -23,7 +23,7 @@ class User extends Admin_Controller {
         $this->load->library('pagination');
         $pgiData =$this->pagination->get(array(
             'total_rows'=>$total_rows,
-            'style_pgi'=>'style_1'
+            'style_pgi'=>'style_semantic'
         ));
         $offset = $pgiData['offset'];
         $per_page = $pgiData['per_page'];
@@ -44,8 +44,23 @@ class User extends Admin_Controller {
     function add($kind)
     {
         
-        $this->fv->set_rules('userName','아이디','required');
+        $this->fv->set_rules('userName','아이디',array('required',"min_length[2]","max_length[20]", //alpha_numeric
+            array('해당 아이디는 이미존재합니다.',function($str){
+                $row=$this->db->select("u.userName")
+                ->from("users as u")
+                ->where("u.userName",$str)
+                ->where("u.sns_type","general")
+                ->get()->row();
+                if($row !== null)
+                {
+                    return false;
+                }
+                return true;
+            })
+        ));
+         $this->fv->set_rules('password', '암호', 'required|min_length[4]|max_length[40]');
         if ($this->fv->run()=== false) {
+            alert_validationErrors();
             $data['user'] = (object)array();
             $data['mode']="add/$kind";
             $data['kind'] =$kind;
