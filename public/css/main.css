@@ -2839,6 +2839,9 @@ body.menu-open .plus-btn .r2 {
   #main-wrap #footer strong {
     color: #fff !important; }
 
+@media (max-width: 936px) {
+  #partner {
+    display: none; } }
 #main-wrap {
   width: 100%;
   height: 100%;
