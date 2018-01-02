@@ -70,17 +70,17 @@
             <div class="container">
                 <div class="heading-block style-3 text-center margin-top-100 margin-bottom-50">
                     <h3 style="font-family: 'notokr-regular', sans-serif; font-weight: normal;"><?=isset($search) ? "\"{$search}\" 검색결과({$num_total})" : "상품 목록"?></h3>
-                            <a href="<?=current_url()?>" style="color:<?=$this->input->get("sort_value") === null ? "#6eae4a" : ""?>">최신</a>
+                            <a href="<?=current_url()?>" style="color:<?=$this->input->get("sort_value") === null ? "#6eae4a" : ""?>">등록순</a>
                             |
-                            <a href="<?=current_url()."?sort_value=price&sort_type=asc"?>" style="color:<?=set_active("sort_value,sort_type","price,asc","#6eae4a")?>">가격 낮은 순서</a>
+                            <a href="<?=current_url()."?sort_value=price&sort_type=asc"?>" style="color:<?=set_active("sort_value,sort_type","price,asc","#6eae4a")?>">가격 낮은 순</a>
                             |
-                            <a href="<?=current_url()."?sort_value=price&sort_type=desc"?>"style="color:<?=set_active("sort_value,sort_type","price,desc","#6eae4a")?>">가격 높은 순서</a>
+                            <a href="<?=current_url()."?sort_value=price&sort_type=desc"?>"style="color:<?=set_active("sort_value,sort_type","price,desc","#6eae4a")?>">가격 높은 순</a>
                             |
-                            <a href="<?=current_url()."?sort_value=avg_score&sort_type=desc"?>"style="color:<?=set_active("sort_value,sort_type","avg_score,desc","#6eae4a")?>">평점이 높은 순서</a>
+                            <a href="<?=current_url()."?sort_value=avg_score&sort_type=desc"?>"style="color:<?=set_active("sort_value,sort_type","avg_score,desc","#6eae4a")?>">평점이 높은 순</a>
+                            <!-- |
+                            <a href="<?=current_url()."?sort_value=num_reviews&sort_type=desc"?>"style="color:<?=set_active("sort_value,sort_type","num_reviews,desc","#6eae4a")?>">리뷰가 많은 순</a>
                             |
-                            <a href="<?=current_url()."?sort_value=num_reviews&sort_type=desc"?>"style="color:<?=set_active("sort_value,sort_type","num_reviews,desc","#6eae4a")?>">리뷰가 많은 순서</a>
-                            |
-                            <a href="<?=current_url()."?sort_value=num_reviews&sort_type=asc"?>"style="color:<?=set_active("sort_value,sort_type","num_reviews,asc","#6eae4a")?>">리뷰가 적은 순서</a>
+                            <a href="<?=current_url()."?sort_value=num_reviews&sort_type=asc"?>"style="color:<?=set_active("sort_value,sort_type","num_reviews,asc","#6eae4a")?>">리뷰가 적은 순</a> -->
                     <hr class="color">
                 </div>
 
