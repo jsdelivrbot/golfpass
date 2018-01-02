@@ -79,83 +79,19 @@
             <div class="row"> 
               
               <!-- ESTIMATE SHIPPING & TAX -->
-             
-              <div class="col-sm-7">
-                 
-                <h5 class="font-20px margin-bottom-30 letter-space-2">주문자 정보</h5>
-                <div class="margin-bottom-50">
-                  <ul class="row">
-                    <li class="col-md-6">
-                      <label> 이름
-                        <input type="text"  name="user_name" value="<?=set_value_data($user,'name')?>" >
-                      </label>
-                    </li>
-                    <li class="col-md-6">
-                      <label> 영문 이름
-                        <input type="text"  name="user_eng_name" value="<?=set_value_data($user,'user_eng_name')?>" >
-                      </label>
-                    </li>
-                    <li class="col-md-6">
-                      <label> 연락처
-                        <input type="text"name="phone" value="<?=set_value_data($user,'phone')?>">
-                      </label>
-                    </li>
-                    <li class="col-md-6">
-                      <label> E-mail
-                        <input type="text" name="email" value="<?=set_value_data($user,'email')?>">
-                      </label>
-                    </li>
-                </ul>
-              </div>
-            <h5 class="font-20px margin-bottom-30 letter-space-2">동행자 정보(<?=$num_people?>명)</h5>
-            <?php for ( $i = 0 ; $i < count($groups) ; $i++ ): ?>
-                <input type="hidden" name="groups[]" value="<?=$groups[$i]?>">
-                <h5 class="font-14px margin-bottom-30 letter-space-2"><?=chr(65+$i)?>조</h5>
-                <div>
-                <?php for ($j = 0 ; $j < (int)$groups[$i] ; $j++ ): ?>
-                    <ul class="row margin-bottom-20" style="border-bottom: 1px solid #ececec;">
-                        <li class="col-md-6">
-                        <label> 이름
-                            <input type="text" name="name_with[]" placeholder="">
-                        </label>
-                        </li>
-                        <li class="col-md-6">
-                        <label> 영문 이름
-                            <input type="text" name="eng_name_with[]" placeholder="">
-                        </label>
-                        </li>
-                        <li class="col-md-6">
-                        <label> 연락처
-                            <input type="text" name="phone_with[]" placeholder="">
-                        </label>
-                        </li>
-                        <li class="col-md-6">
-                        <label> E-mail
-                            <input type="text" name="email_with[]" placeholder="">
-                        </label>
-                        </li>
-                    </ul>
-
-                    
-                <?php endfor; ?>
-                </div>
-            <?php endfor; ?>
-          </div>
-              
-              <!-- SUB TOTAL -->
-              <div class="col-sm-5">
+<div class="col-sm-5">
                 <div class="order-place">
-                  <h5>가격 정보</h5>
+                  <h5 style="color:#79b754 !important;">가격 정보</h5>
                   <div class="order-detail">
-                    <p><?=$product->name?>   <span> 
-                         총<span id="total_price"><?=number_format($total_price)?>원</span></span></p>
+                    <p style="font-size:14px;"><?=$product->name?>   <span> 
+                         총&nbsp;<span id="total_price"><?=number_format($total_price)?>원</span></span></p>
                     <div class="item-order">
                     
                     </div>
                   </div>
                   <div class="pay-meth">
-                    <h5 class="text-color-primary">옵션 선택</h5>
-                    <ul>
+                    <h5 class="text-color-primary" style="color:#79b754 !important;">옵션 선택</h5>
+                    <ul style="padding:0;">
                     <?php if ( isset($options[0]) ): ?>
                       <li>
                         <div class="checkbox">
@@ -196,7 +132,7 @@
                       </li>
                       </ul> </div>
                   <div class="pay-meth margin-top-40">
-                          <label class="j-label"> 결제 수단
+                          <label class="j-label" > 결제 수단
                               <select class="j-select" name="pay_method" style="margin:10px 0 10px 0;">
                                   <option value="bank">무통장 입금</option>
                                   <option value="card">신용 카드</option>
@@ -206,10 +142,75 @@
                                   <option value="kpay">KPay 앱 직접 호출</option>
                               </select>
                           </label>
-                    <a id="order_submit_btn"href="#" class="btn btn-small btn-dark pull-right">결제하기</a> </div>
+                    <a id="order_submit_btn"href="#" class="btn btn-small btn-dark pull-right" style="background-color:#79b754 !important;">결제하기</a> </div>
                     
                 </div>
               </div>
+              <div class="col-sm-7">
+                 
+                <h5 class="font-20px margin-bottom-30">주문자 정보</h5>
+                <div class="margin-bottom-50">
+                  <ul class="row" style="padding:0;">
+                    <li class="col-md-6">
+                      <label> 이름
+                        <input type="text"  name="user_name" value="<?=set_value_data($user,'name')?>" >
+                      </label>
+                    </li>
+                    <li class="col-md-6">
+                      <label> 영문 이름
+                        <input type="text"  name="user_eng_name" value="<?=set_value_data($user,'user_eng_name')?>" >
+                      </label>
+                    </li>
+                    <li class="col-md-6">
+                      <label> 연락처
+                        <input type="text"name="phone" value="<?=set_value_data($user,'phone')?>">
+                      </label>
+                    </li>
+                    <li class="col-md-6">
+                      <label> E-mail
+                        <input type="text" name="email" value="<?=set_value_data($user,'email')?>">
+                      </label>
+                    </li>
+                </ul>
+              </div>
+            <h5 class="font-20px margin-bottom-15">동행자 정보 (<?=$num_people?>명)</h5>
+            <h5 class="font-14px margin-bottom-30">동행자 정보는 추후에 입력하셔도 됩니다.</h5>
+            <?php for ( $i = 0 ; $i < count($groups) ; $i++ ): ?>
+                <input type="hidden" name="groups[]" value="<?=$groups[$i]?>">
+                <h5 class="font-14px margin-bottom-30 letter-space-2" style="color:#79b754 !important;"><?=chr(65+$i)?>조</h5>
+                <div>
+                <?php for ($j = 0 ; $j < (int)$groups[$i] ; $j++ ): ?>
+                    <ul class="row margin-bottom-20" style="border-bottom: 2px solid #ececec; padding:0;">
+                        <li class="col-md-6">
+                        <label> 이름
+                            <input type="text" name="name_with[]" placeholder="">
+                        </label>
+                        </li>
+                        <li class="col-md-6">
+                        <label> 영문 이름
+                            <input type="text" name="eng_name_with[]" placeholder="">
+                        </label>
+                        </li>
+                        <li class="col-md-6">
+                        <label> 연락처
+                            <input type="text" name="phone_with[]" placeholder="">
+                        </label>
+                        </li>
+                        <li class="col-md-6">
+                        <label> E-mail
+                            <input type="text" name="email_with[]" placeholder="">
+                        </label>
+                        </li>
+                    </ul>
+
+                    
+                <?php endfor; ?>
+                </div>
+            <?php endfor; ?>
+          </div>
+              
+              <!-- SUB TOTAL -->
+              
             </div>
             </form>
           </div>

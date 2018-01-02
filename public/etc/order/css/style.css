@@ -34,7 +34,6 @@ body
 ========================================================*/
 * {
 	margin: 0px;
-	padding: 0px;
 }
 body {
 	background: #FFF;
@@ -605,7 +604,7 @@ hr.black {
 	font-size: 12px;
 	text-transform: uppercase;
 	padding: 10px 50px;
-	font-weight: bold;
+	font-weight: normal;
 	border-radius: 0px;
 	letter-spacing: 1px;
 	color: #141414;
@@ -2559,8 +2558,7 @@ header.coporate-header .is-sticky .sticky .ownmenu > li > .megamenu {
 }
 .shopping-cart .cart-ship-info input {
 	margin-top: 10px;
-	font-family: 'Crimson Text', serif;
-	font-style: italic;
+	font-family: 'notokr-demilight', serif;
 	font-size: 16px;
 }
 .shopping-cart .cart-ship-info label {
@@ -2568,12 +2566,10 @@ header.coporate-header .is-sticky .sticky .ownmenu > li > .megamenu {
 	margin-bottom: 20px;
 	display: inline-block;
 	width: 100%;
-	font-style: italic;
 	font-size: 13px;
-	font-weight: normal;
 	color: #141414;
-	font-weight: 600;
-	font-family: 'Crimson Text', serif;
+	font-weight: normal;
+	font-family: 'notokr-demilight', serif;
 }
 .shopping-cart .cart-ship-info .grand-total {
 	border: 2px solid #ececec;
