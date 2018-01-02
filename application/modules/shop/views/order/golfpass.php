@@ -79,7 +79,7 @@
             <div class="row"> 
               
               <!-- ESTIMATE SHIPPING & TAX -->
-<div class="col-sm-5">
+            <div class="col-sm-5">
                 <div class="order-place">
                   <h5 style="color:#79b754 !important;">가격 정보</h5>
                   <div class="order-detail">
