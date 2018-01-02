@@ -169,7 +169,7 @@
                         <!-- <div class="checkbox">
                           <input id="checkbox3-2" class="styled" type="checkbox"> -->
                           <label for="checkbox3-2" class="j-label"> 싱글 룸 차지 </label>
-                              <select name="singleroom" class="j-select">
+                              <select name="singleroom" class="j-select" style="margin:10px 0 10px 0;">
                                   <option value="" data-price="0">선택 안함</option>
                                 <?php foreach ( $singlerooms as $singleroom ): ?>
                                 <option value="<?=$singleroom->value?>" data-price="<?=$singleroom->price?>">
@@ -186,7 +186,7 @@
                         <!-- <div class="checkbox">
                           <input id="checkbox3-3" class="styled" type="checkbox"> -->
                           <label for="checkbox3-3" class="j-label"> 희망 시간대 </label>
-                            <select name="hope_date" class="j-select">
+                            <select name="hope_date" class="j-select" style="margin:10px 0 10px 0;">
                               <option>선택안함</option>
                               <?php for ( $i = 1 ; $i <= 12 ; $i++ ): ?>
                               <option><?=$i?></option>
@@ -197,7 +197,7 @@
                       </ul> </div>
                   <div class="pay-meth margin-top-40">
                           <label class="j-label"> 결제 수단
-                              <select class="j-select" name="pay_method" >
+                              <select class="j-select" name="pay_method" style="margin:10px 0 10px 0;">
                                   <option value="bank">무통장 입금</option>
                                   <option value="card">신용 카드</option>
                                   <option value="trans">실시간 계좌 이체</option>

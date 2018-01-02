@@ -168,7 +168,6 @@
                 </li>
                 <?php }?>
                 <?php if(is_login()){?>
-                    <li><a style="font-family: 'notokr-light', sans-serif; font-size: 20px; font-weight: normal; color: #fff;" href="<?=site_url('shop/product/gets/132')?>">1:1 맞춤 상품</a></li>
                 <li>
                     <a style="font-family: 'notokr-light', sans-serif; font-size: 20px; font-weight: normal; color: #fff;" href="<?=site_url(shop_mypage_uri.'/gets_wishlist')?>">마이페이지
             </a>
@@ -252,7 +251,7 @@
                 <div  style="<?php if(strpos(current_url(),"category/gets")>-1) echo "margin-left:20px;"?>width:81%; height:43px; padding:10px;"style="width:81%; height:43px; padding:10px;"class="tp-search-container tp-d-flex tp-align-items-center tp-position-relative">
                     <i class="xi xi-search" style="font-size: 16px;">
             </i>
-                    <input style="width:100%; height:41px; padding:1px 1px 1px 5px;" id="tp-serach" type="text" placeholder="관심있는 나라나 골프장을 검색해보세요!">
+                    <input style="width:100%; height:41px; padding:1px 1px 1px 5px;" id="tp-serach" type="text" placeholder="관심있는 지역이나 골프장을 검색해보세요!">
                     <div class="tp-search-content-container tp-position-absolute tp-w-100">
                     </div>
                 </div>

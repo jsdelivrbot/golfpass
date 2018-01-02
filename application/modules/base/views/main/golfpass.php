@@ -87,7 +87,6 @@
                     <li><a style="font-family: 'notokr-light', sans-serif; font-size: 20px; font-weight: normal; color: #fff;" href="<?=site_url(user_uri.'/register_agree_1')?>">회원가입</a></li>
                 <?php }?>
                 <?php if(is_login()){?>
-                    <li><a style="font-family: 'notokr-light', sans-serif; font-size: 20px; font-weight: normal; color: #fff;" href="<?=site_url('shop/product/gets/132')?>">1:1 맞춤 상품</a></li>
                     <li><a style="font-family: 'notokr-light', sans-serif; font-size: 20px; font-weight: normal; color: #fff;" href="<?=site_url(shop_mypage_uri.'/gets_wishlist')?>">마이페이지</a></li>
                     <li><a style="font-family: 'notokr-light', sans-serif; font-size: 20px; font-weight: normal; color: #fff;" href="<?=site_url(user_uri.'/logout')?>">로그아웃</a></li>
                 <?php }?>
@@ -149,7 +148,7 @@
                 </figure></a>
                 <div class="search-container d-flex align-items-center position-relative">
                                     <i class="xi xi-search"></i>
-                                    <input id="serach"type="text" placeholder="관심있는 나라나 골프장을 검색해보세요!">
+                                    <input id="serach"type="text" placeholder="관심있는 지역이나 골프장을 검색해보세요!">
                                     <!--NOTE 검색결과 창-->
                                     <div class="search-content-container position-absolute w-100">
 
