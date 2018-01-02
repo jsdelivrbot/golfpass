@@ -11,26 +11,20 @@
 <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/semantic.min.css"> -->
 <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/semantic.min.js"></script>
-<!--  -->
-<style>
-    .card{
-        height:300px;
-    }
-  
-</style>
 
 
 
 <div class="ui middle aligned center aligned grid">
     <div class="column" style="   max-width: 700px;">
         <div class="ui two column grid">
-            <div class="column" style="margin: 0 auto;">
+            <div class="column" style="margin: 0 auto; cursor: pointer;" onclick="location.href='<?=site_url(user_uri."/add")?>';">
                 <div class="ui fluid card">
                     <div class="image">
-                        <img src="/public/images/register.jpeg" style="width: 50%; height: 50%; margin: 0 auto;">
+                        <img src="/public/images/register.jpeg" style="width: 100%; height: 50%; margin: 0 auto;">
                     </div>
                     <div class="content">
-                    <a href="<?=site_url(user_uri."/add")?>"class="header">개인 회원 가입</a>
+                        <a href="#"class="header">개인 회원 가입</a>
+                        <p><br>이제 해외 골프장도 직접 선택하세요.<br>"골프패스"는 해외골프 직거래 서비스를 제공합니다.<br>"골프패스"를 통해 전세계의 골프장을 자유롭게 투어하세요!</p>
                     </div>
                 </div>
             </div>

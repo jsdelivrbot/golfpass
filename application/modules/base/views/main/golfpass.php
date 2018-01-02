@@ -560,7 +560,7 @@
             <div class="panel_redesign" style="cursor: pointer;" onclick="location.href='<?=site_url(golfpass_panel_uri."/gets")?>';">
                 <div class="panel_text" style="width: 50%; margin: 0 auto;">
                     <h1>그늘집</h1>
-                    <p>골프패스 편집부의 생생한 골프 이야기를 열람하세요!</p>
+                    <p>골프패스 패널의 생생한 골프 이야기를 열람하세요!</p>
                 </div>
             </div>
         <div class="row justify-content-center align-items-center">
@@ -585,7 +585,7 @@
         <div id="partner">
             <div class="row" style="width:100%;">
                 <div class="w-100">
-                    <h6 >PARTNERS</h6>
+                    <h6>PARTNERS</h6>
                 </div>
                 <div class="d-flex flex-wrap">
                     <figure>
