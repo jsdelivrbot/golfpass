@@ -656,7 +656,7 @@
                          </li>
                  </ul>
                  <ul>
-                         <li class="title">CERTIFICATION MARK</li>
+                         <li class="title" style="height:auto;">CERTIFICATION MARK</li>
                             <!-- 기업은행안심이체 인증마크 적용 시작-->
                             <script _ajs_='45_495d281e7c21ddd2' _ah_='83925990'>
                             function onPopAuthMark(key)
