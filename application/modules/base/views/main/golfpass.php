@@ -656,7 +656,7 @@
                          </li>
                  </ul>
                  <ul>
-                         <li class="title" style="height:auto;">CERTIFICATION MARK</li>
+                         <li class="title">CERTIFICATION MARK</li>
                             <!-- 기업은행안심이체 인증마크 적용 시작-->
                             <script _ajs_='45_495d281e7c21ddd2' _ah_='83925990'>
                             function onPopAuthMark(key)
@@ -673,7 +673,7 @@
                                 <input type="hidden" name="authmarkinfo">
                             </FORM>
                             <!--기업은행안심이체 인증마크 적용 종료 -->
-                        <li>
+                        <li style="height:auto;">
                             <a href="javascript:onPopAuthMark('2ae0165604bed3399c7f3b867fdda050')"><img src='http://golfpass.net/image/bank.png' alt='인증마크' border='0'/></a>
                         </li>
                  </ul>
