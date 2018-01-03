@@ -64,8 +64,8 @@
 <div class="ui four item stackable tabs menu">
     <a class="<?=$board->id==="4" ? "active" : ""?> item" href="<?=site_url(content_uri."/gets?board_id=4")?>">공지사항</a>
     <a class="<?=$board->id==="3" ? "active" : ""?> item"  href="<?=site_url(content_uri."/gets?board_id=3")?>">FAQ</a>
-    <a class="<?=$board->id==="2" ? "active" : ""?> item"  href="<?=my_site_url(content_uri."/gets?board_id=2&is_user=true")?>">1:1문의</a>
-    <a class="item"  href="<?=my_site_url(shop_mypage_uri."/gets_wishlist")?>">마이페이지로</a>
+    <a class="<?=$board->id==="2" ? "active" : ""?> item"  href="<?=my_site_url(content_uri."/gets?board_id=2&is_user=true")?>">1:1 문의</a>
+    <a class="item"  href="<?=my_site_url(shop_mypage_uri."/gets_wishlist")?>">마이페이지</a>
     </div>
 </div>
 </div>
@@ -95,7 +95,7 @@
     <div class="sixteen wide column">
 <!-- 코멘트시작 -->
 <div class="ui comments">
-    <h3 class="ui dividing header">댓글목록</h3>
+    <h3 class="ui dividing header">댓글 목록</h3>
 <?php for($i =0; $i<count($replys); $i++){?>
 
 
@@ -140,7 +140,7 @@
         <?php }?>
 
         <button type="submit" class="ui basic labeled submit icon button" >
-        <i class="icon edit"></i> 댓글달기
+        <i class="icon edit"></i> 댓글 달기
     </button>
         </form>
 
