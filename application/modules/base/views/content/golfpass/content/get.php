@@ -42,6 +42,11 @@
         font-weight:800;
         color: #4d5256;
     }
+    
+#desc p img {
+    width: 100% !important;
+    height: auto !important;
+}
 </style>
 <div id="tp-panel-wrap">
 	<article id="tp-panel-article" class="tp-container-fluid">
@@ -78,7 +83,7 @@
                 <h1 class="j-title" style="text-align:center"><?=$content->title?></h1>
                 <div style="margin-top:80px;"></div>
              
-                <div id="desc" class="w3-text-grey"style="text-align:center; color:black"><?=$content->desc?></div>
+                <div id="desc" class="w3-text-grey" style="color:black"><?=$content->desc?></div>
             </div>
         </div>
     </div>

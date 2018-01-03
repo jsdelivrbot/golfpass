@@ -22,8 +22,8 @@
 <div class="ui four item stackable tabs menu">
     <a class="<?=$board->id==="4" ? "active" : ""?> item" href="<?=site_url(content_uri."/gets?board_id=4")?>">공지사항</a>
     <a class="<?=$board->id==="3" ? "active" : ""?> item"  href="<?=site_url(content_uri."/gets?board_id=3")?>">FAQ</a>
-    <a class="<?=$board->id==="2" ? "active" : ""?> item"  href="<?=my_site_url(content_uri."/gets?board_id=2&is_user=true")?>">1:1문의</a>
-    <a class="item"  href="<?=my_site_url(shop_mypage_uri."/gets_wishlist")?>">마이페이지로</a>
+    <a class="<?=$board->id==="2" ? "active" : ""?> item"  href="<?=my_site_url(content_uri."/gets?board_id=2&is_user=true")?>">1:1 문의</a>
+    <a class="item"  href="<?=my_site_url(shop_mypage_uri."/gets_wishlist")?>">마이페이지</a>
     </div>
 </div>
 </div>
@@ -71,7 +71,7 @@
 							 <!-- TODO 문법을 몰라서 그냥둠.. -->
 							
 								<div class="tp-post_write">
-								    <a href="<?=site_url(content_uri."/add?board_id={$board->id}")?>">작성하기</a>
+								    <a href="<?=site_url(content_uri."/add?board_id={$board->id}")?>" style="color:#000;">작성하기</a>
 								</div>
 								<!-- 페이지네이션 샘플 -->
 							 <!-- <div class="col-12 d-flex justify-content-center align-items-center pagination">
