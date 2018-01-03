@@ -211,9 +211,10 @@
         <div class="row d-flex" style="width:100%; margin-bottom:16px;">
             <ul>
                 <li class="tp-title">ABOUT US</li>
-                <li><a href="<?=site_url(page_uri."/get/1")?>">회사 소개</a></li>
+                <!--<li><a href="<?=site_url(page_uri."/get/1")?>">회사 소개</a></li>-->
                 <li><a href="<?=site_url(page_uri."/get/2")?>">이용 약관</a></li>
-                         <li><a href="https://www.hometax.go.kr/websquare/websquare.wq?w2xPath=/ui/pp/index_pp.xml">사업자 정보 확인</a></li>
+                <li><a style="color:#ababab;" href="<?=site_url(page_uri."/get/3")?>">개인 정보 취급 방침</a></li>
+                <li><a href="https://www.hometax.go.kr/websquare/websquare.wq?w2xPath=/ui/pp/index_pp.xml">사업자 정보 확인</a></li>
             </ul>
             <ul>
                 <li class="tp-title">OFFICE</li>

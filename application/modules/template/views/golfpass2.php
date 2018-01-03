@@ -343,9 +343,10 @@
             <ul>
                 <li class="tp-title"  style="color:#ababab;">ABOUT US
                 </li>
-                <li><a style="color:#ababab;" href="<?=site_url(page_uri."/get/1")?>">회사 소개</a></li>
+                <!--<li><a style="color:#ababab;" href="<?=site_url(page_uri."/get/1")?>">회사 소개</a></li>-->
                 <li><a style="color:#ababab;" href="<?=site_url(page_uri."/get/2")?>">이용 약관</a></li>
-                         <li><a href="https://www.hometax.go.kr/websquare/websquare.wq?w2xPath=/ui/pp/index_pp.xml">사업자 정보 확인</a></li></li>
+                <li><a style="color:#ababab;" href="<?=site_url(page_uri."/get/3")?>">개인 정보 취급 방침</a></li>
+                <li><a style="color:#ababab;" href="https://www.hometax.go.kr/websquare/websquare.wq?w2xPath=/ui/pp/index_pp.xml">사업자 정보 확인</a></li></li>
             </ul>
             <ul>
                 <li class="tp-title" style="color:#ababab;">OFFICE</li>
@@ -353,6 +354,9 @@
                     <span style="color:#ababab;">TEL</span>
                     <p style="color:#ababab;">0507-1390-5454</p>
                 </li>
+                 <li><span style="color:#ababab;">E-mail</span>
+                         <p style="color:#ababab;">junky@playseven.co.kr</p>
+                 </li>
             </ul>
             <ul>
                 <li class="tp-title" style="color:#ababab;">CONTACT US
@@ -399,7 +403,7 @@
                 </li>
             </ul>
                  <ul>
-                         <li class="title">CERTIFICATION MARK</li>
+                         <li class="tp-title" style="color:#ababab;">CERTIFICATION MARK</li>
                             <!-- 기업은행안심이체 인증마크 적용 시작-->
                             <script _ajs_='45_495d281e7c21ddd2' _ah_='83925990'>
                             function onPopAuthMark(key)
