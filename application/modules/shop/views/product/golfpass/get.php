@@ -746,6 +746,28 @@
                 <p style="margin-bottom: 0;">에서 제공하는 유용한 소식</p>
             </li>
         </ul>
+                 <ul>
+                         <li class="title">CERTIFICATION MARK</li>
+                            <!-- 기업은행안심이체 인증마크 적용 시작-->
+                            <script _ajs_='45_495d281e7c21ddd2' _ah_='83925990'>
+                            function onPopAuthMark(key)
+                            {
+                               window.open('','AUTHMARK_POPUP','height=900, width=630, status=yes, toolbar=no, menubar=no, location=no');
+                               document.AUTHMARK_FORM.authmarkinfo.value = key;
+                               document.AUTHMARK_FORM.action='https://kiup.ibk.co.kr/uib/jsp/guest/esc/esc1030/esc103020/CESC302020_i.jsp';
+                               document.AUTHMARK_FORM.target='AUTHMARK_POPUP';
+                               document.AUTHMARK_FORM.submit();
+                            }
+                            </script>
+
+                            <FORM name='AUTHMARK_FORM' METHOD='POST'>
+                                <input type="hidden" name="authmarkinfo">
+                            </FORM>
+                            <!--기업은행안심이체 인증마크 적용 종료 -->
+                        <li>
+                            <a href="javascript:onPopAuthMark('2ae0165604bed3399c7f3b867fdda050')"><img src='http://golfpass.net/image/bank.png' alt='인증마크' border='0'/></a>
+                        </li>
+                 </ul>
     </div>
     <div class="row d-flex" style="width:100%; margin:0;">
         <p class='align-self-end mr-auto ml-auto'>© 2017 <strong>GOLFPASS.</strong> All Rights Reserved.</p>
