@@ -899,7 +899,7 @@ let $endDate = $("#e-day");
                 pointBorderColor: "#79b754", //@
                 pointRadius: 5, //포인트 두께@
                 pointHoverRadius: 7, //호버시포인트두께
-                data: [Math.round(<?=$product->score_1?>), Math.round(<?=$product->score_2?>), Math.round(<?=$product->score_3?>), Math.round(<?=$product->score_4?>), Math.round(<?=$product->score_5?>), Math.round(<?=$product->score_6?>), Math.round(<?=$product->score_7?>), Math.round(<?=$product->score_8?>)]
+                data: [Math.round(<?=$product->score_1?>*10)/10, Math.round(<?=$product->score_2?>*10)/10, Math.round(<?=$product->score_3?>*10)/10, Math.round(<?=$product->score_4?>*10)/10, Math.round(<?=$product->score_5?>*10)/10, Math.round(<?=$product->score_6?>*10)/10, Math.round(<?=$product->score_7?>*10)/10, Math.round(<?=$product->score_8?>*10)/10]
 
             }]
         },

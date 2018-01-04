@@ -42,7 +42,7 @@ class Product_categories_Model extends Board_Model{
                 return $categories=  parent::_gets(array("parent_id"=>$menu_id));        
             },
             null,
-            array("per_page"=>8,"is_numrow"=>false)
+            array("per_page"=>50,"is_numrow"=>false)
         );
     }
     function gets_by_product_id($product_id)

@@ -123,10 +123,13 @@
                           <input id="checkbox3-3" class="styled" type="checkbox"> -->
                           <label for="checkbox3-3" class="j-label"> 희망 시간대 </label>
                             <select name="hope_date" class="j-select" style="margin:10px 0 10px 0;">
-                              <option>선택안함</option>
-                              <?php for ( $i = 1 ; $i <= 12 ; $i++ ): ?>
-                              <option><?=$i?></option>
-                              <?php endfor; ?>
+                              <option value="상관없음">상관없음</option>
+                              <option value="7시대">* 7시대</option>
+                              <option value="8시대">* 8시대</option>
+                              <option value="9시대">* 9시대</option>
+                              <option value="10시대">* 10시대</option>
+                              <option value="11시대">* 11시대</option>
+                              <option value="오후플레이">* 오후플레이</option>
                             </select>
                         <!-- </div> -->
                       </li>
