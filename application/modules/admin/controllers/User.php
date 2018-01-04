@@ -69,6 +69,8 @@ class User extends Admin_Controller {
         } else{
             $kind = $this->input->post('kind');
             $this->_dbSet_addUpdate();
+            $hash =password_hash($this->input->post('password'), PASSWORD_BCRYPT);
+            $this->db->set('password',$hash);
             $this->db->set('kind',$kind);
             $this->db->insert('users');
             $insert_id =$this->db->insert_id();
@@ -128,8 +130,7 @@ class User extends Admin_Controller {
             $phone =null;
         }
         
-        $hash =password_hash($this->input->post('password'), PASSWORD_BCRYPT);
-        $this->db->set('password',$hash);
+      
         $this->db->set('intro',$this->input->post('intro'));
         $this->db->set('userName',$userName);
         $this->db->set('nickName', $this->input->post('nickName'));
