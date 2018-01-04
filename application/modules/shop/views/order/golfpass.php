@@ -129,7 +129,7 @@
                               <option value="9시대">* 9시대</option>
                               <option value="10시대">* 10시대</option>
                               <option value="11시대">* 11시대</option>
-                              <option value="오후플레이">* 오후플레이</option>
+                              <option value="오후플레이">* 오후 플레이</option>
                             </select>
                         <!-- </div> -->
                       </li>
