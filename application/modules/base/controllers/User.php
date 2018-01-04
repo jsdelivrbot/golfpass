@@ -397,8 +397,10 @@ class User extends Base_Controller
         $this->db->set('address_more', $this->input->post('address_more'));
         $this->db->set('name', $this->input->post('name'));
         // $this->db->set('sex', $this->input->post('sex'));
-        
-        $this->db->set('profilePhoto',$this->input->post('profilePhoto'));
+        $profilePhoto=$this->input->post('profilePhoto') ;
+        if($profilePhoto === "" || $profilePhoto === null)
+            $profilePhoto ="/public/images/ico_my.png";
+        $this->db->set('profilePhoto',$profilePhoto);
         $this->db->set('email',$this->input->post('email'));
         $this->db->set('option_1',$this->input->post('option_1'));
         $this->db->set('option_2',$this->input->post('option_2'));
