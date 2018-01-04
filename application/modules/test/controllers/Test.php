@@ -10,8 +10,18 @@ class Test extends Public_Controller
    
     public function index()
     {
-      echo domain_url()."/index.php/api/naver/login_callback";  
-        // $this->load->model('shop/products_model');
+
+        $this->load->model('shop/products_model');
+        $r=$this->db->query("SELECT id,name,price FROM products order by field(price,0,1) asc, price desc")->result();
+        // $r=$this->db->query("(SELECT id,name,price FROM products where price > 1 order by price asc) union (SELECT id,name,price) FROM products WHERE price IN (0,1) ORDER BY FIELD(0,1) asc")->result();
+        // $r=        $this->db->select("id,name,price")
+        // ->FROM("products")
+        // // ->where_in("id",array(1,2))
+        // ->order_by("field(price,0,1) asc")
+        // ->get()
+        // ->result();
+        
+        var_dump($r);
         // $result=$this->products_model->get_by_category_id_pgi(3);
      
         // var_dump($result);

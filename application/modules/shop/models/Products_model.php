@@ -63,9 +63,20 @@ class Products_Model extends Board_Model{
         $order_by = function() use($sort_type,$sort_value)
         {
             if($sort_type !== null && $sort_value !== null)
-                $this->db->order_by($sort_value,$sort_type);
+            {
+                if($sort_type === "asc" && $sort_value === "price")
+                {
+                    $this->db->order_by("field(price,0,1) asc, price");
+                }else
+                {
+                    $this->db->order_by($sort_value,$sort_type);
+                }
+            }
             else
+            {
                 $this->db->order_by("created","desc");
+
+            }
         };
         return $products= parent::_gets_with_pgi_func(
             "style_zap",
