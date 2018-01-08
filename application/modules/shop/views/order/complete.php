@@ -24,13 +24,13 @@
   <!-- <div class="two fields"> -->
     <div class="field">
         <div class="ui header">결제 정보</div>
-        <label>결제일 <?=$order->created?></label>
-        <label>상품 이름 <?=$product->name?></label>
-        <label>총 결제 금액 <?=number_format($order->total_price)?>원</label>
-        <label>주문 번호 <?=$order->merchant_uid?></label>
-        <label>주문자 <?=$order->user_name?></label>
-        <label>결제 방식 <?=$order->pay_method_enum?></label>
-        <label>결제 상태 <?=$order->status_enum?></label>
+        <label>결제일 : <?=$order->created?></label>
+        <label>상품 이름 : <?=$product->name?></label>
+        <label>총 결제 금액 : <?=number_format($order->total_price)?>원</label>
+        <label>주문 번호 : <?=$order->merchant_uid?></label>
+        <label>주문자 : <?=$order->user_name?></label>
+        <label>결제 방식 : <?=$order->pay_method_enum?></label>
+        <label>결제 상태 : <?=$order->status_enum?></label>
     </div>
     
   <!-- </div> -->
@@ -40,17 +40,17 @@
   
     <?php if($order->pay_method === 'vbank'){?>
         <div class="ui header">가상 계좌 입금정보</div>
-        <label>은행 <?=$order->vbank_name?></label>
-        <label>예금주 <?=$order->vbank_holder?></label>
-        <label>계좌 번호 <?=$order->vbank_num?></label>
-        <label>입금 기한 <?=$order->vbank_date?></label>
+        <label>은행 : <?=$order->vbank_name?></label>
+        <label>예금주 : <?=$order->vbank_holder?></label>
+        <label>계좌 번호 : <?=$order->vbank_num?></label>
+        <label>입금 기한 : <?=$order->vbank_date?></label>
     <?php } ?>
     
     <?php if( $order->pay_method === 'bank'){?>
         <div class="ui header">무통장 입금 정보</div>
-        <label>은행 <?=$setting->bank_name?></label>
-        <label>예금주 <?=$setting->bank_holder?></label>
-        <label>계좌 번호 <?=$setting->bank_num?></label>
+        <label>은행 : <?=$setting->bank_name?></label>
+        <label>예금주 : <?=$setting->bank_holder?></label>
+        <label>계좌 번호 : <?=$setting->bank_num?></label>
     <?php } ?>
 
     </div>
@@ -60,6 +60,10 @@
 <div class="ui bottom attached warning message">
   <i class="icon help"></i>
   도움이 필요하십니까? <a href="#">02-6959-5454</a>
+</div>
+<div class="ui bottom attached warning message" style="background-color:#3a68b2; border:0; color:#fff;">
+    <img src="/public/sangmin/img/partner/partner_wifi.png" alt="">
+    <p>해외 여행 갈 땐 와이파이 도시락!</p>
 </div>
 </div>
 </div>
