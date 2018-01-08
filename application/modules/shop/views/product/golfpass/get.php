@@ -693,15 +693,18 @@
                                             <figure>
                                                 <img src="/public/sangmin/img/partner/b_partner_princehotel.png" alt="">
                                             </figure>
-                <!--<figure>
-                    <img src="/public/sangmin/img/partner/b_partner_timescar.png" alt="">
-                </figure>-->
                 <figure>
                     <img src="/public/sangmin/img/partner/b_partner_hiltonhotel.png" alt="">
                 </figure>
                 <figure>
                     <img src="/public/sangmin/img/partner/b_partner_bookingdotcom.png" alt="">
                 </figure>
+                <figure>
+                    <img src="/public/sangmin/img/partner/partner_wifi.png" alt="">
+                </figure>
+                <!--<figure>
+                    <img src="/public/sangmin/img/partner/b_partner_timescar.png" alt="">
+                </figure>-->
             </div>
         </div>
 
