@@ -333,7 +333,7 @@
                         <img src="/public/sangmin/img/partner/b_partner_bookingdotcom.png" alt="">
                     </figure>
                     <figure>
-                        <img src="/public/sangmin/img/partner/partner_wifi.png" alt="">
+                        <img src="/public/sangmin/img/partner/b_partner_wifi.png" alt="">
                     </figure>
                     <!--<figure style="margin-bottom: 16px;">
                         <img src="/public/sangmin/img/partner/b_partner_timescar.png" alt="">
