@@ -59,7 +59,7 @@ if(!function_exists('check_auth_update_delete')){
 
 
 
-if(!function_exists('set_custom')){
+if(!function_exists('set_active')){
     function set_active(string $names,string $targets,string $str){
         $ci = &get_instance();
         $names = explode (",",$names);
