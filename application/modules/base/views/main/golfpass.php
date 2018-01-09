@@ -221,7 +221,7 @@
                     <div class="content-box d-flex flex-column align-items-start justify-content-center justify-content-lg-end">
                         <div class='title'>
                         <h1><?=$product_main[$i]->name?></h1>
-                        <p><?=$product_main[0]->eng_name?></p>
+                        <p><?=$product_main[$i]->eng_name?></p>
                         <p><?=$product_main[$i]->region?> - <?=$product_main[$i]->hole_count?> / <?=$product_main[$i]->distance?></p>
                         </div>
                         <div class="content">
