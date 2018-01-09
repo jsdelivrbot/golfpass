@@ -265,7 +265,95 @@
         </section>
     </section>
 
-    <section id="section2" class="mb-5 main-section scroll-smooth container-fluid d-flex align-items-center">
+   <section id="section4" class="mb-5 container-fluid d-flex align-items-start align-items-md-center main-section scroll-smooth">
+        <article class="w-100 p-xl-4">
+            <div class="row no-gutters main-section-title mb-5" style="margin-bottom: 20px !important;">
+                <h4 class="main_sub_title">테마별 골프장</h4>
+            </div>
+
+            <div class="row no-gutters flex-column d-sm-none">
+                <?php for($i=0 ; $i<5; $i++){?>
+                <a href="<?=site_url(shop_product_uri."/gets/{$thema_list[$i]->id}")?>">
+                <div class="col-12 d-flex justify-content-center mb-2 bg-dark" style="background-image:url(<?=$thema_list[$i]->photo?>); background-repeat:no-repeat; background-position:center; background-size:cover">
+                    	<img src="/public/images/blank3.png" class="blank_img">
+                    <div class="mobile-content position-absolute d-flex flex-column align-items-center justify-content-end">
+                        <h1 style="text-shadow: 0 0 7px rgba(0,0,0,1); font-family: 'notokr-regular', sans-serif; font-size: 30px; margin-bottom: .5rem;"><?=$thema_list[$i]->name?></h1>
+                        <p style="text-shadow: 0 0 7px rgba(0,0,0,1); font-family: 'notokr-demilight', sans-serif; font-size: 1rem; margin-bottom: 1rem;"><?=$thema_list[$i]->desc?></p>
+                    </div>
+                </div>
+                </a>
+                <?php }?>
+            </div>
+            <div class="row no-gutters d-none d-sm-flex">
+                <div class="col-12 col-lg-6 position-relative ">
+                    <a href="<?=site_url(shop_product_uri."/gets/{$thema_list[0]->id}")?>">
+                    <img src="<?=$thema_list[0]->photo?>" alt="" width="100%">
+
+                    <div class='position-absolute text-light'>
+                        <h3 style="text-shadow: 0 0 7px rgba(0,0,0,1);"><?=$thema_list[0]->name?></h3>
+                        <p style="text-shadow: 0 0 7px rgba(0,0,0,1);">
+                        <?=$thema_list[0]->desc?>
+                        </p>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <div class="row no-gutters">
+                        <div class="col-6 position-relative">
+                            <a href="<?=site_url(shop_product_uri."/gets/{$thema_list[1]->id}")?>">
+                            <img src="<?=$thema_list[1]->photo?>" alt="" width="100%">
+
+                            <div class='position-absolute text-light'>
+                                <h3 style="text-shadow: 0 0 7px rgba(0,0,0,1);"><?=$thema_list[1]->name?></h3>
+                                <p style="text-shadow: 0 0 7px rgba(0,0,0,1);">
+                                <?=$thema_list[1]->desc?>
+                                </p>
+                            </div>
+                            </a>
+                        </div>
+                        <div class="col-6 position-relative">
+                        <a href="<?=site_url(shop_product_uri."/gets/{$thema_list[2]->id}")?>">
+                            <img src="<?=$thema_list[2]->photo?>" alt="" width="100%">
+
+                            <div class='position-absolute text-light'>
+                                <h3 style="text-shadow: 0 0 7px rgba(0,0,0,1);"><?=$thema_list[2]->name?></h3>
+                                <p style="text-shadow: 0 0 7px rgba(0,0,0,1);">
+                                <?=$thema_list[2]->desc?>
+                                </p>
+                            </div>
+                            </a>
+                        </div>
+                        <div class="col-6 position-relative">
+                        <a href="<?=site_url(shop_product_uri."/gets/{$thema_list[3]->id}")?>">
+                            <img src="<?=$thema_list[3]->photo?>" alt="" width="100%">
+
+                            <div class='position-absolute text-light'>
+                                <h3 style="text-shadow: 0 0 7px rgba(0,0,0,1);"><?=$thema_list[3]->name?></h3>
+                                <p style="text-shadow: 0 0 7px rgba(0,0,0,1);">
+                                <?=$thema_list[3]->desc?>
+                                </p>
+                            </div>
+                            </a>
+                        </div>
+                        <div class="col-6 position-relative">
+                        <a href="<?=site_url(shop_product_uri."/gets/{$thema_list[4]->id}")?>">
+                            <img src="<?=$thema_list[4]->photo?>" alt="" width="100%">
+
+                            <div class='position-absolute text-light'>
+                                <h3 style="text-shadow: 0 0 7px rgba(0,0,0,1);"><?=$thema_list[4]->name?></h3>
+                                <p style="text-shadow: 0 0 7px rgba(0,0,0,1);">
+                                <?=$thema_list[4]->desc?>
+                                </p>
+                            </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </section>
+   
+    <section id="section2" class="mb-5 container-fluid d-flex align-items-start align-items-md-center">
                  <article class="w-100 p-xl-4">
                          <div class="row no-gutters main-section-title" style="margin-bottom:20px !important;">
                                  <h4 class="main_sub_title">지역별 골프장</h4>
@@ -354,94 +442,6 @@
                          </div>
                      </article>
                  </section>
-
-    <section id="section4" class="mb-5 container-fluid d-flex align-items-start align-items-md-center">
-        <article class="w-100 p-xl-4">
-            <div class="row no-gutters main-section-title mb-5" style="margin-bottom: 20px !important;">
-                <h4 class="main_sub_title">테마별 골프장</h4>
-            </div>
-
-            <div class="row no-gutters flex-column d-sm-none">
-                <?php for($i=0 ; $i<5; $i++){?>
-                <a href="<?=site_url(shop_product_uri."/gets/{$thema_list[$i]->id}")?>">
-                <div class="col-12 d-flex justify-content-center mb-2 bg-dark" style="background-image:url(<?=$thema_list[$i]->photo?>); background-repeat:no-repeat; background-position:center; background-size:cover">
-                    	<img src="/public/images/blank3.png" class="blank_img">
-                    <div class="mobile-content position-absolute d-flex flex-column align-items-center justify-content-end">
-                        <h1 style="text-shadow: 0 0 7px rgba(0,0,0,1); font-family: 'notokr-regular', sans-serif; font-size: 30px; margin-bottom: .5rem;"><?=$thema_list[$i]->name?></h1>
-                        <p style="text-shadow: 0 0 7px rgba(0,0,0,1); font-family: 'notokr-demilight', sans-serif; font-size: 1rem; margin-bottom: 1rem;"><?=$thema_list[$i]->desc?></p>
-                    </div>
-                </div>
-                </a>
-                <?php }?>
-            </div>
-            <div class="row no-gutters d-none d-sm-flex">
-                <div class="col-12 col-lg-6 position-relative ">
-                    <a href="<?=site_url(shop_product_uri."/gets/{$thema_list[0]->id}")?>">
-                    <img src="<?=$thema_list[0]->photo?>" alt="" width="100%">
-
-                    <div class='position-absolute text-light'>
-                        <h3 style="text-shadow: 0 0 7px rgba(0,0,0,1);"><?=$thema_list[0]->name?></h3>
-                        <p style="text-shadow: 0 0 7px rgba(0,0,0,1);">
-                        <?=$thema_list[0]->desc?>
-                        </p>
-                    </div>
-                    </a>
-                </div>
-                <div class="col-12 col-lg-6">
-                    <div class="row no-gutters">
-                        <div class="col-6 position-relative">
-                            <a href="<?=site_url(shop_product_uri."/gets/{$thema_list[1]->id}")?>">
-                            <img src="<?=$thema_list[1]->photo?>" alt="" width="100%">
-
-                            <div class='position-absolute text-light'>
-                                <h3 style="text-shadow: 0 0 7px rgba(0,0,0,1);"><?=$thema_list[1]->name?></h3>
-                                <p style="text-shadow: 0 0 7px rgba(0,0,0,1);">
-                                <?=$thema_list[1]->desc?>
-                                </p>
-                            </div>
-                            </a>
-                        </div>
-                        <div class="col-6 position-relative">
-                        <a href="<?=site_url(shop_product_uri."/gets/{$thema_list[2]->id}")?>">
-                            <img src="<?=$thema_list[2]->photo?>" alt="" width="100%">
-
-                            <div class='position-absolute text-light'>
-                                <h3 style="text-shadow: 0 0 7px rgba(0,0,0,1);"><?=$thema_list[2]->name?></h3>
-                                <p style="text-shadow: 0 0 7px rgba(0,0,0,1);">
-                                <?=$thema_list[2]->desc?>
-                                </p>
-                            </div>
-                            </a>
-                        </div>
-                        <div class="col-6 position-relative">
-                        <a href="<?=site_url(shop_product_uri."/gets/{$thema_list[3]->id}")?>">
-                            <img src="<?=$thema_list[3]->photo?>" alt="" width="100%">
-
-                            <div class='position-absolute text-light'>
-                                <h3 style="text-shadow: 0 0 7px rgba(0,0,0,1);"><?=$thema_list[3]->name?></h3>
-                                <p style="text-shadow: 0 0 7px rgba(0,0,0,1);">
-                                <?=$thema_list[3]->desc?>
-                                </p>
-                            </div>
-                            </a>
-                        </div>
-                        <div class="col-6 position-relative">
-                        <a href="<?=site_url(shop_product_uri."/gets/{$thema_list[4]->id}")?>">
-                            <img src="<?=$thema_list[4]->photo?>" alt="" width="100%">
-
-                            <div class='position-absolute text-light'>
-                                <h3 style="text-shadow: 0 0 7px rgba(0,0,0,1);"><?=$thema_list[4]->name?></h3>
-                                <p style="text-shadow: 0 0 7px rgba(0,0,0,1);">
-                                <?=$thema_list[4]->desc?>
-                                </p>
-                            </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </article>
-    </section>
     <section id="section5" class="mb-5  container-fluid align-items-start align-items-md-center">
         <article class="w-100 p-xl-4">
 				<div class="row no-gutters main-section-title mb-5" style="margin-bottom: 10px !important;">
