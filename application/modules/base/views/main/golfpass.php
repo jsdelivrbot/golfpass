@@ -263,9 +263,56 @@
             <span><a href="https://www.instagram.com/golfpass_net" target="_blank"><i class="xi xi-instagram"></i></a></span>
             <span><a href="https://www.youtube.com/channel/UCVCuIlbXMgiv4TrPolcgkgQ" target="_blank"><i class="xi xi-youtube-play"></i></a></span>
         </section>
-    </section>
+    </section>   
+        <section id="section2" class="mb-5 main-section scroll-smooth container-fluid d-flex align-items-center">
+                 <article class="w-100 p-xl-4">
+                         <div class="row no-gutters main-section-title" style="margin-bottom:20px !important;">
+                                 <h4 class="main_sub_title">지역별 골프장</h4>
+                         </div>
+<!--NOTE 나라별 모바일 구간 -->
+<div class="row no-gutters flex-column d-md-none" style="padding-top: 0 !important;">
+    <?php for($i=0;$i < count($nation_list)	;$i++){
+        
+?>
+        <a href="<?=site_url(shop_product_uri."/gets/{$nation_list[$i]->id}")?>">
+            <div class="col-12 d-flex justify-content-center mb-2 bg-dark" style="background-image:url(<?=$nation_list[$i]->photo3?>); background-repeat:no-repeat; background-position:center; background-size:cover">
+                <img src="/public/images/blank3.png" class="blank_img">
+                <div class="mobile-content position-absolute d-flex flex-column align-items-center justify-content-end">
+                    <h3 style="text-shadow: 0 0 7px rgba(0,0,0,1);"><?=$nation_list[$i]->name?></h3>
+                    <p style="text-shadow: 0 0 7px rgba(0,0,0,1);"><?=$nation_list[$i]->desc?></p>
+                </div>
+            </div>
+        </a>
+    <?php }?>
+</div>
+<!--NOTE 나라별 slide 테블릿 ~ 구간 -->
 
-   <section id="section4" class="mb-5 container-fluid d-flex align-items-start align-items-md-center main-section scroll-smooth">
+                         <div class="row flex-nowrap d-none d-md-flex position-relative pt-5" style="padding-top: 0 !important;">
+                                 <div id="jssor_1" style="position:relative;margin:0 auto;top:0px;left:0px;width:980px;height:440px;overflow:hidden;visibility:hidden;">
+                                         <!-- Loading Screen -->
+                                         <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:980px;height:440px;overflow:hidden;">
+                                             <!-- 아래 반복 -->
+                                                 <?php for($i=0;$i < count($nation_list)	;$i++){?>
+
+                      <div class="slide-item d-flex">
+                    
+                            <a href="<?=site_url(shop_product_uri."/gets/{$nation_list[$i]->id}")?>">
+                    
+
+                         <img src="<?=$nation_list[$i]->photo?>" class="w-100"/>
+                         <div class="position-absolute content d-flex flex-column justify-content-center align-items-center">
+                             <h3 style="text-shadow: 0 0 7px rgba(0,0,0,1);"><?=$nation_list[$i]->name?></h3>
+                             <p style="text-shadow: 0 0 7px rgba(0,0,0,1);"><?=$nation_list[$i]->desc?></p>
+                         </div>
+                     </a>
+                     </div>
+                     <?php }?>
+                                         </div>
+                                 </div>
+                         </div>
+                 </article>
+         </section>
+    <section id="section4" class="mb-5 container-fluid d-flex align-items-start align-items-md-center">
         <article class="w-100 p-xl-4">
             <div class="row no-gutters main-section-title mb-5" style="margin-bottom: 20px !important;">
                 <h4 class="main_sub_title">테마별 골프장</h4>
@@ -352,55 +399,6 @@
             </div>
         </article>
     </section>
-   
-    <section id="section2" class="mb-5 container-fluid d-flex align-items-start align-items-md-center">
-                 <article class="w-100 p-xl-4">
-                         <div class="row no-gutters main-section-title" style="margin-bottom:20px !important;">
-                                 <h4 class="main_sub_title">지역별 골프장</h4>
-                         </div>
-<!--NOTE 나라별 모바일 구간 -->
-<div class="row no-gutters flex-column d-md-none" style="padding-top: 0 !important;">
-    <?php for($i=0;$i < count($nation_list)	;$i++){
-        
-?>
-        <a href="<?=site_url(shop_product_uri."/gets/{$nation_list[$i]->id}")?>">
-            <div class="col-12 d-flex justify-content-center mb-2 bg-dark" style="background-image:url(<?=$nation_list[$i]->photo3?>); background-repeat:no-repeat; background-position:center; background-size:cover">
-                <img src="/public/images/blank3.png" class="blank_img">
-                <div class="mobile-content position-absolute d-flex flex-column align-items-center justify-content-end">
-                    <h3 style="text-shadow: 0 0 7px rgba(0,0,0,1);"><?=$nation_list[$i]->name?></h3>
-                    <p style="text-shadow: 0 0 7px rgba(0,0,0,1);"><?=$nation_list[$i]->desc?></p>
-                </div>
-            </div>
-        </a>
-    <?php }?>
-</div>
-<!--NOTE 나라별 slide 테블릿 ~ 구간 -->
-
-                         <div class="row flex-nowrap d-none d-md-flex position-relative pt-5" style="padding-top: 0 !important;">
-                                 <div id="jssor_1" style="position:relative;margin:0 auto;top:0px;left:0px;width:980px;height:440px;overflow:hidden;visibility:hidden;">
-                                         <!-- Loading Screen -->
-                                         <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:980px;height:440px;overflow:hidden;">
-                                             <!-- 아래 반복 -->
-                                                 <?php for($i=0;$i < count($nation_list)	;$i++){?>
-
-                      <div class="slide-item d-flex">
-                    
-                            <a href="<?=site_url(shop_product_uri."/gets/{$nation_list[$i]->id}")?>">
-                    
-
-                         <img src="<?=$nation_list[$i]->photo?>" class="w-100"/>
-                         <div class="position-absolute content d-flex flex-column justify-content-center align-items-center">
-                             <h3 style="text-shadow: 0 0 7px rgba(0,0,0,1);"><?=$nation_list[$i]->name?></h3>
-                             <p style="text-shadow: 0 0 7px rgba(0,0,0,1);"><?=$nation_list[$i]->desc?></p>
-                         </div>
-                     </a>
-                     </div>
-                     <?php }?>
-                                         </div>
-                                 </div>
-                         </div>
-                 </article>
-         </section>
     <section id="section3" class="pt-49 pt-xl-0 mb-5 container-fluid align-items-start align-items-md-center">
                      <article class="w-100 p-xl-4">
                          <div class="row no-gutters main-section-title" style="margin-bottom:20px !important;">

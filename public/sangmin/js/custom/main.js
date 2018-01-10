@@ -64,7 +64,7 @@ $(function() {
 		}
 	});
 	$(window).scroll(function() {
-		if ($(this).scrollTop() >= $('#section4').offset().top) {
+		if ($(this).scrollTop() >= $('#section2').offset().top) {
 			$('#header').addClass('black-bg-header');
 		} else {
 			$('#header').removeClass('black-bg-header');
