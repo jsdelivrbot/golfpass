@@ -207,7 +207,11 @@ class P_daily_price extends Base_Controller
         $obj_start_date = date_create($start_date);
         $obj_end_date = date_create($end_date);
         $period = date_diff($obj_start_date, $obj_end_date)->days;
-        $period += 1;
+        
+        if($period ===0)
+        {
+            $period += 1;
+        }
         //조별 가격으로 계산
         $total_price =0;
         //전체 그룹 인원수와 num_people 수 같은지 체크
