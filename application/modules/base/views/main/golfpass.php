@@ -603,8 +603,8 @@
                     <figure>
                         <img src="/public/sangmin/img/partner/partner_bookingdotcom.png" alt="">
                     </figure>
-                    <figure>
-                        <img src="/public/sangmin/img/partner/partner_wifi.png" alt="">
+                    <figure><a href="http://www.widemobile.com/?golfpass">
+                        <img src="/public/sangmin/img/partner/partner_wifi.png" alt=""></a>
                     </figure>
                     <!--<figure>
                         <img src="/public/sangmin/img/partner/partner_timescar.png" alt="">
