@@ -176,40 +176,6 @@
                     </li>
                 </ul>
               </div>
-            <h5 class="font-20px margin-bottom-15">동행자 정보 (<?=$num_people?>명)</h5>
-            <h5 class="font-14px margin-bottom-30">동행자 정보는 추후에 입력하셔도 됩니다.</h5>
-            <?php for ( $i = 0 ; $i < count($groups) ; $i++ ): ?>
-                <input type="hidden" name="groups[]" value="<?=$groups[$i]?>">
-                <h5 class="font-14px margin-bottom-30 letter-space-2" style="color:#79b754 !important;"><?=chr(65+$i)?>조</h5>
-                <div>
-                <?php for ($j = 0 ; $j < (int)$groups[$i] ; $j++ ): ?>
-                    <ul class="row margin-bottom-20" style="border-bottom: 2px solid #ececec; padding:0;">
-                        <li class="col-md-6">
-                        <label> 이름
-                            <input type="text" name="name_with[]" placeholder="">
-                        </label>
-                        </li>
-                        <li class="col-md-6">
-                        <label> 영문 이름
-                            <input type="text" name="eng_name_with[]" placeholder="">
-                        </label>
-                        </li>
-                        <li class="col-md-6">
-                        <label> 연락처
-                            <input type="text" name="phone_with[]" placeholder="">
-                        </label>
-                        </li>
-                        <li class="col-md-6">
-                        <label> E-mail
-                            <input type="text" name="email_with[]" placeholder="">
-                        </label>
-                        </li>
-                    </ul>
-
-                    
-                <?php endfor; ?>
-                </div>
-            <?php endfor; ?>
           </div>
               
               <!-- SUB TOTAL -->
