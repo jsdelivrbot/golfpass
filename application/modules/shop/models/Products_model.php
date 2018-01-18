@@ -119,7 +119,7 @@ class Products_Model extends Board_Model{
         if($rankingType === 'avg_score')
         {
             //product_reviews 총 평균점수
-            $sub_query3 = "SELECT IFNULL({$this->avg_score2},0) FROM product_reviews as s_r WHERE s_r.product_id = p.id  AND s_r.is_secret = 0";
+            $sub_query3 = "SELECT IFNULL(ROUND({$this->avg_score2},1),0) FROM product_reviews as s_r WHERE s_r.product_id = p.id  AND s_r.is_secret = 0";
             $query .= ",($sub_query3) as avg_score";
         }
         else
@@ -147,9 +147,9 @@ class Products_Model extends Board_Model{
         $query .= ",($sub_query) as hotel_id";
         
         //가격
-        $date = date("Y-m-d");
-        $sub_query = "SELECT price FROM p_daily_price as sub_dp WHERE sub_dp.product_id = p.id AND sub_dp.date = '{$date}' AND sub_dp.num_people = '1' AND sub_dp.period = '1' LIMIT 0, 1";
-        $query .= ", IFNULL(($sub_query),'0') as price";
+        // $date = date("Y-m-d");
+        // $sub_query = "SELECT price FROM p_daily_price as sub_dp WHERE sub_dp.product_id = p.id AND sub_dp.date = '{$date}' AND sub_dp.num_people = '1' AND sub_dp.period = '1' LIMIT 0, 1";
+        // $query .= ", IFNULL(($sub_query),'0') as price";
 
         $this->db->select("p.*".$query);
         $this->db->from("products as p");
