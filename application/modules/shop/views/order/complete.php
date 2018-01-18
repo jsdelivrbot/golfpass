@@ -24,7 +24,6 @@
     <div class="header">
         <a href="https://goo.gl/forms/vB4WLBUcZepcy8iC3" style="font-size:20px;">동행자 정보 등록하러 가기</a>
     </div>
-    <p>골프패스를 이용해주셔서 감사합니다.</p>
 </div>
 <div class="ui form attached fluid segment">
   <!-- <div class="two fields"> -->
