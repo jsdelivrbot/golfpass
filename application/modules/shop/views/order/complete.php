@@ -67,7 +67,7 @@
   <i class="icon help"></i>
   도움이 필요하십니까? <a href="#">02-6959-5454</a>
 </div>
-<div class="ui bottom attached warning message" style="background-color:#3a68b2; border:0; color:#fff;">
+<div class="ui bottom attached warning message" style="background-color:#3a68b2; border:0; color:#fff; cursor: pointer;" onclick="location.href='http://www.widemobile.com/?golfpass';">>
     <img src="/public/sangmin/img/partner/partner_wifi.png" alt="">
     <p>해외 여행 갈 땐 와이파이 도시락!</p>
 </div>
