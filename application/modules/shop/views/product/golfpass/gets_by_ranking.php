@@ -12,7 +12,7 @@
 <div id="tp-ajax_target">
   <div id="tp-main-wrap"> 
     <section id="tp-section5" class="tp-mb-5 tp-container-fluid tp-align-items-start tp-align-items-md-center"> 
-      <article class="tp-w-100 tp-p-xl-4" style="width:80% !important; margin: 0 auto;">
+      <article class="tp-w-100 tp-p-xl-4" style="width:100% !important; margin: 0 auto;">
         <div class="tp-d-flex tp-mb-5 tp-category tp-flex-wrap"> 
           <a href="<?=site_url(shop_product_uri."/gets_by_ranking/avg_score")?>">
             <button class="tp-btn tp-btn-outline-light tp-btn-sm tp-active" 
