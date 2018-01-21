@@ -37,7 +37,7 @@ class Facebook extends Public_Controller {
 		
 			$name = $info->name;
 			$sns_id = $info->id;
-			$email = null;
+			$email = $info->email;
 			$gender =$info->gender;
 			$sns_type = "facebook";
 			$refresh_token= isset($auth_result->refresh_token) ? $auth_result->refresh_token: null;
