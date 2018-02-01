@@ -10,4 +10,13 @@ class Admin_Controller extends Public_Controller{
             my_redirect(user_uri.'/login');
         }
     }
+
+    public function list()
+    {
+        $rows =$this->{$this->modelName}->pagination();
+        $data['rows'] = $rows;
+        $this->_template("list",$data);
+
+
+    }
 }

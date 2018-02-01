@@ -3,9 +3,11 @@
 
 class Public_Model extends CI_Model{
     public $table;
+    public $moduleName;
     function __construct($table=null){
         parent:: __construct();
         $this->table = $table;
+        $this->moduleName = $this->router->fetch_module();
     }
     public function _add($set_obj =false){
         if($set_obj !== false && $set_obj !== null){
@@ -172,6 +174,35 @@ class Public_Model extends CI_Model{
     {
         $this->db->select("p.*");
     }
+
+    ///new
+    function select()
+    {
+        $this->db->select("
+            {$this->as}.*
+        ");
+    }
+    function from()
+    {
+        $this->db->from("{$this->table} as {$this->as}");
+    }
+    function list_admin()
+    {
+
+    }
+    function list_base()
+    {
+
+    }
+    function list()
+    {
+        $this->select();
+        $this->{"list_".$this->moduleName}();
+        $this->from();
+        return $this->db->get()->result();
+
+    }
+  
 }
 
 

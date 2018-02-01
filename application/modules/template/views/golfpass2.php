@@ -10,18 +10,18 @@
     <title>골프패스
     </title>
     <script src="/public/sangmin/js/prefixfree.min.js">
-
-
     </script>
+
+
     <!-- <link rel="stylesheet" href="/public/sangmin/dist/bootstrap/bootstrap.min.css"> -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
     <!-- <link rel="stylesheet" href="/public/css/main.css"> -->
     <link rel="stylesheet" href="/public/css/tp-main.css">
     <link rel="stylesheet" href="/public/css/bootstrap.css">
     <script src="/public/sangmin/js/jquery-3.2.1.min.js">
-
-
     </script>
+
+
     <style>
         ::-webkit-scrollbar {
             display: none
@@ -436,6 +436,8 @@
         </div>
     </footer>
 
+
+
     <script>
 
 
@@ -519,7 +521,7 @@
     <!-- 검색기능끝 -->
     
 <!--Start of Tawk.to Script-->
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
 (function(){
 var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
@@ -529,7 +531,7 @@ s1.charset='UTF-8';
 s1.setAttribute('crossorigin','*');
 s0.parentNode.insertBefore(s1,s0);
 })();
-</script>
+</script> -->
 <!--End of Tawk.to Script-->
 </body>
 
@@ -565,3 +567,7 @@ s0.parentNode.insertBefore(s1,s0);
 </script>
 
 <!-- 뉴스레터 끝-->
+
+
+
+    <?=$this->load->view("golsoonyi")?>

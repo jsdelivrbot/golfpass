@@ -8,10 +8,21 @@ class Public_Controller extends MX_Controller{
     public $template_kind;
     public $table;
     public $model;
+
+    //new
+    public $className;
+    public $modelName;
     function __construct($args=null){
         parent::__construct();
         date_default_timezone_set('Asia/Seoul');
         self::$instance || self::$instance =& $this;
+
+        $this->className =$this->router->fetch_class();
+        try{
+			$this->modelName = "{$this->className}_model";
+			$this->load->model("{$this->className}_model");
+			}catch(Exception $ex){
+			}
 
         $this->view_dir =$args['view_dir'] ?? null;
         $this->template_kind = $args['template_kind'] ?? 'base';

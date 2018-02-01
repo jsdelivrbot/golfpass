@@ -95,6 +95,7 @@ class Template extends MX_Controller
             ),
             '주문' => array(
                array('name'=>'주문 목록','uri'=> site_url(admin_order_uri.'/gets')),
+               array('name'=>'희망여행','uri'=> site_url("/admin/hope_travel/list")),
             ),
             'SMS' => array(
                array('name'=>'기본설정','uri'=> site_url(admin_setting_sms_uri.'/get_sms'))

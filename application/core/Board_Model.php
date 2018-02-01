@@ -2,7 +2,7 @@
 
 
 class Board_Model extends Public_Model{
-    function __construct($table){
+    function __construct($table =null){
         parent:: __construct($table);
     }
 
@@ -175,5 +175,37 @@ class Board_Model extends Public_Model{
         //  return $this->db->get()->result();
 
 //     }
+    //new
+    function pagination($where_obj=null,$config=array())
+    {
+        $style = $config['stlye'] ?? "style_1";
+        $per_page = $config['per_page'] ?? "5";
+        $total_num = null;
+        if(isset($config['total_num']))
+        {
+            $total_num = function() use ($config)
+            {
+                return $config['total_num'];
+            };
+        }
+        return $this->_gets_with_pgi_func(
+            $style,
+            function() use ($where_obj)
+            {   
+                parent::_where_by_obj($where_obj);
+                return count($this->list());
+            },
+            function($offset,$per_page) use($where_obj) 
+            {
+                parent::_where_by_obj($where_obj);
+                $this->db->limit($per_page,$offset);
+                return $this->list();
+            }
+            ,
+            $total_num
+            ,
+            array("per_page"=>$per_page)
+        );
+    }
     
 }

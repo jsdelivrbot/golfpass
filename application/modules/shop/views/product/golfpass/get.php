@@ -911,7 +911,7 @@ let $endDate = $("#e-day");
 </script>
 <!-- 차트 -->
 <!--Start of Tawk.to Script-->
-<script type="text/javascript">
+<!-- <script type="text/javascript">
     var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
     (function(){
         var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
@@ -921,7 +921,7 @@ let $endDate = $("#e-day");
         s1.setAttribute('crossorigin','*');
         s0.parentNode.insertBefore(s1,s0);
     })();
-</script>
+</script> -->
 <!--End of Tawk.to Script-->
 </body>
 
@@ -1878,3 +1878,6 @@ font-family: 'notokr-medium', sans-serif;
     $("body").prepend($j_dim);
 })();
     </script> -->
+
+
+    <?=$this->load->view("golsoonyi")?>

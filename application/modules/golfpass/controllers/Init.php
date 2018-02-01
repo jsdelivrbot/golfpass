@@ -32,7 +32,8 @@ class Init extends Init_Controller {
         $this->p_daily_price();
         $this->p_order_infos();
         $this->p_order_options();
-        $this->newsLetter();        
+        $this->newsLetter();      
+        $this->hope_travel();  
         // $sample_product_id =$this->products_model->_add(array("name"=>"222 C.C","eng_name"=>"product_name","desc"=>"샘플내용",'hole_count'=>'18'));
         // $this->product_reviews_model->_add(array(
         //     "product_id"=>$sample_product_id,
@@ -400,6 +401,61 @@ class Init extends Init_Controller {
             KEY `idx_merchant_uid` (`merchant_uid`),
             KEY `idx_product_id` (`product_id`),
             KEY `idx_merchant_uid_product_id` (`product_id`,`merchant_uid`)
+             ) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
+                
+            if($result) echo("success create $tb_name ");
+            else echo("failed create $tb_name");
+        }else{
+            echo "already table $tb_name exists";
+        }
+        echo "<br>";
+
+    }
+    function hope_travel()
+    {
+        //p_order_infos 테이블 만들기
+        $tb_name = 'hope_travel';
+        if(!$this->db->table_exists($tb_name)){
+            $result = $this->db->query("CREATE TABLE `$tb_name`(
+            `id` INT UNSIGNED NULL AUTO_INCREMENT, 
+            `state1` varchar(255),
+            `state1_1`varchar(255), 
+            `state2` varchar(255), 
+            `start_date` varchar(255), 
+            `end_date` varchar(255), 
+            `state4_1` varchar(255), 
+            `state4_2` varchar(255), 
+            `state4_2_1` varchar(255), 
+            `caddy1` varchar(255), 
+            `caddy2` varchar(255), 
+            `state5_1` varchar(255), 
+            `state5_2` varchar(255), 
+            `state5_2_1` varchar(255), 
+            `state6_1` varchar(255), 
+            `state6_2` varchar(255), 
+            `state6_2_1` varchar(255), 
+            `state7` varchar(255), 
+            `state7_1` varchar(255), 
+            `name` varchar(255), 
+            `phone` varchar(255), 
+            `created` datetime NOT NULL DEFAULT NOW(),
+            PRIMARY KEY (`id`),
+            KEY `idx_state1` (`state1`),
+            KEY `idx_state1_1` (`state1_1`),
+            KEY `idx_state2` (`state2`),
+            KEY `idx_state4_1` (`state4_1`),
+            KEY `idx_state4_2` (`state4_2`),
+            KEY `idx_state4_2_1` (`state4_2_1`),
+            KEY `idx_state5_1` (`state5_1`),
+            KEY `idx_state5_2` (`state5_2`),
+            KEY `idx_state5_2_1` (`state5_2_1`),
+            KEY `idx_state6_1` (`state6_1`),
+            KEY `idx_state6_2` (`state6_2`),
+            KEY `idx_state6_2_1` (`state6_2_1`),
+            KEY `idx_state7` (`state7`),
+            KEY `idx_state7_1` (`state7_1`),
+            KEY `idx_caddy1` (`caddy1`),
+            KEY `idx_caddy2` (`caddy2`)
              ) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
                 
             if($result) echo("success create $tb_name ");
