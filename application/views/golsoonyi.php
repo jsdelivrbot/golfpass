@@ -3,14 +3,14 @@
   <link rel="stylesheet" href="/public/etc/golsoonyi/style.css">
 <!-- // 골순이 스타일 끝 -->
 
-<!-- <div style="position:fixed; right :0px; bottom: 10px;" > -->
+<div style="position:fixed; right :0px; bottom: 10px;z-index:9999" >
 <div class="u-modal--trigger_wrap" >
     <p>
       <b>코디네이터 골순이</b>
       <br> 당신만의 맞춤 여행을 설계해드립니다.</p>
     <button class="u-modal--trigger">시작</button>
   </div>
-
+</div>
 
   <!-- 모달 bg -->
   <div class="u-modal--wrap">
@@ -245,7 +245,7 @@
       </div>
     </div>
   </div>
-  <!-- </div> -->
+  
 
       <!-- 골순이 스크립트 시작 -->
 

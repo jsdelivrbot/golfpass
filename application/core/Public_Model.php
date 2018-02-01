@@ -202,6 +202,14 @@ class Public_Model extends CI_Model{
         return $this->db->get()->result();
 
     }
+    function get($where)
+    {
+        $this->select();
+        // $this->{"list_".$this->moduleName}();
+        $this->_where_by_obj($where);
+        $this->from();
+        return $this->db->get()->row();
+    }
   
 }
 

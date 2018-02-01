@@ -55,6 +55,8 @@
   width: 270px;
   padding: 30px 20px;
   border-radius: 20px 20px 0 0; }
+  .u-modal__body div {
+    overflow: hidden; }
   .u-modal__body h4 {
     font-size: 20px;
     text-align: center;
@@ -86,9 +88,6 @@
     background-color: #8c8c8c;
     width: 100px;
     font-size: 14px; }
-
-div {
-  overflow: hidden; }
 
 button.u-modal__btn-prev {
   border-radius: 0 0 0 20px; }

@@ -15,8 +15,14 @@ class Admin_Controller extends Public_Controller{
     {
         $rows =$this->{$this->modelName}->pagination();
         $data['rows'] = $rows;
-        $this->_template("list",$data);
+        $this->_template("{$this->className}/list",$data);
 
 
+    }
+    public function get($id)
+    {
+        $row =$this->{$this->modelName}->get($id);
+        $data['row'] = $row;
+        $this->_template("{$this->className}/get",$data);
     }
 }
