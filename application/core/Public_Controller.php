@@ -10,14 +10,20 @@ class Public_Controller extends MX_Controller{
     public $model;
 
     //new
-    public $className;
-    public $modelName;
+    public $moduleName= null;
+    public $className =null;
+    public $methodName= null;
+    public $modelName =null;
+    public $data;
+
     function __construct($args=null){
         parent::__construct();
         date_default_timezone_set('Asia/Seoul');
         self::$instance || self::$instance =& $this;
 
-        $this->className =$this->router->fetch_class();
+        $this->moduleName = $this->data["moduleName"]= $this->router->fetch_module();
+        $this->className =$this->data["className"]=$this->router->fetch_class();
+        $this->methodName =$this->data["methodName"]= $this->router->fetch_method();
         try{
 			$this->modelName = "{$this->className}_model";
 			$this->load->model("{$this->className}_model");

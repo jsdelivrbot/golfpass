@@ -6,57 +6,7 @@ class Board_Model extends Public_Model{
         parent:: __construct($table);
     }
 
-    ////use this samle function
-    // function gets_with_pgi($pgi_style)
-    // {
-    //     return parent::_gets_with_pgi_func(
-    //         $pgi_style,
-    //         function()
-    //         {   
-                
-    //         },
-    //         function($offset,$per_page) 
-    //         {
-             
-    //         }
-    //     );
-    // }
 
-    ////use this sample2 function
-    // function set_select()
-    // {
-    //     $this->db->select("p.*");
-    // }
-    // function set_from()
-    // {
-    //     $this->db->from("$this->table as p");
-    //     // $this->db->join("","","");
-    // }
-    // function gets()
-    // {
-    //     $this->set_select();
-    //     $this->set_from();
-    //     return $this->_gets();
-    // }
-
-
-    // function gets_with_pgi($where_obj,$pgi_style)
-    // {
-
-    //     return parent::_gets_with_pgi_func(
-    //         $pgi_style,
-    //         function() use ($where_obj)
-    //         {   
-    //             $this->_where_by_obj($where_obj);
-    //             return $this->_get_num_rows();
-    //         },
-    //         function($offset,$per_page) use($where_obj) 
-    //         {
-    //             $this->_where_by_obj($where_obj);
-    //             return $this->gets();
-    //         }
-    //     );
-    // }
     function _gets_with_pgi_func($pgi_style,$get_num_rows_func , $get_rows_func,$is_count_field = null,$config =array())
     {
         $is_numrow = $config['is_numrow'] ?? true;
@@ -175,11 +125,18 @@ class Board_Model extends Public_Model{
         //  return $this->db->get()->result();
 
 //     }
+
+
+   
+
+
+    
     //new
+
     function pagination($where_obj=null,$config=array())
     {
         $style = $config['stlye'] ?? "style_1";
-        $per_page = $config['per_page'] ?? "5";
+        $per_page = $config['per_page'] ?? "10";
         $total_num = null;
         if(isset($config['total_num']))
         {

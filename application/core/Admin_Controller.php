@@ -13,6 +13,7 @@ class Admin_Controller extends Public_Controller{
 
     public function list()
     {
+        $data =&$this->data; 
         $rows =$this->{$this->modelName}->pagination();
         $data['rows'] = $rows;
         $this->_template("{$this->className}/list",$data);

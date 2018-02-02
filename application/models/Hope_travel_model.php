@@ -10,7 +10,11 @@ class Hope_travel_Model extends Board_Model {
         $this->as = 'h_t';
     }
 
-    
+    function list()
+    {
+        $this->db->order_by('h_t.id', 'desc');
+        return parent::list();
+    }
 
 }
 
