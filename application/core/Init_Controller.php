@@ -369,7 +369,6 @@ class Init_Controller extends MX_Controller{
             echo "<br>";
             return false;
         }
-        
     }
     function product_option()
     {
