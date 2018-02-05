@@ -4,7 +4,7 @@
     <div class="tp-col-12">
       <h1 id='tp-panel-title' class="tp-text-center">
         <span>순위별
-        </span> 골프장
+        </span> 골프장1
       </h1>
     </div>
   </div> 
