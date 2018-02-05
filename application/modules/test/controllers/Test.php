@@ -11,6 +11,7 @@ class Test extends Public_Controller
     public function index()
     {
 
+        
         $this->load->model('shop/products_model');
         $r=$this->db->query("SELECT id,name,price FROM products order by field(price,0,1) asc, price desc")->result();
         // $r=$this->db->query("(SELECT id,name,price FROM products where price > 1 order by price asc) union (SELECT id,name,price) FROM products WHERE price IN (0,1) ORDER BY FIELD(0,1) asc")->result();
