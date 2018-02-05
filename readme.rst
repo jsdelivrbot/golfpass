@@ -9,7 +9,7 @@ Server
  : http://golfpass.net
 
 **********
-XAMPP Download for running local Server
+XAMPP download for running local Server
 **********
 - https://www.apachefriends.org/download.html
     - IMPORTANT
