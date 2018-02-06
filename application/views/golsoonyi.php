@@ -1,17 +1,17 @@
     <!-- // 골순이 스타일시작 -->
     <link rel="stylesheet" href="/public/etc/golsoonyi/jqueryui.css">
-  <link rel="stylesheet" href="/public/etc/golsoonyi/style.css">
+    <link rel="stylesheet" href="/public/etc/golsoonyi/style.css">
 <!-- // 골순이 스타일 끝 -->
 
-<div style="position:fixed; right :0px; bottom: 10px;z-index:9999" >
-<div class="u-modal--trigger_wrap" >
-    <p>
+<!--<div style="position:fixed; right :0px; bottom: 10px;z-index:9999">-->
+<div style="position:fixed; right :0px; bottom: 10px">>
+<div class="u-modal--trigger_wrap">
+    <p style="margin-top : 12px;">
       <b>코디네이터 골순이</b>
       <br> 당신만의 맞춤 여행을 설계해드립니다.</p>
     <button class="u-modal--trigger">시작</button>
   </div>
 </div>
-
   <!-- 모달 bg -->
   <div class="u-modal--wrap">
 
@@ -110,12 +110,12 @@
             <input type="text" name="state5_1" id="" placeholder="ex) 니죠 C.C.">
             <div class="u-modal__radio">
               <label for="id1">
-                <input type="radio" name="caddy1" value="캐디필수" id="id1" checked="checked">
-                <span>캐디 필수</span>
+                <input type="radio" name="caddy1" value="캐디무관" id="id1" checked="checked">
+                <span>캐디 무관</span>
               </label>
               <label for="id2">
-                <input type="radio" name="caddy1" value="캐디무관" id="id2">
-                <span>캐디 무관</span>
+                <input type="radio" name="caddy1" value="캐디필수" id="id2">
+                <span>캐디 필수</span>
               </label>
             </div>
           </div>
@@ -138,12 +138,12 @@
             <input type="text" name="state5_2_1" id="" placeholder="직접 입력해주세요!">
             <div class="u-modal__radio">
               <label for="id3">
-                <input type="radio" name="caddy2" value="캐디필수" id="id3" checked="checked">
-                <span>캐디 필수</span>
+                <input type="radio" name="caddy2" value="캐디무관" id="id3" checked="checked">
+                <span>캐디 무관</span>
               </label>
               <label for="id4">
-                <input type="radio" name="caddy2" value="캐디무관"id="id4">
-                <span>캐디 무관</span>
+                <input type="radio" name="caddy2" value="캐디필수"id="id4">
+                <span>캐디 필수</span>
               </label>
             </div>
           </div>
@@ -245,7 +245,6 @@
       </div>
     </div>
   </div>
-  
 
       <!-- 골순이 스크립트 시작 -->
 
