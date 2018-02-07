@@ -59,8 +59,8 @@
             <p>
               <img src="/public/etc/golsoonyi/img/modal-cal.png" alt="" srcset=""> </p>
 
-            <input name="start_date" id="datepicker1" placeholder="시작 날짜">
-            <input name="end_date" id="datepicker2" placeholder="도착 날짜">
+            <input name="start_date" id="datepicker1" placeholder="시작 날짜" readonly>
+            <input name="end_date" id="datepicker2" placeholder="도착 날짜" readonly>
           </div>
           <div class="dashed" data-state="3"></div>
           <div data-state="3">
