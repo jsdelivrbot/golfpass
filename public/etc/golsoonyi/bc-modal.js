@@ -23,7 +23,7 @@ var state = 1,
   prev = $('.u-modal__btn-prev'),
   next = $('.u-modal__btn-next'),
   state_bar = $('.u-modal__state-bar'),
-  num = $('[data-state="2"] [type="number"]');
+  num = $('[data-state="2"] [type="text"]');
 
 function state_change_down() {
   if (state == 1) {
