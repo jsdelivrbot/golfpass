@@ -23,7 +23,7 @@ var state = 1,
   prev = $('.u-modal__btn-prev'),
   next = $('.u-modal__btn-next'),
   state_bar = $('.u-modal__state-bar'),
-  num = $('[data-state="2"] [type="text"]');
+  num = $('[data-state="2"] [type="number"]');
 
 function state_change_down() {
   if (state == 1) {
@@ -200,7 +200,7 @@ $('.u-modal--trigger_wrap').on('click', function () {
 $('.u-modal--select').on('change', function () {
   var self = $(this),
     v = self.val();
-  if (v == 'etc') {
+  if (v == '직접입력') {
     self.next().show();
   } else {
     self.next().hide();

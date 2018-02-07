@@ -4,7 +4,7 @@
 <!-- // 골순이 스타일 끝 -->
 
 <!--<div style="position:fixed; right :0px; bottom: 10px;z-index:9999">-->
-<div style="position:fixed; right :0px; bottom: 10px">>
+<div style="position:fixed; right :0px; bottom: 10px; z-index: 1;">>
 <div class="u-modal--trigger_wrap">
     <p style="margin-top : 12px;">
       <b>코디네이터 골순이</b>
@@ -13,7 +13,7 @@
   </div>
 </div>
   <!-- 모달 bg -->
-  <div class="u-modal--wrap">
+  <div class="u-modal--wrap" style="z-index:1000">
 
     <!-- 모달 -->
     <div class="u-modal">
@@ -49,7 +49,7 @@
 
           <!-- state 2 -->
           <div data-state="2">
-            <input type="text" name="state2" id="" placeholder="0">
+            <input type="text" name="state2" id="" placeholder="0" disabled><!--입력불가-->
             <button class="u-modal__num-down"></button>
             <button class="u-modal__num-up"></button>
           </div>
@@ -210,8 +210,9 @@
           <!-- state 8 -->
           <div data-state="14">
             <input type="text" name="name" id="" placeholder="이름을 적어주세요">
-            <input type="text" name="phone" id="" placeholder="연락처를 적어주세요">
-          </div>
+            <!--onkeypress="if(event.keyCode<45||event.keyCode>57)event.returnValue = false;" style="IME-MODE:disabled;"-->
+            <input type="tel"  name="phone" id="" placeholder="연락처를 적어주세요">
+          </div><!--숫자만 입력-->
 
           <!-- state 9 -->
           <div data-state="15">

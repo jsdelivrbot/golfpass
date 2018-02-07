@@ -74,7 +74,7 @@
         <div class="menu-sliders"></div>
         <div class="menu-sliders"></div>
         <div class="menu-sliders"></div>
-        <div class="menu">
+        <div class="menu" style="z-index: 100">
             <ul class="list-unstyled">
                 <?php if(is_admin()){?>
                     <li><a style="font-family: 'notokr-light', sans-serif; font-size: 20px; font-weight: normal; color: #fff;" href="<?=site_url(admin_home_uri.'')?>">관리자 페이지</a></li>
@@ -94,7 +94,7 @@
         </div>
     </div>
 
-    <header id="header" class="container-fluid">
+    <header id="header" class="container-fluid" style="z-index:1000">
         <!--  NOTE mobile -->
         <nav id='sm-nav' class="row no-gutters justify-content align-items-stretch d-sm-none panel-nav">
             <div id="logo" class='col-3 justify-content-center d-flex align-self-center align-items-center'>
