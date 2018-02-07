@@ -209,9 +209,9 @@
 
           <!-- state 8 -->
           <div data-state="14">
-            <input type="text" name="name" id="" placeholder="이름을 적어주세요" required>
+            <input type="text" name="name" id="" placeholder="이름을 적어주세요" >
             <!--onkeypress="if(event.keyCode<45||event.keyCode>57)event.returnValue = false;" style="IME-MODE:disabled;"-->
-            <input type="tel" onkeypress="if(event.keyCode<45||event.keyCode>57)event.returnValue = false;" style="IME-MODE:disabled;" name="phone" id="" placeholder="연락처를 적어주세요" required>
+            <input type="tel" onkeypress="if(event.keyCode<45||event.keyCode>57)event.returnValue = false;" style="IME-MODE:disabled;" name="phone" id="" placeholder="연락처를 적어주세요" >
           </div><!--숫자만 입력-->
 
           <!-- state 9 -->
