@@ -200,7 +200,7 @@ $('.u-modal--trigger_wrap').on('click', function () {
 $('.u-modal--select').on('change', function () {
   var self = $(this),
     v = self.val();
-  if (v == '직접입력') {
+  if (v == '직접 입력') {
     self.next().show();
   } else {
     self.next().hide();
