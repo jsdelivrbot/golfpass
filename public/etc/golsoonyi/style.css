@@ -171,18 +171,19 @@ button.u-modal__btn-next {
     background-color: #fff;
     height: auto; }
   [data-state="2"] button {
-    width: 11px;
+    width: 50px;
     height: 19px;
     position: absolute;
     top: 50%;
     margin-top: -9px;
-    background-image: url(img/modal-arrow.gif); }
+    background-image: url(img/modal-arrow.gif);
+    background-repeat: no-repeat;}
   [data-state="2"] .u-modal__num-down {
-    left: 60px;
+    left: 16px;
     transform: rotateY(180deg);
     display: none; }
   [data-state="2"] .u-modal__num-up {
-    right: 60px; }
+    right: 16px; }
 
 .u-modal--trigger_wrap {
   width: 298px;
