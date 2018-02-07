@@ -2026,7 +2026,7 @@ body.menu-open .plus-btn .r2 {
     top: 0;
     left: 0;
     color: white;
-    z-index: 9999; }
+    z-index: 1000; }
   #header nav#sm-nav #nav-icon-box, .black-bg-header nav#sm-nav #nav-icon-box {
     padding-right: 16px;
     max-width: 41%;
@@ -2200,7 +2200,7 @@ body.menu-open .plus-btn .r2 {
     top: 0;
     left: 0;
     color: white;
-    z-index: 9999; }
+    z-index: 1000; }
   #header nav#sm-nav #nav-icon-box, .black-bg-header nav#sm-nav #nav-icon-box {
     padding-right: 16px;
     max-width: 41%;
@@ -3175,7 +3175,7 @@ body.menu-open .plus-btn .r2 {
         color: #868e93; }
 
 #book-box-wrap {
-  z-index: 999;
+  z-index: 1;
   top: -80px; }
   @media (max-width: 991px) {
     #book-box-wrap {

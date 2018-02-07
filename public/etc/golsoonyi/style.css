@@ -18,7 +18,8 @@
     box-sizing: border-box; }
   .u-modal--wrap button,
   .u-modal--wrap select,
-  .u-modal--wrap [type="text"] {
+  .u-modal--wrap [type="text"],
+  .u-modal--wrap [type="tel"] {
     background-color: transparent;
     border: none; }
   .u-modal--wrap button {
@@ -26,6 +27,7 @@
     cursor: pointer; }
   .u-modal--wrap select,
   .u-modal--wrap [type="text"],
+  .u-modal--wrap [type="tel"],
   .u-modal--wrap .hasDatepicker {
     height: 40px;
     background-color: #ececec;
@@ -37,7 +39,7 @@
   .u-modal--wrap select + [type="text"] {
     margin-top: 10px;
     display: none; }
-  .u-modal--wrap [type="text"] + [type="text"] {
+  .u-modal--wrap [type="text"] + [type="tel"] {
     margin-top: 10PX; }
 
 .u-modal {

@@ -4,7 +4,7 @@
 <!-- // 골순이 스타일 끝 -->
 
 <!--<div style="position:fixed; right :0px; bottom: 10px;z-index:9999">-->
-<div style="position:fixed; right :0px; bottom: 10px; z-index: 1;">>
+<div style="position:fixed; right :0px; bottom: 10px; z-index: 1;">
 <div class="u-modal--trigger_wrap">
     <p style="margin-top : 12px;">
       <b>코디네이터 골순이</b>
@@ -209,9 +209,9 @@
 
           <!-- state 8 -->
           <div data-state="14">
-            <input type="text" name="name" id="" placeholder="이름을 적어주세요">
+            <input type="text" name="name" id="" placeholder="이름을 적어주세요" required>
             <!--onkeypress="if(event.keyCode<45||event.keyCode>57)event.returnValue = false;" style="IME-MODE:disabled;"-->
-            <input type="tel"  name="phone" id="" placeholder="연락처를 적어주세요">
+            <input type="tel" onkeypress="if(event.keyCode<45||event.keyCode>57)event.returnValue = false;" style="IME-MODE:disabled;" name="phone" id="" placeholder="연락처를 적어주세요" required>
           </div><!--숫자만 입력-->
 
           <!-- state 9 -->
