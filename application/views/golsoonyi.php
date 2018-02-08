@@ -87,10 +87,11 @@
 
           <div data-state="6">
             <select name="state4_2" id="" class="u-modal--select">
-              <option value="대도시 인근">대도시 인근</option>
-              <option value="남부 지역">남부 지역</option>
-              <option value="북부 지역">북부 지역</option>
-              <option value="관광 명소">관광 명소</option>
+              <option value="동경 시내에서 가까운 곳이 좋아요~">동경 시내에서 가까운 곳이 좋아요~</option>
+              <option value="오사카 시내에서 가까운 곳이 좋아요~">오사카 시내에서 가까운 곳이 좋아요~</option>
+              <option value="따뜻한 큐슈나 오키나와로 갈래요!">따뜻한 큐슈나 오키나와로 갈래요!</option>
+              <option value="시원한 북해도가 최고~">시원한 북해도가 최고~</option>
+              <option value="한적한 리조트에서 푹 쉬면서 골프만 칠래요!">한적한 리조트에서 푹 쉬면서 골프만 칠래요!</option>
               <option value="직접 입력">직접 입력</option>
             </select>
             <input type="text" name="state4_2_1" id="" placeholder="직접 입력해주세요!">
@@ -109,8 +110,8 @@
           </div>
 
           <div data-state="8">
-            <input type="text" name="state5_1" id="" placeholder="ex) 니죠 C.C.">
-            <div class="u-modal__radio">
+          <input type="text" name="state5_1" id="" placeholder="ex) 니죠 C.C. / 나리타 G.C.">
+             <div class="u-modal__radio">
               <label for="id1">
                 <input type="radio" name="caddy1" value="캐디무관" id="id1" checked="checked">
                 <span>캐디 무관</span>
@@ -130,11 +131,11 @@
 
           <div data-state="9">
             <select name="state5_2" id="" class="u-modal--select">
-              <option value="가성비가 좋은 코스">가성비가 좋은 코스</option>
-              <option value="프리미엄 코스">프리미엄 코스</option>
-              <option value="시내에서 가까운 코스">시내에서 가까운 코스</option>
-              <option value="공항에서 가까운 코스">공항에서 가까운 코스</option>
-              <option value="골프텔이 있는 코스">골프텔이 있는 코스</option>
+              <option value="골프텔이 붙어있는 곳으로 가고싶어요~">골프텔이 붙어있는 곳으로 가고싶어요~</option>
+              <option value="무엇보다도 가성비가 최우선!">무엇보다도 가성비가 최우선!</option>
+              <option value="저녁에 관광하려면 시내가 가까운게 좋아요~">저녁에 관광하려면 시내가 가까운게 좋아요~</option>
+              <option value="무조건 공항에서 가까운 곳이 편해요!">무조건 공항에서 가까운 곳이 편해요!</option>
+              <option value="TV에서 본 프리미엄 코스에 가고싶어요!">TV에서 본 프리미엄 코스에 가고싶어요!</option>
               <option value="직접 입력">직접 입력</option>
             </select>
             <input type="text" name="state5_2_1" id="" placeholder="직접 입력해주세요!">
@@ -174,12 +175,12 @@
 
           <div data-state="12">
             <select name="state6_2" id="" class="u-modal--select">
-              <option value="합리적인 가격의 호텔">합리적인 가격의 호텔</option>
-              <option value="고급 브랜드 호텔">고급 브랜드 호텔</option>
-              <option value="시내에서 가까운 호텔">시내에서 가까운 호텔</option>
-              <option value="공항에서 가까운 호텔">공항에서 가까운 호텔</option>
-              <option value="가능하다면 골프텔이 최우선">가능하다면 골프텔이 최우선</option>
-              <option value="일본식 료칸(다다미)">일본식 료칸(다다미)</option>
+              <option value="골프치고 바로 골프텔로 고고!">골프치고 바로 골프텔로 고고!</option>
+              <option value="가격이 합리적이었으면 좋겠어요~">가격이 합리적이었으면 좋겠어요~</option>
+              <option value="일본식 료칸(다다미)을 경험해보고 싶어요!">일본식 료칸(다다미)을 경험해보고 싶어요!</option>
+              <option value="저녁에 관광하려면 시내가 가까운게 좋아요~">저녁에 관광하려면 시내가 가까운게 좋아요~</option>
+              <option value="무조건 공항에서 가까운 곳이 편해요!">무조건 공항에서 가까운 곳이 편해요!</option>
+              <option value="고급 브랜드 호텔을 선호해요!">고급 브랜드 호텔을 선호해요!</option>
               <option value="직접 입력">직접 입력</option>
             </select>
             <input type="text" name="state6_2_1" id="" placeholder="직접 입력해주세요!">
