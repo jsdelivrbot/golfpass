@@ -32,6 +32,10 @@
         <td><?=$row->end_date?></td>
     </tr>
     <tr>
+        <td>희망 시간 대</td>
+        <td><?=$row->state3?></td>
+    </tr>
+    <tr>
         <td>질문 3-1</td>
         <td><?=$row->state4_1?></td>
     </tr>

@@ -411,6 +411,7 @@ class Init extends Init_Controller {
         echo "<br>";
 
     }
+    
     function hope_travel()
     {
         //p_order_infos 테이블 만들기
@@ -422,7 +423,8 @@ class Init extends Init_Controller {
             `state1_1`varchar(255), 
             `state2` varchar(255), 
             `start_date` varchar(255), 
-            `end_date` varchar(255), 
+            `end_date` varchar(255),
+            `state3` varchar(255), 
             `state4_1` varchar(255), 
             `state4_2` varchar(255), 
             `state4_2_1` varchar(255), 
@@ -443,6 +445,7 @@ class Init extends Init_Controller {
             KEY `idx_state1` (`state1`),
             KEY `idx_state1_1` (`state1_1`),
             KEY `idx_state2` (`state2`),
+            KEY `idx_state3` (`state3`),
             KEY `idx_state4_1` (`state4_1`),
             KEY `idx_state4_2` (`state4_2`),
             KEY `idx_state4_2_1` (`state4_2_1`),

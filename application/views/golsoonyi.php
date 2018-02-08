@@ -111,7 +111,7 @@
 
           <div data-state="8">
           <input type="text" name="state5_1" id="" placeholder="ex) 니죠 C.C. / 나리타 G.C.">
-             <div class="u-modal__radio">
+           <div class="u-modal__radio">
               <label for="id1">
                 <input type="radio" name="caddy1" value="캐디무관" id="id1" checked="checked">
                 <span>캐디 무관</span>
