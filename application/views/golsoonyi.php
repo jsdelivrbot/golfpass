@@ -3,7 +3,6 @@
     <link rel="stylesheet" href="/public/etc/golsoonyi/style.css">
 <!-- // 골순이 스타일 끝 -->
 
-<!--<div style="position:fixed; right :0px; bottom: 10px;z-index:9999">-->
 <div style="position:fixed; right :0px; bottom: 10px; z-index: 1;">
 <div class="u-modal--trigger_wrap">
     <p style="margin-top : 12px;">
@@ -34,9 +33,9 @@
           <!-- state 1 -->
           <div data-state="1">
             <select name="state1" id="" class="u-modal--select">
-              <option value="골프장만 예약하고 싶어요!">골프장만 예약하고 싶어요!</option>
-              <option value="골프장은 물론, 숙박도 필요해요~">골프장은 물론, 숙박도 필요해요~</option>
-              <option value="직접 입력">직접 입력</option>
+            <option value="골프장만 예약하고 싶어요!">골프장만 예약하고 싶어요!</option>
+            <option value="골프장은 물론, 숙박도 필요해요~">골프장은 물론, 숙박도 필요해요~</option>
+            <option value="직접 입력">직접 입력</option>
             </select>
             <input type="text" name="state1_1" id="" placeholder="직접 입력해주세요!">
 
@@ -53,14 +52,21 @@
           <!-- state 3 -->
           <div data-state="3" class="u-modal__cal">
             <p>
-              <img src="/public/etc/golsoonyi/img/modal-cal.png" alt="" srcset=""> </p>
+              <img src="/public/etc/golsoonyi/img/modal-cal.png" alt="" srcset="" position="center"> </p>
 
             <input name="start_date" id="datepicker1" placeholder="시작 날짜" readonly>
             <input name="end_date" id="datepicker2" placeholder="도착 날짜" readonly>
           </div>
           <div class="dashed" data-state="3"></div>
           <div data-state="3">
-            <p>평일엔 더 여유롭고 합리적인 구성이 가능합니다.</p>
+            <p>
+              <select name="state3" id="" class="u-modal--select" >
+                <option value="희망 티타임 선택">희망 티타임 선택</option>
+                <option value="7~8시 대">7~8시 대</option>
+                <option value="9~10시 대">9~10시 대</option>
+                <option value="11~12시 이후">11~12시 이후</option>
+              </select>
+            </p>
           </div>
 
           <!-- state 4 -->
@@ -81,11 +87,10 @@
 
           <div data-state="6">
             <select name="state4_2" id="" class="u-modal--select">
-              <option value="동경 시내에서 가까운 곳이 좋아요~">동경 시내에서 가까운 곳이 좋아요~</option>
-              <option value="오사카 시내에서 가까운 곳이 좋아요~">오사카 시내에서 가까운 곳이 좋아요~</option>
-              <option value="따뜻한 큐슈나 오키나와로 갈래요!">따뜻한 큐슈나 오키나와로 갈래요!</option>
-              <option value="시원한 북해도가 최고~">시원한 북해도가 최고~</option>
-              <option value="한적한 리조트에서 푹 쉬면서 골프만 칠래요!">한적한 리조트에서 푹 쉬면서 골프만 칠래요!</option>
+              <option value="대도시 인근">대도시 인근</option>
+              <option value="남부 지역">남부 지역</option>
+              <option value="북부 지역">북부 지역</option>
+              <option value="관광 명소">관광 명소</option>
               <option value="직접 입력">직접 입력</option>
             </select>
             <input type="text" name="state4_2_1" id="" placeholder="직접 입력해주세요!">
@@ -104,7 +109,7 @@
           </div>
 
           <div data-state="8">
-            <input type="text" name="state5_1" id="" placeholder="ex) 니죠 C.C. / 나리타 G.C.">
+            <input type="text" name="state5_1" id="" placeholder="ex) 니죠 C.C.">
             <div class="u-modal__radio">
               <label for="id1">
                 <input type="radio" name="caddy1" value="캐디무관" id="id1" checked="checked">
@@ -125,11 +130,11 @@
 
           <div data-state="9">
             <select name="state5_2" id="" class="u-modal--select">
-              <option value="골프텔이 붙어있는 곳으로 가고싶어요~">골프텔이 붙어있는 곳으로 가고싶어요~</option>
-              <option value="무엇보다도 가성비가 최우선!">무엇보다도 가성비가 최우선!</option>
-              <option value="저녁에 관광하려면 시내가 가까운게 좋아요~">저녁에 관광하려면 시내가 가까운게 좋아요~</option>
-              <option value="무조건 공항에서 가까운 곳이 편해요!">무조건 공항에서 가까운 곳이 편해요!</option>
-              <option value="TV에서 본 프리미엄 코스에 가고싶어요!">TV에서 본 프리미엄 코스에 가고싶어요!</option>
+              <option value="가성비가 좋은 코스">가성비가 좋은 코스</option>
+              <option value="프리미엄 코스">프리미엄 코스</option>
+              <option value="시내에서 가까운 코스">시내에서 가까운 코스</option>
+              <option value="공항에서 가까운 코스">공항에서 가까운 코스</option>
+              <option value="골프텔이 있는 코스">골프텔이 있는 코스</option>
               <option value="직접 입력">직접 입력</option>
             </select>
             <input type="text" name="state5_2_1" id="" placeholder="직접 입력해주세요!">
@@ -169,12 +174,12 @@
 
           <div data-state="12">
             <select name="state6_2" id="" class="u-modal--select">
-              <option value="골프치고 바로 골프텔로 고고!">골프치고 바로 골프텔로 고고!</option>
-              <option value="가격이 합리적이었으면 좋겠어요~">가격이 합리적이었으면 좋겠어요~</option>
-              <option value="일본식 료칸(다다미)을 경험해보고 싶어요!">일본식 료칸(다다미)을 경험해보고 싶어요!</option>
-              <option value="저녁에 관광하려면 시내가 가까운게 좋아요~">저녁에 관광하려면 시내가 가까운게 좋아요~</option>
-              <option value="무조건 공항에서 가까운 곳이 편해요!">무조건 공항에서 가까운 곳이 편해요!</option>
-              <option value="고급 브랜드 호텔을 선호해요!">고급 브랜드 호텔을 선호해요!</option>
+              <option value="합리적인 가격의 호텔">합리적인 가격의 호텔</option>
+              <option value="고급 브랜드 호텔">고급 브랜드 호텔</option>
+              <option value="시내에서 가까운 호텔">시내에서 가까운 호텔</option>
+              <option value="공항에서 가까운 호텔">공항에서 가까운 호텔</option>
+              <option value="가능하다면 골프텔이 최우선">가능하다면 골프텔이 최우선</option>
+              <option value="일본식 료칸(다다미)">일본식 료칸(다다미)</option>
               <option value="직접 입력">직접 입력</option>
             </select>
             <input type="text" name="state6_2_1" id="" placeholder="직접 입력해주세요!">
@@ -182,7 +187,7 @@
           <div class="dashed" data-state="12"></div>
           <div data-state="12">
             <p>호텔은 양실 2인 1실,
-              <br> 료칸은 다다미실 3~4인 1실이 기본입니다.
+              <br>료칸은 다다미실 3~4인 1실이 기본입니다.
             </p>
           </div>
 
@@ -198,9 +203,9 @@
           <div class="dashed" data-state="13"></div>
           <div data-state="13">
             <p>일본은 송영 시스템을 운영하지 않는 곳이 많고
-              <br> 비싼 편이라 렌터카 이용을 추천드려요!
-              <br> 모든 공항에 렌터카 인프라가 깔려있고
-              <br> 네비게이션도 한국어를 지원합니다.
+              <br>비싼 편이라 렌터카 이용을 추천드려요!
+              <br>모든 공항에 렌터카 인프라가 깔려있고
+              <br>네비게이션도 한국어를 지원합니다.
             </p>
           </div>
 
@@ -222,10 +227,10 @@
           <!-- state 10 -->
           <div data-state="16">
             <p>저희는 항공권 수배 대행을
-              <br> 하고 있지 않습니다.
-              <br> 해당 항공사 홈페이지, 어플이나
-              <br> 스카이 스캐너, 인터파크 투어 등을
-              <br> 이용하시면 굉장히 저렴해집니다.
+              <br>하고 있지 않습니다.
+              <br>해당 항공사 홈페이지, 어플이나
+              <br>스카이 스캐너, 인터파크 투어 등을
+              <br>이용하시면 굉장히 저렴해집니다.
             </p>
           </div>
         </form>
