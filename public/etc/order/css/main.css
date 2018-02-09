@@ -1735,6 +1735,7 @@ input.ui-button::-moz-focus-inner, button.ui-button::-moz-focus-inner {
 border:0;
 padding:0;
 }
+/*
 .ui-datepicker {
 	width: 17em;
 	padding: .2em .2em 0;
@@ -1905,7 +1906,7 @@ padding:0;
 .ui-datepicker-rtl .ui-datepicker-group-last .ui-datepicker-header, .ui-datepicker-rtl .ui-datepicker-group-middle .ui-datepicker-header {
 	border-right-width: 0;
 	border-left-width: 1px;
-}
+}*/
 .ui-widget {
 	font-family: Trebuchet MS, Tahoma, Verdana, Arial, sans-serif;
 	font-size: 1.1em;
