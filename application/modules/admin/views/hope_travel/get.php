@@ -12,15 +12,15 @@
         <td><?=$row->phone?></td>
     </tr>
     <tr>
-        <td>질문 1-1</td>
+        <td>투어 컨셉</td>
         <td><?=$row->state1?></td>
     </tr>
     <tr>
-        <td>질문 1-2</td>
+        <td>투어 컨셉 직접 입력</td>
         <td><?=$row->state1_1?></td>
     </tr>
     <tr>
-        <td>질문 2</td>
+        <td>인원 수</td>
         <td><?=$row->state2?></td>
     </tr>
     <tr>
@@ -36,15 +36,15 @@
         <td><?=$row->state3?></td>
     </tr>
     <tr>
-        <td>질문 3-1</td>
+        <td>지역 확정</td>
         <td><?=$row->state4_1?></td>
     </tr>
     <tr>
-        <td>질문 3-2</td>
+        <td>지역 선택</td>
         <td><?=$row->state4_2?></td>
     </tr>
     <tr>
-        <td>질문 3-2-1</td>
+        <td>지역 직접 입력</td>
         <td><?=$row->state4_2_1?></td>
     </tr>
     <tr>
@@ -56,35 +56,35 @@
         <td><?=$row->caddy2?></td>
     </tr>
     <tr>
-        <td>질문 4-1</td>
+        <td>이미 정해진 골프장 직접 입력</td>
         <td><?=$row->state5_1?></td>
     </tr>
     <tr>
-        <td>질문 4-2</td>
+        <td>골프장 선택</td>
         <td><?=$row->state5_2?></td>
     </tr>
     <tr>
-        <td>질문 4-2-1</td>
+        <td>정해지지 않은 골프장 직접 입력</td>
         <td><?=$row->state5_2_1?></td>
     </tr>
     <tr>
-        <td>질문 5-1</td>
+        <td>이미 정해진 숙소</td>
         <td><?=$row->state6_1?></td>
     </tr>
     <tr>
-        <td>질문 5-2</td>
+        <td>숙소 선택</td>
         <td><?=$row->state6_2?></td>
     </tr>
     <tr>
-        <td>질문 5-2-1</td>
+        <td>정해지지 않은 숙소 직접 입력</td>
         <td><?=$row->state6_2_1?></td>
     </tr>
     <tr>
-        <td>질문 6-1</td>
+        <td>이동 수단 선택</td>
         <td><?=$row->state7?></td>
     </tr>
     <tr>
-        <td>질문 6-2</td>
+        <td>이동 수단 직접 입력</td>
         <td><?=$row->state7_1?></td>
     </tr>
   
