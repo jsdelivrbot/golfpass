@@ -183,3 +183,12 @@
 
   }
 }
+/*이미지 애니메이션*/
+.down {
+  position:relative;
+  margin:0 auto;
+  cursor:pointer;
+  width:25px;
+	height:60px;
+	background-image : url(/public/images/scroll1.png);
+} 

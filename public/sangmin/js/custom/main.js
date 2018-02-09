@@ -16,53 +16,15 @@ $(function() {
 			return false;
 		}
 	});
-	$('#section1').on("mousewheel DOMMouseScroll", function(e) {
-		var delta = 0;
-		if (!event) event = window.event;
-		if (event.wheelDelta) {
-			delta = event.wheelDelta / 120;
-			if (window.opera) delta = -delta;
-		} else if (event.detail) delta = -event.detail / 3;
-		var moveTop = null;
-		if (delta < 0) {
-			if ($(this).next().hasClass('scroll-smooth')) {
-				moveTop = $(this).next().offset().top;
-			}
+	/*이미지애니메이션*/
+	$(function() {
+		function swing() {
+			$('.down').animate({'top':'5px'},600).animate({'top':'10px'},600, swing);
 		}
-		$("html,body").stop().animate({
-			scrollTop: moveTop + 'px'
-		}, {
-			duration: 200,
-			complete: function() {}
-		});
+		swing();
 	});
-	$('#section2').on("mousewheel DOMMouseScroll", function(e) {
-		if ($('body').hasClass('menu-open')) {
-			return;
-		}
-		var delta = 0;
-		if (!event) event = window.event;
-		if (event.wheelDelta) {
-			delta = event.wheelDelta / 120;
-			if (window.opera) delta = -delta;
-		} else if (event.detail) delta = -event.detail / 3;
-		var moveTop = null;
-		if (delta >= 0) {
-			if ($(document).scrollTop() == 0 || $(document).scrollTop() > $('#section1').height()) {
-				return
-			}
-			if ($(this).prev() && $(document).scrollTop() < $('#section2').offset().top) {
-				e.preventDefault();
-				moveTop = $(this).prev().offset().top;
-				$("html,body").stop().animate({
-					scrollTop: moveTop + 'px'
-				}, {
-					duration: 200,
-					complete: function() {}
-				});
-			}
-		}
-	});
+	
+/*스크롤 이동삭제함*/
 	$(window).scroll(function() {
 		if ($(this).scrollTop() >= $('#section2').offset().top) {
 			$('#header').addClass('black-bg-header');
@@ -88,3 +50,4 @@ $(function() {
 		}, interval);
 	}
 })
+

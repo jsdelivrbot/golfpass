@@ -21,6 +21,7 @@
 <link rel="stylesheet" href="/public/css/main.css">
 <link rel="shortcut icon" href="/favicon.ico">
 <script src="/public/sangmin/js/jquery-3.2.1.min.js"></script>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <style>
     ::-webkit-scrollbar {
         display: none;
@@ -254,8 +255,7 @@
             <div id="current"></div>
         </section>
         <section id='scroll-alert' class='d-flex flex-column align-items-center'>
-            <span>스크롤을 내려주세요</span>
-            <i class="xi xi-angle-down"></i>
+            <div class="down"></div>
         </section>
         <section id='sns-box' class='d-flex align-items-center justify-content-around'>
             <span><a href="http://blog.naver.com/golfpass_" target="_blank"><i class="xi xi-naver"></i></a></span>
