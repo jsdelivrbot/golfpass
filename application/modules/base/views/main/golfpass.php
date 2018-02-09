@@ -53,6 +53,10 @@
 .content-box .new_position{left:30px;}
 .content-box .new_position2{left:80px;}
 }
+@media (max-width:575px){
+    .down{margin-bottom:25px !important;}
+    .down{background-image : url(/public/images/scroll2.png) !important;}
+}
 </style>
 <!-- // 추가한 부분 -->
 

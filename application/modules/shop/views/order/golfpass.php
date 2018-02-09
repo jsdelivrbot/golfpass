@@ -84,8 +84,14 @@
                   <h5 style="color:#79b754 !important;">가격 정보</h5>
                   <div class="order-detail">
                     <p style="font-size:14px;"><?=$product->name?>   <span> 
-                         총&nbsp;<span id="total_price"><?=number_format($total_price)?>원</span></span></p>
-                    <div class="item-order">
+                         &nbsp;<span id="total_price"></span></span></p>
+                    <p style="font-size:12px;">&nbsp;   <span> 
+                         &nbsp;<span style="color:#bc7a8f; font-weight:bold;" id="total_price">X&nbsp;<?=number_format($num_people)?></span></span>     
+                    &nbsp;   <span> 
+                         인당&nbsp;<span id="total_price"><?=number_format($total_price/$num_people)?>원</span></span></p>
+                    <p style="font-size:14px;">&nbsp;  <span> 
+                         총&nbsp;<span style="font-weight: bold;" id="total_price"><?=number_format($total_price)?>원</span></span></p>
+                                        <div class="item-order">
                     
                     </div>
                   </div>
