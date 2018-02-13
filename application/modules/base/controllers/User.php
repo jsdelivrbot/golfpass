@@ -324,7 +324,7 @@ class User extends Base_Controller
                     return;
             }
             $this->db->set("phone",$this->input->post("phone"));
-            $this->db->where('userName',$this->session->userdata('userName'));
+            $this->db->where('id',$this->session->userdata('user_id'));
             $this->db->update('users');
             alert("휴대폰 등록 완료.");
             my_redirect($this->input->get("return_url"));
