@@ -87,6 +87,7 @@
 
           <div data-state="6">
             <select name="state4_2" id="" class="u-modal--select">
+              <option value="선택 안함">선택해주세요.</option>
               <option value="동경 시내에서 가까운 곳이 좋아요~">동경 시내에서 가까운 곳이 좋아요~</option>
               <option value="오사카 시내에서 가까운 곳이 좋아요~">오사카 시내에서 가까운 곳이 좋아요~</option>
               <option value="따뜻한 큐슈나 오키나와로 갈래요!">따뜻한 큐슈나 오키나와로 갈래요!</option>
@@ -131,6 +132,7 @@
 
           <div data-state="9">
             <select name="state5_2" id="" class="u-modal--select">
+              <option value="선택 안함">선택해주세요.</option>
               <option value="골프텔이 붙어있는 곳으로 가고싶어요~">골프텔이 붙어있는 곳으로 가고싶어요~</option>
               <option value="무엇보다도 가성비가 최우선!">무엇보다도 가성비가 최우선!</option>
               <option value="저녁에 관광하려면 시내가 가까운게 좋아요~">저녁에 관광하려면 시내가 가까운게 좋아요~</option>
@@ -175,6 +177,7 @@
 
           <div data-state="12">
             <select name="state6_2" id="" class="u-modal--select">
+              <option value="선택 안함">선택해주세요.</option>
               <option value="골프치고 바로 골프텔로 고고!">골프치고 바로 골프텔로 고고!</option>
               <option value="가격이 합리적이었으면 좋겠어요~">가격이 합리적이었으면 좋겠어요~</option>
               <option value="일본식 료칸(다다미)을 경험해보고 싶어요!">일본식 료칸(다다미)을 경험해보고 싶어요!</option>
@@ -195,6 +198,7 @@
           <!-- state 7 -->
           <div data-state="13">
             <select name="state7" id="" class="u-modal--select">
+              <option value="선택 안함">선택해주세요.</option>
               <option value="가능하다면 송영 희망">가능하다면 송영 희망</option>
               <option value="렌터카 예약 예정">렌터카 예약 예정</option>
               <option value="직접 입력">직접 입력</option>

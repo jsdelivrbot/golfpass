@@ -358,7 +358,7 @@
                     <p style="color:#ababab;">02-6959-5454</p>
                 </li>
                  <li><span style="color:#ababab;">E-mail</span>
-                         <p style="color:#ababab;">junky@playseven.co.kr</p>
+                         <p style="color:#ababab;">golfpass_@naver.com</p>
                  </li>
             </ul>
             <ul>
