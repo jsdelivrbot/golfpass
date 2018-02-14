@@ -1288,7 +1288,7 @@ let $j_modal_group_numPeople =$(".j-modal-group-numPeople");
 //초기화 시작
 settingModalGroup(num_people);
 settingFormGroupList(); 
-ajax_get_price();
+//ajax_get_price();
 //초기화 끝
 
 $j_group_value.change(function(){  //인원수 변경시

@@ -147,7 +147,8 @@ class Product extends Base_Controller {
             $data['price'] = "데이터값 없음";
             
         }
-
+        
+        $data['price'] = my_number_format(_cal_apply_exchangeRate_and_margin_to_price($product->price));
         $current_date = date("Y-m-d");
         $data["start_date"] = date("Y-m-d",strtotime("{$current_date} +1 days"));
         $data["end_date"] = date("Y-m-d",strtotime("{$current_date} +2 days"));
