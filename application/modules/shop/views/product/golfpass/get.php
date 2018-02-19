@@ -386,7 +386,7 @@
                 </div>
                 <p class="wishlist"><a onclick="ajax_a(this); return false;" data-action="<?=site_url(shop_wishlist_uri."/ajax_add/{$product->id}")?>"href="#">위시리스트에 추가하기</a></p>
             </div>
-            <div id='book_ok' style="width:100%; height:70px; background:#fff; border: 1px solid #e5e5e5; border-top:0; padding:10px; cursor: pointer;" onclick="location.href='#';">
+            <div id='book_ok' style="width:100%; height:70px; background:#fff; border: 1px solid #e5e5e5; border-top:0; padding:10px; cursor: pointer;">
                 <div id="book_ok_button" style="width:100%; height:100%; background:#79b754; border-radius:25px;">
                     <p id="golfpass_order" style="font-family: 'notokr-reglur', sans-serif; font-size: 16px; color: #fff; text-align:center; line-height: 49px;">예약하기</p>
                 </div>
@@ -1078,33 +1078,7 @@ function validationGetPrice() {
         });
     }
     //예약하기
-    $("#golfpass_order").click(function(event) {
-        event.preventDefault();
-        
-        $input_numPeople=$order_form.find("input[name=num_people]");
-        $endDate=$order_form.find("input[name=end_date]");
-        
-        $startDate=$order_form.find("input[name=start_date]");
-        <?php if(!isset($hotel)):?> //골프장만일때 end_date = startdate
-            $endDate.val($startDate.val());
-        <?php endif?>
-        var numPeople =$input_numPeople.val();
-        if (numPeople === "0" || typeof numPeople === "undefined" || numPeople === "") {
-            alert("명수를 선택해주세요.");
-            return;
-        }
-        if ($startDate.val() === "" || $endDate.val() === "" || $("#total_price").text().indexOf("원") === -1 || $("#total_price").text().indexOf("존재") > -1) {
-            alert("잘못된 주문입니다.");
-            return false;
-        }
-
-        // $order_form.find("input[name=num_people]").val($numPeople.val());
-        // $order_form.find("input[name=start_date]").val($startDate.val());
-        // $order_form.find("input[name=end_date]").val($endDate.val());
-        // $order_form.find("input[name=total_price]").val($total_price.val());
-        $order_form.submit();
-        return false;
-    });
+    
 </script>
 
 <!-- 상품날자가격계산 -->
@@ -1205,8 +1179,8 @@ color:white;
     </div>
 </div>
 
-<div class ="j-txt-center" style="border-top:1px solid #cccccc; height: 55px;">
-    <a id="j-modal-ok"  href="#" style="width:90%; height:65%;display:block; background:#79b754; border-radius:25px; margin:auto; margin-top:10px;">
+<div class ="j-txt-center" style="border-top:1px solid #cccccc; height: 55px;" onclick="location.href='#';">
+    <a id="j-modal-ok" style="width:90%; height:65%;display:block; background:#79b754; border-radius:25px; margin:auto; margin-top:10px; cursor: pointer;">
         <span style="line-height:35px; font-family: 'notokr-light', sans-serif; font-size: 20px; font-weight: normal;">확인</span>
     </a>
 </div>
@@ -1309,24 +1283,51 @@ function settingModalGroup(num_people) //모달 그룹 아이템 세팅함수
     addEventLastItemUp();
     addEventLastItemDown();
 }
-$("#j-group-add-btn").click(function(){  //모달 보이게
-    
+$("#golfpass_order").click(function(){  //모달 보이게
+  
     $("body").css("overflow","hidden")
     settingModalSize();
     $j_dim.css("display","block");
     $j_modal.css("display","block");
     $("body").prepend($j_dim);
-
+    
 });
 $("#j-dim").click(function(){ //모달 안보이게
     closeModal();
     return false;
 });
 
-$("#j-modal-ok").click(function(){
-    closeModal();
-    return false;
-})
+//$("#j-modal-ok").click(function(){
+//    closeModal();
+//    return false;
+//})
+$("#j-modal-ok").click(function(event) {
+        event.preventDefault();
+        
+        $input_numPeople=$order_form.find("input[name=num_people]");
+        $endDate=$order_form.find("input[name=end_date]");
+        
+        $startDate=$order_form.find("input[name=start_date]");
+        <?php if(!isset($hotel)):?> //골프장만일때 end_date = startdate
+            $endDate.val($startDate.val());
+        <?php endif?>
+        var numPeople =$input_numPeople.val();
+        if (numPeople === "0" || typeof numPeople === "undefined" || numPeople === "") {
+            alert("명수를 선택해주세요.");
+            return;
+        }
+        if ($startDate.val() === "" || $endDate.val() === "" || $("#total_price").text().indexOf("원") === -1 || $("#total_price").text().indexOf("존재") > -1) {
+            alert("잘못된 주문입니다.");
+            return false;
+        }
+
+        // $order_form.find("input[name=num_people]").val($numPeople.val());
+        // $order_form.find("input[name=start_date]").val($startDate.val());
+        // $order_form.find("input[name=end_date]").val($endDate.val());
+        // $order_form.find("input[name=total_price]").val($total_price.val());
+        $order_form.submit();
+        return false;
+    });
 $("#j-modal-close").click(function(){
     cancleModal();
     return false;
@@ -1819,10 +1820,10 @@ background-color:white;
 font-family: 'notokr-medium', sans-serif;
 line-height:0px;
 border-radius: 0px;
-border-top-left-radius: 0px;
-border-top-right-radius: 0px;
-border-bottom-right-radius: 0px;
-border-bottom-left-radius: 0px;
+border-top-right-radius: 5px;
+border-bottom-right-radius: 5px;
+/*border-top-left-radius: 5px;
+border-bottom-left-radius: 0px;*/
 }
 
 .btn-down
@@ -1842,7 +1843,7 @@ width:155px;
 height:30px;
 /* display:inline-block; */
 }
-#j-group-add-btn
+/*#j-group-add-btn
 {
 background-color: #487830;
 color:white;
@@ -1851,7 +1852,7 @@ border-bottom-right-radius: 5px;
 
 font-family: 'notokr-medium', sans-serif;
 line-height:0px;
-}
+}*/
 #j-group-value
 {
 
