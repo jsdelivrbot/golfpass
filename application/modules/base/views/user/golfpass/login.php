@@ -27,7 +27,7 @@
 
 <div class="ui middle aligned center aligned grid">
     <div class="column">
-        <form action="<?=my_site_url(user_uri."/login?return_url=".rawurlencode($return_url))?>" method="post" class="ui large form" style="max-width: 90%; margin: 0 auto;">
+        <form action="<?=my_site_url(user_uri."/login?return_url=".rawurlencode($_SERVER['HTTP_REFERER']))?>" method="post" class="ui large form" style="max-width: 90%; margin: 0 auto;">
             <div class="ui header">골프패스 로그인</div>
             <div class="field">
                 <div class="ui left icon input">
