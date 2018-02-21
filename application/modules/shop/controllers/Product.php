@@ -140,7 +140,7 @@ class Product extends Base_Controller {
         if($row !== null){
             $price = $row->price;
             $price = my_number_format(_cal_apply_exchangeRate_and_margin_to_price($price));
-            $data['price'] = "{$price}원 부터";
+            $data['price'] = "{$price}"; //20180220
         }
         else
         {
@@ -148,7 +148,7 @@ class Product extends Base_Controller {
             
         }
         
-        $data['price'] = my_number_format(_cal_apply_exchangeRate_and_margin_to_price($product->price));
+ //       $data['price'] = my_number_format(_cal_apply_exchangeRate_and_margin_to_price($product->price));
         $current_date = date("Y-m-d");
         $data["start_date"] = date("Y-m-d",strtotime("{$current_date} +1 days"));
         $data["end_date"] = date("Y-m-d",strtotime("{$current_date} +2 days"));

@@ -83,6 +83,9 @@
                 <div class="order-place">
                   <h5 style="color:#79b754 !important;">가격 정보</h5>
                   <div class="order-detail">
+                  <div class="order-date"><?=$start_date?>
+                  <?php if(isset($hotel)):?>&nbsp;~&nbsp;&nbsp;<?=$end_date?><?php endif?></div><div>&nbsp;</div>
+                   
                     <p style="font-size:14px;"><?=$product->name?>   <span> 
                          &nbsp;<span id="total_price"></span></span></p>
                     <p style="font-size:12px;">&nbsp;   <span> 

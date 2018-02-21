@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>골프패스</title>
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="/public/sangmin/dist/bootstrap/bootstrap.min.css">
@@ -1262,7 +1263,7 @@ let $j_modal_group_numPeople =$(".j-modal-group-numPeople");
 //초기화 시작
 settingModalGroup(num_people);
 settingFormGroupList(); 
-//ajax_get_price();
+ajax_get_price();
 //초기화 끝
 
 $j_group_value.change(function(){  //인원수 변경시
@@ -1290,6 +1291,10 @@ $("#golfpass_order").click(function(){  //모달 보이게
     $j_dim.css("display","block");
     $j_modal.css("display","block");
     $("body").prepend($j_dim);
+    if ($startDate.val() === "" || $endDate.val() === "" || $("#total_price").text().indexOf("원") === -1 || $("#total_price").text().indexOf("존재") > -1) {
+            alert("잘못된 주문입니다.");
+            return closeModal();
+    }
     
 });
 $("#j-dim").click(function(){ //모달 안보이게
