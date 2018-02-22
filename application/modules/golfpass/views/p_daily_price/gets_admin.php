@@ -416,17 +416,20 @@ function get_date_string(date)
     var month = String(date.getMonth()+1);
     if(day.length === 1)
     {   
-        day = `0${day}`;
+//        day = `0${day}`;
+        day = "0"+day;
     }
     if(month.length === 1)
     {   
-        month = `0${month}`;
+//        month = `0${month}`;
+        month = "0"+month;
     }
     // if(month === '00')
     // {
     //     month = "12";
     // }
-var out_date = `${date.getFullYear()}-${month}-${day}`;
+//var out_date = `${date.getFullYear()}-${month}-${day}`;
+var out_date = date.getFullYear()+"-"+month+"-"+day;
 return out_date;
 }
 </script>
