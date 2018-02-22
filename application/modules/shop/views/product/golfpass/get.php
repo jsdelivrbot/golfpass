@@ -1270,8 +1270,7 @@ $j_group_value.change(function(){  //인원수 변경시
     $this = $(this);
     num_people = $this.val();
     settingModalGroup(num_people);
-   // $j_modal_group_numPeople.text(`${num_people}명`);
-    $j_modal_group_numPeople.text(num_people+"명");
+    $j_modal_group_numPeople.text(`${num_people}명`);
     settingFormGroupList(); 
 
     ajax_get_price(); //가격 계산
@@ -1368,8 +1367,7 @@ function settingFormGroupList() //폼 그룹 세팅 함수
         let groupName =  String.fromCharCode(65+i)+"조";
         $groupName.text(groupName);
         
-//        $item.find(".j-group-item-txt").text(`${val}명`);
-        $item.find(".j-group-item-txt").text(val+"명");
+        $item.find(".j-group-item-txt").text(`${val}명`);
         $item.find(".j-group-item-input").val(val);
         $order_form.append($item);
 

@@ -289,11 +289,9 @@
      */
     function createOption(category,name, price)
     {
-//       let $p = $(`<p>${category} : ${name}</p>`);
-       let $p = $("<p>"+category+" : "+name+"</p>");
+       let $p = $(`<p>${category} : ${name}</p>`);
         price  = price.toLocaleString();
-//        let $span= $(`<span class="color"> + ${price} 원</span>`);
-        let $span= $("<span class="color"> + "+price+" 원</span>");
+        let $span= $(`<span class="color"> + ${price} 원</span>`);
         $p.append($span);
         return $p;
     }

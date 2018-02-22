@@ -239,8 +239,7 @@ $(document).ready(function(){
     //히든태그추가 끝
     //옵션추가 시작
         var option = document.createElement("div");
-//        option.innerHTML = `<div class="ui header" style="margin-top:20px;">${option_text}</div>`;
-        option.innerHTML = "<div class="ui header" style="margin-top:20px;">"+option_text+"</div>"
+        option.innerHTML = `<div class="ui header" style="margin-top:20px;">${option_text}</div>`;
         $option_item.append(option);
     //옵션추가 끝
         var removeBtn = document.createElement("button");

@@ -43,13 +43,8 @@ class Map_api
             }
 
          
-            function addMarker(map,lat,lng,address,name,type,latlngSw)
+            function addMarker(map,lat,lng,address=null,name=null,type=null,latlngSw= true)
             {
-                address =  typeof address !== 'undefined' ? address : null; 
-                name=  typeof name!== 'undefined' ? name: null; 
-                type=  typeof type!== 'undefined' ? type: null; 
-                latlngSw=  typeof latlngSw!== 'undefined' ? latlngSw: true;
-
                 var location=new google.maps.LatLng(lat,lng);
                 var marker = new google.maps.Marker({
                         position: location,
@@ -64,8 +59,7 @@ class Map_api
                 }
                 if(type !== null && type !== 'null' && type !=='')
                 {
-                    //content += `(${type})<br>`;
-                    content += "("+type+")<br>";
+                    content += `(${type})<br>`;
                 }
                 else if(name !== null && name !== 'null' && name !=='')
                 {
@@ -73,9 +67,7 @@ class Map_api
                 }
                 if(address !== null && address !== 'null' && address !=='')
                 {
-                //    content += `${address}<br>`;
-                    content += address+"<br>";
-
+                    content += `${address}<br>`;
                 }
                 if(latlngSw === true)
                 {
