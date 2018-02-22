@@ -137,7 +137,8 @@
         for (let i = 1; i < $num_people_times.length; i++) {
             const $ele = $($num_people_times[i]);
             const eleVal =$ele.val();
-            $ele.val(`${eleVal}+${basePrice}`);
+           // $ele.val(`${eleVal}+${basePrice}`);
+            $ele.val(eleVal+"+"+basePrice);
         }
     });
   </script>
@@ -168,7 +169,8 @@
             var year =$(this).val();
             var $a = $("#a_link_year");
             var queryString = "<?=$this->input->server('QUERY_STRING');?>";
-            $a.attr("href", `${base_url}/${year}?${queryString}`);
+//            $a.attr("href", `${base_url}/${year}?${queryString}`);
+            $a.attr("href", base_url+"/"+year+"?"+queryString);
         });
     </script>
 <!-- 해당년도로 -->
@@ -324,7 +326,8 @@ $("input[value='모두선택']").click(function()
      var end = parseInt(arr_start_end[1]);
     for(var i=start ; i<=end; i++ )
     {
-        $(`input[name='num_people[]'][value=${i}]`).prop('checked',true);
+   //     $(`input[name='num_people[]'][value=${i}]`).prop('checked',true);
+        $("input[name='num_people[]'][value="+i+"]").prop('checked',true);
     }
     // if($num_people.prop('checked') === false)
     //     $num_people.prop('checked',true);
@@ -413,17 +416,20 @@ function get_date_string(date)
     var month = String(date.getMonth()+1);
     if(day.length === 1)
     {   
-        day = `0${day}`;
+//        day = `0${day}`;
+        day = "0"+day;
     }
     if(month.length === 1)
     {   
-        month = `0${month}`;
+//        month = `0${month}`;
+        month = "0"+month;
     }
     // if(month === '00')
     // {
     //     month = "12";
     // }
-var out_date = `${date.getFullYear()}-${month}-${day}`;
+//var out_date = `${date.getFullYear()}-${month}-${day}`;
+var out_date = date.getFullYear()+"-"+month+"-"+day;
 return out_date;
 }
 </script>

@@ -45,7 +45,9 @@ function submit_get(e)
 
 
 
-function confirm_redirect(url,msg=''){
+function confirm_redirect(url,msg){
+    msg= typeof msg !== 'undefined'? msg:'';
+
     if(confirm(msg)){
         window.location.href= url;
     }
@@ -53,7 +55,10 @@ function confirm_redirect(url,msg=''){
 }
 
 
-function ajax(url,queryString,e=null,callback =function(){return;}){
+function ajax(url,queryString,e,callback){
+    callback= typeof callback !== 'undefined'? callback:function(){return;};
+    e= typeof e !== 'undefined'? e:null;
+
     $.ajax({
         type: "POST",
         dataType : 'json',
@@ -122,7 +127,9 @@ function serializePost(form) {
     }
     return data;
 }
-function ajax_submit(e,validation =function(){return true;}){
+function ajax_submit(e,validation){
+    validation = typeof validation !== 'undefined'? validation:function(){return true;};
+    
     if(!validation(e)){
         return false;
     }
@@ -136,7 +143,8 @@ function ajax_submit(e,validation =function(){return true;}){
 }
 
 
-function ajax_a(e,validation= function(){return true;}){
+function ajax_a(e,validation){
+    validation = typeof validation !== 'undefined'? validation:function(){return true;};
     if(!validation(e)){
         return false;
     }
@@ -163,8 +171,11 @@ function ajax_a(e,validation= function(){return true;}){
     
 // });
 
-function open_popup(url,name,width = 400, height =500){
-    var option = `width=${width},height=${height}`;
+function open_popup(url,name,width, height){
+    width= typeof width !== 'undefined'? width:400;
+    height= typeof height !== 'undefined'? height:400;
+    
+    var option =  "width="+width + ",height="+height;
     // var input = document.querySelector("input[name="+name+"]");
 
     // console.log(input.value);
