@@ -1285,17 +1285,17 @@ function settingModalGroup(num_people) //모달 그룹 아이템 세팅함수
     addEventLastItemUp();
     addEventLastItemDown();
 }
-//$("#golfpass_order").click(function(){  //모달 보이게
+$("#golfpass_order").click(function(){  //모달 보이게
   
-//    $("body").css("overflow","hidden")
-//    settingModalSize();
-//    $j_dim.css("display","block");
-//    $j_modal.css("display","block");
-//    $("body").prepend($j_dim);
-//    if ($startDate.val() === "" || $endDate.val() === "" || $("#total_price").text().indexOf("원") === -1 || $("#total_price").text().indexOf("존재") > -1) {
-//            alert("잘못된 주문입니다.");
-//            return closeModal();
-//    }
+    $("body").css("overflow","hidden")
+    settingModalSize();
+    $j_dim.css("display","block");
+    $j_modal.css("display","block");
+    $("body").prepend($j_dim);
+    if ($startDate.val() === "" || $endDate.val() === "" || $("#total_price").text().indexOf("원") === -1 || $("#total_price").text().indexOf("존재") > -1) {
+            alert("잘못된 주문입니다.");
+            return closeModal();
+    }
     
 });
 $("#j-dim").click(function(){ //모달 안보이게
