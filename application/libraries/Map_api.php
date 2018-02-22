@@ -73,7 +73,8 @@ class Map_api
                 }
                 if(address !== null && address !== 'null' && address !=='')
                 {
-                    content += `${address}<br>`;
+//                    content += `${address}<br>`;
+                    content += address+"<br>";
                 }
                 if(latlngSw === true)
                 {

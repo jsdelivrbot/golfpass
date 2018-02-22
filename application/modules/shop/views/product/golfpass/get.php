@@ -151,7 +151,7 @@
         </a>
         <div class="search-container d-flex align-items-center position-relative">
             <i class="xi xi-search"></i>
-            <input id="input_search"type="text" placeholder="관심있는 지역이나 골프장을 검색해보세요!">
+            <input id="input_search" type="text" placeholder="관심있는 지역이나 골프장을 검색해보세요!">
             <!--NOTE 검색결과 창-->
             <div class="search-content-container position-absolute w-100">
 
@@ -385,7 +385,7 @@
                         <?=$price?>
                     </p>
                 </div>
-                <p class="wishlist"><a onclick="ajax_a(this); return false;" data-action="<?=site_url(shop_wishlist_uri."/ajax_add/{$product->id}")?>"href="#">위시리스트에 추가하기</a></p>
+                <p class="wishlist"><a onclick="ajax_a(this); return false;" data-action="<?=site_url(shop_wishlist_uri."/ajax_add/{$product->id}")?>" href="#">위시리스트에 추가하기</a></p>
             </div>
             <div id='book_ok' style="width:100%; height:70px; background:#fff; border: 1px solid #e5e5e5; border-top:0; padding:10px; cursor: pointer;">
                 <div id="book_ok_button" style="width:100%; height:100%; background:#79b754; border-radius:25px;">
@@ -1238,7 +1238,7 @@ function settingModalSize()
 </div>
 <div style="width:50%;">
     <input  class="j-group-item-input" type="hidden" name="groups[]" id="">  
-    <p class="j-group-item-txt"style="text-align:right;" ><i class='xi-users' style="color: #202020 !important; margin-right:3px;"></i><i class='xi-users' style="color: #202020 !important; margin-right:10px;"></i> 2명</p>
+    <p class="j-group-item-txt" style="text-align:right;" ><i class='xi-users' style="color: #202020 !important; margin-right:3px;"></i><i class='xi-users' style="color: #202020 !important; margin-right:10px;"></i> 2명</p>
 </div>
 </li>
 <!-- modal form에 li복사용  끝-->   
@@ -1285,17 +1285,17 @@ function settingModalGroup(num_people) //모달 그룹 아이템 세팅함수
     addEventLastItemUp();
     addEventLastItemDown();
 }
-$("#golfpass_order").click(function(){  //모달 보이게
+//$("#golfpass_order").click(function(){  //모달 보이게
   
-    $("body").css("overflow","hidden")
-    settingModalSize();
-    $j_dim.css("display","block");
-    $j_modal.css("display","block");
-    $("body").prepend($j_dim);
-    if ($startDate.val() === "" || $endDate.val() === "" || $("#total_price").text().indexOf("원") === -1 || $("#total_price").text().indexOf("존재") > -1) {
-            alert("잘못된 주문입니다.");
-            return closeModal();
-    }
+//    $("body").css("overflow","hidden")
+//    settingModalSize();
+//    $j_dim.css("display","block");
+//    $j_modal.css("display","block");
+//    $("body").prepend($j_dim);
+//    if ($startDate.val() === "" || $endDate.val() === "" || $("#total_price").text().indexOf("원") === -1 || $("#total_price").text().indexOf("존재") > -1) {
+//            alert("잘못된 주문입니다.");
+//            return closeModal();
+//    }
     
 });
 $("#j-dim").click(function(){ //모달 안보이게

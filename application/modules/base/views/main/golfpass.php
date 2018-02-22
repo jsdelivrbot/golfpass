@@ -153,7 +153,7 @@
                 </figure></a>
                 <div class="search-container d-flex align-items-center position-relative">
                                     <i class="xi xi-search"></i>
-                                    <input id="serach"type="text" placeholder="관심있는 지역이나 골프장을 검색해보세요!">
+                                    <input id="serach" type="text" placeholder="관심있는 지역이나 골프장을 검색해보세요!">
                                     <!--NOTE 검색결과 창-->
                                     <div class="search-content-container position-absolute w-100">
 

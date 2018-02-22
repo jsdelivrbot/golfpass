@@ -147,7 +147,7 @@
                 <span>캐디 무관</span>
               </label>
               <label for="id4">
-                <input type="radio" name="caddy2" value="캐디필수"id="id4">
+                <input type="radio" name="caddy2" value="캐디필수" id="id4">
                 <span>캐디 필수</span>
               </label>
             </div>
