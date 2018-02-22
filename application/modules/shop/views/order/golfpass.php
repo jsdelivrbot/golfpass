@@ -256,7 +256,7 @@
 
 <script>
     IMP.init('<?=$imp_franchises_code?>'); // 아임포트 관리자 페이지의 "시스템 설정" > "내 정보" 에서 확인 가능
-    let $form =$("#form_order");
+    var $form =$("#form_order");
 
     function cal_totalPrice()
     {
@@ -279,9 +279,9 @@
         });
     }
 
-    let $inputSingleroom =$("select[name=singleroom]");
-    let $inputOptions = $("input[name='options[]']");
-    let $wrapperItemList = $(".item-order");
+    var $inputSingleroom =$("select[name=singleroom]");
+    var $inputOptions = $("input[name='options[]']");
+    var $wrapperItemList = $(".item-order");
     /**
      * 옵션element를 만들어 반환합니다.
      * 
@@ -289,11 +289,11 @@
      */
     function createOption(category,name, price)
     {
-//       let $p = $(`<p>${category} : ${name}</p>`);
-       let $p = $("<p>"+category+" : "+name+"</p>");
+//       var $p = $(`<p>${category} : ${name}</p>`);
+       var $p = $("<p>"+category+" : "+name+"</p>");
         price  = price.toLocaleString();
-//        let $span= $(`<span class="color"> + ${price} 원</span>`);
-        let $span= $("<span class="color"> + "+price+" 원</span>");
+//        var $span= $(`<span class="color"> + ${price} 원</span>`);
+        var $span= $("<span class='color'> + "+price+" 원</span>");
         $p.append($span);
         return $p;
     }
@@ -333,7 +333,7 @@
         renderOptionlist();
     });
     
-    let $order_btn = $("#order_submit_btn");
+    var $order_btn = $("#order_submit_btn");
     $order_btn.click(function()
     {
         $form.submit();
