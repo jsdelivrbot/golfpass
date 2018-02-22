@@ -138,7 +138,7 @@
             </span>
         </div>
     </nav>
-    <!--NOTE desktop,tablet nav-->
+    <!--NOTE desktop,tabvar nav-->
     <nav id='md-nav' class="row no-gutters justify-content align-items-stretch d-none d-sm-flex">
         <div id="logo" class='col-6 d-flex align-items-center'>
             <figure class="mb-0 d-flex align-items-center d-lg-none">
@@ -814,11 +814,11 @@ $.datepicker.setDefaults({
     yearSuffix: '년'
 });
 
-let $startDate = $("#s-day");
-let $endDate = $("#e-day");
-    // let $numPeople = $("select[name=num_people]");
-    let $total_price = $("#total_price");
-    let $numPeople = $("#j-v-num-people");
+var $startDate = $("#s-day");
+var $endDate = $("#e-day");
+    // var $numPeople = $("select[name=num_people]");
+    var $total_price = $("#total_price");
+    var $numPeople = $("#j-v-num-people");
     $(document).ready(function() {
         $startDate.datepicker({
             dateFormat: 'yy-mm-dd'
@@ -992,7 +992,7 @@ $("#newsLetter").keypress(function (e) {
 <!-- 뉴스레터 끝-->
 <!-- 상품날자가격계산 -->
 <script>
-let $order_form = $("#golfpass_order_form");
+var $order_form = $("#golfpass_order_form");
 $(document).ready(function() {
     //    ajax_get_price();
         $startDate.change(function() {
@@ -1243,22 +1243,22 @@ function settingModalSize()
 </li>
 <!-- modal form에 li복사용  끝-->   
 <script>
-let $allItems;
-let $withoutLastChildItems;
-let $lastItem;
-let $lastItemInput;
-let $lastSecontItem;
-let $lastSecontItemInput;
+var $allItems;
+var $withoutLastChildItems;
+var $lastItem;
+var $lastItemInput;
+var $lastSecontItem;
+var $lastSecontItemInput;
 
-let $j_dim =$("#j-dim");
-let $j_modal= $("#j-modal");
-let $j_group_wapper= $("#j-group-wapper");
-let $j_group_modal_item =$("#j-group-modal-item");
-let $info = $("#info");
-let $infoUl =$info.find("ul");
-let $j_group_value = $("#j-group-value");
-let num_people = $j_group_value.val();
-let $j_modal_group_numPeople =$(".j-modal-group-numPeople");    
+var $j_dim =$("#j-dim");
+var $j_modal= $("#j-modal");
+var $j_group_wapper= $("#j-group-wapper");
+var $j_group_modal_item =$("#j-group-modal-item");
+var $info = $("#info");
+var $infoUl =$info.find("ul");
+var $j_group_value = $("#j-group-value");
+var num_people = $j_group_value.val();
+var $j_modal_group_numPeople =$(".j-modal-group-numPeople");    
 
 //초기화 시작
 settingModalGroup(num_people);
@@ -1361,11 +1361,11 @@ function settingFormGroupList() //폼 그룹 세팅 함수
 {
     $order_form.find("input[name=num_people]").val(num_people);
     $infoUl.find(".j-group-item").remove();
-    for (let i = 0; i < $allItems.length; i++) {
-        let val = $($allItems[i]).find(".j-group-modal-item").val();
+    for (var i = 0; i < $allItems.length; i++) {
+        var val = $($allItems[i]).find(".j-group-modal-item").val();
         $item =cloneElement("#j-group-item");
         $groupName = $item.find(".j-group-name");
-        let groupName =  String.fromCharCode(65+i)+"조";
+        var groupName =  String.fromCharCode(65+i)+"조";
         $groupName.text(groupName);
         
 //        $item.find(".j-group-item-txt").text(`${val}명`);
@@ -1378,7 +1378,7 @@ function settingFormGroupList() //폼 그룹 세팅 함수
 
 function cloneElement(selector) //엘레먼트 복제함수
 {
-    let $j_group_item = $(selector);
+    var $j_group_item = $(selector);
     $cloneItem =$j_group_item.clone();
     $cloneItem.css("id","");
     $cloneItem.css("display","block");

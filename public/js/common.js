@@ -127,7 +127,8 @@ function serializePost(form) {
     }
     return data;
 }
-function ajax_submit(e,validation =function(){return true;}){
+function ajax_submit(e,validation ){
+    if(typeof validation === "undefined") validation =function(){return true;}
     if(!validation(e)){
         return false;
     }
@@ -141,7 +142,8 @@ function ajax_submit(e,validation =function(){return true;}){
 }
 
 
-function ajax_a(e,validation= function(){return true;}){
+function ajax_a(e,validation){
+    if(typeof validation === "undefined") validation =function(){return true;}
     if(!validation(e)){
         return false;
     }
@@ -168,8 +170,11 @@ function ajax_a(e,validation= function(){return true;}){
     
 // });
 
-function open_popup(url,name,width = 400, height =500){
-    var option = `width=${width},height=${height}`;
+function open_popup(url,name,width, height){
+    if(typeof width === "undefined") width = 400;
+    if(typeof height === "undefined") height = 500;
+    // var option = `width=${width},height=${height}`;
+    var option = "width="+width+",height="+height;
     // var input = document.querySelector("input[name="+name+"]");
 
     // console.log(input.value);
