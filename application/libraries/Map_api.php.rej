@@ -1,0 +1,11 @@
+diff a/application/libraries/Map_api.php b/application/libraries/Map_api.php	(rejected hunks)
+@@ -59,8 +59,7 @@
+                 }
+                 if(type !== null && type !== 'null' && type !=='')
+                 {
+-                    //content += `(${type})<br>`;
+-                    content += "("+type+")<br>";
++                    content += `(${type})<br>`;
+                 }
+                 else if(name !== null && name !== 'null' && name !=='')
+                 {

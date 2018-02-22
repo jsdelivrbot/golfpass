@@ -45,7 +45,9 @@ function submit_get(e)
 
 
 
-function confirm_redirect(url,msg=''){
+function confirm_redirect(url,msg){
+    msg= typeof msg !== 'undefined'? msg:'';
+
     if(confirm(msg)){
         window.location.href= url;
     }
@@ -53,7 +55,10 @@ function confirm_redirect(url,msg=''){
 }
 
 
-function ajax(url,queryString,e=null,callback =function(){return;}){
+function ajax(url,queryString,e,callback){
+    callback= typeof callback !== 'undefined'? callback:function(){return;};
+    e= typeof e !== 'undefined'? e:null;
+
     $.ajax({
         type: "POST",
         dataType : 'json',

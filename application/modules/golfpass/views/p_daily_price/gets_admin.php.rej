@@ -1,0 +1,11 @@
+diff a/application/modules/golfpass/views/p_daily_price/gets_admin.php b/application/modules/golfpass/views/p_daily_price/gets_admin.php	(rejected hunks)
+@@ -324,8 +324,7 @@
+      var end = parseInt(arr_start_end[1]);
+     for(var i=start ; i<=end; i++ )
+     {
+-   //     $(`input[name='num_people[]'][value=${i}]`).prop('checked',true);
+-        $("input[name='num_people[]'][value="+i+"]").prop('checked',true);
++        $(`input[name='num_people[]'][value=${i}]`).prop('checked',true);
+     }
+     // if($num_people.prop('checked') === false)
+     //     $num_people.prop('checked',true);
