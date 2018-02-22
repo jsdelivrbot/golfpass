@@ -1064,7 +1064,7 @@ function validationGetPrice() {
                     totalPrice = totalPrice.substr(0, totalPrice.length - 1);
                     // $total_price.val(totalPrice);
                     $order_form.find("input[name=total_price]").val(totalPrice);
-                    totalPrice = Number(totalPrice).toLocaleString('en');
+                    totalPrice = Number(totalPrice).toLocaleString('en').split(".")[0];
                     totalPrice += "원";
                 }
                 $total_price.html(totalPrice);
