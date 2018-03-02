@@ -44,7 +44,7 @@
 
           <!-- state 2 -->
           <div data-state="2">
-            <input type="text" name="state2" id="" placeholder="0" disabled><!--입력불가-->
+            <input type="text" name="state2" id="" placeholder="0" readonly><!--입력불가-->
             <button class="u-modal__num-down"></button>
             <button class="u-modal__num-up"></button>
           </div>
