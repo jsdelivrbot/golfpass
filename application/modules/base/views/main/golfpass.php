@@ -610,9 +610,9 @@
                     <figure><a href="http://www.widemobile.com/?golfpass" target="_balnk">
                         <img src="/public/sangmin/img/partner/partner_wifi.png" alt=""></a>
                     </figure>
-                    <!--<figure>
+                    <figure>
                         <img src="/public/sangmin/img/partner/partner_timescar.png" alt="">
-                    </figure>-->
+                    </figure>
                 </div>
             </div>
 
