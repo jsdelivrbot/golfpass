@@ -703,8 +703,8 @@
                 <figure><a href="http://www.widemobile.com/?golfpass" target="_balnk">
                     <img src="/public/sangmin/img/partner/b_partner_wifi.png" alt=""></a>
                 </figure>
-                <figure>
-                    <img src="/public/sangmin/img/partner/b_partner_timescar.png" alt="">
+                <figure><a href="http://www.timescar-rental.kr/af/7822000076/kr/" target="_balnk">
+                    <img src="/public/sangmin/img/partner/b_partner_timescar.png" alt=""></a>
                 </figure>
             </div>
         </div>
