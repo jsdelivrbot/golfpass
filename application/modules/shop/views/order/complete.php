@@ -8,7 +8,7 @@
 
 <?php }?>
 <div style="margin-top:-160px;"></div> 
-<div style="height:100%; background-image: url(<?=$photo?>); background-repeat:no-repeat; background-position:center; background-size:cover;  background-attachment: fixed;">
+<div style="background-image: url(<?=$photo?>); background-repeat:no-repeat; background-position:center; background-size:cover;  background-attachment: fixed;">
 <div style="height:100%; background-color: rgba(38, 38, 38, 0.85)">
 <div class="ui centered grid container">
 <div class="sixteen wide column" style="max-width:700px">
@@ -70,7 +70,7 @@
     <img src="/public/sangmin/img/partner/partner_wifi.png" alt="">
     <p>해외 여행 갈 땐 와이파이 도시락!</p>
 </div>
-<div class="ui bottom attached warning message" style="background-color:#3a68b2; border:0; color:#fff; cursor: pointer;" onclick="location.href='http://www.timescar-rental.kr/af/7822000076/kr/';">>
+<div class="ui bottom attached warning message" style="background-color:#fed003; border:0; color:#000; cursor: pointer;" onclick="location.href='http://www.timescar-rental.kr/af/7822000076/kr/';">>
     <img src="http://golfpass.net/public/sangmin/img/partner/partner_timescar.png" alt="">
     <p>이제 비싼 송영말고 렌트하자! 타임즈 렌트카</p>
 </div>
