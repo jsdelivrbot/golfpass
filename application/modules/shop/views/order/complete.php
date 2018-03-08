@@ -70,6 +70,10 @@
     <img src="/public/sangmin/img/partner/partner_wifi.png" alt="">
     <p>해외 여행 갈 땐 와이파이 도시락!</p>
 </div>
+<div class="ui bottom attached warning message" style="background-color:#3a68b2; border:0; color:#fff; cursor: pointer;" onclick="location.href='http://www.timescar-rental.kr/af/7822000076/kr/';">>
+    <img src="http://golfpass.net/public/sangmin/img/partner/partner_timescar.png" alt="">
+    <p>이제 비싼 송영말고 렌트하자! 타임즈 렌트카</p>
+</div>
 </div>
 </div>
 </div>
