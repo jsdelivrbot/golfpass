@@ -234,7 +234,7 @@
 
     <table class="ui celled table" >
     <thead>
-    <tr >
+    <tr style="display:table;">
         <th>
         <?="{$m}월"?>
         </th>
@@ -253,7 +253,7 @@
         $week = array("일", "월", "화", "수", "목", "금", "토");
         $day = $week[date("w", strtotime("{$year}-{$m}-{$d}"))];
     ?>
-    <tr class="">
+    <tr class="" style="display:table;">
             <!-- 날짜 -->
             <td class="" rowspan=<?=$num_period-1?>><?=$date?><?="({$day})"?></td> 
             <!-- 날짜 -->
@@ -261,7 +261,7 @@
             <!-- 명당 가격 시작 -->
             <?php for ($i=1; $i <= (int)$maxium_num_peple; $i++) {?>
             <!--1일 or 2일 가격 -->
-            <td  class="pdate  <?="p{$date}-{$i}-".(1+$start_plus)?> <?=getClassName_inDailyPriceAdmin((isset($price[$date][$i][1+$start_plus])) ? $price[$date][$i][1+$start_plus] : null)?>" rowspan=<?=$num_period-1?>>
+            <td  class="pdate  <?="p{$date}-{$i}-".(1+$start_plus)?> <?=getClassName_inDailyPriceAdmin((isset($price[$date][$i][1+$start_plus])) ? $price[$date][$i][1+$start_plus] : null)?>" style="width:150px;" rowspan=<?=$num_period-1?>>
                 <?=(0+$start_plus)."박".(1+$start_plus)."일"?>
                 <!-- 1인조 -->
                 <br>    
