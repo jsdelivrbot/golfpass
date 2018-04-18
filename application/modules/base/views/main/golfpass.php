@@ -268,7 +268,199 @@
             <span><a href="https://www.youtube.com/channel/UCVCuIlbXMgiv4TrPolcgkgQ" target="_blank"><i class="xi xi-youtube-play"></i></a></span>
         </section>
     </section>   
-        <section id="section2" class="mb-5 main-section scroll-smooth container-fluid d-flex align-items-center">
+    
+    
+    
+    <section style="padding-top:110px;">
+        <div id="slide_box">
+            <div class="btn-bar">
+                <div id="buttons_sl">
+                    <a href="#"><div class="prevarea area" id="prev" ></div></a>
+                    <a href="#"><div class="nextarea area" id="next"></div></a> 
+                </div>
+            </div>
+            <div class="block_container" id="slides_sl">
+                
+                <ul>
+                    
+                    <li class="slide_sl">
+                        <div class="block">
+                            <a href="#">
+                                <div class="card" id="cardlist_1">
+
+                                    <img src="/public/images/event1.png">
+                                    <!--<div class="hover_card">
+                                    <h2>제목</h2>
+                                    <p>아무말</p>
+                                        <a href="#" class="button">버튼</a>
+                                                </div>-->
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="slide_sl">
+                        <div class="block">
+                            <a href="#">
+                                <div class="card" id="cardlist_2">
+                                    
+                                    <img src="/public/images/event2.png">
+                                    
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="slide_sl">
+                        <div class="block">
+                            <a href="#">
+                                <div class="card" id="cardlist_3">
+                                    
+                                    <img src="/public/images/event3.png">
+                                </div>
+                            </a>    
+                        </div>
+                    </li>
+                    <li class="slide_sl">  
+                        <div class="block"> 
+                            <a href="#">
+                                <div class="card" id="cardlist_4">  
+                                    
+                                    <img src="/public/images/event4.png">
+                                    
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="slide_sl">
+                        <div class="block">
+                            <a href="#">    
+                                <div class="card" id="cardlist_5">
+                                    
+                                    <img src="/public/images/event5.png">
+                                    
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="slide_sl">  
+                        <div class="block">
+                            <a href="#">
+                                <div class="card" id="cardlist_6">
+
+                                    <img src="/public/images/event2.png">
+
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="slide_sl">
+                        <div class="block">
+                            <a href="#">
+                                <div class="card" id="cardlist_7">
+                                    
+                                    <img src="/public/images/event4.png">
+
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            
+            
+            
+        </div>
+    </section>
+    <style>
+        #slide_box:hover .area{display: block; opacity: 0.9; transition: opacity .50s; -o-transition: opacity .50s; -moz-transition: opacity .50s; -webkit-transition: opacity .50s;}
+        .area{margin-top: 150px;}
+        .prevarea {left: 15px; width: 60px; height: 110px; background-image: url(/public/images/left-arrow.png); background-repeat: no-repeat; border: none; opacity: 0; transition: opacity .50s;
+    -o-transition: opacity .50s; -moz-transition: opacity .50s; -webkit-transition: opacity .50s; position: absolute; z-index: 99;}
+        .nextarea {right: 15px; width: 60px; height: 110px; background-image: url(/public/images/right-arrow.png); background-repeat: no-repeat; border: none; opacity: 0; transition: opacity .50s;
+    -o-transition: opacity .50s; -moz-transition: opacity .50s; -webkit-transition: opacity .50s;  position: absolute; z-index: 99;}
+        .block_container {margin:0 auto; max-width: 1440px;}
+        .block {position: relative; display: inline-block;}
+        .card {background-color: transparent; margin: 10px; border-radius: 20px; border: none; overflow: hidden;}
+        .block a .card {height: 370px; width: 260px; transition: all .50s ease;}
+        .block a:hover .card {transform: scale(1.1);}
+        #slides_sl {overflow: hidden; position: relative; width: 1419px; height: 410px;}
+        #slides_sl ul {list-style: none; width:1420px; height:410px; position: relative; padding:0; margin: 0 auto;}
+        #slides_sl li {width:260px; height:410px; float:left; margin: 10px; text-align: center; position: relative;}
+    </style>
+    <script>
+        $(document).ready(function () {
+    //rotation speed and timer
+    var speed = 3000;
+    
+    var run = setInterval(rotate, speed);
+    var slides = $('.slide_sl');
+    var container = $('#slides_sl ul');
+    var elm = container.find(':first-child').prop("tagName");
+    var item_width = 260;
+    var previous = 'prev'; //id of previous button
+    var next = 'next'; //id of next button
+    slides.width(item_width); //set the slides to the correct pixel width
+    container.width(slides.length * item_width + item_width); //set the slides container to the correct total width
+    container.find(elm + ':first').before(container.find(elm + ':last'));
+    resetSlides();
+    
+    
+    //if user clicked on prev button
+    
+    $('#buttons_sl a div').click(function (e) {
+        //slide the item
+        
+        if (container.is(':animated')) {
+            return false;
+        }
+        if (e.target.id == previous) {
+            container.stop().animate({
+                'left': 0
+            }, 1, function () {
+                container.find(elm + ':first').before(container.find(elm + ':last'));
+                resetSlides();
+            });
+        }
+        
+        if (e.target.id == next) {
+            container.stop().animate({
+                'left': item_width * -1.08
+            }, 500, function () {
+                container.find(elm + ':last').after(container.find(elm + ':first'));
+                resetSlides();
+            });
+        }
+        
+        //cancel the link behavior            
+        return false;
+        
+    });
+    
+    //if mouse hover, pause the auto rotation, otherwise rotate it    
+    container.parent().mouseenter(function () {
+        clearInterval(run);
+    }).mouseleave(function () {
+        run = setInterval(rotate, speed);
+    });
+    
+    
+    function resetSlides() {
+        //and adjust the container so current is in the frame
+        container.css({
+            'left': 0
+        });
+    }
+    
+});
+//a simple function to click next link
+//a timer will call this function, and the rotation will begin
+
+function rotate() {
+    $('#next').click();
+}
+    </script>
+    
+    
+    <section id="section2" class="mb-5 main-section scroll-smooth container-fluid d-flex align-items-center">
                  <article class="w-100 p-xl-4">
                          <div class="row no-gutters main-section-title" style="margin-bottom:20px !important;">
                                  <h4 class="main_sub_title">지역별 골프장</h4>
