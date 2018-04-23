@@ -706,6 +706,12 @@
                 <figure><a href="http://www.timescar-rental.kr/af/7822000076/kr/" target="_balnk">
                     <img src="/public/sangmin/img/partner/b_partner_timescar.png" alt=""></a>
                 </figure>
+                                            <figure>
+                                                <img src="/public/sangmin/img/partner/b_partner_iagto.png" alt="">
+                                            </figure>
+                                            <figure>
+                                                <img src="/public/sangmin/img/partner/b_partner_openplan.png" alt="">
+                                            </figure>
             </div>
         </div>
 
