@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>골프패스</title>
+    <!-- Bootstrap core CSS -->
+
+</head>
+
+<body>
+
+    <!-- 로딩딤시작 -->
+    <style>
+        body {
+            margin: 0 auto;
+            max-width: 1140px;
+        }
+
+        .packageinfo {
+            overflow: hidden;
+        }
+
+        .info_table {
+            width: 900px;
+            display: inline-block;
+            margin-top: 50px;
+        }
+
+        .table {
+            width: 900px;
+            display: table;
+        }
+
+        .category {
+            display: table-cell;
+            width: 25%;
+            border-right: solid 1px #000;
+            border-bottom: solid 1px #000;
+            padding-left: 20px;
+            vertical-align: middle;
+        }
+
+        .text {
+            display: table-cell;
+            width: 75%;
+            border-bottom: solid 1px #000;
+        }
+
+        p {
+            padding-left: 20px;
+        }
+
+        .airport {
+            width: 100px;
+            height: 40px;
+            background-color: antiquewhite;
+            text-decoration: none;
+        }
+
+        .left_box {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+            padding: 10px 80px 10px 40px;
+        }
+
+        .right_box {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+            padding: 10px 20px 10px 80px;
+        }
+
+        .center_box {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        .center_box div {
+            text-align: center;
+            border: solid 1px #f1f1f1;
+            padding: 10px 20px;
+        }
+
+
+        *,
+        *:after,
+        *:before {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        .clearfix:before,
+        .clearfix:after {
+            content: " ";
+            display: table;
+        }
+
+        .clearfix:after {
+            clear: both;
+        }
+
+        a {
+            color: #ccc;
+            text-decoration: none;
+            outline: none;
+        }
+
+        /*Fun begins*/
+
+        .tab_container {
+            width: 900px;
+            padding-top: 70px;
+            position: relative;
+        }
+
+        input,
+        section {
+            clear: both;
+            padding-top: 10px;
+            display: none;
+        }
+
+        label {
+            font-weight: 700;
+            font-size: 18px;
+            display: block;
+            float: left;
+            width: 20%;
+            padding: 1.5em;
+            color: #757575;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            background: #f0f0f0;
+        }
+
+        #tab1:checked~#content1,
+        #tab2:checked~#content2,
+        #tab3:checked~#content3,
+        #tab4:checked~#content4,
+        #tab5:checked~#content5 {
+            display: block;
+            padding: 20px;
+            background: #fff;
+            color: #999;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .tab_container .tab-content p,
+        .tab_container .tab-content h3 {
+            -webkit-animation: fadeInScale 0.7s ease-in-out;
+            -moz-animation: fadeInScale 0.7s ease-in-out;
+            animation: fadeInScale 0.7s ease-in-out;
+        }
+
+        .tab_container .tab-content h3 {
+            text-align: center;
+        }
+
+        .tab_container [id^="tab"]:checked+label {
+            background: #fff;
+            box-shadow: inset 0 3px #0CE;
+        }
+
+        .tab_container [id^="tab"]:checked+label .fa {
+            color: #0CE;
+        }
+
+        label .fa {
+            font-size: 1.3em;
+            margin: 0 0.4em 0 0;
+        }
+
+        /*Media query*/
+
+        @media only screen and (max-width: 900px) {
+            label span {
+                display: none;
+            }
+
+            .tab_container {
+                width: 98%;
+            }
+        }
+
+        /*Content Animation*/
+
+        @keyframes fadeInScale {
+            0% {
+                transform: scale(0.9);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .no_wrap {
+            text-align: center;
+            color: #0ce;
+        }
+
+        .link {
+            text-align: center;
+        }
+
+        .navi_right {
+            position: fixed;
+            background: #999;
+            width: 200px;
+            height: 400px;
+            display: inline-block;
+            margin-left: 20px;
+            margin-top: 50px;
+        }
+
+        .info_title {
+            border-bottom: solid 2px #000;
+            margin-top: 20px;
+            width: 900px;
+            padding: 10px;
+        }
+
+    </style>
+    <script>
+
+
+    </script>
+    <div style="width:100%; background-color:beige; height: 100px; text-align: center;">
+        header</div>
+
+    <div class="packageinfo">
+
+        <div class="info_table">
+            <div class="table" style="border-top: solid 2px #000;">
+                <div class="category">
+                    <span>
+                여행도시
+            </span>
+                </div>
+                <div class="text">
+                    <p>
+                        방콕, 파타야
+                    </p>
+                </div>
+            </div>
+            <div class="table">
+                <div class="category">
+                    <span>
+                교통편
+            </span>
+                </div>
+                <div class="text">
+                    <p>
+                        대한항공
+                        <a href="#" class="airport">항공정보</a>
+                    </p>
+
+                </div>
+            </div>
+            <div class="table">
+                <div class="category">
+                    <span>
+                여행기간
+            </span>
+                </div>
+                <div class="text">
+                    <div style="border-bottom: solid 1px #999">
+                        <p>
+                            3박 5일 [기내 1일숙박]
+                        </p>
+                    </div>
+                    <div class="start_day">
+                        <div style="display:table-cell; vertical-align: middle; width:17%; padding-left: 30px;">
+                            <div style="margin: 0 auto; text-align: center; width: 60px; height: 60px; background-color: aquamarine; display: table-cell; vertical-align: middle;">한국<br>출발</div>
+                        </div>
+                        <div class="left_box">
+                            <div>
+                                05/05 (토)<br>17:40
+                            </div>
+                            <div style="background-color: cadetblue; width: 20px; height: 20px; border-radius: 50%; margin: 0 auto;">
+                                &nbsp;
+                            </div>
+                            <div>
+                                인천<br>출발
+                            </div>
+                        </div>
+                        <div class="center_box">
+                            <div>
+                                직항,KE651편<br> 05시간 30분 소요
+                            </div>
+                        </div>
+                        <div class="right_box">
+                            <div>
+                                05/05 (토)<br>21:10
+                            </div>
+                            <div style="background-color: cadetblue; width: 20px; height: 20px; border-radius: 50%; margin: 0 auto;">
+                                &nbsp;
+                            </div>
+                            <div>
+                                방콕<br>도착
+                            </div>
+                        </div>
+                    </div>
+                    <div class="end_day">
+                        <div style="display:table-cell; vertical-align: middle; width:17%; padding-left: 30px;">
+                            <div style="margin: 0 auto; text-align: center; width: 60px; height: 60px; background-color: darkgrey; display: table-cell; vertical-align: middle;">한국<br>도착</div>
+                        </div>
+                        <div class="left_box">
+                            <div>
+                                05/08 (화)<br>22:44
+                            </div>
+                            <div style="background-color: cadetblue; width: 20px; height: 20px; border-radius: 50%; margin: 0 auto;">
+                                &nbsp;
+                            </div>
+                            <div>
+                                방콕<br>출발
+                            </div>
+                        </div>
+                        <div class="center_box">
+                            <div>
+                                직항,KE652편<br> 05시간 30분 소요
+                            </div>
+                        </div>
+                        <div class="right_box">
+                            <div>
+                                05/09 (수)<br>6:10
+                            </div>
+                            <div style="background-color: cadetblue; width: 20px; height: 20px; border-radius: 50%; margin: 0 auto;">
+                                &nbsp;
+                            </div>
+                            <div>
+                                인천<br>도착
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="table">
+                <div class="category">
+                    <span>
+                    예약인원
+                    </span>
+                </div>
+                <div class="text">
+                    <p>
+                        현재 6명 (여유 좌석 0명/최소 출발 인원 4명)
+                    </p>
+                </div>
+            </div>
+            <div class="table">
+                <div class="category">
+                    <span>
+                    인솔자
+                    </span>
+                </div>
+                <div class="text">
+                    <p>
+                        인솔자는 동반하지 않습니다
+                    </p>
+                </div>
+            </div>
+            <div class="table">
+                <div class="category">
+                    <span>
+                    교통편
+                    </span>
+                </div>
+                <div class="text">
+                    <p>
+                        14:40 인천 국제공항 제 2터미널 3층 동편 H 카운터 창측 여행사 만남의 장소
+                    </p>
+                    <p>
+                        <a href="#" class="airport">미팅장소 안내</a>
+                        <a href="#" class="airport">인천공항 안내</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="navi_right">
+            <div class="navi_right_top">
+
+            </div>
+        </div>
+
+        <div>
+            <div class="info_title">
+                여행상품 특징 및 특전
+            </div>
+            <div>
+                <textarea style="width:900px; height: 400px;">
+                    본 상품은 모두투어의 동일항공 또는 타항공의 다른상품과 현지 조인(합류) 되어 진행될 수 있습니다. 
+                    출발 전 예약담당자와 최종 행사인원을 확인바랍니다.
+ 
+
+                    ◈모두투어가 드리는 혜택 4가지◈
+
+                    혜택1. 방콕 '초특급', 파타야 '특급' 호텔 사용
+
+                    혜택2. 트랜스잰더의 최대쇼 "알카자쇼"
+                    혜택3. 여행의 피로를 풀어줄 "태국 전통안마 1시간" 체험 (아동제외)
+                    혜택4. 특식5회 "선상뷔폐/수끼/쌈밥정식/씨푸드/로얄드래곤"
+
+ 
+
+                    ◆ WHITE ORCHID RIVER CRUISE ◆
+                    모두투어 고객님만의 특별한 Healing Time
+                    [11시40분 ~ 12시40분, 약 60분 소요]
+                    화이트 오키드 런치 크루즈는 짜오프아랴 강변을 따라 약 60분 정도 운행하며, 리버시티에서 출발하여 새벽사원, 라마1
+                    세 다리, 왕궁 등 강변을 따라 운행하는 태국을 대표하는 크루즈입니다. 시원한 짜오프라야 강의 바람을 가르며 진행되
+                    는 화이트 오키드 크루즈에서는 엄선된 재료로 구성된 뷔페식(타이식, 서양식, 일식, 과일, 김치 등 다양한 요리)을 즐
+                    길 수 있으며, 강변을 따라 펼쳐진 다양한 태국 문화를 감상할 수 있는 모두투
+                    어만의 단독 런치 크루즈입니다. 모두투어에서 드리는 특별한 힐링을 체험해 보세요.
+                    http://img4info.modetour.com/108/THAI/white.jpg
+                    (※현지 사정에 의해 크루즈 출발 시간은 변동될 수 있습니다)
+
+ 
+                </textarea>
+            </div>
+        </div>
+        <div style="width:900px">
+            <div style="display: inline-block; width:49%; padding-right: 10px;">
+                <div style="border-bottom: solid 2px #000; margin-top: 20px; padding: 10px;">
+                    포함사항
+                </div>
+                <div style="width:49%; display:table-cell; height: 400px; padding-top: 20px; ">
+                    ①왕복항공권,전일정숙박비,차량비,여행지입장료,1억원여행자보험<br> ②인천공항세+전쟁보험료포함,관광진흥기금,현지공항세
+                    <br> ③유류할증료
+                    <br> ※ 여행자보험 의료비 한도 등 세부내용 보기><br> ※ 여행자보험 담당 : [DB손해보험] (보험관련문의만가능) <br> Tel)02-728-8006 Fax)02-2021-7800 <br> - 단 15세 미만의 사망보험금 및 만 79세 6개월 이상의 질병사망에 대해서는 보험 약관에 따라 보험금이 지급되지 않습니다. <br> - 자세한 세부사항은 홈페이지 하단 여행보험을 참조 바랍니다.
+                </div>
+            </div>
+            <div style="display: inline-block; width:49%; padding-left: 10px;">
+
+                <div style="border-bottom: solid 2px #000; margin-top: 20px; padding: 10px;">
+                    불포함사항
+                </div>
+                <div style="width:49%; display:table-cell; height: 400px; padding-top: 20px; ">
+                    ① 개인경비, 호텔벨보이 및 안마사팁 등 매너팁<br> ② 식사시 제공되는 음료 이외의 음료와 주류는 요금을 지불하셔야 합니다.<br> ③ 소정의 현지가이드/기사 경비를 현지에서 지불하셔야 합니다. (단, 24개월미만 유아 제외)<br> ※ 3박여정 - $40/1인, 4박여정 - $50/1인<br> ◈ TIP에 관한 에티켓 ◈<br> 호텔 체크인 할 때 우리의 짐을 옮겨주는 포터에게 1$ 정도, 우리가 투숙했던 객실을 청소하시는 분에게 1$(박당) 정도, 개운한 마사지/안마를 도와준 마사지사에게 3-4$ 정도, 코끼리트래킹 체험시 조련사에게 1-2$ 정도를 주시는 것은 센스있는 여행객의 매너입니다.<br> *매너팁은 소비자의 자율적 선택사항으로 지불여부에 따른 불이익은 없습니다.<br> (매너팁 : 식당, 객실 청소원 등 서비스에 대한 단순 감사의 표시로, 소비자(여행자)의 의사에 따라 자율적으로 지불하는 비용)
+                </div>
+            </div>
+        </div>
+        <div class="tab_container">
+            <input id="tab1" type="radio" name="tabs" checked>
+            <label for="tab1"><i class="fa fa-code"></i><span>Code</span></label>
+
+            <input id="tab2" type="radio" name="tabs">
+            <label for="tab2"><i class="fa fa-pencil-square-o"></i><span>About</span></label>
+
+            <input id="tab3" type="radio" name="tabs">
+            <label for="tab3"><i class="fa fa-bar-chart-o"></i><span>Services</span></label>
+
+            <input id="tab4" type="radio" name="tabs">
+            <label for="tab4"><i class="fa fa-folder-open-o"></i><span>Portfolio</span></label>
+
+            <input id="tab5" type="radio" name="tabs">
+            <label for="tab5"><i class="fa fa-envelope-o"></i><span>Contact</span></label>
+
+            <section id="content1" class="tab-content">
+                <h3>Headline 1</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            </section>
+
+            <section id="content2" class="tab-content">
+                <h3>Headline 2</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </section>
+
+            <section id="content3" class="tab-content">
+                <h3>Headline 3</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </section>
+
+            <section id="content4" class="tab-content">
+                <h3>Headline 4</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+            </section>
+
+            <section id="content5" class="tab-content">
+                <h3>Headline 5</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </section>
+        </div>
+    </div>
+
+    <div style="width:100%; background-color:beige; height: 100px; text-align: center;">
+        footer</div>
+</body>
+
+</html>
