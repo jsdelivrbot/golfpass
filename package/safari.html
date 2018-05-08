@@ -15,11 +15,123 @@
     <link rel='stylesheet' id='gdlr-core-plugin-css' href='./css/style4_9_5_6.css' type='text/css' media='all' />
     <link rel='stylesheet' id='gdlr-core-page-builder-css' href='./css/style4_9_5_7.css' type='text/css' media='all' />
     <link rel='stylesheet' href='./css/style.css' type='text/css' media='all' />
+    <script src="./js/jquery-3.2.1.min.js"></script>
+
     <script type='text/javascript' src='./js/jquery1_12_4.js'></script>
     <!--[if lt IE 9]> <script type='text/javascript' src='https://demo.goodlayers.com/traveltour/wp-content/themes/traveltour/js/html5.js?ver=4.9.5'></script> <![endif]-->
 </head>
 
 <body class="tour-template-default single single-tour postid-4649 gdlr-core-body tourmaster-body traveltour-body traveltour-body-front traveltour-full  traveltour-with-sticky-navigation gdlr-core-link-to-lightbox">
+    <div class="menu-container position-fixed">
+        <div class="menu-sliders"></div>
+        <div class="menu-sliders"></div>
+        <div class="menu-sliders"></div>
+        <div class="menu">
+            <ul class="list-unstyled">
+                <?php if(is_admin()){?>
+                <li><a style="font-family: 'notokr-light', sans-serif; font-size: 20px; font-weight: normal; color: #fff;" href="<?=site_url(admin_home_uri.'')?>">관리자 페이지</a></li>
+                <?php }?>
+                <li><a style="font-family: 'notokr-light', sans-serif; font-size: 20px; font-weight: normal; color: #fff;" href="<?=site_url(shop_category_uri.'/gets_by_name/나라별')?>">지역별 골프장</a></li>
+                <li><a style="font-family: 'notokr-light', sans-serif; font-size: 20px; font-weight: normal; color: #fff;" href="<?=site_url(golfpass_panel_uri.'/gets')?>">그늘집 by GOLFPASS</a></li>
+                <li><a style="font-family: 'notokr-light', sans-serif; font-size: 20px; font-weight: normal; color: #fff;" href="<?=site_url(content_uri.'/gets?board_id=4')?>">고객센터</a></li>
+                <?php if(!is_login()){?>
+                <li><a style="font-family: 'notokr-light', sans-serif; font-size: 20px; font-weight: normal; color: #fff;" href="<?=site_url(user_uri.'/login')?>">로그인</a></li>
+                <li><a style="font-family: 'notokr-light', sans-serif; font-size: 20px; font-weight: normal; color: #fff;" href="<?=site_url(user_uri.'/register_agree_1')?>">회원가입</a></li>
+                <?php }?>
+                <?php if(is_login()){?>
+                <li><a style="font-family: 'notokr-light', sans-serif; font-size: 20px; font-weight: normal; color: #fff;" href="<?=site_url(shop_mypage_uri.'/gets_wishlist')?>">마이페이지</a></li>
+                <li><a style="font-family: 'notokr-light', sans-serif; font-size: 20px; font-weight: normal; color: #fff;" href="<?=site_url(user_uri.'/logout')?>">로그아웃</a></li>
+                <?php }?>
+            </ul>
+        </div>
+    </div>
+    <header id="header" class="container-fluid">
+        <!--  NOTE mobile -->
+        <nav id='sm-nav' class="row no-gutters justify-content align-items-stretch d-sm-none panel-nav">
+            <div id="logo" class='col-3 justify-content-center d-flex align-self-center align-items-center'>
+               <a href="<?=site_url()?>"> <img src="/public/sangmin/img/icon/logo_mobile.png" class="d-md-none" alt=""></a>
+           </div>
+           <div id='nav-icon-box' class="offset-2 col-5 d-flex align-items-stretch justify-content-end">
+            <div id="search" class="d-flex align-items-center">
+                <a class="mk-search-trigger mk-fullscreen-trigger" href="#" id="search-button-listener">
+                    <span><i class="xi xi-search" id="search-button"></i></span>
+                </a>
+                <div class="mk-fullscreen-search-overlay" id="mk-search-overlay">
+                    <a href="#" class="mk-fullscreen-close" id="mk-fullscreen-close-button"><i class="xi xi-close"></i></a>
+                    <div id="mk-fullscreen-search-wrapper">
+                        <div method="get" id="mk-fullscreen-searchform" action="">
+                            <input type="text" value="" placeholder="Search..." id="mk-fullscreen-search-input">
+                            <i class="xi xi-search fullscreen-search-icon"><input value="" id="mobile_search_btn" type="submit"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <?php if(!is_login()){?>
+            <div id="login" class="d-flex align-items-center">
+                <a href="<?=site_url(user_uri.'/login')?>" style="color:white;">
+                    <span><i class="xi-log-in xi-x"></i></span>
+                </a>
+            </div>
+            <div id="join" class="d-flex align-items-center">
+                <a href="<?=site_url(user_uri.'/register_agree_1')?>" style="color:white;">
+                    <span><i class="xi xi-user-plus"></i></span>
+                </a>
+            </div>
+            <?php }else{?>
+            <div style="margin-top:25px;"><a href="<?=site_url(shop_mypage_uri."/gets_wishlist")?>"><img src="<?=$user->profilePhoto?>" alt="" style="width:30px; height:30px; border-radius: 15px;"></a></div>
+            <?php }?>
+        </div>
+        <div class="col-2 ml-auto toggle" onclick="$('body').toggleClass('menu-open'); $('.carousel-indicators').toggleClass('d-none d-flex');">
+            <span>
+                <i class="xi xi-bars"></i>
+            </span>
+        </div>
+    </nav>
+    <!--NOTE desktop,tabvar nav-->
+    <nav id='md-nav' class="row no-gutters justify-content align-items-stretch d-none d-sm-flex">
+        <div id="logo" class='col-6 d-flex align-items-center'>
+            <figure class="mb-0 d-flex align-items-center d-lg-none">
+               <img src="/public/sangmin/img/icon/logo_mobile.png" class="" alt="">
+           </figure>
+           <a href="<?=site_url()?>">
+            <figure class="mb-0 align-items-center d-none d-lg-flex">
+                <img src="./image/logo.png" class="" alt="">
+            </figure>
+        </a>
+        <div class="search-container d-flex align-items-center position-relative">
+            <i class="xi xi-search"></i>
+            <input id="input_search" type="text" placeholder="관심있는 지역이나 골프장을 검색해보세요!">
+            <!--NOTE 검색결과 창-->
+            <div class="search-content-container position-absolute w-100">
+
+            </div>
+        </div>
+    </div>
+    <div id='nav-icon-box' class="col  d-flex justify-content-end">
+        <?php if(!is_login()){?>
+        <div id="login" class="d-flex align-items-center" style="cursor: pointer;" onclick="location.href='<?=site_url(user_uri.'/login')?>';">
+            <span><i class="xi-log-in xi-x"></i></span>
+            <p class="mb-0"><a style="color: white; font-family: 'notokr-regular', sans-serif; font-size: 12px;" href="<?=site_url(user_uri.'/login')?>">로그인</a></p>
+        </div>
+        <div id="join" class="d-flex align-items-center" style="cursor: pointer;" onclick="location.href='<?=site_url(user_uri.'/register_agree_1')?>';">
+            <span><i class="xi xi-user-plus"></i></span>
+            <p class="mb-0"><a style="color: white; font-family: 'notokr-regular', sans-serif; font-size: 12px;" href="<?=site_url(user_uri.'/register_agree_1')?>">회원가입</a></p>
+        </div>
+        <?php }else{?>
+        <div style="margin-top:25px; cursor: pointer;" onclick="location.href='<?=site_url(shop_mypage_uri."/gets_wishlist")?>';"><a href="<?=site_url(shop_mypage_uri."/gets_wishlist")?>"><img src="<?=$user->profilePhoto?>" alt="" style="width:30px; height:30px; border-radius: 15px;"></a></div>
+        <div id="logout" class="d-flex align-items-center" style="cursor: pointer;" onclick="location.href='<?=site_url(user_uri.'/logout')?>';">
+            <span><i class="xi-log-out xi-x"></i></span>
+            <p class="mb-0"><a style="color: white; font-family: 'notokr-regular', sans-serif; font-size: 12px;" href="<?=site_url(user_uri.'/logout')?>">로그아웃</a></p>
+        </div>
+        <?php }?>
+    </div>
+    <div class="col ml-auto toggle" onclick="$('body').toggleClass('menu-open'); $('.carousel-indicators').toggleClass('d-none d-flex');">
+        <span>
+            <i class="xi xi-bars"></i>
+        </span>
+    </div>
+</nav>
+</header>
 
     <div class="traveltour-body-outer-wrapper ">
         <div class="traveltour-body-wrapper clearfix  traveltour-with-transparent-header traveltour-with-frame">
@@ -95,8 +207,8 @@
                                 <div class="tourmaster-tour-info-wrap clearfix">
                                     <div class="tourmaster-tour-info tourmaster-tour-info-duration-text tourmaster-item-pdlr"><i class="icon_clock_alt"></i>5시간 30분</div>
                                     <div class="tourmaster-tour-info tourmaster-tour-info-availability tourmaster-item-pdlr"><i class="fa fa-calendar"></i>3박 5일</div>
-                                    <div class="tourmaster-tour-info tourmaster-tour-info-departure-location tourmaster-item-pdlr"><i class="flaticon-takeoff-the-plane"></i>방콕/파타야</div>
-                                    <div class="tourmaster-tour-info tourmaster-tour-info-return-location tourmaster-item-pdlr"><i class="flaticon-plane-landing"></i>대한 항공</div>
+                                    <div class="tourmaster-tour-info tourmaster-tour-info-departure-location tourmaster-item-pdlr"><i class="fa-plane"></i>방콕/파타야</div>
+                                    <div class="tourmaster-tour-info tourmaster-tour-info-return-location tourmaster-item-pdlr"><i class="fa-plane"></i>대한 항공</div>
                                     <div class="tourmaster-tour-info tourmaster-tour-info-minimum-age tourmaster-item-pdlr"><i class="fa fa-user"></i>최소 인원 : 2명</div>
                                     <div class="tourmaster-tour-info tourmaster-tour-info-maximum-people tourmaster-item-pdlr"><i class="fa fa-users"></i>최대 인원 : 20명</div>
                                 </div>
@@ -247,7 +359,7 @@
                                                             </tr>
                                                             <tr class="ess">
                                                                 <th rowspan="2" scope="row" class="cost_must">
-                                                                    <div class="b_wrap"><i></i><br />현지 필수 경비</div>
+                                                                    <div class="b_wrap"><i></i>현지 필수 경비</div>
                                                                 </th>
                                                                 <th scope="row" class="txt_l">
                                                                     <div class="b_wrap">현지필수경비</div>
@@ -485,8 +597,8 @@
                                         <div class="gdlr-core-pbf-element">
                                             <div class="gdlr-core-icon-list-item gdlr-core-item-pdlr gdlr-core-item-pdb ">
                                                 <ul>
-                                                    <li class=" gdlr-core-skin-divider"><span class="gdlr-core-icon-list-icon-wrap"><i class="gdlr-core-icon-list-icon fa fa-dot-circle-o" style="color: #4692e7;" ></i></span><span class="gdlr-core-icon-list-content"><a href="#">여행자보험</a></span></li>
-                                                    <li class=" gdlr-core-skin-divider"><span class="gdlr-core-icon-list-icon-wrap"><i class="gdlr-core-icon-list-icon fa fa-dot-circle-o" style="color: #4692e7;" ></i></span><span class="gdlr-core-icon-list-content"><a href="#">여행약관규정</a></span></li>
+                                                    <li class=" gdlr-core-skin-divider"><span class="gdlr-core-icon-list-icon-wrap"><i class="gdlr-core-icon-list-icon fa fa-check" style="color: #4692e7;" ></i></span><span class="gdlr-core-icon-list-content"><a href="#">여행자보험</a></span></li>
+                                                    <li class=" gdlr-core-skin-divider"><span class="gdlr-core-icon-list-icon-wrap"><i class="gdlr-core-icon-list-icon fa fa-check" style="color: #4692e7;" ></i></span><span class="gdlr-core-icon-list-content"><a href="#">여행약관규정</a></span></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -504,7 +616,7 @@
                                         <div class="gdlr-core-pbf-element">
                                             <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix  gdlr-core-left-align gdlr-core-title-item-caption-bottom gdlr-core-item-pdlr" style="padding-bottom: 35px;">
                                                 <div class="gdlr-core-title-item-title-wrap">
-                                                    <h6 class="gdlr-core-title-item-title gdlr-core-skin-title" style="font-size: 24px;font-weight: 600;letter-spacing: 0px;text-transform: none;"><span class="gdlr-core-title-item-left-icon" style="font-size: 18px;"><i class="fa fa-bus"  ></i></span>일정표<span class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span></h6>
+                                                    <h6 class="gdlr-core-title-item-title gdlr-core-skin-title" style="font-size: 24px;font-weight: 600;letter-spacing: 0px;text-transform: none;"><span class="gdlr-core-title-item-left-icon" style="font-size: 18px;"><i class="fa fa-suitcase"  ></i></span>일정표<span class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span></h6>
                                                 </div>
                                             </div>
                                         </div>
@@ -576,7 +688,7 @@
                                         <div class="gdlr-core-pbf-element">
                                             <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix  gdlr-core-left-align gdlr-core-title-item-caption-bottom gdlr-core-item-pdlr" style="padding-bottom: 35px;">
                                                 <div class="gdlr-core-title-item-title-wrap">
-                                                    <h6 class="gdlr-core-title-item-title gdlr-core-skin-title" style="font-size: 24px;font-weight: 600;letter-spacing: 0px;text-transform: none;"><span class="gdlr-core-title-item-left-icon" style="font-size: 18px;"><i class="fa fa-map-o"  ></i></span>여행정보<span class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span></h6>
+                                                    <h6 class="gdlr-core-title-item-title gdlr-core-skin-title" style="font-size: 24px;font-weight: 600;letter-spacing: 0px;text-transform: none;"><span class="gdlr-core-title-item-left-icon" style="font-size: 18px;"><i class="fa fa-info"  ></i></span>여행정보<span class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span></h6>
                                                 </div>
                                             </div>
                                         </div>
@@ -634,7 +746,7 @@
                                                         최소출발인원 기준 - <strong>4</strong> 명<br> 최소수수료 부과 기준 - 표준 약관 적용/석식 후 공항으로 이동</p>
 
                                                     <div class="warning_msg">
-                                                        <p>※ 최소출발인원 미충족시 여행약관 제9조에 따라 여행출발7일전까지 여행사는 여행계약을 일방적으로 해제하고 여행자에게<br />　 통보할 수 있습니다.</p>
+                                                        <p>※ 최소출발인원 미충족시 여행약관 제9조에 따라 여행출발7일전까지 여행사는 여행계약을 일방적으로 해제하고 여행자에게 통보할 수 있습니다.</p>
                                                         <p>※ 취소수수료는 계약금 입금일부터 적용됩니다. 취소수수료 부과 세부 기준을 반드시 확인하세요.</p>
                                                         <p>※ 특별약관 적용의 경우, 표준약관보다 높은 취소수수료가 부과될 수 있습니다.</p>
                                                     </div>
@@ -1604,76 +1716,7 @@
             </div>
 
 <link rel="stylesheet" href="./css/detail-main.css">
-<style>
-    .container-fluid {
-    width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto
-}
-    .row {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    margin-right: -15px;
-    margin-left: -15px
-}
-    .w-100 {
-    width: 100%
-}
-figure,
-footer,
- {
-    display: block
-}
-    .d-flex {
-    display: -ms-flexbox!important;
-    display: flex!important
-}
-    .flex-wrap {
-    -ms-flex-wrap: wrap!important;
-    flex-wrap: wrap!important
-}
-figure {
-    margin: 0 0 1rem
-}
-    .figure {
-    display: inline-block
-}
 
-.figure-img {
-    margin-bottom: .5rem;
-    line-height: 1
-}
-
-.figure-caption {
-    font-size: 90%;
-    color: #868e96
-}
-    img {
-    vertical-align: middle;
-    border-style: none
-}
-    img{
-        page-break-inside: avoid
-    }
-    .ml-auto{
-    margin-left: auto
-}
-    .mr-auto{
-    margin-right: auto!important
-}
-    .align-self-end {
-    -ms-flex-item-align: end!important;
-    align-self: flex-end!important
-}
-    .ulul {
-    margin-top: 0;
-    margin-bottom: 1rem
-}
-</style>
             <footer id='tp-footer' class='main-footer container-fluid'>
                 <div id="tp-partner">
                     <div class="row" style="width:100%;">

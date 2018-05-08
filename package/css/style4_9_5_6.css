@@ -235,7 +235,7 @@
 }
 
 .fa-user:before {
-    content: "\f007"
+    content: url( "../image/icon/people.png" );
 }
 
 .fa-film:before {
@@ -255,7 +255,7 @@
 }
 
 .fa-check:before {
-    content: "\f00c"
+    content: url( "../image/icon/check.png" );
 }
 
 .fa-remove:before,
@@ -547,7 +547,7 @@
 }
 
 .fa-check-circle:before {
-    content: "\f058"
+    content: url( "../image/icon/check-circle.png" );
 }
 
 .fa-question-circle:before {
@@ -645,11 +645,11 @@
 }
 
 .fa-plane:before {
-    content: "\f072"
+    content: url( "../image/icon/plane.png" );
 }
 
 .fa-calendar:before {
-    content: "\f073"
+    content: url( "../image/icon/calendar.png" );
 }
 
 .fa-random:before {
@@ -894,7 +894,7 @@
 
 .fa-group:before,
 .fa-users:before {
-    content: "\f0c0"
+    content: url( "../image/icon/maxpeople.png" );
 }
 
 .fa-chain:before,
@@ -1096,7 +1096,7 @@
 }
 
 .fa-suitcase:before {
-    content: "\f0f2"
+    content: url( "../image/icon/suitcase.png" );
 }
 
 .fa-bell-o:before {
@@ -1112,7 +1112,7 @@
 }
 
 .fa-file-text-o:before {
-    content: "\f0f6"
+    content: url( "../image/icon/detail.png" );
 }
 
 .fa-building-o:before {
@@ -1172,7 +1172,7 @@
 }
 
 .fa-angle-up:before {
-    content: "\f106"
+    content: url( "../image/icon/arrow-up.png" );
 }
 
 .fa-angle-down:before {
@@ -1302,7 +1302,7 @@
 }
 
 .fa-info:before {
-    content: "\f129"
+    content: url( "../image/icon/info.png" );
 }
 
 .fa-exclamation:before {
@@ -3797,7 +3797,7 @@
 }
 
 .icon_clock_alt:before {
-    content: "\7d"
+    content: url( "../image/icon/clock.png" );
 }
 
 .icon_lock_alt:before {

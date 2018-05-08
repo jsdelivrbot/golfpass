@@ -99,7 +99,7 @@ time,
 video {
     border: 0;
     outline: 0;
-    vertical-align: baseline;
+    vertical-align: middle;
     background: transparent;
     margin: 0;
     padding: 0;
@@ -3022,7 +3022,7 @@ table tr td {
 
 table tr th {
     padding: 13px 0px;
-    font-size: 16px;
+    font-size: 13px;
     font-weight: normal;
 }
 
