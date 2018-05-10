@@ -53,7 +53,6 @@ label {
     padding: 20px;
     background: #fff;
     color: #999;
-    border-bottom: 2px solid #f0f0f0;
 }
 
 /*.tab_container .tab-content p,
@@ -165,7 +164,11 @@ opacity: 1;
 }
 
 .w-100 {
-    width: 100%
+    width: 100%!important
+}
+
+.d-none {
+    display: none!important
 }
 
 figure,
@@ -1228,6 +1231,69 @@ img {
     display: -ms-flexbox!important;
     display: flex!important
 }
+.mb-0,
+.my-0 {
+    margin-bottom: 0!important
+}
+
+.position-static {
+    position: static!important
+}
+
+.position-relative {
+    position: relative!important
+}
+
+.position-absolute {
+    position: absolute!important
+}
+
+.position-fixed {
+    position: fixed!important
+}
+
+.position-sticky {
+    position: -webkit-sticky!important;
+    position: sticky!important
+}
+
+@media (min-width:992px) {
+    .d-lg-none {
+        display: none!important
+    }
+    .d-lg-inline {
+        display: inline!important
+    }
+    .d-lg-inline-block {
+        display: inline-block!important
+    }
+    .d-lg-block {
+        display: block!important
+    }
+    .d-lg-table {
+        display: table!important
+    }
+    .d-lg-table-row {
+        display: table-row!important
+    }
+    .d-lg-table-cell {
+        display: table-cell!important
+    }
+    .d-lg-flex {
+        display: -ms-flexbox!important;
+        display: flex!important
+    }
+    .d-lg-inline-flex {
+        display: -ms-inline-flexbox!important;
+        display: inline-flex!important
+    }
+}
+
+
+::after,
+::before {
+    box-sizing: border-box
+}
 
 .justify-content-end {
     -ms-flex-pack: end!important;
@@ -1242,4 +1308,48 @@ img {
 .ml-auto,
 .mx-auto {
     margin-left: auto!important
+}
+
+.tripinfo_img {
+    width: 49.5%;
+    height: 200px;
+    display: inline-block;
+}
+
+.tripinfo_text {
+    width: 49.5%;
+    height: 200px;
+    display: inline-block;
+    padding: 10px;
+}
+
+.tripinfo_container{
+    overflow: hidden;
+    height: 150px;
+    transition: all 2s ease;
+    position: relative;
+
+
+}
+
+.tripinfo_container:hover {
+    height: 400px;
+    transition: all 2s ease;
+    
+}
+
+.tripinfo_image {
+    width: 100%;
+    padding: 10px;
+    
+}
+
+.tourmaster-single-header-top-overlay{
+    background: linear-gradient(to top, rgba(255, 255, 255, 0) 80%, #000 100%);
+    opacity: 0.4;
+}
+
+.tourmaster-single-header-overlay{
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 60%, #000 100%);
+    opacity: 0.6;
 }

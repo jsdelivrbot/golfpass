@@ -18,7 +18,9 @@
     <script src="./js/jquery-3.2.1.min.js"></script>
 
     <script type='text/javascript' src='./js/jquery1_12_4.js'></script>
-    <!--[if lt IE 9]> <script type='text/javascript' src='https://demo.goodlayers.com/traveltour/wp-content/themes/traveltour/js/html5.js?ver=4.9.5'></script> <![endif]-->
+    <link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+
+    <!--[if lt IE 9]> <script type='text/javascript' src='https://demo.goodlayers.com/traveltour/wp-content/themes/traveltour/js/html5.js?ver=4.9.5'></script> <![endif] 집에 가고싶다-->
 </head>
 
 <body class="tour-template-default single single-tour postid-4649 gdlr-core-body tourmaster-body traveltour-body traveltour-body-front traveltour-full  traveltour-with-sticky-navigation gdlr-core-link-to-lightbox">
@@ -28,110 +30,110 @@
         <div class="menu-sliders"></div>
         <div class="menu">
             <ul class="list-unstyled">
-                <?php if(is_admin()){?>
+                <!--<?php if(is_admin()){?>
                 <li><a style="font-family: 'notokr-light', sans-serif; font-size: 20px; font-weight: normal; color: #fff;" href="<?=site_url(admin_home_uri.'')?>">관리자 페이지</a></li>
-                <?php }?>
+                <?php }?>-->
                 <li><a style="font-family: 'notokr-light', sans-serif; font-size: 20px; font-weight: normal; color: #fff;" href="<?=site_url(shop_category_uri.'/gets_by_name/나라별')?>">지역별 골프장</a></li>
                 <li><a style="font-family: 'notokr-light', sans-serif; font-size: 20px; font-weight: normal; color: #fff;" href="<?=site_url(golfpass_panel_uri.'/gets')?>">그늘집 by GOLFPASS</a></li>
                 <li><a style="font-family: 'notokr-light', sans-serif; font-size: 20px; font-weight: normal; color: #fff;" href="<?=site_url(content_uri.'/gets?board_id=4')?>">고객센터</a></li>
-                <?php if(!is_login()){?>
+                <!--<?php if(!is_login()){?>-->
                 <li><a style="font-family: 'notokr-light', sans-serif; font-size: 20px; font-weight: normal; color: #fff;" href="<?=site_url(user_uri.'/login')?>">로그인</a></li>
                 <li><a style="font-family: 'notokr-light', sans-serif; font-size: 20px; font-weight: normal; color: #fff;" href="<?=site_url(user_uri.'/register_agree_1')?>">회원가입</a></li>
-                <?php }?>
-                <?php if(is_login()){?>
+                <!--<?php }?>-->
+                <!--<?php if(is_login()){?>
                 <li><a style="font-family: 'notokr-light', sans-serif; font-size: 20px; font-weight: normal; color: #fff;" href="<?=site_url(shop_mypage_uri.'/gets_wishlist')?>">마이페이지</a></li>
                 <li><a style="font-family: 'notokr-light', sans-serif; font-size: 20px; font-weight: normal; color: #fff;" href="<?=site_url(user_uri.'/logout')?>">로그아웃</a></li>
-                <?php }?>
+                <?php }?>-->
             </ul>
         </div>
     </div>
     <header id="header" class="container-fluid">
         <!--  NOTE mobile -->
-        <nav id='sm-nav' class="row no-gutters justify-content align-items-stretch d-sm-none panel-nav">
+        <!--<nav id='sm-nav' class="row no-gutters justify-content align-items-stretch d-sm-none panel-nav">
             <div id="logo" class='col-3 justify-content-center d-flex align-self-center align-items-center'>
-               <a href="<?=site_url()?>"> <img src="/public/sangmin/img/icon/logo_mobile.png" class="d-md-none" alt=""></a>
-           </div>
-           <div id='nav-icon-box' class="offset-2 col-5 d-flex align-items-stretch justify-content-end">
-            <div id="search" class="d-flex align-items-center">
-                <a class="mk-search-trigger mk-fullscreen-trigger" href="#" id="search-button-listener">
+                <a href="<?=site_url()?>"> <img src="/public/sangmin/img/icon/logo_mobile.png" class="d-md-none" alt=""></a>
+            </div>
+            <div id='nav-icon-box' class="offset-2 col-5 d-flex align-items-stretch justify-content-end">
+                <div id="search" class="d-flex align-items-center">
+                    <a class="mk-search-trigger mk-fullscreen-trigger" href="#" id="search-button-listener">
                     <span><i class="xi xi-search" id="search-button"></i></span>
                 </a>
-                <div class="mk-fullscreen-search-overlay" id="mk-search-overlay">
-                    <a href="#" class="mk-fullscreen-close" id="mk-fullscreen-close-button"><i class="xi xi-close"></i></a>
-                    <div id="mk-fullscreen-search-wrapper">
-                        <div method="get" id="mk-fullscreen-searchform" action="">
-                            <input type="text" value="" placeholder="Search..." id="mk-fullscreen-search-input">
-                            <i class="xi xi-search fullscreen-search-icon"><input value="" id="mobile_search_btn" type="submit"></i>
+                    <div class="mk-fullscreen-search-overlay" id="mk-search-overlay">
+                        <a href="#" class="mk-fullscreen-close" id="mk-fullscreen-close-button"><i class="xi xi-close"></i></a>
+                        <div id="mk-fullscreen-search-wrapper">
+                            <div method="get" id="mk-fullscreen-searchform" action="">
+                                <input type="text" value="" placeholder="Search..." id="mk-fullscreen-search-input">
+                                <i class="xi xi-search fullscreen-search-icon"><input value="" id="mobile_search_btn" type="submit"></i>
+                            </div>
                         </div>
+                    </div>
+                </div>-->
+                <!--<?php if(!is_login()){?>-->
+                <!--<div id="login" class="d-flex align-items-center">
+                    <a href="<?=site_url(user_uri.'/login')?>" style="color:white;">
+                    <span><i class="xi-log-in xi-x"></i></span>
+                </a>
+                </div>
+                <div id="join" class="d-flex align-items-center">
+                    <a href="<?=site_url(user_uri.'/register_agree_1')?>" style="color:white;">
+                    <span><i class="xi xi-user-plus"></i></span>
+                </a>
+                </div>
+                <!--<?php }else{?>
+                <div style="margin-top:25px;"><a href="<?=site_url(shop_mypage_uri." /gets_wishlist ")?>"><img src="<?=$user->profilePhoto?>" alt="" style="width:30px; height:30px; border-radius: 15px;"></a></div>
+                <?php }?>-->
+            <!--</div>
+            <div class="col-2 ml-auto toggle" onclick="$('body').toggleClass('menu-open'); $('.carousel-indicators').toggleClass('d-none d-flex');">
+                <span>
+                <i class="xi xi-bars"></i>
+            </span>
+            </div>
+        </nav>
+        <!--NOTE desktop,tabvar nav-->
+        <nav id='md-nav' class="row no-gutters justify-content align-items-stretch d-none d-sm-flex">
+            <div id="logo" class='col-6 d-flex align-items-center'>
+                <!--<figure class="mb-0 d-flex align-items-center d-lg-none">
+                    <img src="/public/sangmin/img/icon/logo_mobile.png" class="" alt="">
+                </figure>-->
+                <a href="<?=site_url()?>">
+                    <figure class="mb-0 align-items-center d-none d-lg-flex">
+                        <img src="./image/logo.png" class="" alt="">
+                    </figure>
+                </a>
+                <div class="search-container d-flex align-items-center position-relative">
+                    <i class="xi xi-search"></i>
+                    <input id="input_search" type="text" placeholder="관심있는 지역이나 골프장을 검색해보세요!">
+                    <!--NOTE 검색결과 창-->
+                    <div class="search-content-container position-absolute w-100">
+
                     </div>
                 </div>
             </div>
-            <?php if(!is_login()){?>
-            <div id="login" class="d-flex align-items-center">
-                <a href="<?=site_url(user_uri.'/login')?>" style="color:white;">
+            <div id='nav-icon-box' class="col  d-flex justify-content-end">
+                <!--<?php if(!is_login()){?>-->
+                <div id="login" class="d-flex align-items-center" style="cursor: pointer;" onclick="location.href='<?=site_url(user_uri.'/login')?>';">
                     <span><i class="xi-log-in xi-x"></i></span>
-                </a>
-            </div>
-            <div id="join" class="d-flex align-items-center">
-                <a href="<?=site_url(user_uri.'/register_agree_1')?>" style="color:white;">
+                    <p class="mb-0" style="margin-bottom: 0"><a style="color: white; font-family: 'notokr-regular', sans-serif; font-size: 12px;" href="<?=site_url(user_uri.'/login')?>">로그인</a></p>
+                </div>
+                <div id="join" class="d-flex align-items-center" style="cursor: pointer;" onclick="location.href='<?=site_url(user_uri.'/register_agree_1')?>';">
                     <span><i class="xi xi-user-plus"></i></span>
-                </a>
+                    <p class="mb-0" style="margin-bottom: 0"><a style="color: white; font-family: 'notokr-regular', sans-serif; font-size: 12px;" href="<?=site_url(user_uri.'/register_agree_1')?>">회원가입</a></p>
+                </div>
+                <!--<?php }else{?>
+                <div style="margin-top:25px; cursor: pointer;" onclick="location.href='<?=site_url(shop_mypage_uri." /gets_wishlist ")?>';"><a href="<?=site_url(shop_mypage_uri." /gets_wishlist ")?>"><img src="<?=$user->profilePhoto?>" alt="" style="width:30px; height:30px; border-radius: 15px;"></a></div>
+                <div id="logout" class="d-flex align-items-center" style="cursor: pointer;" onclick="location.href='<?=site_url(user_uri.'/logout')?>';">
+                    <span><i class="xi-log-out xi-x"></i></span>
+                    <p class="mb-0"><a style="color: white; font-family: 'notokr-regular', sans-serif; font-size: 12px;" href="<?=site_url(user_uri.'/logout')?>">로그아웃</a></p>
+                </div>
+                <?php }?>-->
             </div>
-            <?php }else{?>
-            <div style="margin-top:25px;"><a href="<?=site_url(shop_mypage_uri."/gets_wishlist")?>"><img src="<?=$user->profilePhoto?>" alt="" style="width:30px; height:30px; border-radius: 15px;"></a></div>
-            <?php }?>
-        </div>
-        <div class="col-2 ml-auto toggle" onclick="$('body').toggleClass('menu-open'); $('.carousel-indicators').toggleClass('d-none d-flex');">
-            <span>
-                <i class="xi xi-bars"></i>
-            </span>
-        </div>
-    </nav>
-    <!--NOTE desktop,tabvar nav-->
-    <nav id='md-nav' class="row no-gutters justify-content align-items-stretch d-none d-sm-flex">
-        <div id="logo" class='col-6 d-flex align-items-center'>
-            <figure class="mb-0 d-flex align-items-center d-lg-none">
-               <img src="/public/sangmin/img/icon/logo_mobile.png" class="" alt="">
-           </figure>
-           <a href="<?=site_url()?>">
-            <figure class="mb-0 align-items-center d-none d-lg-flex">
-                <img src="./image/logo.png" class="" alt="">
-            </figure>
-        </a>
-        <div class="search-container d-flex align-items-center position-relative">
-            <i class="xi xi-search"></i>
-            <input id="input_search" type="text" placeholder="관심있는 지역이나 골프장을 검색해보세요!">
-            <!--NOTE 검색결과 창-->
-            <div class="search-content-container position-absolute w-100">
-
-            </div>
-        </div>
-    </div>
-    <div id='nav-icon-box' class="col  d-flex justify-content-end">
-        <?php if(!is_login()){?>
-        <div id="login" class="d-flex align-items-center" style="cursor: pointer;" onclick="location.href='<?=site_url(user_uri.'/login')?>';">
-            <span><i class="xi-log-in xi-x"></i></span>
-            <p class="mb-0"><a style="color: white; font-family: 'notokr-regular', sans-serif; font-size: 12px;" href="<?=site_url(user_uri.'/login')?>">로그인</a></p>
-        </div>
-        <div id="join" class="d-flex align-items-center" style="cursor: pointer;" onclick="location.href='<?=site_url(user_uri.'/register_agree_1')?>';">
-            <span><i class="xi xi-user-plus"></i></span>
-            <p class="mb-0"><a style="color: white; font-family: 'notokr-regular', sans-serif; font-size: 12px;" href="<?=site_url(user_uri.'/register_agree_1')?>">회원가입</a></p>
-        </div>
-        <?php }else{?>
-        <div style="margin-top:25px; cursor: pointer;" onclick="location.href='<?=site_url(shop_mypage_uri."/gets_wishlist")?>';"><a href="<?=site_url(shop_mypage_uri."/gets_wishlist")?>"><img src="<?=$user->profilePhoto?>" alt="" style="width:30px; height:30px; border-radius: 15px;"></a></div>
-        <div id="logout" class="d-flex align-items-center" style="cursor: pointer;" onclick="location.href='<?=site_url(user_uri.'/logout')?>';">
-            <span><i class="xi-log-out xi-x"></i></span>
-            <p class="mb-0"><a style="color: white; font-family: 'notokr-regular', sans-serif; font-size: 12px;" href="<?=site_url(user_uri.'/logout')?>">로그아웃</a></p>
-        </div>
-        <?php }?>
-    </div>
-    <div class="col ml-auto toggle" onclick="$('body').toggleClass('menu-open'); $('.carousel-indicators').toggleClass('d-none d-flex');">
-        <span>
+            <div class="col ml-auto toggle" onclick="$('body').toggleClass('menu-open'); $('.carousel-indicators').toggleClass('d-none d-flex');">
+                <span>
             <i class="xi xi-bars"></i>
         </span>
-    </div>
-</nav>
-</header>
+            </div>
+        </nav>
+    </header>
 
     <div class="traveltour-body-outer-wrapper ">
         <div class="traveltour-body-wrapper clearfix  traveltour-with-transparent-header traveltour-with-frame">
@@ -153,7 +155,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="tourmaster-template-wrapper">
+                    <div class="tourmaster-template-wrapper" style="margin-bottom: 30px;">
                         <div class="tourmaster-tour-booking-bar-container tourmaster-container">
                             <div class="tourmaster-tour-booking-bar-container-inner">
                                 <div class="tourmaster-tour-booking-bar-anchor tourmaster-item-mglr"></div>
@@ -844,40 +846,149 @@
                                                         <div class="gdlr-core-toggle-box-item-tab clearfix">
                                                             <div class="gdlr-core-toggle-box-item-icon gdlr-core-js gdlr-core-skin-icon "></div>
                                                             <div class="gdlr-core-toggle-box-item-content-wrapper">
-                                                                <h4 class="gdlr-core-toggle-box-item-title gdlr-core-js  gdlr-core-skin-e-background gdlr-core-skin-e-content"><span class="gdlr-core-head">2일</span>05월 06일 일요일</h4>
+                                                                <h4 class="gdlr-core-toggle-box-item-title gdlr-core-js  gdlr-core-skin-e-background gdlr-core-skin-e-content"><span class="gdlr-core-head">2일차</span></h4>
                                                                 <div class="gdlr-core-toggle-box-item-content">
                                                                     <p>방콕/파타야
-                                                                        <hr> 조식(호텔식) 후 가이드 미팅<br> 왓포사원으로 이동 [소요시간 약 20분] <br> 왓포사원, 수상가옥, 새벽사원(조망) 관광 [총 2시간30분 소요]<br> ※왕궁/궁전/사원입장시 뒷끈없는 신발, 민소매옷, 반바지 입장불가합니다. <br> ※복장은 소매있는 옷과 긴바지 (여자의 경우는 반드시 무릎아래 긴치마), 구두(샌들)로 준비해주세요.<br> 중식(화이트오키드리버런치크루즈)<br> 태국 동부 휴양도시인 PATTAYA 이동 [소요시간 약 2시간 30분]<br> 타이 전통안마 1시간 체험(아동제외)<br> ※2시간으로 업그레이드시, $20/1인이 추가됩니다.<br> 석식 후 트랜스젠더의 최대 쇼 알카자쇼 관람<br> 호텔 투숙
                                                                     </p>
+
+
+                                                                    <div>
+                                                                        <div class="tripinfo_container">
+                                                                            <div class="tripinfo_img">
+                                                                                <img src="./image/2_1.jpg" class="tripinfo_image">
+                                                                            </div>
+                                                                            <div class="tripinfo_text">
+                                                                                <p>
+
+                                                                                    왓아룬(Wat Arun)은 아룬이란 말이 새벽을 뜻하며, 새벽사원으로도 불리운다. 새벽 햇살을 받아 반짝이는 아름다움보다 해질녁 역광을 받을 때 챠오프라야 강 건너편에서 보이는 모습과 밤에 74m 높이 대프랑(Prang:크메르식 탑)의 전등이 빛을 밝힐 때 가장 아름다운 광경을 연출합니다.
+                                                                                </p>
+                                                                            </div>
+                                                                        </div>
+                                                                        <hr>
+                                                                        <div class="tripinfo_container">
+                                                                            
+                                                                            <div class="tripinfo_img">
+                                                                                <img src="./image/2_2.jpg" class="tripinfo_image">
+                                                                            </div>
+                                                                            <div class="tripinfo_text">
+                                                                                <p>동양의 베니스라 불리는 방콕에는 S자로 차오프라야 강(Chao Phrya River)이 흐르고 있어 물과 함께 생활하는 태국인들의 모습을 엿볼 수 있습니다. </p>
+                                                                            </div>
+                                                                        </div>
+                                                                        <hr>
+                                                                        <div class="tripinfo_container">
+                                                                            <div class="tripinfo_img">
+                                                                                <img src="./image/2_3.jpg" class="tripinfo_image">
+                                                                            </div>
+                                                                            <div class="tripinfo_text">
+                                                                                <p>타이 왕궁 뒤쪽에 위치하며 방콕에서 가장 넓은 규모의 사원이며 1793년에 라마 1세가 건립하고 1832년 라마 3세가 누워 있는 거대한 불상(와불상)을 이곳에 봉안했다.</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+
+
+
+
+
+
+
+
+
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="gdlr-core-toggle-box-item-tab clearfix">
                                                             <div class="gdlr-core-toggle-box-item-icon gdlr-core-js gdlr-core-skin-icon "></div>
                                                             <div class="gdlr-core-toggle-box-item-content-wrapper">
-                                                                <h4 class="gdlr-core-toggle-box-item-title gdlr-core-js  gdlr-core-skin-e-background gdlr-core-skin-e-content"><span class="gdlr-core-head">3일</span>05월 07일 월요일</h4>
+                                                                <h4 class="gdlr-core-toggle-box-item-title gdlr-core-js  gdlr-core-skin-e-background gdlr-core-skin-e-content"><span class="gdlr-core-head">3일차</span></h4>
                                                                 <div class="gdlr-core-toggle-box-item-content">
                                                                     <p>파타야
-                                                                        <hr> 조식(호텔식) 후 가이드 미팅 <br> ♡ 취향에 따라 고르는 나만의 파타야 선택 일정 즐기기~ ♡ <br> ☞ 산호섬 관광 또는 호텔내 오전자유시간 일정 중 한가지를 선택해 주세요~! (가이드와 사전 협의 요망) <br> ※ 산호섬 일정에 참여하지 않는 경우 점심은 산호섬 일정을 마친 분들이 호텔로 귀환하여 간단한 샤워를 마친 후 함께 음식점으로 이동<br> 산호심 관광시 산호섬 이동시 스피드보트가 심하게 흔들립니다. 안전사고 예방을 위하여 임산부 및 노약자는 산호섬 일정 자제를 권유드리며 이 경우 자유일정으로 대체 되어집니다.<br> ※ 악천후로 보트운행 불가할 시 다른코스로 대체됩니다.<br> ※ 스피드보트 탑승시 안전을 위하여 운전선 뒤쪽 좌석에 착석해주세요 <br> ※ 바다에 들어가기 전 준비운동은 필수! 물놀이시 개인 안전에 유의해주세요 <br> 중식 후 파타야 수상시장 관광<br> 새콤달콤 포도주스를 맛볼 수 있는 실버레이크로 이동 [소요시간 약 20분] <br> 실버레이크 (포도농장) 관광<br> 황금절벽사원 관광<br> 석식 씨푸드 후 <br> 호텔 투숙 (2일차와 동일호텔 투숙)</p>
+                                                                        </p>
+                                                                     <div>
+                                                                        <div class="tripinfo_container">
+                                                                            <div class="tripinfo_img">
+                                                                                <img src="./image/2_1.jpg" class="tripinfo_image">
+                                                                            </div>
+                                                                            <div class="tripinfo_text">
+                                                                                <p>
+
+                                                                                    왓아룬(Wat Arun)은 아룬이란 말이 새벽을 뜻하며, 새벽사원으로도 불리운다. 새벽 햇살을 받아 반짝이는 아름다움보다 해질녁 역광을 받을 때 챠오프라야 강 건너편에서 보이는 모습과 밤에 74m 높이 대프랑(Prang:크메르식 탑)의 전등이 빛을 밝힐 때 가장 아름다운 광경을 연출합니다.
+                                                                                </p>
+                                                                            </div>
+                                                                        </div>
+                                                                         <hr>
+                                                                        <div class="tripinfo_container">
+                                                                            
+                                                                            <div class="tripinfo_img">
+                                                                                <img src="./image/2_2.jpg" class="tripinfo_image">
+                                                                            </div>
+                                                                            <div class="tripinfo_text">
+                                                                                <p>동양의 베니스라 불리는 방콕에는 S자로 차오프라야 강(Chao Phrya River)이 흐르고 있어 물과 함께 생활하는 태국인들의 모습을 엿볼 수 있습니다. </p>
+                                                                            </div>
+                                                                        </div>
+                                                                         <hr>
+                                                                        <div class="tripinfo_container">
+                                                                            <div class="tripinfo_img">
+                                                                                <img src="./image/2_3.jpg" class="tripinfo_image">
+                                                                            </div>
+                                                                            <div class="tripinfo_text">
+                                                                                <p>타이 왕궁 뒤쪽에 위치하며 방콕에서 가장 넓은 규모의 사원이며 1793년에 라마 1세가 건립하고 1832년 라마 3세가 누워 있는 거대한 불상(와불상)을 이곳에 봉안했다.</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="gdlr-core-toggle-box-item-tab clearfix">
                                                             <div class="gdlr-core-toggle-box-item-icon gdlr-core-js gdlr-core-skin-icon "></div>
                                                             <div class="gdlr-core-toggle-box-item-content-wrapper">
-                                                                <h4 class="gdlr-core-toggle-box-item-title gdlr-core-js  gdlr-core-skin-e-background gdlr-core-skin-e-content"><span class="gdlr-core-head">4일</span>05월 08일 화요일</h4>
+                                                                <h4 class="gdlr-core-toggle-box-item-title gdlr-core-js  gdlr-core-skin-e-background gdlr-core-skin-e-content"><span class="gdlr-core-head">4일차</span></h4>
                                                                 <div class="gdlr-core-toggle-box-item-content">
                                                                     <p>파타야/방콕
-                                                                        <hr> 조식(호텔식) 후 가이드 미팅<br> 백만년 바위공원 및 악어농장 관광 [약 60분 소요]<br> 새콤달콤 골든 파인애플농장으로 이동 [소요시간 약 40분]<br> 골든 파인애플 시식<br> 방콕으로 귀환 [소요시간 약 2시간 30분]<br> 중식 : 로얄드래곤<br> 여행의 즐거움을 더해줄 쇼핑관광 [라텍스,휴게소,보석,허브 또는 상황버섯]<br> 석식 후 공항으로 이동</p>
+                                                                        </p>
+                                                                     <div>
+                                                                        <div class="tripinfo_container">
+                                                                            <div class="tripinfo_img">
+                                                                                <img src="./image/2_1.jpg" class="tripinfo_image">
+                                                                            </div>
+                                                                            <div class="tripinfo_text">
+                                                                                <p>
+
+                                                                                    왓아룬(Wat Arun)은 아룬이란 말이 새벽을 뜻하며, 새벽사원으로도 불리운다. 새벽 햇살을 받아 반짝이는 아름다움보다 해질녁 역광을 받을 때 챠오프라야 강 건너편에서 보이는 모습과 밤에 74m 높이 대프랑(Prang:크메르식 탑)의 전등이 빛을 밝힐 때 가장 아름다운 광경을 연출합니다.
+                                                                                </p>
+                                                                            </div>
+                                                                        </div>
+                                                                         <hr>
+                                                                        <div class="tripinfo_container">
+                                                                            
+                                                                            <div class="tripinfo_img">
+                                                                                <img src="./image/2_2.jpg" class="tripinfo_image">
+                                                                            </div>
+                                                                            <div class="tripinfo_text">
+                                                                                <p>동양의 베니스라 불리는 방콕에는 S자로 차오프라야 강(Chao Phrya River)이 흐르고 있어 물과 함께 생활하는 태국인들의 모습을 엿볼 수 있습니다. </p>
+                                                                            </div>
+                                                                        </div>
+                                                                         <hr>
+                                                                        <div class="tripinfo_container">
+                                                                            <div class="tripinfo_img">
+                                                                                <img src="./image/2_3.jpg" class="tripinfo_image">
+                                                                            </div>
+                                                                            <div class="tripinfo_text">
+                                                                                <p>타이 왕궁 뒤쪽에 위치하며 방콕에서 가장 넓은 규모의 사원이며 1793년에 라마 1세가 건립하고 1832년 라마 3세가 누워 있는 거대한 불상(와불상)을 이곳에 봉안했다.</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="gdlr-core-toggle-box-item-tab clearfix">
                                                             <div class="gdlr-core-toggle-box-item-icon gdlr-core-js gdlr-core-skin-icon "></div>
                                                             <div class="gdlr-core-toggle-box-item-content-wrapper">
-                                                                <h4 class="gdlr-core-toggle-box-item-title gdlr-core-js  gdlr-core-skin-e-background gdlr-core-skin-e-content"><span class="gdlr-core-head">5일</span>05월 09일 수요일</h4>
+                                                                <h4 class="gdlr-core-toggle-box-item-title gdlr-core-js  gdlr-core-skin-e-background gdlr-core-skin-e-content"><span class="gdlr-core-head">5일차</span></h4>
                                                                 <div class="gdlr-core-toggle-box-item-content">
-                                                                    <p>KE652 현지출발시간 : 2018년 05월 08일 (화) <br>22:40 한국도착시간 : 2018년 05월 09일 (수) 06:10<br> 도착편(KE652) 비행시간: 약05시간 30분 소요<br> 방콕 수완나폼 국제공항 출발 <br> 인천 국제공항 도착</p>
+                                                                    <p>당일에는 방문지가 없습니다.</p>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1677,45 +1788,12 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="gdlr-core-pbf-wrapper " style="padding: 0px 0px 30px 0px;" data-skin="Blue Icon" id="photos">
-                                <div class="gdlr-core-pbf-wrapper-content gdlr-core-js ">
-                                    <div class="gdlr-core-pbf-wrapper-container clearfix gdlr-core-container">
-                                        <div class="gdlr-core-pbf-element">
-                                            <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix  gdlr-core-left-align gdlr-core-title-item-caption-bottom gdlr-core-item-pdlr" style="padding-bottom: 35px;">
-                                                <div class="gdlr-core-title-item-title-wrap">
-                                                    <h6 class="gdlr-core-title-item-title gdlr-core-skin-title" style="font-size: 24px;font-weight: 600;letter-spacing: 0px;text-transform: none;"><span class="gdlr-core-title-item-left-icon" style="font-size: 18px;"><i class="icon_images"  ></i></span>Photos<span class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span></h6>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="gdlr-core-pbf-element">
-                                            <div class="gdlr-core-gallery-item gdlr-core-item-pdb clearfix  gdlr-core-gallery-item-style-slider gdlr-core-item-pdlr ">
-                                                <div class="gdlr-core-flexslider flexslider gdlr-core-js-2 " data-type="slider" data-effect="default" data-nav="bullet">
-                                                    <ul class="slides">
-                                                        <li>
-                                                            <div class="gdlr-core-gallery-list gdlr-core-media-image"><a class="gdlr-core-ilightbox gdlr-core-js " href="./image/pexels-photo-copy-2.jpg" data-ilightbox-group="gdlr-core-img-group-1"><img src="./image/pexels-photo-copy-2-1500x1000.jpg" alt="" width="1500" height="1000" /><span class="gdlr-core-image-overlay "  ><i class="gdlr-core-image-overlay-icon fa fa-search gdlr-core-size-22"  ></i></span></a></div>
-                                                        </li>
-                                                        <li>
-                                                            <div class="gdlr-core-gallery-list gdlr-core-media-image"><a class="gdlr-core-ilightbox gdlr-core-js " href="./image/photo-1451337516015-6b6e9a44a8a3.jpg" data-ilightbox-group="gdlr-core-img-group-1"><img src="./image/photo-1451337516015-6b6e9a44a8a3-1500x1000.jpg" alt="" width="1500" height="1000" /><span class="gdlr-core-image-overlay "  ><i class="gdlr-core-image-overlay-icon fa fa-search gdlr-core-size-22"  ></i></span></a></div>
-                                                        </li>
-                                                        <li>
-                                                            <div class="gdlr-core-gallery-list gdlr-core-media-image"><a class="gdlr-core-ilightbox gdlr-core-js " href="./image/italian-landscape-mountains-nature.jpg" data-ilightbox-group="gdlr-core-img-group-1"><img src="./image/italian-landscape-mountains-nature-1500x1000.jpg" alt="" width="1500" height="1000" /><span class="gdlr-core-image-overlay "  ><i class="gdlr-core-image-overlay-icon fa fa-search gdlr-core-size-22"  ></i></span></a></div>
-                                                        </li>
-                                                        <li>
-                                                            <div class="gdlr-core-gallery-list gdlr-core-media-image"><a class="gdlr-core-ilightbox gdlr-core-js " href="./image/shutterstock_195507533.jpg" data-caption="Map" data-ilightbox-group="gdlr-core-img-group-1"><img src="./image/shutterstock_195507533-1500x1000.jpg" alt="" width="1500" height="1000" /><span class="gdlr-core-image-overlay "  ><i class="gdlr-core-image-overlay-icon fa fa-search gdlr-core-size-22"  ></i></span></a></div>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-<link rel="stylesheet" href="./css/detail-main.css">
+            <link rel="stylesheet" href="./css/detail-main.css">
 
             <footer id='tp-footer' class='main-footer container-fluid'>
                 <div id="tp-partner">
