@@ -20,7 +20,11 @@
     <script type='text/javascript' src='./js/jquery1_12_4.js'></script>
     <link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
 
-    <!--[if lt IE 9]> <script type='text/javascript' src='https://demo.goodlayers.com/traveltour/wp-content/themes/traveltour/js/html5.js?ver=4.9.5'></script> <![endif] 집에 가고싶다-->
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
+
+    <!--[if lt IE 9]> <script type='text/javascript' src='https://demo.goodlayers.com/traveltour/wp-content/themes/traveltour/js/html5.js?ver=4.9.5'></script> <![endif]-->
 </head>
 
 <body class="tour-template-default single single-tour postid-4649 gdlr-core-body tourmaster-body traveltour-body traveltour-body-front traveltour-full  traveltour-with-sticky-navigation gdlr-core-link-to-lightbox">
@@ -68,8 +72,8 @@
                         </div>
                     </div>
                 </div>-->
-                <!--<?php if(!is_login()){?>-->
-                <!--<div id="login" class="d-flex align-items-center">
+        <!--<?php if(!is_login()){?>-->
+        <!--<div id="login" class="d-flex align-items-center">
                     <a href="<?=site_url(user_uri.'/login')?>" style="color:white;">
                     <span><i class="xi-log-in xi-x"></i></span>
                 </a>
@@ -82,7 +86,7 @@
                 <!--<?php }else{?>
                 <div style="margin-top:25px;"><a href="<?=site_url(shop_mypage_uri." /gets_wishlist ")?>"><img src="<?=$user->profilePhoto?>" alt="" style="width:30px; height:30px; border-radius: 15px;"></a></div>
                 <?php }?>-->
-            <!--</div>
+        <!--</div>
             <div class="col-2 ml-auto toggle" onclick="$('body').toggleClass('menu-open'); $('.carousel-indicators').toggleClass('d-none d-flex');">
                 <span>
                 <i class="xi xi-bars"></i>
@@ -155,6 +159,45 @@
                             </div>
                         </div>
                     </div>
+
+
+                    <script>
+                        (function($) {
+                            $.fn.goTo = function() {
+                                $('html, body').animate({
+                                    scrollTop: $(this).offset().top + 'px'
+                                }, 'fast');
+                                return this; // for chaining...
+                            }
+                        })(jQuery);
+                        $.datepicker.setDefaults({
+                            dateFormat: 'yy-mm-dd',
+                            prevText: '이전 달',
+                            nextText: '다음 달',
+                            monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+                            monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+                            dayNames: ['일', '월', '화', '수', '목', '금', '토'],
+                            dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
+                            dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+                            showMonthAfterYear: true,
+                            yearSuffix: '년'
+                        });
+
+                        $(function() {
+                            $("#datepicker1").datepicker();
+                        });
+
+                        $(function() {
+                            $("#datepicker2").datepicker();
+                        });
+
+                    </script>
+
+
+
+
+
+
                     <div class="tourmaster-template-wrapper" style="margin-bottom: 30px;">
                         <div class="tourmaster-tour-booking-bar-container tourmaster-container">
                             <div class="tourmaster-tour-booking-bar-container-inner">
@@ -176,7 +219,15 @@
                                                 <form class="tourmaster-single-tour-booking-fields tourmaster-form-field tourmaster-with-border" method="post" action="https://demo.goodlayers.com/traveltour/?tourmaster-payment" id="tourmaster-single-tour-booking-fields" data-ajax-url="https://demo.goodlayers.com/traveltour/wp-admin/admin-ajax.php"><input type="hidden" name="tour-id" value="4649" />
                                                     <div class="tourmaster-tour-booking-date clearfix" data-step="1"><i class="fa fa-calendar"></i>
                                                         <div class="tourmaster-tour-booking-date-input">
-                                                            <div class="tourmaster-tour-booking-date-display">3박 5일</div><input type="hidden" name="tour-date" value="2021-02-06" /></div>
+                                                            <div class="tourmaster-tour-booking-date-display">3박 5일</div><input type="hidden" name="tour-date" value="2021-02-06" />
+
+
+                                                            <input type="text" placeholder="출발 날짜" style="width:100%;" name="interpret_start_date" id="datepicker1" readonly>
+
+
+
+
+                                                        </div>
                                                     </div>
                                                     <div class="tourmaster-tour-booking-available" data-step="2">최소 인원 2명</div>
                                                     <div class="tourmaster-tour-booking-people clearfix" data-step="4">
@@ -866,7 +917,7 @@
                                                                         </div>
                                                                         <hr>
                                                                         <div class="tripinfo_container">
-                                                                            
+
                                                                             <div class="tripinfo_img">
                                                                                 <img src="./image/2_2.jpg" class="tripinfo_image">
                                                                             </div>
@@ -903,8 +954,8 @@
                                                                 <h4 class="gdlr-core-toggle-box-item-title gdlr-core-js  gdlr-core-skin-e-background gdlr-core-skin-e-content"><span class="gdlr-core-head">3일차</span></h4>
                                                                 <div class="gdlr-core-toggle-box-item-content">
                                                                     <p>파타야
-                                                                        </p>
-                                                                     <div>
+                                                                    </p>
+                                                                    <div>
                                                                         <div class="tripinfo_container">
                                                                             <div class="tripinfo_img">
                                                                                 <img src="./image/2_1.jpg" class="tripinfo_image">
@@ -916,9 +967,9 @@
                                                                                 </p>
                                                                             </div>
                                                                         </div>
-                                                                         <hr>
+                                                                        <hr>
                                                                         <div class="tripinfo_container">
-                                                                            
+
                                                                             <div class="tripinfo_img">
                                                                                 <img src="./image/2_2.jpg" class="tripinfo_image">
                                                                             </div>
@@ -926,7 +977,7 @@
                                                                                 <p>동양의 베니스라 불리는 방콕에는 S자로 차오프라야 강(Chao Phrya River)이 흐르고 있어 물과 함께 생활하는 태국인들의 모습을 엿볼 수 있습니다. </p>
                                                                             </div>
                                                                         </div>
-                                                                         <hr>
+                                                                        <hr>
                                                                         <div class="tripinfo_container">
                                                                             <div class="tripinfo_img">
                                                                                 <img src="./image/2_3.jpg" class="tripinfo_image">
@@ -946,8 +997,8 @@
                                                                 <h4 class="gdlr-core-toggle-box-item-title gdlr-core-js  gdlr-core-skin-e-background gdlr-core-skin-e-content"><span class="gdlr-core-head">4일차</span></h4>
                                                                 <div class="gdlr-core-toggle-box-item-content">
                                                                     <p>파타야/방콕
-                                                                        </p>
-                                                                     <div>
+                                                                    </p>
+                                                                    <div>
                                                                         <div class="tripinfo_container">
                                                                             <div class="tripinfo_img">
                                                                                 <img src="./image/2_1.jpg" class="tripinfo_image">
@@ -959,9 +1010,9 @@
                                                                                 </p>
                                                                             </div>
                                                                         </div>
-                                                                         <hr>
+                                                                        <hr>
                                                                         <div class="tripinfo_container">
-                                                                            
+
                                                                             <div class="tripinfo_img">
                                                                                 <img src="./image/2_2.jpg" class="tripinfo_image">
                                                                             </div>
@@ -969,7 +1020,7 @@
                                                                                 <p>동양의 베니스라 불리는 방콕에는 S자로 차오프라야 강(Chao Phrya River)이 흐르고 있어 물과 함께 생활하는 태국인들의 모습을 엿볼 수 있습니다. </p>
                                                                             </div>
                                                                         </div>
-                                                                         <hr>
+                                                                        <hr>
                                                                         <div class="tripinfo_container">
                                                                             <div class="tripinfo_img">
                                                                                 <img src="./image/2_3.jpg" class="tripinfo_image">
@@ -1914,7 +1965,6 @@
         </div>
     </div><a href="#traveltour-top-anchor" class="traveltour-footer-back-to-top-button" id="traveltour-footer-back-to-top-button"><i class="fa fa-angle-up" ></i></a>
 
-    <script type='text/javascript' src='./js/jquery1_11_4_2.js'></script>
     <script type='text/javascript' src='./js/jquery1_11_4_3.js'></script>
     <script type='text/javascript' src='./js/jquery4_9_5.js'></script>
     <script type='text/javascript' src='./js/jquery2_1_4.js'></script>

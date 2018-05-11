@@ -2249,7 +2249,7 @@ body .traveltour-top-bar-right .tourmaster-user-top-bar {
 }
 
 @media only screen and (max-width: 425px) {
-    .tourmaster-body .ui-datepicker {
+    .tourmaster-body .ui- {
         margin-left: auto !important;
         margin-right: auto !important;
         left: 0px !important;
@@ -2326,7 +2326,7 @@ body .traveltour-top-bar-right .tourmaster-user-top-bar {
 }
 
 .gdlr-core-page-builder-body [data-skin="Dark"] .tourmaster-combobox-wrap:after,
-.gdlr-core-page-builder-body [data-skin="Dark"] .tourmaster-datepicker-wrap:after,
+.gdlr-core-page-builder-body [data-skin="Dark"] .tourmaster--wrap:after,
 .gdlr-core-page-builder-body [data-skin="Dark"] .tourmaster-tour-search-field-inner:after {
     color: #ffffff;
 }
@@ -2507,7 +2507,7 @@ body .traveltour-top-bar-right .tourmaster-user-top-bar {
 }
 
 .gdlr-core-page-builder-body [data-skin="White Text"] .tourmaster-combobox-wrap:after,
-.gdlr-core-page-builder-body [data-skin="White Text"] .tourmaster-datepicker-wrap:after,
+.gdlr-core-page-builder-body [data-skin="White Text"] .tourmaster--wrap:after,
 .gdlr-core-page-builder-body [data-skin="White Text"] .tourmaster-tour-search-field-inner:after {
     color: #ffffff;
 }
@@ -2720,7 +2720,7 @@ button-border-hover-color .gdlr-core-page-builder-body [data-skin="Grey"] h1,
 }
 
 .gdlr-core-page-builder-body [data-skin="Grey"] .tourmaster-combobox-wrap:after,
-.gdlr-core-page-builder-body [data-skin="Grey"] .tourmaster-datepicker-wrap:after,
+.gdlr-core-page-builder-body [data-skin="Grey"] .tourmaster--wrap:after,
 .gdlr-core-page-builder-body [data-skin="Grey"] .tourmaster-tour-search-field-inner:after {
     color: #5e5e5e;
 }
@@ -2809,7 +2809,7 @@ button-border-hover-color .gdlr-core-page-builder-body [data-skin="Grey"] h1,
 }
 
 .gdlr-core-page-builder-body [data-skin="Dark Personnel"] .tourmaster-combobox-wrap:after,
-.gdlr-core-page-builder-body [data-skin="Dark Personnel"] .tourmaster-datepicker-wrap:after,
+.gdlr-core-page-builder-body [data-skin="Dark Personnel"] .tourmaster--wrap:after,
 .gdlr-core-page-builder-body [data-skin="Dark Personnel"] .tourmaster-tour-search-field-inner:after {
     color: #ffffff;
 }
@@ -2973,7 +2973,7 @@ button-border-hover-color .gdlr-core-page-builder-body [data-skin="Grey"] h1,
 }
 
 .gdlr-core-page-builder-body [data-skin="Blue Icon"] .tourmaster-combobox-wrap:after,
-.gdlr-core-page-builder-body [data-skin="Blue Icon"] .tourmaster-datepicker-wrap:after,
+.gdlr-core-page-builder-body [data-skin="Blue Icon"] .tourmaster--wrap:after,
 .gdlr-core-page-builder-body [data-skin="Blue Icon"] .tourmaster-tour-search-field-inner:after {
     color: #6bbc39;
 }
@@ -3024,7 +3024,7 @@ button-border-hover-color .gdlr-core-page-builder-body [data-skin="Grey"] h1,
 }
 
 .gdlr-core-page-builder-body [data-skin="Dark Search"] .tourmaster-combobox-wrap:after,
-.gdlr-core-page-builder-body [data-skin="Dark Search"] .tourmaster-datepicker-wrap:after,
+.gdlr-core-page-builder-body [data-skin="Dark Search"] .tourmaster--wrap:after,
 .gdlr-core-page-builder-body [data-skin="Dark Search"] .tourmaster-tour-search-field-inner:after {
     color: #ccd5e8;
 }
@@ -3187,7 +3187,7 @@ button-border-hover-color .gdlr-core-page-builder-body [data-skin="Grey"] h1,
 }
 
 .gdlr-core-page-builder-body [data-skin="Blue Column Service"] .tourmaster-combobox-wrap:after,
-.gdlr-core-page-builder-body [data-skin="Blue Column Service"] .tourmaster-datepicker-wrap:after,
+.gdlr-core-page-builder-body [data-skin="Blue Column Service"] .tourmaster--wrap:after,
 .gdlr-core-page-builder-body [data-skin="Blue Column Service"] .tourmaster-tour-search-field-inner:after {
     color: #467ee7;
 }
@@ -3308,7 +3308,7 @@ button-border-hover-color .gdlr-core-page-builder-body [data-skin="Grey"] h1,
 }
 
 .gdlr-core-page-builder-body [data-skin="Dark Search HP4"] .tourmaster-combobox-wrap:after,
-.gdlr-core-page-builder-body [data-skin="Dark Search HP4"] .tourmaster-datepicker-wrap:after,
+.gdlr-core-page-builder-body [data-skin="Dark Search HP4"] .tourmaster--wrap:after,
 .gdlr-core-page-builder-body [data-skin="Dark Search HP4"] .tourmaster-tour-search-field-inner:after {
     color: #ffffff;
 }
@@ -3418,7 +3418,7 @@ button-border-hover-color .gdlr-core-page-builder-body [data-skin="Grey"] h1,
 }
 
 .gdlr-core-page-builder-body [data-skin="Testimonial"] .tourmaster-combobox-wrap:after,
-.gdlr-core-page-builder-body [data-skin="Testimonial"] .tourmaster-datepicker-wrap:after,
+.gdlr-core-page-builder-body [data-skin="Testimonial"] .tourmaster--wrap:after,
 .gdlr-core-page-builder-body [data-skin="Testimonial"] .tourmaster-tour-search-field-inner:after {
     color: #6bbc39;
 }
@@ -3597,7 +3597,7 @@ button-border-hover-color .gdlr-core-page-builder-body [data-skin="Grey"] h1,
 }
 
 .gdlr-core-page-builder-body [data-skin="Blog HP3"] .tourmaster-combobox-wrap:after,
-.gdlr-core-page-builder-body [data-skin="Blog HP3"] .tourmaster-datepicker-wrap:after,
+.gdlr-core-page-builder-body [data-skin="Blog HP3"] .tourmaster--wrap:after,
 .gdlr-core-page-builder-body [data-skin="Blog HP3"] .tourmaster-tour-search-field-inner:after {
     color: #6bbc39;
 }

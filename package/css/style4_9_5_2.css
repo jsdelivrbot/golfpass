@@ -3184,7 +3184,7 @@ table.tourmaster-invoices-table th:nth-child(4) {
 
 .tourmaster-form-field .tourmaster-combobox-wrap:after {
     font-family: fontAwesome;
-    content: "\f0dd";
+    content: url(../image/icon/down.png);
     font-size: 14px;
     line-height: 20px;
     position: absolute;
@@ -3323,11 +3323,11 @@ input[type="submit"].tourmaster-button {
     border-style: solid;
 }
 
-.tourmaster-datepicker-wrap {
+.tourmaster--wrap {
     position: relative;
 }
 
-.tourmaster-datepicker-wrap:after {
+.tourmaster--wrap:after {
     content: "\f0dd";
     font-family: fontAwesome;
     position: absolute;
@@ -3338,11 +3338,11 @@ input[type="submit"].tourmaster-button {
     pointer-events: none;
 }
 
-.tourmaster-datepicker-wrap input {
+.tourmaster--wrap input {
     cursor: pointer;
 }
 
-.tourmaster-body .ui-datepicker {
+.tourmaster-body .ui- {
     width: 310px;
     border-width: 2px;
     border-style: solid;
@@ -3350,13 +3350,13 @@ input[type="submit"].tourmaster-button {
     display: none;
 }
 
-.tourmaster-body .ui-datepicker .ui-datepicker-title {
+.tourmaster-body .ui- .ui--title {
     padding-left: 38px;
     padding-right: 38px;
 }
 
-.tourmaster-body .ui-datepicker .ui-datepicker-month,
-.tourmaster-body .ui-datepicker .ui-datepicker-year {
+.tourmaster-body .ui- .ui--month,
+.tourmaster-body .ui- .ui--year {
     width: 48%;
     margin: 0px 1%;
     border: none;
@@ -3365,34 +3365,34 @@ input[type="submit"].tourmaster-button {
     font-weight: 700;
 }
 
-.tourmaster-body .ui-datepicker select:focus {
+.tourmaster-body .ui- select:focus {
     outline: none;
 }
 
-.tourmaster-body .ui-datepicker table {
+.tourmaster-body .ui- table {
     border-collapse: separate;
     border-spacing: 0px;
     margin-bottom: 10px;
 }
 
-.tourmaster-body .ui-datepicker table tr {
+.tourmaster-body .ui- table tr {
     background: transparent;
 }
 
-.tourmaster-body .ui-datepicker table tr th {
+.tourmaster-body .ui- table tr th {
     background: transparent;
     font-size: 13px;
     padding: 16px 0px 10px;
 }
 
-.tourmaster-body .ui-datepicker table tr td {
+.tourmaster-body .ui- table tr td {
     padding: 0px 0px 5px;
     line-height: 1;
     text-align: center;
 }
 
-.tourmaster-body .ui-datepicker table tr td span,
-.tourmaster-body .ui-datepicker table tr td a {
+.tourmaster-body .ui- table tr td span,
+.tourmaster-body .ui- table tr td a {
     width: 32px;
     font-size: 13px;
     line-height: 16px;
@@ -3404,12 +3404,12 @@ input[type="submit"].tourmaster-button {
     -webkit-border-radius: 50%;
 }
 
-.tourmaster-body .ui-datepicker-header {
+.tourmaster-body .ui--header {
     position: relative;
 }
 
-.tourmaster-body .ui-datepicker-prev,
-.tourmaster-body .ui-datepicker-next {
+.tourmaster-body .ui--prev,
+.tourmaster-body .ui--next {
     position: absolute;
     top: 0px;
     width: 36px;
@@ -3419,34 +3419,34 @@ input[type="submit"].tourmaster-button {
     cursor: pointer;
 }
 
-.tourmaster-body .ui-datepicker-prev {
+.tourmaster-body .ui--prev {
     left: 0px;
 }
 
-.tourmaster-body .ui-datepicker-prev:after {
+.tourmaster-body .ui--prev:after {
     content: "\f104";
     font-family: fontAwesome;
 }
 
-.tourmaster-body .ui-datepicker-prev span {
+.tourmaster-body .ui--prev span {
     display: none;
 }
 
-.tourmaster-body .ui-datepicker-next {
+.tourmaster-body .ui--next {
     right: 0px;
 }
 
-.tourmaster-body .ui-datepicker-next:after {
+.tourmaster-body .ui--next:after {
     content: "\f105";
     font-family: fontAwesome;
 }
 
-.tourmaster-body .ui-datepicker-next span {
+.tourmaster-body .ui--next span {
     display: none;
 }
 
-.tourmaster-body .ui-datepicker-prev.ui-state-disabled,
-.tourmaster-body .ui-datepicker-next.ui-state-disabled {
+.tourmaster-body .ui--prev.ui-state-disabled,
+.tourmaster-body .ui--next.ui-state-disabled {
     background: transparent;
 }
 
@@ -4566,7 +4566,7 @@ input[type="submit"].tourmaster-button {
     margin: 5px 0px 0px;
 }
 
-.tourmaster-tour-search-wrap .tourmaster-datepicker-wrap:after {
+.tourmaster-tour-search-wrap .tourmaster--wrap:after {
     content: "\f073";
     margin-top: -12px;
 }
@@ -5176,20 +5176,20 @@ body input[type="submit"].tourmaster-button:hover {
     color: #fff;
 }
 
-.tourmaster-body .ui-datepicker table tr td a:hover,
-.tourmaster-body .ui-datepicker table tr td a.ui-state-active,
-.tourmaster-body .ui-datepicker table tr td.tourmaster-highlight a,
-.tourmaster-body .ui-datepicker table tr td.tourmaster-highlight span {
+.tourmaster-body .ui- table tr td a:hover,
+.tourmaster-body .ui- table tr td a.ui-state-active,
+.tourmaster-body .ui- table tr td.tourmaster-highlight a,
+.tourmaster-body .ui- table tr td.tourmaster-highlight span {
     color: #ffffff;
 }
 
-.tourmaster-body .ui-datepicker .ui-datepicker-month,
-.tourmaster-body .ui-datepicker .ui-datepicker-year {
+.tourmaster-body .ui- .ui--month,
+.tourmaster-body .ui- .ui--year {
     background: #fff;
 }
 
-.tourmaster-body .ui-datepicker-prev.ui-state-disabled,
-.tourmaster-body .ui-datepicker-next.ui-state-disabled {
+.tourmaster-body .ui--prev.ui-state-disabled,
+.tourmaster-body .ui--next.ui-state-disabled {
     background: auto;
     color: auto;
 }
@@ -5873,7 +5873,7 @@ ul.tourmaster-widget-tour-category-list li {
 }
 
 @media only screen and (max-width: 425px) {
-    .tourmaster-body .ui-datepicker {
+    .tourmaster-body .ui- {
         margin-left: auto !important;
         margin-right: auto !important;
         left: 0px !important;

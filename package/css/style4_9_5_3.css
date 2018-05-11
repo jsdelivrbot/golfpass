@@ -120,14 +120,14 @@ table.tourmaster-my-booking-table a.tourmaster-my-booking-action {
     color: #485da1;
 }
 
-.tourmaster-body .ui-datepicker table tr td a.ui-state-active,
-.tourmaster-body .ui-datepicker table tr td a:hover,
-.tourmaster-body .ui-datepicker table tr td.tourmaster-highlight a,
-.tourmaster-body .ui-datepicker table tr td.tourmaster-highlight span {
+.tourmaster-body .ui- table tr td a.ui-state-active,
+.tourmaster-body .ui- table tr td a:hover,
+.tourmaster-body .ui- table tr td.tourmaster-highlight a,
+.tourmaster-body .ui- table tr td.tourmaster-highlight span {
     background: #485da1;
 }
 
-.tourmaster-body .ui-datepicker select {
+.tourmaster-body .ui- select {
     color: #485da1
 }
 
@@ -209,7 +209,7 @@ body.tourmaster-template-payment a.tourmaster-button {
     background: #71a351;
 }
 
-.single-tour .tourmaster-datepicker-wrap:after,
+.single-tour .tourmaster--wrap:after,
 .single-tour .tourmaster-combobox-wrap:after,
 .single-tour .tourmaster-tour-info-wrap .tourmaster-tour-info i,
 .tourmaster-form-field .tourmaster-combobox-list-display:after {
@@ -531,37 +531,37 @@ table.tourmaster-my-booking-table .tourmaster-my-booking-price {
     color: #a6a6a6;
 }
 
-.tourmaster-body .ui-datepicker {
+.tourmaster-body .ui- {
     background-color: #f5f5f5;
 }
 
-.tourmaster-body .ui-datepicker {
+.tourmaster-body .ui- {
     border-color: #ebebeb;
 }
 
-.tourmaster-body .ui-datepicker table tr th {
+.tourmaster-body .ui- table tr th {
     color: #808080;
 }
 
-.tourmaster-body .ui-datepicker table tr td a,
-.tourmaster-body .ui-datepicker-prev,
-.tourmaster-body .ui-datepicker-next {
+.tourmaster-body .ui- table tr td a,
+.tourmaster-body .ui--prev,
+.tourmaster-body .ui--next {
     background-color: #ffffff;
 }
 
-.tourmaster-body .ui-datepicker table tr td a,
-.tourmaster-body .ui-datepicker-prev,
-.tourmaster-body .ui-datepicker-next {
+.tourmaster-body .ui- table tr td a,
+.tourmaster-body .ui--prev,
+.tourmaster-body .ui--next {
     color: #5b5b5b;
 }
 
-.tourmaster-body .ui-datepicker table tr td a.ui-state-disable {
+.tourmaster-body .ui- table tr td a.ui-state-disable {
     color: #c0c0c0;
 }
 
-.tourmaster-body .ui-datepicker-prev.ui-state-disabled,
-.tourmaster-body .ui-datepicker-next.ui-state-disabled,
-.tourmaster-body .ui-datepicker table tr td {
+.tourmaster-body .ui--prev.ui-state-disabled,
+.tourmaster-body .ui--next.ui-state-disabled,
+.tourmaster-body .ui- table tr td {
     color: #c0c0c0;
 }
 
@@ -878,7 +878,7 @@ table.tourmaster-my-booking-table .tourmaster-my-booking-price {
     color: #7f7f7f;
 }
 
-.tourmaster-tour-search-wrap .tourmaster-datepicker-wrap:after,
+.tourmaster-tour-search-wrap .tourmaster--wrap:after,
 .tourmaster-tour-search-wrap .tourmaster-tour-search-field-inner:after,
 .tourmaster-tour-search-wrap .tourmaster-combobox-wrap:after {
     color: #383838;
