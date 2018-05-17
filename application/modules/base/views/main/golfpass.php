@@ -81,7 +81,7 @@
         <div id="TnbBanner">
             <div id="tnbtop_op" style="">
                 <span id="jq_ad_script1" style="display:inline">
-                    <a href="#"><img alt="광고" src="/public/images/top_banner_01.jpg"></a>
+                    <a href="#"><img alt="광고" src="/public/images/top_banner_01.png"></a>
                 </span>
                 <button class="BtnTnbClose" title="AD배너닫기" type="button" onClick="tnbBannerClose();">
                     <img alt="닫기" src="http://image1.hanatour.com/ad/2015/btn_close.png">
@@ -394,18 +394,7 @@
                             <a href="#">
                                 <div class="card" id="cardlist_6">
 
-                                    <img src="/public/images/event2.png">
-
-                                </div>
-                            </a>
-                        </div>
-                    </li>
-                    <li class="slide_sl">
-                        <div class="block">
-                            <a href="#">
-                                <div class="card" id="cardlist_7">
-                                    
-                                    <img src="/public/images/event4.png">
+                                    <img src="/public/images/event1.png">
 
                                 </div>
                             </a>
