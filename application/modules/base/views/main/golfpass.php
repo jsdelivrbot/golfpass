@@ -75,6 +75,54 @@
 
 <body>
 <div id="main-wrap">
+    
+    
+    <div class="main_ad_banner" id="main_ad_banner">
+        <div id="TnbBanner">
+            <div id="tnbtop_op" style="">
+                <span id="jq_ad_script1" style="display:inline">
+                    <a href="#"><img alt="광고" src="/public/images/top_banner_01.jpg"></a>
+                </span>
+                <button class="BtnTnbClose" title="AD배너닫기" type="button" onClick="tnbBannerClose();">
+                    <img alt="닫기" src="http://image1.hanatour.com/ad/2015/btn_close.png">
+                </button>
+            </div>
+        </div>
+    </div>
+    <script>
+          function tnbBannerClose(){document.getElementById("main_ad_banner").style.display= 'none';}
+          if("1"=="3"){
+            document.getElementById("jq_ad_script"+parseInt(Math.random()*2+2)).style.display= 'none';
+          }else if("1"=="4") {
+            if(parseInt(Math.random()*2)==0){
+              document.getElementById("jq_ad_script1").style.display= 'none';
+              document.getElementById("jq_ad_script2").style.display= 'none';
+            }else{
+              document.getElementById("jq_ad_script3").style.display= 'none';
+              document.getElementById("jq_ad_script4").style.display= 'none';
+            }
+          }
+    </script>
+    <style>
+        #TnbBanner {
+            background-color: #e4eff1;
+            height: 70px;
+            width: 100%;
+            display: table;
+        }
+        #tnbtop_op {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+        }
+        .BtnTnbClose {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+        
+        
     <div class="menu-container position-fixed">
         <div class="menu-sliders"></div>
         <div class="menu-sliders"></div>
@@ -809,7 +857,9 @@ function rotate() {
                         <img src="/public/sangmin/img/partner/partner_iagto.png" alt="">
                     </figure>
                     <figure>
-                        <img src="/public/sangmin/img/partner/partner_openplan.png" alt="">
+                        <a href="https://openyourplan.com/2017/?JHS=5fb07c442335f52d0170e8b6791a8c9278817f21a05eeeb6f31dc1" target="_balnk">
+                            <img src="/public/sangmin/img/partner/partner_openplan.png" alt="">
+                        </a>
                     </figure>
                 </div>
             </div>

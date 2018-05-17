@@ -2021,7 +2021,7 @@ body.menu-open .plus-btn .r2 {
   #header nav, .black-bg-header nav {
     width: inherit;
     height: 80px;
-    position: absolute;
+    position: inherit;
     background-color: transparent;
     top: 0;
     left: 0;
@@ -2195,7 +2195,7 @@ body.menu-open .plus-btn .r2 {
   #header nav, .black-bg-header nav {
     width: inherit;
     height: 80px;
-    position: absolute;
+    position: inherit;
     background-color: transparent;
     top: 0;
     left: 0;

@@ -710,7 +710,8 @@
                                                 <img src="/public/sangmin/img/partner/b_partner_iagto.png" alt="">
                                             </figure>
                                             <figure>
-                                                <img src="/public/sangmin/img/partner/b_partner_openplan.png" alt="">
+                                                <a href="https://openyourplan.com/2017/?JHS=5fb07c442335f52d0170e8b6791a8c9278817f21a05eeeb6f31dc1" target="_balnk">
+                                                    <img src="/public/sangmin/img/partner/b_partner_openplan.png" alt=""></a>
                                             </figure>
             </div>
         </div>
