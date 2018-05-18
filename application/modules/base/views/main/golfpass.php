@@ -477,7 +477,8 @@
     <script>
         $(document).ready(function () {
     //rotation speed and timer
-    var speed = 3000;
+    var speed = 90000000000000000000000;
+            
     
     var run = setInterval(rotate, speed);
     var slides = $('.slide_sl');
