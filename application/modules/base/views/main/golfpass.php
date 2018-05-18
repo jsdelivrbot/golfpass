@@ -389,17 +389,68 @@
                             </a>
                         </div>
                     </li>
-                    <li class="slide_sl">  
+                    
+                    <li class="slide_sl">
                         <div class="block">
                             <a href="#">
                                 <div class="card" id="cardlist_6">
 
                                     <img src="/public/images/event1.png">
-
+                                    <!--<div class="hover_card">
+                                    <h2>제목</h2>
+                                    <p>아무말</p>
+                                        <a href="#" class="button">버튼</a>
+                                                </div>-->
                                 </div>
                             </a>
                         </div>
                     </li>
+                    <li class="slide_sl">
+                        <div class="block">
+                            <a href="#">
+                                <div class="card" id="cardlist_7">
+                                    
+                                    <img src="/public/images/event2.png">
+                                    
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="slide_sl">
+                        <div class="block">
+                            <a href="#">
+                                <div class="card" id="cardlist_8">
+                                    
+                                    <img src="/public/images/event3.png">
+                                </div>
+                            </a>    
+                        </div>
+                    </li>
+                    <li class="slide_sl">  
+                        <div class="block"> 
+                            <a href="#">
+                                <div class="card" id="cardlist_9">  
+                                    
+                                    <img src="/public/images/event4.png">
+                                    
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="slide_sl">
+                        <div class="block">
+                            <a href="#">    
+                                <div class="card" id="cardlist_10">
+                                    
+                                    <img src="/public/images/event5.png">
+                                    
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                    
+
+                    
                 </ul>
             </div>
             
