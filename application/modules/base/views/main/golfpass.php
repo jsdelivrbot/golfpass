@@ -77,7 +77,7 @@
 <div id="main-wrap">
     
     
-    <div class="main_ad_banner" id="main_ad_banner">
+    <!--<div class="main_ad_banner" id="main_ad_banner">
         <div id="TnbBanner">
             <div id="tnbtop_op" style="">
                 <span id="jq_ad_script1" style="display:inline">
@@ -88,7 +88,7 @@
                 </button>
             </div>
         </div>
-    </div>
+    </div>-->
     <script>
           function tnbBannerClose(){document.getElementById("main_ad_banner").style.display= 'none';}
           if("1"=="3"){
@@ -319,7 +319,7 @@
     
     
     
-    <section style="padding-top:110px;">
+    <!--<section style="padding-top:110px;">
         <div id="slide_box">
             <div class="btn-bar">
                 <div id="buttons_sl">
@@ -342,7 +342,7 @@
                                     <p>아무말</p>
                                         <a href="#" class="button">버튼</a>
                                                 </div>-->
-                                </div>
+                               <!-- </div>
                             </a>
                         </div>
                     </li>
@@ -401,7 +401,7 @@
                                     <p>아무말</p>
                                         <a href="#" class="button">버튼</a>
                                                 </div>-->
-                                </div>
+                                <!--</div>
                             </a>
                         </div>
                     </li>
@@ -457,7 +457,7 @@
             
             
         </div>
-    </section>
+    </section>-->
     <style>
         #slide_box:hover .area{display: block; opacity: 0.9; transition: opacity .50s; -o-transition: opacity .50s; -moz-transition: opacity .50s; -webkit-transition: opacity .50s;}
         .area{margin-top: 150px;}
@@ -811,7 +811,7 @@ function rotate() {
 				</div>
 			</article>
     </section>
-    <section id="section6" class="mb-5 mt-5 container-fluid align-items-start align-items-md-center">
+    <!--<section id="section6" class="mb-5 mt-5 container-fluid align-items-start align-items-md-center">
         <article class="w-100 p-xl-4">
             <div class="row no-gutters main-section-title" style="margin-bottom: 20px !important">
                 <h4 class="main_sub_title">그늘집 by GOLFPASS</h4>
@@ -839,7 +839,7 @@ function rotate() {
                 </div>
                 <?php }?>
             </div> -->
-            <div class="panel_redesign" style="cursor: pointer;" onclick="location.href='<?=site_url(golfpass_panel_uri."/gets")?>';">
+            <!--<div class="panel_redesign" style="cursor: pointer;" onclick="location.href='<?=site_url(golfpass_panel_uri."/gets")?>';">
                 <div class="panel_text" style="width: 50%; margin: 0 auto;">
                     <h1>그늘집</h1>
                     <p>골프패스 패널의 생생한 골프 이야기를 열람하세요!</p>
@@ -854,15 +854,15 @@ function rotate() {
             </a>
         </div>
         </article>
-    </section>
-    <!-- <section id="section7" class="mb-lg-5 container-fluid d-flex" style="margin-top:150px; margin-bottom:150px !important;">
+    </section>-->
+    <section id="section7" class="mb-lg-5 container-fluid d-flex" style="margin-top:150px; margin-bottom:150px !important;">
         <article class="w-100">
             <div class="row d-flex justify-content-center">
-                <iframe width="90%" height="100%" src="https://www.youtube.com/embed/GF4xrSnzNPo" frameborder="0"
+                <iframe width="90%" height="100%" src="https://www.youtube.com/embed/XwtX5ABOOww" frameborder="0"
                         gesture="media" allowfullscreen style="min-height: 725px;"></iframe>
             </div>
         </article>
-    </section> -->
+    </section>
     <footer id='footer' class='main-footer container-fluid'>
         <div id="partner">
             <div class="row" style="width:100%;">
