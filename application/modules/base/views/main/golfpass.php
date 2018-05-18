@@ -855,14 +855,14 @@ function rotate() {
         </div>
         </article>
     </section>
-    <!-- <section id="section7" class="mb-lg-5 container-fluid d-flex" style="margin-top:150px; margin-bottom:150px !important;">
+    <section id="section7" class="mb-lg-5 container-fluid d-flex" style="margin-top:150px; margin-bottom:150px !important;">
         <article class="w-100">
             <div class="row d-flex justify-content-center">
                 <iframe width="90%" height="100%" src="https://www.youtube.com/embed/GF4xrSnzNPo" frameborder="0"
                         gesture="media" allowfullscreen style="min-height: 725px;"></iframe>
             </div>
         </article>
-    </section> -->
+    </section>
     <footer id='footer' class='main-footer container-fluid'>
         <div id="partner">
             <div class="row" style="width:100%;">
