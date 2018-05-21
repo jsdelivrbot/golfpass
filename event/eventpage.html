@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>eventpage</title>
+    <script src="js/prefixfree.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" href="css/tp-main.css">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-82379730-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-82379730-2');
+</script>
+</head>
+
+<body>
+    <div class="tp-menu-container tp-position-fixed">
+        <div class="tp-menu-sliders">
+        </div>
+        <div class="tp-menu-sliders">
+        </div>
+        <div class="tp-menu-sliders">
+        </div>
+        <div class="tp-menu">
+            <ul class="tp-list-unstyled">
+                <?php if(is_admin()){?>
+                <li>
+                    <a style="font-family: 'notokr-light', sans-serif; font-size: 20px; font-weight: normal; color: #fff;" href="<?=site_url(admin_home_uri.'')?>">관리자 페이지
+            </a>
+                </li>
+                <?php }?>
+                <li>
+                    <a style="font-family: 'notokr-light', sans-serif; font-size: 20px; font-weight: normal; color: #fff;" href="<?=site_url(shop_category_uri.'/gets_by_name/나라별')?>">지역별 골프장
+            </a>
+                </li>
+                <li>
+                    <a style="font-family: 'notokr-light', sans-serif; font-size: 20px; font-weight: normal; color: #fff;" href="<?=site_url(golfpass_panel_uri.'/gets')?>">그늘집 by GOLFPASS
+            </a>
+                </li>
+                <li>
+                    <a style="font-family: 'notokr-light', sans-serif; font-size: 20px; font-weight: normal; color: #fff;" href="<?=site_url(content_uri.'/gets?board_id=4')?>">고객센터
+            </a>
+                </li>
+                <?php if(!is_login()){?>
+                <li>
+                    <a style="font-family: 'notokr-light', sans-serif; font-size: 20px; font-weight: normal; color: #fff;"href="<?=site_url(user_uri."/login?return_url=".rawurlencode(my_current_url()))?>">로그인
+            </a>
+                </li>
+                <li>
+                    <a style="font-family: 'notokr-light', sans-serif; font-size: 20px; font-weight: normal; color: #fff;" href="<?=site_url(user_uri.'/register_agree_1')?>">회원가입
+            </a>
+                </li>
+                <?php }?>
+                <?php if(is_login()){?>
+                <li>
+                    <a style="font-family: 'notokr-light', sans-serif; font-size: 20px; font-weight: normal; color: #fff;" href="<?=site_url(shop_mypage_uri.'/gets_wishlist')?>">마이페이지
+            </a>
+                </li>
+                <li>
+                    <a style="font-family: 'notokr-light', sans-serif; font-size: 20px; font-weight: normal; color: #fff;" href="<?=site_url(user_uri.'/logout')?>">로그아웃
+            </a>
+                </li>
+                <?php }?>
+            </ul>
+        </div>
+    </div>
+    <header id="tp-header" class="tp-black-bg-header tp-container-fluid tp-panel-header">
+        <nav id='tp-sm-nav' class="tp-row tp-no-gutters tp-justify-content tp-align-items-stretch tp-d-sm-none tp-panel-nav">
+            <div id="tp-logo" class='tp-col-3 tp-justify-content-center tp-d-flex tp-align-self-center tp-align-items-center'>
+                <a href="<?=site_url("")?>"><img src="images/icon/logo_mobile.png" class="tp-d-md-none" alt=""></a>
+            </div>
+            <div id='tp-nav-icon-box' class="tp-offset-2 tp-col-5 tp-d-flex tp-align-items-stretch tp-justify-content-end">
+                <div id="tp-search" class="tp-d-flex tp-align-items-center">
+                    <a class="tp-mk-search-trigger tp-mk-fullscreen-trigger" href="#" id="tp-search-button-listener"> 
+              <span>
+                <i class="xi xi-search" id="tp-search-button" style="color:#fff;">
+                </i>
+              </span> 
+            </a>
+                    <div class="tp-mk-fullscreen-search-overlay" id="tp-mk-search-overlay">
+                        <a href="#" class="tp-mk-fullscreen-close" id="tp-mk-fullscreen-close-button">
+                <i class="xi xi-close">
+                </i>
+              </a>
+                        <div id="tp-mk-fullscreen-search-wrapper">
+                            <div method="get" id="tp-mk-fullscreen-searchform" action="">
+                                <input type="text" value="" placeholder="Search..." id="tp-mk-fullscreen-search-input">
+                                <i class="xi xi-search fullscreen-search-icon">
+                    <input value="" type="submit" id="tp-mobile_search_btn">
+                  </i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <?php if(!is_login()){?>
+                <div id="tp-login" class="tp-d-flex tp-align-items-center">
+                    <a href="<?=site_url(user_uri.'/login')?>" style="color:white;"> 
+              <span>
+                <i class="xi-log-in xi-x">
+                </i>
+              </span> 
+            </a>
+                </div>
+                <div id="tp-join" class="tp-d-flex tp-align-items-center">
+                    <a href="<?=site_url(user_uri.'/register_agree_1')?>" style="color:white;"> 
+              <span>
+                <i class="xi xi-user-plus">
+                </i>
+              </span> 
+            </a>
+                </div>
+                <?php }else{?>
+               <div style="margin-top:25px;"><a href="<?=site_url(shop_mypage_uri."/gets_wishlist")?>"><img src="<?=$user->profilePhoto?>" alt="" style="width:30px; height:30px; border-radius: 15px;"></a></div>
+                <?php }?>
+            </div>
+            <div class="tp-col-2 tp-ml-auto tp-toggle" onclick="$('body').toggleClass('tp-menu-open'); $('.tp-carousel-indicators').toggleClass('tp-d-none tp-d-flex');">
+                <span> 
+            <i class="xi xi-bars">
+            </i> 
+          </span>
+            </div>
+        </nav>
+        <nav id='tp-md-nav' class="tp-row tp-no-gutters tp-justify-content tp-align-items-stretch tp-d-none tp-d-sm-flex">
+            <div id="tp-logo" class='tp-col-6 tp-d-flex tp-align-items-center'>
+                <a href="<?=site_url("")?>">
+                <figure class="tp-mb-0 tp-d-flex tp-align-items-center tp-d-lg-none">
+                    <img src="images/icon/logo_mobile.png" class="" alt="">
+                </figure>
+                </a>
+                <a href="<?=site_url()?>">
+                    <figure style="margin:0px;"class="tp-mb-0 tp-align-items-center tp-d-none tp-d-lg-flex">
+                        <img src="images/icon/logo.png" class="" alt="">
+                    </figure>
+                </a>
+                <div  style="<?php if(strpos(current_url(),"category/gets")>-1) echo "margin-left:20px;"?>width:81%; height:43px; padding:10px;"style="width:81%; height:43px; padding:10px;"class="tp-search-container tp-d-flex tp-align-items-center tp-position-relative">
+                    <i class="xi xi-search" style="font-size: 16px;">
+            </i>
+                    <input style="width:100%; height:41px; padding:1px 1px 1px 5px;" id="tp-serach" type="text" placeholder="관심있는 지역이나 골프장을 검색해보세요!">
+                    <div class="tp-search-content-container tp-position-absolute tp-w-100">
+                    </div>
+                </div>
+            </div>
+            <div id='tp-nav-icon-box' class="tp-col tp-d-flex tp-justify-content-end">
+                <?php if(!is_login()){?>
+                <div id="tp-login" class="tp-d-flex tp-align-items-center" style="cursor: pointer;" onclick="location.href='<?=site_url(user_uri."/login?return_url=".rawurlencode(my_current_url()))?>';">
+                    <span>
+              <i class="xi-log-in xi-x" style="font-size: 17px;">
+              </i>
+            </span>
+                    <p class="tp-mb-0">
+                        <a style="color: white; font-family: 'notokr-regular', sans-serif; font-size: 12px;" href="<?=site_url(user_uri."/login?return_url=".rawurlencode(my_current_url()))?>">로그인
+              </a>
+                    </p>
+                </div>
+                <div id="tp-join" class="tp-d-flex tp-align-items-center" style="cursor: pointer;" onclick="location.href='<?=site_url(user_uri.'/register_agree_1')?>';">
+                    <span>
+              <i class="xi xi-user-plus" style="font-size: 17px;">
+              </i>
+            </span>
+                    <p class="tp-mb-0">
+                        <a style="color: white; font-family: 'notokr-regular', sans-serif; font-size: 12px;" href="<?=site_url(user_uri.'/register_agree_1')?>">회원가입
+              </a>
+                    </p>
+                </div>
+                <?php }else{?>
+                <div style="margin-top:25px; cursor: pointer;" onclick="location.href='<?=site_url(shop_mypage_uri."/gets_wishlist")?>';"><a href="<?=site_url(shop_mypage_uri."/gets_wishlist")?>"><img src="<?=$user->profilePhoto?>" alt="" style="width:30px; height:30px; border-radius: 15px;"></a></div>
+                <div id="tp-logout" class="tp-d-flex tp-align-items-center" style="cursor: pointer;" onclick="location.href='<?=site_url(user_uri.'/logout')?>';">
+                    <span>
+              <i class="xi-log-out xi-x">
+              </i>
+            </span>
+                    <p class="tp-mb-0">
+                        <a style="color: white; font-family: 'notokr-regular', sans-serif; font-size: 12px;" href="<?=site_url(user_uri.'/logout')?>">로그아웃
+              </a>
+                    </p>
+                </div>
+                <?php }?>
+            </div>
+            <div class="tp-col tp-ml-auto tp-toggle" onclick="$('body').toggleClass('tp-menu-open'); $('.tp-carousel-indicators').toggleClass('tp-d-none tp-d-flex');">
+                <span> 
+            <i class="xi xi-bars">
+            </i> 
+          </span>
+            </div>
+        </nav>
+    </header>
+    
+    <div id="background">
+        <div id="background"><img src="images/background.png"></div>
+        <a href="http://www.naver.com" id="bestgoods1">
+            <div id="button"><img src="images/button.png"></div>
+            <div id="layer_3"><img src="images/layer_3.png"></div>
+            <div id="image"><img src="images/image.png"></div>
+            <div id="CCNOBORIBETSUCC"><img src="images/CCNOBORIBETSUCC.png"></div>
+            <div id="layer_104000"><img src="images/layer_104000.png"></div>
+        </a>
+        <a href="http://www.daum.net" id="bestgoods2">
+            <div id="button_0"><img src="images/button_0.png"></div>
+            <div id="layer_8"><img src="images/layer_8.png"></div>
+            <div id="image_0"><img src="images/image_0.png"></div>
+            <div id="CCRUSUTSURESO"><img src="images/CCRUSUTSURESO.png"></div>
+            <div id="layer_90000"><img src="images/layer_90000.png"></div>
+        </a>
+        <div id="BEST"><img src="images/BEST.png"></div>
+        <div id="layer_13"><img src="images/layer_13.png"></div>
+        <div id="layer_14"><img src="images/layer_14.png"></div>
+        <a href="https://www.daum.net/" id="recomendgoods">
+            <div id="button_1"><img src="images/button_1.png"></div>
+            <div id="layer_16"><img src="images/layer_16.png"></div>
+        </a>
+        <a href="http://www.naver.com" id="recomendgoods">
+            <div id="image_1"><img src="images/image_1.png"></div>
+        </a>
+        <a class="event_list" href="https://www.naver.com/">
+            <div id="background_0"><img src="images/background_0.png"></div>
+            <div id="image_2"><img src="images/image_2.png"></div>
+            <div id="GC"><img src="images/GC.png"></div>
+            <div id="KITAHIROSHIMAGC"><img src="images/KITAHIROSHIMAGC.png"></div>
+            <div id="layer_76100"><img src="images/layer_76100.png"></div>
+            <div id="button_2"><img src="images/button_2.png"></div>
+            <div id="layer_24"><img src="images/layer_24.png"></div>
+        </a>
+        <a class="event_list" href="https://www.daum.net/">
+
+            <div id="background_1"><img src="images/background_1.png"></div>
+            <div id="image_3"><img src="images/image_3.png"></div>
+            <div id="GC_0"><img src="images/GC_0.png"></div>
+            <div id="KATSURAGC"><img src="images/KATSURAGC.png"></div>
+            <div id="layer_150800"><img src="images/layer_150800.png"></div>
+            <div id="button_3"><img src="images/button_3.png"></div>
+            <div id="layer_31"><img src="images/layer_31.png"></div>
+        </a>
+        <a class="event_list" href="https://www.naver.com/">
+            <div id="background_2"><img src="images/background_2.png"></div>
+            <div id="image_4"><img src="images/image_4.png"></div>
+            <div id="CC"><img src="images/CC.png"></div>
+            <div id="HOKKAIDOBROOKSCC"><img src="images/HOKKAIDOBROOKSCC.png"></div>
+            <div id="layer_81720"><img src="images/layer_81720.png"></div>
+            <div id="button_4"><img src="images/button_4.png"></div>
+            <div id="layer_38"><img src="images/layer_38.png"></div>
+        </a>
+        <a class="event_list" href="https://www.daum.net/">
+            <div id="background_3"><img src="images/background_3.png"></div>
+            <div id="image_5"><img src="images/image_5.png"></div>
+            <div id="layer_41"><img src="images/layer_41.png"></div>
+            <div id="RUSUTSURESORT"><img src="images/RUSUTSURESORT.png"></div>
+            <div id="layer_90000_0"><img src="images/layer_90000_0.png"></div>
+            <div id="button_5"><img src="images/button_5.png"></div>
+            <div id="layer_45"><img src="images/layer_45.png"></div>
+        </a>
+        <a class="event_list" href="https://www.naver.com/">
+            <div id="background_4"><img src="images/background_4.png"></div>
+            <div id="image_6"><img src="images/image_6.png"></div>
+            <div id="CC_0"><img src="images/CC_0.png"></div>
+            <div id="NOBORIBETSUCC"><img src="images/NOBORIBETSUCC.png"></div>
+            <div id="layer_104000_0"><img src="images/layer_104000_0.png"></div>
+            <div id="button_6"><img src="images/button_6.png"></div>
+            <div id="layer_52"><img src="images/layer_52.png"></div>
+        </a>
+        <a class="event_list" href="https://www.daum.net/">
+            <div id="background_5"><img src="images/background_5.png"></div>
+            <div id="image_7"><img src="images/image_7.png"></div>
+            <div id="GC_1"><img src="images/GC_1.png"></div>
+            <div id="ABRANDGC"><img src="images/ABRANDGC.png"></div>
+            <div id="layer_70000"><img src="images/layer_70000.png"></div>
+            <div id="button_7"><img src="images/button_7.png"></div>
+            <div id="layer_59"><img src="images/layer_59.png"></div>
+        </a>
+        <div id="layer_60"><img src="images/layer_60.png"></div>
+        <div id="layer_61"><img src="images/layer_61.png"></div>
+        <div id="layer_62"><img src="images/layer_62.png"></div>
+        <div id="layer_63"><img src="images/layer_63.png"></div>
+    </div>
+
+    <footer id='tp-footer' class='tp-main-footer tp-container-fluid' style="margin-top: 3205px">
+        <div id="tp-partner">
+            <div class="tp-row" style="width:100%;">
+                <div class="tp-w-100">
+                    <h6 style="color:#ababab;">PARTNERS</h6>
+                </div>
+                <div class="tp-d-flex tp-flex-wrap">
+                    <figure style="margin-bottom: 16px;">
+                        <img src="images/partner/b_partner_accordiagolf.png" alt="">
+                    </figure>
+                    <figure style="margin-bottom: 16px;">
+                        <img src="images/partner/b_partner_orixgolf.png" alt="">
+                    </figure>
+                    <figure style="margin-bottom: 16px;">
+                        <img src="images/partner/b_partner_PGM.png" alt="">
+                    </figure>
+                    <figure style="margin-bottom: 16px;">
+                        <img src="images/partner/b_partner_princehotel.png" alt="">
+                    </figure>
+                    <figure style="margin-bottom: 16px;">
+                        <img src="images/partner/b_partner_hiltonhotel.png" alt="">
+                    </figure>
+                    <figure style="margin-bottom: 16px;">
+                        <img src="images/partner/b_partner_bookingdotcom.png" alt="">
+                    </figure>
+                    <figure><a href="http://www.widemobile.com/?golfpass" target="_balnk">
+                        <img src="images/partner/b_partner_wifi.png" alt=""></a>
+                    </figure>
+                    <figure style="margin-bottom: 16px;"><a href="http://www.timescar-rental.kr/af/7822000076/kr/" target="_balnk">
+                        <img src="images/partner/b_partner_timescar.png" alt=""></a>
+                    </figure>
+                    <figure style="margin-bottom: 16px;">
+                        <img src="images/partner/b_partner_iagto.png" alt="">
+                    </figure>
+                    <figure style="margin-bottom: 16px;">
+                        <img src="images/partner/b_partner_openplan.png" alt="">
+                    </figure>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tp-row tp-d-flex" style="width:100%; margin-bottom:16px;">
+            <ul>
+                <li class="tp-title"  style="color:#ababab;">ABOUT US
+                </li>
+                <!--<li><a style="color:#ababab;" href="<?=site_url(page_uri."/get/1")?>">회사 소개</a></li>-->
+                <li><a style="color:#ababab;" href="<?=site_url(page_uri."/get/2")?>">이용 약관</a></li>
+                <li><a style="color:#ababab;" href="<?=site_url(page_uri."/get/3")?>">개인 정보 취급 방침</a></li>
+                <li><a style="color:#ababab;" href="https://www.hometax.go.kr/websquare/websquare.wq?w2xPath=/ui/pp/index_pp.xml">사업자 정보 확인</a></li></li>
+            </ul>
+            <ul>
+                <li class="tp-title" style="color:#ababab;">OFFICE</li>
+                <li>
+                    <span style="color:#ababab;">TEL</span>
+                    <p style="color:#ababab;">02-6959-5454</p>
+                </li>
+                 <li><span style="color:#ababab;">E-mail</span>
+                         <p style="color:#ababab;">golfpass_@naver.com</p>
+                 </li>
+            </ul>
+            <ul>
+                <li class="tp-title" style="color:#ababab;">CONTACT US
+                </li>
+                <li>
+                    <span style="color:#ababab;">상호
+            </span>
+                    <p style="color:#ababab;">PLAYSEVEN
+                    </p>
+                </li>
+                <li>
+                    <span style="color:#ababab;">대표
+            </span>
+                    <p style="color:#ababab;">황현철
+                    </p>
+                </li>
+                <li>
+                    <span style="color:#ababab;">사업자 등록 번호
+            </span>
+                    <p style="color:#ababab;">280-81-00963
+                    </p>
+                </li>
+                <li>
+                    <span style="color:#ababab;">등록 판매업 신고 번호
+            </span>
+                    <p style="color:#ababab;">2017-서울강서-1545호
+                    </p>
+                </li>
+                <li><span style="color:#ababab;">주소</span>
+                    <p style="color:#ababab;">서울특별시 강서구 공항대로 227</p>
+                </li>
+            </ul>
+            <ul>
+                <li class="tp-title" style="color:#ababab;">NEWS LETTER
+                </li>
+                <li class="tp-mb-20">
+                    <input type="text" id="tp-newsLetter" placeholder="E-mail을 입력해주세요">
+                </li>
+                <li>
+                    <strong style="color:#ababab;">골프패스
+            </strong>
+                    <p style="margin-bottom: 0; color:#ababab;">에서 제공하는 유용한 소식
+                    </p>
+                </li>
+            </ul>
+                 <ul>
+                         <li class="tp-title" style="color:#ababab;">CERTIFICATION MARK</li>
+                            <!-- 기업은행안심이체 인증마크 적용 시작-->
+                            <script _ajs_='45_495d281e7c21ddd2' _ah_='83925990'>
+                            function onPopAuthMark(key)
+                            {
+                               window.open('','AUTHMARK_POPUP','height=900, width=630, status=yes, toolbar=no, menubar=no, location=no');
+                               document.AUTHMARK_FORM.authmarkinfo.value = key;
+                               document.AUTHMARK_FORM.action='https://kiup.ibk.co.kr/uib/jsp/guest/esc/esc1030/esc103020/CESC302020_i.jsp';
+                               document.AUTHMARK_FORM.target='AUTHMARK_POPUP';
+                               document.AUTHMARK_FORM.submit();
+                            }
+                            </script>
+
+                            <FORM name='AUTHMARK_FORM' METHOD='POST'>
+                                <input type="hidden" name="authmarkinfo">
+                            </FORM>
+                            <!--기업은행안심이체 인증마크 적용 종료 -->
+                        <li style="height:auto;">
+                            <a href="javascript:onPopAuthMark('2ae0165604bed3399c7f3b867fdda050')"><img src='http://golfpass.net/image/bank.png' alt='인증마크' border='0'/></a>
+                        </li>
+                 </ul>
+        </div>
+        <div class="tp-row tp-d-flex" style="width:100%; margin:0;">
+            <p class='tp-align-self-end tp-mr-auto tp-ml-auto' style="color:#ababab;">© 2017
+                <strong style="color:#ababab;">GOLFPASS.
+          </strong> All Rights Reserved.
+            </p>
+        </div>
+    </footer>
+</body>
+
+</html>
