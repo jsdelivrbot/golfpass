@@ -732,7 +732,7 @@ function rotate() {
 										<img src="/public/images/blank2.png" class="blank_img">
 										<span class="position-absolute text-light price" style="text-shadow: 0 0 7px rgba(0,0,0,1);"><?=my_number_format(_cal_apply_exchangeRate_and_margin_to_price($products_panel2[$i]->price))?></span>
                                      </div>
-                                     <div class="d-flex align-items-center p-1 text-light rounded-top content" style="background-color: <?=$products_panel2[$i]->hotel_id !== null ? "#FD3365" : "F24A64"?>;">
+                                     <div class="d-flex align-items-center p-1 text-light rounded-top content" style="background-color: <?=$products_panel2[$i]->hotel_id !== null ? "#FD3365" : "#F24A64"?>;">
                                              <i class="xi-marker-check ml-1 mr-1" style="padding-bottom:2px;"></i>
                                              <p class=" mb-0 "><?=$products_panel2[$i]->hotel_id !== null ? "골프장+숙박" : "패키지"?></p>
                                      </div>
