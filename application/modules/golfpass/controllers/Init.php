@@ -34,6 +34,9 @@ class Init extends Init_Controller {
         $this->p_order_options();
         $this->newsLetter();      
         $this->hope_travel();  
+        $this->createProductPackageTable();
+        $this->createPackageScheduleTable();
+        $this->createRefCatePackageTable();
         // $sample_product_id =$this->products_model->_add(array("name"=>"222 C.C","eng_name"=>"product_name","desc"=>"샘플내용",'hole_count'=>'18'));
         // $this->product_reviews_model->_add(array(
         //     "product_id"=>$sample_product_id,
@@ -62,6 +65,109 @@ class Init extends Init_Controller {
         // ));
     }
  
+    function createRefCatePackageTable()
+    {
+           //panels 테이블 만들기
+           $tb_name = 'ref_cate_package';
+           if(!$this->db->table_exists($tb_name)){
+                $result =$this->db->query("CREATE TABLE IF NOT EXISTS `$tb_name` (
+                    `id` int(10) unsigned NOT NULL AUTO_INCREMENT, 
+                    `cate_id` int(10) unsigned NOT NULL,
+                    `product_id` int(10) unsigned NOT NULL,
+                    `sort` int(11) NOT NULL DEFAULT '0',
+                    `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                    PRIMARY KEY (`id`)
+                  ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+                  
+                ");
+   
+               if($result){
+                   echo("success create $tb_name ");
+               } 
+               else{
+                   echo("failed create $tb_name");
+               } 
+           }else{
+               echo "already table $tb_name exists";
+           }
+           echo "<br>";
+    }
+    
+    function createPackageScheduleTable()
+    {
+           //panels 테이블 만들기
+           $tb_name = 'p_package_schedule';
+           if(!$this->db->table_exists($tb_name)){
+                $result =$this->db->query("CREATE TABLE IF NOT EXISTS `$tb_name` (
+                    `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+                    `type` varchar(120) NOT NULL DEFAULT 'schedule',
+                    `package_id` int(11) NOT NULL,
+                    `days` int(11) NOT NULL,
+                    `place` varchar(255) NOT NULL,
+                    `detail` text NOT NULL,
+                    `image` text,
+                    `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                    PRIMARY KEY (`id`)
+                  ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+                ");
+   
+               if($result){
+                   echo("success create $tb_name ");
+               } 
+               else{
+                   echo("failed create $tb_name");
+               } 
+           }else{
+               echo "already table $tb_name exists";
+           }
+           echo "<br>";
+    }
+    function createProductPackageTable()
+    {
+           //panels 테이블 만들기
+           $tb_name = 'product_package';
+           if(!$this->db->table_exists($tb_name)){
+                $result =$this->db->query("CREATE TABLE IF NOT EXISTS `$tb_name` (
+                    `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+                    `hashtag` varchar(255) NOT NULL DEFAULT '',
+                    `name` varchar(30) NOT NULL DEFAULT '샘플상품',
+                    `eng_name` varchar(255) DEFAULT 'sample product',
+                    `address` varchar(80) NOT NULL,
+                    `lat` float(10,6) NOT NULL,
+                    `lng` float(10,6) NOT NULL,
+                    `reviews_count` int(10) unsigned NOT NULL DEFAULT '0',
+                    `desc` text,
+                    `region` varchar(255) DEFAULT '샘플지역',
+                    `take_time` varchar(255) NOT NULL,
+                    `take_days` varchar(255) NOT NULL,
+                    `includes_y` text NOT NULL,
+                    `includes_n` text NOT NULL,
+                    `golf_course` varchar(255) NOT NULL,
+                    `hotels` varchar(255) NOT NULL,
+                    `price` int(10) unsigned NOT NULL,
+                    `day_start` date DEFAULT '0001-01-01',
+                    `day_end` date DEFAULT '0001-01-01',
+                    `min_people` int(11) NOT NULL DEFAULT '0',
+                    `max_people` int(11) NOT NULL DEFAULT '0',
+                    `hits` int(10) unsigned NOT NULL DEFAULT '0',
+                    `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                    `photo` varchar(255) DEFAULT NULL,
+                    `avg_score` int(11) NOT NULL DEFAULT '5',
+                    PRIMARY KEY (`id`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+                ");
+   
+               if($result){
+                   echo("success create $tb_name ");
+               } 
+               else{
+                   echo("failed create $tb_name");
+               } 
+           }else{
+               echo "already table $tb_name exists";
+           }
+           echo "<br>";
+    }
     function add_board()
     {
         $board_id =$this->boards_model->_add(array("name"=>"1:1문의",'skin'=>'golfpass'));
@@ -312,8 +418,13 @@ class Init extends Init_Controller {
              UNIQUE KEY (`hotel_id`,`name`,`kind`)
               ) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
                  
-             if($result) echo("success create $tb_name ");
-             else echo("failed create $tb_name");
+            if($result) {
+                echo("success create $tb_name ");
+            }
+            else {
+                echo("failed create $tb_name");
+            }
+
              echo "<br>";
              return true;
          }else{
