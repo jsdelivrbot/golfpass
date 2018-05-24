@@ -127,6 +127,11 @@ class Main extends Base_Controller
         }
         $data['products_panel'] =$products_panel;
 
+        //골프 패스 패널이 추천한 상품 리스트 - 패키지
+        $this->load->model('shop/product_package_model');
+        $products_panel2 = $this->product_package_model->gets_by_category_id_recursive_tree($menu_id);
+        $data['products_panel2'] =$products_panel2;
+        
         //리뷰 평균점수 높은대로순
         $this->db->limit(10,0);
         $data['products_avgScore'] =$this->products_model->gets_by_ranking("avg_score");

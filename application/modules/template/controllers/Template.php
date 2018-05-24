@@ -91,7 +91,8 @@ class Template extends MX_Controller
                array('name'=>'분류관리','uri'=>  site_url(admin_product_category_uri.'/gets')),
                array('name'=>'상품관리','uri'=> site_url(admin_product_uri.'/gets')),
                array('name'=>'호텔관리','uri'=>  site_url('admin/hotel/gets')),
-               array('name'=>'후기관리','uri'=>  site_url(admin_review_uri.'/gets'))
+               array('name'=>'후기관리','uri'=>  site_url(admin_review_uri.'/gets')),
+               array('name'=>'패키지관리','uri'=>  site_url('admin/package/gets'))
             ),
             '주문' => array(
                array('name'=>'주문 목록','uri'=> site_url(admin_order_uri.'/gets')),

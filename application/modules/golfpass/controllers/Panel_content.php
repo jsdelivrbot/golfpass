@@ -61,11 +61,17 @@ class Panel_content extends Base_Controller {
         $this->load->model("shop/products_model");
         $this->db->or_like("p.hashtag",$where);
         $this->db->or_like("p.name",$where);
-
+        
+        $this->load->model("shop/product_package_model");
+        $packages = $this->product_package_model->gets_by_ranking('id');
+        $num_packages = count($packages);
+        
         $products=$this->products_model->gets_by_ranking('avg_score');
         $num_products =  count($products);
+        
+        $data['num_packages'] = $num_packages;
         $data['num_products'] = $num_products;
-        $data['num_total'] = $num_products+$num_contents;
+        $data['num_total'] = $num_products+$num_contents+$num_packages;
     // var_dump($contents);
     $data['panel_contents'] = $contents;
     $data['num_panel_contents'] = $num_contents;

@@ -76,6 +76,7 @@
                 <input type="hidden" name="num_people" value="<?=$num_people?>">
                 <input type="hidden" name="total_price" value="<?=$total_price?>">
                 <input type="hidden" name="order_name" value="<?=$product->name?>">
+                <input type="hidden" name="product_type" value="<?=$product_type?>">
             <div class="row"> 
               
               <!-- ESTIMATE SHIPPING & TAX -->

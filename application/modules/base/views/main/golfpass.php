@@ -690,8 +690,8 @@ function rotate() {
                              <h4 class="main_sub_title">골프패스가 추천하는 골프장</h4>
                          </div>
                          <div class="row position-relative pt-5 items justify-content-around" style="padding-top: 0 !important;">
-                                             <!-- 아래 div반복 -->
-                                             <?php for($i=0;$i<count($products_panel); $i++){?>
+                             <!-- 아래 div반복 -->
+                             <?php for($i=0;$i<count($products_panel); $i++){?>
                              <div class="col-12 col-md-6 col-lg-3 mb-3 d-flex item">
                              <a href="<?=site_url(shop_product_uri."/get/{$products_panel[$i]->id}")?>">
                                  <figure>
@@ -719,7 +719,37 @@ function rotate() {
                                              </div>
                                      </figcaption>
                                     </figure>
-                                                          </a>
+                                    </a>
+                             </div>
+                             <?php }?>
+                             <!-- 아래 div반복 -->
+                             <?php for($i=0;$i<count($products_panel2); $i++){?>
+                             <div class="col-12 col-md-6 col-lg-3 mb-3 d-flex item">
+                             <a href="<?=site_url(shop_package_uri."/get/{$products_panel2[$i]->id}")?>">
+                                 <figure>
+                                     <div class="position-relative rounded-top" style="background-image:url(<?=$products_panel2[$i]->photo?>); background-repeat:no-repeat; background-position:center; background-size:cover">
+                                     	<img src="/public/icon/label_hotelstay.png" style="width: 84px; position: absolute; right: 10px;"> <!-- 상품라벨 -->
+										<img src="/public/images/blank2.png" class="blank_img">
+										<span class="position-absolute text-light price" style="text-shadow: 0 0 7px rgba(0,0,0,1);"><?=my_number_format(_cal_apply_exchangeRate_and_margin_to_price($products_panel2[$i]->price))?></span>
+                                     </div>
+                                     <div class="d-flex align-items-center p-1 text-light rounded-top content" style="background-color: <?=$products_panel2[$i]->hotel_id !== null ? "#FD3365" : "#06adef"?>;">
+                                             <i class="xi-marker-check ml-1 mr-1" style="padding-bottom:2px;"></i>
+                                             <p class=" mb-0 "><?=$products_panel2[$i]->hotel_id !== null ? "골프장+숙박" : "골프장"?></p>
+                                     </div>
+                                     <figcaption class="rounded-bottom d-flex align-items-center justify-content-between p-3 bg-light">
+                                             <div>
+                                                     <h3><?=$products_panel2[$i]->name?></h3>
+                                                     <p class="mb-0"><?=$products_panel2[$i]->eng_name?></p>
+                                             </div>
+                                             <div class="d-flex flex-column align-items-center">
+                                                     <?php if($products_panel2[$i]->avg_score !== null){?>
+                                                     <span><i class="xi-star"></i></span>
+                                                     <span><?=(round(($products_panel2[$i]->avg_score)*10))/10?></span>
+                                                     <?php }?>
+                                             </div>
+                                     </figcaption>
+                                    </figure>
+                                    </a>
                              </div>
                              <?php }?>
                          </div>

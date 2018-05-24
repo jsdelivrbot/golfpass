@@ -139,35 +139,37 @@ class Order extends Base_Controller {
         $start_date = $this->input->get("start_date");
         $end_date = $this->input->get("end_date");
         $groups = $this->input->get("groups");
+        
+        $product_type = $this->input->get("product_type");
 
         //5개값 유효성 체크 시작
         if(is_numeric($num_people) === false)
         {
             alert("인수를 선택해주세요.");
-            my_redirect(shop_product_uri."/get/{$product_id}");
+            my_redirect(shop_package_uri."/get/{$product_id}");
         }
         if(is_numeric($total_price) === false)
         {
             alert("가격이 잘못되었습니다.");
-            my_redirect(shop_product_uri."/get/{$product_id}");
+            my_redirect(shop_package_uri."/get/{$product_id}");
         }
         if(is_numeric($product_id) === false)
         {
             alert("상품 아이디가 잘못되었습니다.");
-            my_redirect(shop_product_uri."/get/{$product_id}");
+            my_redirect(shop_package_uri."/get/{$product_id}");
         }
 
         $check_date =preg_match("/^(19|20)\d{2}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[0-1])$/",$start_date);
         if($check_date === 0)
         {
             alert("시작날짜가 잘못 되었습니다.");
-            my_redirect(shop_product_uri."/get/{$product_id}");
+            my_redirect(shop_package_uri."/get/{$product_id}");
         }
         $check_date =preg_match("/^(19|20)\d{2}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[0-1])$/",$end_date);
         if($check_date === 0)
         {
             alert("종료날짜가 잘못 되었습니다.");
-            my_redirect(shop_product_uri."/get/{$product_id}");
+            my_redirect(shop_package_uri."/get/{$product_id}");
         }
         //5개값 유효성 체크 끝
         $obj_start_date = date_create($start_date);
@@ -176,9 +178,15 @@ class Order extends Base_Controller {
         $period += 1;
 
 
-        $this->load->model("shop/products_model");
-        $data['user'] = $this->user;
-        $product  =$data['product']  =$this->products_model->_get(array("id"=>$product_id));
+        if($product_type == "package") {
+        	$this->load->model("shop/product_package_model");
+        	$data['user'] = $this->user;
+        	$product  =$data['product']  =$this->product_package_model->_get(array("id"=>$product_id));
+        } else {
+        	$this->load->model("shop/products_model");
+        	$data['user'] = $this->user;
+        	$product  =$data['product']  =$this->products_model->_get(array("id"=>$product_id));
+        }
 
         $data["groups"] = $groups;
         $data["start_date"] = $start_date;
@@ -186,6 +194,7 @@ class Order extends Base_Controller {
         $data["num_people"] = $num_people;
         $data["product_id"] = $product_id;
         $data["total_price"] = $total_price;
+        $data["product_type"] = $product_type;
         $options = $this->db->where("kind","main_option")
         ->where("product_id",$product_id)->from("product_option")
         ->order_by("sort","asc")
@@ -401,18 +410,21 @@ class Order extends Base_Controller {
             "options"=>$options,
             "hole_option_id"=>$hole_option_id,
             "num_singleroom" =>$num_singleroom
-        ));        
+        ));
+        
+        $product_type = $this->input->post("product_type");
 //     $data["is_check"] =  $total_price;
 //     // $data["is_check"] =  $num_people;
 //     echo json_encode($data);
 //    return;
       
-        
-        if((string)$total_price !== (string)$this->input->post('total_price'))
-        {
-            $data["is_check"] =  false;
-             echo json_encode($data);
-            return;
+        if($product_type != "package") {
+	        if((string)$total_price !== (string)$this->input->post('total_price'))
+	        {
+	            $data["is_check"] =  false;
+	             echo json_encode($data);
+	            return;
+	        }
         }
         //-------------------------------계산 === 총합계 맞는지 체크 끝
         // $data["is_check"] =  $total_price;
@@ -444,6 +456,7 @@ class Order extends Base_Controller {
             $this->db->set('num_people',$num_people);
             $this->db->set('hope_date',$this->input->post("hope_date"));
             $this->db->set('created',"NOW()",false);
+            if($product_type == "package") $this->db->set('memo',$product_type);
             $this->db->insert($this->table);
             //p_order_options테이블에 옵션정보 추가
             for($i=0; $i < count($options); $i++)

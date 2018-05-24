@@ -42,6 +42,7 @@ class Products_Model extends Board_Model{
     }
     function get_by_category_id_pgi($id) //get products
     {
+    	
         $arr_cate_id =$this->gets_all_category_id($id);
         $set_select_from =function(){
             $this->set_select_from();
@@ -57,44 +58,50 @@ class Products_Model extends Board_Model{
             }
             $this->db->group_by("r.product_id");
         };
+        
         $sort_type = $this->input->get_post('sort_type');
         $sort_value = $this->input->get_post('sort_value');
+        if($sort_value == "uppackage") $sort_value = "created";
         
-        $order_by = function() use($sort_type,$sort_value)
-        {
-            if($sort_type !== null && $sort_value !== null)
-            {
-                if($sort_type === "asc" && $sort_value === "price")
-                {
-                    $this->db->order_by("field(price,0,1) asc, price");
-                }else
-                {
-                    $this->db->order_by($sort_value,$sort_type);
-                }
-            }
-            else
-            {
-                $this->db->order_by("created","desc");
-
-            }
-        };
-        return $products= parent::_gets_with_pgi_func(
-            "style_zap",
-            function() use($gets)
-            {   
-                $gets();
-                return $this->db->count_all_results();
-            },
-            function($offset,$per_page) use($gets,$order_by)
-            {
-                $gets();
-                $order_by();
-                $this->db->limit($per_page,$offset);
-                return $this->db->get()->result();
-            },
-            null,
-            array("per_page"=>9,"is_numrow"=>false)
-        );
+        //패키지 상품만 보기 일때는 나타내지 않음
+        if($sort_value != "package") {
+        
+	        $order_by = function() use($sort_type,$sort_value)
+	        {
+	            if($sort_type !== null && $sort_value !== null)
+	            {
+	                if($sort_type === "asc" && $sort_value === "price")
+	                {
+	                    $this->db->order_by("field(price,0,1) asc, price");
+	                }else
+	                {
+	                    $this->db->order_by($sort_value,$sort_type);
+	                }
+	            }
+	            else
+	            {
+	                $this->db->order_by("created","desc");
+	
+	            }
+	        };
+	        return $products= parent::_gets_with_pgi_func(
+	            "style_zap",
+	            function() use($gets)
+	            {   
+	                $gets();
+	                return $this->db->count_all_results();
+	            },
+	            function($offset,$per_page) use($gets,$order_by)
+	            {
+	                $gets();
+	                $order_by();
+	                $this->db->limit($per_page,$offset);
+	                return $this->db->get()->result();
+	            },
+	            null,
+	            array("per_page"=>9,"is_numrow"=>false)
+	        );
+        }
     }
 
 

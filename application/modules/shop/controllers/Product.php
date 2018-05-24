@@ -14,16 +14,15 @@ class Product extends Base_Controller {
     }
     function gets_by_hash($where)
     {
-
-        $where = urldecode($where);
-        $this->load->model("shop/products_model");
-        $this->db->or_like("p.hashtag",$where);
-        $this->db->or_like("p.name",$where);
+    	//product
+    	$where = urldecode($where);
+    	$this->load->model("shop/products_model");
+    	$this->db->or_like("p.hashtag",$where);
+    	$this->db->or_like("p.name",$where);
 
         $products=$this->products_model->gets_by_ranking('avg_score');
         $num_products =  count($products);
-        // var_dump($products);
-       $products= $this->products_model->_gets_with_pgi_func(
+		$products= $this->products_model->_gets_with_pgi_func(
             "style_zap",
             function() use($num_products)
             {
@@ -36,44 +35,58 @@ class Product extends Base_Controller {
             null,
             array("per_page"=>12,"is_numrow"=>false)
         );
-       
-        $data['num_products'] = $num_products;
-        $data['category']= (object)array("name"=>$where);
-        $data['parent_categories']= (object)array("name"=>"");
-        $data['parent_category'] =  (object)array("name"=>"","photo4"=>"");
-        $data['products'] =$products;
-        $data['search'] = $where;
 
+        //package
+        $this->load->model("shop/product_package_model");
+        $this->db->or_like("p.hashtag",$where);
+        $this->db->or_like("p.name",$where);
+        $packages = $this->product_package_model->gets_by_ranking('id');
+        $num_packages = count($packages);
+        
+        //board_contents
         $this->load->model("base/board_contents_model");
         $this->db->or_like("c.hashtag",$where);
         $this->db->or_like("c.title",$where);
         $contents=$this->board_contents_model->gets(array("board_id"=>"1"));
         $num_contents =count($contents);
+        
+        //data
+        $data['num_products'] = $num_products;
+        $data['category']= (object)array("name"=>$where);
+        $data['parent_categories']= (object)array("name"=>"");
+        $data['parent_category'] =  (object)array("name"=>"","photo4"=>"");
+        $data['search'] = $where;
+        
+        $data['num_packages'] = $num_packages;
         $data['num_panel_contents'] = $num_contents;
-        $data['num_total'] = $num_products+$num_contents;
-           // $this->_view("gets",$data);
-           $this->_template("gets",$data,'golfpass2');
-           // $this->_view("gets",$data);
+        $data['num_total'] = $num_products+$num_contents+$num_packages;
+        
+        //패키지 상품만 보기 제한
+        $sort_value = $this->input->get('sort_value');
+        if($sort_value != 'package') $data['products'] = $products;
+        
+        $this->_template("gets",$data,'golfpass2');
     }
+    
 	public function gets($id =1){
-        // $products =$this->products_model->gets_by_category_id_recursive_tree($id);        
-        // $products =$this->products_model->get_by_category_id_recursive_with_pgi($id,'style_zap');        
+		//packages
+		$this->load->model("shop/product_package_model");
+		$packages =$this->product_package_model->get_by_category_id_pgi($id);
+		
+        //product       
         $products =$this->products_model->get_by_category_id_pgi($id);        
         for($i=0 ;$i <count($products); $i++)
         {
             $photos = $products[$i]->photos;
-            if(strpos($photos,',') > -1)
-                $products[$i]->photos =  explode(",",$photos);
-            else if($photos !== null)
-                $products[$i]->photos =  array($photos);
-            else
-                $products[$i]->photos = array('','','');
+            if(strpos($photos,',') > -1) $products[$i]->photos =  explode(",",$photos);
+            else if($photos !== null) $products[$i]->photos =  array($photos);
+            else $products[$i]->photos = array('','','');
         }
-        $data['products'] =$products;
-        $this->load->model("product_categories_model");
 
+        //category
+        $this->load->model("product_categories_model");
         $category= $this->product_categories_model->_get($id);
-        $data['category'] = $category;
+        
         $parent_category = $this->product_categories_model->_get($category->parent_id);
         if($category->parent_id ==="0")
         {
@@ -83,15 +96,19 @@ class Product extends Base_Controller {
         {
             $parent_category = $category;
         }
-     
+        
+        //패키지 상품 우선 보기 (순서변경)
+		$sort_value = $this->input->get_post('sort_value');
+        if($sort_value == "uppackage") $data['uppackage'] = true;
+        
+        $data['products'] = $products;
+        $data['packages'] = $packages;
+        $data['category'] = $category;
         $data['parent_category'] = $parent_category;
         $data['child_categories'] = $this->product_categories_model->_gets(array("parent_id"=>$parent_category->id));
         $data['parent_categories']= $this->product_categories_model->revert_recursive($id);
-        // var_dump($data['parent_categories']);
-        // $this->_view("gets",$data);
+        
         $this->_template("gets",$data,'golfpass2');
-        // $this->_view("gets",$data);
-         
     }
 
 

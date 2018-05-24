@@ -77,6 +77,10 @@
                             <a href="<?=current_url()."?sort_value=price&sort_type=desc"?>"style="color:<?=set_active("sort_value,sort_type","price,desc","#6eae4a")?>">가격 높은 순</a>
                             |
                             <a href="<?=current_url()."?sort_value=avg_score&sort_type=desc"?>"style="color:<?=set_active("sort_value,sort_type","avg_score,desc","#6eae4a")?>">평점이 높은 순</a>
+                            |
+                            <a href="<?=current_url()."?sort_value=package&sort_type=desc"?>"style="color:<?=set_active("sort_value,sort_type","package,desc","#6eae4a")?>">패키지 상품만 보기</a>
+                            |
+                            <a href="<?=current_url()."?sort_value=uppackage&sort_type=desc"?>"style="color:<?=set_active("sort_value,sort_type","uppackage,desc","#6eae4a")?>">패키지 상품 우선</a>
                             <!-- |
                             <a href="<?=current_url()."?sort_value=num_reviews&sort_type=desc"?>"style="color:<?=set_active("sort_value,sort_type","num_reviews,desc","#6eae4a")?>">리뷰가 많은 순</a>
                             |
@@ -109,6 +113,11 @@
                     상품 목록<?="({$num_products})"?>
                     </a>
                 </li>
+                <li class="tab-title filter-item">
+                    <a href="<?=site_url(shop_package_uri."/gets_by_hash/{$search}?search={$search}")?>" data-filter=".pf-branding-design" class="" style="font-family: 'notokr-regular', sans-serif; font-size: 12px; font-weight: normal;">
+					패키지 목록<?="({$num_packages})"?>
+                    </a>
+                </li>
                     <li class="tab-title filter-item">
                     <a href="<?=site_url(golfpass_panel_content_uri."/gets_by_hash/{$search}?search={$search}")?>" data-filter=".pf-branding-design" class="" style="font-family: 'notokr-regular', sans-serif; font-size: 12px; font-weight: normal;">
                     그늘집 목록<?="({$num_panel_contents})"?>
@@ -121,7 +130,32 @@
 
 
                 <div class="row">
-                    <?php for($i=0; $i< count($products); $i++){?>
+                	<? if($uppackage): ?>
+                	<? for($i=0; $i< count($packages); $i++) { ?>
+                        <div class="col-md-4 margin-bottom-80" style="cursor: pointer;" onclick="location.href='<?=site_url(shop_package_uri."/get/{$packages[$i]->id}")?>';">
+                            <article class="blog-post">
+                                <div class="post-img position-relative rounded-top" style="background-image:url(<?=$packages[$i]->photo?>); background-repeat:no-repeat; background-position:center; background-size:cover">
+                                	<img src="/public/icon/label_hotelstay.png" style="width: 84px; position: absolute; right: 10px;"> <!-- 상품라벨 -->
+                                    <img src="/public/etc/list/images/golfpass/list-blank.png" class="blank_img">
+                                    <span class="date font-crimson" style="font-family: 'notokr-regular', sans-serif; font-weight: normal;"><?=my_number_format(_cal_apply_exchangeRate_and_margin_to_price($packages[$i]->price))?></span>
+                                    <span class="date font-crimson" style="bottom: 20px; background-color: #383838; font-family: 'notokr-regular', sans-serif; font-weight: normal;">패키지 상품</span>
+                                </div>
+                                <a href="#" class="tittle-post" style="font-family: 'notokr-regular', sans-serif; font-weight: normal;"> <?=$packages[$i]->name?> </a>
+                                <span class="post-bt"><span class="text-color-primary" style="font-family: 'notokr-demilight', sans-serif; font-weight: normal;"><?=$packages[$i]->eng_name?></span></span>
+                                <!--<p style="font-family: 'notokr-demilight', sans-serif; font-weight: normal;">
+                                <? echo $packages[$i]->desc; ?>
+                                </p>-->
+                                <ul class="post-info margin-bottom-0">
+                                    <li> <i class="fa fa-star" style="color: #fcbf3f;"></i><?=round($packages[$i]->avg_score*10)/10?> </li>
+                                    <li> <i class="fa fa-map-o"></i><?=$packages[$i]->parent_category_name?> </li>
+                                    <!-- <li> <i class="fa fa-map"></i><?=$category->name?> </li> -->
+                                    <li> <i class="fa fa-map"></i><?=$packages[$i]->category_name?> </li>
+                                    <li class="pull-right no-margin last-li"> <a href="#">자세히 <i class="fa fa-angle-right margin-left-10"></i></a></li>
+                                </ul>
+                            </article>
+                        </div>
+                    <? } ?>
+                    <? for($i=0; $i< count($products); $i++) { ?>
                         <div class="col-md-4 margin-bottom-80" style="cursor: pointer;" onclick="location.href='<?=site_url(shop_product_uri."/get/{$products[$i]->id}")?>';">
                             <article class="blog-post">
                                 <div class="post-img position-relative rounded-top" style="background-image:url(<?=$products[$i]->photos[0]?>); background-repeat:no-repeat; background-position:center; background-size:cover">
@@ -132,7 +166,7 @@
                                 <a href="#" class="tittle-post" style="font-family: 'notokr-regular', sans-serif; font-weight: normal;"> <?=$products[$i]->name?> </a>
                                 <span class="post-bt"><span class="text-color-primary" style="font-family: 'notokr-demilight', sans-serif; font-weight: normal;"><?=$products[$i]->eng_name?></span></span>
                                 <!--<p style="font-family: 'notokr-demilight', sans-serif; font-weight: normal;">
-                                    <?php 
+                                    <?
                                         echo $products[$i]->desc;
                                     ?>
                                 </p>-->
@@ -145,7 +179,58 @@
                                 </ul>
                             </article>
                         </div>
-                    <?php }?>
+                    <? }?>
+                    <? else: ?>
+                    <? for($i=0; $i< count($products); $i++) { ?>
+                        <div class="col-md-4 margin-bottom-80" style="cursor: pointer;" onclick="location.href='<?=site_url(shop_product_uri."/get/{$products[$i]->id}")?>';">
+                            <article class="blog-post">
+                                <div class="post-img position-relative rounded-top" style="background-image:url(<?=$products[$i]->photos[0]?>); background-repeat:no-repeat; background-position:center; background-size:cover">
+                                    <img src="/public/etc/list/images/golfpass/list-blank.png" class="blank_img">
+                                    <span class="date font-crimson" style="font-family: 'notokr-regular', sans-serif; font-weight: normal;"><?=my_number_format(_cal_apply_exchangeRate_and_margin_to_price($products[$i]->price))?></span>
+                                    <span class="date font-crimson" style="bottom: 20px; background-color: #383838; font-family: 'notokr-regular', sans-serif; font-weight: normal;"><?=$products[$i]->hotel_id !== null ? "숙박 포함" : "숙박 미포함"?></span>
+                                </div>
+                                <a href="#" class="tittle-post" style="font-family: 'notokr-regular', sans-serif; font-weight: normal;"> <?=$products[$i]->name?> </a>
+                                <span class="post-bt"><span class="text-color-primary" style="font-family: 'notokr-demilight', sans-serif; font-weight: normal;"><?=$products[$i]->eng_name?></span></span>
+                                <!--<p style="font-family: 'notokr-demilight', sans-serif; font-weight: normal;">
+                                    <?
+                                        echo $products[$i]->desc;
+                                    ?>
+                                </p>-->
+                                <ul class="post-info margin-bottom-0">
+                                    <li> <i class="fa fa-star" style="color: #fcbf3f;"></i><?=round($products[$i]->avg_score*10)/10?> </li>
+                                    <li> <i class="fa fa-map-o"></i><?=$products[$i]->parent_category_name?> </li>
+                                    <!-- <li> <i class="fa fa-map"></i><?=$category->name?> </li> -->
+                                    <li> <i class="fa fa-map"></i><?=$products[$i]->category_name?> </li>
+                                    <li class="pull-right no-margin last-li"> <a href="#">자세히 <i class="fa fa-angle-right margin-left-10"></i></a></li>
+                                </ul>
+                            </article>
+                        </div>
+                    <? }?>
+                    <? for($i=0; $i< count($packages); $i++) { ?>
+                        <div class="col-md-4 margin-bottom-80" style="cursor: pointer;" onclick="location.href='<?=site_url(shop_package_uri."/get/{$packages[$i]->id}")?>';">
+                            <article class="blog-post">
+                                <div class="post-img position-relative rounded-top" style="background-image:url(<?=$packages[$i]->photo?>); background-repeat:no-repeat; background-position:center; background-size:cover">
+                                	<img src="/public/icon/label_hotelstay.png" style="width: 84px; position: absolute; right: 10px;"> <!-- 상품라벨 -->
+                                    <img src="/public/etc/list/images/golfpass/list-blank.png" class="blank_img">
+                                    <span class="date font-crimson" style="font-family: 'notokr-regular', sans-serif; font-weight: normal;"><?=my_number_format(_cal_apply_exchangeRate_and_margin_to_price($packages[$i]->price))?></span>
+                                    <span class="date font-crimson" style="bottom: 20px; background-color: #383838; font-family: 'notokr-regular', sans-serif; font-weight: normal;">패키지 상품</span>
+                                </div>
+                                <a href="#" class="tittle-post" style="font-family: 'notokr-regular', sans-serif; font-weight: normal;"> <?=$packages[$i]->name?> </a>
+                                <span class="post-bt"><span class="text-color-primary" style="font-family: 'notokr-demilight', sans-serif; font-weight: normal;"><?=$packages[$i]->eng_name?></span></span>
+                                <!--<p style="font-family: 'notokr-demilight', sans-serif; font-weight: normal;">
+                                <? echo $packages[$i]->desc; ?>
+                                </p>-->
+                                <ul class="post-info margin-bottom-0">
+                                    <li> <i class="fa fa-star" style="color: #fcbf3f;"></i><?=round($packages[$i]->avg_score*10)/10?> </li>
+                                    <li> <i class="fa fa-map-o"></i><?=$packages[$i]->parent_category_name?> </li>
+                                    <!-- <li> <i class="fa fa-map"></i><?=$category->name?> </li> -->
+                                    <li> <i class="fa fa-map"></i><?=$packages[$i]->category_name?> </li>
+                                    <li class="pull-right no-margin last-li"> <a href="#">자세히 <i class="fa fa-angle-right margin-left-10"></i></a></li>
+                                </ul>
+                            </article>
+                        </div>
+                    <? } ?>
+                    <? endif ?>
                 </div>
 
                 <!-- 페이지네이션 -->
