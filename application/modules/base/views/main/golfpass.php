@@ -319,7 +319,7 @@
     
     
     
-    <!--<section style="padding-top:110px;">
+    <section style="padding-top:110px;">
         <div id="slide_box">
             <div class="btn-bar">
                 <div id="buttons_sl">
@@ -337,12 +337,12 @@
                                 <div class="card" id="cardlist_1">
 
                                     <img src="/public/images/event1.png">
-                                    <!--<div class="hover_card">
+                                    <div class="hover_card">
                                     <h2>제목</h2>
                                     <p>아무말</p>
                                         <a href="#" class="button">버튼</a>
-                                                </div>-->
-                               <!-- </div>
+                                                </div>
+                               </div>
                             </a>
                         </div>
                     </li>
@@ -396,12 +396,12 @@
                                 <div class="card" id="cardlist_6">
 
                                     <img src="/public/images/event1.png">
-                                    <!--<div class="hover_card">
+                                    <div class="hover_card">
                                     <h2>제목</h2>
                                     <p>아무말</p>
                                         <a href="#" class="button">버튼</a>
-                                                </div>-->
-                                <!--</div>
+                                                </div>
+                                </div>
                             </a>
                         </div>
                     </li>
