@@ -319,7 +319,7 @@
     
     
     
-    <!--<section style="padding-top:110px;">
+    <section style="padding-top:110px;">
         <div id="slide_box">
             <div class="btn-bar">
                 <div id="buttons_sl">
@@ -342,7 +342,7 @@
                                     <p>아무말</p>
                                         <a href="#" class="button">버튼</a>
                                                 </div>-->
-                               <!-- </div>
+                               </div>
                             </a>
                         </div>
                     </li>
@@ -401,7 +401,7 @@
                                     <p>아무말</p>
                                         <a href="#" class="button">버튼</a>
                                                 </div>-->
-                                <!--</div>
+                                </div>
                             </a>
                         </div>
                     </li>
