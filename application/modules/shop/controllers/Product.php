@@ -99,7 +99,11 @@ class Product extends Base_Controller {
         
         //패키지 상품 우선 보기 (순서변경)
 		$sort_value = $this->input->get_post('sort_value');
-        if($sort_value == "uppackage") $data['uppackage'] = true;
+        if($sort_value == "uppackage") {
+            $data['uppackage'] = true;
+        } else {
+            $data['uppackage'] = false;
+        }
         
         $data['products'] = $products;
         $data['packages'] = $packages;

@@ -128,10 +128,9 @@
                 <?php ?>                
                   
 
-
                 <div class="row">
-                	<? if($uppackage): ?>
-                	<? for($i=0; $i< count($packages); $i++) { ?>
+                	<?php if($uppackage): ?>
+                	<?php for( $i=0; $i< count($packages); $i++ ) { ?>
                         <div class="col-md-4 margin-bottom-80" style="cursor: pointer;" onclick="location.href='<?=site_url(shop_package_uri."/get/{$packages[$i]->id}")?>';">
                             <article class="blog-post">
                                 <div class="post-img position-relative rounded-top" style="background-image:url(<?=$packages[$i]->photo?>); background-repeat:no-repeat; background-position:center; background-size:cover">
@@ -143,7 +142,7 @@
                                 <a href="#" class="tittle-post" style="font-family: 'notokr-regular', sans-serif; font-weight: normal;"> <?=$packages[$i]->name?> </a>
                                 <span class="post-bt"><span class="text-color-primary" style="font-family: 'notokr-demilight', sans-serif; font-weight: normal;"><?=$packages[$i]->eng_name?></span></span>
                                 <!--<p style="font-family: 'notokr-demilight', sans-serif; font-weight: normal;">
-                                <? echo $packages[$i]->desc; ?>
+                                <?php echo $packages[$i]->desc; ?>
                                 </p>-->
                                 <ul class="post-info margin-bottom-0">
                                     <li> <i class="fa fa-star" style="color: #fcbf3f;"></i><?=round($packages[$i]->avg_score*10)/10?> </li>
@@ -154,8 +153,8 @@
                                 </ul>
                             </article>
                         </div>
-                    <? } ?>
-                    <? for($i=0; $i< count($products); $i++) { ?>
+                    <?php } ?>
+                    <?php for($i=0; $i< count($products); $i++) { ?>
                         <div class="col-md-4 margin-bottom-80" style="cursor: pointer;" onclick="location.href='<?=site_url(shop_product_uri."/get/{$products[$i]->id}")?>';">
                             <article class="blog-post">
                                 <div class="post-img position-relative rounded-top" style="background-image:url(<?=$products[$i]->photos[0]?>); background-repeat:no-repeat; background-position:center; background-size:cover">
@@ -179,9 +178,9 @@
                                 </ul>
                             </article>
                         </div>
-                    <? }?>
-                    <? else: ?>
-                    <? for($i=0; $i< count($products); $i++) { ?>
+                    <?php }?>
+                    <?php else: ?>
+                    <?php for($i=0; $i< count($products); $i++) { ?>
                         <div class="col-md-4 margin-bottom-80" style="cursor: pointer;" onclick="location.href='<?=site_url(shop_product_uri."/get/{$products[$i]->id}")?>';">
                             <article class="blog-post">
                                 <div class="post-img position-relative rounded-top" style="background-image:url(<?=$products[$i]->photos[0]?>); background-repeat:no-repeat; background-position:center; background-size:cover">
@@ -205,8 +204,8 @@
                                 </ul>
                             </article>
                         </div>
-                    <? }?>
-                    <? for($i=0; $i< count($packages); $i++) { ?>
+                    <?php }?>
+                    <?php for($i=0; $i< count($packages); $i++) { ?>
                         <div class="col-md-4 margin-bottom-80" style="cursor: pointer;" onclick="location.href='<?=site_url(shop_package_uri."/get/{$packages[$i]->id}")?>';">
                             <article class="blog-post">
                                 <div class="post-img position-relative rounded-top" style="background-image:url(<?=$packages[$i]->photo?>); background-repeat:no-repeat; background-position:center; background-size:cover">
@@ -218,7 +217,7 @@
                                 <a href="#" class="tittle-post" style="font-family: 'notokr-regular', sans-serif; font-weight: normal;"> <?=$packages[$i]->name?> </a>
                                 <span class="post-bt"><span class="text-color-primary" style="font-family: 'notokr-demilight', sans-serif; font-weight: normal;"><?=$packages[$i]->eng_name?></span></span>
                                 <!--<p style="font-family: 'notokr-demilight', sans-serif; font-weight: normal;">
-                                <? echo $packages[$i]->desc; ?>
+                                <?php echo $packages[$i]->desc; ?>
                                 </p>-->
                                 <ul class="post-info margin-bottom-0">
                                     <li> <i class="fa fa-star" style="color: #fcbf3f;"></i><?=round($packages[$i]->avg_score*10)/10?> </li>
@@ -229,8 +228,8 @@
                                 </ul>
                             </article>
                         </div>
-                    <? } ?>
-                    <? endif ?>
+                    <?php } ?>
+                    <?php endif ?>
                 </div>
 
                 <!-- 페이지네이션 -->

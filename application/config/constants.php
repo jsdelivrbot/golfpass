@@ -36,6 +36,8 @@ define("admin_page_uri","/admin/page");
 define("admin_ref_cate_product_uri","/admin/ref_cate_product");
 define("admin_sms_uri","/admin/sms");
 define("admin_newsletter_uri","/admin/newsletter");
+define("admin_package_uri","/admin/package");
+define("admin_ref_cate_package_uri","/admin/ref_cate_package");
 
 define("admin_setting_product_uri","/admin/setting");
 define("admin_setting_general_uri","/admin/setting");
@@ -65,6 +67,7 @@ define("shop_reply_uri","/shop/reply");
 define("shop_category_uri","/shop/category");
 define("shop_celebrity_uri","/shop/celebrity");
 define("shop_user_uri","/shop/user");
+define("shop_package_uri","/shop/package");
 
 //api
 define("api_google_map_uri","/api/google_map");
