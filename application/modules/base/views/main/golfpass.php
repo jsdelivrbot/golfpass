@@ -333,7 +333,7 @@
                     
                     <li class="slide_sl">
                         <div class="block">
-                            <a href="#">
+                            <a href="/event/eventpage_hotkido.html">
                                 <div class="card" id="cardlist_1">
 
                                     <img src="/public/images/event1.png">
@@ -359,7 +359,7 @@
                     </li>
                     <li class="slide_sl">
                         <div class="block">
-                            <a href="#">
+                            <a href="/event/eventpage2.html">
                                 <div class="card" id="cardlist_3">
                                     
                                     <img src="/public/images/event3.png">
@@ -380,7 +380,7 @@
                     </li>
                     <li class="slide_sl">
                         <div class="block">
-                            <a href="#">    
+                            <a href="/event/eventpage_kyushu.html">    
                                 <div class="card" id="cardlist_5">
                                     
                                     <img src="/public/images/event5.png">
@@ -392,7 +392,7 @@
                     
                     <li class="slide_sl">
                         <div class="block">
-                            <a href="#">
+                            <a href="/event/eventpage_hotkido.html">
                                 <div class="card" id="cardlist_6">
 
                                     <img src="/public/images/event1.png">
@@ -418,7 +418,7 @@
                     </li>
                     <li class="slide_sl">
                         <div class="block">
-                            <a href="#">
+                            <a href="/event/eventpage2.html">
                                 <div class="card" id="cardlist_8">
                                     
                                     <img src="/public/images/event3.png">
@@ -439,7 +439,7 @@
                     </li>
                     <li class="slide_sl">
                         <div class="block">
-                            <a href="#">    
+                            <a href="/event/eventpage_kyushu.html">    
                                 <div class="card" id="cardlist_10">
                                     
                                     <img src="/public/images/event5.png">
