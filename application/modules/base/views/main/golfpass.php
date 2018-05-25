@@ -369,7 +369,7 @@
                     </li>
                     <li class="slide_sl">  
                         <div class="block"> 
-                            <a href="#">
+                            <a href="/event/eventpage_resort.html">
                                 <div class="card" id="cardlist_4">  
                                     
                                     <img src="/public/images/event4.png">
@@ -428,7 +428,7 @@
                     </li>
                     <li class="slide_sl">  
                         <div class="block"> 
-                            <a href="#">
+                            <a href="/event/eventpage_resort.html">
                                 <div class="card" id="cardlist_9">  
                                     
                                     <img src="/public/images/event4.png">
