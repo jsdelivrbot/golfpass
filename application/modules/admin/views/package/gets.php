@@ -34,7 +34,7 @@
             <!-- <td><?=$products[$i]->category_id?> </td> -->
             <!-- <td><?=$products[$i]->c_name?> </td> -->
             <td>
-            <a href="#" onclick="confirm_redirect('<?=my_site_url(admin_ref_cate_product_uri."/goToRecycleBin/{$products[$i]->id}")?>','휴지통으로 이동시키겠습니까? 연결된 카테고리가 모두 삭제됩니다..'); return false;">
+            <a href="#" onclick="confirm_redirect('<?=my_site_url(admin_ref_cate_package_uri."/goToRecycleBin/{$products[$i]->id}")?>','휴지통으로 이동시키겠습니까? 연결된 카테고리가 모두 삭제됩니다..'); return false;">
                 휴지통으로
             </a>
                 /

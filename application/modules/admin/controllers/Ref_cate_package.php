@@ -15,7 +15,7 @@ class Ref_cate_package extends Admin_Controller {
     public function goToRecycleBin($product_id)
     {
         $this->db->where("product_id",$product_id);
-        $this->db->delete("ref_cate_product");
+        $this->db->delete("ref_cate_package");
 
         $this->db->where("name","휴지통");
         $cate=$this->db->get("product_categories")->row();
@@ -23,7 +23,7 @@ class Ref_cate_package extends Admin_Controller {
 
         $this->db->set("cate_id",$cate_id);
         $this->db->set("product_id",$product_id);
-        $this->db->insert("ref_cate_product");
+        $this->db->insert("ref_cate_package");
   my_redirect($_SERVER['HTTP_REFERER']);
         // my_redirect(admin_product_uri."/update/{$product_id}");
     }

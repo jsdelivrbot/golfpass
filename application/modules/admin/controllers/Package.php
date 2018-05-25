@@ -345,6 +345,7 @@ class Package extends Admin_Controller {
             my_redirect(admin_package_uri."/update/$id");
         }
     }
+    
     public function _set_rules(){
         $this->fv->set_rules('name','상품명','required');
         // $this->fv->set_rules('desc','상품 설명','required');

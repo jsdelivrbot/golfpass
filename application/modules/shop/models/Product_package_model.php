@@ -249,9 +249,10 @@ class Product_package_Model extends Board_Model{
     function delete($id)
     {
         parent::_delete($id);
-        $this->load->model("shop/ref_cate_product_model");
+        $this->load->model("shop/ref_cate_package_model");
         //ref 카테 삭제
-        $this->ref_cate_product_model->_delete(array('product_id'=>$id));
+        $this->ref_cate_package_model->_delete(array('product_id'=>$id));
+        /*
         //ref 호텔 삭제
         $this->db->where("product_id",$id)
         ->delete("p_ref_hotel");
@@ -262,7 +263,7 @@ class Product_package_Model extends Board_Model{
         //가격 삭제
         $this->load->model("golfpass/p_daily_price_model");
         $this->p_daily_price_model->_delete(array("product_id"=>$id));
-
+		*/
     }
     
     function _getPhoto($id) {
