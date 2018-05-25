@@ -457,7 +457,7 @@
             
             
         </div>
-    </section>-->
+    </section>
     <style>
         #slide_box:hover .area{display: block; opacity: 0.9; transition: opacity .50s; -o-transition: opacity .50s; -moz-transition: opacity .50s; -webkit-transition: opacity .50s;}
         .area{margin-top: 150px;}
