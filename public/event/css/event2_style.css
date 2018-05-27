@@ -161,7 +161,7 @@ a:hover {
     margin: auto;
     margin-bottom: 80px;
     margin-top: 40px;
-    width: 660px
+    width: 990px
 }
 
 .about-checklist-container .check-container a {
@@ -309,7 +309,7 @@ a:hover {
     float: none
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 1000px) {
     .about-checklist-container .gradation-container .gradation-imgs {
         height: 400px
     }
