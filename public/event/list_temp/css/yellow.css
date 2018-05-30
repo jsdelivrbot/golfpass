@@ -175,6 +175,18 @@ p{
 
 #owl-rooms .owl-controls .owl-page.active span{
 	border-radius:0px;
+	background:#353340;
+	border-color:#353340;
+}
+
+#owl-rooms1 .owl-controls .owl-page span{
+	border-radius:0px;
+	background:none;
+	border:1px solid #939598;
+}
+
+#owl-rooms1 .owl-controls .owl-page.active span{
+	border-radius:0px;
 	background:#ffcb05;
 	border-color:#ffcb05;
 }

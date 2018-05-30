@@ -213,6 +213,10 @@ h1,h2,h3,h4,h5,h6,.page-heading span,.footer-heading span, #slider-2 li .meta h1
 	padding:0px 15px 30px;
 }
 
+#owl-rooms1 .grid{
+	padding:0px 15px 30px;
+}
+
 #owl-rooms2 .grid{
 	padding:0px 15px 30px;
 }
@@ -294,7 +298,15 @@ h1,h2,h3,h4,h5,h6,.page-heading span,.footer-heading span, #slider-2 li .meta h1
 	opacity:1;
 }
 
+#owl-rooms1 .owl-controls{
+	margin-top:20px;
+}
 
+#owl-rooms1 .owl-controls .owl-page span{
+	height:30px;
+	width:30px;
+	opacity:1;
+}
 
 
 #owl-rooms2 .owl-controls{
