@@ -333,7 +333,7 @@
                     
                     <li class="slide_sl">
                         <div class="block">
-                            <a href="/public/event/eventpage_hotkido.html">
+                            <a href="/public/event/list_temp/eventpage_hotkaido.html">
                                 <div class="card" id="cardlist_1">
 
                                     <img src="/public/images/event1.png">
@@ -369,7 +369,7 @@
                     </li>
                     <li class="slide_sl">  
                         <div class="block"> 
-                            <a href="/public/event/eventpage_resort.html">
+                            <a href="/public/event/list_temp/eventpage_resort.html">
                                 <div class="card" id="cardlist_4">  
                                     
                                     <img src="/public/images/event4.png">
@@ -380,7 +380,7 @@
                     </li>
                     <li class="slide_sl">
                         <div class="block">
-                            <a href="/public/event/eventpage_kyushu.html">    
+                            <a href="/public/event/list_temp/eventpage_kyushu.html">    
                                 <div class="card" id="cardlist_5">
                                     
                                     <img src="/public/images/event5.png">
@@ -392,7 +392,7 @@
                     
                     <li class="slide_sl">
                         <div class="block">
-                            <a href="/public/event/eventpage_hotkido.html">
+                            <a href="/public/event/list_temp/eventpage_hotkaido.html">
                                 <div class="card" id="cardlist_6">
 
                                     <img src="/public/images/event1.png">
@@ -428,7 +428,7 @@
                     </li>
                     <li class="slide_sl">  
                         <div class="block"> 
-                            <a href="/public/event/eventpage_resort.html">
+                            <a href="/public/event/list_temp/eventpage_resort.html">
                                 <div class="card" id="cardlist_9">  
                                     
                                     <img src="/public/images/event4.png">
@@ -439,7 +439,7 @@
                     </li>
                     <li class="slide_sl">
                         <div class="block">
-                            <a href="/public/event/eventpage_kyushu.html">    
+                            <a href="/public/event/list_temp/eventpage_kyushu.html">    
                                 <div class="card" id="cardlist_10">
                                     
                                     <img src="/public/images/event5.png">

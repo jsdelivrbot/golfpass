@@ -1,0 +1,415 @@
+/* ----------------------------------------------------
+Theme Name:		Star Hotel - HTML Template
+Version:		1.0.1
+Author:			Star Hotel
+------------------------------------------------------- */
+
+
+/* ======================================================
+	TABLE OF CONTENTS
+   ====================================================== */
+
+/**
+
+* 1.0	Settings
+* 1.1	Top Bar
+* 1.2	Navbar
+* 1.3	Hero Content
+* 1.4	About
+* 1.5	Banners
+* 1.6	Specials
+* 1.7	Rooms
+* 1.8	Latest Offers
+* 1.9	Dish Menu
+* 1.10	Services
+* 1.11	Gallery
+* 1.12	Team
+* 1.13	Testimonials
+* 1.14	Price Table
+* 1.15	Latest Blog
+* 1.16	Newsletter
+* 1.17	Contact Form 2
+* 1.18	Footer
+* 1.19	Page Cover
+* 1.20	About Pages
+* 1.21	Room Pages
+* 1.22	Dinning Pages
+* 1.23	Extra Pages
+* 1.24	Contact Pages
+* 1.25	Reservation Pages
+
+
+**/
+
+/* -----------------------------------------------------
+		Settings
+   ----------------------------------------------------- */
+
+.loader {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	background: url(../images/loader-yellow.gif) center no-repeat #fff;
+}
+
+p{
+	color:#808285;
+}
+
+.page-heading h2{
+	color:#474747;
+}
+
+.page-heading span{
+	color:#ffcb05;
+}
+
+.innerpage-heading h1{
+	color:#000000;
+}
+
+.bg-grey{
+	background:#f1f2f2;
+}
+
+.btn{
+	border-radius:0px;
+	border:0px;
+}
+
+.btn-yellow{
+	background:#ffcb05;
+	color:#010101;
+}
+
+.btn-yellow:hover{
+	background:#010101;
+	color:#ffcb05;
+}
+
+.btn-w-border{
+	border:1px solid #e2e1e1;
+	color:white;
+}
+
+.btn-w-border:hover{
+	border:1px solid white;
+	color:black;
+	background:white;
+}
+
+.btn-g-border,
+.btn-g-border:focus{
+	border:1px solid #939598;
+	color:#565656;
+}
+
+.btn-g-border:hover{
+	border:1px solid black;
+	color:white;
+	background:black;
+}
+
+.btn-black,
+.btn-black:focus{
+	background:#2a2a2a;
+	color:white;
+}
+
+.btn-black:hover{
+	background:#ffcb05;
+	color:white;
+}
+
+.owl-carousel.owl-custom-arrow .owl-controls .owl-buttons .owl-prev,
+.owl-carousel.owl-custom-arrow .owl-controls .owl-buttons .owl-next{
+	border-radius:0px;
+	background:#ffcb05;
+	color:#0d0d0d;
+}
+
+/* -----------------------------------------------------
+		Rooms Grid
+   ----------------------------------------------------- */
+
+.room-block:hover{
+	box-shadow:0px 0px 20px rgba(0,0,0,0.2);
+}
+
+.room-block:hover .room-img img{
+	transform:scale(1.1);
+}
+
+.room-block .room-title{
+	background:linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.5) 20%,rgba(0,0,0,1) 100%);
+}
+
+.room-block .room-title a{
+	color:white;
+}
+
+.room-block .room-title .rating{
+	color:#ffcb05;
+}
+
+.room-block .room-price{
+	background:#f6f6f6;
+}
+
+.room-block .room-price li{
+	color:#000000;
+}
+
+.room-block .room-price li .link a{
+	color:#999999;
+}
+
+#owl-rooms .owl-controls .owl-page span{
+	border-radius:0px;
+	background:none;
+	border:1px solid #939598;
+}
+
+#owl-rooms .owl-controls .owl-page.active span{
+	border-radius:0px;
+	background:#ffcb05;
+	border-color:#ffcb05;
+}
+
+#owl-rooms2 .owl-controls .owl-page span{
+	border-radius:0px;
+	background:none;
+	border:1px solid #939598;
+}
+
+#owl-rooms2 .owl-controls .owl-page.active span{
+	border-radius:0px;
+	background:#ffcb05;
+	border-color:#ffcb05;
+}
+
+#owl-rooms3 .owl-controls .owl-page span{
+	border-radius:0px;
+	background:none;
+	border:1px solid #939598;
+}
+
+#owl-rooms3 .owl-controls .owl-page.active span{
+	border-radius:0px;
+	background:#ffcb05;
+	border-color:#ffcb05;
+}
+
+#owl-rooms4 .owl-controls .owl-page span{
+	border-radius:0px;
+	background:none;
+	border:1px solid #939598;
+}
+
+#owl-rooms4 .owl-controls .owl-page.active span{
+	border-radius:0px;
+	background:#ffcb05;
+	border-color:#ffcb05;
+}
+
+
+/* -----------------------------------------------------
+		Room Pages
+   ----------------------------------------------------- */
+
+/********** ROOM LISTINGS PAGE **********/
+
+#room-listing-cover{
+	background: linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.55)),url('../images/room-listing-cover.jpg') 25% 77%;
+	background-size:185%;
+}
+
+#room-listing-blocks #room-list-1{
+	background:linear-gradient(rgba(255,255,255,0.20), rgba(255,255,255,0.20)),url(../images/room-list-1.jpg) bottom;
+	background-size:cover;
+}
+
+#room-listing-blocks #room-list-2{
+	background:linear-gradient(rgba(255,255,255,0.20), rgba(255,255,255,0.20)),url(../images/room-list-2.jpg) 65% 70%;
+	background-size:cover;
+}
+
+#room-listing-blocks #room-list-3{
+	background:linear-gradient(rgba(255,255,255,0.20), rgba(255,255,255,0.20)),url(../images/room-list-3.jpg) 65% 80%;
+	background-size:cover;
+}
+
+#room-listing-blocks #room-list > li:hover{
+	transform:translateY(-10px);
+	box-shadow:0px 0px 30px rgba(0,0,0,0.25);
+}
+
+#room-listing-blocks #room-list > li .room-text{
+	background:rgba(239, 239, 240,0.85);
+	color:black;
+}
+
+#room-listing-blocks #room-list > li:hover .room-text{
+	background:rgba(239, 239, 240,1);
+}
+
+.room-position{
+	color:#8f8f8f;
+}
+
+.room-info .room-features li .fa{
+	background:white;
+	color:#585858;
+}
+
+.room-info p{
+	color:#6b6768;
+}
+
+.room-info .btn{
+	color:#222121;
+}
+
+.room-info .btn:hover{
+	color:white;
+}
+
+@media(max-width:768px){
+	
+	#room-listing-blocks #room-list-3{
+		background:linear-gradient(rgba(255,255,255,0.20), rgba(255,255,255,0.20)),url(../images/room-list-3.jpg) 0% 80%;
+		background-size:cover;
+	}
+}
+
+/************ ROOM GRID PAGE ***********/
+
+#room-grid-cover{
+	background: linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.55)),url('../images/room-grid-cover.jpg') 50% 63%;
+	background-size:130%;
+}
+
+/********** ROOM DETAILS PAGE **********/
+
+#room-details-cover{
+	background: linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.55)),url('../images/room-details-cover.jpg') 0% 33%;
+	background-size:150%;
+}
+
+#room-details-page .carousel-indicators li{
+	background:white;
+}
+
+#room-details-page .carousel-indicators li.active{
+	background:#ffcb05;
+	border-color:#ffcb05;
+}
+
+#room-inner-carousel .price-tag{
+	background:#ffcb05;
+}
+
+#room-inner-carousel .price-tag p{
+	color:black;
+}
+
+#room-details .content-side{
+	margin-top:0px;
+}
+
+.search-bar{
+	background:#e5e5e5;
+}
+
+.search-bar form .fa{
+	color:#808285;
+}
+
+.search-bar input,
+.search-bar select{
+	border-radius:0px;
+	border:0px;
+	color:#808285;
+	box-shadow:none;
+}
+
+.search-bar form select{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.search-bar form select option{
+	color:black;
+}
+
+.room-description{
+	border:1px solid #eceded;
+}
+
+#room-facilities{
+	background:#f2f3f3;
+}
+
+.facility-block .fa{
+	background:white;
+	color:#6d6e71;
+}
+
+.facility-block p{
+	color:#979797;
+}
+
+.cart-highlight,
+.support-block{
+	background:#efeff0;
+}
+
+.cart-highlight p{
+	color:#7e7e7e;
+}
+
+.support-block .query{
+	color:#5c5c5c;
+}
+
+.support-block ul li{
+	color:#a7a9ac;
+}
+
+.support-block ul li .fa{
+	color:#a1a1a1;
+}
+
+.special-offer{
+	background:linear-gradient(rgba(255, 203, 5,0.8),rgba(255, 203, 5,0.8)),url('../images/special-offer.jpg');
+	background-size:cover;
+	background-position:15% 50%;
+}
+
+.special-offer #circle{
+	background:black;
+	border-radius:100%;
+	color:white;
+}
+
+.special-offer #circle p{
+	color:white;
+}
+
+.special-offer  #offer-text{
+	color:black;
+}
+
+.special-offer .btn{
+	border:1px solid black;
+	color:black;
+}
+
+.special-offer .btn:hover{
+	border:1px solid white;
+	color:black;
+	background:white;
+}

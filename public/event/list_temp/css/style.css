@@ -1,0 +1,612 @@
+/* ----------------------------------------------------
+Theme Name:		Star Hotel - HTML Template
+Version:		1.0.1
+Author:			Star Hotel
+------------------------------------------------------- */
+
+
+/* ======================================================
+	TABLE OF CONTENTS
+   ====================================================== */
+
+/**
+
+* 1.0	Settings
+* 1.1	Top Bar
+* 1.2	Navbar
+* 1.3	Hero Content
+* 1.4	About
+* 1.5	Banners
+* 1.6	Rooms
+* 1.7	Latest Offers
+* 1.8	Services
+* 1.9	Gallery
+* 1.10	Team
+* 1.11	Testimonials
+* 1.12	Price Table
+* 1.13	Latest Blog
+* 1.14	Newsletter
+* 1.15	Contact Form 2
+* 1.16	Footer
+* 1.17	Page Cover
+* 1.18	About Pages
+* 1.19	Room Pages
+* 1.20	Dinning Pages
+* 1.21	Extra Pages
+* 1.22	Contact Pages
+* 1.23	Reservation Pages
+
+**/
+
+/* -----------------------------------------------------
+		Settings
+   ----------------------------------------------------- */
+
+html,body{
+	height:100%;
+
+}
+
+p,ul,a,.btn,span,input,select,textarea, blockquote, #tagline,.highlight-box h2,.highlight-box h4,.p-table-heading .price, #error-text h1, .offer-price,.coming-soon-text h1, .dish-deal-text h2, .rstnt-name, #mySidenav #web-name{
+	font-family: 'Lato', sans-serif;
+}
+
+p,ul{
+	line-height:1.5em;
+}
+
+p{
+	font-size:16px;
+}
+
+ul{
+	margin-bottom:0px;
+}
+
+h1,h2,h3,h4,h5,h6,.page-heading span,.footer-heading span, #slider-2 li .meta h1 span{
+	margin-top:0;
+	line-height:1.3em;
+}
+
+.page-heading{
+	text-align:center;
+	margin-bottom:60px;
+}
+
+.page-heading h2{
+	text-transform:uppercase;
+	font-size:48px;
+	font-weight:bold;
+	margin-bottom:16px;
+}
+
+.page-heading p{
+	width:65%;
+	margin:0 auto;
+	font-size:18px;
+}
+
+.innerpage-heading h1{
+	text-transform:uppercase;
+	font-weight:bold;
+	margin-bottom:20px;
+	font-size:35px;
+}
+
+.innerpage-heading p{
+	width:65%;
+	margin:20px auto 50px;
+	font-size:18px;
+}
+
+.innerpage-wrapper .butn .btn{
+	width:218px;
+}
+
+.btn{
+	font-size:16px;
+	text-transform:uppercase;
+	font-weight:bold;
+}
+
+.section-padding{
+	padding-top:130px;
+	padding-bottom:130px;
+}
+
+.banner-padding{
+	padding-top:90px;
+	padding-bottom:90px;
+}
+
+.innerpage-section-padding{
+	padding-top:120px;
+	padding-bottom:120px;
+}
+
+.innerpage-banner-padding{
+	padding-top:100px;
+	padding-bottom:100px;
+}
+
+.btn-padding{
+	padding:12px 48px;
+}
+
+.no-padding{
+	padding-left:0px !important;
+	padding-right:0px !important;
+}
+
+.no-pd-top{
+	padding-top:0px;
+}
+
+.no-pd-bot{
+	padding-bottom:0px;
+}
+
+.no-pd-right{
+	padding-right:0px;
+}
+
+.butn .btn{
+	margin-top:70px;
+	width:265px;
+	padding:16px 0px;
+}
+
+.col-xs-15,
+.col-sm-15,
+.col-md-15,
+.col-lg-15 {
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.col-xs-15 {
+    width: 20%;
+    float: left;
+}
+
+#colorPanel{
+	z-index:300;
+	right:0;
+}
+
+.owl-carousel.owl-custom-arrow .owl-controls .owl-buttons{
+	position:absolute;
+	top:45%;
+	transform:translateY(-45%);
+	left:0;
+	width:100%;
+}
+
+.owl-carousel.owl-custom-arrow .owl-controls .owl-buttons div{
+	font-size:20px;
+	padding:0px 10px;
+	opacity:1;
+}
+
+.owl-carousel.owl-custom-arrow .owl-controls .owl-buttons div .fa{
+	margin-bottom:5px;
+}
+
+.owl-carousel.owl-custom-arrow .owl-controls .owl-buttons .owl-prev{
+	left:-5px;
+	position:absolute;
+}
+
+.owl-carousel.owl-custom-arrow .owl-controls .owl-buttons .owl-next{
+	right:-5px;
+	position:absolute;
+}
+
+
+/* -----------------------------------------------------
+		Rooms Grid
+   ----------------------------------------------------- */
+
+#owl-rooms .grid{
+	padding:0px 15px 30px;
+}
+
+#owl-rooms2 .grid{
+	padding:0px 15px 30px;
+}
+
+#owl-rooms3 .grid{
+	padding:0px 15px 30px;
+}
+
+#owl-rooms4 .grid{
+	padding:0px 15px 30px;
+}
+
+
+
+.room-block{
+	transition:.5s;
+}
+
+.room-block .room-img{
+	position:relative;
+	overflow:hidden;
+}
+
+.room-block .room-img img{
+	width:100%;
+	transition:.4s;
+}
+
+.room-block .room-title{
+	position:absolute;
+	bottom:0;
+	left:0;
+	width:100%;
+	padding:20px 25px;
+}
+
+.room-block .room-title h3{
+	text-transform:uppercase;
+	font-weight:bold;
+	font-size:22px;
+	margin-bottom:7px;
+}
+
+.room-block .room-title a{
+	text-decoration:none;
+}
+
+.room-block .room-title .rating{
+	margin-bottom:0px;
+	font-size:13px;
+}
+
+.room-block .room-price{
+	padding:20px 25px;
+}
+
+.room-block .room-price ul li{
+	font-size:19px;
+}
+
+.room-block .room-price ul li .link{
+	float:right;
+	margin-top:-2px;
+}
+
+.room-block .room-price ul .link{
+	font-size:11px;
+	text-decoration:underline;
+	text-transform:uppercase;
+}
+
+#owl-rooms .owl-controls{
+	margin-top:20px;
+}
+
+#owl-rooms .owl-controls .owl-page span{
+	height:30px;
+	width:30px;
+	opacity:1;
+}
+
+
+
+
+#owl-rooms2 .owl-controls{
+	margin-top:50px;
+}
+
+#owl-rooms2 .owl-controls .owl-page span{
+	height:30px;
+	width:30px;
+	opacity:1;
+}
+
+
+#owl-rooms3 .owl-controls{
+	margin-top:50px;
+}
+
+#owl-rooms3 .owl-controls .owl-page span{
+	height:30px;
+	width:30px;
+	opacity:1;
+}
+
+
+#owl-rooms4 .owl-controls{
+	margin-top:50px;
+}
+
+#owl-rooms4 .owl-controls .owl-page span{
+	height:30px;
+	width:30px;
+	opacity:1;
+}
+
+/* -----------------------------------------------------
+		Room Pages
+   ----------------------------------------------------- */
+
+/********** ROOM LISTINGS PAGE **********/
+
+#room-list > li{
+	margin-bottom:60px;
+	transition:.5s;
+}
+
+#room-list > li:last-child{
+	margin-bottom:25px;
+}
+
+.room-list-block{
+	overflow:hidden;
+}
+
+.room-info{
+	padding:45px 30px 55px;
+}
+
+.room-info .room-name{
+	font-size:30px;
+	font-weight:bold;
+	text-transform:uppercase;
+	margin-bottom:6px;
+}
+
+.room-position{
+	font-size:14px;
+	font-weight:bold;
+}
+
+.room-info .room-features{
+	margin-top:22px;
+	margin-bottom:24px;
+}
+
+.room-info .room-features li{
+	padding-right:2px;
+}
+
+.room-info .room-features li .fa{
+	height:45px;
+	width:45px;
+	font-size:22px;
+	text-align:center;
+	padding-top:12px;
+}
+
+.room-info p{
+	font-size:15px;
+	width:95%;
+	margin-bottom:25px;
+	line-height:1.4em;
+}
+
+.room-info .btn{
+	font-size:14px;
+	padding:10px 40px;
+}
+
+/************ ROOM GRID PAGE ***********/
+
+#rooms-grid .innerpage-section-padding{
+	padding-bottom:90px;
+}
+
+#rooms-grid .room-block{
+	margin-bottom:30px;
+}
+
+/********** ROOM DETAILS PAGE **********/
+   
+.search-bar{
+	padding:37px 0px;
+}
+
+.search-bar form .form-group{
+	position:relative;
+}
+
+.search-bar .form-group .fa{
+	position:absolute;
+	right:15px;
+	top:15px;
+	font-size:15px;
+	pointer-events:none;
+}
+
+.search-bar form input,
+.search-bar form select{
+	z-index:1;
+	font-size:13px;
+	text-transform:uppercase;
+	font-weight:bold;
+	height:45px;
+	padding-left:17px;
+}
+
+.search-bar form .btn{
+	font-size:12px;
+	text-transform:uppercase;
+	font-weight:bold;
+	height:45px;
+	padding-top:14px;
+}
+
+#room-inner-carousel{
+	position:relative;
+}
+
+#room-inner-carousel .price-tag{
+	position:absolute;
+	top:50px;
+	left:0px;
+	z-index:80;
+	padding:10px 25px;
+}
+
+#room-inner-carousel .price-tag p{
+	font-size:20px;
+	font-weight:300;
+	margin-bottom:0px;
+}
+
+#room-inner-carousel .price-tag p span{
+	font-weight:900;
+}
+
+#room-inner-carousel .carousel-indicators li{
+	border-radius:0px;
+	height:17px;
+	width:17px;
+}
+
+#room-inner-carousel .carousel-indicators li.active{
+	margin:0px 1px 1px 1px;
+}
+
+#room-details-page .innerpage-heading h1{
+	font-size:40px;
+	margin-bottom:60px;
+}
+
+#room-facilities{
+	padding:53px 50px;
+}
+
+.facility-block{
+	text-align:center;
+}
+
+.facility-block .fa{
+	height:62px;
+	width:62px;
+	text-align:center;
+	font-size:30px;
+	padding-top:16px;
+	margin-bottom:14px;
+}
+
+.facility-block p{
+	font-size:14px;
+	margin-bottom:0px;
+}
+
+#description{
+	padding:45px 53px 55px;
+}
+
+#description .innerpage-heading{
+	margin-bottom:30px;
+}
+
+#description .innerpage-heading h1{
+	margin-bottom:6px;
+	font-size:32px;
+}
+
+#description p{
+	line-height:1.38em;
+	margin-bottom:22px;
+}
+
+#description .btn{
+	margin-top:45px;
+}
+
+/*#room-details-page .side-bar-block{
+	margin-bottom:34px;
+}*/
+
+.cart-highlight{
+	padding:19px 23px;
+}
+
+.cart-highlight p{
+	margin-bottom:0px;
+}
+
+.cart-highlight .fa{
+	font-size:25px;
+	margin-right:16px;
+}
+
+.support-block{
+	padding:31px 23px;
+}
+
+.support-block h3{
+	text-transform:uppercase;
+	font-size:22px;
+	font-weight:bold;
+	margin-bottom:8px;
+}
+
+.support-block p{
+	font-size:15px;
+	line-height:1.47em;
+}
+
+.support-block ul{
+	margin-top:30px;
+}
+
+.support-block ul li{
+	margin-bottom:10px;
+}
+
+.support-block ul li span{
+	float:left;
+	margin-right:20px;
+}
+
+.support-block ul li span .fa{
+	font-size:18px;
+	padding-top:12px;
+}
+
+.support-block ul li .text{
+	overflow:hidden;
+}
+
+.support-block ul li p{
+	margin-bottom:0px;
+	line-height:1.3em;
+}
+
+.special-offer{
+	padding:28px 23px 55px;
+	text-align:center;
+}
+
+.special-offer #circle{
+	text-transform:uppercase;
+	margin-bottom:27px;
+}
+
+.special-offer #circle h3{
+	font-size:24px;
+	font-weight:bold;
+	margin-bottom:0px;
+}
+
+.special-offer #circle p{
+	font-size:18px;
+	margin-bottom:0px;
+}
+
+.special-offer #offer-text{
+	font-size:15px;
+	line-height:1.29em;
+	margin-bottom:40px;
+}
+
+.special-offer .btn{
+	padding:6px 30px;
+}
