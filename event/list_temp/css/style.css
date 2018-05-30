@@ -278,7 +278,7 @@ h1,h2,h3,h4,h5,h6,.page-heading span,.footer-heading span, #slider-2 li .meta h1
 	margin-top:-2px;
 }
 
-.room-block .room-price ul .link a{
+.room-block .room-price ul .link{
 	font-size:11px;
 	text-decoration:underline;
 	text-transform:uppercase;
