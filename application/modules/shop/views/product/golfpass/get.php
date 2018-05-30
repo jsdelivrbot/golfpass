@@ -585,7 +585,7 @@
 
 </section>
 <!--TODO 리뷰  데이터 X-->
-<section id="section4" class='row no-gutters justify-content-center'>
+<!--<section id="section4" class='row no-gutters justify-content-center'>
     <div class="row review-warning-text d-flex justify-content-center">
         <div class="d-flex flex-column align-items-center">
             <span class="mt-20 mb-10">리뷰</span>
@@ -674,7 +674,7 @@
                                      </a>
                                  </section>
 
-                             </section>
+                             </section>-->
                              <footer id='tp-footer' class='main-footer container-fluid'>
                                 <div id="tp-partner">
                                     <div class="row" style="width:100%;">
