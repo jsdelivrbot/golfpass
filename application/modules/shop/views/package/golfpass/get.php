@@ -350,7 +350,7 @@
                                             <div class="tourmaster-content-navigation-item-wrap clearfix" style="padding-bottom: 0px;">
                                                 <div class="tourmaster-content-navigation-item-outer" id="tourmaster-content-navigation-item-outer">
                                                     <div class="tourmaster-content-navigation-item-container tourmaster-container">
-                                                        <div class="tourmaster-content-navigation-item tourmaster-item-pdlr"><a class="tourmaster-content-navigation-tab tourmaster-active" href="#detail">일정 안내</a><a class="tourmaster-content-navigation-tab " href="#itinerary">여행 정보</a><a class="tourmaster-content-navigation-tab " href="#map">참고사항</a>
+                                                        <div class="tourmaster-content-navigation-item tourmaster-item-pdlr"><a class="tourmaster-content-navigation-tab tourmaster-active" href="#detail">일정 안내</a><a class="tourmaster-content-navigation-tab " href="#itinerary">여행 정보</a><a class="tourmaster-content-navigation-tab " href="#itinerary">참고사항</a>
                                                             <div class="tourmaster-content-navigation-slider"></div>
                                                         </div>
                                                     </div>
@@ -561,7 +561,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="gdlr-core-pbf-wrapper " style="padding: 0px 0px 30px 0px;" data-skin="Blue Icon" id="map">
+                            <div class="gdlr-core-pbf-wrapper " style="padding: 0px 0px 30px 0px;" data-skin="Blue Icon" id="itinerary">
                                 <div class="gdlr-core-pbf-wrapper-content gdlr-core-js ">
                                     <div class="gdlr-core-pbf-wrapper-container clearfix gdlr-core-container">
                                         <div class="gdlr-core-pbf-element">

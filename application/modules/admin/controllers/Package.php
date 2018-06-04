@@ -292,7 +292,7 @@ class Package extends Admin_Controller {
             my_redirect(admin_package_uri."/update/$insert_id");
         }
     }
-
+    
     function ajax_update($id)
     {
         header("content-type:application/json");
@@ -321,8 +321,6 @@ class Package extends Admin_Controller {
             $data['p_ref_hotel'] = $this->p_hotel_model->gets_by_product_id($id);
             $data['hotels'] = $this->p_hotel_model->_gets();
             $data['schedule'] = $this->product_package_model->getSchedule($id);
-            $data['hotels'] = $this->product_package_model->getHotels($id);
-            $data['golf'] = $this->product_package_model->getGolf($id);
 //             $data['main_options'] = $this->db->query("SELECT * FROM product_option WHERE product_id = $id AND kind = 'main_option' ORDER BY sort ASC")->result();
 //             $data['hole_options'] = $this->db->query("SELECT * FROM product_option WHERE product_id = $id AND kind = 'hole_option' ORDER BY sort ASC")->result();
 //             $data['options'] = $this->db->query("SELECT * FROM product_option WHERE product_id = $id AND kind = 'option'")->result();
@@ -334,9 +332,9 @@ class Package extends Admin_Controller {
             $p_options = $setting->p_options;
             $p_options =explode(",",$p_options); 
             $data['p_options'] = $p_options;
-            $this->load->library("map_api");
-            $this->map_api->api_key = $this->setting->google_map_api_key;
-
+            //$this->load->library("map_api");
+            //$this->map_api->api_key = $this->setting->google_map_api_key;
+            
             $this->_template("addUpdate",$data);
              
         }else{
@@ -395,69 +393,5 @@ class Package extends Admin_Controller {
     	$data['reload'] = true;
     	echo json_encode($data);
     	return ;
-    }
-    
-    function hotels_add() {
-    	$this->load->module("base/common");
-
-    	$this->common->_upload_photo('admin','photo',function($imgDir){
-    		//insert
-    		$id = $this->input->post("product_id");
-    		$this->db->set('package_id', $id);
-    		$this->db->set('type', 'hotels');
-    		$this->db->set('days', $this->input->post("days"));
-    		$this->db->set('detail', $this->input->post("detail"));
-    		$this->db->set("image", null);
-    		$this->db->insert("p_package_schedule");
-    		
-    		//select
-    		$this->db->select("*");
-    		$this->db->from("p_package_schedule");
-    		$this->db->where("type", 'hotels');
-    		$this->db->order_by("id", "desc");
-    		$this->db->limit(1);
-    		$result = $this->db->get()->row();
-    		
-    		//update
-    		$this->db->set("image", $imgDir);
-    		$this->db->where('id', $result->id);
-    		$this->db->update("p_package_schedule");
-    	},
-    	null,
-    	function() {
-    		my_redirect($_SERVER['HTTP_REFERER']);
-    	});
-    }
-    
-    function golf_add() {
-    	$this->load->module("base/common");
-    	
-    	$this->common->_upload_photo('admin','photo',function($imgDir){
-    		//insert
-    		$id = $this->input->post("product_id");
-    		$this->db->set('package_id', $id);
-    		$this->db->set('type', 'golf');
-    		$this->db->set('days', $this->input->post("days"));
-    		$this->db->set('detail', $this->input->post("detail"));
-    		$this->db->set("image", null);
-    		$this->db->insert("p_package_schedule");
-    		
-    		//select
-    		$this->db->select("*");
-    		$this->db->from("p_package_schedule");
-    		$this->db->where("type", 'golf');
-    		$this->db->order_by("id", "desc");
-    		$this->db->limit(1);
-    		$result = $this->db->get()->row();
-    		
-    		//update
-    		$this->db->set("image", $imgDir);
-    		$this->db->where('id', $result->id);
-    		$this->db->update("p_package_schedule");
-    	},
-    	null,
-    	function() {
-    		my_redirect($_SERVER['HTTP_REFERER']);
-    	});
     }
 }

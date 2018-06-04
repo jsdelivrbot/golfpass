@@ -187,6 +187,16 @@ $('#navi_btn').click(function(){
         </div>
         
         <div class="field">
+            <label>골프장 정보</label>
+            <textarea placeholder="내용" name="golf_info" id="golf_info"><?=set_value_data($product,'golf_info')?></textarea>
+        </div>
+        
+        <div class="field">
+            <label>호텔 정보</label>
+            <textarea placeholder="내용" name="hotel_info" id="hotel_info"><?=set_value_data($product,'hotel_info')?></textarea>
+        </div>
+        
+        <div class="field">
             <label>해시 태그- 예시)앙사나골프텔,라오골프텔 (띄어쓰기 없이 쉼표로 구분)</label>
             <input placeholder="앙사나골프텔,라오골프텔"type="text" name="hashtag" value="<?=set_value_data($product,'hashtag')?>"> <?=form_error('hashtag',false,false)?><br>
         </div>
@@ -218,82 +228,6 @@ $('#navi_btn').click(function(){
 	<?php } ?>
 </div>
 <!-- 이미지 업로드폼 끝 -->
-<!-- 골프장 정보 표 폼 시작 -->
-<div class="field">
-	<h1 class="ui horizontal divider header">
-        <i class="plus icon"></i>
-		골프장 정보
-    </h1>
-	<form class="ui form" action="<?=site_url(admin_package_uri."/golf_add")?>" method="post" enctype='multipart/form-data'>
-		<div class="field">
-			<label>일차</label>
-			<input type="text" name="days">
-		</div>
-		<div class="field">
-			<input type="file" name="photo" />
-		</div>
-        <div class="field">
-            <label>상세</label>
-            <textarea name="detail"></textarea>
-        </div>
-        <input type="hidden" name="product_id" value="<?=$product->id?>">
-        <input class="ui button positive" type="submit" value="일정 추가">
-    </form>
-    <br>
-    <h3 class="ui left floated header">추가된 호텔 리스트</h3>
-    <div class="ui clearing divider"></div>
-    <ol class="ui list">
-        <?php for($i=0 ; $i < count($golf); $i++){?>
-        <div style="display:block">
-            <li style="display:inline-block">
-            	<?=$golf[$i]->days?>일차<br>
-            	<img style="width:200px; height:auto;" src="<?=$golf[$i]->image?>"><br>
-            	<?=nl2br($golf[$i]->detail)?>
-            </li>
-            <div><a onclick="confirm_callback(this,ajax_a,'복구할 방법이 없습니다. 삭제하시겠습니까?'); return false;" data-action="<?=site_url(admin_package_uri."/ajax_schedule_delete/{$golf[$i]->id}")?>" href="#" class="ui button basic positive">삭제</a></div>
-        </div>
-        <?php }?>
-    </ol>
-</div>
-<!-- 골프장 정보 표 폼 끝 -->
-<!-- 호텔 정보 표 폼 시작 -->
-<div class="field">
-	<h1 class="ui horizontal divider header">
-        <i class="plus icon"></i>
-		호텔 정보
-    </h1>
-	<form class="ui form" action="<?=site_url(admin_package_uri."/hotels_add")?>" method="post" enctype='multipart/form-data'>
-		<div class="field">
-			<label>일차</label>
-			<input type="text" name="days">
-	    </div>
-		<div class="field">
-			<input type="file" name="photo" />
-		</div>
-        <div class="field">
-            <label>상세</label>
-            <textarea name="detail"></textarea>
-        </div>
-        <input type="hidden" name="product_id" value="<?=$product->id?>">
-        <input class="ui button positive" type="submit" value="일정 추가">
-    </form>
-    <br>
-    <h3 class="ui left floated header">추가된 호텔 리스트</h3>
-    <div class="ui clearing divider"></div>
-    <ol class="ui list">
-        <?php for($i=0 ; $i < count($hotels); $i++){?>
-        <div style="display:block">
-            <li style="display:inline-block">
-            	<?=$hotels[$i]->days?>일차<br>
-            	<img style="width:200px; height:auto;" src="<?=$hotels[$i]->image?>"><br>
-            	<?=nl2br($hotels[$i]->detail)?>
-            </li>
-            <div><a onclick="confirm_callback(this,ajax_a,'복구할 방법이 없습니다. 삭제하시겠습니까?'); return false;" data-action="<?=site_url(admin_package_uri."/ajax_schedule_delete/{$hotels[$i]->id}")?>" href="#" class="ui button basic positive">삭제</a></div>
-        </div>
-        <?php }?>
-    </ol>
-</div>
-<!-- 호텔 정보 표 폼 끝 -->
 <!-- 일정표 업로드폼 시작 -->
 <div class="field">
 	<h1 class="ui horizontal divider header">
@@ -433,9 +367,8 @@ $('#navi_btn').click(function(){
 </a>
 <?php if(strpos($mode, "update") >-1 ){?>
     <a class="ui right labeled icon button  secondary" href="<?=my_site_url(golfpass_p_daily_price_admin_uri."/add/{$product->id}/".date('Y'))?>">
-    <i class="right arrow icon"></i>
-날자별 가격
-</a>
+    	<i class="right arrow icon"></i>날자별 가격
+	</a>
 <?php }?>
 </div>
 
@@ -449,6 +382,44 @@ $('.ui.checkbox')
 </script>
 
 <script type="text/javascript">
+var oEditors4 = [];
+nhn.husky.EZCreator.createInIFrame({
+	oAppRef: oEditors4,
+	elPlaceHolder: "hotel_info",
+	sSkinURI: "/public/lib/smartEditor/SmartEditor2Skin.html",
+	htParams : {
+		bUseToolbar : true,
+		bUseVerticalResizer : false,
+		bUseModeChanger : true,
+		fOnBeforeUnload : function(){
+			//alert("완료");
+		}
+	}, //boolean
+	fOnAppLoad : function(){
+		//
+	},
+	fCreator: "createSEditor2"
+});
+
+var oEditors3 = [];
+nhn.husky.EZCreator.createInIFrame({
+	oAppRef: oEditors3,
+	elPlaceHolder: "golf_info",
+	sSkinURI: "/public/lib/smartEditor/SmartEditor2Skin.html",
+	htParams : {
+		bUseToolbar : true,
+		bUseVerticalResizer : false,
+		bUseModeChanger : true,
+		fOnBeforeUnload : function(){
+			//alert("완료");
+		}
+	}, //boolean
+	fOnAppLoad : function(){
+		//
+	},
+	fCreator: "createSEditor2"
+});
+
 var oEditors2 = [];
 nhn.husky.EZCreator.createInIFrame({
 	oAppRef: oEditors2,
@@ -469,6 +440,8 @@ nhn.husky.EZCreator.createInIFrame({
 });
 function submitContents2(elClickedObj) {
 	oEditors2.getById["desc"].exec("UPDATE_CONTENTS_FIELD", []);
+	oEditors3.getById["golf_info"].exec("UPDATE_CONTENTS_FIELD", []);
+	oEditors4.getById["hotel_info"].exec("UPDATE_CONTENTS_FIELD", []);
 	
 	try {
 		elClickedObj.form.submit();

@@ -46,24 +46,6 @@ class Product_package_Model extends Board_Model{
     	return $this->db->get()->result();
     }
     
-    function getHotels($id) {
-    	$this->db->select("*");
-    	$this->db->from("p_package_schedule");
-    	$this->db->where("package_id",$id);
-    	$this->db->where("type",'hotels');
-    	$this->db->order_by('days', 'asc');
-    	return $this->db->get()->result();
-    }
-    
-    function getGolf($id) {
-    	$this->db->select("*");
-    	$this->db->from("p_package_schedule");
-    	$this->db->where("package_id",$id);
-    	$this->db->where("type",'golf');
-    	$this->db->order_by('days', 'asc');
-    	return $this->db->get()->result();
-    }
-    
     function gets_all_category_id($id)//get products
     {
         $result = array($id);
@@ -249,9 +231,13 @@ class Product_package_Model extends Board_Model{
     function delete($id)
     {
         parent::_delete($id);
-        $this->load->model("shop/ref_cate_package_model");
         //ref 카테 삭제
+        $this->load->model("shop/ref_cate_package_model");
         $this->ref_cate_package_model->_delete(array('product_id'=>$id));
+        //p_package_schedule 삭제
+        $this->db->where('package_id', $id);
+        $this->db->delete('p_package_schedule');
+        
         /*
         //ref 호텔 삭제
         $this->db->where("product_id",$id)
