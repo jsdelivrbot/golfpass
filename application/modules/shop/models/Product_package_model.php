@@ -43,6 +43,7 @@ class Product_package_Model extends Board_Model{
     	$this->db->from("p_package_schedule");
     	$this->db->where("package_id",$id);
     	$this->db->where("type",'schedule');
+    	$this->db->order_by('days', 'ASC');
     	return $this->db->get()->result();
     }
     

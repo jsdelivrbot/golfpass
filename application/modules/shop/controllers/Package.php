@@ -148,10 +148,6 @@ class Package extends Base_Controller {
         $this->load->model("base/users_model");
         $data['user'] = $this->users_model->_get($this->user->id);
         
-        //호텔정보
-        $hotels = $this->product_package_model->getHotels($id);
-        $data['hotels'] = $hotels;
-        
         //googld map
         $this->load->library("map_api");
         $this->map_api->api_key = $this->setting->google_map_api_key;
