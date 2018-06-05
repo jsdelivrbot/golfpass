@@ -136,7 +136,7 @@
                                 <div class="post-img position-relative rounded-top" style="background-image:url(<?=$packages[$i]->photo?>); background-repeat:no-repeat; background-position:center; background-size:cover">
                                 	<img src="/public/icon/label_hotelstay.png" style="width: 84px; position: absolute; right: 10px;"> <!-- 상품라벨 -->
                                     <img src="/public/etc/list/images/golfpass/list-blank.png" class="blank_img">
-                                    <span class="date font-crimson" style="font-family: 'notokr-regular', sans-serif; font-weight: normal;"><?=my_number_format(_cal_apply_exchangeRate_and_margin_to_price($packages[$i]->price))?></span>
+                                    <span class="date font-crimson" style="font-family: 'notokr-regular', sans-serif; font-weight: normal;"><?=my_number_format($packages[$i]->price)?></span>
                                     <span class="date font-crimson" style="bottom: 20px; background-color: #383838; font-family: 'notokr-regular', sans-serif; font-weight: normal;">패키지 상품</span>
                                 </div>
                                 <a href="#" class="tittle-post" style="font-family: 'notokr-regular', sans-serif; font-weight: normal;"> <?=$packages[$i]->name?> </a>
@@ -211,7 +211,7 @@
                                 <div class="post-img position-relative rounded-top" style="background-image:url(<?=$packages[$i]->photo?>); background-repeat:no-repeat; background-position:center; background-size:cover">
                                 	<img src="/public/icon/label_hotelstay.png" style="width: 84px; position: absolute; right: 10px;"> <!-- 상품라벨 -->
                                     <img src="/public/etc/list/images/golfpass/list-blank.png" class="blank_img">
-                                    <span class="date font-crimson" style="font-family: 'notokr-regular', sans-serif; font-weight: normal;"><?=my_number_format(_cal_apply_exchangeRate_and_margin_to_price($packages[$i]->price))?></span>
+                                    <span class="date font-crimson" style="font-family: 'notokr-regular', sans-serif; font-weight: normal;"><?=my_number_format($packages[$i]->price)?></span>
                                     <span class="date font-crimson" style="bottom: 20px; background-color: #383838; font-family: 'notokr-regular', sans-serif; font-weight: normal;">패키지 상품</span>
                                 </div>
                                 <a href="#" class="tittle-post" style="font-family: 'notokr-regular', sans-serif; font-weight: normal;"> <?=$packages[$i]->name?> </a>

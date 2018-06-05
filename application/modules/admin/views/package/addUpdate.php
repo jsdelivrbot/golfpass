@@ -30,7 +30,6 @@ a{
         display: none;   
     }
 }
-
 </style>
 
 <script type="text/javascript" src="/public/lib/smartEditor/js/HuskyEZCreator.js" charset="utf-8"></script>
@@ -88,15 +87,10 @@ $('#navi_btn').click(function(){
             목록으로
         </a>
     <?php if(strpos($mode, "update") >-1 ){?>
-            <a class="ui right labeled icon button  secondary" href="<?=my_site_url(golfpass_p_daily_price_admin_uri."/add/{$product->id}/".date('Y'))?>">
-            <i class="right arrow icon"></i>
-        날자별 가격
-        </a>
         <a class="ui right labeled icon button  secondary" href="<?=my_site_url(shop_package_uri."/get/{$product->id}/")?>">
             <i class="right arrow icon"></i>
         사이트에서 보기
         </a>
-
 
         <a style="float:right;background-color:#aaaaaa;color:black" class="ui right labeled icon button  secondary" href="#" onclick="confirm_redirect('<?=my_site_url(admin_ref_cate_package_uri."/goToRecycleBin/{$product->id}")?>','휴지통으로 이동시키겠습니까? 연결된 카테고리가 모두 삭제됩니다.'); return false;">
         휴지통으로
@@ -222,9 +216,7 @@ $('#navi_btn').click(function(){
     <?php if(isset($photos[0]->photo)) { ?>
     <h3 class="ui left floated header">추가된 이미지</h3>
 	<img style="width:200px; height:auto;" src="<?=$photos[0]->photo?>" alt="">
-	<div class="item">
-		<a  onclick="confirm_callback(this,ajax_a,'복구할 방법이 없습니다. 삭제하시겠습니까?'); return false;" data-action="<?=site_url(admin_package_uri."/ajax_photo_delete/{$product->id}/photo")?>" href="#" class="ui button basic positive" style="float:right; clear:both;">삭제</a>
-	</div>
+	<a  onclick="confirm_callback(this,ajax_a,'복구할 방법이 없습니다. 삭제하시겠습니까?'); return false;" data-action="<?=site_url(admin_package_uri."/ajax_photo_delete/{$product->id}/photo")?>" href="#" class="ui button basic positive" style="float:right; clear:both;">삭제</a>
 	<?php } ?>
 </div>
 <!-- 이미지 업로드폼 끝 -->
@@ -310,54 +302,106 @@ $('#navi_btn').click(function(){
         </div>
         <?php }?>
     </ol>
-
 </div>   
 <!-- 분류 추가 끝-->
-<?php }?>
-
-<?php if(strpos($mode, "update") >-1 ){?>
-		<div class="field">
-            <!-- 위치  설정가기 -->
-			<!-- <div id="target_<?//=$v_menus[$v_menu_id++]?>" class="sixteen wide column">
-			<h1 class="ui horizontal divider header">
-			    <i class="plus icon"></i>
-			    위치 추가하기
-			    </h1>
-			
-			    <div id="map" style="width:100%;height:500px;"></div>
-			
-			    <form  style="margin-top:20px;"class="ui form"onsubmit="ajax_submit(this); return false;" action="<?//=site_url(api_google_map_uri."/ajax_get_marker_by_address")?>" method="post">
-			        <div class="field">
-			            <input type="text"placeholder="주소" name="search">
-			        </div>
-			        <input class="ui button positive basic" type="submit" value="주소검색">
-			    </form>
-			    <form style="margin-top:20px;" class="ui form" onsubmit="ajax_submit(this); return false;" action="<?//=site_url(admin_package_uri."/ajax_update/{$product->id}")?>">
-			            <input type="hidden" name="name" value="<?//=$product->name?>">
-			        <div class="field">
-			            <input type="text" name="address" placeholder="주소" value="<?//=set_value_data($product,'address')?>">
-			        </div>
-			        <div class="two fields">
-			            <div class="field">
-			                <input type="text" name="lat" placeholder="위도" value="<?//=set_value_data($product,'lat')?>">
-			            </div>
-			            <div class="field">
-			                <input type="text" name="lng" placeholder="경도" value="<?//=set_value_data($product,'lng')?>">
-			            </div>
-			        </div>
-			        <input class="ui button positive" type="submit" value="위치저장">
-			    </form>
-			
-			    <?//=$this->map_api->create_script()?>
-			    <?php //if($product->address !== ''){
-			        //$this->map_api->add_marker($product->lat,$product->lng,$product->address,$product->map_name,$product->map_type);
-			        //$this->map_api->move_to_location($product->lat,$product->lng);
-			     //} ?>
-			</div> -->
-			<!-- 위치  설정가기 -->
-			<br/>
+<!-- 날짜별 가격 시작 -->
+<div class="field">
+	<h1 class="ui horizontal divider header">
+        <i class="plus icon"></i>
+		날짜별 가격
+    </h1>
+	<form class="ui form" onsubmit="ajax_submit(this); return false;" action="<?=site_url(admin_package_uri."/ajax_package_daily_price_add")?>" method="post">
+		<div class="two fields">
+			<div class="field">
+	            <label>시작 날짜</label>
+	            <input type="text" id="datepicker1" name="s_date" readonly>
+	        </div>
+	        <div class="field">
+	            <label>끝 날짜</label>
+	            <input type="text" id="datepicker2" name="e_date" readonly>
+	        </div>
+		</div>
+		<div class="two fields">
+	        <div class="field">
+	            <label>가격 (숫자만 입력해주세요.)</label>
+	            <input type="number" name="price">
+	        </div>
+	        <div class="field">
+	            <label>요일 선택</label>
+	            <input type="checkbox" name="w[]" value="0" style="margin: 3px;">일
+	            <input type="checkbox" name="w[]" value="1" style="margin: 3px;">월
+	            <input type="checkbox" name="w[]" value="2" style="margin: 3px;">화
+	            <input type="checkbox" name="w[]" value="3" style="margin: 3px;">수
+	            <input type="checkbox" name="w[]" value="4" style="margin: 3px;">목
+	            <input type="checkbox" name="w[]" value="5" style="margin: 3px;">금
+	            <input type="checkbox" name="w[]" value="6" style="margin: 3px;">토
+	        </div>
+		</div>
+        <input type="hidden" name="product_id" value="<?=$product->id?>">
+        <input class="ui button positive" type="submit" value="날짜 추가">
+    </form>
+    <br>
+    <h3 class="ui left floated header">추가된 날짜별 가격 리스트</h3>
+    (오늘 이전 날짜는 표시되지 않습니다.)
+    <div class="ui clearing divider"></div>
+    <ol class="ui list">
+    	<form method="post" action="<?=site_url(admin_package_uri."/ajax_package_daily_price_delete")?>">
+        <?php
+        $w = array('일', '월', '화', '수', '목', '금', '토');
+        for($i=0 ; $i < count($daily_price); $i++) {
+        ?>
+        <div style="display:block">
+            <li style="display:inline-block">
+            	<?=$daily_price[$i]->date?> (<?=$w[date('w', strtotime($daily_price[$i]->date))]?>) / <?=number_format($daily_price[$i]->price)?>원<br>
+            </li>
+            <input type="checkbox" name="id[]" value="<?=$daily_price[$i]->id?>">
         </div>
         <?php } ?>
+        <input type="submit" value="선택 삭제">
+        </form>
+    </ol>
+</div>
+<!-- 날짜별 가격 끝 -->
+<!-- 위치 설정 시작 -->
+<!-- <div class="field">
+	<div id="target_<?//=$v_menus[$v_menu_id++]?>" class="sixteen wide column">
+	<h1 class="ui horizontal divider header">
+	    <i class="plus icon"></i>
+	    위치 추가하기
+	    </h1>
+	    <div id="map" style="width:100%;height:500px;"></div>
+	    <form  style="margin-top:20px;"class="ui form"onsubmit="ajax_submit(this); return false;" action="<?//=site_url(api_google_map_uri."/ajax_get_marker_by_address")?>" method="post">
+			<div class="field">
+	            <input type="text"placeholder="주소" name="search">
+	        </div>
+	        <input class="ui button positive basic" type="submit" value="주소검색">
+	    </form>
+	    <form style="margin-top:20px;" class="ui form" onsubmit="ajax_submit(this); return false;" action="<?//=site_url(admin_package_uri."/ajax_update/{$product->id}")?>">
+	            <input type="hidden" name="name" value="<?//=$product->name?>">
+	        <div class="field">
+	            <input type="text" name="address" placeholder="주소" value="<?//=set_value_data($product,'address')?>">
+	        </div>
+	        <div class="two fields">
+	            <div class="field">
+	                <input type="text" name="lat" placeholder="위도" value="<?//=set_value_data($product,'lat')?>">
+	            </div>
+	            <div class="field">
+	                <input type="text" name="lng" placeholder="경도" value="<?//=set_value_data($product,'lng')?>">
+	            </div>
+	        </div>
+	        <input class="ui button positive" type="submit" value="위치저장">
+	    </form>
+			
+	    <?//=$this->map_api->create_script()?>
+	    <?php //if($product->address !== ''){
+	        //$this->map_api->add_marker($product->lat,$product->lng,$product->address,$product->map_name,$product->map_type);
+	        //$this->map_api->move_to_location($product->lat,$product->lng);
+	     //} ?>
+	</div>
+	<br/>
+</div> -->
+<!-- 위치 설정 끝 -->
+<?php } ?>
 <br>
 
 <div class="sixteen wide column" style="margin-top:50px">
@@ -365,11 +409,6 @@ $('#navi_btn').click(function(){
     <i class="left arrow icon"></i>
     목록으로
 </a>
-<?php if(strpos($mode, "update") >-1 ){?>
-    <a class="ui right labeled icon button  secondary" href="<?=my_site_url(golfpass_p_daily_price_admin_uri."/add/{$product->id}/".date('Y'))?>">
-    	<i class="right arrow icon"></i>날자별 가격
-	</a>
-<?php }?>
 </div>
 
 <script>
@@ -380,7 +419,28 @@ $('.ui.checkbox')
   .checkbox()
 ;
 </script>
-
+<?php if(strpos($mode, "update") >-1 ) { ?>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">  
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+$(function() {
+	var data = {
+			closeText		: '닫기',
+			prevText		: '이전달',
+			nextText		: '다음달',
+			dateFormat		: "yy-mm-dd",
+			dayNames		: ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'],
+			dayNamesMin		: ['일', '월', '화', '수', '목', '금', '토'],
+			monthNames		: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+			monthNamesShort	: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
+			showMonthAfterYear: true,
+			minDate			: 0
+		};
+	$("#datepicker1").datepicker(data);
+	$("#datepicker2").datepicker(data);
+});
+</script>
 <script type="text/javascript">
 var oEditors4 = [];
 nhn.husky.EZCreator.createInIFrame({
@@ -479,3 +539,4 @@ function submitContents(elClickedObj) {
 	}
 }
 </script>
+<?php }?>

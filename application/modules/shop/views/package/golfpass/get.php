@@ -236,7 +236,38 @@
                             minDate: new Date("<?=$product->day_start?>"),
                     		maxDate: new Date("<?=$product->day_end?>"),
                     		<?endif?>
-                            yearSuffix: '년'
+                            yearSuffix: '년',
+                            onSelect: function(value, date) {
+                            	var url = "<?=site_url(shop_package_uri."/get_daily_price")?>";
+                            	$.ajax({
+                                    type:"post",
+                                    url : url,
+                                    data : {id:<?=$product->id?>, date: value},
+                                    success : function(data){
+                                        if(data != "") {
+	                                    	$("#price").val(data);
+	                                    	var price = "";
+	                                    	while(data/1000 >= 1) {
+		                                    	temp = data % 1000;
+		                                    	if(temp < 10) price = ',00' + temp + price;
+		                                    	else if(temp < 100) price = ',0' + temp + price;
+		                                    	data = data / 1000;
+	                                    	}
+	                                    	price = parseInt(data) + price;
+	                                        $(".tourmaster-tail").html(price+"원~");
+                                        } else {
+                                        	$("#price").val(<?=$product->price?>);
+                                            $(".tourmaster-tail").html("<?=number_format($product->price)?>원~");
+                                        }
+                                    },
+                                    error: function(xhr, textStatus, errorThrown){
+                                        alert('에러...');
+                                        $('.loading').fadeOut(500);
+                                        console.log('code: '+request.status+"\n"+'message: '+request.responseText+"\n"+'error: '+error);
+                                        console.log(errorThrown);
+                                    }
+                                });
+                            }
                         });
 
                         $(function() {
@@ -588,64 +619,14 @@
                                                 <section id="content1" class="tab-content">
                                                     <h3>골프장 정보</h3>
                                                     <div class="gdlr-core-toggle-box-item gdlr-core-item-pdb  gdlr-core-toggle-box-style-background-title gdlr-core-left-align" style="padding-bottom: 25px;">
-                                                        <? $before = 1; for($i=0;$i<count($golf);$i++): ?>
-                                                        <div class="gdlr-core-toggle-box-item-tab clearfix">
-                                                            <div class="gdlr-core-toggle-box-item-icon gdlr-core-js gdlr-core-skin-icon "></div>
-                                                            <div class="gdlr-core-toggle-box-item-content-wrapper">
-                                                                <h4 class="gdlr-core-toggle-box-item-title gdlr-core-js  gdlr-core-skin-e-background gdlr-core-skin-e-content"><span class="gdlr-core-head"><?=$hotels[$i]->days?>일차</span></h4>
-                                                                <div class="gdlr-core-toggle-box-item-content">
-                                                                    <!-- <p><?// if(isset($hotels)) echo $hotels[$i]->place; else echo "당일에는 방문지가 없습니다.";?></p> -->
-                                                                    <div>
-                                                        	<? while($before == $golf[$i]->days): ?>
-                                                                        <div class="tripinfo_container">
-                                                                            <div class="tripinfo_img">
-                                                                                <img src="<?=$golf[$i]->image?>" class="tripinfo_image">
-                                                                            </div>
-                                                                            <div class="tripinfo_text">
-                                                                                <p>
-                                                                                <?=$golf[$i]->detail?>
-                                                                                </p>
-                                                                            </div>
-                                                                        </div>
-                                                                        <hr>
-                                                        	<? $before = $golf[$i++]->days; endwhile ?>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <? $before = $golf[$i--]->days; endfor ?>
+                                                        <?=$product->golf_info?>
                                                     </div>
                                                 </section>
 
                                                 <section id="content2" class="tab-content">
                                                     <h3>호텔 정보</h3>
                                                     <div class="gdlr-core-toggle-box-item gdlr-core-item-pdb  gdlr-core-toggle-box-style-background-title gdlr-core-left-align" style="padding-bottom: 25px;">
-                                                        <? $before = 1; for($i=0;$i<count($hotels);$i++): ?>
-                                                        <div class="gdlr-core-toggle-box-item-tab clearfix">
-                                                            <div class="gdlr-core-toggle-box-item-icon gdlr-core-js gdlr-core-skin-icon "></div>
-                                                            <div class="gdlr-core-toggle-box-item-content-wrapper">
-                                                                <h4 class="gdlr-core-toggle-box-item-title gdlr-core-js  gdlr-core-skin-e-background gdlr-core-skin-e-content"><span class="gdlr-core-head"><?=$hotels[$i]->days?>일차</span></h4>
-                                                                <div class="gdlr-core-toggle-box-item-content">
-                                                                    <!-- <p><?// if(isset($hotels)) echo $hotels[$i]->place; else echo "당일에는 방문지가 없습니다.";?></p> -->
-                                                                    <div>
-                                                        	<? while($before == $hotels[$i]->days): ?>
-                                                                        <div class="tripinfo_container">
-                                                                            <div class="tripinfo_img">
-                                                                                <img src="<?=$hotels[$i]->image?>" class="tripinfo_image">
-                                                                            </div>
-                                                                            <div class="tripinfo_text">
-                                                                                <p>
-                                                                                <?=$hotels[$i]->detail?>
-                                                                                </p>
-                                                                            </div>
-                                                                        </div>
-                                                                        <hr>
-                                                        	<? $before = $hotels[$i++]->days; endwhile ?>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <? $before = $hotels[$i--]->days; endfor ?>
+                                                        <?=$product->hotel_info?>
                                                     </div>
                                                 </section>
                                                 <script>
