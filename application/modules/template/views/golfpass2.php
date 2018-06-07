@@ -314,7 +314,7 @@
                     <h6 style="color:#ababab;">PARTNERS</h6>
                 </div>
                 <div class="tp-d-flex tp-flex-wrap">
-                    <figure style="margin-bottom: 16px;">
+                    <!--<figure style="margin-bottom: 16px;">
                         <img src="/public/sangmin/img/partner/b_partner_accordiagolf.png" alt="">
                     </figure>
                     <figure style="margin-bottom: 16px;">
@@ -331,7 +331,7 @@
                     </figure>
                     <figure style="margin-bottom: 16px;">
                         <img src="/public/sangmin/img/partner/b_partner_bookingdotcom.png" alt="">
-                    </figure>
+                    </figure>-->
                     <figure><a href="http://www.widemobile.com/?golfpass" target="_balnk">
                         <img src="/public/sangmin/img/partner/b_partner_wifi.png" alt=""></a>
                     </figure>

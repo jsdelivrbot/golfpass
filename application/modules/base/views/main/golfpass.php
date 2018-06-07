@@ -900,7 +900,7 @@ function rotate() {
                     <h6>PARTNERS</h6>
                 </div>
                 <div class="d-flex flex-wrap">
-                    <figure>
+                    <!--<figure>
                         <img src="/public/sangmin/img/partner/partner_accordiagolf.png" alt="">
                     </figure>
                     <figure>
@@ -917,7 +917,7 @@ function rotate() {
                     </figure>
                     <figure>
                         <img src="/public/sangmin/img/partner/partner_bookingdotcom.png" alt="">
-                    </figure>
+                    </figure>-->
                     <figure><a href="http://www.widemobile.com/?golfpass" target="_balnk">
                         <img src="/public/sangmin/img/partner/partner_wifi.png" alt=""></a>
                     </figure>

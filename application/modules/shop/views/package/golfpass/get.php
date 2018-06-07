@@ -1456,7 +1456,7 @@
                             <h6>PARTNERS</h6>
                         </div>
                         <div class="d-flex flex-wrap">
-                            <figure>
+                            <!--<figure>
                                 <img src="/public/etc/package/image/b_partner_accordiagolf.png" alt="">
                             </figure>
                             <figure>
@@ -1473,7 +1473,7 @@
                             </figure>
                             <figure>
                                 <img src="/public/etc/package/image/b_partner_bookingdotcom.png" alt="">
-                            </figure>
+                            </figure>-->
                             <figure>
                                 <a href="http://www.widemobile.com/?golfpass" target="_balnk">
                                     <img src="/public/etc/package/image/b_partner_wifi.png" alt="">
