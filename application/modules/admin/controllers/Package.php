@@ -314,6 +314,7 @@ class Package extends Admin_Controller {
         if(!$this->fv->run()){
             $this->load->model("shop/package_categories_model");
             $this->load->model("shop/p_hotel_model");
+            $this->load->model("shop/package_daily_price_model");
             $data['product'] =$this->db->where('id',$id)->get($this->table)->row();
             $data['categories'] = $this->package_categories_model->gets_by_recursive_tree(); 
             
@@ -321,10 +322,8 @@ class Package extends Admin_Controller {
             $data['p_ref_hotel'] = $this->p_hotel_model->gets_by_product_id($id);
             $data['hotels'] = $this->p_hotel_model->_gets();
             $data['schedule'] = $this->product_package_model->getSchedule($id);
-//             $data['main_options'] = $this->db->query("SELECT * FROM product_option WHERE product_id = $id AND kind = 'main_option' ORDER BY sort ASC")->result();
-//             $data['hole_options'] = $this->db->query("SELECT * FROM product_option WHERE product_id = $id AND kind = 'hole_option' ORDER BY sort ASC")->result();
-//             $data['options'] = $this->db->query("SELECT * FROM product_option WHERE product_id = $id AND kind = 'option'")->result();
-//             $data['descs'] = $this->db->query("SELECT * FROM product_option WHERE product_id = $id AND kind = 'desc' ORDER BY sort ASC")->result();
+            $data['daily_price'] = $this->package_daily_price_model->get_price($id);
+            
             $data['photos'] = $this->db->query("SELECT * FROM product_package WHERE id = $id")->result();
             $data['mode'] = "update/$id";
             
@@ -392,6 +391,56 @@ class Package extends Admin_Controller {
     	$this->db->delete('p_package_schedule');
     	$data['reload'] = true;
     	echo json_encode($data);
+    	return ;
+    }
+    
+    function ajax_package_daily_price_add() {
+    	header("content-type:application/json");
+    	$this->load->model("shop/package_daily_price_model");
+    	
+    	$this->fv->set_rules('price','가격',array('required'));
+    	
+    	if(!$this->fv->run()){
+    		$data['alert'] = validation_errors(false, false);
+    	} else {
+    		$id = $this->input->post("product_id");
+    		$w = $this->input->post("w");
+    		$s_date = $this->input->post("s_date");
+    		$e_date = $this->input->post("e_date");
+    		$price = $this->input->post("price");
+    		
+    		if(strtotime($s_date) <= strtotime($e_date)) {
+	    		$s = new DateTime($s_date);
+	    		$e = new DateTime($e_date);
+	    		
+	    		$dateDiff = date_diff($s, $e);
+	    		$tempDate = $s_date;
+	    		
+	    		for($i=0;$i<=$dateDiff->days;$i++) {
+	    			$tempW = date('w', strtotime($tempDate));
+	    			if(in_array($tempW, $w)) {
+	    				$this->db->set('product_id', $id);
+	    				$this->db->set('date', $tempDate);
+	    				$this->db->set('price', $price);
+	    				$this->db->set('remarks', $dateDiff->days);
+	    				$this->db->insert("package_daily_price");
+	    			}
+	    			$tempDate = date('Y-m-d', strtotime($tempDate." +1 days"));
+	    		}
+    		}
+    	}
+    	$data['reload'] = true;
+    	echo json_encode($data);
+    }
+    
+    function ajax_package_daily_price_delete() {
+    	$this->load->model("shop/package_daily_price_model");
+    	$arr = $this->input->post('id');
+    	foreach($arr as $id) {
+	    	$this->db->where('id',$id);
+	    	$this->db->delete('package_daily_price');
+    	}
+    	echo "<script>alert('삭제되었습니다.'); history.back();</script>";
     	return ;
     }
 }

@@ -127,7 +127,6 @@ class Package extends Base_Controller {
         // $this->_view("gets_by_ranking",$data);
     }
     
-    // ------------------------------ ↓↓↓ USE ↓↓↓ ------------------------------
 	public function get($id =1){
 // 		$this->products_model->_hits_plus($id);
         $this->load->library('Ajax_pagination');
@@ -157,7 +156,14 @@ class Package extends Base_Controller {
         
         $this->_view('get', $data);
     }
-    // ------------------------------ ↑↑↑ USE ↑↑↑ ------------------------------
+    
+    public function get_daily_price() {
+    	$id = $this->input->post('id');
+    	$date = $this->input->post('date');
+    	$this->load->model("shop/package_daily_price_model");
+    	$result = $this->package_daily_price_model->get_daily_price($id, $date);
+    	echo $result['price'];
+    }
     
     function add_option()
     {
