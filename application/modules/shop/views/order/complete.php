@@ -19,6 +19,10 @@
         주문 완료
     </div>
     <p>골프패스를 이용해주셔서 감사합니다.</p>
+    <? if($product_type == "package"): ?>
+    <p>담당자가 세부내용 확인을 위해 유선으로 연락 드리겠습니다.</p>
+    <p>지연될 시에는 02-6959-5454로 연락주시면 친절히 안내 도와드리겠습니다.</p>
+    <? endif ?>
 </div>
 <div class="ui attached message">
     <div class="header">

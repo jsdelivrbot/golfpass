@@ -5,10 +5,10 @@ class Package_daily_price_Model extends Board_Model{
         parent:: __construct('package_daily_price');
     }
     
-    function get_daily_price($id, $date) {
+    function get_daily_price($product_id, $date) {
     	$this->db->select('price');
     	$this->db->from('package_daily_price');
-    	$this->db->where('product_id', $id);
+    	$this->db->where('product_id', $product_id);
     	$this->db->where('date', $date);
     	$result = $this->db->get()->row_array();
     	return $result;
@@ -22,5 +22,14 @@ class Package_daily_price_Model extends Board_Model{
     	$this->db->order_by('date', 'DESC');
     	$result = $this->db->get()->result();
     	return $result;
+    }
+    
+    function get_daily_price_check($product_id, $date) {
+    	$this->db->select('id');
+    	$this->db->from('package_daily_price');
+    	$this->db->where('product_id', $product_id);
+    	$this->db->where('date', $date);
+    	$result = $this->db->get()->row_array();
+    	return $result['id'];
     }
 }

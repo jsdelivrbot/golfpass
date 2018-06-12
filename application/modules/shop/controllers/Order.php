@@ -746,7 +746,7 @@ class Order extends Base_Controller {
    
     
    
-    public function complete($merchant_uid){
+    public function complete($merchant_uid, $product_type){
 
         //delete cartlist
         if(!is_login()){
@@ -783,13 +783,18 @@ class Order extends Base_Controller {
             $order->status_enum = '알수없음';
 
         // var_dump($order_products);
+        $data['product_type'] = $product_type;
         $data['order_infos'] =$this->db->where("merchant_uid",$merchant_uid)->from("p_order_infos")->get()->result();
         $data['order']= $order;
         $data['order_products'] = $order_products;
         $data['setting'] =$this->setting;      
         $data['photo'] = $this->db->where("product_id",$order->product_id)
-        ->where("kind","photo")->limit(1,0)->order_by("sort","asc")->get("product_option")->row()->name;   
-        $data['product'] =$this->db->where("id",$order->product_id)->get("products")->row();
+        ->where("kind","photo")->limit(1,0)->order_by("sort","asc")->get("product_option")->row()->name;
+        if($product_type == "package") {
+        	$data['product'] =$this->db->where("id",$order->product_id)->get("product_package")->row();
+        } else {
+        	$data['product'] =$this->db->where("id",$order->product_id)->get("products")->row();
+        }
         $this->_template('complete',$data,"golfpass2");
 
     }

@@ -256,8 +256,8 @@
 	                                    	price = parseInt(data) + price;
 	                                        $(".tourmaster-tail").html(price+"원~");
                                         } else {
-                                        	$("#price").val(<?=$product->price?>);
-                                            $(".tourmaster-tail").html("<?=number_format($product->price)?>원~");
+                                        	$("#price").val("-1");
+                                            $(".tourmaster-tail").html("상담요망");
                                         }
                                     },
                                     error: function(xhr, textStatus, errorThrown){
@@ -1650,9 +1650,14 @@ function form_submit() {
 
 	var start_date = new Date($("#datepicker1").val());
 	
-	//총 가격
 	var price = $("#price").val();
 	var num_people = $("#num_people").val();
+	if(price == -1) {
+		alert("상담요망");
+		return false;
+	} 
+	
+	//총 가격
 	var total_price = price * num_people;
 	$("#total_price").val( total_price );
 
@@ -1676,7 +1681,6 @@ function form_submit() {
 	if(d < 10) d = "0" + d;
 	var str_date = yyyy + "-" + M + "-" + d;
 	$("#end_date").val(str_date);
-	
 	
 	$order_form.submit();
 }

@@ -357,16 +357,15 @@ class Package extends Admin_Controller {
     function ajax_schedule_add() {
     	header("content-type:application/json");
     	
-    	$this->fv->set_rules('days','카테고리',array('required',
+    	$this->fv->set_rules('days','일자',array('required',
     			array('이미 등록 되어있습니다.',function($str){
     				$this->db->where('days',$this->input->post('days'));
     				$this->db->where('package_id',$this->input->post('product_id'));
     				$row =$this->db->get("p_package_schedule")->row();
-    				if($row !== null)
-    					return false;
-    					return true;
+    				if($row !== null) return false;
+    				return true;
     			})
-    			));
+    		));
     	
     	if(!$this->fv->run()){
     		
@@ -419,11 +418,17 @@ class Package extends Admin_Controller {
 	    		for($i=0;$i<=$dateDiff->days;$i++) {
 	    			$tempW = date('w', strtotime($tempDate));
 	    			if(in_array($tempW, $w)) {
+	    				$isInsert = $this->package_daily_price_model->get_daily_price_check($id, $tempDate);
 	    				$this->db->set('product_id', $id);
 	    				$this->db->set('date', $tempDate);
 	    				$this->db->set('price', $price);
 	    				$this->db->set('remarks', $dateDiff->days);
-	    				$this->db->insert("package_daily_price");
+	    				if($isInsert == null || $isInsert == "") {
+	    					$this->db->insert("package_daily_price");
+	    				} else {
+	    					$this->db->where("id", $isInsert);
+	    					$this->db->update("package_daily_price");
+	    				}
 	    			}
 	    			$tempDate = date('Y-m-d', strtotime($tempDate." +1 days"));
 	    		}

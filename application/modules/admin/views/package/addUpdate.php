@@ -199,7 +199,7 @@ $('#navi_btn').click(function(){
     </form>
 </div>
 
-<?php if(strpos($mode, "update") >-1 ){?>
+<?php if(strpos($mode, "update") >-1 ) {?>
 <!-- 이미지 업로드폼 시작 -->
 <div class="field">
 	<h1 class="ui horizontal divider header">
@@ -328,13 +328,13 @@ $('#navi_btn').click(function(){
 	        </div>
 	        <div class="field">
 	            <label>요일 선택</label>
-	            <input type="checkbox" name="w[]" value="0" style="margin: 3px;">일
-	            <input type="checkbox" name="w[]" value="1" style="margin: 3px;">월
-	            <input type="checkbox" name="w[]" value="2" style="margin: 3px;">화
-	            <input type="checkbox" name="w[]" value="3" style="margin: 3px;">수
-	            <input type="checkbox" name="w[]" value="4" style="margin: 3px;">목
-	            <input type="checkbox" name="w[]" value="5" style="margin: 3px;">금
-	            <input type="checkbox" name="w[]" value="6" style="margin: 3px;">토
+	            <input type="checkbox" name="w[]" value="0" style="margin: 3px;" checked>일
+	            <input type="checkbox" name="w[]" value="1" style="margin: 3px;" checked>월
+	            <input type="checkbox" name="w[]" value="2" style="margin: 3px;" checked>화
+	            <input type="checkbox" name="w[]" value="3" style="margin: 3px;" checked>수
+	            <input type="checkbox" name="w[]" value="4" style="margin: 3px;" checked>목
+	            <input type="checkbox" name="w[]" value="5" style="margin: 3px;" checked>금
+	            <input type="checkbox" name="w[]" value="6" style="margin: 3px;" checked>토
 	        </div>
 		</div>
         <input type="hidden" name="product_id" value="<?=$product->id?>">
@@ -354,53 +354,15 @@ $('#navi_btn').click(function(){
             <li style="display:inline-block">
             	<?=$daily_price[$i]->date?> (<?=$w[date('w', strtotime($daily_price[$i]->date))]?>) / <?=number_format($daily_price[$i]->price)?>원<br>
             </li>
-            <input type="checkbox" name="id[]" value="<?=$daily_price[$i]->id?>">
+            <input type="checkbox" name="id[]" class="checkList" value="<?=$daily_price[$i]->id?>">
         </div>
         <?php } ?>
+        <input type="checkbox" id="checkall" style="margin: 3px;">전체선택<br/>
         <input type="submit" value="선택 삭제">
         </form>
     </ol>
 </div>
 <!-- 날짜별 가격 끝 -->
-<!-- 위치 설정 시작 -->
-<!-- <div class="field">
-	<div id="target_<?//=$v_menus[$v_menu_id++]?>" class="sixteen wide column">
-	<h1 class="ui horizontal divider header">
-	    <i class="plus icon"></i>
-	    위치 추가하기
-	    </h1>
-	    <div id="map" style="width:100%;height:500px;"></div>
-	    <form  style="margin-top:20px;"class="ui form"onsubmit="ajax_submit(this); return false;" action="<?//=site_url(api_google_map_uri."/ajax_get_marker_by_address")?>" method="post">
-			<div class="field">
-	            <input type="text"placeholder="주소" name="search">
-	        </div>
-	        <input class="ui button positive basic" type="submit" value="주소검색">
-	    </form>
-	    <form style="margin-top:20px;" class="ui form" onsubmit="ajax_submit(this); return false;" action="<?//=site_url(admin_package_uri."/ajax_update/{$product->id}")?>">
-	            <input type="hidden" name="name" value="<?//=$product->name?>">
-	        <div class="field">
-	            <input type="text" name="address" placeholder="주소" value="<?//=set_value_data($product,'address')?>">
-	        </div>
-	        <div class="two fields">
-	            <div class="field">
-	                <input type="text" name="lat" placeholder="위도" value="<?//=set_value_data($product,'lat')?>">
-	            </div>
-	            <div class="field">
-	                <input type="text" name="lng" placeholder="경도" value="<?//=set_value_data($product,'lng')?>">
-	            </div>
-	        </div>
-	        <input class="ui button positive" type="submit" value="위치저장">
-	    </form>
-			
-	    <?//=$this->map_api->create_script()?>
-	    <?php //if($product->address !== ''){
-	        //$this->map_api->add_marker($product->lat,$product->lng,$product->address,$product->map_name,$product->map_type);
-	        //$this->map_api->move_to_location($product->lat,$product->lng);
-	     //} ?>
-	</div>
-	<br/>
-</div> -->
-<!-- 위치 설정 끝 -->
 <?php } ?>
 <br>
 
@@ -538,5 +500,13 @@ function submitContents(elClickedObj) {
 		
 	}
 }
+
+//요일선택 전체 체크
+$(function() {
+	$("#checkall").click(function() {
+		if($("#checkall").prop("checked")) $(".checkList").prop("checked", true);
+		else $(".checkList").prop("checked", false);
+	});
+});
 </script>
 <?php }?>

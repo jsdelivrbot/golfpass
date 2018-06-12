@@ -77,6 +77,9 @@
                 <input type="hidden" name="total_price" value="<?=$total_price?>">
                 <input type="hidden" name="order_name" value="<?=$product->name?>">
                 <input type="hidden" name="product_type" value="<?=$product_type?>">
+                <? if($product_type == "package"): ?>
+                <input type="hidden" name="pay_method" value="bank">
+                <? endif ?>
             <div class="row"> 
               
               <!-- ESTIMATE SHIPPING & TAX -->
@@ -99,6 +102,8 @@
                     
                     </div>
                   </div>
+                  
+                  <? if($product_type != "package"): ?>
                   <div class="pay-meth">
                     <h5 class="text-color-primary" style="color:#79b754 !important;">옵션 선택</h5>
                     <ul style="padding:0;">
@@ -155,8 +160,9 @@
                                   <option value="kpay">KPay 앱 직접 호출</option>
                               </select>
                           </label>
-                    <a id="order_submit_btn"href="#" class="btn btn-small btn-dark pull-right" style="background-color:#79b754 !important;">결제하기</a> </div>
-                    
+                    <a id="order_submit_btn"href="#" class="btn btn-small btn-dark pull-right" style="background-color:#79b754 !important;">결제하기</a>
+                  </div>
+                  <? endif ?>
                 </div>
               </div>
               <div class="col-sm-7">
@@ -186,6 +192,9 @@
                     </li>
                 </ul>
               </div>
+              <? if($product_type == "package"): ?>
+              <a id="order_submit_btn"href="#" class="btn btn-small btn-dark pull-right" style="background-color:#79b754 !important; color: #fff;">예약진행하기</a>
+              <? endif ?>
             <h5 class="font-20px margin-bottom-15" style="display:none;">동행자 정보 (<?=$num_people?>명)</h5>
             <h5 class="font-14px margin-bottom-30"  style="display:none;">동행자 정보는 추후에 입력하셔도 됩니다.</h5>
             <?php for ( $i = 0 ; $i < count($groups) ; $i++ ): ?>
@@ -357,7 +366,11 @@ function alert_payment_window(e)
     var totalPrice =$("input[name=total_price]").val();
     $form =$(e);
     // $form.find("input[name=total_price]").val(g_totalPrice);
+    <? if($product_type == "package"): ?>
+    var pay_method = $form.find("input[name=pay_method]").val();
+    <? else: ?>
     var pay_method = $form.find("select[name=pay_method] option:selected").val();
+    <? endif ?>
     var merchant_uid = 'merchant_' + new Date().getTime(); //고유주문번호 merchant_uid
     // console.log(merchant_uid);
     $form.find("input[name=merchant_uid]").val(merchant_uid);
@@ -396,7 +409,7 @@ function alert_payment_window(e)
             if(pay_method === 'bank')
             {
                 merchant_uid=merchant_uid.replace("merchant_","");
-                window.location.href = "<?=site_url(shop_order_uri.'/complete')?>"+"/"+merchant_uid;
+                window.location.href = "<?=site_url(shop_order_uri.'/complete')?>"+"/"+merchant_uid+"/"+<?=$product_type?>;
                 return;
             }
             //----------------아이엠포트 결제모듈 불러오기 시작-------------
