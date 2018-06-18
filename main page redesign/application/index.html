@@ -41,262 +41,354 @@
     <link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
     <!--<i class="xi-xpressengine"></i> xeicon사용하는방법임-->
 
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="../public/js/slick.js"></script>
+    <link rel="stylesheet" type="text/css" href="../public/css/slick.css" />
+    <link rel="stylesheet" type="text/css" href="../public/css/slick-theme.css" />
+
 </head>
 
 <body>
     <section style="height: 556px;">
         <header>
+
             <div class="top_main_wrap">
-                <div class="top_main_wrap_opacity">
-                    <div class="top_main_wrap_gradation">
 
-                        <nav>
-                            <div class="top_header_lineWrap">
-                                <div class="top_header_wrap">
-                                    <div class="top_header">
-                                        <ul class="top_header_left">
-                                            <a href="#">
-                                                <li class="iconText iconbox">
-                                                    <i class="xi-call"></i> 02-6959-5454
-                                                </li>
-                                            </a>
-                                            <a href="#">
-                                                <li class="iconText iconbox">
-                                                    <i class="xi-kakaotalk"></i> 카카오톡 문의
-                                                </li>
-                                            </a>
-                                            <a href="#">
-                                                <li class="iconOnly iconbox">
-                                                    <i class="xi-naver"></i>
-                                                </li>
-                                            </a>
-                                            <a href="#">
-                                                <li class="iconOnly iconbox">
-                                                    <i class="xi-facebook"></i>
-                                                </li>
-                                            </a>
-                                            <a href="#">
-                                                <li class="iconOnly iconbox">
-                                                    <i class="xi-instagram"></i>
-                                                </li>
-                                            </a>
-                                            <a href="#">
-                                                <li class="iconOnly iconbox">
-                                                    <i class="xi-youtube-play"></i>
-                                                </li>
-                                            </a>
-                                        </ul>
-                                        <ul class="top_header_right">
-                                            <a href="#">
-                                                <li class="textOnly">로그인
-                                                </li>
-                                            </a>
-                                            <li class="line">|
-                                            </li>
-                                            <a href="#">
-                                                <li class="textOnly">회원가입
-                                                </li>
-                                            </a>
-                                        </ul>
 
-                                    </div>
-                                </div>
-                            </div>
-                        </nav>
+                <script>
+                    $(document).ready(function() {
+                        $('.slide_background').slick({
+                            autoplay: true,
+                            autoplaySpeed: 5000,
+                            pauseOnHover: true,
+                            speed: 1000,
+                            touchMove: true,
+                            dots: true
+                        });
+                    });
+
+                </script>
+                <button class="slick-prev" aria-label="Previous" type="button">Previous</button>
+                <button class="slick-next" aria-label="Next" type="button">Next</button>
+                <div class="slide_background">
 
 
 
-                        <nav>
-                            <div class="main_nav_wrap">
-                                <div class="logo">
-                                    <img src="../public/images/logo.png">
-                                </div>
-                                <ul class="main_nav">
-                                    <li class="main_nav_li">
-                                        <a href="#">
-                                            골프장상품
-                                        </a>
-                                    </li>
-                                    <li class="main_nav_li">
-                                        <a href="#">
-                                            골프장상품
-                                        </a>
-                                    </li>
-                                    <li class="main_nav_li">
-                                        <a href="#">
-                                            골프장상품
-                                        </a>
-                                    </li>
-                                    <li class="main_nav_li">
-                                        <a href="#">
-                                            골프장상품
-                                        </a>
-                                    </li>
-                                    <li class="main_nav_li">
-                                        <a href="#">
-                                            골프장상품
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </nav>
-
-
-                        <div class="searchbox_wrap">
-                            <a href="#">
-                                <div class="searchbox">
-                                    <div class="searchtext">
-                                        <span class="bold">원하는 상품</span>을 찾아보세요!
-                                    </div>
-                                    <div class="search_button_wrap">
-                                        <div class="search_button">
-                                            <div class="search_icon">
-                                                <i class="xi-search"></i>
-                                            </div>
+                    <div class="slide_background_image">
+                        <div class="top_main_wrap_opacity">
+                            <div class="top_main_wrap_gradation">
+                                <div class="golf_info">
+                                    <a href="#">
+                                        <div class="bold">
+                                            나리타 G.C.
                                         </div>
-                                    </div>
-
-                                </div>
-                            </a>
-
-
-                            <div class="recommendbox">
-                                <div class="recommend">
-                                    <div class="recommend_textbox">
-                                        <div class="recommend_text">
-                                            추천
+                                        <div>
+                                            일본 치바 -18홀/6,531야드
                                         </div>
-                                    </div>
+                                    </a>
                                 </div>
-
-                                <ul class="recommend_menu">
-                                    <li class="recommend_menu_li">
-                                        <a href="#">
-                                            골프장상품
-                                        </a>
-                                    </li>
-                                    <li class="recommend_menu_li">
-                                        <a href="#">
-                                            골프장상품
-                                        </a>
-                                    </li>
-                                    <li class="recommend_menu_li">
-                                        <a href="#">
-                                            골프장상품
-                                        </a>
-                                    </li>
-                                    <li class="recommend_menu_li">
-                                        <a href="#">
-                                            골프장상품
-                                        </a>
-                                    </li>
-                                    <li class="recommend_menu_li">
-                                        <a href="#">
-                                            골프장상품
-                                        </a>
-                                    </li>
-
-                                </ul>
-
                             </div>
-
-
-
                         </div>
 
+                    </div>
 
+                    <div class="slide_background_image">
+                        <div class="top_main_wrap_opacity">
+                            <div class="top_main_wrap_gradation">
+                                <div class="golf_info">
+                                    <a href="#">
+                                        <div class="bold">
+                                            asdf G.C.
+                                        </div>
+                                        <div>
+                                            일본 치바 -18홀/6,531야드
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
 
+                    </div>
 
+                    <div class="slide_background_image">
+                        <div class="top_main_wrap_opacity">
+                            <div class="top_main_wrap_gradation">
+                                <div class="golf_info">
+                                    <a href="#">
+                                        <div class="bold">
+                                            asdfasdf G.C.
+                                        </div>
+                                        <div>
+                                            일본 치바 -18홀/6,531야드
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
 
+                    </div>
 
+                </div>
 
+            </div>
 
-
-
-                        <div class="bottom_nav">
-                            <ul>
-                                <a href="#">
-                                    <li class="bottom_nav_li">
+            <div>
+                <nav style="position: relative;">
+                    <div class="top_header_lineWrap">
+                        <div class="top_header_wrap">
+                            <div class="top_header">
+                                <ul class="top_header_left">
+                                    <a href="#">
+                                        <li class="iconText iconbox">
+                                            <i class="xi-call"></i> 02-6959-5454
+                                        </li>
+                                    </a>
+                                    <a href="#">
+                                        <li class="iconText iconbox">
+                                            <i class="xi-kakaotalk"></i> 카카오톡 문의
+                                        </li>
+                                    </a>
+                                    <a href="#">
+                                        <li class="iconOnly iconbox">
+                                            <i class="xi-naver"></i>
+                                        </li>
+                                    </a>
+                                    <a href="#">
+                                        <li class="iconOnly iconbox">
+                                            <i class="xi-facebook"></i>
+                                        </li>
+                                    </a>
+                                    <a href="#">
+                                        <li class="iconOnly iconbox">
+                                            <i class="xi-instagram"></i>
+                                        </li>
+                                    </a>
+                                    <a href="#">
+                                        <li class="iconOnly iconbox">
+                                            <i class="xi-youtube-play"></i>
+                                        </li>
+                                    </a>
+                                </ul>
+                                <ul class="top_header_right">
+                                    <a href="#">
+                                        <li class="textOnly">로그인
+                                        </li>
+                                    </a>
+                                    <li class="line">|
                                     </li>
-                                </a>
+                                    <a href="#">
+                                        <li class="textOnly">회원가입
+                                        </li>
+                                    </a>
+                                </ul>
+
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+
+
+
+                <nav style="position: relative;">
+                    <div class="main_nav_wrap">
+                        <div class="logo">
+                            <img src="../public/images/logo.png">
+                        </div>
+                        <ul class="main_nav">
+                            <li class="main_nav_li">
                                 <a href="#">
-                                    <li class="bottom_nav_li">
-                                    </li>
-                                </a>
+                                            골프장상품
+                                        </a>
+                            </li>
+                            <li class="main_nav_li">
                                 <a href="#">
-                                    <li class="bottom_nav_li">
-                                    </li>
-                                </a>
+                                            골프장상품
+                                        </a>
+                            </li>
+                            <li class="main_nav_li">
                                 <a href="#">
-                                    <li class="bottom_nav_li li_focus">
-                                    </li>
-                                </a>
+                                            골프장상품
+                                        </a>
+                            </li>
+                            <li class="main_nav_li">
                                 <a href="#">
-                                    <li class="bottom_nav_li">
-                                    </li>
-                                </a>
+                                            골프장상품
+                                        </a>
+                            </li>
+                            <li class="main_nav_li">
                                 <a href="#">
-                                    <li class="bottom_nav_li">
-                                    </li>
-                                </a>
+                                            골프장상품
+                                        </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+
+
+                <div class="searchbox_wrap">
+                    <a href="#">
+                        <div class="searchbox">
+                            <div class="searchtext">
+                                <span class="bold">원하는 상품</span>을 찾아보세요!
+                            </div>
+                            <div class="search_button_wrap">
+                                <div class="search_button">
+                                    <div class="search_icon">
+                                        <i class="xi-search"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </a>
+
+
+
+                    <script>
+                        $(document).ready(function() {
+                            $('#slide_banner').slick({
+                                slidesToShow: 5,
+                                slidesToScroll: 1,
+                                autoplay: true,
+                                autoplaySpeed: 100,
+                                pauseOnHover: true,
+                                prevArrow: false,
+                                nextArrow: false,
+                                speed: 2000,
+                                touchMove: true
+                            });
+                        });
+
+                    </script>
+
+                    <div class="recommendbox">
+                        <div class="recommend">
+                            <div class="recommend_textbox">
+                                <div class="recommend_text">
+                                    추천
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="recommend_menu">
+                            <ul id="slide_banner">
+                                <li class="recommend_menu_li">
+                                    <a href="#">
+                                            골프장상품1
+                                        </a>
+                                </li>
+                                <li class="recommend_menu_li">
+                                    <a href="#">
+                                            골프장상품2
+                                        </a>
+                                </li>
+                                <li class="recommend_menu_li">
+                                    <a href="#">
+                                            골프장상품3
+                                        </a>
+                                </li>
+                                <li class="recommend_menu_li">
+                                    <a href="#">
+                                            골프장상품4
+                                        </a>
+                                </li>
+                                <li class="recommend_menu_li">
+                                    <a href="#">
+                                            골프장상품5
+                                        </a>
+                                </li>
+                                <li class="recommend_menu_li">
+                                    <a href="#">
+                                            골프장상품6
+                                        </a>
+                                </li>
+                                <li class="recommend_menu_li">
+                                    <a href="#">
+                                            골프장상품7
+                                        </a>
+                                </li>
+                                <li class="recommend_menu_li">
+                                    <a href="#">
+                                            골프장상품8
+                                        </a>
+                                </li>
+                                <li class="recommend_menu_li">
+                                    <a href="#">
+                                            골프장상품9
+                                        </a>
+                                </li>
+                                <li class="recommend_menu_li">
+                                    <a href="#">
+                                            골프장상품0
+                                        </a>
+                                </li>
+
+
                             </ul>
                         </div>
 
+                    </div>
 
-                        <div class="side_nav">
-                            <div class="side_nav_left">
-                                <a href="#">
-                                    <div class="side_nav_box">
-                                        <i class="xi-angle-left-thin"></i>
-                                    </div>
-                                </a>
+
+
+                </div>
+
+
+                <!--
+
+
+                <div class="bottom_nav">
+                    <ul>
+                        <a href="#">
+                            <li class="bottom_nav_li">
+                            </li>
+                        </a>
+                        <a href="#">
+                            <li class="bottom_nav_li">
+                            </li>
+                        </a>
+                        <a href="#">
+                            <li class="bottom_nav_li">
+                            </li>
+                        </a>
+                        <a href="#">
+                            <li class="bottom_nav_li li_focus">
+                            </li>
+                        </a>
+                        <a href="#">
+                            <li class="bottom_nav_li">
+                            </li>
+                        </a>
+                        <a href="#">
+                            <li class="bottom_nav_li">
+                            </li>
+                        </a>
+                    </ul>
+                </div>
+
+
+                <div class="side_nav">
+                    <div class="side_nav_left">
+                        <a href="#">
+                            <div class="side_nav_box">
+                                <i class="xi-angle-left-thin"></i>
                             </div>
-                            <div class="side_nav_right">
-                                <a href="#">
-                                    <div class="side_nav_box">
-                                        <i class="xi-angle-right-thin"></i>
-
-                                    </div>
-                                </a>
+                        </a>
+                    </div>
+                    <div class="side_nav_right">
+                        <a href="#">
+                            <div class="side_nav_box">
+                                <i class="xi-angle-right-thin"></i>
 
                             </div>
-                        </div>
-
-
-
-
-
-
-
-
-
-
-                        <div class="golf_info">
-                            <a href="#">
-                                <div class="bold">
-                                    나리타 G.C.
-                                </div>
-                                <div>
-                                    일본 치바 -18홀/6,531야드
-                                </div>
-                            </a>
-                        </div>
-
-
-
-
-
-
-
+                        </a>
 
                     </div>
-                </div>
+                </div>-->
+
             </div>
-
-
-
-
-
 
 
 

@@ -8,7 +8,15 @@ a {
 a:active {
   color: inherit; }
 
+a:focus {
+  outline: none; }
+
 .top_main_wrap {
+  position: absolute;
+  height: 556px;
+  width: 100%; }
+
+.slide_background_image {
   height: 556px;
   width: 100%;
   background-image: url(../../public/images/background.png);
@@ -17,8 +25,7 @@ a:active {
 
 .top_main_wrap_opacity {
   background-color: rgba(0, 0, 0, 0.2);
-  .
-    height: 556px; }
+  . height: 556px; }
 
 .top_main_wrap_gradation {
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 70%, #000 100%);
@@ -109,6 +116,7 @@ a:active {
   display: inline-block; }
 
 .searchbox_wrap {
+  position: relative;
   max-width: 600px;
   margin: 0 auto;
   margin-top: 90px;
@@ -193,7 +201,7 @@ a:active {
   position: relative;
   text-align: right;
   color: #fff;
-  top: -34px;
+  top: 508px;
   right: 20px; }
 
 .bottom_nav {
