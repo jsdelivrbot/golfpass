@@ -1,6 +1,13 @@
 @import url(https://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 @import url(https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css);
 @import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+a {
+  text-decoration: none;
+  color: inherit; }
+
+a:active {
+  color: inherit; }
+
 .top_main_wrap {
   height: 556px;
   width: 100%;
@@ -89,13 +96,13 @@
   padding-top: 33px;
   margin: 0 auto; }
 
-.main_nav div {
+.main_nav_li {
   padding-right: 30px;
   font-size: 16px;
   color: #fff;
   display: inline-block; }
 
-.main_nav div:nth-child(5) {
+.main_nav_li:nth-child(5) {
   padding-right: 0px;
   font-size: 16px;
   color: #fff;
@@ -174,7 +181,7 @@
   color: #fff;
   vertical-align: middle; }
 
-.recommend_menu div {
+.recommend_menu_li {
   font-size: 13px;
   padding-left: 20px;
   color: #fff;
@@ -232,7 +239,20 @@
   font-size: 40px;
   width: 70px;
   height: 70px;
-  background-color: rgba(0, 0, 0, 0.7); }
+  background-color: rgba(0, 0, 0, 0.7);
+  opacity: 0.5;
+  transition: opacity .50s;
+  -o-transition: opacity .50s;
+  -moz-transition: opacity .50s;
+  -webkit-transition: opacity .50s; }
+
+.side_nav_box:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+  opacity: 1;
+  transition: opacity .50s;
+  -o-transition: opacity .50s;
+  -moz-transition: opacity .50s;
+  -webkit-transition: opacity .50s; }
 
 .xi-angle-left-thin {
   display: table-cell !important;
