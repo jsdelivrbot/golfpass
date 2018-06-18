@@ -349,7 +349,7 @@
                                                     <h3 class="gdlr-core-widget-box-shortcode-title" style="color: #ffffff;">여행자 필수 준비물!</h3>
                                                     <div class="gdlr-core-widget-box-shortcode-content">
                                                         <p>타임즈카 렌탈 10% OFF 플랜으로 골프장 갈땐 렌터카부터 시작해서 안전을 위한 여행 필수품 오픈플랜 여행자 보험, 해외에서도 데이터 걱정없이 와이파이 도시락까지!</p>
-                                                        <p><a href="http://golfpass.net/public/event/eventpage2.html" target="_blank"><i class="fa fa-phone" style="font-size: 20px;color: #ffcf2a;margin-right: 10px;"></i> <span style="font-size: 20px; color: #ffcf2a; font-weight: 600;">지금 체크하기</span></a></p>
+                                                        <a href="http://golfpass.net/public/event/eventpage2.html" target="_blank"><p><i class="fa fa-phone" style="font-size: 20px;color: #ffcf2a;margin-right: 10px;"></i> <span style="font-size: 20px; color: #ffcf2a; font-weight: 600;">지금 체크하기</span></p></a>
                                                         <p><i class="fa fa-envelope-o" style="font-size: 17px;color: #ffcf2a;margin-right: 10px;"></i> <span style="font-size: 14px; color: #fff; font-weight: 600;">문의사항은 고객센터로</span></p>
                                                     </div>
                                                 </div>
