@@ -21,7 +21,7 @@ class Product extends Base_Controller {
     	$this->db->or_like("p.name",$where);
 
         $products=$this->products_model->gets_by_ranking('avg_score');
-        $num_products =  count($products);
+        $num_products = count($products);
 		$products= $this->products_model->_gets_with_pgi_func(
             "style_zap",
             function() use($num_products)
@@ -69,44 +69,70 @@ class Product extends Base_Controller {
     }
     
 	public function gets($id =1){
+	    $sort_value = $this->input->get_post('sort_value');
+	    
 		//packages
 		$this->load->model("shop/product_package_model");
-		$packages =$this->product_package_model->get_by_category_id_pgi($id);
+		//$packages = $this->product_package_model->get_by_category_id_pgi($id);
+		$packages = $this->product_package_model->gets_for_merge($id);
 		
         //product       
-        $products =$this->products_model->get_by_category_id_pgi($id);        
-        for($i=0 ;$i <count($products); $i++)
-        {
-            $photos = $products[$i]->photos;
-            if(strpos($photos,',') > -1) $products[$i]->photos =  explode(",",$photos);
-            else if($photos !== null) $products[$i]->photos =  array($photos);
-            else $products[$i]->photos = array('','','');
-        }
-
+		if($sort_value != "package") { //패키지 상품만 보기 일때는 나타내지 않음
+		    $products = $this->products_model->get_by_category_id_pgi($id);
+		    
+            for($i=0 ;$i <count($products); $i++) {
+                $photos = $products[$i]->photos;
+                if(strpos($photos,',') > -1) $products[$i]->photos =  explode(",",$photos);
+                else if($photos !== null) $products[$i]->photos =  array($photos);
+                else $products[$i]->photos = array('','','');
+            }
+		}
+		
+		$num_packages = count($packages);
+		$num_products = count($products);
+		if($num_packages > $num_products) {
+		    $packages = $this->product_package_model->_gets_with_pgi_func(
+		        "style_zap",
+		        function() use($num_packages)
+		        {
+		            return $num_packages;
+		    },
+		    function($offset,$per_page) use($packages)
+		    {
+		        return array_slice($packages,$offset,$per_page);
+		    },
+		    null,
+		    array("per_page"=>9,"is_numrow"=>false)
+		    );
+		} else {
+		    $products = $this->products_model->_gets_with_pgi_func(
+		        "style_zap",
+		        function() use($num_products)
+		        {
+		            return $num_products;
+		    },
+		    function($offset,$per_page) use($products)
+		    {
+		        return array_slice($products,$offset,$per_page);
+		    },
+		    null,
+		    array("per_page"=>9,"is_numrow"=>false)
+		    );
+		}
+		
         //category
         $this->load->model("product_categories_model");
         $category= $this->product_categories_model->_get($id);
-        
         $parent_category = $this->product_categories_model->_get($category->parent_id);
-        if($category->parent_id ==="0")
-        {
-            $parent_category = $category;
-        }
-        else if($parent_category->name === "나라별")
-        {
-            $parent_category = $category;
-        }
+        if($category->parent_id ==="0") $parent_category = $category;
+        else if($parent_category->name === "나라별") $parent_category = $category;
         
-        //패키지 상품 우선 보기 (순서변경)
-		$sort_value = $this->input->get_post('sort_value');
-        if($sort_value == "uppackage") {
-            $data['uppackage'] = true;
-        } else {
-            $data['uppackage'] = false;
-        }
-        
-        $data['products'] = $products;
-        $data['packages'] = $packages;
+        //sort
+		if($sort_value == "uppackage") $merge = array_merge($packages, $products); //패키지 상품 우선 보기 (순서변경)
+		else if($sort_value == "package") $merge = $packages; //패키지 상품만 보기
+		else $merge = array_merge($products, $packages); //일반 상품 우선 보기 (순서변경)
+		
+        $data['products'] = $merge;
         $data['category'] = $category;
         $data['parent_category'] = $parent_category;
         $data['child_categories'] = $this->product_categories_model->_gets(array("parent_id"=>$parent_category->id));

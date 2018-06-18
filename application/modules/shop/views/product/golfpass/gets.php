@@ -129,45 +129,20 @@
                   
 
                 <div class="row">
-                	<?php if($uppackage): ?>
-                	<?php for( $i=0; $i< count($packages); $i++ ) { ?>
-                        <div class="col-md-4 margin-bottom-80" style="cursor: pointer;" onclick="location.href='<?=site_url(shop_package_uri."/get/{$packages[$i]->id}")?>';">
+                    <?php for($i=0; $i< count($products); $i++) { ?>
+                    	<?php if($products[$i]->type == 'package') { ?>
+                        <div class="col-md-4 margin-bottom-80" style="cursor: pointer;" onclick="location.href='<?=site_url(shop_package_uri."/get/{$products[$i]->id}")?>';">
                             <article class="blog-post">
-                                <div class="post-img position-relative rounded-top" style="background-image:url(<?=$packages[$i]->photo?>); background-repeat:no-repeat; background-position:center; background-size:cover">
+                                <div class="post-img position-relative rounded-top" style="background-image:url(<?=$products[$i]->photo?>); background-repeat:no-repeat; background-position:center; background-size:cover">
                                 	<img src="/public/icon/label_hotelstay.png" style="width: 84px; position: absolute; right: 10px;"> <!-- 상품라벨 -->
                                     <img src="/public/etc/list/images/golfpass/list-blank.png" class="blank_img">
-                                    <span class="date font-crimson" style="font-family: 'notokr-regular', sans-serif; font-weight: normal;"><?=my_number_format($packages[$i]->price)?></span>
+                                    <span class="date font-crimson" style="font-family: 'notokr-regular', sans-serif; font-weight: normal;"><?=my_number_format($products[$i]->price)?></span>
                                     <span class="date font-crimson" style="bottom: 20px; background-color: #383838; font-family: 'notokr-regular', sans-serif; font-weight: normal;">패키지 상품</span>
-                                </div>
-                                <a href="#" class="tittle-post" style="font-family: 'notokr-regular', sans-serif; font-weight: normal;"> <?=$packages[$i]->name?> </a>
-                                <span class="post-bt"><span class="text-color-primary" style="font-family: 'notokr-demilight', sans-serif; font-weight: normal;"><?=$packages[$i]->eng_name?></span></span>
-                                <!--<p style="font-family: 'notokr-demilight', sans-serif; font-weight: normal;">
-                                <?php echo $packages[$i]->desc; ?>
-                                </p>-->
-                                <ul class="post-info margin-bottom-0">
-                                    <li> <i class="fa fa-star" style="color: #fcbf3f;"></i><?=round($packages[$i]->avg_score*10)/10?> </li>
-                                    <li> <i class="fa fa-map-o"></i><?=$packages[$i]->parent_category_name?> </li>
-                                    <!-- <li> <i class="fa fa-map"></i><?=$category->name?> </li> -->
-                                    <li> <i class="fa fa-map"></i><?=$packages[$i]->category_name?> </li>
-                                    <li class="pull-right no-margin last-li"> <a href="#">자세히 <i class="fa fa-angle-right margin-left-10"></i></a></li>
-                                </ul>
-                            </article>
-                        </div>
-                    <?php } ?>
-                    <?php for($i=0; $i< count($products); $i++) { ?>
-                        <div class="col-md-4 margin-bottom-80" style="cursor: pointer;" onclick="location.href='<?=site_url(shop_product_uri."/get/{$products[$i]->id}")?>';">
-                            <article class="blog-post">
-                                <div class="post-img position-relative rounded-top" style="background-image:url(<?=$products[$i]->photos[0]?>); background-repeat:no-repeat; background-position:center; background-size:cover">
-                                    <img src="/public/etc/list/images/golfpass/list-blank.png" class="blank_img">
-                                    <span class="date font-crimson" style="font-family: 'notokr-regular', sans-serif; font-weight: normal;"><?=my_number_format(_cal_apply_exchangeRate_and_margin_to_price($products[$i]->price))?></span>
-                                    <span class="date font-crimson" style="bottom: 20px; background-color: #383838; font-family: 'notokr-regular', sans-serif; font-weight: normal;"><?=$products[$i]->hotel_id !== null ? "숙박 포함" : "숙박 미포함"?></span>
                                 </div>
                                 <a href="#" class="tittle-post" style="font-family: 'notokr-regular', sans-serif; font-weight: normal;"> <?=$products[$i]->name?> </a>
                                 <span class="post-bt"><span class="text-color-primary" style="font-family: 'notokr-demilight', sans-serif; font-weight: normal;"><?=$products[$i]->eng_name?></span></span>
                                 <!--<p style="font-family: 'notokr-demilight', sans-serif; font-weight: normal;">
-                                    <?
-                                        echo $products[$i]->desc;
-                                    ?>
+                                <?php echo $products[$i]->desc; ?>
                                 </p>-->
                                 <ul class="post-info margin-bottom-0">
                                     <li> <i class="fa fa-star" style="color: #fcbf3f;"></i><?=round($products[$i]->avg_score*10)/10?> </li>
@@ -178,9 +153,7 @@
                                 </ul>
                             </article>
                         </div>
-                    <?php }?>
-                    <?php else: ?>
-                    <?php for($i=0; $i< count($products); $i++) { ?>
+                        <?php } else { ?>
                         <div class="col-md-4 margin-bottom-80" style="cursor: pointer;" onclick="location.href='<?=site_url(shop_product_uri."/get/{$products[$i]->id}")?>';">
                             <article class="blog-post">
                                 <div class="post-img position-relative rounded-top" style="background-image:url(<?=$products[$i]->photos[0]?>); background-repeat:no-repeat; background-position:center; background-size:cover">
@@ -191,9 +164,7 @@
                                 <a href="#" class="tittle-post" style="font-family: 'notokr-regular', sans-serif; font-weight: normal;"> <?=$products[$i]->name?> </a>
                                 <span class="post-bt"><span class="text-color-primary" style="font-family: 'notokr-demilight', sans-serif; font-weight: normal;"><?=$products[$i]->eng_name?></span></span>
                                 <!--<p style="font-family: 'notokr-demilight', sans-serif; font-weight: normal;">
-                                    <?
-                                        echo $products[$i]->desc;
-                                    ?>
+                                    <? echo $products[$i]->desc; ?>
                                 </p>-->
                                 <ul class="post-info margin-bottom-0">
                                     <li> <i class="fa fa-star" style="color: #fcbf3f;"></i><?=round($products[$i]->avg_score*10)/10?> </li>
@@ -204,32 +175,8 @@
                                 </ul>
                             </article>
                         </div>
+                        <?php } ?>
                     <?php }?>
-                    <?php for($i=0; $i< count($packages); $i++) { ?>
-                        <div class="col-md-4 margin-bottom-80" style="cursor: pointer;" onclick="location.href='<?=site_url(shop_package_uri."/get/{$packages[$i]->id}")?>';">
-                            <article class="blog-post">
-                                <div class="post-img position-relative rounded-top" style="background-image:url(<?=$packages[$i]->photo?>); background-repeat:no-repeat; background-position:center; background-size:cover">
-                                	<img src="/public/icon/label_hotelstay.png" style="width: 84px; position: absolute; right: 10px;"> <!-- 상품라벨 -->
-                                    <img src="/public/etc/list/images/golfpass/list-blank.png" class="blank_img">
-                                    <span class="date font-crimson" style="font-family: 'notokr-regular', sans-serif; font-weight: normal;"><?=my_number_format($packages[$i]->price)?></span>
-                                    <span class="date font-crimson" style="bottom: 20px; background-color: #383838; font-family: 'notokr-regular', sans-serif; font-weight: normal;">패키지 상품</span>
-                                </div>
-                                <a href="#" class="tittle-post" style="font-family: 'notokr-regular', sans-serif; font-weight: normal;"> <?=$packages[$i]->name?> </a>
-                                <span class="post-bt"><span class="text-color-primary" style="font-family: 'notokr-demilight', sans-serif; font-weight: normal;"><?=$packages[$i]->eng_name?></span></span>
-                                <!--<p style="font-family: 'notokr-demilight', sans-serif; font-weight: normal;">
-                                <?php echo $packages[$i]->desc; ?>
-                                </p>-->
-                                <ul class="post-info margin-bottom-0">
-                                    <li> <i class="fa fa-star" style="color: #fcbf3f;"></i><?=round($packages[$i]->avg_score*10)/10?> </li>
-                                    <li> <i class="fa fa-map-o"></i><?=$packages[$i]->parent_category_name?> </li>
-                                    <!-- <li> <i class="fa fa-map"></i><?=$category->name?> </li> -->
-                                    <li> <i class="fa fa-map"></i><?=$packages[$i]->category_name?> </li>
-                                    <li class="pull-right no-margin last-li"> <a href="#">자세히 <i class="fa fa-angle-right margin-left-10"></i></a></li>
-                                </ul>
-                            </article>
-                        </div>
-                    <?php } ?>
-                    <?php endif ?>
                 </div>
 
                 <!-- 페이지네이션 -->

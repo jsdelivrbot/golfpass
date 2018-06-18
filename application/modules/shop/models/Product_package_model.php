@@ -98,6 +98,7 @@ class Product_package_Model extends Board_Model{
 
             }
         };
+        
         return $products= parent::_gets_with_pgi_func(
             "style_zap",
             function() use($gets)
@@ -258,5 +259,11 @@ class Product_package_Model extends Board_Model{
     	$this->db->from("$this->table");
     	$this->db->where("id",$id);
     	return $this->db->get()->result();
+    }
+    
+    function gets_for_merge($category) {
+        $query = "select * from product_package a inner join (select product_id from ref_cate_package where cate_id = (select id from product_categories where parent_id = '$category')) as b on a.id = b.product_id";
+        $products = $this->db->query($query)->result();
+        return $products;
     }
 }

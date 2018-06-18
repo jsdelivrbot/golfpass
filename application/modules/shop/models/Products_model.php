@@ -48,6 +48,7 @@ class Products_Model extends Board_Model{
             $this->set_select_from();
         
         };
+        
         $gets = function() use($arr_cate_id,$set_select_from)
         {
 
@@ -62,46 +63,43 @@ class Products_Model extends Board_Model{
         $sort_type = $this->input->get_post('sort_type');
         $sort_value = $this->input->get_post('sort_value');
         if($sort_value == "uppackage") $sort_value = "created";
-        
-        //패키지 상품만 보기 일때는 나타내지 않음
-        if($sort_value != "package") {
-        
-	        $order_by = function() use($sort_type,$sort_value)
+
+	    $order_by = function() use($sort_type,$sort_value)
+	    {
+	        if($sort_type !== null && $sort_value !== null)
 	        {
-	            if($sort_type !== null && $sort_value !== null)
-	            {
-	                if($sort_type === "asc" && $sort_value === "price")
-	                {
-	                    $this->db->order_by("field(price,0,1) asc, price");
-	                }else
-	                {
-	                    $this->db->order_by($sort_value,$sort_type);
-	                }
-	            }
-	            else
-	            {
-	                $this->db->order_by("created","desc");
-	
-	            }
-	        };
-	        return $products= parent::_gets_with_pgi_func(
-	            "style_zap",
-	            function() use($gets)
-	            {   
-	                $gets();
-	                return $this->db->count_all_results();
-	            },
-	            function($offset,$per_page) use($gets,$order_by)
-	            {
-	                $gets();
-	                $order_by();
-	                $this->db->limit($per_page,$offset);
-	                return $this->db->get()->result();
-	            },
-	            null,
-	            array("per_page"=>9,"is_numrow"=>false)
-	        );
-        }
+                if($sort_type === "asc" && $sort_value === "price")
+                {
+                    $this->db->order_by("field(price,0,1) asc, price");
+                }else
+                {
+                    $this->db->order_by($sort_value,$sort_type);
+                }
+            }
+            else
+            {
+                $this->db->order_by("created","desc");
+
+            }
+        };
+        
+        return $products= parent::_gets_with_pgi_func(
+            "style_zap",
+            function() use($gets)
+            {   
+                $gets();
+                return $this->db->count_all_results();
+            },
+            function($offset,$per_page) use($gets,$order_by)
+            {
+                $gets();
+                $order_by();
+                $this->db->limit($per_page,$offset);
+                return $this->db->get()->result();
+            },
+            null,
+            array("per_page"=>9,"is_numrow"=>false)
+        );
     }
 
 
@@ -264,5 +262,11 @@ class Products_Model extends Board_Model{
         $this->load->model("golfpass/p_daily_price_model");
         $this->p_daily_price_model->_delete(array("product_id"=>$id));
 
+    }
+    
+    function gets_for_merge($category) {
+        $query = "select * from products a inner join (select product_id from ref_cate_package where cate_id = (select id from product_categories where parent_id = '$category')) as b on a.id = b.product_id";
+        $products = $this->db->query($query)->result();
+        return $products;
     }
 }

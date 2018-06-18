@@ -108,7 +108,7 @@ $('#navi_btn').click(function(){
     <form  class="ui form" action="<?=my_site_url(admin_package_uri."/$mode")?>" method="post">	
         <div class="field">
             <label>상품이름</label>
-            <input type="text" name="name" value="<?=set_value_data($product,'name')?>" > <?=form_error('name',false,false)?><br> 
+            <input type="text" name="name" value="<?=set_value_data($product,'name')?>" ><br> 
         </div>
         
         <div class="field">
