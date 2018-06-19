@@ -213,3 +213,93 @@
     opacity: .75;
     color: transparent;
 }
+
+/*----------------------------------*/
+
+.event-dots {
+    position: absolute;
+    bottom: -20px;
+
+    display: block;
+
+    width: 100%;
+    padding: 0;
+    margin: 0;
+
+    list-style: none;
+
+    text-align: center;
+}
+
+.event-dots li {
+    position: relative;
+
+    display: inline-block;
+
+    width: 15px;
+    height: 15px;
+    margin: 0 2.5px;
+
+
+
+    cursor: pointer;
+}
+
+.event-dots li button {
+
+    font-size: 0;
+    line-height: 0;
+
+    display: block;
+
+    width: 15px;
+    height: 15px;
+    margin: 0 2.5px;
+
+    cursor: pointer;
+    border-radius: 50%;
+    color: transparent;
+    border: 0;
+    outline: none;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.event-dots li button:hover,
+.event-dots li button:focus {
+    outline: none;
+}
+
+.event-dots li button:hover:before,
+.event-dots li button:focus:before {
+    opacity: 1;
+}
+
+.event-dots li button:before {
+    font-family: 'slick';
+    font-size: 6px;
+    line-height: 20px;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 15px;
+    height: 15px;
+    margin: 0 2.5px;
+
+    content: '';
+    text-align: center;
+    border-radius: 50%;
+
+    opacity: 0;
+    color: transparent;
+    background-color: #000;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.event-dots li.slick-active button:before {
+    opacity: .75;
+    color: transparent;
+}

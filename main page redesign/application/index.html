@@ -13,6 +13,8 @@
     <meta property="og:image" content="http://golfpass.net/image/0001.png">
     <meta property="og:url" content="http://golfpass.net">
 
+    <link rel="shortcut icon" href="./favicon.ico">
+
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <!--<script async src="https://www.googletagmanager.com/gtag/js?id=UA-82379730-2"></script>
     <script>
@@ -52,10 +54,10 @@
 
 <body>
     <section style="height: 556px;">
+        <!--_header.scss사용-->
         <header>
-
+            <!--배경화면 이미지 슬라이드-->
             <div class="top_main_wrap">
-
 
                 <script>
                     $(document).ready(function() {
@@ -65,70 +67,58 @@
                             pauseOnHover: true,
                             speed: 1000,
                             touchMove: true,
-                            dots: true
                         });
                     });
 
                 </script>
-                <button class="slick-prev" aria-label="Previous" type="button">Previous</button>
-                <button class="slick-next" aria-label="Next" type="button">Next</button>
+
+
                 <div class="slide_background">
-
-
-
                     <div class="slide_background_image">
                         <div class="top_main_wrap_opacity">
                             <div class="top_main_wrap_gradation">
                                 <div class="golf_info">
                                     <a href="#">
                                         <div>
-                                            <span class="bold">나리타 G.C.</span><br>
-                                            일본 치바 -18홀/6,531야드
+                                            <span class="bold">나리타 G.C.</span><br> 일본 치바 -18홀/6,531야드
                                         </div>
                                     </a>
                                 </div>
                             </div>
                         </div>
-
                     </div>
-
                     <div class="slide_background_image">
                         <div class="top_main_wrap_opacity">
                             <div class="top_main_wrap_gradation">
                                 <div class="golf_info">
                                     <a href="#">
                                         <div>
-                                            <span class="bold">나df리타 G.C.</span><br>
-                                            일본 치바 -18홀/6,531야드
+                                            <span class="bold">나df리타 G.C.</span><br> 일본 치바 -18홀/6,531야드
                                         </div>
                                     </a>
                                 </div>
                             </div>
                         </div>
-
                     </div>
-
                     <div class="slide_background_image">
                         <div class="top_main_wrap_opacity">
                             <div class="top_main_wrap_gradation">
                                 <div class="golf_info">
                                     <a href="#">
                                         <div>
-                                            <span class="bold">asd나리타 G.C.</span><br>
-                                            일본 치바 -18홀/6,531야드
+                                            <span class="bold">asd나리타 G.C.</span><br> 일본 치바 -18홀/6,531야드
                                         </div>
                                     </a>
                                 </div>
                             </div>
                         </div>
-
                     </div>
-
                 </div>
-
             </div>
 
+            <!--메인 탑 헤더 내용-->
             <div>
+                <!--헤더 메뉴-->
                 <nav style="position: relative;">
                     <div class="top_header_lineWrap">
                         <div class="top_header_wrap">
@@ -183,8 +173,7 @@
                     </div>
                 </nav>
 
-
-
+                <!--메인 메뉴-->
                 <nav style="position: relative;">
                     <div class="main_nav_wrap">
                         <div class="logo">
@@ -193,34 +182,34 @@
                         <ul class="main_nav">
                             <li class="main_nav_li">
                                 <a href="#">
-                                            골프장상품
+                                            골프장 상품
                                         </a>
                             </li>
                             <li class="main_nav_li">
                                 <a href="#">
-                                            골프장상품
+                                            패키지 상품
                                         </a>
                             </li>
                             <li class="main_nav_li">
                                 <a href="#">
-                                            골프장상품
+                                            테마별 상품
                                         </a>
                             </li>
                             <li class="main_nav_li">
                                 <a href="#">
-                                            골프장상품
+                                            골프장 순위
                                         </a>
                             </li>
                             <li class="main_nav_li">
                                 <a href="#">
-                                            골프장상품
+                                            고객센터
                                         </a>
                             </li>
                         </ul>
                     </div>
                 </nav>
 
-
+                <!--상품 찾기 메뉴-->
                 <div class="searchbox_wrap">
                     <a href="#">
                         <div class="searchbox">
@@ -238,12 +227,11 @@
                         </div>
                     </a>
 
-
-
+                    <!--추천 상품 슬라이더-->
                     <script>
                         $(document).ready(function() {
                             $('#slide_banner').slick({
-                                slidesToShow: 5,
+                                slidesToShow: 4,
                                 slidesToScroll: 1,
                                 autoplay: true,
                                 autoplaySpeed: 100,
@@ -251,7 +239,8 @@
                                 prevArrow: false,
                                 nextArrow: false,
                                 speed: 2000,
-                                touchMove: true
+                                touchMove: true,
+                                variableWidth: true
                             });
                         });
 
@@ -270,69 +259,63 @@
                             <ul id="slide_banner">
                                 <li class="recommend_menu_li">
                                     <a href="#">
-                                            골프장상품1
-                                        </a>
+                                            니죠 C.C.
+                                    </a>
                                 </li>
                                 <li class="recommend_menu_li">
                                     <a href="#">
-                                            골프장상품2
-                                        </a>
+                                            나가사키 파크 C.C.
+                                    </a>
                                 </li>
                                 <li class="recommend_menu_li">
                                     <a href="#">
-                                            골프장상품3
-                                        </a>
+                                            아오시마 G.C.
+                                    </a>
                                 </li>
                                 <li class="recommend_menu_li">
                                     <a href="#">
-                                            골프장상품4
-                                        </a>
+                                            디어레이크 C.C.
+                                    </a>
                                 </li>
                                 <li class="recommend_menu_li">
                                     <a href="#">
-                                            골프장상품5
-                                        </a>
+                                            레이크 포레스트
+                                    </a>
                                 </li>
                                 <li class="recommend_menu_li">
                                     <a href="#">
-                                            골프장상품6
-                                        </a>
+                                            니죠 C.C.
+                                    </a>
                                 </li>
                                 <li class="recommend_menu_li">
                                     <a href="#">
-                                            골프장상품7
-                                        </a>
+                                            나가사키 파크 C.C.
+                                    </a>
                                 </li>
                                 <li class="recommend_menu_li">
                                     <a href="#">
-                                            골프장상품8
-                                        </a>
+                                            아오시마 G.C.
+                                    </a>
                                 </li>
                                 <li class="recommend_menu_li">
                                     <a href="#">
-                                            골프장상품9
-                                        </a>
+                                            디어레이크 C.C.
+                                    </a>
                                 </li>
                                 <li class="recommend_menu_li">
                                     <a href="#">
-                                            골프장상품0
-                                        </a>
+                                            레이크 슈퍼 울트라 포레스트 마운틴 리버
+                                    </a>
                                 </li>
-
-
                             </ul>
                         </div>
 
                     </div>
 
-
-
                 </div>
 
 
                 <!--
-
-
                 <div class="bottom_nav">
                     <ul>
                         <a href="#">
@@ -361,8 +344,6 @@
                         </a>
                     </ul>
                 </div>
-
-
                 <div class="side_nav">
                     <div class="side_nav_left">
                         <a href="#">
@@ -378,16 +359,274 @@
 
                             </div>
                         </a>
-
                     </div>
                 </div>-->
+            </div>
+        </header>
+    </section>
 
+    <!--이벤트프로모션 섹션-->
+    <section style="padding-top:47px; padding-bottom: 13px;">
+        <!--_section1.scss 사용-->
+
+        <script>
+            $(document).ready(function() {
+                $('.event_slider').slick({
+                    slidesToShow: 4,
+                    slidesToScroll: 1,
+                    autoplay: true,
+                    autoplaySpeed: 1000,
+                    pauseOnHover: true,
+                    arrows: true,
+                    prevArrow: false,
+                    nextArrow: false,
+                    speed: 2000,
+                    touchMove: true,
+                    dots: true,
+                    dotsClass: 'event-dots'
+                });
+            });
+
+        </script>
+        <div id="slide_box">
+            <!-- <div class="btn-bar">
+                <div id="buttons_sl">
+                    <a href="#">
+                        <div class="prevarea area" id="prev"></div>
+                    </a>
+                    <a href="#">
+                        <div class="nextarea area" id="next"></div>
+                    </a>
+                </div>
+            </div>
+            -->
+            <div class="block_container" id="slides_sl">
+
+                <ul class="event_slider" id="slides_sl_ul">
+
+                    <li class="slide_sl" id="slides_sl_li">
+                        <div class="block">
+                            <a href="/public/event/list_temp/eventpage_hotkaido.html">
+                                <div class="card" id="cardlist_1">
+                                    <img src="../public/images/event1.png">
+                                    <!--<div class="hover_card">
+                                    <h2>제목</h2>
+                                    <p>아무말</p>
+                                        <a href="#" class="button">버튼</a>
+                                                </div>-->
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="slide_sl" id="slides_sl_li">
+                        <div class="block">
+                            <a href="#">
+                                <div class="card" id="cardlist_2">
+
+                                    <img src="../public/images/event2.png">
+
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="slide_sl" id="slides_sl_li">
+                        <div class="block">
+                            <a href="/public/event/eventpage2.html">
+                                <div class="card" id="cardlist_3">
+
+                                    <img src="../public/images/event3.png">
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="slide_sl" id="slides_sl_li">
+                        <div class="block">
+                            <a href="/public/event/list_temp/eventpage_resort.html">
+                                <div class="card" id="cardlist_4">
+
+                                    <img src="../public/images/event4.png">
+
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="slide_sl" id="slides_sl_li">
+                        <div class="block">
+                            <a href="/public/event/list_temp/eventpage_kyushu.html">
+                                <div class="card" id="cardlist_5">
+
+                                    <img src="../public/images/event5.png">
+
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+
+                    <li class="slide_sl" id="slides_sl_li">
+                        <div class="block">
+                            <a href="/public/event/list_temp/eventpage_hotkaido.html">
+                                <div class="card" id="cardlist_6">
+
+                                    <img src="../public/images/event1.png">
+                                    <!--<div class="hover_card">
+                                    <h2>제목</h2>
+                                    <p>아무말</p>
+                                        <a href="#" class="button">버튼</a>
+                                                </div>-->
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="slide_sl" id="slides_sl_li">
+                        <div class="block">
+                            <a href="#">
+                                <div class="card" id="cardlist_7">
+
+                                    <img src="../public/images/event2.png">
+
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="slide_sl" id="slides_sl_li">
+                        <div class="block">
+                            <a href="/public/event/eventpage2.html">
+                                <div class="card" id="cardlist_8">
+
+                                    <img src="../public/images/event3.png">
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="slide_sl" id="slides_sl_li">
+                        <div class="block">
+                            <a href="/public/event/list_temp/eventpage_resort.html">
+                                <div class="card" id="cardlist_9">
+
+                                    <img src="../public/images/event4.png">
+
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="slide_sl" id="slides_sl_li">
+                        <div class="block">
+                            <a href="/public/event/list_temp/eventpage_kyushu.html">
+                                <div class="card" id="cardlist_10">
+
+                                    <img src="../public/images/event5.png">
+
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+
+
+
+                </ul>
             </div>
 
 
 
-        </header>
+        </div>
     </section>
+
+
+    <section style="padding-top:70px; padding-bottom: 70px;">
+        <!--_section2.scss 사용-->
+        <article>
+            <div class="grid_title">
+                <h4 class="">테마별 골프장</h4>
+                <p style="text-shadow: 0 0 7px rgba(0,0,0,1);">
+                    원클릭으로 여행 플랜 완성!
+                </p>
+            </div>
+
+            <div class="grid_form">
+
+
+                <div class="grid_form_left">
+                    <a href="#">
+                    <img src="" alt="" width="100%">
+
+                    <div class="grid_list_text">
+                        <h3 style="text-shadow: 0 0 7px rgba(0,0,0,1);">골프장+숙박패키지</h3>
+                        <p style="text-shadow: 0 0 7px rgba(0,0,0,1);">
+                        원클릭으로 여행 플랜 완성!
+                        </p>
+                    </div>
+                    </a>
+                </div>
+
+
+                <div class="grid_form_right">
+                        
+                        
+                        <div class="grid_list_2">
+                            <a href="#">
+                            <img src="#" alt="" width="100%">
+
+                            <div class="grid_list_text">
+                                <h3 style="text-shadow: 0 0 7px rgba(0,0,0,1);">thema list name</h3>
+                                <p style="text-shadow: 0 0 7px rgba(0,0,0,1);">
+                                thema list desc
+                                </p>
+                            </div>
+                            </a>
+                        </div>
+
+
+                        <div class="grid_list_2">
+                            <a href="#">
+                            <img src="#" alt="" width="100%">
+
+                            <div class="grid_list_text">
+                                <h3 style="text-shadow: 0 0 7px rgba(0,0,0,1);">thema name</h3>
+                                <p style="text-shadow: 0 0 7px rgba(0,0,0,1);">
+                                thema list desc
+                                </p>
+                            </div>
+                            </a>
+                        </div>
+
+
+                        <div class="grid_list_2">
+                            <a href="#">
+                            <img src="#" alt="" width="100%">
+
+                            <div class="grid_list_text">
+                                <h3 style="text-shadow: 0 0 7px rgba(0,0,0,1);">listname</h3>
+                                <p style="text-shadow: 0 0 7px rgba(0,0,0,1);">
+                                listdesc
+                                </p>
+                            </div>
+                            </a>
+                        </div>
+
+
+                        <div class="grid_list_2">
+                            <a href="#">
+                            <img src="#" alt="" width="100%">
+
+                            <div class="grid_list_text">
+                                <h3 style="text-shadow: 0 0 7px rgba(0,0,0,1);">listname</h3>
+                                <p style="text-shadow: 0 0 7px rgba(0,0,0,1);">
+                                listdesc
+                                </p>
+                            </div>
+                            </a>
+                        </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </article>
+    </section>
+
 
 
 </body>

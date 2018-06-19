@@ -1,6 +1,132 @@
 @import url(https://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 @import url(https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css);
 @import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+body {
+  font-family: "Noto Sans KR", sans-serif; }
+
+#slide_box:hover .area {
+  display: block;
+  opacity: 0.9;
+  transition: opacity .50s;
+  -o-transition: opacity .50s;
+  -moz-transition: opacity .50s;
+  -webkit-transition: opacity .50s; }
+
+.area {
+  margin-top: 150px; }
+
+.prevarea {
+  left: 15px;
+  width: 60px;
+  height: 110px;
+  background-image: url(../../public/images/left-arrow.png);
+  background-repeat: no-repeat;
+  border: none;
+  opacity: 0;
+  transition: opacity .50s;
+  -o-transition: opacity .50s;
+  -moz-transition: opacity .50s;
+  -webkit-transition: opacity .50s;
+  position: absolute;
+  z-index: 99; }
+
+.nextarea {
+  right: 15px;
+  width: 60px;
+  height: 110px;
+  background-image: url(../../public/images/right-arrow.png);
+  background-repeat: no-repeat;
+  border: none;
+  opacity: 0;
+  transition: opacity .50s;
+  -o-transition: opacity .50s;
+  -moz-transition: opacity .50s;
+  -webkit-transition: opacity .50s;
+  position: absolute;
+  z-index: 99; }
+
+.block_container {
+  margin: 0 auto;
+  max-width: 1115px; }
+
+.block {
+  position: relative;
+  display: inline-block; }
+
+.card {
+  background-color: transparent;
+  margin-top: 15px;
+  border-radius: 20px;
+  border: none;
+  overflow: hidden; }
+
+.block a .card {
+  height: 370px;
+  width: 260px;
+  transition: all .50s ease; }
+
+.block a:hover .card {
+  transform: scale(1.05);
+  z-index: 999999; }
+
+#slides_sl {
+  overflow: hidden;
+  position: relative;
+  height: 450px; }
+
+#slides_sl_ul {
+  list-style: none;
+  width: 100%;
+  height: 410px;
+  position: relative;
+  padding: 0;
+  margin: 0 auto; }
+
+#slides_sl_li {
+  width: 260px !important;
+  height: 410px;
+  float: left;
+  margin: 7.5px;
+  text-align: center;
+  position: relative; }
+
+.grid_title {
+  margin: 0 auto;
+  text-align: center;
+  width: 100%; }
+
+.grid_form {
+  max-width: 1340px;
+  height: 446px;
+  margin: 0 auto;
+  font-size: 0; }
+
+.grid_form_left {
+  display: inline-block;
+  width: 50%;
+  height: 100%;
+  background-color: antiquewhite;
+  vertical-align: middle; }
+
+.grid_list_text {
+  width: 100%;
+  height: 100%;
+  font-size: 20px; }
+
+.grid_form_right {
+  display: inline-block;
+  width: 50%;
+  height: 100%;
+  background-color: beige;
+  font-size: 0;
+  vertical-align: middle; }
+
+.grid_list_2 {
+  display: inline-block;
+  width: 50%;
+  height: 50%;
+  font-size: 20px; }
+
 a {
   text-decoration: none;
   color: inherit; }
