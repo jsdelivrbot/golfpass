@@ -44,11 +44,23 @@
     <!--<i class="xi-xpressengine"></i> xeicon사용하는방법임-->
 
 
+    <!-- Magnific Popup core CSS file -->
+    <link rel="stylesheet" href="../public/css/magnific-popup.css">
+
+
+
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="../public/js/popup.js"></script>
     <script type="text/javascript" src="../public/js/slick.js"></script>
+
     <link rel="stylesheet" type="text/css" href="../public/css/slick.css" />
     <link rel="stylesheet" type="text/css" href="../public/css/slick-theme.css" />
+
+    <!-- jQuery 1.7.2+ or Zepto.js 1.0+ -->
+
+    <!-- Magnific Popup core JS file -->
+    <script src="../public/js/jquery.magnific-popup.js"></script>
 
 </head>
 
@@ -209,8 +221,9 @@
                 </nav>
 
                 <!--상품 찾기 메뉴-->
+
                 <div class="searchbox_wrap">
-                    <a href="#">
+                    <a class="popup-with-zoom-anim" href="#small-dialog">
                         <div class="searchbox">
                             <div class="searchtext">
                                 <span class="bold">원하는 상품</span>을 찾아보세요!
@@ -225,6 +238,32 @@
 
                         </div>
                     </a>
+                    <!--클래스 명 변경시 애니메이션 변경----
+                    <a class="popup-with-zoom-anim" href="#small-dialog">
+                        <font style="vertical-align: inherit;">
+                            <font style="vertical-align: inherit;">페이드 - 줌 애니메이션으로 </font>
+                        </font>
+                    </a><br>
+                    <a class="popup-with-move-anim" href="#small-dialog">
+                        <font style="vertical-align: inherit;">
+                            <font style="vertical-align: inherit;">열기 페이드 - 슬라이드 애니메이션으로 열기</font>
+                        </font>
+                    </a>-->
+
+                    <!-- dialog itself, mfp-hide class is required to make dialog hidden -->
+                    <div id="small-dialog" class="zoom-anim-dialog mfp-hide modal_form">
+                        <h1 class="modal_title">나라별 골프장</h1>
+                        <div class="photo_list_form">
+                            <div class="photo_list" style="background-image:url(../public/images/theme1.jpg); background-repeat:no-repeat; background-position:center; background-size:cover">
+                                <img src="../public/images/blank1.png" class='blank1_img'>
+                                <div class="photo_list_text">
+                                    내용
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
 
                     <!--추천 상품 슬라이더-->
                     <script>
@@ -312,54 +351,6 @@
                     </div>
 
                 </div>
-
-
-                <!--
-                <div class="bottom_nav">
-                    <ul>
-                        <a href="#">
-                            <li class="bottom_nav_li">
-                            </li>
-                        </a>
-                        <a href="#">
-                            <li class="bottom_nav_li">
-                            </li>
-                        </a>
-                        <a href="#">
-                            <li class="bottom_nav_li">
-                            </li>
-                        </a>
-                        <a href="#">
-                            <li class="bottom_nav_li li_focus">
-                            </li>
-                        </a>
-                        <a href="#">
-                            <li class="bottom_nav_li">
-                            </li>
-                        </a>
-                        <a href="#">
-                            <li class="bottom_nav_li">
-                            </li>
-                        </a>
-                    </ul>
-                </div>
-                <div class="side_nav">
-                    <div class="side_nav_left">
-                        <a href="#">
-                            <div class="side_nav_box">
-                                <i class="xi-angle-left-thin"></i>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="side_nav_right">
-                        <a href="#">
-                            <div class="side_nav_box">
-                                <i class="xi-angle-right-thin"></i>
-
-                            </div>
-                        </a>
-                    </div>
-                </div>-->
             </div>
         </header>
     </section>
@@ -367,7 +358,6 @@
     <!--이벤트프로모션 섹션-->
     <section style="padding-top:47px; padding-bottom: 13px;">
         <!--_section1.scss 사용-->
-
         <script>
             $(document).ready(function() {
                 $('.event_slider').slick({
@@ -388,31 +378,13 @@
 
         </script>
         <div id="slide_box">
-            <!-- <div class="btn-bar">
-                <div id="buttons_sl">
-                    <a href="#">
-                        <div class="prevarea area" id="prev"></div>
-                    </a>
-                    <a href="#">
-                        <div class="nextarea area" id="next"></div>
-                    </a>
-                </div>
-            </div>
-            -->
             <div class="block_container" id="slides_sl">
-
                 <ul class="event_slider" id="slides_sl_ul">
-
                     <li class="slide_sl" id="slides_sl_li">
                         <div class="block">
                             <a href="/public/event/list_temp/eventpage_hotkaido.html">
                                 <div class="card" id="cardlist_1">
                                     <img src="../public/images/event1.png">
-                                    <!--<div class="hover_card">
-                                    <h2>제목</h2>
-                                    <p>아무말</p>
-                                        <a href="#" class="button">버튼</a>
-                                                </div>-->
                                 </div>
                             </a>
                         </div>
@@ -421,9 +393,7 @@
                         <div class="block">
                             <a href="#">
                                 <div class="card" id="cardlist_2">
-
                                     <img src="../public/images/event2.png">
-
                                 </div>
                             </a>
                         </div>
@@ -432,7 +402,6 @@
                         <div class="block">
                             <a href="/public/event/eventpage2.html">
                                 <div class="card" id="cardlist_3">
-
                                     <img src="../public/images/event3.png">
                                 </div>
                             </a>
@@ -442,9 +411,7 @@
                         <div class="block">
                             <a href="/public/event/list_temp/eventpage_resort.html">
                                 <div class="card" id="cardlist_4">
-
                                     <img src="../public/images/event4.png">
-
                                 </div>
                             </a>
                         </div>
@@ -453,9 +420,7 @@
                         <div class="block">
                             <a href="/public/event/list_temp/eventpage_kyushu.html">
                                 <div class="card" id="cardlist_5">
-
                                     <img src="../public/images/event5.png">
-
                                 </div>
                             </a>
                         </div>
@@ -465,13 +430,7 @@
                         <div class="block">
                             <a href="/public/event/list_temp/eventpage_hotkaido.html">
                                 <div class="card" id="cardlist_6">
-
                                     <img src="../public/images/event1.png">
-                                    <!--<div class="hover_card">
-                                    <h2>제목</h2>
-                                    <p>아무말</p>
-                                        <a href="#" class="button">버튼</a>
-                                                </div>-->
                                 </div>
                             </a>
                         </div>
@@ -480,9 +439,7 @@
                         <div class="block">
                             <a href="#">
                                 <div class="card" id="cardlist_7">
-
                                     <img src="../public/images/event2.png">
-
                                 </div>
                             </a>
                         </div>
@@ -491,7 +448,6 @@
                         <div class="block">
                             <a href="/public/event/eventpage2.html">
                                 <div class="card" id="cardlist_8">
-
                                     <img src="../public/images/event3.png">
                                 </div>
                             </a>
@@ -501,9 +457,7 @@
                         <div class="block">
                             <a href="/public/event/list_temp/eventpage_resort.html">
                                 <div class="card" id="cardlist_9">
-
                                     <img src="../public/images/event4.png">
-
                                 </div>
                             </a>
                         </div>
@@ -512,23 +466,16 @@
                         <div class="block">
                             <a href="/public/event/list_temp/eventpage_kyushu.html">
                                 <div class="card" id="cardlist_10">
-
                                     <img src="../public/images/event5.png">
-
                                 </div>
                             </a>
                         </div>
                     </li>
-
-
-
                 </ul>
             </div>
-
-
-
         </div>
     </section>
+
 
 
     <section style="margin-top:70px; margin-bottom: 70px; padding: 15px;">
@@ -545,54 +492,54 @@
             <div class="grid_mo">
                 <a href="#">
                     <div class="grid_form_mo" style="background-image:url(../public/images/theme1.jpg); background-repeat:no-repeat; background-position:center; background-size:cover">
-                    	<img src="../public/images/blank3.png" class="blank_img">
+                        <img src="../public/images/blank3.png" class="blank_img">
                         <div class="grid_list_text_mo">
                             <h1>북해도 특집</h1>
                             <p>일본의 천국, 북해도에 오신 것을 환영합니다</p>
                         </div>
                     </div>
                 </a>
-                
+
                 <a href="#">
                     <div class="grid_form_mo" style="background-image:url(../public/images/theme2.jpg); background-repeat:no-repeat; background-position:center; background-size:cover">
-                    	<img src="../public/images/blank3.png" class="blank_img">
+                        <img src="../public/images/blank3.png" class="blank_img">
                         <div class="grid_list_text_mo">
                             <h1>골프장+숙박 패키지</h1>
                             <p>원클릭으로 여행 플랜 완성!</p>
                         </div>
                     </div>
                 </a>
-                
+
                 <a href="#">
                     <div class="grid_form_mo" style="background-image:url(../public/images/theme3.jpg); background-repeat:no-repeat; background-position:center; background-size:cover">
-                    	<img src="../public/images/blank3.png" class="blank_img">
+                        <img src="../public/images/blank3.png" class="blank_img">
                         <div class="grid_list_text_mo">
                             <h1>2인 플레이</h1>
                             <p>2인 플레이에 딱 맞는 코스</p>
                         </div>
                     </div>
                 </a>
-                
+
                 <a href="#">
                     <div class="grid_form_mo" style="background-image:url(../public/images/theme4.jpg); background-repeat:no-repeat; background-position:center; background-size:cover">
-                    	<img src="../public/images/blank3.png" class="blank_img">
+                        <img src="../public/images/blank3.png" class="blank_img">
                         <div class="grid_list_text_mo">
                             <h1>품격이 있는 클럽</h1>
                             <p>지명도 높은 명문 클럽</p>
                         </div>
                     </div>
                 </a>
-                
+
                 <a href="#">
                     <div class="grid_form_mo" style="background-image:url(../public/images/theme5.jpg); background-repeat:no-repeat; background-position:center; background-size:cover">
-                    	<img src="../public/images/blank3.png" class="blank_img">
+                        <img src="../public/images/blank3.png" class="blank_img">
                         <div class="grid_list_text_mo">
                             <h1>토너먼트 개최 코스</h1>
                             <p>프로 토너먼트의 무대</p>
                         </div>
                     </div>
                 </a>
-                
+
             </div>
 
 
