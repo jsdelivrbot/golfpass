@@ -46,9 +46,16 @@
     border: 1px solid #000;
     transition: background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
-
+.button_category:hover{
+    background-color: #000;
+    color:#fff;
+}
 .button_category:focus {
     outline: none;
+}
+.button_focus{
+    background-color: #000;
+    color:#fff;
 }
 
 .all_content {
@@ -240,7 +247,9 @@
     color: #343a40!important;
     font-size: 16px;
 }
-
+.ranking_ghost{
+    color: #999d9f;
+}
 
 
 /*반응형===============**/
