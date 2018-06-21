@@ -7,6 +7,7 @@ a {
 a:active {
     color: inherit;
 }
+
 a:focus {
     outline: none;
 }
@@ -18,7 +19,7 @@ a:focus {
 
 }
 
-.slide_background_image{
+.slide_background_image {
     height: 556px;
     width: 100%;
     background-image: url(../../public/images/background.png);
@@ -113,6 +114,10 @@ a:focus {
     width: 288px;
 }
 
+.logo_m {
+    width: 199px;
+}
+
 .main_nav {
     font-size: 0;
     text-align: center;
@@ -133,16 +138,20 @@ a:focus {
     color: #fff;
     display: inline-block;
 }
-.searchbox_content{
+
+.searchbox_content {
     width: 100%;
+    justify-content: space-between!important;
+    display: flex!important;
 }
+
 .searchbox_wrap {
     position: relative;
     max-width: 600px;
     margin: 0 auto;
     margin-top: 90px;
     margin-bottom: 137px;
-        padding-left: 20px;
+    padding-left: 20px;
     padding-right: 20px;
 }
 
@@ -164,15 +173,11 @@ a:focus {
 .searchtext {
     color: #fff;
     font-size: 24px;
-    width: 87.5%;
-    display: inline-block;
     line-height: 80px;
     vertical-align: middle;
 }
 
 .search_button_wrap {
-    width: 12.5%;
-    display: inline-block;
     vertical-align: middle;
 }
 
@@ -181,6 +186,8 @@ a:focus {
     height: 70px;
     color: #fff;
     border-radius: 50%;
+    margin-right: 5px;
+    margin-top: 5px;
     background: linear-gradient(to top, #e4406f, #ff706e);
 }
 
@@ -194,10 +201,11 @@ a:focus {
     margin: 0 auto;
     margin-top: 15px;
     font-size: 0;
+    justify-content: space-between !important;
+    display: flex !important;
 }
 
 .recommend {
-    width: 7%;
     display: inline-block;
     vertical-align: middle;
 }
@@ -322,4 +330,133 @@ a:focus {
     display: table-cell !important;
     vertical-align: middle;
 
+}
+
+.main_nav_wrap_mo {
+    justify-content: space-between !important;
+    display: flex;
+    margin-top: 30px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.ham_menu {
+    color: #fff;
+    font-size: 22px;
+    width: 22px;
+}
+
+/*--------------------------------------*/
+
+@media (max-width: 600px) {
+    .iconbox span {
+        display: none;
+
+    }
+}
+
+@media (max-width: 510px) {
+    .top_header_right {
+        display: none;
+    }
+    .top_header_left {
+        width: 100%;
+    }
+    .main_nav_wrap {
+        display: none;
+    }
+
+    .slide_background_image,
+    .top_main_wrap,
+    .top_main_wrap_opacity,
+    .top_main_wrap_gradation {
+        height: 486px;
+    }
+
+    .golf_info {
+        top: 422px;
+    }
+
+    .searchbox_wrap {
+        margin-top: 95px;
+    }
+    .slick-prev,
+    .slick-next {
+        width: 50% !important;
+        top: 521px !important;
+    }
+}
+
+@media (max-width: 460px) {
+    .slide_background_image,
+    .top_main_wrap,
+    .top_main_wrap_opacity,
+    .top_main_wrap_gradation {
+        height: 436px;
+    }
+
+    .golf_info {
+        top: 380px;
+    }
+
+    .searchbox {
+        height: 60px;
+    }
+    .searchbox_wrap {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .bold {
+        padding-left: 15px;
+    }
+    .searchtext {
+        line-height: 60px;
+        font-size: 20px;
+    }
+    .search_button {
+        width: 50px;
+        height: 50px;
+        margin-right: 3px;
+    }
+    .search_icon {
+        padding: 15px;
+        font-size: 20px;
+    }
+    .slick-prev,
+    .slick-next {
+        top: 471px !important;
+    }
+
+}
+
+
+@media (max-width: 400px) {
+    .slide_background_image,
+    .top_main_wrap,
+    .top_main_wrap_opacity,
+    .top_main_wrap_gradation {
+        height: 400px;
+    }
+
+    searchbox_wrap {
+        margin-bottom: 75px;
+    }
+
+    .golf_info {
+        top: 350px;
+    }
+    .recommend_menu {
+        width: 88%;
+    }
+    .slick-prev,
+    .slick-next {
+        top: 435px !important;
+    }
+
+}
+
+@media (min-width:511px) {
+    .main_nav_wrap_mo {
+        display: none;
+    }
 }
