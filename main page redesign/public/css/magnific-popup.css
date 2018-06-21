@@ -27,7 +27,7 @@
   height: 100%;
   left: 0;
   top: 0;
-  padding: 0 8px;
+  padding: 0 40px;
   box-sizing: border-box; }
 
 .mfp-container:before {
@@ -123,9 +123,9 @@ button::-moz-focus-inner {
   border: 0; }
 
 .mfp-close {
-  width: 44px;
-  height: 44px;
-  line-height: 44px;
+  width: 64px;
+  height: 64px;
+  line-height: 64px;
   position: absolute;
   right: 0;
   top: 0;
@@ -135,7 +135,7 @@ button::-moz-focus-inner {
   padding: 0 0 18px 10px;
   color: #FFF;
   font-style: normal;
-  font-size: 28px;
+  font-size: 50px;
   font-family: Arial, Baskerville, monospace; }
   .mfp-close:hover,
   .mfp-close:focus {

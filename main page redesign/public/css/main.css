@@ -664,9 +664,9 @@ a:focus {
 
 #small-dialog {
   background: white;
-  padding: 20px 30px;
+  padding: 70px 100px 50px 100px;
   text-align: left;
-  max-width: 400px;
+  max-width: 720px;
   margin: 40px auto;
   position: relative; }
 
@@ -781,17 +781,45 @@ a:focus {
 .modal_title {
   text-align: center;
   width: 100%;
-  padding-top: 70px;
-  font-size: 24px; }
+  font-size: 24px;
+  padding-bottom: 10px; }
+
+.modal_sub {
+  width: 100%;
+  font-size: 14px;
+  text-align: center;
+  padding-bottom: 40px; }
 
 .photo_list_form {
   height: 100%;
   width: 100%;
-  position: relative; }
+  max-width: 720px;
+  position: relative;
+  font-size: 0; }
 
 .photo_list {
-  max-width: 350px;
-  max-height: 200px; }
+  max-width: 360px;
+  max-height: 200px;
+  width: 50%;
+  position: relative;
+  display: inline-block; }
+
+.photo_list_wrap {
+  margin-bottom: 20px; }
+
+.photo_left {
+  max-width: 360px;
+  max-height: 200px;
+  position: relative;
+  display: inline-block;
+  margin-right: 10px; }
+
+.photo_right {
+  max-width: 360px;
+  max-height: 200px;
+  position: relative;
+  display: inline-block;
+  margin-left: 10px; }
 
 .photo_list_text {
   position: absolute;
@@ -799,8 +827,25 @@ a:focus {
   align-items: center;
   justify-content: center;
   display: flex;
+  font-size: 14px;
   width: 100%;
   height: 100%;
-  top: 0; }
+  top: 0;
+  max-width: 350px;
+  max-height: 200px; }
+
+.country {
+  text-align: center;
+  width: 100%;
+  font-size: 14px;
+  font-weight: bold;
+  padding-bottom: 10px;
+  display: block;
+  color: #fff; }
+
+.country span {
+  font-weight: bold;
+  padding-bottom: 10px;
+  line-height: 2.4; }
 
 /*# sourceMappingURL=main.css.map */
