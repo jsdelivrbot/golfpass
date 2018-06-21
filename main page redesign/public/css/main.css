@@ -392,6 +392,72 @@ body {
 @media (max-width: 450px) {
   .content-box .content h1 {
     font-size: 24px; } }
+.country_title {
+  margin: 0 auto;
+  text-align: center;
+  width: 100%;
+  padding-bottom: 30px; }
+
+.country_title_big {
+  padding-bottom: 15px;
+  font-size: 40px; }
+
+.blank2_img {
+  width: 100%;
+  height: 100%; }
+
+.country_photo_list_form {
+  height: 100%;
+  width: 100%;
+  max-width: 925px;
+  position: relative;
+  font-size: 0;
+  margin: 0 auto; }
+
+.country_photo_list {
+  width: 25%;
+  position: relative;
+  display: inline-block; }
+
+.country_photo_list_wrap {
+  margin-bottom: 15px;
+  font-size: 0; }
+
+.country_photo {
+  max-width: 235px;
+  max-height: 165px;
+  position: relative;
+  display: inline-block;
+  margin-right: 7.5px;
+  margin-left: 7.5px; }
+
+.country_photo_list_text {
+  position: absolute;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  font-size: 14px;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  max-width: 350px;
+  max-height: 200px; }
+
+.country {
+  text-align: center;
+  width: 100%;
+  font-size: 14px;
+  font-weight: bold;
+  padding-bottom: 10px;
+  display: block;
+  color: #fff; }
+
+.country span {
+  font-weight: bold;
+  padding-bottom: 10px;
+  line-height: 2.4; }
+
 a {
   text-decoration: none;
   color: inherit; }
@@ -506,12 +572,17 @@ a:focus {
   color: #fff;
   display: inline-block; }
 
+.searchbox_content {
+  width: 100%; }
+
 .searchbox_wrap {
   position: relative;
   max-width: 600px;
   margin: 0 auto;
   margin-top: 90px;
-  margin-bottom: 137px; }
+  margin-bottom: 137px;
+  padding-left: 20px;
+  padding-right: 20px; }
 
 .searchbox {
   border: 2px #fff solid;
@@ -523,19 +594,19 @@ a:focus {
   margin: 0 auto; }
 
 .bold {
-  font-weight: bold; }
+  font-weight: bold;
+  padding-left: 30px; }
 
 .searchtext {
-  padding: 0px 0px 0px 30px;
   color: #fff;
   font-size: 24px;
-  width: 82.5%;
+  width: 87.5%;
   display: inline-block;
   line-height: 80px;
   vertical-align: middle; }
 
 .search_button_wrap {
-  width: 1%;
+  width: 12.5%;
   display: inline-block;
   vertical-align: middle; }
 
@@ -798,8 +869,6 @@ a:focus {
   font-size: 0; }
 
 .photo_list {
-  max-width: 360px;
-  max-height: 200px;
   width: 50%;
   position: relative;
   display: inline-block; }

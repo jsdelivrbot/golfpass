@@ -133,13 +133,17 @@ a:focus {
     color: #fff;
     display: inline-block;
 }
-
+.searchbox_content{
+    width: 100%;
+}
 .searchbox_wrap {
     position: relative;
     max-width: 600px;
     margin: 0 auto;
     margin-top: 90px;
     margin-bottom: 137px;
+        padding-left: 20px;
+    padding-right: 20px;
 }
 
 .searchbox {
@@ -154,20 +158,20 @@ a:focus {
 
 .bold {
     font-weight: bold;
+    padding-left: 30px;
 }
 
 .searchtext {
-    padding: 0px 0px 0px 30px;
     color: #fff;
     font-size: 24px;
-    width: 82.5%;
+    width: 87.5%;
     display: inline-block;
     line-height: 80px;
     vertical-align: middle;
 }
 
 .search_button_wrap {
-    width: 1%;
+    width: 12.5%;
     display: inline-block;
     vertical-align: middle;
 }

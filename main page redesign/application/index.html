@@ -62,6 +62,11 @@
     <!-- Magnific Popup core JS file -->
     <script src="../public/js/jquery.magnific-popup.js"></script>
 
+    <!--나라별 슬라이드 js/css-->
+    <script type="text/javascript" src="../public/js/jquery.sliderPro.js"></script>
+    <link rel="stylesheet" type="text/css" href="../public/css/slider-pro.css" media="screen" />
+
+
 </head>
 
 <body>
@@ -225,13 +230,15 @@
                 <div class="searchbox_wrap">
                     <a class="popup-with-zoom-anim" href="#small-dialog">
                         <div class="searchbox">
-                            <div class="searchtext">
-                                <span class="bold">원하는 상품</span>을 찾아보세요!
-                            </div>
-                            <div class="search_button_wrap">
-                                <div class="search_button">
-                                    <div class="search_icon">
-                                        <i class="xi-search"></i>
+                            <div class="searchbox_content">
+                                <div class="searchtext">
+                                    <span class="bold">원하는 상품</span>을 찾아보세요!
+                                </div>
+                                <div class="search_button_wrap">
+                                    <div class="search_button">
+                                        <div class="search_icon">
+                                            <i class="xi-search"></i>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -426,6 +433,345 @@
                 </div>
             </div>
         </header>
+    </section>
+
+
+    <!--나라별 골프장-->
+    <section style="margin-top: 60px; margin-bottom: 75px; padding-left: 50px; padding-right: 50px;">
+        <!--_section4.scss 사용-->
+
+        <div class="country_title">
+            <h4 class="country_title_big">나라별 골프장</h4>
+            <p style="font-size: 20px;">
+                나라별로 골프장을 고를 수 있습니다!
+            </p>
+        </div>
+
+        <script type="text/javascript">
+            $(document).ready(function($) {
+                $('#country_slider').sliderPro({
+                    width: 925,
+                    autoHeight: true,
+                    arrows: true,
+                });
+            });
+
+        </script>
+
+
+        <div id="country_slider" class="country_photo_list_form slider-pro">
+            <div class="country_slides sp-slides">
+
+                <div class="country_slide_content sp-slide">
+                    <div class="country_photo_list_wrap">
+                        <div class="country_photo_list">
+                            <div class="country_photo" style="background-image:url(../public/images/theme1.jpg); background-repeat:no-repeat; background-position:center; background-size:cover">
+                                <img src="../public/images/blank2.png" class='blank2_img'>
+                                <div class="country_photo_list_text">
+                                    <div class="country"><span>미국</span><br>2,317개</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="country_photo_list">
+                            <div class="country_photo" style="background-image:url(../public/images/theme2.jpg); background-repeat:no-repeat; background-position:center; background-size:cover">
+                                <img src="../public/images/blank2.png" class='blank2_img'>
+                                <div class="country_photo_list_text">
+                                    <div class="country"><span>미국</span><br>2,317개</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="country_photo_list">
+                            <div class="country_photo" style="background-image:url(../public/images/theme3.jpg); background-repeat:no-repeat; background-position:center; background-size:cover">
+                                <img src="../public/images/blank2.png" class='blank2_img'>
+                                <div class="country_photo_list_text">
+                                    <div class="country"><span>미국</span><br>2,317개</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="country_photo_list">
+                            <div class="country_photo" style="background-image:url(../public/images/theme4.jpg); background-repeat:no-repeat; background-position:center; background-size:cover">
+                                <img src="../public/images/blank2.png" class='blank2_img'>
+                                <div class="country_photo_list_text">
+                                    <div class="country"><span>미국</span><br>2,317개</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="country_photo_list_wrap">
+                        <div class="country_photo_list">
+                            <div class="country_photo" style="background-image:url(../public/images/theme1.jpg); background-repeat:no-repeat; background-position:center; background-size:cover">
+                                <img src="../public/images/blank2.png" class='blank2_img'>
+                                <div class="country_photo_list_text">
+                                    <div class="country"><span>미국</span><br>2,317개</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="country_photo_list">
+                            <div class="country_photo" style="background-image:url(../public/images/theme2.jpg); background-repeat:no-repeat; background-position:center; background-size:cover">
+                                <img src="../public/images/blank2.png" class='blank2_img'>
+                                <div class="country_photo_list_text">
+                                    <div class="country"><span>미국</span><br>2,317개</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="country_photo_list">
+                            <div class="country_photo" style="background-image:url(../public/images/theme3.jpg); background-repeat:no-repeat; background-position:center; background-size:cover">
+                                <img src="../public/images/blank2.png" class='blank2_img'>
+                                <div class="country_photo_list_text">
+                                    <div class="country"><span>미국</span><br>2,317개</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="country_photo_list">
+                            <div class="country_photo" style="background-image:url(../public/images/theme4.jpg); background-repeat:no-repeat; background-position:center; background-size:cover">
+                                <img src="../public/images/blank2.png" class='blank2_img'>
+                                <div class="country_photo_list_text">
+                                    <div class="country"><span>미국</span><br>2,317개</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="country_slide_content sp-slide">
+                    <div class="country_photo_list_wrap">
+                        <div class="country_photo_list">
+                            <div class="country_photo" style="background-image:url(../public/images/theme4.jpg); background-repeat:no-repeat; background-position:center; background-size:cover">
+                                <img src="../public/images/blank2.png" class='blank2_img'>
+                                <div class="country_photo_list_text">
+                                    <div class="country"><span>미국</span><br>2,317개</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="country_photo_list">
+                            <div class="country_photo" style="background-image:url(../public/images/theme3.jpg); background-repeat:no-repeat; background-position:center; background-size:cover">
+                                <img src="../public/images/blank2.png" class='blank2_img'>
+                                <div class="country_photo_list_text">
+                                    <div class="country"><span>미국</span><br>2,317개</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="country_photo_list">
+                            <div class="country_photo" style="background-image:url(../public/images/theme2.jpg); background-repeat:no-repeat; background-position:center; background-size:cover">
+                                <img src="../public/images/blank2.png" class='blank2_img'>
+                                <div class="country_photo_list_text">
+                                    <div class="country"><span>미국</span><br>2,317개</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="country_photo_list">
+                            <div class="country_photo" style="background-image:url(../public/images/theme1.jpg); background-repeat:no-repeat; background-position:center; background-size:cover">
+                                <img src="../public/images/blank2.png" class='blank2_img'>
+                                <div class="country_photo_list_text">
+                                    <div class="country"><span>미국</span><br>2,317개</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="country_photo_list_wrap">
+                        <div class="country_photo_list">
+                            <div class="country_photo" style="background-image:url(../public/images/theme4.jpg); background-repeat:no-repeat; background-position:center; background-size:cover">
+                                <img src="../public/images/blank2.png" class='blank2_img'>
+                                <div class="country_photo_list_text">
+                                    <div class="country"><span>미국</span><br>2,317개</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="country_photo_list">
+                            <div class="country_photo" style="background-image:url(../public/images/theme3.jpg); background-repeat:no-repeat; background-position:center; background-size:cover">
+                                <img src="../public/images/blank2.png" class='blank2_img'>
+                                <div class="country_photo_list_text">
+                                    <div class="country"><span>미국</span><br>2,317개</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="country_photo_list">
+                            <div class="country_photo" style="background-image:url(../public/images/theme2.jpg); background-repeat:no-repeat; background-position:center; background-size:cover">
+                                <img src="../public/images/blank2.png" class='blank2_img'>
+                                <div class="country_photo_list_text">
+                                    <div class="country"><span>미국</span><br>2,317개</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="country_photo_list">
+                            <div class="country_photo" style="background-image:url(../public/images/theme1.jpg); background-repeat:no-repeat; background-position:center; background-size:cover">
+                                <img src="../public/images/blank2.png" class='blank2_img'>
+                                <div class="country_photo_list_text">
+                                    <div class="country"><span>미국</span><br>2,317개</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="country_slide_content sp-slide">
+                    <div class="country_photo_list_wrap">
+                        <div class="country_photo_list">
+                            <div class="country_photo" style="background-image:url(../public/images/theme1.jpg); background-repeat:no-repeat; background-position:center; background-size:cover">
+                                <img src="../public/images/blank2.png" class='blank2_img'>
+                                <div class="country_photo_list_text">
+                                    <div class="country"><span>미국</span><br>2,317개</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="country_photo_list">
+                            <div class="country_photo" style="background-image:url(../public/images/theme2.jpg); background-repeat:no-repeat; background-position:center; background-size:cover">
+                                <img src="../public/images/blank2.png" class='blank2_img'>
+                                <div class="country_photo_list_text">
+                                    <div class="country"><span>미국</span><br>2,317개</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="country_photo_list">
+                            <div class="country_photo" style="background-image:url(../public/images/theme3.jpg); background-repeat:no-repeat; background-position:center; background-size:cover">
+                                <img src="../public/images/blank2.png" class='blank2_img'>
+                                <div class="country_photo_list_text">
+                                    <div class="country"><span>미국</span><br>2,317개</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="country_photo_list">
+                            <div class="country_photo" style="background-image:url(../public/images/theme4.jpg); background-repeat:no-repeat; background-position:center; background-size:cover">
+                                <img src="../public/images/blank2.png" class='blank2_img'>
+                                <div class="country_photo_list_text">
+                                    <div class="country"><span>미국</span><br>2,317개</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="country_photo_list_wrap">
+                        <div class="country_photo_list">
+                            <div class="country_photo" style="background-image:url(../public/images/theme1.jpg); background-repeat:no-repeat; background-position:center; background-size:cover">
+                                <img src="../public/images/blank2.png" class='blank2_img'>
+                                <div class="country_photo_list_text">
+                                    <div class="country"><span>미국</span><br>2,317개</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="country_photo_list">
+                            <div class="country_photo" style="background-image:url(../public/images/theme2.jpg); background-repeat:no-repeat; background-position:center; background-size:cover">
+                                <img src="../public/images/blank2.png" class='blank2_img'>
+                                <div class="country_photo_list_text">
+                                    <div class="country"><span>미국</span><br>2,317개</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="country_photo_list">
+                            <div class="country_photo" style="background-image:url(../public/images/theme3.jpg); background-repeat:no-repeat; background-position:center; background-size:cover">
+                                <img src="../public/images/blank2.png" class='blank2_img'>
+                                <div class="country_photo_list_text">
+                                    <div class="country"><span>미국</span><br>2,317개</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="country_photo_list">
+                            <div class="country_photo" style="background-image:url(../public/images/theme4.jpg); background-repeat:no-repeat; background-position:center; background-size:cover">
+                                <img src="../public/images/blank2.png" class='blank2_img'>
+                                <div class="country_photo_list_text">
+                                    <div class="country"><span>미국</span><br>2,317개</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="country_slide_content sp-slide">
+                    <div class="country_photo_list_wrap">
+                        <div class="country_photo_list">
+                            <div class="country_photo" style="background-image:url(../public/images/theme4.jpg); background-repeat:no-repeat; background-position:center; background-size:cover">
+                                <img src="../public/images/blank2.png" class='blank2_img'>
+                                <div class="country_photo_list_text">
+                                    <div class="country"><span>미국</span><br>2,317개</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="country_photo_list">
+                            <div class="country_photo" style="background-image:url(../public/images/theme3.jpg); background-repeat:no-repeat; background-position:center; background-size:cover">
+                                <img src="../public/images/blank2.png" class='blank2_img'>
+                                <div class="country_photo_list_text">
+                                    <div class="country"><span>미국</span><br>2,317개</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="country_photo_list">
+                            <div class="country_photo" style="background-image:url(../public/images/theme2.jpg); background-repeat:no-repeat; background-position:center; background-size:cover">
+                                <img src="../public/images/blank2.png" class='blank2_img'>
+                                <div class="country_photo_list_text">
+                                    <div class="country"><span>미국</span><br>2,317개</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="country_photo_list">
+                            <div class="country_photo" style="background-image:url(../public/images/theme1.jpg); background-repeat:no-repeat; background-position:center; background-size:cover">
+                                <img src="../public/images/blank2.png" class='blank2_img'>
+                                <div class="country_photo_list_text">
+                                    <div class="country"><span>미국</span><br>2,317개</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="country_photo_list_wrap">
+                        <div class="country_photo_list">
+                            <div class="country_photo" style="background-image:url(../public/images/theme4.jpg); background-repeat:no-repeat; background-position:center; background-size:cover">
+                                <img src="../public/images/blank2.png" class='blank2_img'>
+                                <div class="country_photo_list_text">
+                                    <div class="country"><span>미국</span><br>2,317개</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="country_photo_list">
+                            <div class="country_photo" style="background-image:url(../public/images/theme3.jpg); background-repeat:no-repeat; background-position:center; background-size:cover">
+                                <img src="../public/images/blank2.png" class='blank2_img'>
+                                <div class="country_photo_list_text">
+                                    <div class="country"><span>미국</span><br>2,317개</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="country_photo_list">
+                            <div class="country_photo" style="background-image:url(../public/images/theme2.jpg); background-repeat:no-repeat; background-position:center; background-size:cover">
+                                <img src="../public/images/blank2.png" class='blank2_img'>
+                                <div class="country_photo_list_text">
+                                    <div class="country"><span>미국</span><br>2,317개</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="country_photo_list">
+                            <div class="country_photo" style="background-image:url(../public/images/theme1.jpg); background-repeat:no-repeat; background-position:center; background-size:cover">
+                                <img src="../public/images/blank2.png" class='blank2_img'>
+                                <div class="country_photo_list_text">
+                                    <div class="country"><span>미국</span><br>2,317개</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
     </section>
 
     <!--이벤트프로모션 섹션-->
