@@ -19,6 +19,10 @@ a:focus {
 
 }
 
+.main_section{
+    height: 556px;
+}
+
 .slide_background_image {
     height: 556px;
     width: 100%;
@@ -426,6 +430,10 @@ a:focus {
     .slick-next {
         top: 471px !important;
     }
+    
+    .main_section{
+        height: 506px;
+    }
 
 }
 
@@ -451,6 +459,9 @@ a:focus {
     .slick-prev,
     .slick-next {
         top: 435px !important;
+    }
+    .main_section{
+        height: 470px;
     }
 
 }

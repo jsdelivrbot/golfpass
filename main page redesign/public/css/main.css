@@ -473,6 +473,9 @@ a:focus {
   height: 556px;
   width: 100%; }
 
+.main_section {
+  height: 556px; }
+
 .slide_background_image {
   height: 556px;
   width: 100%;
@@ -814,7 +817,10 @@ a:focus {
 
   .slick-prev,
   .slick-next {
-    top: 471px !important; } }
+    top: 471px !important; }
+
+  .main_section {
+    height: 506px; } }
 @media (max-width: 400px) {
   .slide_background_image,
   .top_main_wrap,
@@ -833,7 +839,10 @@ a:focus {
 
   .slick-prev,
   .slick-next {
-    top: 435px !important; } }
+    top: 435px !important; }
+
+  .main_section {
+    height: 470px; } }
 @media (min-width: 511px) {
   .main_nav_wrap_mo {
     display: none; } }
