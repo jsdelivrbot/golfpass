@@ -102,7 +102,6 @@
 }
 
 .content-box {
-    padding-right: 20px;
     max-width: 100%;
 }
 
@@ -140,7 +139,6 @@
     margin: 0 auto;
     bottom: 25px;
     font-size: 20px;
-    width: 50%;
     color: #f8f9fa;
     flex-direction: column;
     display: flex;
@@ -275,12 +273,13 @@
         flex: 0 0 50%;
         max-width: 50%;
     }
-}
-
-@media (min-width: 992px) {
     .content_right {
         flex: 0 0 50%;
         max-width: 50%;
+    }
+
+    .content-box {
+        padding-right: 20px;
     }
 }
 

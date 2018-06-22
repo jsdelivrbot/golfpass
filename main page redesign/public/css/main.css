@@ -242,7 +242,6 @@ body {
   margin-bottom: 15px; }
 
 .content-box {
-  padding-right: 20px;
   max-width: 100%; }
 
 .content-box:first-child a .content {
@@ -274,7 +273,6 @@ body {
   margin: 0 auto;
   bottom: 25px;
   font-size: 20px;
-  width: 50%;
   color: #f8f9fa;
   flex-direction: column;
   display: flex;
@@ -384,11 +382,14 @@ body {
 @media (min-width: 992px) {
   .content_left {
     flex: 0 0 50%;
-    max-width: 50%; } }
-@media (min-width: 992px) {
+    max-width: 50%; }
+
   .content_right {
     flex: 0 0 50%;
-    max-width: 50%; } }
+    max-width: 50%; }
+
+  .content-box {
+    padding-right: 20px; } }
 @media (max-width: 440px) {
   .new_position3 {
     display: none; } }
