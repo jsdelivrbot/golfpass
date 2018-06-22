@@ -46,16 +46,19 @@
     border: 1px solid #000;
     transition: background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
-.button_category:hover{
+
+.button_category:hover {
     background-color: #000;
-    color:#fff;
+    color: #fff;
 }
+
 .button_category:focus {
     outline: none;
 }
-.button_focus{
+
+.button_focus {
     background-color: #000;
-    color:#fff;
+    color: #fff;
 }
 
 .all_content {
@@ -154,7 +157,7 @@
     word-wrap: break-word;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
-        white-space: normal;
+    white-space: normal;
 }
 
 .content-box .content p {
@@ -166,7 +169,7 @@
     word-wrap: break-word;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
-        white-space: normal;
+    white-space: normal;
 }
 
 .content-box .new_position3 {
@@ -223,6 +226,12 @@
 
 .rank_text_bold {
     font-weight: bold;
+    display: -webkit-box;
+    word-wrap: break-word;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    white-space: normal;
+    overflow: hidden;
 }
 
 .circle_button {
@@ -247,7 +256,8 @@
     color: #343a40!important;
     font-size: 16px;
 }
-.ranking_ghost{
+
+.ranking_ghost {
     color: #999d9f;
 }
 

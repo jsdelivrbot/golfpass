@@ -348,7 +348,13 @@ body {
   font-weight: bold; }
 
 .rank_text_bold {
-  font-weight: bold; }
+  font-weight: bold;
+  display: -webkit-box;
+  word-wrap: break-word;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+  overflow: hidden; }
 
 .circle_button {
   border-radius: 50%;
