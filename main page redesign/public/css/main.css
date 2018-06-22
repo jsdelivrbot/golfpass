@@ -19,7 +19,9 @@ body {
 
 .block a .card {
   width: 260px;
-  transition: all .50s ease; }
+  transition: all .50s ease;
+  margin-left: 10px;
+  margin-right: 10px; }
 
 #slides_sl {
   overflow: hidden;
@@ -37,7 +39,7 @@ body {
   padding-left: 10px; }
 
 #slides_sl_li {
-  width: 260px !important;
+  width: 280px !important;
   height: 410px;
   float: left;
   text-align: center;
