@@ -235,6 +235,7 @@ a:focus {
     width: 93%;
     color: #fff;
     vertical-align: middle;
+    line-height: 1.4;
 }
 
 .recommend_menu_li {
@@ -339,7 +340,8 @@ a:focus {
 .main_nav_wrap_mo {
     justify-content: space-between !important;
     display: flex;
-    margin-top: 30px;
+    margin-top: 20px;
+    padding-bottom: 10px;
     padding-right: 15px;
     padding-left: 15px;
 }
@@ -356,7 +358,7 @@ a:focus {
   width: 100%;
   height: 100%;
   overflow: hidden;
-    top:50px
+    top:40px
 }
 
 label {
@@ -476,6 +478,7 @@ label:focus {
 }
 
 @media (max-width: 510px) {
+    
     .top_header_right {
         display: none;
     }
@@ -586,6 +589,9 @@ label:focus {
 
 @media (min-width:511px) {
     .main_nav_wrap_mo {
+        display: none;
+    }
+    #wrapper{
         display: none;
     }
 }
