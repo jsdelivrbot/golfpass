@@ -261,9 +261,27 @@ class Product_package_Model extends Board_Model{
     	return $this->db->get()->result();
     }
     
-    function gets_for_merge($category) {
-        $query = "select * from product_package a inner join (select product_id from ref_cate_package where cate_id = (select id from product_categories where parent_id = '$category')) as b on a.id = b.product_id";
-        $products = $this->db->query($query)->result();
+    //category_id로 자기자신+하위 카테고리를 안에 있는 모든 상품을 구한다.
+    function gets_for_merge($category_id) {
+
+        $this->load->model('product_categories_model');
+        $categories = $this->product_categories_model->gets_by_recursive_tree($category_id);
+
+        $products = [];
+        foreach ($categories as $_category) {
+            $products = array_merge($products, $this->getListByCategoryId($_category->id));
+        }
+
         return $products;
+
+    }
+
+    function getListByCategoryId($category_id)
+    {
+        return $this->db->select('*')
+        ->from('product_package as p_p')
+        ->join('ref_cate_package as r_c_p', 'p_p.id = r_c_p.product_id', 'LEFT')
+        ->where('r_c_p.cate_id', $category_id)
+        ->get()->result();
     }
 }

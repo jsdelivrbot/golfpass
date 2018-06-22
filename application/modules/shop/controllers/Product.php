@@ -75,7 +75,7 @@ class Product extends Base_Controller {
 		$this->load->model("shop/product_package_model");
 		//$packages = $this->product_package_model->get_by_category_id_pgi($id);
 		$packages = $this->product_package_model->gets_for_merge($id);
-		
+        
         //product       
 		if($sort_value != "package") { //패키지 상품만 보기 일때는 나타내지 않음
 		    $products = $this->products_model->get_by_category_id_pgi($id);
