@@ -558,7 +558,8 @@ a:focus {
   width: 288px; }
 
 .logo_m {
-  width: 199px; }
+  width: 265px;
+  margin: 0 auto; }
 
 .main_nav {
   font-size: 0;
@@ -742,10 +743,7 @@ a:focus {
   vertical-align: middle; }
 
 .main_nav_wrap_mo {
-  justify-content: space-between !important;
-  display: flex;
-  margin-top: 20px;
-  padding-bottom: 10px;
+  margin-top: 115px;
   padding-right: 15px;
   padding-left: 15px; }
 
@@ -793,7 +791,8 @@ label:focus {
 .menu ul li > label {
   background: url(https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-arrow-right-b-128.png) 95% 50%/16px 16px no-repeat; }
 
-.menu ul li a, .menu ul li label {
+.menu ul li a,
+.menu ul li label {
   display: block;
   text-align: center;
   padding: 0 20px;
@@ -801,7 +800,8 @@ label:focus {
   text-decoration: none;
   color: #000; }
 
-.menu ul li a:hover, .menu ul li label:hover {
+.menu ul li a:hover,
+.menu ul li label:hover {
   color: #666; }
 
 /* hide inputs */
@@ -856,6 +856,12 @@ label:focus {
     top: 591px !important; }
 
   .main_section {
+    height: 626px; }
+
+  .slide_background_image,
+  .top_main_wrap,
+  .top_main_wrap_opacity,
+  .top_main_wrap_gradation {
     height: 626px; } }
 @media (max-width: 600px) {
   .iconbox span {
@@ -874,13 +880,13 @@ label:focus {
   .top_main_wrap,
   .top_main_wrap_opacity,
   .top_main_wrap_gradation {
-    height: 486px; }
+    height: 556px; }
 
   .golf_info {
     top: 422px; }
 
   .searchbox_wrap {
-    margin-top: 95px; }
+    margin-top: 20px; }
 
   .slick-prev,
   .slick-next {
@@ -893,7 +899,10 @@ label:focus {
   .top_main_wrap,
   .top_main_wrap_opacity,
   .top_main_wrap_gradation {
-    height: 436px; }
+    height: 506px; }
+
+  .main_nav_wrap_mo {
+    margin-top: 105px; }
 
   .golf_info {
     top: 380px; }
@@ -932,7 +941,10 @@ label:focus {
   .top_main_wrap,
   .top_main_wrap_opacity,
   .top_main_wrap_gradation {
-    height: 400px; }
+    height: 470px; }
+
+  .main_nav_wrap_mo {
+    margin-top: 95px; }
 
   searchbox_wrap {
     margin-bottom: 75px; }

@@ -19,7 +19,7 @@ a:focus {
 
 }
 
-.main_section{
+.main_section {
     height: 556px;
 }
 
@@ -119,7 +119,8 @@ a:focus {
 }
 
 .logo_m {
-    width: 199px;
+    width: 265px;
+    margin: 0 auto;
 }
 
 .main_nav {
@@ -338,14 +339,13 @@ a:focus {
 }
 
 .main_nav_wrap_mo {
-    justify-content: space-between !important;
-    display: flex;
-    margin-top: 20px;
-    padding-bottom: 10px;
+    margin-top: 115px;
     padding-right: 15px;
     padding-left: 15px;
 }
+
 /*==============햄버거메뉴================================*/
+
 .ham_menu {
     color: #fff;
     font-size: 22px;
@@ -354,118 +354,137 @@ a:focus {
 
 
 #wrapper {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-    top:40px
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    top: 40px
 }
 
 label {
-  cursor: pointer;
+    cursor: pointer;
 }
+
 label:focus {
-  outline: none;
+    outline: none;
 }
 
 .menu {
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: #fff;
-  width: 240px;
-  height: 100%;
-  transform: translate3d(-240px, 0, 0);
-  transition: transform 0.35s;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #fff;
+    width: 240px;
+    height: 100%;
+    transform: translate3d(-240px, 0, 0);
+    transition: transform 0.35s;
     z-index: 99;
 }
+
 .menu label.menu-toggle {
-  position: absolute;
-  right: -60px;
-  width: 60px;
-  height: 60px;
-  line-height: 0px;
-  display: block;
-  padding: 0;
-  text-indent: -9999px;
-  background: #fff url(https://cdn4.iconfinder.com/data/icons/wirecons-free-vector-icons/32/menu-alt-512.png) 50% 50%/25px 25px no-repeat;
+    position: absolute;
+    right: -60px;
+    width: 60px;
+    height: 60px;
+    line-height: 0px;
+    display: block;
+    padding: 0;
+    text-indent: -9999px;
+    background: #fff url(https://cdn4.iconfinder.com/data/icons/wirecons-free-vector-icons/32/menu-alt-512.png) 50% 50%/25px 25px no-repeat;
 }
+
 .menu ul li > label {
-  background: url(https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-arrow-right-b-128.png) 95% 50%/16px 16px no-repeat;
+    background: url(https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-arrow-right-b-128.png) 95% 50%/16px 16px no-repeat;
 }
-.menu ul li a, .menu ul li label {
-  display: block;
-  text-align: center;
-  padding: 0 20px;
-  line-height: 60px;
-  text-decoration: none;
-  color: #000;
+
+.menu ul li a,
+.menu ul li label {
+    display: block;
+    text-align: center;
+    padding: 0 20px;
+    line-height: 60px;
+    text-decoration: none;
+    color: #000;
 }
-.menu ul li a:hover, .menu ul li label:hover {
-  color: #666;
+
+.menu ul li a:hover,
+.menu ul li label:hover {
+    color: #666;
 }
 
 /* hide inputs */
+
 .menu-checkbox {
-  display: none;
+    display: none;
 }
 
 /* hide navigation icon for sublabels */
+
 .menu .menu label.menu-toggle {
-  background: none;
+    background: none;
 }
 
 /* fade in checked menu */
+
 .menu-checkbox:checked + .menu {
-  transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
 }
 
 #info {
-  display: table;
-  background: rgba(0, 0, 0, 0.4);
-  height: 100%;
-  width: 100%;
+    display: table;
+    background: rgba(0, 0, 0, 0.4);
+    height: 100%;
+    width: 100%;
 }
+
 #info #info-content {
-  display: table-cell;
-  vertical-align: middle;
-  text-align: center;
-  text-transform: uppercase;
-  color: #fff;
-  font-size: 12px;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 12px;
 }
+
 #info #info-content h1 {
-  color: #fff;
-  border: 3px solid #fff;
-  text-align: center;
-  background: rgba(0, 0, 0, 0.1);
-  font-size: 22px;
-  font-weight: normal;
-  padding: 20px;
-  margin: 10px;
-  display: inline-block;
+    color: #fff;
+    border: 3px solid #fff;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.1);
+    font-size: 22px;
+    font-weight: normal;
+    padding: 20px;
+    margin: 10px;
+    display: inline-block;
 }
+
 #info #info-content h1 strong {
-  display: block;
-  font-size: 26px;
+    display: block;
+    font-size: 26px;
 }
 
 
 /*--------------------------------------*/
 
-@media (max-width:1040px){
-    .top_header_wrap{
+@media (max-width:1040px) {
+    .top_header_wrap {
         border: none;
     }
 }
 
-@media (max-width:760px){
+@media (max-width:760px) {
     .slick-prev,
     .slick-next {
         width: 50% !important;
         top: 591px !important;
     }
-    .main_section{
+    .main_section {
+        height: 626px;
+    }
+    .slide_background_image,
+    .top_main_wrap,
+    .top_main_wrap_opacity,
+    .top_main_wrap_gradation {
         height: 626px;
     }
 }
@@ -478,7 +497,7 @@ label:focus {
 }
 
 @media (max-width: 510px) {
-    
+
     .top_header_right {
         display: none;
     }
@@ -493,7 +512,7 @@ label:focus {
     .top_main_wrap,
     .top_main_wrap_opacity,
     .top_main_wrap_gradation {
-        height: 486px;
+        height: 556px;
     }
 
     .golf_info {
@@ -501,13 +520,13 @@ label:focus {
     }
 
     .searchbox_wrap {
-        margin-top: 95px;
+        margin-top: 20px;
     }
     .slick-prev,
     .slick-next {
         top: 521px !important;
     }
-    .main_section{
+    .main_section {
         height: 556px;
     }
 }
@@ -517,7 +536,10 @@ label:focus {
     .top_main_wrap,
     .top_main_wrap_opacity,
     .top_main_wrap_gradation {
-        height: 436px;
+        height: 506px;
+    }
+    .main_nav_wrap_mo {
+        margin-top: 105px;
     }
 
     .golf_info {
@@ -551,8 +573,8 @@ label:focus {
     .slick-next {
         top: 471px !important;
     }
-    
-    .main_section{
+
+    .main_section {
         height: 506px;
     }
 
@@ -564,7 +586,11 @@ label:focus {
     .top_main_wrap,
     .top_main_wrap_opacity,
     .top_main_wrap_gradation {
-        height: 400px;
+        height: 470px;
+    }
+    
+    .main_nav_wrap_mo {
+        margin-top: 95px;
     }
 
     searchbox_wrap {
@@ -581,7 +607,7 @@ label:focus {
     .slick-next {
         top: 435px !important;
     }
-    .main_section{
+    .main_section {
         height: 470px;
     }
 
@@ -591,7 +617,7 @@ label:focus {
     .main_nav_wrap_mo {
         display: none;
     }
-    #wrapper{
+    #wrapper {
         display: none;
     }
 }
