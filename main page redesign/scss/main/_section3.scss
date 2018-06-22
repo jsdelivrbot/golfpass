@@ -300,3 +300,15 @@
         font-size: 24px;
     }
 }
+
+@media (max-width:511px) {
+    .main_sub_title {
+        font-size: 30px
+    }
+}
+
+@media (max-width:347px) {
+    .main_sub_title {
+        font-size: 25px;
+    }
+}

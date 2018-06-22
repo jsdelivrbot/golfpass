@@ -90,9 +90,12 @@
     .sp-slides-container{
         padding-left: 3% !important;
     }
+    .country_title_big{
+        font-size: 30px;
+    }
 }
-@media (min-width:347px) {
-    .br_country{
-        display: none;
+@media (max-width:347px) {
+    .country_title_big{
+        font-size: 25px;
     }
 }

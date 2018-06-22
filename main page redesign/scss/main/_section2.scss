@@ -142,7 +142,21 @@
         display: none!important;
     }
 }
-@media (max-width: 576px){
-.grid {
-    display: none!important;
-    }}
+
+@media (max-width: 576px) {
+    .grid {
+        display: none!important;
+    }
+}
+
+@media (max-width:511px) {
+    .grid_title_big {
+        font-size: 30px
+    }
+}
+
+@media (max-width:347px) {
+    .grid_title_big {
+        font-size: 25px;
+    }
+}
