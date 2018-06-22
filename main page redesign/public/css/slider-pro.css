@@ -502,7 +502,7 @@
 .sp-next-arrow:after {
 	content: '';
 	position: absolute;
-	width: 50%;
+	width: 20%;
 	height: 50%;
 	background-color: #000;
 }

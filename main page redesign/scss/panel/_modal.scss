@@ -254,6 +254,11 @@
     }
 }
 
+@media (min-width:400px){
+    .br{
+        display: none;
+    }
+}
 @media (max-width:550px) {
     #small-dialog {
         padding: 70px 50px 50px 50px;

@@ -28,23 +28,20 @@
 
 .country_photo_list {
     width: 25%;
-    
+    margin-bottom: 15px;
     position: relative;
     display: inline-block;
 }
 
-.country_photo_list_wrap{
-    margin-bottom: 15px;
+.country_photo_list_wrap {
+
     font-size: 0;
 }
 
 .country_photo {
-    max-width: 235px;
-    max-height: 165px;
-    position: relative;
+    width: 90%;
     display: inline-block;
-    margin-right: 7.5px;
-    margin-left: 7.5px
+    height: 100%;
 }
 
 .country_photo_list_text {
@@ -54,14 +51,12 @@
     justify-content: center;
     display: flex;
     font-size: 14px;
-    width: 100%;
+    width: 90%;
     height: 100%;
     top: 0;
-    max-width: 350px;
-    max-height: 200px;
 }
 
-.country{
+.country {
     text-align: center;
     width: 100%;
     font-size: 14px;
@@ -75,4 +70,24 @@
     font-weight: bold;
     padding-bottom: 10px;
     line-height: 2.4;
+}
+.sp-slides-container{
+        padding-left: 1.5%;
+    }
+
+/*=======================*/
+
+@media (max-width:680px) {
+    .country_photo_list {
+        width: 50%;
+    }
+    .sp-slides-container{
+        padding-left: 2.5%;
+    }
+}
+
+@media (max-width:511px) {
+    .sp-slides-container{
+        padding-left: 3% !important;
+    }
 }
