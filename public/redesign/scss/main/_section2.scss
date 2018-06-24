@@ -1,0 +1,162 @@
+@charset "UTF-8";
+
+
+
+.grid_title {
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+    padding-bottom: 30px;
+}
+
+.grid_title_big {
+    padding-bottom: 15px;
+    font-size: 40px
+}
+
+.grid {
+    max-width: 1340px;
+    margin: 0 auto;
+}
+
+.grid_form {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    font-size: 0;
+}
+
+.grid_form_left {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background-color: antiquewhite;
+    vertical-align: middle;
+    position: relative;
+}
+
+.grid_list_text {
+    font-size: 20px;
+    position: absolute;
+    color: #fff;
+    bottom: 8%;
+    left: 6%;
+}
+
+.grid_list_text h3 {
+    text-shadow: 0 0 7px rgba(0, 0, 0, 1);
+    font-size: 27px;
+    margin-bottom: 10px;
+    line-height: 1.2;
+    font-weight: 500;
+}
+
+.grid_list_text p {
+    text-shadow: 0 0 7px rgba(0, 0, 0, 1);
+    font-size: 14px;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.grid_form_right {
+    display: inline-block;
+    max-width: 100%;
+    max-height: 100%;
+    background-color: beige;
+    font-size: 0;
+    vertical-align: middle;
+}
+
+.grid_list_2 {
+    display: inline-block;
+    width: 50%;
+    height: 50%;
+    font-size: 20px;
+    vertical-align: middle;
+    position: relative;
+}
+
+
+
+
+/*반응형===============**/
+
+@media (min-width: 1200px) {
+    .grid_article {
+        padding: 24px;
+    }
+}
+
+@media (min-width: 992px) {
+    .grid_form_left {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
+@media (min-width: 992px) {
+    .grid_form_right {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
+.grid_mo {}
+
+.grid_form_mo {
+    position: relative;
+    margin-bottom: 8px;
+}
+
+.grid_list_text_mo {
+    position: absolute;
+    left: 6%;
+    width: 88%;
+    bottom: 15px;
+    color: white;
+    border-bottom: 4px solid white;
+    align-items: center;
+    justify-content: flex-end;
+    display: flex;
+    flex-direction: column;
+}
+
+.grid_list_text_mo h1 {
+    line-height: 1.2;
+    font-weight: 500;
+    text-shadow: 0 0 7px rgba(0, 0, 0, 1);
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+.grid_list_text_mo p {
+    margin: 0;
+    line-height: 1.5;
+    text-shadow: 0 0 7px rgba(0, 0, 0, 1);
+    font-size: 16px;
+    margin-bottom: 16px;
+}
+
+@media (min-width: 576px) {
+    .grid_mo {
+        display: none!important;
+    }
+}
+
+@media (max-width: 576px) {
+    .grid {
+        display: none!important;
+    }
+}
+
+@media (max-width:511px) {
+    .grid_title_big {
+        font-size: 30px
+    }
+}
+
+@media (max-width:347px) {
+    .grid_title_big {
+        font-size: 25px;
+    }
+}
