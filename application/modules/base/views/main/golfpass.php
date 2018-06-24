@@ -763,55 +763,18 @@
 
             <!--모바일 반응형-->
             <div class="grid_mo">
-                <a href="#">
-                    <div class="grid_form_mo" style="background-image:url(../public/images/theme1.jpg); background-repeat:no-repeat; background-position:center; background-size:cover">
+            <?php for($i=0 ; $i<5; $i++){?>
+                <a href="<?=site_url(shop_product_uri."/gets/{$thema_list[$i]->id}")?>">
+                    <div class="grid_form_mo" style="background-image:url(<?=$thema_list[$i]->photo?>); background-repeat:no-repeat; background-position:center; background-size:cover">
                         <img src="/public/redesign/public/images/blank3.png" class="blank_img">
                         <div class="grid_list_text_mo">
-                            <h1>북해도 특집</h1>
-                            <p>일본의 천국, 북해도에 오신 것을 환영합니다</p>
+                            <h1><?=$thema_list[$i]->name?></h1>
+                            <p><?=$thema_list[$i]->desc?></p>
                         </div>
                     </div>
                 </a>
 
-                <a href="#">
-                    <div class="grid_form_mo" style="background-image:url(../public/images/theme2.jpg); background-repeat:no-repeat; background-position:center; background-size:cover">
-                        <img src="/public/redesign/public/images/blank3.png" class="blank_img">
-                        <div class="grid_list_text_mo">
-                            <h1>골프장+숙박 패키지</h1>
-                            <p>원클릭으로 여행 플랜 완성!</p>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="#">
-                    <div class="grid_form_mo" style="background-image:url(../public/images/theme3.jpg); background-repeat:no-repeat; background-position:center; background-size:cover">
-                        <img src="/public/redesign/public/images/blank3.png" class="blank_img">
-                        <div class="grid_list_text_mo">
-                            <h1>2인 플레이</h1>
-                            <p>2인 플레이에 딱 맞는 코스</p>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="#">
-                    <div class="grid_form_mo" style="background-image:url(../public/images/theme4.jpg); background-repeat:no-repeat; background-position:center; background-size:cover">
-                        <img src="/public/redesign/public/images/blank3.png" class="blank_img">
-                        <div class="grid_list_text_mo">
-                            <h1>품격이 있는 클럽</h1>
-                            <p>지명도 높은 명문 클럽</p>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="#">
-                    <div class="grid_form_mo" style="background-image:url(../public/images/theme5.jpg); background-repeat:no-repeat; background-position:center; background-size:cover">
-                        <img src="/public/redesign/public/images/blank3.png" class="blank_img">
-                        <div class="grid_list_text_mo">
-                            <h1>토너먼트 개최 코스</h1>
-                            <p>프로 토너먼트의 무대</p>
-                        </div>
-                    </div>
-                </a>
+              <?php }?>
 
             </div>
 
@@ -823,13 +786,13 @@
 
 
                     <div class="grid_form_left">
-                        <a href="#">
-                        <img src="/public/redesign/public/images/theme1.jpg" alt="" width="100%" height="100%" style="vertical-align: middle;">
+                        <a href="<?=site_url(shop_product_uri."/gets/{$thema_list[0]->id}")?>">
+                        <img src="<?=$thema_list[0]->photo?>" alt="" width="100%" height="100%" style="vertical-align: middle;">
 
                     <div class="grid_list_text">
-                        <h3>북해도 특집</h3>
+                        <h3><?=$thema_list[0]->name?></h3>
                         <p>
-                        일본의 천국, 북해도에 오신것을 환영합니다
+							<?=$thema_list[0]->desc?>
                         </p>
                     </div>
                     </a>
@@ -837,63 +800,23 @@
 
 
                     <div class="grid_form_right">
-
+						<?php for($i=1 ; $i<5; $i++){?>
 
                         <div class="grid_list_2">
                             <a href="#">
-                            <img src="/public/redesign/public/images/theme2.jpg" alt="" width="100%" height="100%" style="vertical-align: middle;">
+                            <img src="<?=$thema_list[$i]->photo?>" alt="" width="100%" height="100%" style="vertical-align: middle;">
 
                             <div class="grid_list_text">
-                                <h3 style="text-shadow: 0 0 7px rgba(0,0,0,1);">골프장+숙박패키지</h3>
+                                <h3 style="text-shadow: 0 0 7px rgba(0,0,0,1);"><?=$thema_list[$i]->name?></h3>
                                 <p style="text-shadow: 0 0 7px rgba(0,0,0,1);">
-                                원클릭으로 여행 플랜 완성!
+									<?=$thema_list[$i]->desc?>
                                 </p>
                             </div>
                             </a>
                         </div>
 
 
-                        <div class="grid_list_2">
-                            <a href="#">
-                            <img src="/public/redesign/public/images/theme3.jpg" alt="" width="100%" height="100%" style="vertical-align: middle;">
-
-                            <div class="grid_list_text">
-                                <h3 style="text-shadow: 0 0 7px rgba(0,0,0,1);">2인 플레이</h3>
-                                <p style="text-shadow: 0 0 7px rgba(0,0,0,1);">
-                                2인 플레이에 딱 맞는 코스
-                                </p>
-                            </div>
-                            </a>
-                        </div>
-
-
-                        <div class="grid_list_2">
-                            <a href="#">
-                            <img src="/public/redesign/public/images/theme4.jpg" alt="" width="100%" height="100%" style="vertical-align: middle;">
-
-                            <div class="grid_list_text">
-                                <h3 style="text-shadow: 0 0 7px rgba(0,0,0,1);">품격이 있는 클럽</h3>
-                                <p style="text-shadow: 0 0 7px rgba(0,0,0,1);">
-                                지명도 높은 명문 클럽
-                                </p>
-                            </div>
-                            </a>
-                        </div>
-
-
-                        <div class="grid_list_2">
-                            <a href="#">
-                            <img src="/public/redesign/public/images/theme5.jpg" alt="" width="100%" height="100%" style="vertical-align: middle;">
-
-                            <div class="grid_list_text">
-                                <h3 style="text-shadow: 0 0 7px rgba(0,0,0,1);">토너먼트 개최 코스</h3>
-                                <p style="text-shadow: 0 0 7px rgba(0,0,0,1);">
-                                프로 토너먼트의 무대
-                                </p>
-                            </div>
-                            </a>
-                        </div>
-
+						<?php }?>
 
                     </div>
 
