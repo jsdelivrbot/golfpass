@@ -829,7 +829,15 @@
     </section>
 
 
-    <section style="margin-top:70px; margin-bottom: 70px;">
+	<script>
+		$(document).ready(function(){
+
+
+
+		});
+	</script>
+
+	<section id="rank_ajax" style="display: block;margin-top:70px; margin-bottom: 70px;">
         <!--section3.scss 사용-->
         <article class="content_article">
 
@@ -839,35 +847,15 @@
                     <h4 class="main_sub_title">순위별 골프장</h4>
                 </div>
                 <div class="buttons">
-                    <button class="button_category button_focus">#종합 평가가 높은</button>
-                    <button class="button_category">#가성비가 우수한</button>
-                    <button class="button_category">#시설이 좋은</button>
-                    <button class="button_category">#식사가 맛있는</button>
-                    <button class="button_category">#전략성이 높은</button>
+                    <button data-rankingtype="avg_score" class="button_category <?=$rankingType==='avg_score' ? 'button_focus' : ''?>">#종합 평가가 높은</button>
+                    <button data-rankingtype="score_1" class="button_category <?=$rankingType==='score_1' ? 'button_focus' : ''?>">#가성비가 우수한</button>
+                    <button data-rankingtype="score_2" class="button_category <?=$rankingType==='score_2' ? 'button_focus' : ''?>">#시설이 좋은</button>
+                    <button data-rankingtype="score_3" class="button_category <?=$rankingType==='score_3' ? 'button_focus' : ''?>">#식사가 맛있는</button>
+                    <button data-rankingtype="score_4" class="button_category <?=$rankingType==='score_4' ? 'button_focus' : ''?>">#전략성이 높은</button>
                 </div>
             </div>
 
-            <script type="text/javascript">
-                $(document).ready(function() {
-                    $('.content-height2').hover(
-                        function() {
-                            $('.content-height1').addClass('hover_content');
-                        },
-                        function() {
-                            $('.content-height1').removeClass('hover_content');
-                        }
-                    );
-                    $('.content-height3').hover(
-                        function() {
-                            $('.content-height1').addClass('hover_content');
-                        },
-                        function() {
-                            $('.content-height1').removeClass('hover_content');
-                        }
-                    );
-                });
 
-            </script>
 
             <div class="all_content">
                 <div class="all_content_form">
@@ -875,59 +863,30 @@
 
                     <div class="content_left">
                         <!--1위부터 3위까지 아래 div.content-box-->
+						<?php
+						$count = (count($products_avgScore) > 3) ? 3 : count($products_avgScore);
+						for ( $i = 0; $i < $count; $i++ ) {
+						?>
+
                         <div class="content-box">
-                            <a href="#">
+                            <a href="<?= site_url(shop_product_uri . "/get/{$products_avgScore[$i]->id}") ?>">
                                 <div class="content content-height1" style="background-image: url(../public/images/theme1.jpg)">
                                     <div class='new_position'>
-                                        <span>1</span>
+                                        <span><?= $i + 1 ?></span>
                                     </div>
                                     <div class="new_position2">
-                                        <h1>나리타 G.C.</h1>
-                                        <p>NARITA G.C. - 일본 치바</p>
+                                        <h1><?= $products_avgScore[$i]->name ?></h1>
+                                        <p><?= $products_avgScore[$i]->eng_name ?> - <?= $products_avgScore[$i]->region ?></p>
                                     </div>
                                     <div class="new_position3">
                                         <span><i class="xi-star" style="color:#fcbf3f;"></i></span>
-                                        <span style="color:#fff; font-size: 18px;">4.9</span>
+                                        <span style="color:#fff; font-size: 18px;"><?php $score = (round($products_avgScore[$i]->$rankingType * 10)) / 10;
+											echo (strlen($score) === 1) ? "{$score}.0" : "{$score}" ?></span>
                                     </div>
                                 </div>
                             </a>
                         </div>
-
-                        <div class="content-box">
-                            <a href="#">
-                                <div class="content content-height2" style="background-image: url(../public/images/theme2.jpg)">
-                                    <div class='new_position'>
-                                        <span>2</span>
-                                    </div>
-                                    <div class="new_position2">
-                                        <h1>무사시 OGM G.C.</h1>
-                                        <p>MUSASHI OGM G.C. - 일본 사이타마</p>
-                                    </div>
-                                    <div class="new_position3">
-                                        <span><i class="xi-star" style="color:#fcbf3f;"></i></span>
-                                        <span style="color:#fff; font-size: 18px;">4.8</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-
-                        <div class="content-box">
-                            <a href="#">
-                                <div class="content content-height3" style="background-image: url(../public/images/theme3.jpg)">
-                                    <div class='new_position'>
-                                        <span>3</span>
-                                    </div>
-                                    <div class="new_position2">
-                                        <h1>하쿠류코 C.C.</h1>
-                                        <p>HAKURYUKO C.C. - 일본 히로시마</p>
-                                    </div>
-                                    <div class="new_position3">
-                                        <span><i class="xi-star" style="color:#fcbf3f;"></i></span>
-                                        <span style="color:#fff; font-size: 18px;">4.7</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
+						<?php } ?>
 
 
                     </div>
@@ -936,96 +895,28 @@
                     <div class="content_right">
                         <ul class="content_rank_list">
                             <!--4~10위-->
+							<?php
+							$count = (count($products_avgScore) > 10) ? 10 : count($products_avgScore);
+							for ( $i = 3; $i < $count; $i++ ) {
+							?>
                             <li class='content_rank_list_text'>
-                                <a href="#">
+                                <a href="<?= site_url(shop_product_uri . "/get/{$products_avgScore[$i]->id}") ?>">
                                     <div class="list_text_align">
                                         <div class="rank_text_bold">
-                                            <p><span class='rank_num'>4</span>파사쥬 킨카이 아일랜드 G.C.</p>
+                                            <p><span class='rank_num'><?= $i + 1 ?></span><?= $products_avgScore[$i]->name ?></p>
                                         </div>
                                         <div class="ranking_ghost">
-                                            <span>일본 나가사키</span>
+                                            <span><?= $products_avgScore[$i]->region ?></span>
                                         </div>
                                     </div>
                                 </a>
                             </li>
-                            <li class='content_rank_list_text'>
-                                <a href="#">
-                                    <div class="list_text_align">
-                                        <div class="rank_text_bold">
-                                            <p><span class='rank_num'>5</span>와카기 G.C.</p>
-                                        </div>
-                                        <div class="ranking_ghost">
-                                            <span>일본 사가현</span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class='content_rank_list_text'>
-                                <a href="#">
-                                    <div class="list_text_align">
-                                        <div class="rank_text_bold">
-                                            <p><span class='rank_num'>6</span>후지 OGM G.C. 이치하라 코스</p>
-                                        </div>
-                                        <div class="ranking_ghost">
-                                            <span>일본 치바</span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class='content_rank_list_text'>
-                                <a href="#">
-                                    <div class="list_text_align">
-                                        <div class="rank_text_bold">
-                                            <p><span class='rank_num'>7</span>북해도 브룩스 C.C.</p>
-                                        </div>
-                                        <div class="ranking_ghost">
-                                            <span>북해도</span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class='content_rank_list_text'>
-                                <a href="#">
-                                    <div class="list_text_align">
-                                        <div class="rank_text_bold">
-                                            <p><span class='rank_num'>8</span>산요 G.C.</p>
-                                        </div>
-                                        <div class="ranking_ghost">
-                                            <span>일본 오카야마</span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class='content_rank_list_text'>
-                                <a href="#">
-                                    <div class="list_text_align">
-                                        <div class="rank_text_bold">
-                                            <p><span class='rank_num'>9</span>토지가오카 마린 힐즈 G.C.</p>
-                                        </div>
-                                        <div class="ranking_ghost">
-                                            <span>일본 오카야마</span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class='content_rank_list_text'>
-                                <a href="#">
-                                    <div class="list_text_align">
-                                        <div class="rank_text_bold">
-                                            <p><span class='rank_num'>10</span>네무 G.C.</p>
-                                        </div>
-                                        <div class="ranking_ghost">
-                                            <span>일본 미에</span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-
+							<?php } ?>
 
                         </ul>
                         <!--전체 순위 보러 가기 -->
                         <div class="all_rank_align">
-                            <a href="#" class="all_rank_atag">
+                            <a href="<?= site_url(shop_product_uri . "/gets_by_ranking/avg_score") ?>" class="all_rank_atag">
                                 <p class="all_rank_text">
                                     전체 순위 보러가기
                                 </p>
@@ -1203,8 +1094,44 @@
     </script>
 
 
+	<script>
+
+		$('.button_category').click(function () {
+			var rankingType = $(this).data('rankingtype');
+
+			$.ajax({
+				method: "POST",
+				url: "<?=site_url(main_uri . '/ajax_gets_by_ranking')?>",
+				data: {rankingType: rankingType},
+				beforeSend: function () {
+				},
+				success: function (data) {
+					$("#rank_ajax").html(data);
+				}
+			});
+
+		});
+
+		$('.content-height2').hover(
+			function() {
+				$('.content-height1').addClass('hover_content');
+			},
+			function() {
+				$('.content-height1').removeClass('hover_content');
+			}
+		);
+		$('.content-height3').hover(
+			function() {
+				$('.content-height1').addClass('hover_content');
+			},
+			function() {
+				$('.content-height1').removeClass('hover_content');
+			}
+		);
+	</script>
 
 
 </body>
 
 </html>
+

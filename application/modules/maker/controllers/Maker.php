@@ -27,7 +27,7 @@ class Maker extends Public_Controller
        $data['base'] =array(
         (object)array("name"=>"템플릿(헤더,푸터)","url"=>"없음","view_dir"=>"templete / views / golfpass.php"),
         (object)array("name"=>"메인","url"=>site_url(""),"view_dir"=>"base / views / main / golfpass.php"),
-        (object)array("name"=>"메인 순위별 ajax페이지","url"=>site_url(main_uri."/ajax_gets_by_ranking"),"view_dir"=>"base / views / main / ajax_gets_by_ranking.php"),
+        (object)array("name"=>"메인 순위별 ajax페이지","url"=>site_url(main_uri."/ajax_gets_by_ranking"),"view_dir"=>"base / views / main / ajax_gets_by_ranking_before.php"),
         (object)array("name"=>"로그인","url"=>site_url(user_uri."/login"),"view_dir"=>"base / views / user / golfpass/ login.php"),
         (object)array("name"=>"약관계약","url"=>site_url(user_uri."/register_agree_1"),"view_dir"=>"base / views / user / golfpass / register_agree_1.php"),
         (object)array("name"=>"회원가입","url"=>site_url(user_uri."/add"),"view_dir"=>"base / views / user / golfpass/  addUpdate.php"),
