@@ -96,7 +96,7 @@
 
                 <div class="slide_background">
 					<?php foreach ( $product_main as $_product ) : ?>
-                    <div class="slide_background_image">
+                    <div class="slide_background_image" style="background-image: url('<?=$_product->photo?>')">
                         <div class="top_main_wrap_opacity">
                             <div class="top_main_wrap_gradation">
                                 <div class="golf_info">
