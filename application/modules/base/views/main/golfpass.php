@@ -178,7 +178,7 @@
                         </div>
                         <ul class="main_nav">
                             <li class="main_nav_li">
-                                <a href="#">
+                                <a href="<?=site_url('shop/product/gets/135')?>">
                                             골프장 상품
                                         </a>
                             </li>
@@ -188,17 +188,17 @@
                                         </a>
                             </li>
                             <li class="main_nav_li">
-                                <a href="#">
+                                <a href="<?=site_url('/shop/product/gets/37')?>">
                                             테마별 상품
                                         </a>
                             </li>
                             <li class="main_nav_li">
-                                <a href="#">
+                                <a href="<?=site_url('shop/product/gets_by_ranking/avg_score')?>">
                                             골프장 순위
                                         </a>
                             </li>
                             <li class="main_nav_li">
-                                <a href="#">
+                                <a href="<?=site_url('base/content/gets?board_id=4')?>">
                                             고객센터
                                         </a>
                             </li>
@@ -235,13 +235,17 @@
                         <label class="menu-toggle" for="menu"><span>Toggle</span></label>
                         <ul>
                             <li>
-                                <a href="#">골프장 상품</a>
+								<a href="<?=site_url('shop/product/gets/135')?>">
+									골프장 상품
+								</a>
                             </li>
                             <li>
                                 <a href="#">패키지 상품</a>
                             </li>
                             <li>
-                                <a href="#">테마별 상품</a>
+								<a href="<?=site_url('/shop/product/gets/37')?>">
+									테마별 상품
+								</a>
                             </li>
                             <!--세부메뉴 하는 방법
 
@@ -303,18 +307,22 @@
                                 </div>
                             </li>-->
                             <li>
-                                <a href="#">골프장 순위</a>
+								<a href="<?=site_url('shop/product/gets_by_ranking/avg_score')?>">
+									골프장 순위
+								</a>
                             </li>
 
                             <li>
-                                <a href="#">고객센터</a>
+								<a href="<?=site_url('base/content/gets?board_id=4')?>">
+									고객센터
+								</a>
                             </li>
                             <hr>
                             <li>
-                                <a href="#">로그인</a>
+								<a href="<?= site_url(user_uri . '/login') ?>">로그인</a>
                             </li>
                             <li>
-                                <a href="#">회원가입</a>
+								<a href="<?= site_url(user_uri . '/register_agree_1') ?>">회원가입</a>
                             </li>
 
                         </ul>
@@ -361,96 +369,18 @@
                         <div class="photo_list_form">
 
                             <div class="photo_list_wrap">
+								<?php foreach($nation_list as $_nation):?>
                                 <div class="photo_list">
-                                    <div class="photo_left" style="background-image:url(../public/images/theme1.jpg); background-repeat:no-repeat; background-position:center; background-size:cover">
+                                    <div class="photo_left" style="background-image:url(<?=$_nation->photo?>); background-repeat:no-repeat; background-position:center; background-size:cover">
                                         <img src="/public/redesign/public/images/blank1.png" class='blank1_img'>
-                                        <a href="#">
+                                        <a href="<?=site_url(shop_product_uri."/gets/{$_nation->id}")?>">
                                             <div class="photo_list_text">
-                                                <div class="country"><span>미국</span><br>2,317개</div>
+                                                <div class="country"><span><?=$_nation->name?></span><br>2,317개</div>
                                             </div>
                                         </a>
                                     </div>
                                 </div>
-
-                                <div class="photo_list">
-                                    <div class="photo_right" style="background-image:url(../public/images/theme2.jpg); background-repeat:no-repeat; background-position:center; background-size:cover">
-                                        <img src="/public/redesign/public/images/blank1.png" class='blank1_img'>
-                                        <a href="#">
-                                            <div class="photo_list_text">
-                                                <div class="country"><span>미국</span><br>2,317개</div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="photo_list_wrap">
-                                <div class="photo_list">
-                                    <div class="photo_left" style="background-image:url(../public/images/theme3.jpg); background-repeat:no-repeat; background-position:center; background-size:cover">
-                                        <img src="/public/redesign/public/images/blank1.png" class='blank1_img'>
-                                        <a href="#">
-                                            <div class="photo_list_text">
-                                                <div class="country"><span>미국</span><br>2,317개</div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <div class="photo_list">
-                                    <div class="photo_right" style="background-image:url(../public/images/theme4.jpg); background-repeat:no-repeat; background-position:center; background-size:cover">
-                                        <img src="/public/redesign/public/images/blank1.png" class='blank1_img'>
-                                        <a href="#">
-                                            <div class="photo_list_text">
-                                                <div class="country"><span>미국</span><br>2,317개</div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="photo_list_wrap">
-                                <div class="photo_list">
-                                    <div class="photo_left" style="background-image:url(../public/images/theme1.jpg); background-repeat:no-repeat; background-position:center; background-size:cover">
-                                        <img src="/public/redesign/public/images/blank1.png" class='blank1_img'>
-                                        <a href="#">
-                                            <div class="photo_list_text">
-                                                <div class="country"><span>미국</span><br>2,317개</div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <div class="photo_list">
-                                    <div class="photo_right" style="background-image:url(../public/images/theme2.jpg); background-repeat:no-repeat; background-position:center; background-size:cover">
-                                        <img src="/public/redesign/public/images/blank1.png" class='blank1_img'>
-                                        <a href="#">
-                                            <div class="photo_list_text">
-                                                <div class="country"><span>미국</span><br>2,317개</div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="photo_list_wrap">
-                                <div class="photo_list">
-                                    <div class="photo_left" style="background-image:url(../public/images/theme3.jpg); background-repeat:no-repeat; background-position:center; background-size:cover">
-                                        <img src="/public/redesign/public/images/blank1.png" class='blank1_img'>
-                                        <a href="#">
-                                            <div class="photo_list_text">
-                                                <div class="country"><span>미국</span><br>2,317개</div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <div class="photo_list">
-                                    <div class="photo_right" style="background-image:url(../public/images/theme4.jpg); background-repeat:no-repeat; background-position:center; background-size:cover">
-                                        <img src="/public/redesign/public/images/blank1.png" class='blank1_img'>
-                                        <a href="#">
-                                            <div class="photo_list_text">
-                                                <div class="country"><span>미국</span><br>2,317개</div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
+								<?php endforeach;?>
                             </div>
 
 
