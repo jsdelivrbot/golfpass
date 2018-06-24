@@ -95,45 +95,21 @@
 
 
                 <div class="slide_background">
+					<?php foreach ( $product_main as $_product ) : ?>
                     <div class="slide_background_image">
                         <div class="top_main_wrap_opacity">
                             <div class="top_main_wrap_gradation">
                                 <div class="golf_info">
-                                    <a href="#">
+                                    <a href="<?= site_url(shop_product_uri . "/get/{$_product->id}") ?>">
                                         <div>
-                                            <span class="bold">나리타 G.C.</span><br> 일본 치바 -18홀/6,531야드
+                                            <span class="bold"><?=$_product->name?></span><br> <?= $_product->region ?> - <?= $_product->hole_count ?>홀/<?= $_product->distance ?>
                                         </div>
                                     </a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="slide_background_image">
-                        <div class="top_main_wrap_opacity">
-                            <div class="top_main_wrap_gradation">
-                                <div class="golf_info">
-                                    <a href="#">
-                                        <div>
-                                            <span class="bold">나df리타 G.C.</span><br> 일본 치바 -18홀/6,531야드
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="slide_background_image">
-                        <div class="top_main_wrap_opacity">
-                            <div class="top_main_wrap_gradation">
-                                <div class="golf_info">
-                                    <a href="#">
-                                        <div>
-                                            <span class="bold">asd나리타 G.C.</span><br> 일본 치바 -18홀/6,531야드
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+					<?php endforeach; ?>
                 </div>
             </div>
 
@@ -177,13 +153,13 @@
                                     </a>
                                 </ul>
                                 <ul class="top_header_right">
-                                    <a href="#">
+                                    <a href="<?= site_url(user_uri . '/login') ?>">
                                         <li class="textOnly">로그인
                                         </li>
                                     </a>
                                     <li class="line">|
                                     </li>
-                                    <a href="#">
+                                    <a href="<?= site_url(user_uri . '/register_agree_1') ?>">
                                         <li class="textOnly">회원가입
                                         </li>
                                     </a>
