@@ -152,7 +152,12 @@
                                         </li>
                                     </a>
                                 </ul>
+
+
+
+
                                 <ul class="top_header_right">
+									<?php if ( !is_login() ) { ?>
                                     <a href="<?= site_url(user_uri . '/login') ?>">
                                         <li class="textOnly">로그인
                                         </li>
@@ -163,6 +168,14 @@
                                         <li class="textOnly">회원가입
                                         </li>
                                     </a>
+									<?php } ?>
+									<?php if ( is_login() ) { ?>
+										<a href="<?= site_url(user_uri . '/logout') ?>">
+											<li class="textOnly">로그아웃
+											</li>
+										</a>
+								
+									<?php } ?>
                                 </ul>
 
                             </div>
@@ -318,13 +331,20 @@
 								</a>
                             </li>
                             <hr>
+							<?php if ( !is_login() ) { ?>
                             <li>
 								<a href="<?= site_url(user_uri . '/login') ?>">로그인</a>
                             </li>
                             <li>
 								<a href="<?= site_url(user_uri . '/register_agree_1') ?>">회원가입</a>
                             </li>
+							<?php } ?>
 
+							<?php if ( is_login() ) { ?>
+								<li>
+									<a href="<?= site_url(user_uri . '/logout') ?>">로그아웃</a>
+								</li>
+							<?php } ?>
                         </ul>
                     </div>
                 </div>
