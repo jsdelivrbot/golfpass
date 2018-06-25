@@ -157,6 +157,8 @@
 											<li class="textOnly">마이페이지
 											</li>
 										</a>
+                                    <li class="line">|
+                                    </li>
 										<a href="<?= site_url(user_uri . '/logout') ?>">
 											<li class="textOnly">로그아웃
 											</li>
@@ -182,7 +184,7 @@
                                         </a>
                             </li>
                             <li class="main_nav_li">
-                                <a href="#">
+                                <a href="http://golfpass.net/index.php/shop/product/gets/135?sort_value=package&sort_type=desc">
                                             패키지 상품
                                         </a>
                             </li>
@@ -239,7 +241,7 @@
 								</a>
                             </li>
                             <li>
-                                <a href="#">패키지 상품</a>
+                                <a href="http://golfpass.net/index.php/shop/product/gets/135?sort_value=package&sort_type=desc">패키지 상품</a>
                             </li>
                             <li>
 								<a href="<?=site_url('/shop/product/gets/37')?>">
@@ -866,17 +868,17 @@
                 </div>
                 <div class="tp-d-flex tp-flex-wrap">
                     <figure><a href="http://www.widemobile.com/?golfpass" target="_balnk">
-                        <img class="footer_img" src="../public/images/b_partner_wifi.png" alt=""></a>
+                        <img class="footer_img" src="/public/redesign/public/images/b_partner_wifi.png" alt=""></a>
                     </figure>
                     <figure style="margin-bottom: 16px;"><a href="http://www.timescar-rental.kr/af/7822000076/kr/" target="_balnk">
-                        <img class="footer_img" src="../public/images/b_partner_timescar.png" alt=""></a>
+                        <img class="footer_img" src="/public/redesign/public/images/b_partner_timescar.png" alt=""></a>
                     </figure>
                     <figure style="margin-bottom: 16px;">
-                        <img class="footer_img" src="../public/images/b_partner_iagto.png" alt="">
+                        <img class="footer_img" src="/public/redesign/public/images/b_partner_iagto.png" alt="">
                     </figure>
                     <figure style="margin-bottom: 16px;">
                         <a href="https://openyourplan.com/2017/?JHS=5fb07c442335f52d0170e8b6791a8c9278817f21a05eeeb6f31dc1" target="_balnk">
-                        <img class="footer_img" src="../public/images/b_partner_openplan.png" alt="">
+                        <img class="footer_img" src="/public/redesign/public/images/b_partner_openplan.png" alt="">
                         </a>
                     </figure>
                 </div>
@@ -887,7 +889,7 @@
             <ul>
                 <li class="tp-title" style="color:#ababab;">ABOUT US
                 </li>
-                <!--<li><a style="color:#ababab;" href="<?=site_url(page_uri."/get/1")?>">회사 소개</a></li>-->
+                <li><a style="color:#ababab;" href="http://www.playseven.co.kr">회사 소개</a></li>
                 <li><a style="color:#ababab;" href="#">이용 약관</a></li>
                 <li><a style="color:#ababab;" href="#">개인 정보 취급 방침</a></li>
                 <li><a style="color:#ababab;" href="https://www.hometax.go.kr/websquare/websquare.wq?w2xPath=/ui/pp/index_pp.xml">사업자 정보 확인</a></li>
@@ -899,7 +901,7 @@
                     <p style="color:#ababab;">02-6959-5454</p>
                 </li>
                 <li><span style="color:#ababab;">E-mail</span>
-                    <p style="color:#ababab;">golfpass_@naver.com</p>
+                    <p style="color:#ababab;">junky@playseven.co.kr</p>
                 </li>
             </ul>
             <ul>
@@ -911,12 +913,12 @@
                     <p style="color:#ababab;">PLAYSEVEN
                     </p>
                 </li>
-                <li>
+                <!--<li>
                     <span style="color:#ababab;">대표
             </span>
                     <p style="color:#ababab;">황현철
                     </p>
-                </li>
+                </li>-->
                 <li>
                     <span style="color:#ababab;">사업자 등록 번호
             </span>
