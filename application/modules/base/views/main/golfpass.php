@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
@@ -12,9 +11,7 @@
     <meta property="og:description" content="나만의 스타일, 나만의 골프! 일본 골프 여행 맞춤 플래너">
     <meta property="og:image" content="http://golfpass.net/image/0001.png">
     <meta property="og:url" content="http://golfpass.net">
-
     <link rel="shortcut icon" href="./favicon.ico">
-
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <!--<script async src="https://www.googletagmanager.com/gtag/js?id=UA-82379730-2"></script>
     <script>
@@ -28,48 +25,34 @@
         gtag('config', 'UA-82379730-2');
 
     </script>-->
-
     <!--네이버 애널리틱스-->
     <!-- <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
     <script type="text/javascript">
         if (!wcs_add) var wcs_add = {};
         wcs_add["wa"] = "89b06c7156cb90";
         wcs_do();
-
     </script>-->
     <link rel="stylesheet" href="/public/redesign/public/css/reset.css">
-
     <link rel="stylesheet" href="/public/redesign/public/css/main.css">
     <link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
     <!--<i class="xi-xpressengine"></i> xeicon사용하는방법임-->
-
-
     <!-- Magnific Popup core CSS file -->
     <link rel="stylesheet" href="/public/redesign/public/css/magnific-popup.css">
-
-
-
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script type="text/javascript" src="/public/redesign/public/js/popup.js"></script>
     <script type="text/javascript" src="/public/redesign/public/js/slick.js"></script>
-
     <link rel="stylesheet" type="text/css" href="/public/redesign/public/css/slick.css" />
     <link rel="stylesheet" type="text/css" href="/public/redesign/public/css/slick-theme.css" />
-
     <!-- jQuery 1.7.2+ or Zepto.js 1.0+ -->
-
     <!-- Magnific Popup core JS file -->
     <script src="/public/redesign/public/js/jquery.magnific-popup.js"></script>
-
     <!--나라별 슬라이드 js/css-->
     <script type="text/javascript" src="/public/redesign/public/js/jquery.sliderPro.js"></script>
     <link rel="stylesheet" type="text/css" href="/public/redesign/public/css/slider-pro.css" media="screen" />
-
-
 </head>
 
-<body style="    overflow-x: hidden;">
+<body style="overflow-x: hidden;">
     <section class="main_section">
         <!--_header.scss사용-->
         <header>
@@ -126,27 +109,27 @@
                                             <i class="xi-call"></i> <span>02-6959-5454</span>
                                         </li>
                                     </a>
-                                    <a href="#">
+                                    <a href="https://pf.kakao.com/_dSxeyxl">
                                         <li class="iconText iconbox">
                                             <i class="xi-kakaotalk"></i> <span>카카오톡 문의</span>
                                         </li>
                                     </a>
-                                    <a href="#">
+                                    <a href="https://blog.naver.com/golfpass_">
                                         <li class="iconOnly iconbox">
                                             <i class="xi-naver"></i>
                                         </li>
                                     </a>
-                                    <a href="#">
+                                    <a href="https://www.facebook.com/golfpass.net">
                                         <li class="iconOnly iconbox">
                                             <i class="xi-facebook"></i>
                                         </li>
                                     </a>
-                                    <a href="#">
+                                    <a href="https://www.instagram.com/golfpass_net/">
                                         <li class="iconOnly iconbox">
                                             <i class="xi-instagram"></i>
                                         </li>
                                     </a>
-                                    <a href="#">
+                                    <a href="https://www.youtube.com/channel/UCVCuIlbXMgiv4TrPolcgkgQ">
                                         <li class="iconOnly iconbox">
                                             <i class="xi-youtube-play"></i>
                                         </li>
@@ -170,11 +153,14 @@
                                     </a>
 									<?php } ?>
 									<?php if ( is_login() ) { ?>
+										<a href="<?=site_url(shop_mypage_uri.'/gets_wishlist')?>">
+											<li class="textOnly">마이페이지
+											</li>
+										</a>
 										<a href="<?= site_url(user_uri . '/logout') ?>">
 											<li class="textOnly">로그아웃
 											</li>
-										</a>
-								
+										</a>								
 									<?php } ?>
                                 </ul>
 
