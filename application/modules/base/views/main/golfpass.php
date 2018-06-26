@@ -383,7 +383,7 @@
                                         <img src="/public/redesign/public/images/blank1.png" class='blank1_img'>
                                         <a href="<?=site_url(shop_product_uri."/gets/{$_nation->id}")?>">
                                             <div class="photo_list_text">
-                                                <div class="country"><span><?=$_nation->name?></span><br><?=$nation_list[$i]->desc?></div>
+                                                <div class="country"><span><?=$_nation->name?></span><br><?=$_nation->desc?></div>
                                             </div>
                                         </a>
                                     </div>
@@ -511,7 +511,7 @@
                                 <img src="/public/redesign/public/images/blank2.png" class='blank2_img'>
                                 <a href="<?=site_url(shop_product_uri."/gets/{$_nation->id}")?>">
                                     <div class="country_photo_list_text">
-                                        <div class="country"><span><?=$_nation->name?></span><br><?=$nation_list[$i]->desc?></div>
+                                        <div class="country"><span><?=$_nation->name?></span><br><?=$_nation->desc?></div>
                                     </div>
                                 </a>
                             </div>
@@ -705,7 +705,7 @@
 						<?php for($i=1 ; $i<5; $i++){?>
 
                         <div class="grid_list_2">
-                            <a href="#">
+                            <a href="<?=site_url(shop_product_uri."/gets/{$thema_list[0]->id}")?>">
                             <img src="<?=$thema_list[$i]->photo?>" alt="" width="100%" height="100%" style="vertical-align: middle;">
 
                             <div class="grid_list_text">
@@ -772,7 +772,7 @@
 
                         <div class="content-box">
                             <a href="<?= site_url(shop_product_uri . "/get/{$products_avgScore[$i]->id}") ?>">
-                                <div class="content content-height1" style="background-image: url(../public/images/theme1.jpg)">
+                                <div class="content content-height1" style="background-image: url('<?= $thema_list[$i]->photo ?>')">
                                     <div class='new_position'>
                                         <span><?= $i + 1 ?></span>
                                     </div>
@@ -967,7 +967,7 @@
         </div>
     </footer>
     <script>
-        $("#newsLetter").keypress(function(e) {
+        $("#tp-newsLetter").keypress(function(e) {
             var key = e.which;
             if (key == 13) {
                 var email = $(this).val();
@@ -1037,3 +1037,5 @@
 
 </html>
 
+
+<?= $this->load->view("golsoonyi") ?>
