@@ -971,7 +971,7 @@
             var key = e.which;
             if (key == 13) {
                 var email = $(this).val();
-                var url = "<?=site_url(main_uri." / add_newslatter ")?>";
+                var url = "<?=site_url(main_uri."/add_newslatter")?>";
                 $.ajax({
                     type: "post",
                     dataType: "json",
