@@ -85,7 +85,7 @@
                                 <div class="golf_info">
                                     <a href="<?= site_url(shop_product_uri . "/get/{$_product->id}") ?>">
                                         <div>
-                                            <span class="bold"><?=$_product->name?></span><br> <?= $_product->region ?> - <?= $_product->hole_count ?>홀/<?= $_product->distance ?>
+                                            <span class="bold"><?=$_product->name?></span><br> <?= $_product->region ?> - <?= $_product->hole_count ?> / <?= $_product->distance ?>
                                         </div>
                                     </a>
                                 </div>
@@ -179,7 +179,7 @@
                         </div>
                         <ul class="main_nav">
                             <li class="main_nav_li">
-                                <a href="<?=site_url('shop/product/gets/135')?>">
+                                <a href="http://golfpass.net/index.php/shop/category/gets_by_name/나라별">
                                             골프장 상품
                                         </a>
                             </li>
@@ -236,7 +236,7 @@
                         <label class="menu-toggle" for="menu"><span>Toggle</span></label>
                         <ul>
                             <li>
-								<a href="<?=site_url('shop/product/gets/135')?>">
+								<a href="http://golfpass.net/index.php/shop/category/gets_by_name/나라별">
 									골프장 상품
 								</a>
                             </li>
@@ -373,7 +373,7 @@
                     <!-- dialog itself, mfp-hide class is required to make dialog hidden -->
                     <div id="small-dialog" class="zoom-anim-dialog mfp-hide modal_form">
                         <h1 class="modal_title">나라별 골프장</h1>
-                        <p class="modal_sub">총 32,482개의 골프 코스가<br class="br"> 등록되어 있습니다</p>
+                        <p class="modal_sub">전세계 골프 코스 중<br class="br"> 원하는 골프장을 찾아보세요!</p>
                         <div class="photo_list_form">
 
                             <div class="photo_list_wrap">
@@ -383,7 +383,7 @@
                                         <img src="/public/redesign/public/images/blank1.png" class='blank1_img'>
                                         <a href="<?=site_url(shop_product_uri."/gets/{$_nation->id}")?>">
                                             <div class="photo_list_text">
-                                                <div class="country"><span><?=$_nation->name?></span><br>2,317개</div>
+                                                <div class="country"><span><?=$_nation->name?></span><br><?=$nation_list[$i]->desc?></div>
                                             </div>
                                         </a>
                                     </div>
@@ -427,60 +427,48 @@
                         <div class="recommend_menu">
                             <ul id="slide_banner">
                                 <li class="recommend_menu_li">
-                                    <a href="#">
+                                    <a href="http://golfpass.net/index.php/shop/product/get/17/?menu_name=상품&sub_name=분류관리">
                                             니죠 C.C.
                                     </a>
                                 </li>
                                 <li class="recommend_menu_li">
-                                    <a href="#">
+                                    <a href="http://golfpass.net/index.php/shop/product/get/22/?menu_name=상품&sub_name=분류관리">
                                             나가사키 파크 C.C.
                                     </a>
                                 </li>
                                 <li class="recommend_menu_li">
-                                    <a href="#">
+                                    <a href="http://golfpass.net/index.php/shop/product/get/28/?menu_name=상품&sub_name=분류관리">
                                             아오시마 G.C.
                                     </a>
                                 </li>
                                 <li class="recommend_menu_li">
-                                    <a href="#">
+                                    <a href="http://golfpass.net/index.php/shop/product/get/59/?menu_name=상품&sub_name=분류관리">
                                             디어레이크 C.C.
                                     </a>
                                 </li>
                                 <li class="recommend_menu_li">
-                                    <a href="#">
-                                            레이크 포레스트
-                                    </a>
-                                </li>
-                                <li class="recommend_menu_li">
-                                    <a href="#">
+                                    <a href="http://golfpass.net/index.php/shop/product/get/17/?menu_name=상품&sub_name=분류관리">
                                             니죠 C.C.
                                     </a>
                                 </li>
                                 <li class="recommend_menu_li">
-                                    <a href="#">
+                                    <a href="http://golfpass.net/index.php/shop/product/get/22/?menu_name=상품&sub_name=분류관리">
                                             나가사키 파크 C.C.
                                     </a>
                                 </li>
                                 <li class="recommend_menu_li">
-                                    <a href="#">
+                                    <a href="http://golfpass.net/index.php/shop/product/get/28/?menu_name=상품&sub_name=분류관리">
                                             아오시마 G.C.
                                     </a>
                                 </li>
                                 <li class="recommend_menu_li">
-                                    <a href="#">
+                                    <a href="http://golfpass.net/index.php/shop/product/get/59/?menu_name=상품&sub_name=분류관리">
                                             디어레이크 C.C.
-                                    </a>
-                                </li>
-                                <li class="recommend_menu_li">
-                                    <a href="#">
-                                            레이크 슈퍼 울트라 포레스트 마운틴 리버
                                     </a>
                                 </li>
                             </ul>
                         </div>
-
                     </div>
-
                 </div>
             </div>
         </header>
@@ -523,7 +511,7 @@
                                 <img src="/public/redesign/public/images/blank2.png" class='blank2_img'>
                                 <a href="<?=site_url(shop_product_uri."/gets/{$_nation->id}")?>">
                                     <div class="country_photo_list_text">
-                                        <div class="country"><span><?=$_nation->name?></span><br>2,317개</div>
+                                        <div class="country"><span><?=$_nation->name?></span><br><?=$nation_list[$i]->desc?></div>
                                     </div>
                                 </a>
                             </div>
@@ -910,7 +898,7 @@
                 <li>
                     <span style="color:#ababab;">상호
             </span>
-                    <p style="color:#ababab;">PLAYSEVEN
+                    <p style="color:#ababab;">(주) 플레이세븐
                     </p>
                 </li>
                 <!--<li>
