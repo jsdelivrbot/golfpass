@@ -31,7 +31,7 @@
 
 						<div class="content-box">
 							<a href="<?= site_url(shop_product_uri . "/get/{$products_avgScore[$i]->id}") ?>">
-								<div class="content content-height1" style="background-image: url(../public/images/theme1.jpg)">
+								<div class="content content-height1" style="background-image: url('<?= $thema_list[$i]->photo ?>')">
 									<div class='new_position'>
 										<span><?= $i + 1 ?></span>
 									</div>
