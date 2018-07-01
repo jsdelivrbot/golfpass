@@ -78,8 +78,8 @@ class Product extends Base_Controller {
         
         //product       
 		if($sort_value != "package") { //패키지 상품만 보기 일때는 나타내지 않음
-		    $products = $this->products_model->get_by_category_id_pgi($id);
-		    
+		    $products = $this->products_model->getListByCategoryId($id);
+
             for($i=0 ;$i <count($products); $i++) {
                 $photos = $products[$i]->photos;
                 if(strpos($photos,',') > -1) $products[$i]->photos =  explode(",",$photos);
@@ -87,38 +87,10 @@ class Product extends Base_Controller {
                 else $products[$i]->photos = array('','','');
             }
 		}
-		
+
 		$num_packages = count($packages);
 		$num_products = count($products);
-		if($num_packages > $num_products) {
-		    $packages = $this->product_package_model->_gets_with_pgi_func(
-		        "style_zap",
-		        function() use($num_packages)
-		        {
-		            return $num_packages;
-		    },
-		    function($offset,$per_page) use($packages)
-		    {
-		        return array_slice($packages,$offset,$per_page);
-		    },
-		    null,
-		    array("per_page"=>9,"is_numrow"=>false)
-		    );
-		} else {
-		    $products = $this->products_model->_gets_with_pgi_func(
-		        "style_zap",
-		        function() use($num_products)
-		        {
-		            return $num_products;
-		    },
-		    function($offset,$per_page) use($products)
-		    {
-		        return array_slice($products,$offset,$per_page);
-		    },
-		    null,
-		    array("per_page"=>9,"is_numrow"=>false)
-		    );
-		}
+
 		
         //category
         $this->load->model("product_categories_model");
@@ -131,8 +103,18 @@ class Product extends Base_Controller {
 		if($sort_value == "uppackage") $merge = array_merge($packages, $products); //패키지 상품 우선 보기 (순서변경)
 		else if($sort_value == "package") $merge = $packages; //패키지 상품만 보기
 		else $merge = array_merge($products, $packages); //일반 상품 우선 보기 (순서변경)
-		
-        $data['products'] = $merge;
+
+		$this->load->library('pagination');
+		$config['total_rows'] = count($merge);
+		$config['per_page'] = 9;
+		$config['style_pgi'] = 'style_zap';
+
+		$pgiData =$this->pagination->get($config);
+		$offset = $pgiData['offset'];
+		$per_page = $pgiData['per_page'];
+		$merge=array_slice($merge, $offset, $per_page);
+
+		$data['products'] = $merge;
         $data['category'] = $category;
         $data['parent_category'] = $parent_category;
         $data['child_categories'] = $this->product_categories_model->_gets(array("parent_id"=>$parent_category->id));

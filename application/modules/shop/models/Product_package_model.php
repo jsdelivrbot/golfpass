@@ -60,7 +60,6 @@ class Product_package_Model extends Board_Model{
     function get_by_category_id_pgi($id) //get products
     {
         $arr_cate_id =$this->gets_all_category_id($id);
-        
         $set_select_from =function(){
             $this->set_select_from();
         };
