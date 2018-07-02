@@ -109,7 +109,7 @@
                                             <i class="xi-call"></i> <span>02-6959-5454</span>
                                         </li>
                                     </a>
-                                    <a href="https://pf.kakao.com/_dSxeyxl">
+                                    <a href="http://pf.kakao.com/_dSxeyxl/chat">
                                         <li class="iconText iconbox">
                                             <i class="xi-kakaotalk"></i> <span>카카오톡 문의</span>
                                         </li>
@@ -175,7 +175,7 @@
                 <nav style="position: relative;">
                     <div class="main_nav_wrap">
                         <div class="logo">
-                            <img src="/public/redesign/public/images/logo.png">
+                            <a href="http://golfpass.net"><img src="/public/redesign/public/images/logo.png"></a>
                         </div>
                         <ul class="main_nav">
                             <li class="main_nav_li">
@@ -212,7 +212,7 @@
                         <div class="ham_menu">
                         </div>
                         <div class="logo_m">
-                            <img src="/public/redesign/public/images/logo_m.png">
+                            <a href="http://golfpass.net"><img src="/public/redesign/public/images/logo_m.png"></a>
                         </div>
                     </div>
                 </nav>
