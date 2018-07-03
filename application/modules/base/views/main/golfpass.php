@@ -345,7 +345,7 @@
                         <div class="searchbox">
                             <div class="searchbox_content">
                                 <div class="searchtext">
-                                    <span class="bold">원하는 상품</span>을 찾아보세요!
+                                    <span class="bold">원하시는 상품</span>을 찾아보세요!
                                 </div>
                                 <div class="search_button_wrap">
                                     <div class="search_button">
