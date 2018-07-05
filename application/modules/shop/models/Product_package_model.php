@@ -277,7 +277,7 @@ class Product_package_Model extends Board_Model{
 
     function getListByCategoryId($category_id)
     {
-        return $this->db->select('*')
+        return $this->db->select('*, p_p.id')
         ->from('product_package as p_p')
         ->join('ref_cate_package as r_c_p', 'p_p.id = r_c_p.product_id', 'LEFT')
         ->where('r_c_p.cate_id', $category_id)
